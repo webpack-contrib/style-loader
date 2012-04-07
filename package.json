@@ -1,11 +1,8 @@
 {
 	"name": "style-loader",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"author": "Tobias Koppers @sokra",
 	"description": "style loader module for webpack",
-	"dependencies": {
-		"raw-loader": "0.1.x"
-	},
 	"licenses": [
 		{
 			"type": "MIT",
