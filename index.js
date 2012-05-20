@@ -4,6 +4,8 @@
 */
 var path = require("path");
 module.exports = function(content) {
+	this.cacheable && this.cacheable();
+	this.clearDependencies && this.clearDependencies();
 	var loaderSign = this.request.indexOf("!");
 	var rawCss = this.request.substr(loaderSign); // including leading "!"
 	if(this.web)
