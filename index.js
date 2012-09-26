@@ -7,7 +7,7 @@ module.exports = function(content) {
 	this.cacheable && this.cacheable();
 	this.clearDependencies && this.clearDependencies();
 	if(this.loaderType != "loader") throw new Error("style-loader do not work as pre or post loader");
-	var rawCss = this.currentLoaders.slice(this.loaderIndex+1).join("!")
+	var rawCss = this.currentLoaders.slice(this.loaderIndex+1).join("!") + "!" + this.filenames[0];
 	if(this.web)
 		return "require(" + JSON.stringify(path.join(__dirname, "addStyle")) + ")"+
 				"(require(" + JSON.stringify(rawCss) + "))";
