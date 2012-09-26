@@ -6,10 +6,11 @@ var path = require("path");
 module.exports = function(content) {
 	this.cacheable && this.cacheable();
 	this.clearDependencies && this.clearDependencies();
-	var loaderSign = this.request.indexOf("!");
-	var rawCss = this.request.substr(loaderSign); // including leading "!"
+	if(this.loaderType != "loader") throw new Error("style-loader do not work as pre or post loader");
+	var rawCss = this.currentLoaders.slice(this.loaderIndex+1).join("!")
 	if(this.web)
 		return "require(" + JSON.stringify(path.join(__dirname, "addStyle")) + ")"+
 				"(require(" + JSON.stringify(rawCss) + "))";
 	return "";
 }
+module.exports.seperable = true;
