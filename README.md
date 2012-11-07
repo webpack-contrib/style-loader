@@ -9,7 +9,7 @@ require("style!raw!./file.css");
 
 Does nothing in node.js.
 
-It's recommended to combine it with the [`css`](https://github.com/sokra/webpack-css-loader) loader: `require("style!css!./file.css")`.
+It's recommended to combine it with the [`css`](https://github.com/webpack/css-loader) loader: `require("style!css!./file.css")`.
 
 ## License
 
