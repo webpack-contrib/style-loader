@@ -3,14 +3,17 @@
 	Author Tobias Koppers @sokra
 */
 var path = require("path");
-module.exports = function(content) {
+module.exports = function() {};
+module.exports.pitch = function(remainingRequest) {
 	this.cacheable && this.cacheable();
-	this.clearDependencies && this.clearDependencies();
-	if(this.loaderType != "loader") throw new Error("style-loader do not work as pre or post loader");
-	var rawCss = this.currentLoaders.slice(this.loaderIndex+1).join("!") + "!" + this.filenames[0];
-	if(this.web)
-		return "require(" + JSON.stringify(path.join(__dirname, "addStyle")) + ")"+
-				"(require(" + JSON.stringify(rawCss) + "))";
-	return "";
-}
+	var cssCodeRequest = "require(" + JSON.stringify("!!" + remainingRequest) + ")";
+	var addStyleCode = "require(" + JSON.stringify("!" + path.join(__dirname, "addStyle.js")) + ")";
+	var footer = "";
+	if(this.debug) {
+		footer = "\n\n/* STYLE-LOADER FOOTER */\n/*@ sourceURL=style:///" +
+				encodeURI(remainingRequest.replace(/^!/, "")).replace(/%5C|%2F/g, "/").replace(/\?/, "%3F").replace(/^\//, "") + " */";
+		footer = "+" + JSON.stringify(footer);
+	}
+	return addStyleCode + "(" + cssCodeRequest + footer + ")";
+};
 module.exports.seperable = true;
