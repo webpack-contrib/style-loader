@@ -7,5 +7,9 @@ module.exports = function(cssUrl) {
 	styleElement.rel = "stylesheet";
 	styleElement.type = "text/css";
 	styleElement.href = cssUrl;
-	document.getElementsByTagName("head")[0].appendChild(styleElement);
+	var head = document.getElementsByTagName("head")[0];
+	head.appendChild(styleElement);
+	return function() {
+		head.removeChild(styleElement);
+	};
 }

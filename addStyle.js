@@ -10,5 +10,9 @@ module.exports = function(cssCode) {
 	} else {
 		styleElement.appendChild(document.createTextNode(cssCode));
 	}
-	document.getElementsByTagName("head")[0].appendChild(styleElement);
+	var head = document.getElementsByTagName("head")[0];
+	head.appendChild(styleElement);
+	return function() {
+		head.removeChild(styleElement);
+	};
 }
