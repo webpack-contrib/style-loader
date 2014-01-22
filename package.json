@@ -3,6 +3,10 @@
 	"version": "0.6.0",
 	"author": "Tobias Koppers @sokra",
 	"description": "style loader module for webpack",
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:webpack/style-loader.git"
+	},
 	"licenses": [
 		{
 			"type": "MIT",
