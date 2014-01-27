@@ -12,7 +12,7 @@ module.exports.pitch = function(remainingRequest) {
 	var cssCodeRequest = "require(" + JSON.stringify("!!" + remainingRequest) + ")";
 	var comment3 = "// Hot Module Replacement\n";
 	var hmrCode = "if(module.hot) {\n\tmodule.hot.accept();\n\tmodule.hot.dispose(dispose);\n}";
-	var exports = "\nmodule.exports = {\n\tdispose: dispose\n};";
+	var exports = "\nmodule.exports = {\n\tunload: dispose\n};";
 	
 	return comment1 + addStyleCode + comment2 + "\t(" + cssCodeRequest + ")\n" + hmrCode + exports;
 };
