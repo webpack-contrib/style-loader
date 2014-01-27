@@ -16,11 +16,11 @@ require("style/url!file!./file.css");
 // => add a <link rel="stlyesheet"> to file.css to document
 ```
 
-### Dispose
+### Unload
 
 You may choose to unload the loaded style.
 
-A dispose function is exported as `dispose`.
+An unload function is exported as `unload`.
 
 ``` javascript
 var style = require("style!raw!./file.css");
@@ -28,8 +28,8 @@ var style = require("style!raw!./file.css");
 
 // ...
 
-// unload/dispose the style-sheet
-style.dispose();
+// unload the style-sheet
+style.unload();
 ```
 
 ## License
