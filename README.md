@@ -2,12 +2,14 @@
 
 ## Usage
 
+### Simple API
+
 ``` javascript
 require("style!raw!./file.css");
 // => add rules in file.css to document
 ```
 
-It's recommended to combine it with the [`css`](https://github.com/webpack/css-loader) loader: `require("style!css!./file.css")`.
+It's recommended to combine it with the [`css-loader`](https://github.com/webpack/css-loader): `require("style!css!./file.css")`.
 
 It also possible to add a URL instead of a css string:
 
@@ -15,6 +17,18 @@ It also possible to add a URL instead of a css string:
 require("style/url!file!./file.css");
 // => add a <link rel="stlyesheet"> to file.css to document
 ```
+
+### Reference-counted API
+
+``` javascript
+var style = require("style/useable!css!./file.css");
+style.use(); // = style.ref();
+style.unuse(); // = style.unref();
+```
+
+Styles are not added on require, but instead on call to `use`/`ref`. Styles are removed from page if `unuse`/`unref` is called exactly as often as `use`/`ref`.
+
+Note: Behavior is undefined when `unuse`/`unref` is called more often than `use`/`ref`. Don't do that.
 
 ## License
 
