@@ -16,6 +16,22 @@ require("style/url!file!./file.css");
 // => add a <link rel="stlyesheet"> to file.css to document
 ```
 
+### Unload
+
+You may choose to unload the loaded style.
+
+An unload function is exported as `unload`.
+
+``` javascript
+var style = require("style!raw!./file.css");
+// => add rules in file.css to document
+
+// ...
+
+// unload the style-sheet
+style.unload();
+```
+
 ## License
 
 MIT (http://www.opensource.org/licenses/mit-license.php)
