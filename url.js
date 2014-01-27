@@ -12,4 +12,3 @@ module.exports.pitch = function(remainingRequest) {
 	var cssUrlRequest = "require(" + JSON.stringify("!!" + remainingRequest) + ")";
 	return comment1 + addStyleCode + comment2 + "\t(" + cssUrlRequest + ")";
 };
-module.exports.seperable = true;

@@ -14,4 +14,3 @@ module.exports.pitch = function(remainingRequest) {
 	var hmrCode = "if(module.hot) {\n\tmodule.hot.accept();\n\tmodule.hot.dispose(dispose);\n}";
 	return comment1 + addStyleCode + comment2 + "\t(" + cssCodeRequest + ")\n" + hmrCode;
 };
-module.exports.seperable = true;
