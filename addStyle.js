@@ -2,7 +2,10 @@
 	MIT License http://www.opensource.org/licenses/mit-license.php
 	Author Tobias Koppers @sokra
 */
-module.exports = function(cssCode) {
+module.exports = function addStyle(cssCode) {
+	if(typeof DEBUG !== "undefined" && DEBUG) {
+		if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+	}
 	var styleElement = document.createElement("style");
 	styleElement.type = "text/css";
 	if (styleElement.styleSheet) {
