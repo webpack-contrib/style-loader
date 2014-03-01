@@ -30,6 +30,23 @@ Styles are not added on require, but instead on call to `use`/`ref`. Styles are 
 
 Note: Behavior is undefined when `unuse`/`unref` is called more often than `use`/`ref`. Don't do that.
 
+## Recommended configuration
+
+By convention the reference-counted API should be bound to `.useable.css` and the simple API to `.css` (similar to other file types, i. e. `.useable.less` and `.less`).
+
+So the recommended configuration for webpack is:
+
+``` javascript
+{
+  module: {
+    loaders: [
+      { test: /\.css$/, exclude: /\.useable\.css$/, loader: "style!css" },
+      { test: /\.useable\.css$/, loader: "style/useable!css" }
+    ]
+  }
+}
+```
+
 ## License
 
 MIT (http://www.opensource.org/licenses/mit-license.php)
