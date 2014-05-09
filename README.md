@@ -13,7 +13,16 @@ require("style!raw!./file.css");
 
 It's recommended to combine it with the [`css-loader`](https://github.com/webpack/css-loader): `require("style!css!./file.css")`.
 
-It also possible to add a URL instead of a css string:
+Specify a priority to ensure that higher-priority stylesheets are applied before lower-priority stylesheets (default priority is 0):
+
+```javascript
+require("style?priority=1!css!./theme.css");
+require("style!css!./default.css");
+
+// theme.css will be applied after default.css
+```
+
+It's also possible to add a URL instead of a css string:
 
 ``` javascript
 require("style/url!file!./file.css");
