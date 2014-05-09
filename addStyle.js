@@ -19,10 +19,10 @@ module.exports = function addStyle(cssCode, priority) {
 	var styles = head.getElementsByTagName("style");
 	var before = null;
 	for (var i = 0; i < styles.length; i++) {
-	    var s = styles[i];
-	    if (s.type === "text/css" && (+s.getAttribute("data-priority")) > priority) {
-            before = s;
-	    }
+		var s = styles[i];
+		if (s.type === "text/css" && (+s.getAttribute("data-priority")) > priority) {
+			before = s;
+		}
 	}
 
 	head.insertBefore(styleElement, before);
