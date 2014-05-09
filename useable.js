@@ -3,15 +3,19 @@
 	Author Tobias Koppers @sokra
 */
 var path = require("path");
+var utils = require("loader-utils");
 module.exports = function() {};
 module.exports.pitch = function(remainingRequest) {
 	this.cacheable && this.cacheable();
+	var opts = utils.parseQuery(this.query);
+	var priority = +opts.priority || 0;
+
 	return [
 		"var refs = 0;",
 		"var dispose;",
 		"exports.use = exports.ref = function() {",
 		"	if(!(refs++)) {",
-		"		dispose = require(" + JSON.stringify("!" + path.join(__dirname, "addStyle.js")) + ")(require(" + JSON.stringify("!!" + remainingRequest) + "));",
+		"		dispose = require(" + JSON.stringify("!" + path.join(__dirname, "addStyle.js")) + ")(require(" + JSON.stringify("!!" + remainingRequest) + "), " + JSON.stringify(priority) + ");",
 		"	}",
 		"	return exports",
 		"};",

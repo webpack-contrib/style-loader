@@ -3,14 +3,18 @@
 	Author Tobias Koppers @sokra
 */
 var path = require("path");
+var utils = require("loader-utils");
 module.exports = function() {};
 module.exports.pitch = function(remainingRequest) {
 	this.cacheable && this.cacheable();
+	var opts = utils.parseQuery(this.query);
+	var priority = JSON.stringify(+opts.priority || 0);
+
 	var comment1 = "// style-loader: Adds some css to the DOM by adding a <style> tag\n";
 	var addStyleCode = "var dispose = require(" + JSON.stringify("!" + path.join(__dirname, "addStyle.js")) + ")\n";
 	var comment2 = "\t// The css code:\n";
 	var cssCodeRequest = "require(" + JSON.stringify("!!" + remainingRequest) + ")";
 	var comment3 = "// Hot Module Replacement\n";
 	var hmrCode = "if(module.hot) {\n\tmodule.hot.accept();\n\tmodule.hot.dispose(dispose);\n}";
-	return comment1 + addStyleCode + comment2 + "\t(" + cssCodeRequest + ")\n" + hmrCode;
+	return comment1 + addStyleCode + comment2 + "\t(" + cssCodeRequest + ", " + priority + ")\n" + hmrCode;
 };

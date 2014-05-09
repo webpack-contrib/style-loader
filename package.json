@@ -1,16 +1,19 @@
 {
-	"name": "style-loader",
-	"version": "0.6.3",
-	"author": "Tobias Koppers @sokra",
-	"description": "style loader module for webpack",
-	"repository": {
-		"type": "git",
-		"url": "git@github.com:webpack/style-loader.git"
-	},
-	"licenses": [
-		{
-			"type": "MIT",
-			"url": "http://www.opensource.org/licenses/mit-license.php"
-		}
-	]
+  "name": "style-loader",
+  "version": "0.6.3",
+  "author": "Tobias Koppers @sokra",
+  "description": "style loader module for webpack",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:webpack/style-loader.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/mit-license.php"
+    }
+  ],
+  "dependencies": {
+    "loader-utils": "^0.2.2"
+  }
 }
