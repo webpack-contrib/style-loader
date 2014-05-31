@@ -8,13 +8,13 @@ module.exports = function addStyle(cssCode) {
 	}
 	var styleElement = document.createElement("style");
 	styleElement.type = "text/css";
+	var head = document.getElementsByTagName("head")[0];
+	head.appendChild(styleElement);
 	if (styleElement.styleSheet) {
 		styleElement.styleSheet.cssText = cssCode;
 	} else {
 		styleElement.appendChild(document.createTextNode(cssCode));
 	}
-	var head = document.getElementsByTagName("head")[0];
-	head.appendChild(styleElement);
 	return function() {
 		head.removeChild(styleElement);
 	};
