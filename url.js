@@ -12,5 +12,5 @@ module.exports.pitch = function(remainingRequest) {
 	var cssUrlRequest = "require(" + JSON.stringify("!!" + remainingRequest) + ")";
 	var comment3 = "// Hot Module Replacement\n";
 	var hmrCode = "if(module.hot) {\n\tmodule.hot.accept();\n\tmodule.hot.dispose(dispose);\n}";
-	return comment1 + addStyleCode + comment2 + "\t(" + cssUrlRequest + ");\n" + comment3 + hmrCode;
+	return comment1 + addStyleCode + comment2 + "\t(" + cssUrlRequest + ", module.hot && module.hot.data && module.hot.data.nextEl);\n" + comment3 + hmrCode;
 };
