@@ -6,11 +6,28 @@ var path = require("path");
 module.exports = function() {};
 module.exports.pitch = function(remainingRequest) {
 	this.cacheable && this.cacheable();
-	var comment1 = "// style-loader: Adds some css to the DOM by adding a <style> tag\n";
-	var addStyleCode = "var dispose = require(" + JSON.stringify("!" + path.join(__dirname, "addStyleUrl.js")) + ")\n";
-	var comment2 = "\t// The url to the css code:\n";
+	var comment1 = "// style-loader: Adds some css to the DOM by adding a <link> tag";
+	var addStyleCode = "var addStyleUrl = require(" + JSON.stringify("!" + path.join(__dirname, "addStyleUrl.js")) + ");";
+	var comment2 = "// The url to the css code";
 	var cssUrlRequest = "require(" + JSON.stringify("!!" + remainingRequest) + ")";
-	var comment3 = "// Hot Module Replacement\n";
-	var hmrCode = "if(module.hot) {\n\tmodule.hot.accept();\n\tmodule.hot.dispose(dispose);\n}";
-	return comment1 + addStyleCode + comment2 + "\t(" + cssUrlRequest + ");\n" + comment3 + hmrCode;
+	return [
+		comment1,
+		addStyleCode,
+		"if(module.hot) {",
+		"\tmodule.hot.accept();",
+		"\tmodule.hot.dispose(",
+		"\t\taddStyleUrl(",
+		"\t\t\t" + comment2,
+		"\t\t\t" + cssUrlRequest + ",",
+		"\t\t\t//keep link tag position",
+		"\t\t\tmodule.hot.data && module.hot.data.nextEl",
+		"\t\t)",
+		"\t)",
+		"} else {",
+		"\taddStyleUrl(",
+		"\t\t" + comment2,
+		"\t\t" + cssUrlRequest,
+		"\t)",
+		"}"
+	].join('\n');
 };
