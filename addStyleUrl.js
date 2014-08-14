@@ -12,7 +12,13 @@ module.exports = function addStyleUrl(cssUrl) {
 	styleElement.href = cssUrl;
 	var head = document.getElementsByTagName("head")[0];
 	head.appendChild(styleElement);
-	return function() {
-		head.removeChild(styleElement);
-	};
+	if(module.hot) {
+		return function(cssUrl) {
+			if(typeof cssUrl === "string") {
+				styleElement.href = cssUrl;
+			} else {
+				head.removeChild(styleElement);
+			}
+		};
+	}
 }

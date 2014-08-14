@@ -15,7 +15,17 @@ module.exports = function addStyle(cssCode) {
 	} else {
 		styleElement.appendChild(document.createTextNode(cssCode));
 	}
-	return function() {
-		head.removeChild(styleElement);
-	};
+	if(module.hot) {
+		return function(cssCode) {
+			if(typeof cssCode === "string") {
+				if (styleElement.styleSheet) {
+					styleElement.styleSheet.cssText = cssCode;
+				} else {
+					styleElement.childNodes[0].nodeValue = cssCode;
+				}
+			} else {
+				head.removeChild(styleElement);
+			}
+		};
+	}
 }
