@@ -6,9 +6,9 @@ module.exports = function addStyle(cssCode) {
 	if(typeof DEBUG !== "undefined" && DEBUG) {
 		if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
 	}
-	var styleElement = document.createElement("style");
+	var styleElement = document.createElement("style"),
+		head = document.head || document.getElementsByTagName("head")[0];
 	styleElement.type = "text/css";
-	var head = document.getElementsByTagName("head")[0];
 	head.appendChild(styleElement);
 	if (styleElement.styleSheet) {
 		styleElement.styleSheet.cssText = cssCode;
@@ -24,8 +24,15 @@ module.exports = function addStyle(cssCode) {
 					styleElement.childNodes[0].nodeValue = cssCode;
 				}
 			} else {
-				head.removeChild(styleElement);
+				dispose();
 			}
 		};
+	} else {
+		// For the useable API, provide a function to remove the stylesheet.
+		return dispose;
+	}
+
+	function dispose() {
+		head.removeChild(styleElement);
 	}
 };
