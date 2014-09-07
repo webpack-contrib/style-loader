@@ -8,15 +8,22 @@ module.exports.pitch = function(remainingRequest) {
 	this.cacheable && this.cacheable();
 	return [
 		"// style-loader: Adds some css to the DOM by adding a <style> tag",
-		"var update = require(" + JSON.stringify("!" + path.join(__dirname, "addStyle.js")) + ")(",
-		"\trequire(" + JSON.stringify("!!" + remainingRequest) + ")",
-		");",
+		"",
+		"// load the styles",
+		"var content = require(" + JSON.stringify("!!" + remainingRequest) + ");",
+		"if(typeof content === 'string') content = [module.id, content, ''];",
+		"// add the styles to the DOM",
+		"var update = require(" + JSON.stringify("!" + path.join(__dirname, "addStyles.js")) + ")(content);",
 		"// Hot Module Replacement",
 		"if(module.hot) {",
-		"\tmodule.hot.accept(" + JSON.stringify("!!" + remainingRequest) + ", function() {",
-		"\t\tupdate(require(" + JSON.stringify("!!" + remainingRequest) + "));",
-		"\t});",
-		"\tmodule.hot.dispose(function() { update(); });",
+		"	// When the styles change, update the <style> tags",
+		"	module.hot.accept(" + JSON.stringify("!!" + remainingRequest) + ", function() {",
+		"		var newContent = require(" + JSON.stringify("!!" + remainingRequest) + ");",
+		"		if(typeof newContent === 'string') newContent = [module.id, newContent, ''];",
+		"		update(newContent);",
+		"	});",
+		"	// When the module is disposed, remove the <style> tags",
+		"	module.hot.dispose(function() { update(); });",
 		"}"
 	].join("\n");
 };

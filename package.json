@@ -3,6 +3,9 @@
 	"version": "0.7.1",
 	"author": "Tobias Koppers @sokra",
 	"description": "style loader module for webpack",
+	"devDependencies": {
+		"css-loader": "~0.8.0"
+	},
 	"repository": {
 		"type": "git",
 		"url": "git@github.com:webpack/style-loader.git"
