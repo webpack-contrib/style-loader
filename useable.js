@@ -12,7 +12,7 @@ module.exports.pitch = function(remainingRequest) {
 		"exports.use = exports.ref = function() {",
 		"	if(!(refs++)) {",
 		"		var content = require(" + JSON.stringify("!!" + remainingRequest) + ")",
-		"		if(typeof content === 'string') content = [module.id, content, ''];",
+		"		if(typeof content === 'string') content = [[module.id, content, '']];",
 		"		dispose = require(" + JSON.stringify("!" + path.join(__dirname, "addStyles.js")) + ")(content);",
 		"	}",
 		"	return exports",

@@ -11,7 +11,7 @@ module.exports.pitch = function(remainingRequest) {
 		"",
 		"// load the styles",
 		"var content = require(" + JSON.stringify("!!" + remainingRequest) + ");",
-		"if(typeof content === 'string') content = [module.id, content, ''];",
+		"if(typeof content === 'string') content = [[module.id, content, '']];",
 		"// add the styles to the DOM",
 		"var update = require(" + JSON.stringify("!" + path.join(__dirname, "addStyles.js")) + ")(content);",
 		"// Hot Module Replacement",
