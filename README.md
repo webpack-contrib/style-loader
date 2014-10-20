@@ -32,6 +32,12 @@ Styles are not added on require, but instead on call to `use`/`ref`. Styles are 
 
 Note: Behavior is undefined when `unuse`/`unref` is called more often than `use`/`ref`. Don't do that.
 
+### Options
+
+#### `singleton`
+
+If defined, the style-loader will re-use a single `<style>` element, instead of adding/removing individual elements for each required module. **Note:** this option is on by default in IE9, which has strict limitations on the # of style tags allowed on a page.
+
 ## Recommended configuration
 
 By convention the reference-counted API should be bound to `.useable.css` and the simple API to `.css` (similar to other file types, i. e. `.useable.less` and `.less`).
