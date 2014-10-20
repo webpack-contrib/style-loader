@@ -2,14 +2,32 @@
 	MIT License http://www.opensource.org/licenses/mit-license.php
 	Author Tobias Koppers @sokra
 */
-var stylesInDom = {};
+var stylesInDom = {},
+	memoize = function(fn) {
+		var memo;
+		return function () {
+			if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+			return memo;
+		};
+	},
+	isIE9 = memoize(function() {
+		return /msie 9\b/.test(window.navigator.userAgent.toLowerCase());
+	}),
+	getHeadElement = memoize(function () {
+		return document.head || document.getElementsByTagName("head")[0];
+	}),
+	singletonElement = null;
 
-module.exports = function(list) {
+module.exports = function(list, options) {
 	if(typeof DEBUG !== "undefined" && DEBUG) {
 		if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
 	}
 	var styles = listToStyles(list);
-	addStylesToDom(styles);
+	options = options || {};
+	// Force single-tag solution on IE9, which has a hard limit on the # of <style>
+	// tags it will allow on a page
+	options.singleton = options.singleton || isIE9();
+	addStylesToDom(styles, options);
 	return function update(newList) {
 		var mayRemove = [];
 		for(var i = 0; i < styles.length; i++) {
@@ -20,7 +38,7 @@ module.exports = function(list) {
 		}
 		if(newList) {
 			var newStyles = listToStyles(newList);
-			addStylesToDom(newStyles);
+			addStylesToDom(newStyles, options);
 		}
 		for(var i = 0; i < mayRemove.length; i++) {
 			var domStyle = mayRemove[i];
@@ -33,7 +51,7 @@ module.exports = function(list) {
 	};
 }
 
-function addStylesToDom(styles) {
+function addStylesToDom(styles, options) {
 	for(var i = 0; i < styles.length; i++) {
 		var item = styles[i];
 		var domStyle = stylesInDom[item.id];
@@ -43,12 +61,12 @@ function addStylesToDom(styles) {
 				domStyle.parts[j](item.parts[j]);
 			}
 			for(; j < item.parts.length; j++) {
-				domStyle.parts.push(addStyle(item.parts[j]));
+				domStyle.parts.push(addStyle(item.parts[j], options));
 			}
 		} else {
 			var parts = [];
 			for(var j = 0; j < item.parts.length; j++) {
-				parts.push(addStyle(item.parts[j]));
+				parts.push(addStyle(item.parts[j], options));
 			}
 			stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
 		}
@@ -73,19 +91,48 @@ function listToStyles(list) {
 	return styles;
 }
 
-function addStyle(obj) {
+function createStyleElement() {
 	var styleElement = document.createElement("style");
-	var head = document.head || document.getElementsByTagName("head")[0];
+	var head = getHeadElement();
 	styleElement.type = "text/css";
 	head.appendChild(styleElement);
+	return styleElement;
+}
+
+function addStyle(obj, options) {
+	var styleElement;
+	var singleton = options.singleton;
+
+	if (singleton) {
+		if (!singletonElement) singletonElement = createStyleElement();
+		styleElement = singletonElement;
+		if (styleElement.styleSheet) {
+			obj.index = styleElement.styleSheet.cssText.length;
+			obj.length = obj.css.length;
+		} else {
+			obj.index = styleElement.childNodes.length;
+		}
+	} else {
+		styleElement = createStyleElement();
+	}
+
 	applyToTag(styleElement, obj);
+
 	return function(newObj) {
 		if(newObj) {
 			if(newObj.css === obj.css && newObj.media === obj.media /*&& newObj.sourceMap === obj.sourceMap*/)
 				return;
 			applyToTag(styleElement, obj = newObj);
 		} else {
-			head.removeChild(styleElement);
+			if (singleton) {
+				applyToTag(styleElement, {
+					css: null,
+					index: obj.index,
+					length: obj.length
+				});
+			} else {
+				getHeadElement().removeChild(styleElement);
+			}
 		}
 	};
 };
@@ -93,6 +140,7 @@ function addStyle(obj) {
 function applyToTag(styleElement, obj) {
 	var css = obj.css;
 	var media = obj.media;
+	var index = obj.index;
 	// var sourceMap = obj.sourceMap;
 
 	// No browser support
@@ -101,16 +149,37 @@ function applyToTag(styleElement, obj) {
 			// css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(JSON.stringify(sourceMap)) + " */";
 		// } catch(e) {}
 	// }
+
 	if(media) {
 		styleElement.setAttribute("media", media)
 	}
-	if (styleElement.styleSheet) {
-		styleElement.styleSheet.cssText = css;
-	} else {
-		while(styleElement.firstChild) {
-			styleElement.removeChild(styleElement.firstChild);
+
+	if(styleElement.styleSheet) {
+		var styleSheet = styleElement.styleSheet;
+		var length = obj.length;
+		if(index) {
+			styleSheet.cssText = styleSheet.cssText.slice(0, index)
+				+ (css ? css : new Array(length + 1).join(' '))
+				+ styleSheet.cssText.slice(index + length);
+		} else {
+			styleSheet.cssText = css;
 		}
-		styleElement.appendChild(document.createTextNode(css));
+	} else {
+		var cssNode = document.createTextNode(css);
+		if(index) {
+			var childNodes = styleElement.childNodes;
+			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
+			if (childNodes.length) {
+				styleElement.insertBefore(cssNode, childNodes[index]);
+			} else {
+				styelElement.appendChild(cssNode);
+			}
+		} else {
+			while(styleElement.firstChild) {
+				styleElement.removeChild(styleElement.firstChild);
+			}
+			styleElement.appendChild(cssNode);
+		}
 	}
 
 }
