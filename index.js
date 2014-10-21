@@ -8,9 +8,6 @@ module.exports = function() {};
 module.exports.pitch = function(remainingRequest) {
 	this.cacheable && this.cacheable();
 	var query = loaderUtils.parseQuery(this.query);
-	var options = {
-		singleton: !!query.singleton
-	};
 	return [
 		"// style-loader: Adds some css to the DOM by adding a <style> tag",
 		"",
@@ -18,7 +15,7 @@ module.exports.pitch = function(remainingRequest) {
 		"var content = require(" + JSON.stringify("!!" + remainingRequest) + ");",
 		"if(typeof content === 'string') content = [[module.id, content, '']];",
 		"// add the styles to the DOM",
-		"var update = require(" + JSON.stringify("!" + path.join(__dirname, "addStyles.js")) + ")(content, " + JSON.stringify(options) + ");",
+		"var update = require(" + JSON.stringify("!" + path.join(__dirname, "addStyles.js")) + ")(content, " + JSON.stringify(query) + ");",
 		"// Hot Module Replacement",
 		"if(module.hot) {",
 		"	// When the styles change, update the <style> tags",
