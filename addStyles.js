@@ -182,6 +182,6 @@ function applyToTag(styleElement, obj) {
 		while(styleElement.firstChild) {
 			styleElement.removeChild(styleElement.firstChild);
 		}
-		styleElement.appendChild(cssNode);
+		styleElement.appendChild(document.createTextNode(css));
 	}
 }
