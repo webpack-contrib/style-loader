@@ -16,18 +16,22 @@ var stylesInDom = {},
 	getHeadElement = memoize(function () {
 		return document.head || document.getElementsByTagName("head")[0];
 	}),
-	singletonElement = null;
+	singletonElement = null,
+	singletonCounter = 0;
 
 module.exports = function(list, options) {
 	if(typeof DEBUG !== "undefined" && DEBUG) {
 		if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
 	}
-	var styles = listToStyles(list);
+
 	options = options || {};
 	// Force single-tag solution on IE9, which has a hard limit on the # of <style>
 	// tags it will allow on a page
-	options.singleton = options.singleton || isIE9();
+	if (typeof options.singleton === "undefined") options.singleton = isIE9();
+
+	var styles = listToStyles(list);
 	addStylesToDom(styles, options);
+
 	return function update(newList) {
 		var mayRemove = [];
 		for(var i = 0; i < styles.length; i++) {
@@ -100,49 +104,67 @@ function createStyleElement() {
 }
 
 function addStyle(obj, options) {
-	var styleElement;
-	var singleton = options.singleton;
+	var styleElement, update, remove;
 
-	if (singleton) {
-		if (!singletonElement) singletonElement = createStyleElement();
-		styleElement = singletonElement;
-		if (styleElement.styleSheet) {
-			obj.index = styleElement.styleSheet.cssText.length;
-			obj.length = obj.css.length;
-		} else {
-			obj.index = styleElement.childNodes.length;
-		}
+	if (options.singleton) {
+		var styleIndex = singletonCounter++;
+		styleElement = singletonElement || (singletonElement = createStyleElement());
+		update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
+		remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
 	} else {
 		styleElement = createStyleElement();
+		update = applyToTag.bind(null, styleElement);
+		remove = function () {
+			styleElement.parentNode.removeChild(styleElement);
+		};
 	}
 
-	applyToTag(styleElement, obj);
+	update(obj);
 
-	return function(newObj) {
+	return function updateStyle(newObj) {
 		if(newObj) {
 			if(newObj.css === obj.css && newObj.media === obj.media /*&& newObj.sourceMap === obj.sourceMap*/)
 				return;
-			applyToTag(styleElement, obj = newObj);
+			update(obj = newObj);
 		} else {
-			if (singleton) {
-				applyToTag(styleElement, {
-					css: null,
-					index: obj.index,
-					length: obj.length
-				});
-			} else {
-				getHeadElement().removeChild(styleElement);
-			}
+			remove();
 		}
 	};
-};
+}
+
+function replaceText(source, id, replacement) {
+	var boundaries = ['/** >>' + id + ' **/', '/** ' + id + '<< **/'];
+	var start = source.lastIndexOf(boundaries[0]);
+	var wrappedReplacement = boundaries[0] + replacement + boundaries[1];
+	if (source.lastIndexOf(boundaries[0]) >= 0) {
+		var end = source.lastIndexOf(boundaries[1]) + boundaries[1].length;
+		return source.slice(0, start) + wrappedReplacement + source.slice(end);
+	} else {
+		return source + wrappedReplacement;
+	}
+}
+
+function applyToSingletonTag(styleElement, index, remove, obj) {
+	var css = remove ? '' : obj.css;
+
+	if(styleElement.styleSheet) {
+		styleElement.styleSheet.cssText = replaceText(styleElement.styleSheet.cssText, index, css);
+	} else {
+		var cssNode = document.createTextNode(css);
+		var childNodes = styleElement.childNodes;
+		if (childNodes[index]) styleElement.removeChild(childNodes[index]);
+		if (childNodes.length) {
+			styleElement.insertBefore(cssNode, childNodes[index]);
+		} else {
+			styleElement.appendChild(cssNode);
+		}
+	}
+}
 
 function applyToTag(styleElement, obj) {
 	var css = obj.css;
 	var media = obj.media;
-	var index = obj.index;
 	// var sourceMap = obj.sourceMap;
-
 	// No browser support
 	// if(sourceMap && typeof btoa === "function") {
 		// try {
@@ -155,31 +177,11 @@ function applyToTag(styleElement, obj) {
 	}
 
 	if(styleElement.styleSheet) {
-		var styleSheet = styleElement.styleSheet;
-		var length = obj.length;
-		if(index) {
-			styleSheet.cssText = styleSheet.cssText.slice(0, index)
-				+ (css ? css : new Array(length + 1).join(' '))
-				+ styleSheet.cssText.slice(index + length);
-		} else {
-			styleSheet.cssText = css;
-		}
+		styleElement.styleSheet.cssText = css;
 	} else {
-		var cssNode = document.createTextNode(css);
-		if(index) {
-			var childNodes = styleElement.childNodes;
-			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
-			if (childNodes.length) {
-				styleElement.insertBefore(cssNode, childNodes[index]);
-			} else {
-				styelElement.appendChild(cssNode);
-			}
-		} else {
-			while(styleElement.firstChild) {
-				styleElement.removeChild(styleElement.firstChild);
-			}
-			styleElement.appendChild(cssNode);
+		while(styleElement.firstChild) {
+			styleElement.removeChild(styleElement.firstChild);
 		}
+		styleElement.appendChild(cssNode);
 	}
-
 }
