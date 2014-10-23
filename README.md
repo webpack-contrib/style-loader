@@ -17,7 +17,7 @@ It also possible to add a URL instead of a css string:
 
 ``` javascript
 require("style/url!file!./file.css");
-// => add a <link rel="stlyesheet"> to file.css to document
+// => add a <link rel="stylesheet"> to file.css to document
 ```
 
 ### Reference-counted API
