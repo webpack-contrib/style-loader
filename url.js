@@ -12,12 +12,12 @@ module.exports.pitch = function(remainingRequest) {
 	return [
 		"// style-loader: Adds some reference to a css file to the DOM by adding a <link> tag",
 		"var update = require(" + JSON.stringify(require.resolve("./addStyleUrl.js")) + ")(",
-		"\trequire(" + JSON.stringify(requestURI) + ")",
+		"\t" + JSON.stringify(requestURI),
 		");",
 		"// Hot Module Replacement",
 		"if(module.hot) {",
-		"\tmodule.hot.accept(" + JSON.stringify(requestURI) + ", function() {",
-		"\t\tupdate(require(" + JSON.stringify(requestURI) + "));",
+		"\tmodule.hot.accept(" + JSON.stringify("!!" + remainingRequest) + ", function() {",
+		"\t\tupdate(" + JSON.stringify(requestURI) + ");",
 		"\t});",
 		"\tmodule.hot.dispose(function() { update(); });",
 		"}"
