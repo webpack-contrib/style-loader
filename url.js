@@ -6,15 +6,18 @@ var path = require("path");
 module.exports = function() {};
 module.exports.pitch = function(remainingRequest) {
 	this.cacheable && this.cacheable();
+	var requestURI =
+		this.options.output.publicPath +
+		path.relative(this.options.output.path, remainingRequest);
 	return [
 		"// style-loader: Adds some reference to a css file to the DOM by adding a <link> tag",
-		"var update = require(" + JSON.stringify("!" + path.join(__dirname, "addStyleUrl.js")) + ")(",
-		"\trequire(" + JSON.stringify("!!" + remainingRequest) + ")",
+		"var update = require(" + JSON.stringify(require.resolve("./addStyleUrl.js")) + ")(",
+		"\trequire(" + JSON.stringify(requestURI) + ")",
 		");",
 		"// Hot Module Replacement",
 		"if(module.hot) {",
-		"\tmodule.hot.accept(" + JSON.stringify("!!" + remainingRequest) + ", function() {",
-		"\t\tupdate(require(" + JSON.stringify("!!" + remainingRequest) + "));",
+		"\tmodule.hot.accept(" + JSON.stringify(requestURI) + ", function() {",
+		"\t\tupdate(require(" + JSON.stringify(requestURI) + "));",
 		"\t});",
 		"\tmodule.hot.dispose(function() { update(); });",
 		"}"
