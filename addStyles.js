@@ -85,8 +85,8 @@ function listToStyles(list) {
 		var id = item[0];
 		var css = item[1];
 		var media = item[2];
-		// var sourceMap = item[3];
-		var part = {css: css, media: media/*, sourceMap: sourceMap*/};
+		var sourceMap = item[3];
+		var part = {css: css, media: media, sourceMap: sourceMap};
 		if(!newStyles[id])
 			styles.push(newStyles[id] = {id: id, parts: [part]});
 		else
@@ -123,7 +123,7 @@ function addStyle(obj, options) {
 
 	return function updateStyle(newObj) {
 		if(newObj) {
-			if(newObj.css === obj.css && newObj.media === obj.media /*&& newObj.sourceMap === obj.sourceMap*/)
+			if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
 				return;
 			update(obj = newObj);
 		} else {
@@ -166,13 +166,14 @@ function applyToSingletonTag(styleElement, index, remove, obj) {
 function applyToTag(styleElement, obj) {
 	var css = obj.css;
 	var media = obj.media;
-	// var sourceMap = obj.sourceMap;
-	// No browser support
-	// if(sourceMap && typeof btoa === "function") {
-		// try {
-			// css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(JSON.stringify(sourceMap)) + " */";
-		// } catch(e) {}
-	// }
+	var sourceMap = obj.sourceMap;
+
+	if(sourceMap && typeof btoa === "function") {
+		try {
+			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(JSON.stringify(sourceMap)) + " */";
+			css = "@import url(\"data:stylesheet/css;base64," + btoa(css) + "\")";
+		} catch(e) {}
+	}
 
 	if(media) {
 		styleElement.setAttribute("media", media)
