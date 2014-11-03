@@ -133,9 +133,11 @@ function addStyle(obj, options) {
 }
 
 function replaceText(source, id, replacement) {
-	var boundaries = ['/** >>' + id + ' **/', '/** ' + id + '<< **/'];
+	var boundaries = ["/** >>" + id + " **/", "/** " + id + "<< **/"];
 	var start = source.lastIndexOf(boundaries[0]);
-	var wrappedReplacement = boundaries[0] + replacement + boundaries[1];
+	var wrappedReplacement = replacement
+		? (boundaries[0] + replacement + boundaries[1])
+		: "";
 	if (source.lastIndexOf(boundaries[0]) >= 0) {
 		var end = source.lastIndexOf(boundaries[1]) + boundaries[1].length;
 		return source.slice(0, start) + wrappedReplacement + source.slice(end);
@@ -145,7 +147,7 @@ function replaceText(source, id, replacement) {
 }
 
 function applyToSingletonTag(styleElement, index, remove, obj) {
-	var css = remove ? '' : obj.css;
+	var css = remove ? "" : obj.css;
 
 	if(styleElement.styleSheet) {
 		styleElement.styleSheet.cssText = replaceText(styleElement.styleSheet.cssText, index, css);
