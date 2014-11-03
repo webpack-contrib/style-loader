@@ -15,5 +15,8 @@
 			"type": "MIT",
 			"url": "http://www.opensource.org/licenses/mit-license.php"
 		}
-	]
+	],
+	"dependencies": {
+		"loader-utils": "^0.2.5"
+	}
 }
