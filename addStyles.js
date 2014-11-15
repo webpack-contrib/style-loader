@@ -171,7 +171,7 @@ function applyToTag(styleElement, obj) {
 	if(sourceMap && typeof btoa === "function") {
 		try {
 			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(JSON.stringify(sourceMap)) + " */";
-			css = "@import url(\"data:stylesheet/css;base64," + btoa(css) + "\")";
+			css = "@import url(\"data:text/css;base64," + btoa(css) + "\")";
 		} catch(e) {}
 	}
 
