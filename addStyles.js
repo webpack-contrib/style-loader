@@ -109,11 +109,17 @@ function addStyle(obj, options) {
 	if (options.singleton) {
 		var styleIndex = singletonCounter++;
 		styleElement = singletonElement || (singletonElement = createStyleElement());
-		update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
-		remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
+		update = function (obj) {
+			applyToSingletonTag(styleElement, styleIndex, false, obj);
+		};
+		remove = function (obj) {
+			applyToSingletonTag(styleElement, styleIndex, true, obj);
+		};
 	} else {
 		styleElement = createStyleElement();
-		update = applyToTag.bind(null, styleElement);
+		update = function (obj) {
+			applyToTag(styleElement, obj);
+		};
 		remove = function () {
 			styleElement.parentNode.removeChild(styleElement);
 		};
