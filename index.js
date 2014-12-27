@@ -21,7 +21,7 @@ module.exports.pitch = function(remainingRequest) {
 		"	// When the styles change, update the <style> tags",
 		"	module.hot.accept(" + JSON.stringify("!!" + remainingRequest) + ", function() {",
 		"		var newContent = require(" + JSON.stringify("!!" + remainingRequest) + ");",
-		"		if(typeof newContent === 'string') newContent = [module.id, newContent, ''];",
+		"		if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];",
 		"		update(newContent);",
 		"	});",
 		"	// When the module is disposed, remove the <style> tags",
