@@ -13,8 +13,8 @@ var stylesInDom = {},
 	isOldIE = memoize(function() {
 		return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
 	}),
-	getHeadElement = memoize(function () {
-		return document.head || document.getElementsByTagName("head")[0];
+	getElement = memoize(function (element) {
+		return element || document.head || document.getElementsByTagName("head")[0];
 	}),
 	singletonElement = null,
 	singletonCounter = 0;
@@ -95,11 +95,11 @@ function listToStyles(list) {
 	return styles;
 }
 
-function createStyleElement() {
+function createStyleElement(element) {
 	var styleElement = document.createElement("style");
-	var head = getHeadElement();
+	var parentElement = getElement(element);
 	styleElement.type = "text/css";
-	head.appendChild(styleElement);
+	parentElement.appendChild(styleElement);
 	return styleElement;
 }
 
@@ -116,7 +116,7 @@ function addStyle(obj, options) {
 
 	if (options.singleton) {
 		var styleIndex = singletonCounter++;
-		styleElement = singletonElement || (singletonElement = createStyleElement());
+		styleElement = singletonElement || (singletonElement = createStyleElement(options.element));
 		update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
 		remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
 	} else if(obj.sourceMap &&
@@ -133,7 +133,7 @@ function addStyle(obj, options) {
 				URL.revokeObjectURL(styleElement.href);
 		};
 	} else {
-		styleElement = createStyleElement();
+		styleElement = createStyleElement(options.element);
 		update = applyToTag.bind(null, styleElement);
 		remove = function() {
 			styleElement.parentNode.removeChild(styleElement);
