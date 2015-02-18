@@ -13,9 +13,9 @@ var stylesInDom = {},
 	isOldIE = memoize(function() {
 		return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
 	}),
-	getElement = memoize(function (element) {
+	getElement = function (element) {
 		return element || document.head || document.getElementsByTagName("head")[0];
-	}),
+	},
 	singletonElement = null,
 	singletonCounter = 0;
 
