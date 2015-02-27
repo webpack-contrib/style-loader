@@ -10,8 +10,8 @@ var stylesInDom = {},
 			return memo;
 		};
 	},
-	isIE9 = memoize(function() {
-		return /msie 9\b/.test(window.navigator.userAgent.toLowerCase());
+	isOldIE = memoize(function() {
+		return /msie \d\b/.test(window.navigator.userAgent.toLowerCase());
 	}),
 	getHeadElement = memoize(function () {
 		return document.head || document.getElementsByTagName("head")[0];
@@ -25,9 +25,9 @@ module.exports = function(list, options) {
 	}
 
 	options = options || {};
-	// Force single-tag solution on IE9, which has a hard limit on the # of <style>
+	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
 	// tags it will allow on a page
-	if (typeof options.singleton === "undefined") options.singleton = isIE9();
+	if (typeof options.singleton === "undefined") options.singleton = isOldIE();
 
 	var styles = listToStyles(list);
 	addStylesToDom(styles, options);
