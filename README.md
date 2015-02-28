@@ -55,6 +55,11 @@ So the recommended configuration for webpack is:
 }
 ```
 
+
+## Install
+
+`npm install style-loader`
+
 ## License
 
 MIT (http://www.opensource.org/licenses/mit-license.php)
