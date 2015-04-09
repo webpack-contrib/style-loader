@@ -103,6 +103,14 @@ function createStyleElement() {
 	return styleElement;
 }
 
+function createLinkElement() {
+	var linkElement = document.createElement("link");
+	var head = getHeadElement();
+	linkElement.rel = "stylesheet";
+	head.appendChild(linkElement);
+	return linkElement;
+}
+
 function addStyle(obj, options) {
 	var styleElement, update, remove;
 
@@ -111,10 +119,23 @@ function addStyle(obj, options) {
 		styleElement = singletonElement || (singletonElement = createStyleElement());
 		update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
 		remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
+	} else if(obj.sourceMap &&
+		typeof URL === "function" &&
+		typeof URL.createObjectURL === "function" &&
+		typeof URL.revokeObjectURL === "function" &&
+		typeof Blob === "function" &&
+		typeof btoa === "function") {
+		styleElement = createLinkElement();
+		update = updateLink.bind(null, styleElement);
+		remove = function() {
+			styleElement.parentNode.removeChild(styleElement);
+			if(styleElement.href)
+				URL.revokeObjectURL(styleElement.href);
+		};
 	} else {
 		styleElement = createStyleElement();
 		update = applyToTag.bind(null, styleElement);
-		remove = function () {
+		remove = function() {
 			styleElement.parentNode.removeChild(styleElement);
 		};
 	}
@@ -168,13 +189,6 @@ function applyToTag(styleElement, obj) {
 	var media = obj.media;
 	var sourceMap = obj.sourceMap;
 
-	if(sourceMap && typeof btoa === "function") {
-		try {
-			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(JSON.stringify(sourceMap)) + " */";
-			css = "@import url(\"data:text/css;base64," + btoa(css) + "\")";
-		} catch(e) {}
-	}
-
 	if(media) {
 		styleElement.setAttribute("media", media)
 	}
@@ -187,4 +201,23 @@ function applyToTag(styleElement, obj) {
 		}
 		styleElement.appendChild(document.createTextNode(css));
 	}
+}
+
+function updateLink(linkElement, obj) {
+	var css = obj.css;
+	var media = obj.media;
+	var sourceMap = obj.sourceMap;
+
+	if(sourceMap) {
+		css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(JSON.stringify(sourceMap)) + " */";
+	}
+
+	var blob = new Blob([css], { type: "text/css" });
+
+	var oldSrc = linkElement.href;
+
+	linkElement.href = URL.createObjectURL(blob);
+
+	if(oldSrc)
+		URL.revokeObjectURL(oldSrc);
 }
