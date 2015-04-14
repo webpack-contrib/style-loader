@@ -2,7 +2,8 @@
 	MIT License http://www.opensource.org/licenses/mit-license.php
 	Author Tobias Koppers @sokra
 */
-var path = require("path");
+var loaderUtils = require("loader-utils"),
+	path = require("path");
 module.exports = function() {};
 module.exports.pitch = function(remainingRequest) {
 	this.cacheable && this.cacheable();
@@ -11,7 +12,7 @@ module.exports.pitch = function(remainingRequest) {
 		"var dispose;",
 		"exports.use = exports.ref = function() {",
 		"	if(!(refs++)) {",
-		"		var content = require(" + JSON.stringify("!!" + remainingRequest) + ")",
+		"		var content = require(" + loaderUtils.stringifyRequest(this, "!!" + remainingRequest) + ")",
 		"		if(typeof content === 'string') content = [[module.id, content, '']];",
 		"		dispose = require(" + JSON.stringify("!" + path.join(__dirname, "addStyles.js")) + ")(content);",
 		"	}",
