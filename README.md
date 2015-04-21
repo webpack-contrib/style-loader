@@ -20,6 +20,17 @@ require("style/url!file!./file.css");
 // => add a <link rel="stylesheet"> to file.css to document
 ```
 
+### Placeholders
+
+(experimental)
+
+When using placeholders (see css-loader) the module exports the placeholders object:
+
+``` js
+var styles = require("style!css!./file.css");
+style.placeholder1 === "z849f98ca812bc0d099a43e0f90184"
+```
+
 ### Reference-counted API
 
 ``` javascript
