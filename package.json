@@ -1,6 +1,6 @@
 {
   "name": "style-loader",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "author": "Tobias Koppers @sokra",
   "description": "style loader module for webpack",
   "devDependencies": {
