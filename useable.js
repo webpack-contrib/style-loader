@@ -6,17 +6,18 @@ var loaderUtils = require("loader-utils"),
 	path = require("path");
 module.exports = function() {};
 module.exports.pitch = function(remainingRequest) {
-	this.cacheable && this.cacheable();
+	if(this.cacheable) this.cacheable();
 	return [
 		"var refs = 0;",
 		"var dispose;",
+		"var content = require(" + loaderUtils.stringifyRequest(this, "!!" + remainingRequest) + ");",
+		"if(typeof content === 'string') content = [[module.id, content, '']];",
 		"exports.use = exports.ref = function() {",
 		"	if(!(refs++)) {",
-		"		var content = require(" + loaderUtils.stringifyRequest(this, "!!" + remainingRequest) + ")",
-		"		if(typeof content === 'string') content = [[module.id, content, '']];",
-		"		dispose = require(" + JSON.stringify("!" + path.join(__dirname, "addStyles.js")) + ")(content);",
+		"		exports.locals = content.locals;",
+		"		dispose = require(" + loaderUtils.stringifyRequest("!" + path.join(__dirname, "addStyles.js")) + ")(content);",
 		"	}",
-		"	return exports",
+		"	return exports;",
 		"};",
 		"exports.unuse = exports.unref = function() {",
 		"	if(!(--refs)) {",
@@ -28,15 +29,19 @@ module.exports.pitch = function(remainingRequest) {
 		"	var lastRefs = module.hot.data && module.hot.data.refs || 0;",
 		"	if(lastRefs) {",
 		"		exports.ref();",
-		"		refs = lastRefs;",
+		"		if(!content.locals) {",
+		"			refs = lastRefs;",
+		"		}",
 		"	}",
-		"	module.hot.accept();",
+		"	if(!content.locals) {",
+		"		module.hot.accept();",
+		"	}",
 		"	module.hot.dispose(function(data) {",
-		"		data.refs = refs;",
+		"		data.refs = content.locals ? 0 : refs;",
 		"		if(dispose) {",
 		"			dispose();",
 		"		}",
 		"	});",
-		"}",
+		"}"
 	].join("\n");
 };
