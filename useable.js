@@ -15,7 +15,7 @@ module.exports.pitch = function(remainingRequest) {
 		"exports.use = exports.ref = function() {",
 		"	if(!(refs++)) {",
 		"		exports.locals = content.locals;",
-		"		dispose = require(" + loaderUtils.stringifyRequest("!" + path.join(__dirname, "addStyles.js")) + ")(content);",
+		"		dispose = require(" + loaderUtils.stringifyRequest(this, "!" + path.join(__dirname, "addStyles.js")) + ")(content);",
 		"	}",
 		"	return exports;",
 		"};",
