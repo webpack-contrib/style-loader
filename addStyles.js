@@ -157,8 +157,15 @@ var replaceText = (function () {
 	var textStore = [];
 
 	return function (index, replacement) {
+		var filtered = [];
 		textStore[index] = replacement;
-		return textStore.filter(Boolean).join('\n');
+		for(var i = 0; i < textStore.length; i++) {
+			if(textStore[i]) {
+				filtered.push(textStore[i]);
+			}
+		}
+
+		return filtered.join('\n');
 	};
 })();
 
