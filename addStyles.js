@@ -29,8 +29,8 @@ module.exports = function(list, options) {
 	// tags it will allow on a page
 	if (typeof options.singleton === "undefined") options.singleton = isOldIE();
 
-    // By default, add <style> tags to the bottom of <head>.
-    if (options.insertAt !== "top" && options.insertAt !== "bottom") options.insertAt = "bottom";
+	// By default, add <style> tags to the bottom of <head>.
+	if (options.insertAt !== "top" && options.insertAt !== "bottom") options.insertAt = "bottom";
 
 	var styles = listToStyles(list);
 	addStylesToDom(styles, options);
@@ -102,11 +102,11 @@ function createStyleElement(options) {
 	var styleElement = document.createElement("style");
 	var head = getHeadElement();
 	styleElement.type = "text/css";
-    if (options.insertAt === "top") {
-        head.insertBefore(styleElement, head.firstChild);
-    } else if (options.insertAt === "bottom") {
-	    head.appendChild(styleElement);
-    }
+	if (options.insertAt === "top") {
+		head.insertBefore(styleElement, head.firstChild);
+	} else if (options.insertAt === "bottom") {
+		head.appendChild(styleElement);
+	}
 	return styleElement;
 }
 
