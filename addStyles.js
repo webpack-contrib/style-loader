@@ -106,6 +106,8 @@ function createStyleElement(options) {
 		head.insertBefore(styleElement, head.firstChild);
 	} else if (options.insertAt === "bottom") {
 		head.appendChild(styleElement);
+	} else {
+		throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
 	}
 	return styleElement;
 }
