@@ -49,6 +49,12 @@ Note: Behavior is undefined when `unuse`/`unref` is called more often than `use`
 
 If defined, the style-loader will re-use a single `<style>` element, instead of adding/removing individual elements for each required module. **Note:** this option is on by default in IE9, which has strict limitations on the number of style tags allowed on a page. You can enable or disable it with the singleton query parameter (`?singleton` or `?-singleton`).
 
+#### `prepend`
+
+If defined, style-loader will prepend the css file instead of appending it. Which means that the created `<style>` tag will be on top of the `<head>` instead of at the bottom.
+
+This allows you to build components with default styling that can be overriden by user stylesheets.You can enable or disable it with the `prepend` query parameter (`?prepend`).
+
 ## Recommended configuration
 
 By convention the reference-counted API should be bound to `.useable.css` and the simple API to `.css` (similar to other file types, i. e. `.useable.less` and `.less`).

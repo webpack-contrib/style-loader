@@ -95,20 +95,16 @@ function listToStyles(list) {
 	return styles;
 }
 
-function createStyleElement() {
+function createStyleElement(insert) {
 	var styleElement = document.createElement("style");
-	var head = getHeadElement();
 	styleElement.type = "text/css";
-	head.appendChild(styleElement);
-	return styleElement;
+	return insert(styleElement);
 }
 
-function createLinkElement() {
+function createLinkElement(insert) {
 	var linkElement = document.createElement("link");
-	var head = getHeadElement();
 	linkElement.rel = "stylesheet";
-	head.appendChild(linkElement);
-	return linkElement;
+	return insert(linkElement);
 }
 
 function addStyle(obj, options) {
@@ -116,7 +112,7 @@ function addStyle(obj, options) {
 
 	if (options.singleton) {
 		var styleIndex = singletonCounter++;
-		styleElement = singletonElement || (singletonElement = createStyleElement());
+		styleElement = singletonElement || (singletonElement = createStyleElement(getInsertFn(options.prepend)));
 		update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
 		remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
 	} else if(obj.sourceMap &&
@@ -125,7 +121,7 @@ function addStyle(obj, options) {
 		typeof URL.revokeObjectURL === "function" &&
 		typeof Blob === "function" &&
 		typeof btoa === "function") {
-		styleElement = createLinkElement();
+		styleElement = createLinkElement(getInsertFn(options.prepend));
 		update = updateLink.bind(null, styleElement);
 		remove = function() {
 			styleElement.parentNode.removeChild(styleElement);
@@ -133,7 +129,7 @@ function addStyle(obj, options) {
 				URL.revokeObjectURL(styleElement.href);
 		};
 	} else {
-		styleElement = createStyleElement();
+		styleElement = createStyleElement(getInsertFn(options.prepend));
 		update = applyToTag.bind(null, styleElement);
 		remove = function() {
 			styleElement.parentNode.removeChild(styleElement);
@@ -151,6 +147,18 @@ function addStyle(obj, options) {
 			remove();
 		}
 	};
+}
+
+function getInsertFn(prepend) {
+	var head = getHeadElement();
+
+	return function insertIntoDom(linkOrStyleElement) {
+		if (prepend === true) {
+			return head.insertBefore(linkOrStyleElement, head.firstChild)
+		}
+
+		return head.appendChild(linkOrStyleElement);
+	}
 }
 
 var replaceText = (function () {
