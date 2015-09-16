@@ -20,6 +20,17 @@ require("style/url!file!./file.css");
 // => add a <link rel="stylesheet"> to file.css to document
 ```
 
+### Absolute URL for assets
+
+Use `urlPrefix` option to transform relative URLs into absolute URLs, in case you wanted to store assets in another domain or use CDN mirror.
+For example, if you set `urlPrefix` to `asset.yourdomain.com`:
+
+```css
+.forward {
+	background: url('assets/forward-icon.png'); /* transformed into http(s)://asset.yourdomain.com/assets/forward-icon.png */
+}
+```
+
 ### Placeholders
 
 (experimental)
