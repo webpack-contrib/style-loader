@@ -10,14 +10,17 @@ var stylesInDom = {},
 			return memo;
 		};
 	},
-	isOldIE = memoize(function() {
-		return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
+	isIE = memoize(function() {
+		var match = window.navigator.userAgent.match(/msie\s([\d\.]+)/i);
+		return match ? parseFloat(match[1], 10) : NaN;
 	}),
 	getHeadElement = memoize(function () {
 		return document.head || document.getElementsByTagName("head")[0];
 	}),
 	singletonElement = null,
-	singletonCounter = 0;
+	singletonCounter = 0,
+	fontFaceRegExp = /@font-face\s*{[\s\S]*?}/g,
+	fontFaceElements = [];
 
 module.exports = function(list, options) {
 	if(typeof DEBUG !== "undefined" && DEBUG) {
@@ -27,7 +30,7 @@ module.exports = function(list, options) {
 	options = options || {};
 	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
 	// tags it will allow on a page
-	if (typeof options.singleton === "undefined") options.singleton = isOldIE();
+	if (typeof options.singleton === "undefined") options.singleton = isIE() <= 9;
 
 	var styles = listToStyles(list);
 	addStylesToDom(styles, options);
@@ -116,9 +119,8 @@ function addStyle(obj, options) {
 
 	if (options.singleton) {
 		var styleIndex = singletonCounter++;
-		styleElement = singletonElement || (singletonElement = createStyleElement());
-		update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
-		remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
+		update = applyToSingletonTag.bind(null, styleIndex, false);
+		remove = applyToSingletonTag.bind(null, styleIndex, true);
 	} else if(obj.sourceMap &&
 		typeof URL === "function" &&
 		typeof URL.createObjectURL === "function" &&
@@ -162,10 +164,28 @@ var replaceText = (function () {
 	};
 })();
 
-function applyToSingletonTag(styleElement, index, remove, obj) {
+function applyToSingletonTag(index, remove, obj) {
 	var css = remove ? "" : obj.css;
 
+	var styleElement = singletonElement || (singletonElement = createStyleElement());
+
 	if (styleElement.styleSheet) {
+		if (isIE() <= 8) {
+			var fontFaces = [];
+			css = css.replace(fontFaceRegExp, function(fontFace) {
+				fontFaces.push(fontFace);
+				return "";
+			});
+			var element = fontFaceElements[index];
+			if (element) {
+				element.parentNode.removeChild(element);
+				fontFaceElements[index] = null;
+			}
+			if (fontFaces.length > 0) {
+				element = (fontFaceElements[index] = createStyleElement());
+				element.styleSheet.cssText = fontFaces.join('\n');
+			}
+		}
 		styleElement.styleSheet.cssText = replaceText(index, css);
 	} else {
 		var cssNode = document.createTextNode(css);
