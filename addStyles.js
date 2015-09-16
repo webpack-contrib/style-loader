@@ -17,7 +17,17 @@ var stylesInDom = {},
 		return document.head || document.getElementsByTagName("head")[0];
 	}),
 	singletonElement = null,
-	singletonCounter = 0;
+	singletonCounter = 0,
+	appendPrefixRegex = /url\(([^)]+)\)/g,
+	join = function() {
+		var result = [], temp, i;
+		for (i = 0; i < arguments.length; i++) {
+			temp = arguments[i];
+			if (temp.substr(temp.length-1, 1) == '/') temp = temp.substr(0, temp.length-1);
+			result.push(temp);
+		}
+		return result.join('/');
+	};
 
 module.exports = function(list, options) {
 	if(typeof DEBUG !== "undefined" && DEBUG) {
@@ -134,7 +144,7 @@ function addStyle(obj, options) {
 		};
 	} else {
 		styleElement = createStyleElement();
-		update = applyToTag.bind(null, styleElement);
+		update = applyToTag.bind(null, styleElement, options);
 		remove = function() {
 			styleElement.parentNode.removeChild(styleElement);
 		};
@@ -179,10 +189,14 @@ function applyToSingletonTag(styleElement, index, remove, obj) {
 	}
 }
 
-function applyToTag(styleElement, obj) {
+function applyToTag(styleElement, options, obj) {
 	var css = obj.css;
 	var media = obj.media;
 	var sourceMap = obj.sourceMap;
+
+	if (options.urlPrefix) {
+		css = css.replace(appendPrefixRegex, 'url(' + window.location.protocol + '//' + join(options.urlPrefix, '$1') + ')');
+	}
 
 	if(media) {
 		styleElement.setAttribute("media", media)
