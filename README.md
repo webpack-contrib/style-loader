@@ -45,6 +45,10 @@ Note: Behavior is undefined when `unuse`/`unref` is called more often than `use`
 
 ### Options
 
+#### `insertAt`
+
+By default, the style-loader appends `<style>` elements to the end of the `<head>` tag of the page. This will cause CSS created by the loader to take priority over CSS already present in the document head. To insert style elements at the beginning of the head, set this query parameter to 'bottom', e.g. `require('../style.css?insertAt=bottom')`.
+
 #### `singleton`
 
 If defined, the style-loader will re-use a single `<style>` element, instead of adding/removing individual elements for each required module. **Note:** this option is on by default in IE9, which has strict limitations on the number of style tags allowed on a page. You can enable or disable it with the singleton query parameter (`?singleton` or `?-singleton`).

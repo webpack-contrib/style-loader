@@ -29,6 +29,9 @@ module.exports = function(list, options) {
 	// tags it will allow on a page
 	if (typeof options.singleton === "undefined") options.singleton = isOldIE();
 
+	// By default, add <style> tags to the bottom of <head>.
+	if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
+
 	var styles = listToStyles(list);
 	addStylesToDom(styles, options);
 
@@ -95,11 +98,17 @@ function listToStyles(list) {
 	return styles;
 }
 
-function createStyleElement() {
+function createStyleElement(options) {
 	var styleElement = document.createElement("style");
 	var head = getHeadElement();
 	styleElement.type = "text/css";
-	head.appendChild(styleElement);
+	if (options.insertAt === "top") {
+		head.insertBefore(styleElement, head.firstChild);
+	} else if (options.insertAt === "bottom") {
+		head.appendChild(styleElement);
+	} else {
+		throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
+	}
 	return styleElement;
 }
 
@@ -116,7 +125,7 @@ function addStyle(obj, options) {
 
 	if (options.singleton) {
 		var styleIndex = singletonCounter++;
-		styleElement = singletonElement || (singletonElement = createStyleElement());
+		styleElement = singletonElement || (singletonElement = createStyleElement(options));
 		update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
 		remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
 	} else if(obj.sourceMap &&
@@ -133,7 +142,7 @@ function addStyle(obj, options) {
 				URL.revokeObjectURL(styleElement.href);
 		};
 	} else {
-		styleElement = createStyleElement();
+		styleElement = createStyleElement(options);
 		update = applyToTag.bind(null, styleElement);
 		remove = function() {
 			styleElement.parentNode.removeChild(styleElement);
