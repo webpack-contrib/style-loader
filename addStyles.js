@@ -30,7 +30,7 @@ module.exports = function(list, options) {
 	if (typeof options.singleton === "undefined") options.singleton = isOldIE();
 
 	// By default, add <style> tags to the bottom of <head>.
-	if (options.insertAt !== "top" && options.insertAt !== "bottom") options.insertAt = "bottom";
+	if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
 
 	var styles = listToStyles(list);
 	addStylesToDom(styles, options);
