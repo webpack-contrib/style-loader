@@ -47,7 +47,7 @@ Note: Behavior is undefined when `unuse`/`unref` is called more often than `use`
 
 #### `insertAt`
 
-By default, the style-loader appends `<style>` elements to the end of the `<head>` tag of the page. This will cause CSS created by the loader to take priority over CSS already present in the document head. To insert style elements at the beginning of the head, set this query parameter to 'bottom', e.g. `require('../style.css?insertAt=bottom')`.
+By default, the style-loader appends `<style>` elements to the end of the `<head>` tag of the page. This will cause CSS created by the loader to take priority over CSS already present in the document head. To insert style elements at the beginning of the head, set this query parameter to 'top', e.g. `require('../style.css?insertAt=top')`.
 
 #### `singleton`
 

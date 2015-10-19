@@ -1,7 +1,7 @@
 module.exports = {
 	module: {
 		loaders: [
-			{ test: /\.css$/, loader: "style!css?sourceMap" }
+			{ test: /\.css$/, loader: "style?insertAt=top!css?sourceMap" }
 		]
 	}
 }
