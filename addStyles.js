@@ -99,16 +99,16 @@ function listToStyles(list) {
 	return styles;
 }
 
-function createStyleElement(options) {
-	var styleElement = document.createElement("style");
+function insertStyleElement(options, styleElement) {
 	var head = getHeadElement();
 	var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
-	styleElement.type = "text/css";
 	if (options.insertAt === "top") {
-		if(lastStyleElementInsertedAtTop) {
+		if(!lastStyleElementInsertedAtTop) {
+			head.insertBefore(styleElement, head.firstChild);
+		} else if(lastStyleElementInsertedAtTop.nextSibling) {
 			head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
 		} else {
-			head.insertBefore(styleElement, head.firstChild);
+			head.appendChild(styleElement);
 		}
 		styleElementsInsertedAtTop.push(styleElement);
 	} else if (options.insertAt === "bottom") {
@@ -116,14 +116,27 @@ function createStyleElement(options) {
 	} else {
 		throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
 	}
+}
+
+function removeStyleElement(styleElement) {
+	styleElement.parentNode.removeChild(styleElement);
+	var idx = styleElementsInsertedAtTop.indexOf(styleElement);
+	if(idx >= 0) {
+		styleElementsInsertedAtTop.splice(idx, 1);
+	}
+}
+
+function createStyleElement(options) {
+	var styleElement = document.createElement("style");
+	styleElement.type = "text/css";
+	insertStyleElement(options, styleElement);
 	return styleElement;
 }
 
-function createLinkElement() {
+function createLinkElement(options) {
 	var linkElement = document.createElement("link");
-	var head = getHeadElement();
 	linkElement.rel = "stylesheet";
-	head.appendChild(linkElement);
+	insertStyleElement(options, linkElement);
 	return linkElement;
 }
 
@@ -141,10 +154,10 @@ function addStyle(obj, options) {
 		typeof URL.revokeObjectURL === "function" &&
 		typeof Blob === "function" &&
 		typeof btoa === "function") {
-		styleElement = createLinkElement();
+		styleElement = createLinkElement(options);
 		update = updateLink.bind(null, styleElement);
 		remove = function() {
-			styleElement.parentNode.removeChild(styleElement);
+			removeStyleElement(styleElement);
 			if(styleElement.href)
 				URL.revokeObjectURL(styleElement.href);
 		};
@@ -152,7 +165,7 @@ function addStyle(obj, options) {
 		styleElement = createStyleElement(options);
 		update = applyToTag.bind(null, styleElement);
 		remove = function() {
-			styleElement.parentNode.removeChild(styleElement);
+			removeStyleElement(styleElement);
 		};
 	}
 
