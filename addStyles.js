@@ -17,7 +17,8 @@ var stylesInDom = {},
 		return document.head || document.getElementsByTagName("head")[0];
 	}),
 	singletonElement = null,
-	singletonCounter = 0;
+	singletonCounter = 0,
+	styleElementsInsertedAtTop = [];
 
 module.exports = function(list, options) {
 	if(typeof DEBUG !== "undefined" && DEBUG) {
@@ -101,9 +102,15 @@ function listToStyles(list) {
 function createStyleElement(options) {
 	var styleElement = document.createElement("style");
 	var head = getHeadElement();
+	var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
 	styleElement.type = "text/css";
 	if (options.insertAt === "top") {
-		head.insertBefore(styleElement, head.firstChild);
+		if(lastStyleElementInsertedAtTop) {
+			head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
+		} else {
+			head.insertBefore(styleElement, head.firstChild);
+		}
+		styleElementsInsertedAtTop.push(styleElement);
 	} else if (options.insertAt === "bottom") {
 		head.appendChild(styleElement);
 	} else {
