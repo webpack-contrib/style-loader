@@ -13,7 +13,7 @@ require("style!raw!./file.css");
 
 It's recommended to combine it with the [`css-loader`](https://github.com/webpack/css-loader): `require("style!css!./file.css")`.
 
-It also possible to add a URL instead of a css string:
+It's also possible to add a URL instead of a CSS string:
 
 ``` javascript
 require("style/url!file!./file.css");
@@ -26,7 +26,7 @@ require("style/url!file!./file.css");
 
 When using placeholders (see css-loader) the module exports the placeholders object:
 
-``` js
+``` javascript
 var styles = require("style!css!./file.css");
 style.placeholder1 === "z849f98ca812bc0d099a43e0f90184"
 ```
@@ -39,7 +39,7 @@ style.use(); // = style.ref();
 style.unuse(); // = style.unref();
 ```
 
-Styles are not added on require, but instead on call to `use`/`ref`. Styles are removed from page if `unuse`/`unref` is called exactly as often as `use`/`ref`.
+Styles are not added on `require`, but instead on call to `use`/`ref`. Styles are removed from page if `unuse`/`unref` is called exactly as often as `use`/`ref`.
 
 Note: Behavior is undefined when `unuse`/`unref` is called more often than `use`/`ref`. Don't do that.
 
@@ -55,7 +55,7 @@ If defined, the style-loader will re-use a single `<style>` element, instead of 
 
 ## Recommended configuration
 
-By convention the reference-counted API should be bound to `.useable.css` and the simple API to `.css` (similar to other file types, i. e. `.useable.less` and `.less`).
+By convention the reference-counted API should be bound to `.useable.css` and the simple API to `.css` (similar to other file types, i.e. `.useable.less` and `.less`).
 
 So the recommended configuration for webpack is:
 
@@ -74,7 +74,9 @@ So the recommended configuration for webpack is:
 
 ## Install
 
-`npm install style-loader`
+```
+npm install style-loader
+```
 
 ## License
 
