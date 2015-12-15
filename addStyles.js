@@ -242,6 +242,12 @@ function updateLink(linkElement, obj) {
 	var oldSrc = linkElement.href;
 
 	linkElement.href = URL.createObjectURL(blob);
+	
+	setTimeout(function() {
+		linkElement.style.display = 'none';
+		linkElement.offsetHeight;
+		linkElement.style.display = '';
+	}, 0);
 
 	if(oldSrc)
 		URL.revokeObjectURL(oldSrc);
