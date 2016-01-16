@@ -211,7 +211,6 @@ function applyToSingletonTag(styleElement, index, remove, obj) {
 function applyToTag(styleElement, obj) {
 	var css = obj.css;
 	var media = obj.media;
-	var sourceMap = obj.sourceMap;
 
 	if(media) {
 		styleElement.setAttribute("media", media)
@@ -229,7 +228,6 @@ function applyToTag(styleElement, obj) {
 
 function updateLink(linkElement, obj) {
 	var css = obj.css;
-	var media = obj.media;
 	var sourceMap = obj.sourceMap;
 
 	if(sourceMap) {
