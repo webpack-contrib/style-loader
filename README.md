@@ -27,7 +27,7 @@ require("style/url!file!./file.css");
 When using [local scope CSS](https://github.com/webpack/css-loader#local-scope) the module exports the generated identifiers:
 
 ``` javascript
-var styles = require("style!css!./file.css");
+var style = require("style!css!./file.css");
 style.placeholder1 === "z849f98ca812bc0d099a43e0f90184"
 ```
 
