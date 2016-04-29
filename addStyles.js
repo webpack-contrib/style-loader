@@ -129,8 +129,22 @@ function removeStyleElement(styleElement) {
 function createStyleElement(options) {
 	var styleElement = document.createElement("style");
 	styleElement.type = "text/css";
+
+	addStyleAttributes(styleElement, options.attrs);
+
 	insertStyleElement(options, styleElement);
 	return styleElement;
+}
+
+function addStyleAttributes (style, attrs) {
+	if (!attrs) return false;
+
+	for (var i = attrs.length; i--;) {
+		var name = attrs[i][0];
+		var value = attrs[i][1];
+
+		style.setAttribute(name, value);
+	}
 }
 
 function createLinkElement(options) {
