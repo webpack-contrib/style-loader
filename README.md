@@ -53,6 +53,21 @@ By default, the style-loader appends `<style>` elements to the end of the `<head
 
 If defined, the style-loader will re-use a single `<style>` element, instead of adding/removing individual elements for each required module. **Note:** this option is on by default in IE9, which has strict limitations on the number of style tags allowed on a page. You can enable or disable it with the singleton query parameter (`?singleton` or `?-singleton`).
 
+#### `attrs`
+
+You can use attrs options e.g.
+
+```javascript
+require('style?attrs=attr-1:[name].[ext]!css!./somefile.css');
+//<style attr-1="somefile.css"></style>
+
+require('style?attrs=attr-1:value1\\:value2!css!./somefile.css');
+//<style attr-1="value1:value2"></style>
+
+require('style?attrs[]=attr-1:[name].[ext],attrs[]=attr-2:somevalue!css!./somefile.css');
+//<style attr-1="somefile.css" attr-2="somevalue"></style>
+```
+
 ## Recommended configuration
 
 By convention the reference-counted API should be bound to `.useable.css` and the simple API to `.css` (similar to other file types, i.e. `.useable.less` and `.less`).
