@@ -1,5 +1,7 @@
 # style loader for webpack
 
+Adds CSS to the DOM by injecting a `<style>` tag
+
 ## Usage
 
 [Documentation: Using loaders](http://webpack.github.io/docs/using-loaders.html)
