@@ -26,6 +26,7 @@ module.exports = function (css, currentUrl) {
 
 	//base url
 	var baseUrl = currentUrl.match(/^([a-z]+:)?(\/\/)?[^\/]+/)[0];
+	var protocol = baseUrl.split(":")[0];
 	var currentUrlPath = baseUrl + (currentUrl.replace(baseUrl, "")).replace(/\/[^\/]+$/, "") + "/";
 
 	//convert each url(...)
@@ -36,12 +37,15 @@ module.exports = function (css, currentUrl) {
 			.replace(/^'(.*)'$/, function(o,$1){ return $1; });
 
 		//already a full url? no change
-		if (/^(data:|http:\/\/|https:\/\/|file:\/\/\/|\/\/)/i.test(unquotedOrigUrl))
+		if (/^(data:|http:\/\/|https:\/\/|file:\/\/\/)/i.test(unquotedOrigUrl))
 		  return fullMatch;
 
 		//convert the url to a full url
 		var newUrl = unquotedOrigUrl;
-		if (newUrl.indexOf("/") === 0){
+		if (newUrl.indexOf("//") === 0) {
+		  //add protocol
+			newUrl = protocol + ":" +newUrl;
+		}else if (newUrl.indexOf("/") === 0){
 			//path should be relative to the base url
 			newUrl = baseUrl + newUrl;
 		}else{

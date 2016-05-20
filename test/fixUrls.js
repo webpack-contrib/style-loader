@@ -41,7 +41,6 @@ module.exports = function () {
   assert("Https url isn't changed", "body { background-image:url(https://example.com/bg.jpg); }");
   assert("HTTPS url isn't changed", "body { background-image:url(HTTPS://example.com/bg.jpg); }");
   assert("File url isn't changed", "body { background-image:url(file:///example.com/bg.jpg); }");
-  assert("Double slash url isn't changed", "body { background-image:url(//example.com/bg.jpg); }");
   assert("Image data uri url isn't changed", "body { background-image:url(data:image/png;base64,qsrwABYuwNkimqm3gAAAABJRU5ErkJggg==); }");
   assert("Font data uri url isn't changed", "body { background-image:url(data:application/x-font-woff;charset=utf-8;base64,qsrwABYuwNkimqm3gAAAABJRU5ErkJggg); }");
 
@@ -55,6 +54,10 @@ module.exports = function () {
   // rooted urls
   assert("Rooted url", "body { background-image:url(/bg.jpg); }", "body { background-image:url(\"https://x.y.z/bg.jpg\"); }");
   assert("Rooted url with path", "body { background-image:url(/a/b/bg.jpg); }", "body { background-image:url(\"https://x.y.z/a/b/bg.jpg\"); }");
+
+  // protocol-less urls are fixed
+  assert("Absolute urls without protocol are fixed, http", "body { background-image:url(//example.com/s/bg.jpg); }", "body { background-image:url(\"http://example.com/s/bg.jpg\"); }", "http://someothersite.com");
+  assert("Absolute urls without protocol are fixed, https", "body { background-image:url(//example.com/s/bg.jpg); }", "body { background-image:url(\"https://example.com/s/bg.jpg\"); }", "https://someothersite.com");
 
   //special locations
   assert("Location with no path, filename only", "body { background-image:url(bg.jpg); }", "body { background-image:url(\"http://x.y.z/bg.jpg\"); }", "http://x.y.z");
