@@ -18,7 +18,8 @@ var stylesInDom = {},
 	}),
 	singletonElement = null,
 	singletonCounter = 0,
-	styleElementsInsertedAtTop = [];
+	styleElementsInsertedAtTop = [],
+	fixUrls = require("./fixUrls");
 
 module.exports = function(list, options) {
 	if(typeof DEBUG !== "undefined" && DEBUG) {
@@ -32,6 +33,9 @@ module.exports = function(list, options) {
 
 	// By default, add <style> tags to the bottom of <head>.
 	if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
+
+	// Fix urls defaults to false
+	if (typeof options.fixUrls === "undefined") options.fixUrls = false;
 
 	var styles = listToStyles(list);
 	addStylesToDom(styles, options);
@@ -155,7 +159,7 @@ function addStyle(obj, options) {
 		typeof Blob === "function" &&
 		typeof btoa === "function") {
 		styleElement = createLinkElement(options);
-		update = updateLink.bind(null, styleElement);
+		update = updateLink.bind(null, styleElement, options);
 		remove = function() {
 			removeStyleElement(styleElement);
 			if(styleElement.href)
@@ -226,9 +230,13 @@ function applyToTag(styleElement, obj) {
 	}
 }
 
-function updateLink(linkElement, obj) {
+function updateLink(linkElement, options, obj) {
 	var css = obj.css;
 	var sourceMap = obj.sourceMap;
+
+	if (options.fixUrls){
+		css = fixUrls(css);
+	}
 
 	if(sourceMap) {
 		// http://stackoverflow.com/a/26603875
