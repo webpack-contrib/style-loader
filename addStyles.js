@@ -142,7 +142,7 @@ function createLinkElement(parentElement, options) {
 	return linkElement;
 }
 
-function addStyle(obj, options, parentElement) {
+function addStyle(obj, parentElement, options) {
 	var styleElement, update, remove;
 
 	if (options.singleton) {
