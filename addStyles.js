@@ -20,7 +20,7 @@ var stylesInDom = {},
 	singletonCounter = 0,
 	styleElementsInsertedAtTop = [];
 
-module.exports = function(list, options) {
+module.exports = function(list, options, parentElement) {
 	if(typeof DEBUG !== "undefined" && DEBUG) {
 		if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
 	}
@@ -33,8 +33,11 @@ module.exports = function(list, options) {
 	// By default, add <style> tags to the bottom of <head>.
 	if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
 
+	// If no `parentElement` was supplied (via `use()` call first parameter), default to document <head>.
+	if (typeof parentElement === "undefined") parentElement = getHeadElement();
+
 	var styles = listToStyles(list);
-	addStylesToDom(styles, options);
+	addStylesToDom(styles, parentElement, options);
 
 	return function update(newList) {
 		var mayRemove = [];
@@ -46,7 +49,7 @@ module.exports = function(list, options) {
 		}
 		if(newList) {
 			var newStyles = listToStyles(newList);
-			addStylesToDom(newStyles, options);
+			addStylesToDom(newStyles, parentElement, options);
 		}
 		for(var i = 0; i < mayRemove.length; i++) {
 			var domStyle = mayRemove[i];
@@ -59,7 +62,7 @@ module.exports = function(list, options) {
 	};
 }
 
-function addStylesToDom(styles, options) {
+function addStylesToDom(styles, parentElement, options) {
 	for(var i = 0; i < styles.length; i++) {
 		var item = styles[i];
 		var domStyle = stylesInDom[item.id];
@@ -69,12 +72,12 @@ function addStylesToDom(styles, options) {
 				domStyle.parts[j](item.parts[j]);
 			}
 			for(; j < item.parts.length; j++) {
-				domStyle.parts.push(addStyle(item.parts[j], options));
+				domStyle.parts.push(addStyle(item.parts[j], parentElement, options));
 			}
 		} else {
 			var parts = [];
 			for(var j = 0; j < item.parts.length; j++) {
-				parts.push(addStyle(item.parts[j], options));
+				parts.push(addStyle(item.parts[j], parentElement, options));
 			}
 			stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
 		}
@@ -99,20 +102,19 @@ function listToStyles(list) {
 	return styles;
 }
 
-function insertStyleElement(options, styleElement) {
-	var head = getHeadElement();
+function insertStyleElement(styleElement, parentElement, options) {
 	var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
 	if (options.insertAt === "top") {
 		if(!lastStyleElementInsertedAtTop) {
-			head.insertBefore(styleElement, head.firstChild);
+			parentElement.insertBefore(styleElement, parentElement.firstChild);
 		} else if(lastStyleElementInsertedAtTop.nextSibling) {
-			head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
+			parentElement.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
 		} else {
-			head.appendChild(styleElement);
+			parentElement.appendChild(styleElement);
 		}
 		styleElementsInsertedAtTop.push(styleElement);
 	} else if (options.insertAt === "bottom") {
-		head.appendChild(styleElement);
+		parentElement.appendChild(styleElement);
 	} else {
 		throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
 	}
@@ -126,26 +128,26 @@ function removeStyleElement(styleElement) {
 	}
 }
 
-function createStyleElement(options) {
+function createStyleElement(parentElement, options) {
 	var styleElement = document.createElement("style");
 	styleElement.type = "text/css";
-	insertStyleElement(options, styleElement);
+	insertStyleElement(styleElement, parentElement, options);
 	return styleElement;
 }
 
-function createLinkElement(options) {
+function createLinkElement(parentElement, options) {
 	var linkElement = document.createElement("link");
 	linkElement.rel = "stylesheet";
-	insertStyleElement(options, linkElement);
+	insertStyleElement(linkElement, parentElement, options);
 	return linkElement;
 }
 
-function addStyle(obj, options) {
+function addStyle(obj, options, parentElement) {
 	var styleElement, update, remove;
 
 	if (options.singleton) {
 		var styleIndex = singletonCounter++;
-		styleElement = singletonElement || (singletonElement = createStyleElement(options));
+		styleElement = singletonElement || (singletonElement = createStyleElement(parentElement, options));
 		update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
 		remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
 	} else if(obj.sourceMap &&
@@ -154,7 +156,7 @@ function addStyle(obj, options) {
 		typeof URL.revokeObjectURL === "function" &&
 		typeof Blob === "function" &&
 		typeof btoa === "function") {
-		styleElement = createLinkElement(options);
+		styleElement = createLinkElement(parentElement, options);
 		update = updateLink.bind(null, styleElement);
 		remove = function() {
 			removeStyleElement(styleElement);
@@ -162,7 +164,7 @@ function addStyle(obj, options) {
 				URL.revokeObjectURL(styleElement.href);
 		};
 	} else {
-		styleElement = createStyleElement(options);
+		styleElement = createStyleElement(parentElement, options);
 		update = applyToTag.bind(null, styleElement);
 		remove = function() {
 			removeStyleElement(styleElement);
