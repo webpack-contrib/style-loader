@@ -93,8 +93,6 @@ function listToStyles(list) {
 		var part = {css: css, media: media, sourceMap: sourceMap};
 		if(!newStyles[id])
 			styles.push(newStyles[id] = {id: id, parts: [part]});
-		else
-			newStyles[id].parts.push(part);
 	}
 	return styles;
 }
