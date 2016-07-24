@@ -9,7 +9,7 @@ Adds CSS to the DOM by injecting a `<style>` tag
 ### Simple API
 
 ``` javascript
-require("style!raw!./file.css");
+require("simple-universal-style!raw!./file.css");
 // => add rules in file.css to document
 ```
 
@@ -18,7 +18,7 @@ It's recommended to combine it with the [`css-loader`](https://github.com/webpac
 It's also possible to add a URL instead of a CSS string:
 
 ``` javascript
-require("style/url!file!./file.css");
+require("simple-universal-style/url!file!./file.css");
 // => add a <link rel="stylesheet"> to file.css to document
 ```
 
@@ -29,14 +29,14 @@ require("style/url!file!./file.css");
 When using [local scope CSS](https://github.com/webpack/css-loader#local-scope) the module exports the generated identifiers:
 
 ``` javascript
-var style = require("style!css!./file.css");
+var style = require("simple-universal-style!css!./file.css");
 style.placeholder1 === "z849f98ca812bc0d099a43e0f90184"
 ```
 
 ### Reference-counted API
 
 ``` javascript
-var style = require("style/useable!css!./file.css");
+var style = require("simple-universal-style/useable!css!./file.css");
 style.use(); // = style.ref();
 style.unuse(); // = style.unref();
 ```
@@ -81,8 +81,8 @@ So the recommended configuration for webpack is:
 {
   module: {
     loaders: [
-      { test: /\.css$/, exclude: /\.useable\.css$/, loader: "style!css" },
-      { test: /\.useable\.css$/, loader: "style/useable!css" }
+      { test: /\.css$/, exclude: /\.useable\.css$/, loader: "simple-universal-style!css" },
+      { test: /\.useable\.css$/, loader: "simple-universal-style/useable!css" }
     ]
   }
 }
@@ -93,7 +93,7 @@ So the recommended configuration for webpack is:
 ## Install
 
 ```
-npm install style-loader
+npm install simple-universal-style-loader
 ```
 
 ## License
