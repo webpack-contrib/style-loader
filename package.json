@@ -1,6 +1,6 @@
 {
   "name": "simple-universal-style-loader",
-  "version": "0.14.0",
+  "version": "0.14.2",
   "author": "Tobias Koppers @sokra & Istvan Jano @janoist1",
   "description": "style loader module for webpack",
   "devDependencies": {
