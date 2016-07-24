@@ -14,11 +14,11 @@ module.exports.pitch = function(remainingRequest) {
 		"// load the styles",
 		"var content = require(" + loaderUtils.stringifyRequest(this, "!!" + remainingRequest) + ");",
 		"if(typeof content === 'string') content = [[module.id, content, '']];",
-		"// add the styles to the DOM",
 		"if(content.locals) module.exports = content.locals;",
 		"if (typeof window === 'undefined') {",
 		"   require(" + loaderUtils.stringifyRequest(this, "!" + path.join(__dirname, "addStylesServer.js")) + ")(content, " + JSON.stringify(query) + ");",
 		"} else {",
+		"// add the styles to the DOM",
 		"var update = require(" + loaderUtils.stringifyRequest(this, "!" + path.join(__dirname, "addStyles.js")) + ")(content, " + JSON.stringify(query) + ");",
 		"// Hot Module Replacement",
 		"if(module.hot) {",
@@ -32,6 +32,7 @@ module.exports.pitch = function(remainingRequest) {
 		"	}",
 		"	// When the module is disposed, remove the <style> tags",
 		"	module.hot.dispose(function() { update(); });",
+		"}",
 		"}"
 	].join("\n");
 };
