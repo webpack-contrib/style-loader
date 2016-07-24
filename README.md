@@ -45,6 +45,22 @@ Styles are not added on `require`, but instead on call to `use`/`ref`. Styles ar
 
 Note: Behavior is undefined when `unuse`/`unref` is called more often than `use`/`ref`. Don't do that.
 
+### Server environment
+
+On server side we can't load styles into the DOM but to collect them and use when assembling the layout. 
+
+Example with React:
+
+``` javascript
+<head>
+    <title>React Redux Starter Kit</title>
+    { global.__styles__.map(style =>
+      <style key={style.id}
+             type="text/css">{style.parts.map(part => part.css + "\n")}</style>)
+    }
+</head>
+```
+
 ### Options
 
 #### `insertAt`
