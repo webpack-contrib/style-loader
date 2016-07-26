@@ -61,6 +61,12 @@ Example with React:
 </head>
 ```
 
+From version 0.14.4 the captured styles can be get by using `getStyles()` as well:
+
+``` javascript
+import { getStyles } from 'simple-universal-style-loader'
+```
+
 ### Options
 
 #### `insertAt`

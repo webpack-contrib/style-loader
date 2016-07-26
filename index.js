@@ -1,9 +1,10 @@
 /*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
+ MIT License http://www.opensource.org/licenses/mit-license.php
+ Author Tobias Koppers @sokra
+ */
 var loaderUtils = require("loader-utils"),
-	path = require("path");
+	path = require("path"),
+	universal = require('./universal');
 module.exports = function() {};
 module.exports.pitch = function(remainingRequest) {
 	if(this.cacheable) this.cacheable();
@@ -16,7 +17,7 @@ module.exports.pitch = function(remainingRequest) {
 		"if(typeof content === 'string') content = [[module.id, content, '']];",
 		"if(content.locals) module.exports = content.locals;",
 		"if (typeof window === 'undefined') {",
-		"   require(" + loaderUtils.stringifyRequest(this, "!" + path.join(__dirname, "addStylesServer.js")) + ")(content, " + JSON.stringify(query) + ");",
+		"   require(" + loaderUtils.stringifyRequest(this, "!" + path.join(__dirname, "universal.js")) + ").addStyles(content, " + JSON.stringify(query) + ");",
 		"} else {",
 		"// add the styles to the DOM",
 		"var update = require(" + loaderUtils.stringifyRequest(this, "!" + path.join(__dirname, "addStyles.js")) + ")(content, " + JSON.stringify(query) + ");",
@@ -36,3 +37,5 @@ module.exports.pitch = function(remainingRequest) {
 		"}"
 	].join("\n");
 };
+
+module.exports.getStyles = universal.getStyles

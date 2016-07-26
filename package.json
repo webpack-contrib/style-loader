@@ -1,6 +1,6 @@
 {
   "name": "simple-universal-style-loader",
-  "version": "0.14.3",
+  "version": "0.14.4",
   "author": "Tobias Koppers @sokra & Istvan Jano @janoist1",
   "description": "style loader module for webpack",
   "devDependencies": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:webpack/style-loader.git"
+    "url": "git@github.com:janoist1/simple-universal-style-loader.git"
   },
   "license": "MIT",
   "dependencies": {
