@@ -37,8 +37,8 @@ var stylesInDom = {},
 module.exports = function(list, options) {
 	if(typeof document !== "object") {
 		var cssStrings = listToStyles(list)[0].parts[0].css
-		window.bundleCss = window.bundleCss
-			? window.bundleCss + "\n" + cssStrings
+		global.bundleCss = global.bundleCss
+			? global.bundleCss + "\n" + cssStrings
 			: cssStrings;
 		return;
 	}
