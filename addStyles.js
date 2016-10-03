@@ -36,7 +36,9 @@ var stylesInDom = {},
 
 module.exports = function(list, options) {
 	if(typeof document !== "object") {
-		var cssStrings = listToStyles(list)[0].parts[0].css
+		var cssStrings = listToStyles(list)[0].parts.reduce(function(acc, part) {
+			return acc + part.css + "\n";
+		}, '');
 		global.bundleCss = global.bundleCss
 			? global.bundleCss + "\n" + cssStrings
 			: cssStrings;
