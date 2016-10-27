@@ -9,7 +9,7 @@ Adds CSS to the DOM by injecting a `<style>` tag
 ### Simple API
 
 ``` javascript
-require("style!raw!./file.css");
+require("simple-universal-style!raw!./file.css");
 // => add rules in file.css to document
 ```
 
@@ -18,7 +18,7 @@ It's recommended to combine it with the [`css-loader`](https://github.com/webpac
 It's also possible to add a URL instead of a CSS string:
 
 ``` javascript
-require("style/url!file!./file.css");
+require("simple-universal-style/url!file!./file.css");
 // => add a <link rel="stylesheet"> to file.css to document
 ```
 
@@ -29,14 +29,14 @@ require("style/url!file!./file.css");
 When using [local scope CSS](https://github.com/webpack/css-loader#local-scope) the module exports the generated identifiers:
 
 ``` javascript
-var style = require("style!css!./file.css");
+var style = require("simple-universal-style!css!./file.css");
 style.placeholder1 === "z849f98ca812bc0d099a43e0f90184"
 ```
 
 ### Reference-counted API
 
 ``` javascript
-var style = require("style/useable!css!./file.css");
+var style = require("simple-universal-style/useable!css!./file.css");
 style.use(); // = style.ref();
 style.unuse(); // = style.unref();
 ```
@@ -44,6 +44,28 @@ style.unuse(); // = style.unref();
 Styles are not added on `require`, but instead on call to `use`/`ref`. Styles are removed from page if `unuse`/`unref` is called exactly as often as `use`/`ref`.
 
 Note: Behavior is undefined when `unuse`/`unref` is called more often than `use`/`ref`. Don't do that.
+
+### Server environment
+
+On server side we can't load styles into the DOM but to collect them and use when assembling the layout. 
+
+Example with React:
+
+``` javascript
+<head>
+    <title>React Redux Starter Kit</title>
+    { global.__styles__.map(style =>
+      <style key={style.id}
+             type="text/css">{style.parts.map(part => part.css + "\n")}</style>)
+    }
+</head>
+```
+
+From version 0.14.4 the captured styles can be get by using `getStyles()` as well:
+
+``` javascript
+import { getStyles } from 'simple-universal-style-loader'
+```
 
 ### Options
 
@@ -65,8 +87,8 @@ So the recommended configuration for webpack is:
 {
   module: {
     loaders: [
-      { test: /\.css$/, exclude: /\.useable\.css$/, loader: "style!css" },
-      { test: /\.useable\.css$/, loader: "style/useable!css" }
+      { test: /\.css$/, exclude: /\.useable\.css$/, loader: "simple-universal-style!css" },
+      { test: /\.useable\.css$/, loader: "simple-universal-style/useable!css" }
     ]
   }
 }
@@ -77,7 +99,7 @@ So the recommended configuration for webpack is:
 ## Install
 
 ```
-npm install style-loader
+npm install simple-universal-style-loader
 ```
 
 ## License

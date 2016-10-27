@@ -1,17 +1,34 @@
 {
-  "name": "style-loader",
-  "version": "0.13.1",
-  "author": "Tobias Koppers @sokra",
+  "name": "simple-universal-style-loader",
+  "version": "0.14.4",
+  "author": "Tobias Koppers @sokra & Istvan Jano @janoist1",
   "description": "style loader module for webpack",
   "devDependencies": {
     "css-loader": "~0.8.0"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:webpack/style-loader.git"
+    "url": "git@github.com:janoist1/simple-universal-style-loader.git"
   },
   "license": "MIT",
   "dependencies": {
     "loader-utils": "^0.2.7"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/webpack/style-loader/issues"
+  },
+  "homepage": "https://github.com/webpack/style-loader",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "universal",
+    "isomorphic",
+    "client",
+    "server",
+    "style",
+    "loader",
+    "webpack"
+  ]
 }
