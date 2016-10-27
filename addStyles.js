@@ -183,9 +183,9 @@ function addStyle(obj, options) {
 			throw new Error("A function named " + options.transformCssOnLoad + " needs to be available on the global scope.");
 		}
 	    obj.css = transformationFunction(obj.css);
-	    // If the transformCssOnLoad function didn't return a value, don't add this css. 
+	    // If the transformCssOnLoad function returns false, don't add this css. 
 	    // This allows conditional loading of css
-	    if (!obj.css) {
+	    if (obj.css === false) {
 	    	return;
 	    }
 	}
