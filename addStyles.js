@@ -178,7 +178,7 @@ function addStyle(obj, options) {
 
 	// If a transformCssOnLoad function was defined, run it on the css
 	if (options.transformCssOnLoad && obj.css) {
-		var transformationFunction = window[options.transformCssOnLoad];
+		var transformationFunction = self[options.transformCssOnLoad];
 		if (!transformationFunction) {
 			throw new Error("A function named " + options.transformCssOnLoad + " needs to be available on the global scope.");
 		}
