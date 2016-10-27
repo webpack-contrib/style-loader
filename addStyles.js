@@ -176,6 +176,20 @@ function attachTagAttrs(element, attrs) {
 function addStyle(obj, options) {
 	var styleElement, update, remove;
 
+	// If a transformCssOnLoad function was defined, run it on the css
+	if (options.transformCssOnLoad && obj.css) {
+		var transformationFunction = window[options.transformCssOnLoad];
+		if (!transformationFunction) {
+			throw new Error("A function named " + options.transformCssOnLoad + " needs to be available on the global scope.");
+		}
+	    obj.css = transformationFunction(obj.css);
+	    // If the transformCssOnLoad function didn't return a value, don't add this css. 
+	    // This allows conditional loading of css
+	    if (!obj.css) {
+	    	return;
+	    }
+	}
+
 	if (options.singleton) {
 		var styleIndex = singletonCounter++;
 		styleElement = singletonElement || (singletonElement = createStyleElement(options));
