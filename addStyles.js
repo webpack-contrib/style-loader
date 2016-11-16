@@ -229,6 +229,34 @@ function applyToTag(styleElement, obj) {
 function updateLink(linkElement, obj) {
 	var css = obj.css;
 	var sourceMap = obj.sourceMap;
+	var absPrefix = window.location.protocol + '//' + window.location.host;
+
+	css = css
+		.replace(
+			new RegExp('url\\(//', 'g'),
+			'url(' + window.location.protocol + '//'
+		)
+		.replace(
+			new RegExp('url\\(\'//', 'g'),
+			'url(\'' + window.location.protocol + '//'
+		)
+		.replace(
+			new RegExp('url\\(\"/', 'g'),
+			'url(\"' + window.location.protocol + '//'
+		)
+		.replace(
+			new RegExp('url\\(/', 'g'),
+			'url(' + absPrefix + '/'
+		)
+		.replace(
+			new RegExp('url\\(\'/', 'g'),
+			'url(\'' + absPrefix + '/'
+		)
+		.replace(
+			new RegExp('url\\(\"/', 'g'),
+			'url(\"' + absPrefix + '/'
+		)
+	;
 
 	if(sourceMap) {
 		// http://stackoverflow.com/a/26603875
