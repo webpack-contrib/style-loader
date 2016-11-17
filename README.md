@@ -2,6 +2,12 @@
 
 Adds CSS to the DOM by injecting a `<style>` tag
 
+## Install
+
+```
+npm install style-loader --save-dev
+```
+
 ## Usage
 
 [Documentation: Using loaders](http://webpack.github.io/docs/using-loaders.html)
@@ -73,12 +79,6 @@ So the recommended configuration for webpack is:
 ```
 
 **Note** about source maps support and assets referenced with `url`: when style loader is used with ?sourceMap option, the CSS modules will be generated as `Blob`s, so relative paths don't work (they would be relative to `chrome:blob` or `chrome:devtools`). In order for assets to maintain correct paths setting `output.publicPath` property of webpack configuration must be set, so that absolute paths are generated.
-
-## Install
-
-```
-npm install style-loader
-```
 
 ## License
 
