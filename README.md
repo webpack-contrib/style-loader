@@ -70,11 +70,28 @@ So the recommended configuration for webpack is:
 ``` javascript
 {
   module: {
-    loaders: [
-      { test: /\.css$/, exclude: /\.useable\.css$/, loader: "style-loader!css-loader" },
-      { test: /\.useable\.css$/, loader: "style-loader/useable!css-loader" }
-    ]
-  }
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          { loader: "style-loader" },
+          { loader: "css-loader" },
+        ],
+      },
+      {
+        test: /\.useable\.css$/,
+        use: [
+          { 
+            loader: "style-loader",
+            options: {
+              useable: true
+            },
+          },
+          { loader: "css-loader" },
+        ],
+      },
+    ],
+  },
 }
 ```
 
