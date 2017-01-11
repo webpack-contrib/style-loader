@@ -4,10 +4,12 @@
 */
 var loaderUtils = require("loader-utils"),
 	path = require("path");
+	prepareAttributes = require("./prepareAttributes");
 module.exports = function() {};
 module.exports.pitch = function(remainingRequest) {
 	if(this.cacheable) this.cacheable();
 	var query = loaderUtils.parseQuery(this.query);
+	if (query.attrs) query.attrs = prepareAttributes(this, query.attrs);
 	return [
 		"var refs = 0;",
 		"var dispose;",
