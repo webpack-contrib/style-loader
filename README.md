@@ -61,6 +61,11 @@ By default, the style-loader appends `<style>` elements to the end of the `<head
 
 If defined, the style-loader will re-use a single `<style>` element, instead of adding/removing individual elements for each required module. **Note:** this option is on by default in IE9, which has strict limitations on the number of style tags allowed on a page. You can enable or disable it with the singleton query parameter (`?singleton` or `?-singleton`).
 
+#### `fullLocalExport`
+
+By default, style loader does not work server side since there is no way to insert a style tag in a global way. Setting query parameter
+(`?fullLocalExport`) returns `content` instead of just `content.locals`. This enables developer to collect styles for server side rendering.
+
 ## Recommended configuration
 
 By convention the reference-counted API should be bound to `.useable.css` and the simple API to `.css` (similar to other file types, i.e. `.useable.less` and `.less`).

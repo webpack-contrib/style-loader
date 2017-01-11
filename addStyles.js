@@ -21,9 +21,7 @@ var stylesInDom = {},
 	styleElementsInsertedAtTop = [];
 
 module.exports = function(list, options) {
-	if(typeof DEBUG !== "undefined" && DEBUG) {
-		if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
-	}
+	if(typeof document !== "object") return;
 
 	options = options || {};
 	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
