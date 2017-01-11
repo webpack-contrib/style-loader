@@ -61,6 +61,10 @@ By default, the style-loader appends `<style>` elements to the end of the `<head
 
 If defined, the style-loader will re-use a single `<style>` element, instead of adding/removing individual elements for each required module. **Note:** this option is on by default in IE9, which has strict limitations on the number of style tags allowed on a page. You can enable or disable it with the singleton query parameter (`?singleton` or `?-singleton`).
 
+#### `amp`
+
+If defined, the style-loader will enable the `singleton` option and add the attribute `amp-custom` to the `<style>` element to match the [AMP specs](https://www.ampproject.org/docs/get_started/create/presentation_layout.html). You can enable or disable it with the amp query parameter (`?amp` or `?-amp`).
+
 ## Recommended configuration
 
 By convention the reference-counted API should be bound to `.useable.css` and the simple API to `.css` (similar to other file types, i.e. `.useable.less` and `.less`).

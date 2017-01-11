@@ -26,6 +26,15 @@ module.exports = function(list, options) {
 	}
 
 	options = options || {};
+
+	// AMP requires to add the attribute "amp-custom" in <style>
+	// AMP also requires only one <style amp-custom> tag by page
+	if (typeof options.amp === "undefined") {
+		options.amp = false;
+	} else if (options.amp) {
+		options.singleton = true;
+	}
+
 	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
 	// tags it will allow on a page
 	if (typeof options.singleton === "undefined") options.singleton = isOldIE();
@@ -128,7 +137,13 @@ function removeStyleElement(styleElement) {
 
 function createStyleElement(options) {
 	var styleElement = document.createElement("style");
-	styleElement.type = "text/css";
+
+	if (options.amp) {
+		styleElement.setAttributeNode(document.createAttribute("amp-custom"));
+	} else {
+		styleElement.type = "text/css";
+	}
+
 	insertStyleElement(options, styleElement);
 	return styleElement;
 }
