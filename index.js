@@ -8,19 +8,31 @@ module.exports = function() {};
 module.exports.pitch = function(remainingRequest) {
 	if(this.cacheable) this.cacheable();
 	var query = loaderUtils.parseQuery(this.query);
+
+	var importJs;
+	var loaders = remainingRequest.split('!');
+	if (loaders[0].indexOf('/css-loader/index.js') != -1) {
+		importJs = "import { $cssLoader } from " + loaderUtils.stringifyRequest(this, "!!" + remainingRequest) + ";\n" +
+			"export * from " + loaderUtils.stringifyRequest(this, "!!" + remainingRequest) + ";\n" +
+			"export { default } from " + loaderUtils.stringifyRequest(this, "!!" + remainingRequest) + ";\n";
+	} else {
+		importJs = "var $cssLoader = {\n" +
+			"\t id: module.id,\n" + 
+			"\t content: require(" + loaderUtils.stringifyRequest(this, "!!" + remainingRequest) + "),\n" +
+			"\t mediaQueries: []\n" +
+			"};\n";
+	}
 	return [
 		"// style-loader: Adds some css to the DOM by adding a <style> tag",
 		"",
 		"// load the styles",
-		"var content = require(" + loaderUtils.stringifyRequest(this, "!!" + remainingRequest) + ");",
-		"if(typeof content === 'string') content = [[module.id, content, '']];",
+		importJs,
 		"// add the styles to the DOM",
-		"var update = require(" + loaderUtils.stringifyRequest(this, "!" + path.join(__dirname, "addStyles.js")) + ")(content, " + JSON.stringify(query) + ");",
-		"if(content.locals) module.exports = content.locals;",
+		"var update = require(" + loaderUtils.stringifyRequest(this, "!" + path.join(__dirname, "addStyles.js")) + ")($cssLoader, " + JSON.stringify(query) + ");",
 		"// Hot Module Replacement",
 		"if(module.hot) {",
 		"	// When the styles change, update the <style> tags",
-		"	if(!content.locals) {",
+		"	if(false/*!content.locals*/) {",
 		"		module.hot.accept(" + loaderUtils.stringifyRequest(this, "!!" + remainingRequest) + ", function() {",
 		"			var newContent = require(" + loaderUtils.stringifyRequest(this, "!!" + remainingRequest) + ");",
 		"			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];",
