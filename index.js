@@ -12,11 +12,11 @@ module.exports.pitch = function(remainingRequest) {
 	var importJs;
 	var loaders = remainingRequest.split('!');
 	if (loaders[0].indexOf('/css-loader/index.js') != -1) {
-		importJs = "import { $cssLoader } from " + loaderUtils.stringifyRequest(this, "!!" + remainingRequest) + ";\n" +
+		importJs = "import { $css } from " + loaderUtils.stringifyRequest(this, "!!" + remainingRequest) + ";\n" +
 			"export * from " + loaderUtils.stringifyRequest(this, "!!" + remainingRequest) + ";\n" +
 			"export { default } from " + loaderUtils.stringifyRequest(this, "!!" + remainingRequest) + ";\n";
 	} else {
-		importJs = "var $cssLoader = {\n" +
+		importJs = "var $css = {\n" +
 			"\t id: module.id,\n" + 
 			"\t content: require(" + loaderUtils.stringifyRequest(this, "!!" + remainingRequest) + "),\n" +
 			"\t mediaQueries: []\n" +
@@ -24,15 +24,16 @@ module.exports.pitch = function(remainingRequest) {
 	}
 	return [
 		"// style-loader: Adds some css to the DOM by adding a <style> tag",
-		"",
+		// TODO: Update HMR
+		"var content = { locals: true };",
 		"// load the styles",
 		importJs,
 		"// add the styles to the DOM",
-		"var update = require(" + loaderUtils.stringifyRequest(this, "!" + path.join(__dirname, "addStyles.js")) + ")($cssLoader, " + JSON.stringify(query) + ");",
+		"var update = require(" + loaderUtils.stringifyRequest(this, "!" + path.join(__dirname, "addStyles.js")) + ")($css, " + JSON.stringify(query) + ");",
 		"// Hot Module Replacement",
 		"if(module.hot) {",
 		"	// When the styles change, update the <style> tags",
-		"	if(false/*!content.locals*/) {",
+		"	if(!content.locals) {",
 		"		module.hot.accept(" + loaderUtils.stringifyRequest(this, "!!" + remainingRequest) + ", function() {",
 		"			var newContent = require(" + loaderUtils.stringifyRequest(this, "!!" + remainingRequest) + ");",
 		"			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];",

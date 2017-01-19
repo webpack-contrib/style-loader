@@ -91,24 +91,19 @@ function objectToStyles(object) {
 		] }
 	);
 
-	function recurse(parentObject) {
-		for (var i = 0; i < parentObject.mediaQueries.length; i++) {
-			var childObject = parentObject.mediaQueries[i][0];
-			var mediaQuery = parentObject.mediaQueries[i][1];
-			var id = childObject.id;
-			var css = childObject.content;
-			var sourceMap = childObject.sourceMap;
-			var part = {css: css, media: mediaQuery, sourceMap: sourceMap};
-			if(!newStyles[id]) {
-				styles.push(newStyles[id] = {id: id, parts: [part]});
-			} else {
-				newStyles[id].parts.push(part);
-				recurse(childObject);
-			}
+	for (var i = 0; i < object.imports.length; i++) {
+		var childObject = object.imports[i][0];
+		var mediaQuery = object.imports[i][1];
+		var id = childObject.id;
+		var css = childObject.content;
+		var sourceMap = childObject.sourceMap;
+		var part = {css: css, media: mediaQuery, sourceMap: sourceMap};
+		if(!newStyles[id]) {
+			styles.push(newStyles[id] = {id: id, parts: [part]});
+		} else {
+			newStyles[id].parts.push(part);
 		}
 	}
-
-	recurse(object);
 
 	return styles;
 }
