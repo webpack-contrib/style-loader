@@ -105,7 +105,7 @@ function listToStyles(list, options) {
 	var newStyles = {};
 	for(var i = 0; i < list.length; i++) {
 		var item = list[i];
-		var id = item[0] + (options.cssBase || 0);
+		var id = item[0] + (+(options.cssBase || 0));
 		var css = item[1];
 		var media = item[2];
 		var sourceMap = item[3];
