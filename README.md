@@ -136,7 +136,7 @@ Don't hesitate to create a pull request. Every contribution is appreciated. In d
 
 <h2 align="center">LICENSE</h2>
 
-#### [MIT](./LICENSE)
+MIT
 
 [npm]: https://img.shields.io/npm/v/style-loader.svg
 [npm-url]: https://npmjs.com/package/style-loader
