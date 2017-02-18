@@ -43,7 +43,7 @@ require("style-loader/url!file-loader!./file.css");
 
 (experimental)
 
-When using [local scope CSS](https://github.com/webpack/css-loader#local-scope) the module exports the generated identifiers:
+When using [local scope CSS](https://github.com/webpack/css-loader#css-scope) the module exports the generated identifiers:
 
 ``` javascript
 var style = require("style-loader!css-loader!./file.css");
