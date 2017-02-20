@@ -20,7 +20,7 @@ var stylesInDom = {},
 	singletonCounter = 0,
 	styleElementsInsertedAtTop = [];
 
-module.exports = function(list, options) {
+module.exports = function(object, options) {
 	if(typeof DEBUG !== "undefined" && DEBUG) {
 		if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
 	}
@@ -33,10 +33,10 @@ module.exports = function(list, options) {
 	// By default, add <style> tags to the bottom of <head>.
 	if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
 
-	var styles = listToStyles(list);
+	var styles = objectToStyles(object);
 	addStylesToDom(styles, options);
 
-	return function update(newList) {
+	return function update(newObject) {
 		var mayRemove = [];
 		for(var i = 0; i < styles.length; i++) {
 			var item = styles[i];
@@ -44,8 +44,8 @@ module.exports = function(list, options) {
 			domStyle.refs--;
 			mayRemove.push(domStyle);
 		}
-		if(newList) {
-			var newStyles = listToStyles(newList);
+		if(newObject) {
+			var newStyles = objectToStyles(newObject);
 			addStylesToDom(newStyles, options);
 		}
 		for(var i = 0; i < mayRemove.length; i++) {
@@ -81,21 +81,30 @@ function addStylesToDom(styles, options) {
 	}
 }
 
-function listToStyles(list) {
+function objectToStyles(object) {
 	var styles = [];
 	var newStyles = {};
-	for(var i = 0; i < list.length; i++) {
-		var item = list[i];
-		var id = item[0];
-		var css = item[1];
-		var media = item[2];
-		var sourceMap = item[3];
-		var part = {css: css, media: media, sourceMap: sourceMap};
-		if(!newStyles[id])
+
+	styles.push(
+		newStyles[object.id] = { id: object.id, parts: [
+			{css: object.content, media: '', sourceMap: object.sourceMap}
+		] }
+	);
+
+	for (var i = 0; i < object.imports.length; i++) {
+		var childObject = object.imports[i][0];
+		var mediaQuery = object.imports[i][1];
+		var id = childObject.id;
+		var css = childObject.content;
+		var sourceMap = childObject.sourceMap;
+		var part = {css: css, media: mediaQuery, sourceMap: sourceMap};
+		if(!newStyles[id]) {
 			styles.push(newStyles[id] = {id: id, parts: [part]});
-		else
+		} else {
 			newStyles[id].parts.push(part);
+		}
 	}
+
 	return styles;
 }
 
