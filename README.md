@@ -39,6 +39,27 @@ require("style-loader/url!file-loader!./file.css");
 // => add a <link rel="stylesheet"> to file.css to document
 ```
 
+When you have a static view with a static reference to a stylesheet it's possible to use `replace` option to replace the link `href` with the new hash when stylesheets changes.
+``` javascript
+// config
+{
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        loader: 'style-loader/replace!file-loader?name=[name].css?[hash]'
+      },
+    ],
+  },
+}
+
+// index.js
+require("./file.css");
+
+// => searches for <link rel="stylesheet" href="Build/css/file.css"> with attr `rel="stylesheet"` that points to `file.css`
+// => repalce the link href to trigger a style reload: <link rel="stylesheet" href="Build/css/file.css?[hash]">
+```
+
 ### Local scope CSS
 
 (experimental)
