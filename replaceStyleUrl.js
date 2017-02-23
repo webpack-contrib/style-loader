@@ -14,7 +14,6 @@ function replaceUrl(cssUrl, styleSheets) {
 
 		if (hrefFileName === urlFileName) {
 			styleSheets[i].href = cssUrl;
-			break;
 		}
 	}
 }
