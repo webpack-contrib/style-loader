@@ -12,6 +12,6 @@
   },
   "license": "MIT",
   "dependencies": {
-    "loader-utils": "^0.2.7"
+    "loader-utils": "^1.0.2"
   }
 }
