@@ -4,6 +4,10 @@
 	Author Tobias Koppers @sokra
 */
 function getFileName(path) {
+	if (typeof path !== 'string') {
+		return '';
+	}
+
 	var urlToFile = path.split("?")[0];
 	return (urlToFile.match(/[^\\/]+\.[^\\/]+$/) || []).pop();
 }
