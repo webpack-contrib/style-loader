@@ -136,6 +136,7 @@ function createStyleElement(options) {
 function createLinkElement(options) {
 	var linkElement = document.createElement("link");
 	linkElement.rel = "stylesheet";
+	linkElement.type = "text/css";
 	insertStyleElement(options, linkElement);
 	return linkElement;
 }
