@@ -1,0 +1,2 @@
+# Treats the lock file as binary & prevents conflict hell
+yarn.lock -diff

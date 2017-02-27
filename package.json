@@ -4,7 +4,12 @@
   "author": "Tobias Koppers @sokra",
   "description": "style loader module for webpack",
   "devDependencies": {
-    "css-loader": "~0.8.0"
+    "css-loader": "~0.8.0",
+    "file-loader": "^0.10.1",
+    "jsdom": "^9.11.0",
+    "memory-fs": "^0.4.1",
+    "mocha": "^3.2.0",
+    "webpack": "^2.2.1"
   },
   "repository": {
     "type": "git",
@@ -13,5 +18,9 @@
   "license": "MIT",
   "dependencies": {
     "loader-utils": "^1.0.2"
+  },
+  "scripts": {
+    "test": "mocha",
+    "travis:test": "yarn run test"
   }
 }
