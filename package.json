@@ -8,6 +8,9 @@
     "file-loader": "^0.10.1",
     "jsdom": "^9.11.0",
     "memory-fs": "^0.4.1",
+    "mocha": "^3.2.0"    
+  },
+  "peerDependencies": {
     "webpack": "^2.2.1"
   },
   "repository": {
@@ -17,5 +20,9 @@
   "license": "MIT",
   "dependencies": {
     "loader-utils": "^1.0.2"
+  },
+  "scripts": {
+    "test": "mocha",
+    "travis:test": "yarn run test"
   }
 }

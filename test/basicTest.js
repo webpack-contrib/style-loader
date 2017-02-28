@@ -1,18 +1,32 @@
 describe("basic tests", function() {
-  var MemoryFS = require("memory-fs");
-  var realFs = require("fs");
-  var webpack = require("webpack");
   var path = require("path");
-  var jsdom = require("jsdom");
 
-  var assert = require("assert");
+  var { setup, runCompilerTest } = require("./utils");
+
+  var fs;
+
+  var requiredCss = ".required { color: blue }",
+    requiredCssTwo = ".requiredTwo { color: cyan }",
+    requiredStyle = `<style type="text/css">${requiredCss}</style>`,
+    existingStyle = "<style>.existing { color: yellow }</style>",
+    rootDir = path.resolve(__dirname + "/../") + "/",
+    jsdomHtml = [
+      "<html>",
+      "<head>",
+      existingStyle,
+      "</head>",
+      "<body>",
+      "</body>",
+      "</html>"
+    ].join("\n");
 
   var styleLoaderOptions = {};
   var cssRule = {};
 
   var defaultCssRule = {
     test: /\.css?$/,
-    use: [{
+    use: [
+      {
         loader: "style-loader",
         options: styleLoaderOptions
       },
@@ -27,93 +41,27 @@ describe("basic tests", function() {
     },
     module: {
       rules: [cssRule]
-    },
-    resolveLoader: {
-      alias: {
-        "style-loader": path.resolve(__dirname, "../")
-      }
-    }
+    }    
   };
 
-  var fs;
-  var compiler;
-
-  var requiredCss = ".required { color: blue }",
-    requiredCssTwo = ".requiredTwo { color: cyan }",
-    requiredStyle = `<style type="text/css">${requiredCss}</style>`,
-    existingStyle = "<style>.existing { color: yellow }</style>",
-    rootDir = path.resolve(__dirname + '/../') + '/';
-
   beforeEach(function() {
-    fs = new MemoryFS();
-
     // Reset all style-loader options
-    for (var member in styleLoaderOptions) delete styleLoaderOptions[member];
-    for (var member in defaultCssRule) cssRule[member] = defaultCssRule[member];
-    compiler = webpack(webpackConfig);
+    for (var member in styleLoaderOptions) {
+      delete styleLoaderOptions[member];
+    }
 
-    // Tell webpack to use our in-memory FS
-    compiler.inputFileSystem = fs;
-    compiler.outputFileSystem = fs;
-    compiler.resolvers.normal.fileSystem = fs;
-    compiler.resolvers.context.fileSystem = fs;
+    for (var member in defaultCssRule) {
+      cssRule[member] = defaultCssRule[member];
+    }
 
-    ['readFileSync', 'statSync'].forEach((fn) => {
-      // Preserve the reference to original function
-      fs['mem' + fn] = fs[fn];
-
-      compiler.inputFileSystem[fn] = function(_path) {
-        // Only stub parts of the file system
-        if (_path.search(/(main.js|style.css|styleTwo.css)$/) + 1) {
-          return fs['mem' + fn](...arguments);
-        } else {
-          return realFs[fn](...arguments);
-        }
-      };
-    })
+    fs = setup(webpackConfig, jsdomHtml);
 
     // Create a tiny file system. rootDir is used because loaders are refering to absolute paths.
     fs.mkdirpSync(rootDir);
-    fs.writeFileSync(
-      rootDir + "main.js",
-      "var css = require('./style.css');"
-    );
+    fs.writeFileSync(rootDir + "main.js", "var css = require('./style.css');");
     fs.writeFileSync(rootDir + "style.css", requiredCss);
     fs.writeFileSync(rootDir + "styleTwo.css", requiredCssTwo);
   }); // before each
-
-  function runCompilerTest(expected, done) {
-    compiler.run(function(err, stats) {
-      if (stats.compilation.errors.length) {
-        throw new Error(stats.compilation.errors);
-      }
-
-      const bundleJs = stats.compilation.assets["bundle.js"].source();
-
-      jsdom.env({
-        html: [
-          "<html>",
-          "<head>",
-          existingStyle,
-          "</head>",
-          "<body>",
-          "</body>",
-          "</html>"
-        ].join("\n"),
-        src: [bundleJs],
-        done: function(err, window) {
-          assert.equal(
-            window.document.head.innerHTML.trim(),
-            expected
-          );
-          // free memory associated with the window
-          window.close();
-
-          done();
-        }
-      });
-    });
-  }
 
   it("insert at bottom", function(done) {
     let expected = [existingStyle, requiredStyle].join("\n");
@@ -124,7 +72,7 @@ describe("basic tests", function() {
   it("insert at top", function(done) {
     styleLoaderOptions.insertAt = "top";
 
-    let expected = [requiredStyle, existingStyle].join("\n")
+    let expected = [requiredStyle, existingStyle].join("\n");
 
     runCompilerTest(expected, done);
   }); // it insert at top
@@ -133,22 +81,26 @@ describe("basic tests", function() {
     // Setup
     styleLoaderOptions.singleton = true;
 
-    fs.writeFileSync(rootDir + "main.js", [
-      "var a = require('./style.css');",
-      "var b = require('./styleTwo.css');"
-    ].join("\n"));
+    fs.writeFileSync(
+      rootDir + "main.js",
+      [
+        "var a = require('./style.css');",
+        "var b = require('./styleTwo.css');"
+      ].join("\n")
+    );
 
     // Run
     let expected = [
       existingStyle,
       `<style type="text/css">${requiredCss}${requiredCssTwo}</style>`
-    ].join("\n")
+    ].join("\n");
 
     runCompilerTest(expected, done);
   }); // it singleton
 
   it("url", function(done) {
-    cssRule.use = [{
+    cssRule.use = [
+      {
         loader: "style-loader/url",
         options: {}
       },
@@ -165,26 +117,30 @@ describe("basic tests", function() {
   }); // it url
 
   it("useable", function(done) {
-    cssRule.use = [{
+    cssRule.use = [
+      {
         loader: "style-loader/useable",
         options: {}
       },
       "css-loader"
     ];
 
-    fs.writeFileSync(rootDir + "main.js", [
-      "var css = require('./style.css');",
-      "var cssTwo = require('./styleTwo.css');",
-      "css.use();",
-      "cssTwo.use();",
-      "css.unuse();"
-    ].join("\n"));
+    fs.writeFileSync(
+      rootDir + "main.js",
+      [
+        "var css = require('./style.css');",
+        "var cssTwo = require('./styleTwo.css');",
+        "css.use();",
+        "cssTwo.use();",
+        "css.unuse();"
+      ].join("\n")
+    );
 
     // Run
     let expected = [
       existingStyle,
       `<style type="text/css">${requiredCssTwo}</style>`
-    ].join("\n")
+    ].join("\n");
 
     runCompilerTest(expected, done);
   }); // it useable
