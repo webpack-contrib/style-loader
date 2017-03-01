@@ -1,3 +1,6 @@
+// Node v4 requires "use strict" to allow block scoped let & const
+"use strict";
+
 var MemoryFS = require("memory-fs");
 var realFs = require("fs");
 var webpack = require("webpack");
@@ -39,9 +42,9 @@ module.exports = {
       compiler.inputFileSystem[fn] = function(_path) {
         // Fallback to real FS if file is not in the memoryFS
         if (fs.existsSync(_path)) {
-          return fs["mem" + fn](...arguments);
+          return fs["mem" + fn].apply(fs, arguments);
         } else {
-          return realFs[fn](...arguments);
+          return realFs[fn].apply(realFs, arguments);
         }
       };
     });
