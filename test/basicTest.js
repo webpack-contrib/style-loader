@@ -1,7 +1,8 @@
 describe("basic tests", function() {
   var path = require("path");
 
-  var { setup, runCompilerTest } = require("./utils");
+  var utils = require("./utils"),
+    runCompilerTest = utils.runCompilerTest;
 
   var fs;
 
@@ -54,7 +55,7 @@ describe("basic tests", function() {
       cssRule[member] = defaultCssRule[member];
     }
 
-    fs = setup(webpackConfig, jsdomHtml);
+    fs = utils.setup(webpackConfig, jsdomHtml);
 
     // Create a tiny file system. rootDir is used because loaders are refering to absolute paths.
     fs.mkdirpSync(rootDir);
