@@ -62,6 +62,16 @@ Styles are not added on `require`, but instead on call to `use`/`ref`. Styles ar
 
 Note: Behavior is undefined when `unuse`/`unref` is called more often than `use`/`ref`. Don't do that.
 
+#### Iframe support
+
+Each `use/ref` call can also take an optional `DOMElement` parameter to tell `style-loader` where to append the resulting link/style tag(s) to (for usage with Iframes etc.):
+
+```javascript
+var iframe = document.getElementsByTagName('iframe')[0];
+style.use(iframe.contentDocument.head); // = style.ref(iframe.contentDocument.head);
+style.unuse(); // = style.unref();
+```
+
 ### Options
 
 #### `insertAt`
