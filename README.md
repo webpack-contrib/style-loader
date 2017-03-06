@@ -72,6 +72,16 @@ By default, the style-loader appends `<style>` elements to the end of the `<head
 
 If defined, the style-loader will re-use a single `<style>` element, instead of adding/removing individual elements for each required module. **Note:** this option is on by default in IE9, which has strict limitations on the number of style tags allowed on a page. You can enable or disable it with the singleton query parameter (`?singleton` or `?-singleton`).
 
+#### `attrs`
+
+If defined, style-loader will attach given attributes with their values on `<style>` / `<link>` element.
+Usage:
+```javascript
+require('style-loader?{attrs:{id: "style-tag-id"}}!style.scss');
+
+// will create style tag <style id="style-tag-id">
+```
+
 ### Recommended configuration
 
 By convention the reference-counted API should be bound to `.useable.css` and the simple API to `.css` (similar to other file types, i.e. `.useable.less` and `.less`).
@@ -92,7 +102,7 @@ So the recommended configuration for webpack is:
       {
         test: /\.useable\.css$/,
         use: [
-          { 
+          {
             loader: "style-loader",
             options: {
               useable: true

@@ -45,7 +45,7 @@ describe("basic tests", function() {
     },
     module: {
       rules: [cssRule]
-    }    
+    }
   };
 
   beforeEach(function() {
@@ -101,6 +101,26 @@ describe("basic tests", function() {
 
     runCompilerTest(expected, done);
   }); // it singleton
+
+  it("attrs", function(done) {
+    // Setup
+    styleLoaderOptions.attrs = {id: 'style-tag-id'};
+
+    fs.writeFileSync(
+      rootDir + "main.js",
+      [
+        "var a = require('./style.css');"
+      ].join("\n")
+    );
+
+    // Run
+    let expected = [
+      existingStyle,
+      `<style id="${styleLoaderOptions.attrs.id}" type="text/css">${requiredCss}</style>`
+    ].join("\n");
+
+    runCompilerTest(expected, done);
+  }); // it attrs
 
   it("url", function(done) {
     cssRule.use = [
