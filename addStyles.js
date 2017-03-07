@@ -26,6 +26,8 @@ module.exports = function(list, options) {
 	}
 
 	options = options || {};
+	options.attrs = typeof options.attrs === "object" ? options.attrs : {};
+
 	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
 	// tags it will allow on a page
 	if (typeof options.singleton === "undefined") options.singleton = isOldIE();
@@ -128,17 +130,27 @@ function removeStyleElement(styleElement) {
 
 function createStyleElement(options) {
 	var styleElement = document.createElement("style");
-	styleElement.type = "text/css";
+	options.attrs.type = "text/css";
+
+	attachTagAttrs(styleElement, options.attrs);
 	insertStyleElement(options, styleElement);
 	return styleElement;
 }
 
 function createLinkElement(options) {
 	var linkElement = document.createElement("link");
-	linkElement.rel = "stylesheet";
-	linkElement.type = "text/css";
+	options.attrs.type = "text/css";
+	options.attrs.rel = "stylesheet";
+
+	attachTagAttrs(linkElement, options.attrs);
 	insertStyleElement(options, linkElement);
 	return linkElement;
+}
+
+function attachTagAttrs(element, attrs) {
+	Object.keys(attrs).forEach(function (key) {
+		element.setAttribute(key, attrs[key]);
+	});
 }
 
 function addStyle(obj, options) {
