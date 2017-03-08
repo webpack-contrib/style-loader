@@ -103,10 +103,7 @@ So the recommended configuration for webpack is:
         test: /\.useable\.css$/,
         use: [
           {
-            loader: "style-loader",
-            options: {
-              useable: true
-            },
+            loader: "style-loader/useable"
           },
           { loader: "css-loader" },
         ],
