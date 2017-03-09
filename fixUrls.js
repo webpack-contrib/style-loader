@@ -11,6 +11,7 @@
  * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
  *
  */
+
 module.exports = function (css) {
   // get current location
   var location = typeof window !== "undefined" && window.location;
