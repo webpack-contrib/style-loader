@@ -244,12 +244,14 @@ function updateLink(linkElement, options, obj) {
 	var css = obj.css;
 	var sourceMap = obj.sourceMap;
 
-	/* If fixUrls isn't defined, but sourcemaps are enabled and there is no publicPath defined
-	then lets turn fixUrls on by default.  Otherwise default to the fixUrls option directly
+	/* If convertToAbsoluteUrls isn't defined, but sourcemaps are enabled
+	and there is no publicPath defined then lets turn convertToAbsoluteUrls
+	on by default.  Otherwise default to the convertToAbsoluteUrls option
+	directly
 	*/
-	const autoFixUrls = options.fixUrls === undefined && sourceMap;
+	const autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
 
-	if (options.fixUrls || autoFixUrls){
+	if (options.convertToAbsoluteUrls || autoFixUrls){
 		css = fixUrls(css);
 	}
 
