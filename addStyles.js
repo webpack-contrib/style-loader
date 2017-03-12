@@ -18,7 +18,8 @@ var stylesInDom = {},
 	}),
 	singletonElement = null,
 	singletonCounter = 0,
-	styleElementsInsertedAtTop = [];
+	styleElementsInsertedAtTop = [],
+	fixUrls = require("./fixUrls");
 
 module.exports = function(list, options) {
 	if(typeof DEBUG !== "undefined" && DEBUG) {
@@ -59,7 +60,7 @@ module.exports = function(list, options) {
 			}
 		}
 	};
-}
+};
 
 function addStylesToDom(styles, options) {
 	for(var i = 0; i < styles.length; i++) {
@@ -168,7 +169,7 @@ function addStyle(obj, options) {
 		typeof Blob === "function" &&
 		typeof btoa === "function") {
 		styleElement = createLinkElement(options);
-		update = updateLink.bind(null, styleElement);
+		update = updateLink.bind(null, styleElement, options);
 		remove = function() {
 			removeStyleElement(styleElement);
 			if(styleElement.href)
@@ -239,9 +240,20 @@ function applyToTag(styleElement, obj) {
 	}
 }
 
-function updateLink(linkElement, obj) {
+function updateLink(linkElement, options, obj) {
 	var css = obj.css;
 	var sourceMap = obj.sourceMap;
+
+	/* If convertToAbsoluteUrls isn't defined, but sourcemaps are enabled
+	and there is no publicPath defined then lets turn convertToAbsoluteUrls
+	on by default.  Otherwise default to the convertToAbsoluteUrls option
+	directly
+	*/
+	const autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
+
+	if (options.convertToAbsoluteUrls || autoFixUrls){
+		css = fixUrls(css);
+	}
 
 	if(sourceMap) {
 		// http://stackoverflow.com/a/26603875
