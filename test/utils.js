@@ -51,7 +51,13 @@ module.exports = {
 
     return fs;
   },
-  runCompilerTest: function(expected, done) {
+
+  /*
+   *  @param {string} expected - Expected value.
+   *  @param {function} done - Async callback from Mocha.
+   *  @param {function} actual - Executed in the context of jsdom window, should return a string to compare to.
+   */
+  runCompilerTest: function(expected, done, actual) {
     compiler.run(function(err, stats) {
       if (stats.compilation.errors.length) {
         throw new Error(stats.compilation.errors);
@@ -62,8 +68,13 @@ module.exports = {
       jsdom.env({
         html: jsdomHtml,
         src: [bundleJs],
+        virtualConsole: jsdom.createVirtualConsole().sendTo(console),
         done: function(err, window) {
-          assert.equal(window.document.head.innerHTML.trim(), expected);
+          if (typeof actual === 'function') {
+            assert.equal(actual.apply(window), expected);  
+          } else {
+            assert.equal(window.document.head.innerHTML.trim(), expected);
+          }
           // free memory associated with the window
           window.close();
 
