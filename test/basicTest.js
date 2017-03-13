@@ -11,6 +11,7 @@ describe("basic tests", function() {
 
   var requiredCss = ".required { color: blue }",
     requiredCssTwo = ".requiredTwo { color: cyan }",
+    localScopedCss = ":local(.className) { background: red; }",
     requiredStyle = `<style type="text/css">${requiredCss}</style>`,
     existingStyle = "<style>.existing { color: yellow }</style>",
     rootDir = path.resolve(__dirname + "/../") + "/",
@@ -65,6 +66,7 @@ describe("basic tests", function() {
     fs.writeFileSync(rootDir + "main.js", "var css = require('./style.css');");
     fs.writeFileSync(rootDir + "style.css", requiredCss);
     fs.writeFileSync(rootDir + "styleTwo.css", requiredCssTwo);
+    fs.writeFileSync(rootDir + "localScoped.css", localScopedCss);
   }); // before each
 
   it("insert at bottom", function(done) {
@@ -143,8 +145,7 @@ describe("basic tests", function() {
   it("useable", function(done) {
     cssRule.use = [
       {
-        loader: "style-loader/useable",
-        options: {}
+        loader: "style-loader/useable"
       },
       "css-loader"
     ];
@@ -168,4 +169,53 @@ describe("basic tests", function() {
 
     runCompilerTest(expected, done);
   }); // it useable
+
+  it("local scope", function(done) {
+    cssRule.use = [
+      {
+        loader: "style-loader"
+      },
+      {
+        loader: "css-loader",
+        options: { 
+          localIdentName: '[name].[local]_[hash:base64:7]'
+        }
+      }
+    ];
+
+    fs.writeFileSync(
+      rootDir + "main.js",
+      [
+        "css = require('./localScoped.css');"
+      ].join("\n")
+    );
+
+    let expected = 'localScoped-className_3dIU6Uf';
+    runCompilerTest(expected, done, function() { return this.css.className; });
+  }); // it local scope
+
+  it("local scope, useable", function(done) {
+    cssRule.use = [
+      {
+        loader: "style-loader/useable"
+      },
+      {
+        loader: "css-loader",
+        options: { 
+          localIdentName: '[name].[local]_[hash:base64:7]'
+        }
+      }
+    ];
+
+    fs.writeFileSync(
+      rootDir + "main.js",
+      [
+        "css = require('./localScoped.css');"
+      ].join("\n")
+    );
+
+    let expected = 'localScoped-className_3dIU6Uf';
+    runCompilerTest(expected, done, function() { return this.css.locals.className; });
+  }); // it local scope
+
 }); // describe
