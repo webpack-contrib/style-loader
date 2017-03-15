@@ -18,7 +18,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "loader-utils": "^1.0.2"
+    "loader-utils": "^1.0.2",
+    "xregexp": "^3.1.1"
   },
   "scripts": {
     "release": "yarn run standard-version",
