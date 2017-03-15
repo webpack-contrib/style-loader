@@ -9,6 +9,7 @@
     "jsdom": "^9.11.0",
     "memory-fs": "^0.4.1",
     "mocha": "^3.2.0",
+    "standard-version": "^4.0.0",
     "webpack": "^2.2.1"
   },
   "repository": {
@@ -20,6 +21,7 @@
     "loader-utils": "^1.0.2"
   },
   "scripts": {
+    "release": "yarn run standard-version",
     "test": "mocha",
     "travis:test": "yarn run test"
   }
