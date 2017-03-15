@@ -180,4 +180,12 @@ describe("fix urls tests", function() {
           "http://x.y.z"
       );
     });
+
+    it("Doesn't break inline SVG", function() {
+        const svg = "url('data:image/svg+xml;charset=utf-8,<svg><feFlood flood-color=\"rgba(0,0,0,0.5)\" /></svg>')";
+
+        assertUrl(
+            "body: {  background: " + svg + " }"
+        );
+    });
 });

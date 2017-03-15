@@ -29,8 +29,9 @@ module.exports = function (css) {
   var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
 
 	// convert each url(...)
-	var fixedCss = css.replace(/url *\( *(.+?) *\)/g, function(fullMatch, origUrl) {
+	var fixedCss = css.replace(/url\(((?:[^)(]+|\((?:[^)(]+|\([^)(]*\))*\))*)\)/g, function(fullMatch, origUrl) {
 		// strip quotes (if they exist)
+
 		var unquotedOrigUrl = origUrl
 			.replace(/^"(.*)"$/, function(o, $1){ return $1; })
 			.replace(/^'(.*)'$/, function(o, $1){ return $1; });
