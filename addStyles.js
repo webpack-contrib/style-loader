@@ -249,7 +249,7 @@ function updateLink(linkElement, options, obj) {
 	on by default.  Otherwise default to the convertToAbsoluteUrls option
 	directly
 	*/
-	const autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
+	var autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
 
 	if (options.convertToAbsoluteUrls || autoFixUrls){
 		css = fixUrls(css);
