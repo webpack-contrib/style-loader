@@ -12,6 +12,8 @@
  *
  */
 
+var XRegExp = require("xregexp");
+
 module.exports = function (css) {
   // get current location
   var location = typeof window !== "undefined" && window.location;
@@ -29,34 +31,40 @@ module.exports = function (css) {
   var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
 
 	// convert each url(...)
-	var fixedCss = css.replace(/url *\( *(.+?) *\)/g, function(fullMatch, origUrl) {
-		// strip quotes (if they exist)
-		var unquotedOrigUrl = origUrl
-			.replace(/^"(.*)"$/, function(o, $1){ return $1; })
-			.replace(/^'(.*)'$/, function(o, $1){ return $1; });
+	var matches = XRegExp.matchRecursive(css, "\\(", "\\)", "g");
 
-		// already a full url? no change
-		if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/)/i.test(unquotedOrigUrl)) {
-		  return fullMatch;
-		}
+	var fixedCss = css;
+	for (var i = 0; i < matches.length; i++) {
+		var origUrl = matches[i];
 
-		// convert the url to a full url
-		var newUrl;
+        var unquotedOrigUrl = origUrl
+            .trim()
+            .replace(/^"(.*)"$/, function(o, $1){ return $1; })
+            .replace(/^'(.*)'$/, function(o, $1){ return $1; });
 
-		if (unquotedOrigUrl.indexOf("//") === 0) {
-		  	//TODO: should we add protocol?
-			newUrl = unquotedOrigUrl;
-		} else if (unquotedOrigUrl.indexOf("/") === 0) {
-			// path should be relative to the base url
-			newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
-		} else {
-			// path should be relative to current directory
-			newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
-		}
+        // already a full url? no change
+        if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/)/i.test(unquotedOrigUrl)) {
+            continue;
+        }
 
-		// send back the fixed url(...)
-		return "url(" + JSON.stringify(newUrl) + ")";
-	});
+        // convert the url to a full url
+        var newUrl;
+
+        if (unquotedOrigUrl.indexOf("//") === 0) {
+            //TODO: should we add protocol?
+            newUrl = unquotedOrigUrl;
+        } else if (unquotedOrigUrl.indexOf("/") === 0) {
+            // path should be relative to the base url
+            newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
+        } else {
+            // path should be relative to current directory
+            newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
+        }
+
+        // send back the fixed url(...)
+		var stringified = JSON.stringify(newUrl);
+        fixedCss = fixedCss.replace(origUrl, stringified);
+	}
 
 	// send back the fixed css
 	return fixedCss;

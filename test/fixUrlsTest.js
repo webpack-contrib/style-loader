@@ -22,7 +22,7 @@ describe("fix urls tests", function() {
         var resultCss = fixUrls(origCss, specialUrl || defaultUrl);
         expectedCss = expectedCss || origCss;
 
-        assert.equal(resultCss, expectedCss);
+        assert.equal(expectedCss, resultCss);
     };
 
     // no change
@@ -100,9 +100,16 @@ describe("fix urls tests", function() {
     // relative urls
     it("Relative url", function() {
       assertUrl(
-          "body { background-image:url(bg.jpg); }",
-          "body { background-image:url(\"https://x.y.z/a/bg.jpg\"); }"
+          "body { background-image:url (bg.jpg); }",
+          "body { background-image:url (\"https://x.y.z/a/bg.jpg\"); }"
       );
+    });
+
+    it("Relative url case sensitivity", function() {
+        assertUrl(
+            "body { background-image:URL (bg.jpg); }",
+            "body { background-image:URL (\"https://x.y.z/a/bg.jpg\"); }"
+        );
     });
 
     it("Relative url with path", function() {
@@ -179,5 +186,13 @@ describe("fix urls tests", function() {
           "body { background-image:url(\"http://x.y.z/a/bg.jpg\"); }",
           "http://x.y.z"
       );
+    });
+
+    it("Doesn't break inline SVG", function() {
+        const svg = "url('data:image/svg+xml;charset=utf-8,<svg><feFlood flood-color=\"rgba(0,0,0,0.5)\" /></svg>')";
+
+        assertUrl(
+            "body: {  background: " + svg + " }"
+        );
     });
 });
