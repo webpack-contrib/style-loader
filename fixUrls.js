@@ -29,10 +29,35 @@ module.exports = function (css) {
   var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
 
 	// convert each url(...)
-	var fixedCss = css.replace(/url\(((?:[^)(]+|\((?:[^)(]+|\([^)(]*\))*\))*)\)/g, function(fullMatch, origUrl) {
-		// strip quotes (if they exist)
+	/*
+	This regular expression is just a way to recursively match brackets within
+	a string.
 
+	 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
+	   (  = Start a capturing group
+	     (?:  = Start a non-capturing group
+	         [^)(]  = Match anything that isn't a parentheses
+	         |  = OR
+	         \(  = Match a start parentheses
+	             (?:  = Start another non-capturing groups
+	                 [^)(]+  = Match anything that isn't a parentheses
+	                 |  = OR
+	                 \(  = Match a start parentheses
+	                     [^)(]*  = Match anything that isn't a parentheses
+	                 \)  = Match a end parentheses
+	             )  = End Group
+              *\) = Match anything and then a close parens
+          )  = Close non-capturing group
+          *  = Match anything
+       )  = Close capturing group
+	 \)  = Match a close parens
+
+	 /gi  = Get all matches, not the first.  Be case insensitive.
+	 */
+	var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function(fullMatch, origUrl) {
+		// strip quotes (if they exist)
 		var unquotedOrigUrl = origUrl
+			.trim()
 			.replace(/^"(.*)"$/, function(o, $1){ return $1; })
 			.replace(/^'(.*)'$/, function(o, $1){ return $1; });
 
