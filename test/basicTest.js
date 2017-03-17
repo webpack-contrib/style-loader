@@ -14,6 +14,7 @@ describe("basic tests", function() {
     localScopedCss = ":local(.className) { background: red; }",
     requiredStyle = `<style type="text/css">${requiredCss}</style>`,
     existingStyle = "<style>.existing { color: yellow }</style>",
+    checkValue = '<div class="check">check</div>',
     rootDir = path.resolve(__dirname + "/../") + "/",
     jsdomHtml = [
       "<html>",
@@ -21,6 +22,9 @@ describe("basic tests", function() {
       existingStyle,
       "</head>",
       "<body>",
+      "<div class='target'>",
+      checkValue,
+      "</div>",
       "</body>",
       "</html>"
     ].join("\n");
@@ -82,6 +86,15 @@ describe("basic tests", function() {
 
     runCompilerTest(expected, done);
   }); // it insert at top
+
+  it("insert into", function(done) {
+    let selector = "div.target";
+    styleLoaderOptions.insertInto = selector;
+
+    let expected = [checkValue, requiredStyle].join("\n");
+
+    runCompilerTest(expected, done, undefined, selector);
+  }); // it insert into
 
   it("singleton", function(done) {
     // Setup
