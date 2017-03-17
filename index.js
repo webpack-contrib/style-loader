@@ -3,11 +3,19 @@
 	Author Tobias Koppers @sokra
 */
 var loaderUtils = require("loader-utils"),
-	path = require("path");
+	path = require("path"),
+	findPackage = require('find-package');
 module.exports = function() {};
 module.exports.pitch = function(remainingRequest) {
 	if(this.cacheable) this.cacheable();
 	var query = loaderUtils.getOptions(this) || {};
+	var pkg = findPackage(this.resourcePath) || {};
+	if (query.attrs) {
+		Object.keys(query.attrs).forEach(function(key) {
+			query.attrs[key].replace(/\[name\]/ig, pkg.name).replace(/\[version\]/ig, pkg.version);
+		});
+	}
+	
 	return [
 		"// style-loader: Adds some css to the DOM by adding a <style> tag",
 		"",
