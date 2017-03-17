@@ -13,8 +13,16 @@ var stylesInDom = {},
 	isOldIE = memoize(function() {
 		return /msie [6-9]\b/.test(self.navigator.userAgent.toLowerCase());
 	}),
-	getHeadElement = memoize(function () {
-		return document.head || document.getElementsByTagName("head")[0];
+	getElement = (function(fn) {
+		var memo = {};
+		return function(selector) {
+			if (typeof memo[selector] === "undefined") {
+				memo[selector] = fn.call(this, selector);
+			}
+			return memo[selector]
+		};
+	})(function (styleTarget) {
+		return document.querySelector(styleTarget)
 	}),
 	singletonElement = null,
 	singletonCounter = 0,
@@ -33,7 +41,10 @@ module.exports = function(list, options) {
 	// tags it will allow on a page
 	if (typeof options.singleton === "undefined") options.singleton = isOldIE();
 
-	// By default, add <style> tags to the bottom of <head>.
+	// By default, add <style> tags to the <head> element
+	if (typeof options.insertInto === "undefined") options.insertInto = "head";
+
+	// By default, add <style> tags to the bottom of the target
 	if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
 
 	var styles = listToStyles(list);
@@ -103,19 +114,22 @@ function listToStyles(list) {
 }
 
 function insertStyleElement(options, styleElement) {
-	var head = getHeadElement();
+	var styleTarget = getElement(options.insertInto)
+	if (!styleTarget) {
+		throw new Error("Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.");
+	}
 	var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
 	if (options.insertAt === "top") {
 		if(!lastStyleElementInsertedAtTop) {
-			head.insertBefore(styleElement, head.firstChild);
+			styleTarget.insertBefore(styleElement, styleTarget.firstChild);
 		} else if(lastStyleElementInsertedAtTop.nextSibling) {
-			head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
+			styleTarget.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
 		} else {
-			head.appendChild(styleElement);
+			styleTarget.appendChild(styleElement);
 		}
 		styleElementsInsertedAtTop.push(styleElement);
 	} else if (options.insertAt === "bottom") {
-		head.appendChild(styleElement);
+		styleTarget.appendChild(styleElement);
 	} else {
 		throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
 	}

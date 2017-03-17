@@ -57,7 +57,8 @@ module.exports = {
    *  @param {function} done - Async callback from Mocha.
    *  @param {function} actual - Executed in the context of jsdom window, should return a string to compare to.
    */
-  runCompilerTest: function(expected, done, actual) {
+  runCompilerTest: function(expected, done, actual, selector) {
+    selector = selector || "head"
     compiler.run(function(err, stats) {
       if (stats.compilation.errors.length) {
         throw new Error(stats.compilation.errors);
@@ -73,7 +74,7 @@ module.exports = {
           if (typeof actual === 'function') {
             assert.equal(actual.apply(window), expected);  
           } else {
-            assert.equal(window.document.head.innerHTML.trim(), expected);
+            assert.equal(window.document.querySelector(selector).innerHTML.trim(), expected);
           }
           // free memory associated with the window
           window.close();
