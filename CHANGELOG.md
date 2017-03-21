@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.15.0"></a>
+# [0.15.0](https://github.com/webpack/style-loader/compare/v0.14.1...v0.15.0) (2017-03-21)
+
+
+### Bug Fixes
+
+* match parens recursively on URLs to not fix embeded calls ([#192](https://github.com/webpack/style-loader/issues/192)) ([71e0908](https://github.com/webpack/style-loader/commit/71e0908))
+
+
+### Features
+
+* add insertInto option ([#135](https://github.com/webpack/style-loader/issues/135)) ([6636868](https://github.com/webpack/style-loader/commit/6636868))
+
+
+
 <a name="0.14.1"></a>
 ## [0.14.1](https://github.com/webpack/style-loader/compare/v0.14.0...v0.14.1) (2017-03-15)
 
