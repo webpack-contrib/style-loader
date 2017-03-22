@@ -155,6 +155,29 @@ describe("basic tests", function() {
     runCompilerTest(expected, done);
   }); // it url
 
+  it("url with attrs", function (done) {
+    cssRule.use = [
+      {
+        loader: "style-loader/url",
+        options: {
+          attrs: {
+            'data-attr-1': 'attr-value-1',
+            'data-attr-2': 'attr-value-2'
+          }
+        }
+      },
+      "file-loader"
+    ];
+
+    // Run
+    let expected = [
+      existingStyle,
+      '<link rel="stylesheet" type="text/css" href="ec9d4f4f24028c3d51bf1e7728e632ff.css" data-attr-1="attr-value-1" data-attr-2="attr-value-2">'
+    ].join("\n");
+
+    runCompilerTest(expected, done);
+  }); // it url with attrs
+
   it("useable", function(done) {
     cssRule.use = [
       {

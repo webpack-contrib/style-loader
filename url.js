@@ -7,11 +7,12 @@ var loaderUtils = require("loader-utils"),
 module.exports = function() {};
 module.exports.pitch = function(remainingRequest) {
 	this.cacheable && this.cacheable();
+	var query = loaderUtils.getOptions(this) || {};
 	return [
 		"// style-loader: Adds some reference to a css file to the DOM by adding a <link> tag",
 		"var update = require(" + JSON.stringify("!" + path.join(__dirname, "addStyleUrl.js")) + ")(",
 		"\trequire(" + loaderUtils.stringifyRequest(this, "!!" + remainingRequest) + ")",
-		");",
+		", " + JSON.stringify(query) + ");",
 		"// Hot Module Replacement",
 		"if(module.hot) {",
 		"\tmodule.hot.accept(" + loaderUtils.stringifyRequest(this, "!!" + remainingRequest) + ", function() {",

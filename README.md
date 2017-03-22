@@ -84,9 +84,15 @@ If convertToAbsoluteUrls and sourceMaps are both enabled, relative urls will be 
 If defined, style-loader will attach given attributes with their values on `<style>` / `<link>` element.
 Usage:
 ```javascript
-require('style-loader?{attrs:{id: "style-tag-id"}}!style.scss');
+require('style-loader?{attrs:{id: "style-tag-id"}}!style.css');
 
 // will create style tag <style id="style-tag-id">
+```
+Usage in `url` mode:
+```javascript
+require('style-loader/url?{attrs:{prop: "value"}}!file-loader!style.css')
+
+// will create link tag <link rel="stylesheet" type="text/css" href="[path]/style.css" prop="value">
 ```
 
 ### Recommended configuration
