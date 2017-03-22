@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.16.0"></a>
+# [0.16.0](https://github.com/webpack/style-loader/compare/v0.15.0...v0.16.0) (2017-03-22)
+
+
+### Bug Fixes
+
+* **addStyles:** update for test for old IE versions ([#196](https://github.com/webpack/style-loader/issues/196)) ([1f68495](https://github.com/webpack/style-loader/commit/1f68495))
+
+
+### Features
+
+* Set custom attributes for tag in url mode ([#198](https://github.com/webpack/style-loader/issues/198)) ([2c4f427](https://github.com/webpack/style-loader/commit/2c4f427))
+
+
+
 <a name="0.15.0"></a>
 # [0.15.0](https://github.com/webpack/style-loader/compare/v0.14.1...v0.15.0) (2017-03-21)
 
