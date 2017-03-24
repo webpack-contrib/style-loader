@@ -63,7 +63,8 @@ module.exports = function(list, options) {
 
 	var styles = listToStyles(list);
 	var bundleStyle = document.getElementById('render-bundle-css');
-	if(bundleStyle) getHeadElement().removeChild(bundleStyle);
+	var head = document.getElementsByTagName("head")[0];
+	if (bundleStyle) head.removeChild(bundleStyle);
 	addStylesToDom(styles, options);
 
 	return function update(newList) {
