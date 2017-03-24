@@ -1,5 +1,5 @@
 {
-  "name": "style-loader",
+  "name": "@vtex/style-loader",
   "version": "0.21.0",
   "author": "Tobias Koppers @sokra",
   "description": "style loader module for webpack",
