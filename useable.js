@@ -21,7 +21,7 @@ module.exports.pitch = function(remainingRequest) {
 		"	return exports;",
 		"};",
 		"exports.unuse = exports.unref = function() {",
-		"	if(!(--refs)) {",
+		"       if(refs > 0 && !(--refs)) {",
 		"		dispose();",
 		"		dispose = null;",
 		"	}",
