@@ -7,15 +7,15 @@ var loaderUtils = require("loader-utils"),
 module.exports = function() {};
 module.exports.pitch = function(remainingRequest) {
 	if(this.cacheable) this.cacheable();
-	var query = loaderUtils.parseQuery(this.query);
+	var query = loaderUtils.getOptions(this) || {};
 	return [
 		"var refs = 0;",
 		"var dispose;",
 		"var content = require(" + loaderUtils.stringifyRequest(this, "!!" + remainingRequest) + ");",
 		"if(typeof content === 'string') content = [[module.id, content, '']];",
+		"if(content.locals) exports.locals = content.locals;",
 		"exports.use = exports.ref = function() {",
 		"	if(!(refs++)) {",
-		"		exports.locals = content.locals;",
 		"		dispose = require(" + loaderUtils.stringifyRequest(this, "!" + path.join(__dirname, "addStyles.js")) + ")(content, " + JSON.stringify(query) + ");",
 		"	}",
 		"	return exports;",
