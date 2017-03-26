@@ -206,6 +206,32 @@ describe("basic tests", function() {
     runCompilerTest(expected, done);
   }); // it useable
 
+  it("useable without negative refs", function(done) {
+    cssRule.use = [
+      {
+        loader: "style-loader/useable"
+      },
+      "css-loader"
+    ];
+
+    fs.writeFileSync(
+      rootDir + "main.js",
+      [
+        "var css = require('./style.css');",
+        "css.unuse();", // ref still 0
+        "css.use();",  // ref 1
+      ].join("\n")
+    );
+
+    // Run
+    let expected = [
+      existingStyle,
+      `<style type="text/css">${requiredCss}</style>`
+    ].join("\n");
+
+    runCompilerTest(expected, done);
+  }); // it useable
+
   it("local scope", function(done) {
     cssRule.use = [
       {
