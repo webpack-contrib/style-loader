@@ -34,6 +34,28 @@ var stylesInDom = {},
 	styleElementsInsertedAtTop = [],
 	fixUrls = require("./fixUrls");
 
+// bind pollyfill for PhantomJS & old browsers
+if (!Function.prototype.bind) {
+	Function.prototype.bind = function (oThis) {
+		if (typeof this !== "function") {
+			// closest thing possible to the ECMAScript 5 internal IsCallable function
+			throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable")
+		}
+
+		var aArgs = Array.prototype.slice.call(arguments, 1);
+		var fToBind = this;
+		var fNOP = function () {};
+		var fBound = function () {
+			return fToBind.apply(this instanceof fNOP && oThis ? this : oThis, aArgs.concat(Array.prototype.slice.call(arguments)))
+		};
+
+		fNOP.prototype = this.prototype;
+		fBound.prototype = new fNOP();
+
+		return fBound
+	}
+}
+
 module.exports = function(list, options) {
 	if(typeof DEBUG !== "undefined" && DEBUG) {
 		if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
