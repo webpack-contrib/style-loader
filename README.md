@@ -79,6 +79,31 @@ If defined, the style-loader will re-use a single `<style>` element, instead of 
 
 If convertToAbsoluteUrls and sourceMaps are both enabled, relative urls will be converted to absolute urls right before the css is injected into the page. This resolves [an issue](https://github.com/webpack/style-loader/pull/96) where relative resources fail to load when source maps are enabled.  You can enable it with the convertToAbsoluteUrls query parameter (`?convertToAbsoluteUrls`).
 
+#### `onCssLoad`
+
+If an `onCssLoad` function is defined, this function will run every time a css is loaded into the page through the style-loader.
+The `onCssLoad` function gets one parameter that is the original css that the style-loder is loading into the page.
+Possible return values of `onCssLoad`:
+* **nothing** - if nothing (undefined) is returned from the `onCssLoad` function, the original css will be loaded without any changes.
+* **false** - if the `onCssLoad` function returns **false**, the css will *not* be loaded into the page. 
+* **updated css** - If the function returns a value, this value will be added into the page instead of the original css. This can be used to run transformations on the loaded css.
+
+Usage:
+
+```javascript
+// myCode.js - define an onCssLoad function
+module.exports = function(originalCss) {
+    var transformed = // Here we can change the original css;
+    return transformed; // If false is returned the css will not be loaded.
+}
+```
+
+```javascript
+require('style-loader?onCssLoad=path/to/onLoadFunction/myCode.js!style.css');
+
+// will load the css and apply the onCssLoad function defined in myCode.js
+```
+
 #### `attrs`
 
 If defined, style-loader will attach given attributes with their values on `<style>` / `<link>` element.
