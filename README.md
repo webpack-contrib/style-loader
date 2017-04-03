@@ -95,6 +95,15 @@ require('style-loader/url?{attrs:{prop: "value"}}!file-loader!style.css')
 // will create link tag <link rel="stylesheet" type="text/css" href="[path]/style.css" prop="value">
 ```
 
+#### `cssBase`
+This setting is primarily used as a workaround for [css clashes](https://github.com/webpack-contrib/style-loader/issues/163) when using one or more [DllPlugin](https://robertknight.github.io/posts/webpack-dll-plugins/)'s.  `cssBase` allows you to prevent either the *app*'s css (or *DllPlugin2*'s css) from overwriting *DllPlugin1*'s css by specifying a css module id base which is greater than the range used by *DllPlugin1* e.g.:
+* webpack.dll1.config.js
+    * `loaders:[ { test: /\.css$/, loader: 'style-loader!css-loader' } ]`
+* webpack.dll2.config.js
+    * `loaders:[ { test: /\.css$/, loader: 'style-loader?cssBase=1000!css-loader' } ]`
+* webpack.app.config.js
+    * `loaders:[ { test: /\.css$/, loader: 'style-loader?cssBase=2000!css-loader' } ]`
+
 ### Recommended configuration
 
 By convention the reference-counted API should be bound to `.useable.css` and the simple API to `.css` (similar to other file types, i.e. `.useable.less` and `.less`).
