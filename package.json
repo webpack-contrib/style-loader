@@ -20,6 +20,14 @@
   "dependencies": {
     "loader-utils": "^1.0.2"
   },
+  "files": [
+    "addStyles.js",
+    "addStyleUrl.js",
+    "fixUrls.js",
+    "index.js",
+    "url.js",
+    "useable.js"
+  ],
   "scripts": {
     "release": "yarn run standard-version",
     "test": "mocha",
