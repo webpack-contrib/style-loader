@@ -12,7 +12,7 @@ module.exports.pitch = function(remainingRequest) {
 	var pkg = findPackage(this.resourcePath) || {};
 	if (query.attrs) {
 		Object.keys(query.attrs).forEach(function(key) {
-			query.attrs[key].replace(/\[name\]/ig, pkg.name).replace(/\[version\]/ig, pkg.version);
+			query.attrs[key] = query.attrs[key].replace(/\[name\]/ig, pkg.name).replace(/\[version\]/ig, pkg.version);
 		});
 	}
 	
