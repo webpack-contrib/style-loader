@@ -92,7 +92,7 @@ Usage:
 {
   loader: 'style-loader'
   options: {
-    onCssLoad: require('path/to/transformCSS')
+    cssTransformation: 'path/to/transformCSS'
   }
 }
 ```
