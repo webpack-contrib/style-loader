@@ -79,29 +79,45 @@ If defined, the style-loader will re-use a single `<style>` element, instead of 
 
 If convertToAbsoluteUrls and sourceMaps are both enabled, relative urls will be converted to absolute urls right before the css is injected into the page. This resolves [an issue](https://github.com/webpack/style-loader/pull/96) where relative resources fail to load when source maps are enabled.  You can enable it with the convertToAbsoluteUrls query parameter (`?convertToAbsoluteUrls`).
 
-#### `onCssLoad`
+#### `cssTransformation`
 
-If an `onCssLoad` function is defined, this function will run every time a css is loaded into the page through the style-loader.
-The `onCssLoad` function gets one parameter that is the original css that the style-loder is loading into the page.
-Possible return values of `onCssLoad`:
-* **nothing** - if nothing (undefined) is returned from the `onCssLoad` function, the original css will be loaded without any changes.
-* **false** - if the `onCssLoad` function returns **false**, the css will *not* be loaded into the page. 
-* **updated css** - If the function returns a value, this value will be added into the page instead of the original css. This can be used to run transformations on the loaded css.
+A `cssTransformation` is a function that can modify the css just before it is loaded into the page by the style-loader. 
+This function will be called on the css that is about to be loaded and the return value of the function will be loaded into the page instead of the original css.
+If the return value of the `cssTransformation` function is falsy, the css will not be loaded into the page at all. 
 
 Usage:
 
-```javascript
-// myCode.js - define an onCssLoad function
-module.exports = function(originalCss) {
-    var transformed = // Here we can change the original css;
-    return transformed; // If false is returned the css will not be loaded.
+**webpack.config.js**
+```js
+{
+  loader: 'style-loader'
+  options: {
+    onCssLoad: require('path/to/transformCSS')
+  }
 }
 ```
 
-```javascript
-require('style-loader?onCssLoad=path/to/onLoadFunction/myCode.js!style.css');
+**transformCSS.js**
+```js
+module.exports = function(originalCss) {
+    // Here we can change the original css
+    const transformed = css.replace('.classNameA',  '.classNameB');
+    return transformed;
+}
+```
 
-// will load the css and apply the onCssLoad function defined in myCode.js
+Example of conditional loading of css:
+
+**conditionalCSS.js**
+```js
+module.exports = function (css) {
+   // If the condition is matched load [and transform] the CSS
+   if (css.includes('something I want to check')) {
+     return css; 
+   }
+   // If a falsy value is returned, the CSS won't be loaded 
+   return false
+}
 ```
 
 #### `attrs`

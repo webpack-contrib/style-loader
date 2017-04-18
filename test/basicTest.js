@@ -280,23 +280,23 @@ describe("basic tests", function() {
     runCompilerTest(expected, done, function() { return this.css.locals.className; });
   }); // it local scope
 
-  describe("onLoadCss hook", function() {
+  describe("cssTransformation function", function() {
 
-    it("should not load the css if the hook returns false", function(done) {
-      styleLoaderOptions.onCssLoad = 'test/onCssLoadHooks/returnFalse';
+    it("should not load the css if the cssTransformation function returns false", function(done) {
+      styleLoaderOptions.cssTransformation = 'test/cssTransformations/returnFalse';
       const expected = existingStyle;
       runCompilerTest(expected, done);
     });
 
-    it("should load the css without modifing it if the hook returned nothing", function(done) {
-      styleLoaderOptions.onCssLoad = 'test/onCssLoadHooks/returnNothing';
-      const expected = [existingStyle, requiredStyle].join("\n");
+    it("should not load the css if the cssTransformation function returns undefined", function(done) {
+      styleLoaderOptions.cssTransformation = 'test/cssTransformations/returnNothing';
+      const expected = existingStyle;
       runCompilerTest(expected, done);
     });
 
-    it("should load the transformed css returned by the hook", function(done) {
-      const transformCssFunction = require('./onCssLoadHooks/transformCss');
-      styleLoaderOptions.onCssLoad = 'test/onCssLoadHooks/transformCss';
+    it("should load the transformed css returned by the cssTransformation function", function(done) {
+      const transformCssFunction = require('./cssTransformations/transformCss');
+      styleLoaderOptions.cssTransformation = 'test/cssTransformations/transformCss';
       
       const expectedTansformedStyle = transformCssFunction(requiredStyle);
       const expected = [existingStyle, expectedTansformedStyle].join("\n");
