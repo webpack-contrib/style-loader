@@ -195,4 +195,11 @@ describe("fix urls tests", function() {
             "body: {  background: " + svg + " }"
         );
     });
+    it("Doesn't break inline SVG with HTML comment", function() {
+        const svg = "url('data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C!--%20Comment%20--%3E%0A%3Csvg%3E%3C%2Fsvg%3E%0A')";
+
+        assertUrl(
+            "body: {  background: " + svg + " }"
+        );
+    });
 });
