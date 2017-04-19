@@ -19,9 +19,7 @@ Adds CSS to the DOM by injecting a `<style>` tag
 npm install style-loader --save-dev
 ```
 
-<h2 align="center">Usage</h2>
-
-[Documentation: Using loaders](https://webpack.js.org/concepts/loaders/)
+<h2 align="center"><a href="https://webpack.js.org/concepts/loaders">Usage</a></h2>
 
 ### Simple API
 
