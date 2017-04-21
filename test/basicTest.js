@@ -12,6 +12,12 @@ describe("basic tests", function() {
   var requiredCss = ".required { color: blue }",
     requiredCssTwo = ".requiredTwo { color: cyan }",
     localScopedCss = ":local(.className) { background: red; }",
+    localComposingCss = `
+      :local(.composingClass) {
+        composes: className from './localScoped.css';
+        color: blue;
+      }
+    `,
     requiredStyle = `<style type="text/css">${requiredCss}</style>`,
     existingStyle = "<style>.existing { color: yellow }</style>",
     checkValue = '<div class="check">check</div>',
@@ -71,6 +77,7 @@ describe("basic tests", function() {
     fs.writeFileSync(rootDir + "style.css", requiredCss);
     fs.writeFileSync(rootDir + "styleTwo.css", requiredCssTwo);
     fs.writeFileSync(rootDir + "localScoped.css", localScopedCss);
+    fs.writeFileSync(rootDir + "localComposing.css", localComposingCss);
   }); // before each
 
   it("insert at bottom", function(done) {
@@ -239,7 +246,7 @@ describe("basic tests", function() {
       },
       {
         loader: "css-loader",
-        options: { 
+        options: {
           localIdentName: '[name].[local]_[hash:base64:7]'
         }
       }
@@ -256,6 +263,64 @@ describe("basic tests", function() {
     runCompilerTest(expected, done, function() { return this.css.className; });
   }); // it local scope
 
+  it("local scope, composing", function(done) {
+    cssRule.use = [
+      {
+        loader: "style-loader"
+      },
+      {
+        loader: "css-loader",
+        options: {
+          localIdentName: '[name].[local]_[hash:base64:7]'
+        }
+      }
+    ];
+
+    fs.writeFileSync(
+      rootDir + "main.js",
+      [
+        "css = require('./localComposing.css');"
+      ].join("\n")
+    );
+
+    let expected =
+      'localComposing-composingClass_3kXcqag localScoped-className_3dIU6Uf';
+    runCompilerTest(expected, done, function() {
+      return this.css.composingClass;
+    });
+  }); // it local scope, composing
+
+  it("local scope, composing, custom getLocalIdent", function(done) {
+    cssRule.use = [
+      {
+        loader: "style-loader"
+      },
+      {
+        loader: "css-loader",
+        options: {
+          ident: 'css',
+          localIdentName: '[name].[local]_[hash:base64:7]',
+          getLocalIdent: (context, localIdentName, localName) => {
+            return 'X' + localName;
+          }
+        }
+      }
+    ];
+
+    fs.writeFileSync(
+      rootDir + "main.js",
+      [
+        "css = require('./localComposing.css');"
+      ].join("\n")
+    );
+
+    let expected =
+      'XcomposingClass XclassName';
+    runCompilerTest(expected, done, function() {
+      return this.css.composingClass;
+    });
+  }); // it local scope, composing, custom getLocalIdent
+
   it("local scope, useable", function(done) {
     cssRule.use = [
       {
@@ -263,7 +328,7 @@ describe("basic tests", function() {
       },
       {
         loader: "css-loader",
-        options: { 
+        options: {
           localIdentName: '[name].[local]_[hash:base64:7]'
         }
       }
