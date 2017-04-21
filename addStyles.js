@@ -52,6 +52,11 @@ module.exports = function(list, options) {
 	// By default, add <style> tags to the bottom of the target
 	if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
 
+	// Do not try to add a stylesheet in a worker context;
+	if (!self.document) {
+		return;
+	}
+
 	var styles = listToStyles(list);
 	addStylesToDom(styles, options);
 
