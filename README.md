@@ -101,7 +101,7 @@ Usage:
 ```js
 module.exports = function(originalCss) {
     // Here we can change the original css
-    const transformed = css.replace('.classNameA',  '.classNameB');
+    const transformed = originalCss.replace('.classNameA', '.classNameB');
     return transformed;
 }
 ```
