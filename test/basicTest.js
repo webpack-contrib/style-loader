@@ -345,4 +345,29 @@ describe("basic tests", function() {
     runCompilerTest(expected, done, function() { return this.css.locals.className; });
   }); // it local scope
 
+  describe("transform function", function() {
+
+    it("should not load the css if the transform function returns false", function(done) {
+      styleLoaderOptions.transform = 'test/cssTransformations/returnFalse';
+      const expected = existingStyle;
+      runCompilerTest(expected, done);
+    });
+
+    it("should not load the css if the transform function returns undefined", function(done) {
+      styleLoaderOptions.transform = 'test/cssTransformations/returnNothing';
+      const expected = existingStyle;
+      runCompilerTest(expected, done);
+    });
+
+    it("should load the transformed css returned by the transform function", function(done) {
+      const transformCssFunction = require('./cssTransformations/transformCss');
+      styleLoaderOptions.transform = 'test/cssTransformations/transformCss';
+      
+      const expectedTansformedStyle = transformCssFunction(requiredStyle);
+      const expected = [existingStyle, expectedTansformedStyle].join("\n");
+      runCompilerTest(expected, done);
+    });
+
+  });
+
 }); // describe

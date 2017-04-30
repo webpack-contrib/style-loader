@@ -77,6 +77,47 @@ If defined, the style-loader will re-use a single `<style>` element, instead of 
 
 If convertToAbsoluteUrls and sourceMaps are both enabled, relative urls will be converted to absolute urls right before the css is injected into the page. This resolves [an issue](https://github.com/webpack/style-loader/pull/96) where relative resources fail to load when source maps are enabled.  You can enable it with the convertToAbsoluteUrls query parameter (`?convertToAbsoluteUrls`).
 
+#### `transform`
+
+A `transform` is a function that can modify the css just before it is loaded into the page by the style-loader. 
+This function will be called on the css that is about to be loaded and the return value of the function will be loaded into the page instead of the original css.
+If the return value of the `transform` function is falsy, the css will not be loaded into the page at all. 
+
+Usage:
+
+**webpack.config.js**
+```js
+{
+  loader: 'style-loader'
+  options: {
+    transform: 'path/to/transformCSS'
+  }
+}
+```
+
+**transformCSS.js**
+```js
+module.exports = function(originalCss) {
+    // Here we can change the original css
+    const transformed = originalCss.replace('.classNameA', '.classNameB');
+    return transformed;
+}
+```
+
+Example of conditional loading of css:
+
+**conditionalCSS.js**
+```js
+module.exports = function (css) {
+   // If the condition is matched load [and transform] the CSS
+   if (css.includes('something I want to check')) {
+     return css; 
+   }
+   // If a falsy value is returned, the CSS won't be loaded 
+   return false
+}
+```
+
 #### `attrs`
 
 If defined, style-loader will attach given attributes with their values on `<style>` / `<link>` element.
