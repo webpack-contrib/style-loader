@@ -174,18 +174,18 @@ function attachTagAttrs(element, attrs) {
 }
 
 function addStyle(obj, options) {
-	var styleElement, update, remove, cssTransformationResult;
+	var styleElement, update, remove, transformResult;
 
-	// If a cssTransformation function was defined, run it on the css
-	if (options.cssTransformation && obj.css) {
-	    cssTransformationResult = options.cssTransformation(obj.css);
+	// If a transform function was defined, run it on the css
+	if (options.transform && obj.css) {
+	    transformResult = options.transform(obj.css);
 	    
-	    if (cssTransformationResult) {
-	    	// If cssTransformation returns a value, use that instead of the original css.
+	    if (transformResult) {
+	    	// If transform returns a value, use that instead of the original css.
 	    	// This allows running runtime transformations on the css.
-	    	obj.css = cssTransformationResult;
+	    	obj.css = transformResult;
 	    } else {
-	    	// If the cssTransformation function returns a falsy value, don't add this css. 
+	    	// If the transform function returns a falsy value, don't add this css. 
 	    	// This allows conditional loading of css
 	    	return function() {
 	    		// noop
