@@ -95,8 +95,8 @@ require('style-loader/url?{attrs:{prop: "value"}}!file-loader!style.css')
 // will create link tag <link rel="stylesheet" type="text/css" href="[path]/style.css" prop="value">
 ```
 
-#### `cssBase`
-This setting is primarily used as a workaround for [css clashes](https://github.com/webpack-contrib/style-loader/issues/163) when using one or more [DllPlugin](https://robertknight.github.io/posts/webpack-dll-plugins/)'s.  `cssBase` allows you to prevent either the *app*'s css (or *DllPlugin2*'s css) from overwriting *DllPlugin1*'s css by specifying a css module id base which is greater than the range used by *DllPlugin1* e.g.:
+#### `base`
+This setting is primarily used as a workaround for [css clashes](https://github.com/webpack-contrib/style-loader/issues/163) when using one or more [DllPlugin](https://robertknight.github.io/posts/webpack-dll-plugins/)'s.  `base` allows you to prevent either the *app*'s css (or *DllPlugin2*'s css) from overwriting *DllPlugin1*'s css by specifying a css module id base which is greater than the range used by *DllPlugin1* e.g.:
 * webpack.dll1.config.js
 ```
 {
@@ -112,7 +112,7 @@ This setting is primarily used as a workaround for [css clashes](https://github.
 {
   test: /\.css$/,
   use: [ 
-    { loader: 'style-loader', options: { cssBase: 1000 } },
+    { loader: 'style-loader', options: { base: 1000 } },
     'css-loader'
   ]
 }
@@ -122,7 +122,7 @@ This setting is primarily used as a workaround for [css clashes](https://github.
 {
   test: /\.css$/,
   use: [ 
-    { loader: 'style-loader', options: { cssBase: 2000 } },
+    { loader: 'style-loader', options: { base: 2000 } },
     'css-loader'
   ]
 }
