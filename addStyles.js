@@ -52,7 +52,7 @@ module.exports = function(list, options) {
 	// By default, add <style> tags to the bottom of the target
 	if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
 
-	var styles = listToStyles(list);
+	var styles = listToStyles(list, options);
 	addStylesToDom(styles, options);
 
 	return function update(newList) {
@@ -64,7 +64,7 @@ module.exports = function(list, options) {
 			mayRemove.push(domStyle);
 		}
 		if(newList) {
-			var newStyles = listToStyles(newList);
+			var newStyles = listToStyles(newList, options);
 			addStylesToDom(newStyles, options);
 		}
 		for(var i = 0; i < mayRemove.length; i++) {
@@ -100,12 +100,12 @@ function addStylesToDom(styles, options) {
 	}
 }
 
-function listToStyles(list) {
+function listToStyles(list, options) {
 	var styles = [];
 	var newStyles = {};
 	for(var i = 0; i < list.length; i++) {
 		var item = list[i];
-		var id = item[0];
+		var id = options.base ? item[0] + options.base : item[0];
 		var css = item[1];
 		var media = item[2];
 		var sourceMap = item[3];
