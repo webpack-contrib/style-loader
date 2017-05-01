@@ -3,34 +3,38 @@
   "version": "0.17.0",
   "author": "Tobias Koppers @sokra",
   "description": "style loader module for webpack",
+  "engines": {
+    "node": ">= 0.12.0"
+  },
+  "main": "index.js",
+  "files": [
+    "lib",
+    "url.js",
+    "index.js",
+    "useable.js",
+    "options.json"
+  ],
+  "dependencies": {
+    "loader-utils": "^1.0.2",
+    "schema-utils": "^0.3.0"
+  },
   "devDependencies": {
-    "css-loader": "^0.27.3",
-    "file-loader": "^0.10.1",
-    "jsdom": "^9.11.0",
+    "css-loader": "^0.28.1",
+    "file-loader": "^0.11.1",
+    "jsdom": "^9.12.0",
     "memory-fs": "^0.4.1",
     "mocha": "^3.2.0",
     "standard-version": "^4.0.0",
     "webpack": "^2.2.1"
   },
+  "scripts": {
+    "test": "mocha",
+    "travis:test": "yarn run test",
+    "release": "yarn run standard-version"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:webpack/style-loader.git"
   },
-  "license": "MIT",
-  "dependencies": {
-    "loader-utils": "^1.0.2"
-  },
-  "files": [
-    "addStyles.js",
-    "addStyleUrl.js",
-    "fixUrls.js",
-    "index.js",
-    "url.js",
-    "useable.js"
-  ],
-  "scripts": {
-    "release": "yarn run standard-version",
-    "test": "mocha",
-    "travis:test": "yarn run test"
-  }
+  "license": "MIT"
 }
