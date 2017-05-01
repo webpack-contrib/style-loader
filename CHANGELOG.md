@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.17.0"></a>
+# [0.17.0](https://github.com/webpack/style-loader/compare/v0.16.1...v0.17.0) (2017-05-01)
+
+
+### Features
+
+* add option.base ([#164](https://github.com/webpack/style-loader/issues/164)) ([e4ac886](https://github.com/webpack/style-loader/commit/e4ac886))
+* add option.transform ([#146](https://github.com/webpack/style-loader/issues/146)) ([1c3943f](https://github.com/webpack/style-loader/commit/1c3943f))
+
+
+
 <a name="0.16.1"></a>
 ## [0.16.1](https://github.com/webpack/style-loader/compare/v0.16.0...v0.16.1) (2017-03-28)
 
