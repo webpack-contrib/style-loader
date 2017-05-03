@@ -193,7 +193,7 @@ import style from './file.css'
 {
   test: /\.css$/,
   use: [
-    { loader: 'style-laoder', options: { attrs: { id: 'id' } } }
+    { loader: 'style-loader', options: { attrs: { id: 'id' } } }
     { loader: 'css-loader' }
   ]
 }
