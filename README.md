@@ -9,7 +9,7 @@
       src="https://webpack.js.org/assets/icon-square-big.svg">
   </a>
   <h1>Style Loader</h1>
-  <p>Adds CSS to the DOM by injecting a `&lt;style&gt;` tag</p>
+  <p>Adds CSS to the DOM by injecting a <code>&lt;style&gt;</code> tag</p>
 </div>
 
 <h2 align="center">Install</h2>
