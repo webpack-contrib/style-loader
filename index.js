@@ -16,7 +16,7 @@ module.exports.pitch = function(remainingRequest) {
 		"if(typeof content === 'string') content = [[module.id, content, '']];",
 		"// Prepare cssTransformation",
 		"var transform;",
-		query.transform ? "transform = require('" + path.resolve(query.transform) + "');" : "",
+		query.transform ? "transform = require(" + loaderUtils.stringifyRequest(this, "!" + path.resolve(query.transform)) + ");" : "",
 		"var options = " + JSON.stringify(query),
 		"options.transform = transform",
 		"// add the styles to the DOM",
