@@ -98,6 +98,10 @@ function addStylesToDom(styles, options) {
 			stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
 		}
 	}
+	setTimeout(()=>{
+		// styles printed, it's safe to show the document
+		document.documentElement.style.opacity = 1
+	})
 }
 
 function listToStyles(list, options) {

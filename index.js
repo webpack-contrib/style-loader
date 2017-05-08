@@ -11,6 +11,8 @@ module.exports.pitch = function(remainingRequest) {
 	return [
 		"// style-loader: Adds some css to the DOM by adding a <style> tag",
 		"",
+		"// hide document until all the styles are ready to prevent FOUC",
+		"document.documentElement.style.opacity = 0",
 		"// load the styles",
 		"var content = require(" + loaderUtils.stringifyRequest(this, "!!" + remainingRequest) + ");",
 		"if(typeof content === 'string') content = [[module.id, content, '']];",
