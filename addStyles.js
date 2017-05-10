@@ -293,7 +293,9 @@ function updateLink(linkElement, options, obj) {
 
 	if(sourceMap) {
 		// http://stackoverflow.com/a/26603875
-		css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+		// The seemingly-unnecessary break between 'source' and 'Mapping' is to prevent Chrome 51 (at least) from
+		// trying to interpret this code as an actual source map reference.
+		css += "\n/*# source" + "MappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
 	}
 
 	var blob = new Blob([css], { type: "text/css" });
