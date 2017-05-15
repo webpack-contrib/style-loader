@@ -27,7 +27,9 @@ var stylesInDom = {},
 			return memo[selector]
 		};
 	})(function (styleTarget) {
-		return document.querySelector(styleTarget)
+		return document && document.querySelector
+			? document.querySelector(styleTarget)
+			: document.getElementsByTagName('head')[0];
 	}),
 	singletonElement = null,
 	singletonCounter = 0,
