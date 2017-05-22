@@ -4,7 +4,7 @@ var assert = require("assert");
 var url = require('url');
 
 describe("fix urls tests", function() {
-    var fixUrls = require("../fixUrls");
+    var fixUrls = require("../lib/urls");
     var defaultUrl = "https://x.y.z/a/b.html";
 
     beforeEach(function() {

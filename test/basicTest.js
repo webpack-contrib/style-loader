@@ -342,29 +342,35 @@ describe("basic tests", function() {
     );
 
     let expected = 'localScoped-className_3dIU6Uf';
+
     runCompilerTest(expected, done, function() { return this.css.locals.className; });
   }); // it local scope
 
   describe("transform function", function() {
 
     it("should not load the css if the transform function returns false", function(done) {
-      styleLoaderOptions.transform = 'test/cssTransformations/returnFalse';
+      styleLoaderOptions.transform = 'test/transforms/false';
+
       const expected = existingStyle;
+
       runCompilerTest(expected, done);
     });
 
     it("should not load the css if the transform function returns undefined", function(done) {
-      styleLoaderOptions.transform = 'test/cssTransformations/returnNothing';
+      styleLoaderOptions.transform = 'test/transforms/noop';
+
       const expected = existingStyle;
+
       runCompilerTest(expected, done);
     });
 
     it("should load the transformed css returned by the transform function", function(done) {
-      const transformCssFunction = require('./cssTransformations/transformCss');
-      styleLoaderOptions.transform = 'test/cssTransformations/transformCss';
-      
-      const expectedTansformedStyle = transformCssFunction(requiredStyle);
+      const transform = require('./transforms/transform');
+      styleLoaderOptions.transform = 'test/transforms/transform';
+
+      const expectedTansformedStyle = transform(requiredStyle);
       const expected = [existingStyle, expectedTansformedStyle].join("\n");
+
       runCompilerTest(expected, done);
     });
 
