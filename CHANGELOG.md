@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.18.0"></a>
+# [0.18.0](https://github.com/webpack/style-loader/compare/v0.17.0...v0.18.0) (2017-05-22)
+
+
+### Bug Fixes
+
+* stringify the options.transform request ([#230](https://github.com/webpack/style-loader/issues/230)) ([5888095](https://github.com/webpack/style-loader/commit/5888095))
+
+
+### Features
+
+* add options validation ([#224](https://github.com/webpack/style-loader/issues/224)) ([4b6b70d](https://github.com/webpack/style-loader/commit/4b6b70d))
+
+
+
 <a name="0.17.0"></a>
 # [0.17.0](https://github.com/webpack/style-loader/compare/v0.16.1...v0.17.0) (2017-05-01)
 
