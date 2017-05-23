@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.18.1"></a>
+## [0.18.1](https://github.com/webpack/style-loader/compare/v0.18.0...v0.18.1) (2017-05-23)
+
+
+### Bug Fixes
+
+* **addStyles:** revert merged loops ([#236](https://github.com/webpack/style-loader/issues/236)) ([fbd04b1](https://github.com/webpack/style-loader/commit/fbd04b1))
+
+
+
 <a name="0.18.0"></a>
 # [0.18.0](https://github.com/webpack/style-loader/compare/v0.17.0...v0.18.0) (2017-05-22)
 
