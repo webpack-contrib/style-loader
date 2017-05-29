@@ -18,7 +18,7 @@ module.exports.pitch = function (request) {
 
 	return [
 		"// style-loader: Adds some reference to a css file to the DOM by adding a <link> tag",
-		"var update = require(" + JSON.stringify("!" + path.join(__dirname, "lib", "addStyleUrl.js")) + ")(",
+		"var update = require(" + loaderUtils.stringifyRequest(this, "!" + path.join(__dirname, "lib", "addStyleUrl.js")) + ")(",
 		"\trequire(" + loaderUtils.stringifyRequest(this, "!!" + request) + ")",
 		", " + JSON.stringify(options) + ");",
 		"// Hot Module Replacement",
