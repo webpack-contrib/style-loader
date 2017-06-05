@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.18.2"></a>
+## [0.18.2](https://github.com/webpack/style-loader/compare/v0.18.1...v0.18.2) (2017-06-05)
+
+
+### Bug Fixes
+
+* **url:** use `loaderUtils.stringifyRequest` to avoid invalidating hashes due to absolute paths ([#242](https://github.com/webpack/style-loader/issues/242)) ([97508ec](https://github.com/webpack/style-loader/commit/97508ec))
+* Add `null` check to `removeStyleElement` ([#245](https://github.com/webpack/style-loader/issues/245)) ([0a4845c](https://github.com/webpack/style-loader/commit/0a4845c))
+
+
+
 <a name="0.18.1"></a>
 ## [0.18.1](https://github.com/webpack/style-loader/compare/v0.18.0...v0.18.1) (2017-05-23)
 
