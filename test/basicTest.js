@@ -31,6 +31,7 @@ describe("basic tests", function() {
       "<div class='target'>",
       checkValue,
       "</div>",
+      "<iframe class='iframeTarget'/>",
       "</body>",
       "</html>"
     ].join("\n");
@@ -101,6 +102,17 @@ describe("basic tests", function() {
     let expected = [checkValue, requiredStyle].join("\n");
 
     runCompilerTest(expected, done, undefined, selector);
+  }); // it insert into
+
+  it("insert into iframe", function(done) {
+    let selector = "iframe.iframeTarget";
+    styleLoaderOptions.insertInto = selector;
+
+    let expected = 'requiredStyle ';
+
+    runCompilerTest(expected, done, function() {
+      return this.document.querySelector(selector).contentDocument.head.innerHTML;
+    }, selector);
   }); // it insert into
 
   it("singleton", function(done) {
