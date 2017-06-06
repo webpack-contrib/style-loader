@@ -108,7 +108,7 @@ describe("basic tests", function() {
     let selector = "iframe.iframeTarget";
     styleLoaderOptions.insertInto = selector;
 
-    let expected = 'requiredStyle ';
+    let expected = requiredStyle;
 
     runCompilerTest(expected, done, function() {
       return this.document.querySelector(selector).contentDocument.head.innerHTML;
