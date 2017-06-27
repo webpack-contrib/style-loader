@@ -285,7 +285,7 @@ By default, the style-loader appends `<style>` elements to the end of the style 
 }
 ```
 
-A new `<style>` element can be inserted before a specific element by passing an object with `type='before'`, e.g.
+A new `<style>` element can be inserted before a specific element by passing an object, e.g.
 
 **webpack.config.js**
 ```js
