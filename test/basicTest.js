@@ -96,8 +96,10 @@ describe("basic tests", function() {
   }); // it insert at top
 
   it("insert at before", function(done) {
-    styleLoaderOptions.insertAt = "before";
-    styleLoaderOptions.insertBefore = "#existing-style";
+    styleLoaderOptions.insertAt = {
+        type: "before",
+        selector: "#existing-style"
+    };
 
     let expected = [requiredStyle, existingStyle].join("");
 
@@ -105,8 +107,10 @@ describe("basic tests", function() {
   }); // it insert at before
 
   it("insert at before invalid selector", function(done) {
-    styleLoaderOptions.insertAt = "before";
-    styleLoaderOptions.insertBefore = "#missing";
+    styleLoaderOptions.insertAt = {
+        type: "before",
+        selector: "#missing"
+    };
 
     let expected = [existingStyle, requiredStyle].join("\n");
 
