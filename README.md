@@ -137,7 +137,7 @@ Styles are not added on `import/require()`, but instead on call to `use`/`ref`. 
 |**`base`** |`{Number}`|`true`|Set module ID base (DLLPlugin)|
 |**`attrs`**|`{Object}`|`{}`|Add custom attrs to `<style></style>`|
 |**`transform`** |`{Function}`|`false`|Transform/Conditionally load CSS by passing a transform/condition function|
-|**`insertAt`**|`{String}`|`bottom`|Inserts `<style></style>` at the given position|
+|**`insertAt`**|`{String\|Object}`|`bottom`|Inserts `<style></style>` at the given position|
 |**`insertInto`**|`{String}`|`<head>`|Inserts `<style></style>` into the given position|
 |**`sourceMap`**|`{Boolean}`|`false`|Enable/Disable Sourcemaps|
 |**`convertToAbsoluteUrls`**|`{Boolean}`|`false`|Coverts relative URLs to absolute urls, when source maps are enabled|
@@ -293,7 +293,7 @@ A new `<style>` element can be inserted before a specific element by passing an 
   loader: 'style-loader'
   options: {
     insertAt: {
-        before: '#style-overrides'
+        before: '#id'
     }
   }
 }
