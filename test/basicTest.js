@@ -19,7 +19,7 @@ describe("basic tests", function() {
       }
     `,
     requiredStyle = `<style type="text/css">${requiredCss}</style>`,
-    existingStyle = "<style>.existing { color: yellow }</style>",
+    existingStyle = `<style id="existing-style">.existing { color: yellow }</style>`,
     checkValue = '<div class="check">check</div>',
     rootDir = path.resolve(__dirname + "/../") + "/",
     jsdomHtml = [
@@ -94,6 +94,24 @@ describe("basic tests", function() {
 
     runCompilerTest(expected, done);
   }); // it insert at top
+
+  it("insert at before", function(done) {
+    styleLoaderOptions.insertAt = "before";
+    styleLoaderOptions.insertBefore = "#existing-style";
+
+    let expected = [requiredStyle, existingStyle].join("");
+
+    runCompilerTest(expected, done);
+  }); // it insert at before
+
+  it("insert at before invalid selector", function(done) {
+    styleLoaderOptions.insertAt = "before";
+    styleLoaderOptions.insertBefore = "#missing";
+
+    let expected = [existingStyle, requiredStyle].join("\n");
+
+    runCompilerTest(expected, done);
+  }); // it insert at before
 
   it("insert into", function(done) {
     let selector = "div.target";

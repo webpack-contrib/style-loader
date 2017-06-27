@@ -139,6 +139,7 @@ Styles are not added on `import/require()`, but instead on call to `use`/`ref`. 
 |**`transform`** |`{Function}`|`false`|Transform/Conditionally load CSS by passing a transform/condition function|
 |**`insertAt`**|`{String}`|`bottom`|Inserts `<style></style>` at the given position|
 |**`insertInto`**|`{String}`|`<head>`|Inserts `<style></style>` into the given position|
+|**`insertBefore`**|`{String}`|``|A query string specifying an element to insert new `<style>` before, required when `insertAt="before"`|
 |**`sourceMap`**|`{Boolean}`|`false`|Enable/Disable Sourcemaps|
 |**`convertToAbsoluteUrls`**|`{Boolean}`|`false`|Coverts relative URLs to absolute urls, when source maps are enabled|
 
@@ -281,6 +282,19 @@ By default, the style-loader appends `<style>` elements to the end of the style 
   loader: 'style-loader'
   options: {
     insertAt: 'top'
+  }
+}
+```
+
+A new `<style>` element can be inserted before a specific element using the `before` value
+
+**webpack.config.js**
+```js
+{
+  loader: 'style-loader'
+  options: {
+    insertAt: 'before',
+    insertBefore: '#style-overrides'
   }
 }
 ```
