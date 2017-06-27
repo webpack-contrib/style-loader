@@ -97,8 +97,7 @@ describe("basic tests", function() {
 
   it("insert at before", function(done) {
     styleLoaderOptions.insertAt = {
-        type: "before",
-        selector: "#existing-style"
+        before: "#existing-style"
     };
 
     let expected = [requiredStyle, existingStyle].join("");
@@ -108,8 +107,7 @@ describe("basic tests", function() {
 
   it("insert at before invalid selector", function(done) {
     styleLoaderOptions.insertAt = {
-        type: "before",
-        selector: "#missing"
+        before: "#missing"
     };
 
     let expected = [existingStyle, requiredStyle].join("\n");
