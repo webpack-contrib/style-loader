@@ -293,8 +293,7 @@ A new `<style>` element can be inserted before a specific element by passing an 
   loader: 'style-loader'
   options: {
     insertAt: {
-        type: 'before',
-        selector: '#style-overrides'
+        before: '#style-overrides'
     }
   }
 }
