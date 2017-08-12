@@ -57,7 +57,7 @@ style.className === "z849f98ca812"
 
 ### `Url`
 
-It's also possible to add a URL `<link href="path/to/file.css" rel="stylesheet">` instead of a inlining the CSS `{String}` with `<style></style>` tag.
+It's also possible to add a URL `<link href="path/to/file.css" rel="stylesheet">` instead of inlining the CSS `{String}` with `<style></style>` tag.
 
 ```js
 import url from 'file.css'
