@@ -14,7 +14,7 @@
 
 <h2 align="center">Install</h2>
 
-```
+```bash
 npm install style-loader --save-dev
 ```
 
