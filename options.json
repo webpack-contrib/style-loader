@@ -9,7 +9,7 @@
       "type": "object"
     },
     "insertAt": {
-      "type": "string"
+      "type": ["string", "object"]
     },
     "insertInto": {
       "type": "string"
