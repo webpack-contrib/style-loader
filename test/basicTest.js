@@ -5,7 +5,8 @@ describe("basic tests", function() {
   var path = require("path");
 
   var utils = require("./utils"),
-    runCompilerTest = utils.runCompilerTest;
+    runCompilerTest = utils.runCompilerTest,
+    runSourceTest = utils.runSourceTest;
 
   var fs;
 
@@ -60,6 +61,18 @@ describe("basic tests", function() {
     }
   };
 
+  var setupWebpackConfig = function() {
+    fs = utils.setup(webpackConfig, jsdomHtml);
+
+    // Create a tiny file system. rootDir is used because loaders are referring to absolute paths.
+    fs.mkdirpSync(rootDir);
+    fs.writeFileSync(rootDir + "main.js", "var css = require('./style.css');");
+    fs.writeFileSync(rootDir + "style.css", requiredCss);
+    fs.writeFileSync(rootDir + "styleTwo.css", requiredCssTwo);
+    fs.writeFileSync(rootDir + "localScoped.css", localScopedCss);
+    fs.writeFileSync(rootDir + "localComposing.css", localComposingCss);
+  };
+
   beforeEach(function() {
     // Reset all style-loader options
     for (var member in styleLoaderOptions) {
@@ -70,15 +83,7 @@ describe("basic tests", function() {
       cssRule[member] = defaultCssRule[member];
     }
 
-    fs = utils.setup(webpackConfig, jsdomHtml);
-
-    // Create a tiny file system. rootDir is used because loaders are refering to absolute paths.
-    fs.mkdirpSync(rootDir);
-    fs.writeFileSync(rootDir + "main.js", "var css = require('./style.css');");
-    fs.writeFileSync(rootDir + "style.css", requiredCss);
-    fs.writeFileSync(rootDir + "styleTwo.css", requiredCssTwo);
-    fs.writeFileSync(rootDir + "localScoped.css", localScopedCss);
-    fs.writeFileSync(rootDir + "localComposing.css", localComposingCss);
+    setupWebpackConfig();
   }); // before each
 
   it("insert at bottom", function(done) {
@@ -384,6 +389,25 @@ describe("basic tests", function() {
       const expected = [existingStyle, expectedTansformedStyle].join("\n");
 
       runCompilerTest(expected, done);
+    });
+  });
+
+  describe("hmr option", function() {
+
+    it("should output HMR code block by default", function(done) {
+      runSourceTest(/Hot Module Replacement/g, null, done);
+    });
+
+    it("should output HMR code block when options.hmr is true", function(done) {
+      styleLoaderOptions.hmr = true;
+      setupWebpackConfig();
+      runSourceTest(/Hot Module Replacement/g, null, done);
+    });
+
+    it("should not output HMR code block when options.hmr is false", function(done) {
+      styleLoaderOptions.hmr = false;
+      setupWebpackConfig();
+      runSourceTest(null, /Hot Module Replacement/g, done);
     });
 
   });

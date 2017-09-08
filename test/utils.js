@@ -72,7 +72,7 @@ module.exports = {
         virtualConsole: jsdom.createVirtualConsole().sendTo(console),
         done: function(err, window) {
           if (typeof actual === 'function') {
-            assert.equal(actual.apply(window), expected);  
+            assert.equal(actual.apply(window), expected);
           } else {
             assert.equal(window.document.querySelector(selector).innerHTML.trim(), expected);
           }
@@ -82,6 +82,31 @@ module.exports = {
           done();
         }
       });
+    });
+  },
+
+  /*
+   * Runs the test against Webpack compiled source code.
+   *  @param {regex} regexToMatch - regex to match the source code
+   *  @param {regex} regexToNotMatch - regex to NOT match the source code
+   *  @param {function} done - Async callback from Mocha.
+   */
+  runSourceTest: function(regexToMatch, regexToNotMatch, done) {
+    compiler.run(function(err, stats) {
+      if (stats.compilation.errors.length) {
+        throw new Error(stats.compilation.errors);
+      }
+
+      const bundleJs = stats.compilation.assets["bundle.js"].source();
+      if (regexToMatch) {
+        assert.equal(regexToMatch.test(bundleJs), true);
+      }
+
+      if (regexToNotMatch) {
+        assert.equal(regexToNotMatch.test(bundleJs), false);
+      }
+
+      done();
     });
   }
 };

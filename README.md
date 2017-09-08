@@ -134,6 +134,7 @@ Styles are not added on `import/require()`, but instead on call to `use`/`ref`. 
 
 |Name|Type|Default|Description|
 |:--:|:--:|:-----:|:----------|
+|**`hmr`**|`{Boolean}`|`true`|Enable/disable Hot Module Replacement (HMR), if disabled no HMR Code will be added (good for non local development/production)|
 |**`base`** |`{Number}`|`true`|Set module ID base (DLLPlugin)|
 |**`attrs`**|`{Object}`|`{}`|Add custom attrs to `<style></style>`|
 |**`transform`** |`{Function}`|`false`|Transform/Conditionally load CSS by passing a transform/condition function|
@@ -141,6 +142,21 @@ Styles are not added on `import/require()`, but instead on call to `use`/`ref`. 
 |**`insertInto`**|`{String}`|`<head>`|Inserts `<style></style>` into the given position|
 |**`sourceMap`**|`{Boolean}`|`false`|Enable/Disable Sourcemaps|
 |**`convertToAbsoluteUrls`**|`{Boolean}`|`false`|Converts relative URLs to absolute urls, when source maps are enabled|
+
+### `hmr`
+
+Enable/disable Hot Module Replacement (HMR), if disabled no HMR Code will be added.
+This could be used for non local development and production.
+
+**webpack.config.js**
+```js
+{
+  loader: 'style-loader'
+  options: {
+    hmr: false
+  }
+}
+```
 
 ### `base`
 
