@@ -16,11 +16,9 @@ module.exports.pitch = function (request) {
 
 	validateOptions(require('./options.json'), options, 'Style Loader (URL)');
 
-	return [
-		"// style-loader: Adds some reference to a css file to the DOM by adding a <link> tag",
-		"var update = require(" + loaderUtils.stringifyRequest(this, "!" + path.join(__dirname, "lib", "addStyleUrl.js")) + ")(",
-		"\trequire(" + loaderUtils.stringifyRequest(this, "!!" + request) + ")",
-		", " + JSON.stringify(options) + ");",
+	options.hmr = typeof options.hmr === 'undefined' ? true : options.hmr;
+
+	var hmrCode = [
 		"// Hot Module Replacement",
 		"if(module.hot) {",
 		"\tmodule.hot.accept(" + loaderUtils.stringifyRequest(this, "!!" + request) + ", function() {",
@@ -28,5 +26,13 @@ module.exports.pitch = function (request) {
 		"\t});",
 		"\tmodule.hot.dispose(function() { update(); });",
 		"}"
+	].join("\n");
+
+	return [
+		"// style-loader: Adds some reference to a css file to the DOM by adding a <link> tag",
+		"var update = require(" + loaderUtils.stringifyRequest(this, "!" + path.join(__dirname, "lib", "addStyleUrl.js")) + ")(",
+		"\trequire(" + loaderUtils.stringifyRequest(this, "!!" + request) + ")",
+		", " + JSON.stringify(options) + ");",
+		options.hmr ? hmrCode : ""
 	].join("\n");
 };
