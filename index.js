@@ -17,6 +17,24 @@ module.exports.pitch = function (request) {
 
 	validateOptions(require('./options.json'), options, 'Style Loader')
 
+	options.hmr = typeof options.hmr === 'undefined' ? true : options.hmr;
+
+	var hmrCode = [
+		"// Hot Module Replacement",
+		"if(module.hot) {",
+		"	// When the styles change, update the <style> tags",
+		"	if(!content.locals) {",
+		"		module.hot.accept(" + loaderUtils.stringifyRequest(this, "!!" + request) + ", function() {",
+		"			var newContent = require(" + loaderUtils.stringifyRequest(this, "!!" + request) + ");",
+		"			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];",
+		"			update(newContent);",
+		"		});",
+		"	}",
+		"	// When the module is disposed, remove the <style> tags",
+		"	module.hot.dispose(function() { update(); });",
+		"}"
+	].join("\n");
+
 	return [
 		"// style-loader: Adds some css to the DOM by adding a <style> tag",
 		"",
@@ -31,18 +49,6 @@ module.exports.pitch = function (request) {
 		"// add the styles to the DOM",
 		"var update = require(" + loaderUtils.stringifyRequest(this, "!" + path.join(__dirname, "lib", "addStyles.js")) + ")(content, options);",
 		"if(content.locals) module.exports = content.locals;",
-		"// Hot Module Replacement",
-		"if(module.hot) {",
-		"	// When the styles change, update the <style> tags",
-		"	if(!content.locals) {",
-		"		module.hot.accept(" + loaderUtils.stringifyRequest(this, "!!" + request) + ", function() {",
-		"			var newContent = require(" + loaderUtils.stringifyRequest(this, "!!" + request) + ");",
-		"			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];",
-		"			update(newContent);",
-		"		});",
-		"	}",
-		"	// When the module is disposed, remove the <style> tags",
-		"	module.hot.dispose(function() { update(); });",
-		"}"
+		options.hmr ? hmrCode : ""
 	].join("\n");
 };

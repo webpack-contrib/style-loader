@@ -16,24 +16,10 @@ module.exports.pitch = function (request) {
 
 	validateOptions(require('./options.json'), options, 'Style Loader (Useable)');
 
-	return [
-		"var refs = 0;",
-		"var dispose;",
-		"var content = require(" + loaderUtils.stringifyRequest(this, "!!" + request) + ");",
-		"if(typeof content === 'string') content = [[module.id, content, '']];",
-		"if(content.locals) exports.locals = content.locals;",
-		"exports.use = exports.ref = function() {",
-		"	if(!(refs++)) {",
-		"		dispose = require(" + loaderUtils.stringifyRequest(this, "!" + path.join(__dirname, "lib", "addStyles.js")) + ")(content, " + JSON.stringify(options) + ");",
-		"	}",
-		"	return exports;",
-		"};",
-		"exports.unuse = exports.unref = function() {",
-		"       if(refs > 0 && !(--refs)) {",
-		"		dispose();",
-		"		dispose = null;",
-		"	}",
-		"};",
+	options.hmr = typeof options.hmr === 'undefined' ? true : options.hmr;
+
+	var hmrCode = [
+		"// Hot Module Replacement",
 		"if(module.hot) {",
 		"	var lastRefs = module.hot.data && module.hot.data.refs || 0;",
 		"	if(lastRefs) {",
@@ -52,5 +38,26 @@ module.exports.pitch = function (request) {
 		"		}",
 		"	});",
 		"}"
+	].join("\n");
+
+	return [
+		"var refs = 0;",
+		"var dispose;",
+		"var content = require(" + loaderUtils.stringifyRequest(this, "!!" + request) + ");",
+		"if(typeof content === 'string') content = [[module.id, content, '']];",
+		"if(content.locals) exports.locals = content.locals;",
+		"exports.use = exports.ref = function() {",
+		"	if(!(refs++)) {",
+		"		dispose = require(" + loaderUtils.stringifyRequest(this, "!" + path.join(__dirname, "lib", "addStyles.js")) + ")(content, " + JSON.stringify(options) + ");",
+		"	}",
+		"	return exports;",
+		"};",
+		"exports.unuse = exports.unref = function() {",
+		"       if(refs > 0 && !(--refs)) {",
+		"		dispose();",
+		"		dispose = null;",
+		"	}",
+		"};",
+		options.hmr ? hmrCode : ""
 	].join("\n");
 };
