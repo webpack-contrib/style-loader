@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.19.0"></a>
+# [0.19.0](https://github.com/webpack/style-loader/compare/v0.18.2...v0.19.0) (2017-10-03)
+
+
+### Features
+
+* add option to enable/disable HMR (`options.hmr`) ([#264](https://github.com/webpack/style-loader/issues/264)) ([378e906](https://github.com/webpack/style-loader/commit/378e906))
+* add support for iframes (`options.insertInto`) ([#248](https://github.com/webpack/style-loader/issues/248)) ([25e8e89](https://github.com/webpack/style-loader/commit/25e8e89))
+* support 'before' insertions (`options.insertAt`) ([#253](https://github.com/webpack/style-loader/issues/253)) ([67120f8](https://github.com/webpack/style-loader/commit/67120f8))
+
+
+
 <a name="0.18.2"></a>
 ## [0.18.2](https://github.com/webpack/style-loader/compare/v0.18.1...v0.18.2) (2017-06-05)
 
