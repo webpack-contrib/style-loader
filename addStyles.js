@@ -60,10 +60,17 @@ module.exports = function(list, options) {
 	// By default, add <style> tags to the bottom of the target
 	if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
 
-	var styles = listToStyles(list);
-	var bundleStyle = document.getElementById('render-bundle-css');
+	// Remove first style with attribute "render-css"
 	var head = document.getElementsByTagName("head")[0];
-	if (bundleStyle) head.removeChild(bundleStyle);
+	var headStyles = head.getElementsByTagName("style");
+	for (var i = 0; i < headStyles.length; i++) {
+		if (headStyles[i].attributes['render-css']) {
+			head.removeChild(headStyles[i]);
+			break;
+		}
+	}
+
+	var styles = listToStyles(list);
 	addStylesToDom(styles, options);
 
 	return function update(newList) {
