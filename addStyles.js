@@ -42,9 +42,8 @@ module.exports = function(list, options) {
 				cssStrings += part.css + "\n";
 			});
 		});
-		global.bundleCss = global.bundleCss
-			? global.bundleCss + "\n" + cssStrings
-			: cssStrings;
+		global.serverSideRenderedStyles = global.serverSideRenderedStyles || []
+		global.serverSideRenderedStyles.push(cssStrings);
 		return;
 	}
 
