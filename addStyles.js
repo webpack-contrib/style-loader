@@ -35,15 +35,15 @@ var stylesInDom = {},
 	fixUrls = require("./fixUrls");
 
 module.exports = function(list, options) {
-	if(typeof document !== "object") {
-		var cssStrings = '';
-		listToStyles(list).forEach(function(style) {
-			style.parts.forEach(function(part) {
-				cssStrings += part.css + "\n";
-			});
-		});
-		global.serverSideRenderedStyles = global.serverSideRenderedStyles || []
-		global.serverSideRenderedStyles.push(cssStrings);
+	var styles = listToStyles(list);
+
+	// On server-side rendering, collect all styles and expose them on the global context
+	// The server adds a new <style render-css="true"></style> tag for each string in this array
+	// During client-side rendering, they will be removed in the same order they were created
+	if (typeof document !== "object") {
+		var cssString = stylesToString(styles);
+		global.serverSideRenderedStyles = global.serverSideRenderedStyles || [];
+		global.serverSideRenderedStyles.push(cssString);
 		return;
 	}
 
@@ -60,6 +60,9 @@ module.exports = function(list, options) {
 	// By default, add <style> tags to the bottom of the target
 	if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
 
+	// Add style before removing server rendered style tag
+	addStylesToDom(styles, options);
+
 	// Remove first style with attribute "render-css"
 	var head = document.getElementsByTagName("head")[0];
 	var headStyles = head.getElementsByTagName("style");
@@ -69,9 +72,6 @@ module.exports = function(list, options) {
 			break;
 		}
 	}
-
-	var styles = listToStyles(list);
-	addStylesToDom(styles, options);
 
 	return function update(newList) {
 		var mayRemove = [];
@@ -95,6 +95,18 @@ module.exports = function(list, options) {
 		}
 	};
 };
+
+function partToCss(part) {
+	return part.css;
+}
+
+function styleToString(style) {
+	return style.parts.map(partToCss).join("\n");
+}
+
+function stylesToString(styles) {
+	return styles.map(styleToString).join("\n");
+}
 
 function addStylesToDom(styles, options) {
 	for(var i = 0; i < styles.length; i++) {
