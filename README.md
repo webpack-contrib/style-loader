@@ -134,7 +134,7 @@ Styles are not added on `import/require()`, but instead on call to `use`/`ref`. 
 
 |Name|Type|Default|Description|
 |:--:|:--:|:-----:|:----------|
-|**`hmr`**|`{Boolean}`|`true`|Enable/disable Hot Module Replacement (HMR), if disabled no HMR Code will be added (good for non local development/production)|
+|**`hmr`**|`{Boolean}`|`true` for non-prod, `false` for prod|Enable/disable Hot Module Replacement (HMR), if disabled no HMR Code will be added. When in development, default value to be true, while in production, default to be false|
 |**`base`** |`{Number}`|`true`|Set module ID base (DLLPlugin)|
 |**`attrs`**|`{Object}`|`{}`|Add custom attrs to `<style></style>`|
 |**`transform`** |`{Function}`|`false`|Transform/Conditionally load CSS by passing a transform/condition function|
@@ -146,7 +146,11 @@ Styles are not added on `import/require()`, but instead on call to `use`/`ref`. 
 ### `hmr`
 
 Enable/disable Hot Module Replacement (HMR), if disabled no HMR Code will be added.
-This could be used for non local development and production.
+If no specific value provided, the default value will be determined by the npm script that invoked webpack:
+  * If invoked via `npm preblish/prepublishOnly`, considered for production distribution, default to false.
+  * if invoked via other npm scripts or non-npm scripts, considered non-prod, default to true.
+
+You can always Provide a specific value to override the defaults.
 
 **webpack.config.js**
 ```js
