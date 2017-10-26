@@ -8,6 +8,8 @@ var path = require("path");
 var loaderUtils = require("loader-utils");
 var validateOptions = require('schema-utils');
 
+var parseHmrOption = require('./lib/parseHmrOption');
+
 module.exports = function () {};
 
 module.exports.pitch = function (request) {
@@ -17,7 +19,7 @@ module.exports.pitch = function (request) {
 
 	validateOptions(require('./options.json'), options, 'Style Loader')
 
-	options.hmr = typeof options.hmr === 'undefined' ? true : options.hmr;
+	options.hmr = parseHmrOption(options.hmr);
 
 	var hmrCode = [
 		"// Hot Module Replacement",
