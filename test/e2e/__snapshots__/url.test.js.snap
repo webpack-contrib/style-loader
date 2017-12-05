@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`E2E URL 1`] = `"<link rel=\\"stylesheet\\" type=\\"text/css\\" href=\\"9d518ff9795764444f4768fe49d8e628.css\\">"`;

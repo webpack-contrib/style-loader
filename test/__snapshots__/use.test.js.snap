@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loader Use 1`] = `
+"// Style Loader
+// Adds CSS to the DOM by lazy-loading them on demand
+import CSS from \\"!!../../node_modules/css-loader/index.js??ref--0-1!./fixture.css\\";
+import runtime from \\"!../../src/lib/index.js\\";
+
+let refs = 0;
+let dispose;
+
+let css = CSS
+
+if (typeof css === 'string') {
+  css = [[module.id, css, '']];
+}
+
+export * from \\"!!../../node_modules/css-loader/index.js??ref--0-1!./fixture.css\\";
+
+export function use () {
+  if(!(refs++)) {
+    dispose = runtime(css, {\\"hmr\\":true});
+  }
+
+  return dispose;
+};
+
+export function unuse () {
+  if(refs > 0 && !(--refs)) {
+    dispose();
+
+    dispose = null;
+  }
+};
+
+// Hot Module Replacement
+if (module.hot) {
+  let lastRefs = module.hot.data && module.hot.data.refs || 0;
+
+  if (lastRefs) {
+    use();
+    // TODO revisit
+    if (!css) {
+      refs = lastRefs;
+    }
+  }
+  // TODO revisit
+  if (!css) {
+    module.hot.accept();
+  }
+
+  module.hot.dispose((data) => {
+    // TODO revisit
+    data.refs = css ? 0 : refs;
+
+    if (dispose) {
+      dispose();
+    }
+  });
+}"
+`;

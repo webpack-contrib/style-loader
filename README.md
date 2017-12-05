@@ -1,6 +1,8 @@
 [![npm][npm]][npm-url]
 [![node][node]][node-url]
 [![deps][deps]][deps-url]
+[![tests][tests]][tests-url]
+[![coverage][cover]][cover-url]
 [![chat][chat]][chat-url]
 
 <div align="center">
@@ -15,7 +17,7 @@
 <h2 align="center">Install</h2>
 
 ```bash
-npm install style-loader --save-dev
+npm i -D style-loader
 ```
 
 <h2 align="center"><a href="https://webpack.js.org/concepts/loaders">Usage</a></h2>
@@ -132,13 +134,13 @@ Styles are not added on `import/require()`, but instead on call to `use`/`ref`. 
 
 |Name|Type|Default|Description|
 |:--:|:--:|:-----:|:----------|
-|**`hmr`**|`{Boolean}`|`true`|Enable/disable Hot Module Replacement (HMR), if disabled no HMR Code will be added (good for non local development/production)|
-|**`base`** |`{Number}`|`true`|Set module ID base (DLLPlugin)|
-|**`attrs`**|`{Object}`|`{}`|Add custom attrs to `<style></style>`|
-|**`transform`** |`{Function}`|`false`|Transform/Conditionally load CSS by passing a transform/condition function|
-|**`insertAt`**|`{String\|Object}`|`bottom`|Inserts `<style></style>` at the given position|
-|**`insertInto`**|`{String}`|`<head>`|Inserts `<style></style>` into the given position|
-|**`sourceMap`**|`{Boolean}`|`false`|Enable/Disable Sourcemaps|
+|**[`hmr`](#hmr)**|`{Boolean}`|`true`|Enable/disable Hot Module Replacement (HMR), if disabled no HMR Code will be added (good for non local development/production)|
+|**[`base`](#base)** |`{Number}`|`true`|Set module ID base (DLLPlugin)|
+|**[`attrs`](#attrs)**|`{Object}`|`{}`|Add custom attrs to `<style></style>`|
+|**[`transform`](#transform)** |`{Function}`|`false`|Transform/Conditionally load CSS by passing a transform/condition function|
+|**[`insertAt`]**](#insertat)|`{String\|Object}`|`bottom`|Inserts `<style></style>` at the given position|
+|**[`insertInto`](#insertinto)**|`{String}`|`<head>`|Inserts `<style></style>` into the given position|
+|**[`sourceMap`](#sourcemap)**|`{Boolean}`|`false`|Enable/Disable Sourcemaps|
 
 ### `hmr`
 
@@ -163,10 +165,7 @@ This setting is primarily used as a workaround for [css clashes](https://github.
 ```js
 {
   test: /\.css$/,
-  use: [
-    'style-loader',
-    'css-loader'
-  ]
+  use: [ 'style-loader', 'css-loader' ]
 }
 ```
 
@@ -175,18 +174,28 @@ This setting is primarily used as a workaround for [css clashes](https://github.
 {
   test: /\.css$/,
   use: [
-    { loader: 'style-loader', options: { base: 1000 } },
+    {
+      loader: 'style-loader',
+      options: {
+        base: 1000
+      }
+    },
     'css-loader'
   ]
 }
 ```
 
 **webpack.app.config.js**
-```
+```js
 {
   test: /\.css$/,
   use: [
-    { loader: 'style-loader', options: { base: 2000 } },
+    {
+      loader: 'style-loader',
+      options: {
+        base: 2000
+      }
+    },
     'css-loader'
   ]
 }
@@ -206,7 +215,14 @@ import style from './file.css'
 {
   test: /\.css$/,
   use: [
-    { loader: 'style-loader', options: { attrs: { id: 'id' } } }
+    {
+      loader: 'style-loader',
+      options: {
+        attrs: {
+          id: 'id'
+        }
+      }
+    },
     { loader: 'css-loader' }
   ]
 }
@@ -228,7 +244,14 @@ import link from './file.css'
 {
   test: /\.css$/,
   use: [
-    { loader: 'style-loader/url', options: { attrs: { id: 'id' } } }
+    {
+      loader: 'style-loader/url',
+      options: {
+        attrs: {
+          id: 'id'
+        }
+      }
+    },
     { loader: 'file-loader' }
   ]
 }
@@ -306,13 +329,14 @@ A new `<style>` element can be inserted before a specific element by passing an 
   loader: 'style-loader',
   options: {
     insertAt: {
-        before: '#id'
+      before: '#id'
     }
   }
 }
 ```
 
 ### `insertInto`
+
 By default, the style-loader inserts the `<style>` elements into the `<head>` tag of the page. If you want the tags to be inserted somewhere else you can specify a CSS selector for that element here. If you target an [IFrame](https://developer.mozilla.org/en-US/docs/Web/API/HTMLIFrameElement) make sure you have sufficient access rights, the styles will be injected into the content document head.
 You can also insert the styles into a [ShadowRoot](https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot), e.g
 
@@ -344,7 +368,7 @@ If defined, the style-loader will reuse a single `<style>` element, instead of a
 
 ### `sourceMap`
 
-Enable/Disable source map loading
+Enable/Disable source maps
 
 **webpack.config.js**
 ```js
@@ -356,6 +380,43 @@ Enable/Disable source map loading
 }
 ```
 
+<h2 align="center">Maintainers</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td align="center">
+        <a href="https://github.com/bebraw">
+          <img width="150" height="150" src="https://github.com/bebraw.png?v=3&s=150">
+          </br>
+          Juho Vepsäläinen
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/d3viant0ne">
+          <img width="150" height="150" src="https://github.com/d3viant0ne.png?v=3&s=150">
+          </br>
+          Joshua Wiens
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/michael-ciniawsky">
+          <img width="150" height="150" src="https://github.com/michael-ciniawsky.png?v=3&s=150">
+          </br>
+          Michael Ciniawsky
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/evilebottnawi">
+          <img width="150" height="150" src="https://github.com/evilebottnawi.png?v=3&s=150">
+          </br>
+          Alexander Krasnoyarov
+        </a>
+      </td>
+    </tr>
+  <tbody>
+</table>
+
 
 [npm]: https://img.shields.io/npm/v/style-loader.svg
 [npm-url]: https://npmjs.com/package/style-loader
@@ -365,6 +426,12 @@ Enable/Disable source map loading
 
 [deps]: https://david-dm.org/webpack/style-loader.svg
 [deps-url]: https://david-dm.org/webpack/file-loader
+
+[tests]: http://img.shields.io/travis/webpack-contrib/style-loader.svg
+[tests-url]: https://travis-ci.org/webpack-contrib/style-loader
+
+[cover]: https://codecov.io/gh/webpack-contrib/style-loader/branch/master/graph/badge.svg
+[cover-url]: https://codecov.io/gh/webpack-contrib/style-loader
 
 [chat]: https://badges.gitter.im/webpack/webpack.svg
 [chat-url]: https://gitter.im/webpack/webpack

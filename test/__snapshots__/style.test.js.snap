@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loader Style 1`] = `
+"// Style Loader
+// Adds CSS to the DOM by adding a <style> tag
+import CSS from \\"!!../../node_modules/css-loader/index.js??ref--0-1!./fixture.css\\";
+import style from \\"!../../src/lib/index.js\\";
+
+
+// CSS Exports
+export * from \\"!!../../node_modules/css-loader/index.js??ref--0-1!./fixture.css\\";
+// CSS
+let css = CSS
+
+// Convert CSS
+if (typeof css === \\"string\\") {
+  css = [[module.id, css, \\"\\"]];
+}
+
+// Loader Options
+const options = {\\"hmr\\":true}
+
+
+
+// Add Styles (DOM)
+const styles = style(css, options);
+
+// Hot Module Replacement
+if (module.hot) {
+  // When the styles change, update the <style> tags
+  module.hot.accept(\\"!!../../node_modules/css-loader/index.js??ref--0-1!./fixture.css\\", () => {
+    // TODO update to ESM
+    let hot = require(\\"!!../../node_modules/css-loader/index.js??ref--0-1!./fixture.css\\");
+
+    if (typeof hot === \\"string\\") {
+      hot = [[module.id, hot, \\"\\"]];
+    }
+
+    style(hot);
+  });
+
+  // When the module is disposed, remove the <style> tags
+  module.hot.dispose(() => style());
+}"
+`;

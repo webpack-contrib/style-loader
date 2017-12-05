@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`E2E Style 1`] = `
+"<style type=\\"text/css\\">.class {
+  color: red;
+}
+</style>"
+`;

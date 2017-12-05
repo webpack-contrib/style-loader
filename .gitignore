@@ -1,2 +1,17 @@
 /node_modules
 .idea/
+
+logs
+*.log
+npm-debug.log*
+.eslintcache
+/coverage
+/dist
+/local
+/reports
+.DS_Store
+Thumbs.db
+.idea
+.vscode
+*.sublime-project
+*.sublime-workspace

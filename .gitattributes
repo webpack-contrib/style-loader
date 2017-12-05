@@ -1,2 +1,5 @@
 # Treats the lock file as binary & prevents conflict hell
 yarn.lock -diff
+package-lock.json -diff
+* text=auto
+bin/* eol=lf
