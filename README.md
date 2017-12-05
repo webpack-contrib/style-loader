@@ -84,8 +84,6 @@ import url from 'file.css'
 <link rel="stylesheet" href="path/to/file.css">
 ```
 
-> :information_source: Source maps and assets referenced with `url`: when style loader is used with `{ options: { sourceMap: true } }` option, the CSS modules will be generated as `Blob`s, so relative paths don't work (they would be relative to `chrome:blob` or `chrome:devtools`). In order for assets to maintain correct paths setting `output.publicPath` property of webpack configuration must be set, so that absolute paths are generated. Alternatively you can enable the `convertToAbsoluteUrls` option mentioned above.
-
 ### `Useable`
 
 By convention the `Reference Counter API` should be bound to `.useable.css` and the `.css` should be loaded with basic `style-loader` usage.(similar to other file types, i.e. `.useable.less` and `.less`).
@@ -141,7 +139,6 @@ Styles are not added on `import/require()`, but instead on call to `use`/`ref`. 
 |**`insertAt`**|`{String\|Object}`|`bottom`|Inserts `<style></style>` at the given position|
 |**`insertInto`**|`{String}`|`<head>`|Inserts `<style></style>` into the given position|
 |**`sourceMap`**|`{Boolean}`|`false`|Enable/Disable Sourcemaps|
-|**`convertToAbsoluteUrls`**|`{Boolean}`|`false`|Converts relative URLs to absolute urls, when source maps are enabled|
 
 ### `hmr`
 
@@ -358,81 +355,6 @@ Enable/Disable source map loading
   }
 }
 ```
-
-### `convertToAbsoluteUrls`
-
-If convertToAbsoluteUrls and sourceMaps are both enabled, relative urls will be converted to absolute urls right before the css is injected into the page. This resolves [an issue](https://github.com/webpack/style-loader/pull/96) where relative resources fail to load when source maps are enabled. You can enable it with the convertToAbsoluteUrls option.
-
-**webpack.config.js**
-```js
-{
-  loader: 'style-loader',
-  options: {
-    sourceMap: true,
-    convertToAbsoluteUrls: true
-  }
-}
-```
-
-<h2 align="center">Maintainers</h2>
-
-<table>
-  <tbody>
-    <tr>
-      <td align="center">
-        <a href="https://github.com/bebraw">
-          <img width="150" height="150" src="https://github.com/bebraw.png?v=3&s=150">
-          </br>
-          Juho Vepsäläinen
-        </a>
-      </td>
-      <td align="center">
-        <a href="https://github.com/d3viant0ne">
-          <img width="150" height="150" src="https://github.com/d3viant0ne.png?v=3&s=150">
-          </br>
-          Joshua Wiens
-        </a>
-      </td>
-      <td align="center">
-        <a href="https://github.com/sapegin">
-          <img width="150" height="150" src="https://github.com/sapegin.png?v=3&s=150">
-          </br>
-          Artem Sapegin
-        </a>
-      </td>
-      <td align="center">
-        <a href="https://github.com/michael-ciniawsky">
-          <img width="150" height="150" src="https://github.com/michael-ciniawsky.png?v=3&s=150">
-          </br>
-          Michael Ciniawsky
-        </a>
-      </td>
-      <td align="center">
-        <a href="https://github.com/evilebottnawi">
-          <img width="150" height="150" src="https://github.com/evilebottnawi.png?v=3&s=150">
-          </br>
-          Alexander Krasnoyarov
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td align="center">
-        <a href="https://github.com/sokra">
-          <img width="150" height="150" src="https://github.com/sokra.png?v=3&s=150">
-          </br>
-          Tobias Koppers
-        </a>
-      </td>
-      <td align="center">
-        <a href="https://github.com/SpaceK33z">
-          <img width="150" height="150" src="https://github.com/SpaceK33z.png?v=3&s=150">
-          </br>
-          Kees Kluskens
-        </a>
-      </td>
-    <tr>
-  <tbody>
-</table>
 
 
 [npm]: https://img.shields.io/npm/v/style-loader.svg
