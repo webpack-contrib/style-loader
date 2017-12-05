@@ -147,9 +147,9 @@ describe("basic tests", function() {
     }, selector);
   }); // it insert into
 
-  it("insert into custom element by callable", function(done) {
+  it("insert into custom element by function", function(done) {
     const selector = "#test-shadow";
-    styleLoaderOptions.insertIntoCallable = "test/insert/into";
+    styleLoaderOptions.insertInto = () => document.querySelector("#test-shadow");
 
     let expected = requiredStyle;
 

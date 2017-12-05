@@ -35,6 +35,14 @@ module.exports.pitch = function (request) {
 		"}"
 	].join("\n");
 
+        var insertInto = "void 0";
+        if (typeof options.insertInto === "function") {
+          insertInto = options.insertInto.toString();
+        }
+        if (typeof options.insertInto === "string") {
+          insertInto = '"' + options.insertInto + '"';
+        }
+
 	return [
 		"// style-loader: Adds some css to the DOM by adding a <style> tag",
 		"",
@@ -44,11 +52,10 @@ module.exports.pitch = function (request) {
 		"// Prepare cssTransformation",
 		"var transform;",
 		options.transform ? "transform = require(" + loaderUtils.stringifyRequest(this, "!" + path.resolve(options.transform)) + ");" : "",
-                "var insertIntoCallable;",
-                options.insertIntoCallable ? "insertIntoCallable = require(" + loaderUtils.stringifyRequest(this, "!" + path.resolve(options.insertIntoCallable)) + ")" : "",
+                "var insertInto = " + insertInto + ";" ,
                 "var options = " + JSON.stringify(options),
 	        "options.transform = transform",
-                "options.insertIntoCallable = insertIntoCallable",
+                "options.insertInto = insertInto;",
 		"// add the styles to the DOM",
 		"var update = require(" + loaderUtils.stringifyRequest(this, "!" + path.join(__dirname, "lib", "addStyles.js")) + ")(content, options);",
 		"if(content.locals) module.exports = content.locals;",
