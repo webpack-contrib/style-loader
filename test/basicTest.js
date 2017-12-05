@@ -140,7 +140,7 @@ describe("basic tests", function() {
     }, selector);
   }); // it insert into
 
-  it("singleton", function(done) {
+  it("Options - singleton", function(done) {
     // Setup
     styleLoaderOptions.singleton = true;
 
@@ -161,7 +161,7 @@ describe("basic tests", function() {
     runCompilerTest(expected, done);
   }); // it singleton
 
-  it("attrs", function(done) {
+  it("Options - attrs", function(done) {
     // Setup
     styleLoaderOptions.attrs = {id: 'style-tag-id'};
 
@@ -222,7 +222,7 @@ describe("basic tests", function() {
     runCompilerTest(expected, done);
   }); // it url with attrs
 
-  it("useable", function(done) {
+  it("Useable", function(done) {
     cssRule.use = [
       {
         loader: "style-loader/useable"
@@ -383,7 +383,7 @@ describe("basic tests", function() {
     runCompilerTest(expected, done, function() { return this.css.locals.className; });
   }); // it local scope
 
-  describe("transform function", function() {
+  describe("Options - transform", function() {
 
     it("should not load the css if the transform function returns false", function(done) {
       styleLoaderOptions.transform = 'test/transforms/false';
@@ -412,7 +412,7 @@ describe("basic tests", function() {
     });
   });
 
-  describe("hmr option", function() {
+  describe("HMR", function() {
 
     it("should output HMR code block by default", function(done) {
       runSourceTest(/Hot Module Replacement/g, null, done);
