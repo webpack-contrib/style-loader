@@ -22,7 +22,7 @@ module.exports = {
     Object.assign(webpackConfig, {
       resolveLoader: {
         alias: {
-          "style-loader": path.resolve(__dirname, "../")
+          "style-loader": path.resolve(__dirname, "../src")
         }
       }
     });

@@ -35,7 +35,7 @@ module.exports.pitch = function (request) {
     '}'
   ].join('\n');
 
-  return [
+  const code = [
     '// Style Loader',
     '// Adds some css to the DOM by adding a <style> tag',
     '',
@@ -57,4 +57,6 @@ module.exports.pitch = function (request) {
     '',
     options.hmr ? hmr : ''
   ].join('\n');
+
+  return code
 };

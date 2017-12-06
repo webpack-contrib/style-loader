@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Options sourceMap {Boolean} 1`] = `
+"exports = module.exports = require(\\"../../node_modules/css-loader/lib/css-base.js\\")(true);
+// imports
+
+
+// module
+exports.push([module.id, \\".class {\\\\n  color: red;\\\\n}\\\\n\\", \\"\\", {\\"version\\":3,\\"sources\\":[\\"/Users/Cini/Github/Webpack/loaders/style-loader/test/fixtures/fixture.css\\"],\\"names\\":[],\\"mappings\\":\\"AAAA;EACE,WAAW;CACZ\\",\\"file\\":\\"fixture.css\\",\\"sourcesContent\\":[\\".class {\\\\n  color: red;\\\\n}\\\\n\\"],\\"sourceRoot\\":\\"\\"}]);
+
+// exports
+"
+`;
