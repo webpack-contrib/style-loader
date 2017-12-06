@@ -5,7 +5,7 @@ var assert = require("assert");
 var sinon = require('sinon');
 var loaderUtils = require('loader-utils');
 
-var url = require("../url");
+var url = require("../src/url");
 
 describe("url tests", function () {
   var sandbox = sinon.sandbox.create();
