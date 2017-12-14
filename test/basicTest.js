@@ -140,7 +140,7 @@ describe("basic tests", function() {
     }, selector);
   }); // it insert into
 
-  it("singleton", function(done) {
+  it("singleton (true)", function(done) {
     // Setup
     styleLoaderOptions.singleton = true;
 
@@ -156,6 +156,27 @@ describe("basic tests", function() {
     let expected = [
       existingStyle,
       `<style type="text/css">${requiredCss}${requiredCssTwo}</style>`
+    ].join("\n");
+
+    runCompilerTest(expected, done);
+  }); // it singleton
+
+  it("singleton (false)", function(done) {
+    // Setup
+    styleLoaderOptions.singleton = false;
+
+    fs.writeFileSync(
+      rootDir + "main.js",
+      [
+        "var a = require('./style.css');",
+        "var b = require('./styleTwo.css');"
+      ].join("\n")
+    );
+
+    // Run
+    let expected = [
+      existingStyle,
+      `<style type="text/css">${requiredCss}</style><style type="text/css">${requiredCssTwo}</style>`
     ].join("\n");
 
     runCompilerTest(expected, done);
