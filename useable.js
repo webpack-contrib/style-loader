@@ -45,6 +45,7 @@ module.exports.pitch = function (request) {
 		"var dispose;",
 		"var content = require(" + loaderUtils.stringifyRequest(this, "!!" + request) + ");",
 		"if(typeof content === 'string') content = [[module.id, content, '']];",
+		"exports.content = content;",
 		"if(content.locals) exports.locals = content.locals;",
 		"exports.use = exports.ref = function() {",
 		"	if(!(refs++)) {",
