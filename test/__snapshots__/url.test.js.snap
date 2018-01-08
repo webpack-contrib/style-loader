@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loader URL 1`] = `
+"// Style Loader
+// Adds CSS to the DOM by adding a <link> tag
+import link from \\"!../../src/lib/url/index.js\\";
+import href from \\"!!../../node_modules/css-loader/index.js??ref--0-1!./fixture.css\\";
+
+link(href, {\\"hmr\\":true});
+
+// Hot Module Replacement
+if (module.hot) {
+  module.hot.accept(\\"!!../../node_modules/css-loader/index.js??ref--0-1!./fixture.css\\", () => {
+    link(require(\\"!!../../node_modules/css-loader/index.js??ref--0-1!./fixture.css\\"));
+  });
+
+  module.hot.dispose(() => link());
+}"
+`;
