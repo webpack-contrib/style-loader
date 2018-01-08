@@ -17,7 +17,19 @@ module.exports.pitch = function (request) {
 
 	validateOptions(require('./options.json'), options, 'Style Loader')
 
-	options.hmr = typeof options.hmr === 'undefined' ? true : options.hmr;
+        options.hmr = typeof options.hmr === 'undefined' ? true : options.hmr;
+
+        // need to use this variable, because function should be inlined
+        // if just store it in options, then after JSON.stringify
+        // function will be quoted and then in runtime will be just string
+        var insertInto;
+        if (typeof options.insertInto === "function") {
+            insertInto = options.insertInto.toString();
+        }
+        // we need to check if it string, or variable will be "undefined" and loader crash then
+        if (typeof options.insertInto === "string") {
+            insertInto = '"' + options.insertInto + '"';
+        }
 
 	var hmrCode = [
 		"// Hot Module Replacement",
@@ -35,14 +47,6 @@ module.exports.pitch = function (request) {
 		"}"
 	].join("\n");
 
-        var insertInto = "void 0";
-        if (typeof options.insertInto === "function") {
-          insertInto = options.insertInto.toString();
-        }
-        if (typeof options.insertInto === "string") {
-          insertInto = '"' + options.insertInto + '"';
-        }
-
 	return [
 		"// style-loader: Adds some css to the DOM by adding a <style> tag",
 		"",
@@ -51,8 +55,9 @@ module.exports.pitch = function (request) {
 		"if(typeof content === 'string') content = [[module.id, content, '']];",
 		"// Prepare cssTransformation",
 		"var transform;",
-		options.transform ? "transform = require(" + loaderUtils.stringifyRequest(this, "!" + path.resolve(options.transform)) + ");" : "",
-                "var insertInto = " + insertInto + ";" ,
+                "var insertInto;",
+	        options.transform ? "transform = require(" + loaderUtils.stringifyRequest(this, "!" + path.resolve(options.transform)) + ");" : "",
+                "insertInto = " + insertInto + ";" ,
                 "var options = " + JSON.stringify(options),
 	        "options.transform = transform",
                 "options.insertInto = insertInto;",
