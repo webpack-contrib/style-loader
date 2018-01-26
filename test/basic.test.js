@@ -451,24 +451,23 @@ describe("basic tests", function() {
     });
   });
 
-  describe("hmr option", function() {
-
+  describe("HMR", function() {
     it("should output HMR code block by default", function(done) {
-      runSourceTest(/Hot Module Replacement/g, null, done);
+      runSourceTest(/module\.hot/g, null, done);
     });
 
     it("should output HMR code block when options.hmr is true", function(done) {
       styleLoaderOptions.hmr = true;
       setupWebpackConfig();
-      runSourceTest(/Hot Module Replacement/g, null, done);
+      runSourceTest(/module\.hot/g, null, done);
     });
 
     it("should not output HMR code block when options.hmr is false", function(done) {
       styleLoaderOptions.hmr = false;
       setupWebpackConfig();
-      runSourceTest(null, /Hot Module Replacement/g, done);
+      runSourceTest(null, /module\.hot/g, done);
     });
 
   });
 
-}); // describe
+});

@@ -85,25 +85,27 @@ module.exports = {
     });
   },
 
-  /*
-   * Runs the test against Webpack compiled source code.
-   *  @param {regex} regexToMatch - regex to match the source code
-   *  @param {regex} regexToNotMatch - regex to NOT match the source code
-   *  @param {function} done - Async callback from Mocha.
+  /**
+   * Runs the test against Webpack compiled source code
+   * 
+   * @param {RegExp} match - regex to match the source code
+   * @param {RegExp} noMatch - regex to NOT match the source code
+   * @param {Function} done - Async callback (mocha)
    */
-  runSourceTest: function(regexToMatch, regexToNotMatch, done) {
+  runSourceTest: function(match, noMatch, done) {
     compiler.run(function(err, stats) {
       if (stats.compilation.errors.length) {
         throw new Error(stats.compilation.errors);
       }
 
-      const bundleJs = stats.compilation.assets["bundle.js"].source();
-      if (regexToMatch) {
-        assert.equal(regexToMatch.test(bundleJs), true);
+      const source = stats.compilation.assets["bundle.js"].source();
+
+      if (match) {
+        assert.equal(match.test(source), true);
       }
 
-      if (regexToNotMatch) {
-        assert.equal(regexToNotMatch.test(bundleJs), false);
+      if (noMatch) {
+        assert.equal(noMatch.test(source), false);
       }
 
       done();

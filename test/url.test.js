@@ -21,17 +21,17 @@ describe("url tests", function () {
   });
 
   it("should output HMR code by default", function () {
-    assert.equal(/Hot Module Replacement/g.test(url.pitch()), true);
+    assert.equal(/(module\.hot)/g.test(url.pitch()), true);
   });
 
   it("should NOT output HMR code when options.hmr is false", function () {
     getOptions.returns({hmr: false});
-    assert.equal(/Hot Module Replacement/g.test(url.pitch()), false);
+    assert.equal(/(module\.hot)/g.test(url.pitch()), false);
   });
 
   it("should output HMR code when options.hmr is true", function () {
     getOptions.returns({hmr: true});
-    assert.equal(/Hot Module Replacement/g.test(url.pitch()), true);
+    assert.equal(/(module\.hot)/g.test(url.pitch()), true);
   });
 
 });
