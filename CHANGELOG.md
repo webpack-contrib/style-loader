@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.20.0"></a>
+# [0.20.0](https://github.com/webpack-contrib/style-loader/compare/v0.19.1...v0.20.0) (2018-01-26)
+
+
+### Bug Fixes
+
+* **addStyles:** check if `HTMLIFrameElement` exist ([#296](https://github.com/webpack-contrib/style-loader/issues/296)) ([9b46128](https://github.com/webpack-contrib/style-loader/commit/9b46128))
+* **index:** enable HMR in case `locals` (`css-modules`) are unchanged ([#298](https://github.com/webpack-contrib/style-loader/issues/298)) ([3a4cb53](https://github.com/webpack-contrib/style-loader/commit/3a4cb53))
+* **options:** add `transform` option validation (`{String}`) ([23c3567](https://github.com/webpack-contrib/style-loader/commit/23c3567))
+* **options:** support passing a `{Function}` (`options.insertInto`) ([e0c4b19](https://github.com/webpack-contrib/style-loader/commit/e0c4b19))
+
+
+### Features
+
+* support passing a `{Function}` (`options.insertInto`) ([#279](https://github.com/webpack-contrib/style-loader/issues/279)) ([0eb8fe7](https://github.com/webpack-contrib/style-loader/commit/0eb8fe7))
+
+
+
 <a name="0.19.1"></a>
 ## [0.19.1](https://github.com/webpack/style-loader/compare/v0.19.0...v0.19.1) (2017-12-14)
 
