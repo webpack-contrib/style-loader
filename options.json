@@ -20,6 +20,9 @@
         { "instanceof": "Function" }
       ]
     },
+    "transform": {
+      "type": "string"
+    },
     "singleton": {
       "type": "boolean"
     },
