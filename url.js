@@ -18,21 +18,22 @@ module.exports.pitch = function (request) {
 
 	options.hmr = typeof options.hmr === 'undefined' ? true : options.hmr;
 
-	var hmrCode = [
-		"// Hot Module Replacement",
+	var hmr = [
+		// Hot Module Replacement
 		"if(module.hot) {",
-		"\tmodule.hot.accept(" + loaderUtils.stringifyRequest(this, "!!" + request) + ", function() {",
-		"\t\tupdate(require(" + loaderUtils.stringifyRequest(this, "!!" + request) + "));",
-		"\t});",
-		"\tmodule.hot.dispose(function() { update(); });",
+		"  module.hot.accept(" + loaderUtils.stringifyRequest(this, "!!" + request) + ", function() {",
+		"    update(require(" + loaderUtils.stringifyRequest(this, "!!" + request) + "));",
+		"  });",
+		"",
+		"  module.hot.dispose(function() { update(); });",
 		"}"
 	].join("\n");
 
 	return [
-		"// style-loader: Adds some reference to a css file to the DOM by adding a <link> tag",
+		// Adds some reference to a CSS file to the DOM by adding a <link> tag
 		"var update = require(" + loaderUtils.stringifyRequest(this, "!" + path.join(__dirname, "lib", "addStyleUrl.js")) + ")(",
-		"\trequire(" + loaderUtils.stringifyRequest(this, "!!" + request) + ")",
+		"  require(" + loaderUtils.stringifyRequest(this, "!!" + request) + ")",
 		", " + JSON.stringify(options) + ");",
-		options.hmr ? hmrCode : ""
+		options.hmr ? hmr : ""
 	].join("\n");
 };
