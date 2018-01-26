@@ -29,7 +29,7 @@ module.exports.pitch = function (request) {
 		"		var locals = (function(a, b) {",
 		"			var key, idx = 0;",
 		"			for(key in a) {",
-		"				if(!b || a[key] !== b[key]) return false",
+		"				if(!b || a[key] !== b[key]) return false;",
 		"				idx++;",
 		"			}",
 		"			for(key in b) idx--;",
