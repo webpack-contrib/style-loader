@@ -35,6 +35,13 @@ describe("basic tests", function() {
       "<iframe class='iframeTarget'/>",
       "</body>",
       "</html>"
+    ].join("\n"),
+    requiredJS = [
+      "var el = document.createElement('div');",
+      "el.id = \"test-shadow\";",
+      // "var shadow = el.attachShadow({ mode: 'open' })", // sadly shadow dom not working in jsdom
+      "document.body.appendChild(el)",
+      "var css = require('./style.css');",
     ].join("\n");
 
   var styleLoaderOptions = {};
@@ -66,7 +73,7 @@ describe("basic tests", function() {
 
     // Create a tiny file system. rootDir is used because loaders are referring to absolute paths.
     fs.mkdirpSync(rootDir);
-    fs.writeFileSync(rootDir + "main.js", "var css = require('./style.css');");
+    fs.writeFileSync(rootDir + "main.js", requiredJS);
     fs.writeFileSync(rootDir + "style.css", requiredCss);
     fs.writeFileSync(rootDir + "styleTwo.css", requiredCssTwo);
     fs.writeFileSync(rootDir + "localScoped.css", localScopedCss);
@@ -139,6 +146,17 @@ describe("basic tests", function() {
       return this.document.querySelector(selector).contentDocument.head.innerHTML;
     }, selector);
   }); // it insert into
+
+  it("insert into custom element by function", function(done) {
+    const selector = "#test-shadow";
+    styleLoaderOptions.insertInto = () => document.querySelector("#test-shadow");
+
+    let expected = requiredStyle;
+
+    runCompilerTest(expected, done, function() {
+      return this.document.querySelector(selector).innerHTML;
+    }, selector);
+  });
 
   it("singleton (true)", function(done) {
     // Setup
