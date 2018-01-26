@@ -23,14 +23,14 @@
     "file-loader": "^1.0.0",
     "jsdom": "^9.0.0",
     "memory-fs": "^0.4.0",
-    "mocha": "^3.0.0",
-    "sinon": "^2.0.0",
+    "mocha": "^4.0.0",
+    "sinon": "^4.0.0",
     "standard-version": "^4.0.0",
     "webpack": "^2.0.0"
   },
   "scripts": {
     "test": "mocha",
-    "travis:test": "npm run test",
+    "travis:test": "npm t",
     "release": "standard-version"
   },
   "repository": "https://github.com/webpack-contrib/style-loader.git",
