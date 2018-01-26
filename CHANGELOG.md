@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.20.1"></a>
+## [0.20.1](https://github.com/webpack-contrib/style-loader/compare/v0.20.0...v0.20.1) (2018-01-26)
+
+
+### Bug Fixes
+
+* **index:** source code indentation ([#299](https://github.com/webpack-contrib/style-loader/issues/299)) ([b4642e7](https://github.com/webpack-contrib/style-loader/commit/b4642e7))
+
+
+
 <a name="0.20.0"></a>
 # [0.20.0](https://github.com/webpack-contrib/style-loader/compare/v0.19.1...v0.20.0) (2018-01-26)
 
