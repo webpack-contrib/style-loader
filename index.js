@@ -15,22 +15,22 @@ module.exports.pitch = function (request) {
 	var options = loaderUtils.getOptions(this) || {};
 
 	validateOptions(require('./options.json'), options, 'Style Loader')
-	
+
 	options.hmr = typeof options.hmr === 'undefined' ? true : options.hmr;
 
-  // The variable is needed, because the function should be inlined.
+	// The variable is needed, because the function should be inlined.
 	// If is just stored it in options, JSON.stringify will quote
 	// the function and it would be just a string at runtime
 	var insertInto;
-				
-  if (typeof options.insertInto === "function") {
-    insertInto = options.insertInto.toString();
+
+	if (typeof options.insertInto === "function") {
+		insertInto = options.insertInto.toString();
 	}
-				
-	// We need to check if it a string, or variable will be "undefined" 
+
+	// We need to check if it a string, or variable will be "undefined"
 	// and the loader crashes
-  if (typeof options.insertInto === "string") {
-    insertInto = '"' + options.insertInto + '"';
+	if (typeof options.insertInto === "string") {
+		insertInto = '"' + options.insertInto + '"';
 	}
 
 	var hmr = [
@@ -79,11 +79,11 @@ module.exports.pitch = function (request) {
 		"var transform;",
 		"var insertInto;",
 		"",
-	  options.transform ? "transform = require(" + loaderUtils.stringifyRequest(this, "!" + path.resolve(options.transform)) + ");" : "",
-    "",
+		options.transform ? "transform = require(" + loaderUtils.stringifyRequest(this, "!" + path.resolve(options.transform)) + ");" : "",
+ 		"",
 		"var options = " + JSON.stringify(options),
 		"",
-	  "options.transform = transform",
+		"options.transform = transform",
 		"options.insertInto = " + insertInto + ";",
 		"",
 		// Add styles to the DOM
