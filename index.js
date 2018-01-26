@@ -36,7 +36,7 @@ module.exports.pitch = function (request) {
 		"			return idx === 0;",
 		"		}(content.locals, newContent.locals));",
 		"		// This error is caught and not shown and causes a full reload.",
-		"		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.')",
+		"		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');",
 		"		update(newContent);",
 		"	});",
 		"	// When the module is disposed, remove the <style> tags",
