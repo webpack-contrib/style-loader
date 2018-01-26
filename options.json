@@ -14,9 +14,6 @@
     "insertAt": {
       "type": ["string", "object"]
     },
-    "insertInto": {
-      "type": "string"
-    },
     "singleton": {
       "type": "boolean"
     },
