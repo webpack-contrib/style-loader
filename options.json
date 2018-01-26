@@ -14,6 +14,12 @@
     "insertAt": {
       "type": ["string", "object"]
     },
+    "insertInto": {
+      "anyOf": [
+        { "type": "string" },
+        { "instanceof": "Function" }
+      ]
+    },
     "singleton": {
       "type": "boolean"
     },
@@ -24,5 +30,5 @@
       "type": "boolean"
     }
   },
-  "additionalProperties": true
+  "additionalProperties": false
 }

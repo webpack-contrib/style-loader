@@ -15,27 +15,26 @@
     "options.json"
   ],
   "dependencies": {
-    "loader-utils": "^1.0.2",
-    "schema-utils": "^0.3.0"
+    "loader-utils": "^1.1.0",
+    "schema-utils": "^0.4.3"
   },
   "devDependencies": {
-    "css-loader": "^0.28.3",
-    "file-loader": "^0.11.1",
-    "jsdom": "^9.12.0",
-    "memory-fs": "^0.4.1",
-    "mocha": "^3.4.2",
-    "sinon": "^2.4.1",
+    "css-loader": "^0.28.0",
+    "file-loader": "^1.0.0",
+    "jsdom": "^9.0.0",
+    "memory-fs": "^0.4.0",
+    "mocha": "^3.0.0",
+    "sinon": "^2.0.0",
     "standard-version": "^4.0.0",
-    "webpack": "^2.6.1"
+    "webpack": "^2.0.0"
   },
   "scripts": {
     "test": "mocha",
-    "travis:test": "yarn run test",
-    "release": "yarn run standard-version"
+    "travis:test": "npm run test",
+    "release": "standard-version"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:webpack-contrib/style-loader.git"
-  },
+  "repository": "https://github.com/webpack-contrib/style-loader.git",
+  "bugs": "https://github.com/webpack-contrib/style-loader/issues",
+  "homepage": "https://github.com/webpack-contrib/style-loader#readme",
   "license": "MIT"
 }
