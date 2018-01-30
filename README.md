@@ -139,7 +139,7 @@ Styles are not added on `import/require()`, but instead on call to `use`/`ref`. 
 |**`attrs`**|`{Object}`|`{}`|Add custom attrs to `<style></style>`|
 |**`transform`** |`{Function}`|`false`|Transform/Conditionally load CSS by passing a transform/condition function|
 |**`insertAt`**|`{String\|Object}`|`bottom`|Inserts `<style></style>` at the given position|
-|**`insertInto`**|`{String|Function}`|`<head>`|Inserts `<style></style>` into the given position|
+|**`insertInto`**|`{String\|Function}`|`<head>`|Inserts `<style></style>` into the given position|
 |**`singleton`**|`{Boolean}`|`undefined`|Reuses a single `<style></style>` element, instead of adding/removing individual elements for each required module.|
 |**`sourceMap`**|`{Boolean}`|`false`|Enable/Disable Sourcemaps|
 |**`convertToAbsoluteUrls`**|`{Boolean}`|`false`|Converts relative URLs to absolute urls, when source maps are enabled|
