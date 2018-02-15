@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.20.2"></a>
+## [0.20.2](https://github.com/webpack-contrib/style-loader/compare/v0.20.1...v0.20.2) (2018-02-15)
+
+
+### Bug Fixes
+
+* **urls:** skip empty `url()` handling ([#304](https://github.com/webpack-contrib/style-loader/issues/304)) ([64f12dc](https://github.com/webpack-contrib/style-loader/commit/64f12dc))
+
+
+
 <a name="0.20.1"></a>
 ## [0.20.1](https://github.com/webpack-contrib/style-loader/compare/v0.20.0...v0.20.1) (2018-01-26)
 
