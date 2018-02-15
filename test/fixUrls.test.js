@@ -143,6 +143,17 @@ describe("fix urls tests", function() {
         assertUrl("body { background-image:url(#bg.jpg); }");
     });
 
+    // empty urls
+    it("Empty url should be skipped", function() {
+      assertUrl("body { background-image:url(); }");
+      assertUrl("body { background-image:url( ); }");
+      assertUrl("body { background-image:url(\n); }");
+      assertUrl("body { background-image:url(''); }");
+      assertUrl("body { background-image:url(' '); }");
+      assertUrl("body { background-image:url(\"\"); }");
+      assertUrl("body { background-image:url(\" \"); }");
+    });
+
     // rooted urls
     it("Rooted url", function() {
       assertUrl(
