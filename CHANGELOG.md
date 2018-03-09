@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.20.3"></a>
+## [0.20.3](https://github.com/webpack-contrib/style-loader/compare/v0.20.2...v0.20.3) (2018-03-09)
+
+
+### Bug Fixes
+
+* **package:** update `schema-utils` v0.4.3...0.4.5 (`dependencies`) ([#308](https://github.com/webpack-contrib/style-loader/issues/308)) ([9455888](https://github.com/webpack-contrib/style-loader/commit/9455888))
+
+
+
 <a name="0.20.2"></a>
 ## [0.20.2](https://github.com/webpack-contrib/style-loader/compare/v0.20.1...v0.20.2) (2018-02-15)
 
