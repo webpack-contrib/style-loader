@@ -85,9 +85,9 @@ jobs:
       - run:
           name: NPM Rebuild
           command: npm install
-      - run:
-          name: Run linting.
-          command: npm run lint
+      # - run:
+      #     name: Run linting.
+      #     command: npm run lint
       - run:
           name: Run NSP Security Check.
           command: npm run security
