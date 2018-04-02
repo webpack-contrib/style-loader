@@ -25,6 +25,7 @@
     "jsdom": "^9.0.0",
     "memory-fs": "^0.4.0",
     "mocha": "^4.0.0",
+    "nsp": "^3.2.1",
     "sinon": "^4.0.0",
     "standard-version": "^4.0.0",
     "webpack": "^2.0.0"
@@ -34,7 +35,8 @@
     "test:coverage": "istanbul cover node_modules/mocha/bin/_mocha",
     "ci:test": "npm run test",
     "ci:coverage": "npm run test:coverage",
-    "release": "standard-version"
+    "release": "standard-version",
+    "security": "nsp check"
   },
   "repository": "https://github.com/webpack-contrib/style-loader.git",
   "bugs": "https://github.com/webpack-contrib/style-loader/issues",
