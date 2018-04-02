@@ -21,6 +21,7 @@
   "devDependencies": {
     "css-loader": "^0.28.0",
     "file-loader": "^1.0.0",
+    "istanbul": "^0.4.5",
     "jsdom": "^9.0.0",
     "memory-fs": "^0.4.0",
     "mocha": "^4.0.0",
@@ -30,7 +31,9 @@
   },
   "scripts": {
     "test": "mocha",
-    "travis:test": "npm t",
+    "test:coverage": "istanbul cover node_modules/mocha/bin/_mocha",
+    "ci:test": "npm run test",
+    "ci:coverage": "npm run test:coverage",
     "release": "standard-version"
   },
   "repository": "https://github.com/webpack-contrib/style-loader.git",
