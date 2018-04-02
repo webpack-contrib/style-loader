@@ -24,7 +24,7 @@ canary_tests: &canary_tests
         command: npm i --no-save webpack@next
     - run:
         name: Run unit tests.
-        command: if [[ $(compver --name webpack --gte next --lt latest) < 1 ]] ; then printf "n00p Canary Suite"; else npm run test ; fi
+        command: if [[ $(compver --name webpack --gte next --lt latest) < 1 ]] ; then printf "n00p Canary Suite"; else npm run ci:test ; fi
 
 version: 2
 jobs:
