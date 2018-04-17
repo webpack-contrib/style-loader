@@ -220,6 +220,26 @@ describe("basic tests", function() {
     runCompilerTest(expected, done);
   }); // it attrs
 
+  it("type attribute", function(done) {
+    // Setup
+    styleLoaderOptions.attrs = {type: 'text/less'};
+
+    fs.writeFileSync(
+      rootDir + "main.js",
+      [
+        "var a = require('./style.css');"
+      ].join("\n")
+    );
+
+    // Run
+    let expected = [
+      existingStyle,
+      `<style type="${styleLoaderOptions.attrs.type}">${requiredCss}</style>`
+    ].join("\n");
+
+    runCompilerTest(expected, done);
+  }); // it type attribute
+
   it("url", function(done) {
     cssRule.use = [
       {
@@ -260,6 +280,28 @@ describe("basic tests", function() {
 
     runCompilerTest(expected, done);
   }); // it url with attrs
+
+  it("url with type attribute", function (done) {
+    cssRule.use = [
+      {
+        loader: "style-loader/url",
+        options: {
+          attrs: {
+            type: 'text/less'
+          }
+        }
+      },
+      "file-loader"
+    ];
+
+    // Run
+    let expected = [
+      existingStyle,
+      '<link rel="stylesheet" type="text/less" href="ec9d4f4f24028c3d51bf1e7728e632ff.css">'
+    ].join("\n");
+
+    runCompilerTest(expected, done);
+  }); // it url with type attribute
 
   it("useable", function(done) {
     cssRule.use = [
