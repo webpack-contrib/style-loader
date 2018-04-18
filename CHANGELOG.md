@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.21.0"></a>
+# [0.21.0](https://github.com/webpack-contrib/style-loader/compare/v0.20.3...v0.21.0) (2018-04-18)
+
+
+### Features
+
+* enable tag type configuration ([#316](https://github.com/webpack-contrib/style-loader/issues/316)) ([892cba5](https://github.com/webpack-contrib/style-loader/commit/892cba5))
+
+
+
 <a name="0.20.3"></a>
 ## [0.20.3](https://github.com/webpack-contrib/style-loader/compare/v0.20.2...v0.20.3) (2018-03-09)
 
