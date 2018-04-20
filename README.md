@@ -210,7 +210,7 @@ import style from './file.css'
 {
   test: /\.css$/,
   use: [
-    { loader: 'style-loader', options: { attrs: { id: 'id' } } }
+    { loader: 'style-loader', options: { attrs: { id: 'id' , 'x-from': '[path][name].[ext]'} } }
     { loader: 'css-loader' }
   ]
 }

@@ -240,6 +240,27 @@ describe("basic tests", function() {
     runCompilerTest(expected, done);
   }); // it type attribute
 
+  it("dynamic attrs", function(done) {
+    // Setup
+    styleLoaderOptions.attrs = {'x-from': '[name].[ext]'};
+
+    fs.writeFileSync(
+      rootDir + "main.js",
+      [
+        "var a = require('./style.css');"
+      ].join("\n")
+    );
+
+    // Run
+    let expected = [
+      existingStyle,
+      `<style x-from="style.css" type="text/css">${requiredCss}</style>`
+    ].join("\n");
+
+    runCompilerTest(expected, done);
+  }); // it attrs
+
+
   it("url", function(done) {
     cssRule.use = [
       {
