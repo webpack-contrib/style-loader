@@ -3,7 +3,6 @@
 	Author Tobias Koppers @sokra
 */
 var path = require("path");
-var clone = require('clone');
 
 var loaderUtils = require("loader-utils");
 var validateOptions = require('schema-utils');
@@ -13,15 +12,16 @@ module.exports = function () {};
 module.exports.pitch = function (request) {
 	if (this.cacheable) this.cacheable();
 
-	var options = clone(loaderUtils.getOptions(this) || {});
+	var options = loaderUtils.getOptions(this) || {};
 	var context = options.context || this.rootContext || (this.options && this.options.context);
+	var attrs = {};
 	for(var key in options.attrs||{}){
 		var name = loaderUtils.interpolateName(this,options.attrs[key],{
 			context,
 			content:null,
 			regExp:options.regExp,
 		});
-		options.attrs[key]=name;
+		attrs[key]=name;
 	}
 
 	validateOptions(require('./options.json'), options, 'Style Loader')
@@ -92,6 +92,8 @@ module.exports.pitch = function (request) {
 		options.transform ? "transform = require(" + loaderUtils.stringifyRequest(this, "!" + path.resolve(options.transform)) + ");" : "",
  		"",
 		"var options = " + JSON.stringify(options),
+		"",
+		"options.attrs = " + JSON.stringify(attrs),
 		"",
 		"options.transform = transform",
 		"options.insertInto = " + insertInto + ";",
