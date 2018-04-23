@@ -13,15 +13,18 @@ module.exports.pitch = function (request) {
 	if (this.cacheable) this.cacheable();
 
 	var options = loaderUtils.getOptions(this) || {};
-	var context = options.context || this.rootContext || (this.options && this.options.context);
+
 	var attrs = {};
-	for(var key in options.attrs||{}){
-		var name = loaderUtils.interpolateName(this,options.attrs[key],{
-			context,
-			content:null,
-			regExp:options.regExp,
-		});
-		attrs[key]=name;
+	var dynamicAttributesMatcher = /\[\S+\]/;
+	var dynamicAttributesMatched = false;
+	var value;
+	for (var key in options.attrs || {}) {
+		value = options.attrs[key];
+		if(dynamicAttributesMatcher.test(value)){
+			dynamicAttributesMatched = true;
+			value = loaderUtils.interpolateName(this, value, options);
+		}
+		attrs[key] = value;
 	}
 
 	validateOptions(require('./options.json'), options, 'Style Loader')
@@ -93,7 +96,7 @@ module.exports.pitch = function (request) {
  		"",
 		"var options = " + JSON.stringify(options),
 		"",
-		"options.attrs = " + JSON.stringify(attrs),
+		dynamicAttributesMatched ? "options.attrs = " + JSON.stringify(attrs) : "",
 		"",
 		"options.transform = transform",
 		"options.insertInto = " + insertInto + ";",
