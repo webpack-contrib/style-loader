@@ -242,7 +242,7 @@ describe("basic tests", function() {
 
   it("dynamic attrs [name].[ext]", function(done) {
     // Setup
-    styleLoaderOptions.attrs = {'x-from': '[name].[ext]'};
+    styleLoaderOptions.attrs = {'data-from': '[name].[ext]'};
 
     fs.writeFileSync(
       rootDir + "main.js",
@@ -254,7 +254,7 @@ describe("basic tests", function() {
     // Run
     let expected = [
       existingStyle,
-      `<style x-from="style.css" type="text/css">${requiredCss}</style>`
+      `<style data-from="style.css" type="text/css">${requiredCss}</style>`
     ].join("\n");
 
     runCompilerTest(expected, done);
@@ -262,7 +262,7 @@ describe("basic tests", function() {
 
   it("dynamic attrs [path]&[folder]", function(done) {
     // Setup
-    styleLoaderOptions.attrs = {'x-from': '[path][name].[ext]?[folder]'};
+    styleLoaderOptions.attrs = {'data-from': '[path][name].[ext]?[folder]'};
 
     fs.writeFileSync(
       rootDir + "main.js",
@@ -276,7 +276,7 @@ describe("basic tests", function() {
     // Run
     let expected = [
       existingStyle,
-      `<style x-from="${rootDir}style.css?${folder}" type="text/css">${requiredCss}</style>`
+      `<style data-from="${rootDir}style.css?${folder}" type="text/css">${requiredCss}</style>`
     ].join("\n");
 
     runCompilerTest(expected, done);
