@@ -76,7 +76,46 @@ describe("addStyles update transform function", function() {
    });
 
   // See issue #324, place holder for a future test once that issue is fixed
-  it.skip("should load the css if the transform function returns data during HMR");
+  it.skip("should load css if the transform function intially returns false but returns data during subsequent HMR", function(done) {
+    var oneShot = 0;
+    var styleLoaderOptions = {};
+    styleLoaderOptions.transform = function(css) {
+      return oneShot++ && css;
+    };
+
+    function applyUpdate() {
+
+      //Mutate global scope as the addStyles code expects it
+      global.window = window = this;
+      global.document = this.document;
+      // Unfortunately getElement internally memoizes at mutuates at the module level so we
+      // can't test with it. This gets us around the issue
+      styleLoaderOptions.insertInto = function() {
+        return window.document.head;
+      };
+
+      var updateFn = addStylesEntry.call(window, originalList, styleLoaderOptions);
+      // After the initial load, we should have 0 style nodes
+      assert(this.document.querySelectorAll('style').length===0);
+
+      updateFn.call(window, updatedList);
+      // After the update, the transform returns data so we should add it
+      const numStyleNodes = this.document.querySelectorAll('style').length;
+
+      // force it to clean up the stylesInDom
+      updateFn.call(window);
+
+      return numStyleNodes;
+    }
+
+    runDOMTest(
+      jsdomHtml,
+      undefined,
+      1,
+      done,
+      applyUpdate
+    )
+   });
 
   it("should receive the updated css in the transform function during HMR", function(done) {
     function applyUpdate(){
