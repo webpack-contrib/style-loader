@@ -12,6 +12,34 @@ var assert = require("assert");
 var compiler;
 var jsdomHtml;
 
+/**
+ * Runs a test within the jsDom context
+ * 
+ *  @param {String} jsdomHtml - HTML in which you wish to test
+ *  @param {array} array - array of potential source files.
+ *  @param {string} expected - Expected value.
+ *  @param {function} done - Async callback from Mocha.
+ *  @param {function} actual - Executed in the context of jsdom window, should return a string to compare to.
+*/
+function runDOMTest(jsdomHtml, src, expected, done, actual, selector) {
+  jsdom.env({
+    html: jsdomHtml,
+    src: src,
+    virtualConsole: jsdom.createVirtualConsole().sendTo(console),
+    done: function(err, window) {
+      if (typeof actual === 'function') {
+        assert.equal(actual.apply(window), expected);
+      } else {
+        assert.equal(window.document.querySelector(selector).innerHTML.trim(), expected);
+      }
+      // free memory associated with the window
+      window.close();
+
+      done();
+    }
+  });
+}
+
 module.exports = {
   setup: function(webpackConfig, _jsdomHtml) {
     let fs = new MemoryFS();
@@ -66,22 +94,7 @@ module.exports = {
 
       const bundleJs = stats.compilation.assets["bundle.js"].source();
 
-      jsdom.env({
-        html: jsdomHtml,
-        src: [bundleJs],
-        virtualConsole: jsdom.createVirtualConsole().sendTo(console),
-        done: function(err, window) {
-          if (typeof actual === 'function') {
-            assert.equal(actual.apply(window), expected);
-          } else {
-            assert.equal(window.document.querySelector(selector).innerHTML.trim(), expected);
-          }
-          // free memory associated with the window
-          window.close();
-
-          done();
-        }
-      });
+      runDOMTest(jsdomHtml, [bundleJs], expected, done, actual, selector);
     });
   },
 
@@ -110,5 +123,6 @@ module.exports = {
 
       done();
     });
-  }
+  },
+  runDOMTest
 };
