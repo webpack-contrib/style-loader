@@ -88,7 +88,7 @@ import url from 'file.css'
 
 ### `Useable`
 
-Means that style-loader injects the style.use() style.unuse()
+Means that `style-loader` injects the style.use() style.unuse()
 
 By convention the `Reference Counter API` should be bound to `.useable.css` and the `.css` should be loaded with basic `style-loader` usage.(similar to other file types, i.e. `.useable.less` and `.less`).
 
