@@ -25,7 +25,7 @@ describe("basic tests", function() {
     rootDir = path.resolve(__dirname + "/../") + "/",
     jsdomHtml = [
       "<html>",
-      "<head>",
+      "<head id='head'>",
       existingStyle,
       "</head>",
       "<body>",
@@ -157,6 +157,30 @@ describe("basic tests", function() {
       return this.document.querySelector(selector).innerHTML;
     }, selector);
   });
+
+  it("insert at before with insert into custom element by function", function(done) {
+    const selector = "#head";
+    styleLoaderOptions.insertInto = () => document.querySelector("#head");
+
+    styleLoaderOptions.insertAt = {
+        before: "#existing-style"
+    };
+
+    let expected = requiredCss;
+
+    runCompilerTest(expected, done, function() {
+      let head = this.document.querySelector(selector);
+      let existingStyleIndex;
+      for (let i = 0; i < head.children.length; i++){
+        let html = `<style id="existing-style">${head.children[i].innerHTML}</style>`;
+        if(html === existingStyle){
+            existingStyleIndex = i;
+            break;
+        }
+      }
+      return head.children[existingStyleIndex - 1].innerHTML;
+    }, selector);
+  }); // it insert at before with insert into
 
   it("singleton (true)", function(done) {
     // Setup
