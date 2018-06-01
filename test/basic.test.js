@@ -244,6 +244,27 @@ describe("basic tests", function() {
     runCompilerTest(expected, done);
   }); // it attrs
 
+  it("nonce", function(done) {
+    // Setup
+    const expectedNonce = "testNonce";
+
+    fs.writeFileSync(
+      rootDir + "main.js",
+      [
+        `__webpack_nonce__ = '${expectedNonce}'`,
+        "var a = require('./style.css');"
+      ].join("\n")
+    );
+
+    // Run
+    let expected = [
+      existingStyle,
+      `<style type="text/css" nonce="${expectedNonce}">${requiredCss}</style>`
+    ].join("\n");
+
+    runCompilerTest(expected, done);
+  }); // it attrs
+
   it("type attribute", function(done) {
     // Setup
     styleLoaderOptions.attrs = {type: 'text/less'};
