@@ -1,8 +1,9 @@
 {
-  "name": "style-loader",
-  "version": "0.21.0",
+  "name": "@vtex/style-loader",
+  "version": "0.21.1",
   "author": "Tobias Koppers @sokra",
   "description": "style loader module for webpack",
+  "public": true,
   "engines": {
     "node": ">= 0.12.0"
   },
@@ -38,8 +39,8 @@
     "release": "standard-version",
     "security": "nsp check"
   },
-  "repository": "https://github.com/webpack-contrib/style-loader.git",
-  "bugs": "https://github.com/webpack-contrib/style-loader/issues",
-  "homepage": "https://github.com/webpack-contrib/style-loader#readme",
+  "repository": "https://github.com/vtex/style-loader.git",
+  "bugs": "https://github.com/vtex/style-loader/issues",
+  "homepage": "https://github.com/vtex/style-loader#readme",
   "license": "MIT"
 }
