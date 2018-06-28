@@ -1,6 +1,6 @@
 {
   "name": "@vtex/style-loader",
-  "version": "0.21.1-beta.2",
+  "version": "0.21.1",
   "author": "Tobias Koppers @sokra",
   "description": "style loader module for webpack",
   "public": true,
