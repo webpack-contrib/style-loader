@@ -4,7 +4,7 @@ var assert = require("assert");
 var url = require('url');
 
 describe("fix urls tests", function() {
-    var fixUrls = require("../fixUrls");
+    var fixUrls = require("../lib/urls");
     var defaultUrl = "https://x.y.z/a/b.html";
 
     beforeEach(function() {
@@ -143,6 +143,17 @@ describe("fix urls tests", function() {
         assertUrl("body { background-image:url(#bg.jpg); }");
     });
 
+    // empty urls
+    it("Empty url should be skipped", function() {
+      assertUrl("body { background-image:url(); }");
+      assertUrl("body { background-image:url( ); }");
+      assertUrl("body { background-image:url(\n); }");
+      assertUrl("body { background-image:url(''); }");
+      assertUrl("body { background-image:url(' '); }");
+      assertUrl("body { background-image:url(\"\"); }");
+      assertUrl("body { background-image:url(\" \"); }");
+    });
+
     // rooted urls
     it("Rooted url", function() {
       assertUrl(
@@ -190,6 +201,13 @@ describe("fix urls tests", function() {
 
     it("Doesn't break inline SVG", function() {
         const svg = "url('data:image/svg+xml;charset=utf-8,<svg><feFlood flood-color=\"rgba(0,0,0,0.5)\" /></svg>')";
+
+        assertUrl(
+            "body: {  background: " + svg + " }"
+        );
+    });
+    it("Doesn't break inline SVG with HTML comment", function() {
+        const svg = "url('data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C!--%20Comment%20--%3E%0A%3Csvg%3E%3C%2Fsvg%3E%0A')";
 
         assertUrl(
             "body: {  background: " + svg + " }"
