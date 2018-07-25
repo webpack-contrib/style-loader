@@ -136,7 +136,7 @@ Styles are not added on `import/require()`, but instead on call to `use`/`ref`. 
 |:--:|:--:|:-----:|:----------|
 |**`hmr`**|`{Boolean}`|`true`|Enable/disable Hot Module Replacement (HMR), if disabled no HMR Code will be added (good for non local development/production)|
 |**`base`** |`{Number}`|`true`|Set module ID base (DLLPlugin)|
-|**`attrs`**|`{Object}`|`{}`|Add custom attrs to `<style></style>`|
+|**`attrs`**|`{Object}`|`{}`|Add custom attrs to `<style></style>`, `[name]` `[version]` Can be replaced automatically|
 |**`transform`** |`{Function}`|`false`|Transform/Conditionally load CSS by passing a transform/condition function|
 |**`insertAt`**|`{String\|Object}`|`bottom`|Inserts `<style></style>` at the given position|
 |**`insertInto`**|`{String\|Function}`|`<head>`|Inserts `<style></style>` into the given position|
@@ -199,6 +199,7 @@ This setting is primarily used as a workaround for [css clashes](https://github.
 ### `attrs`
 
 If defined, style-loader will attach given attributes with their values on `<style>` / `<link>` element.
+And you can distinguish source of styles.
 
 **component.js**
 ```js
@@ -207,10 +208,19 @@ import style from './file.css'
 
 **webpack.config.js**
 ```js
+// static
 {
   test: /\.css$/,
   use: [
     { loader: 'style-loader', options: { attrs: { id: 'id' } } }
+    { loader: 'css-loader' }
+  ]
+}
+// replaceable
+{
+  test: /\.css$/,
+  use: [
+    { loader: 'style-loader', options: { attrs: { component: '[name]@[version]' } }
     { loader: 'css-loader' }
   ]
 }
