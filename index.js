@@ -3,18 +3,44 @@
 	Author Tobias Koppers @sokra
 */
 var path = require("path");
-var findPackage = require('find-package');
+var fs = require("fs");
 var loaderUtils = require("loader-utils");
 var validateOptions = require('schema-utils');
 
 module.exports = function () {};
+
+function exists(fileSystem, filename) {
+  var exists = false;
+
+  try {
+    exists = fileSystem.statSync(filename).isFile();
+  } catch (err) {
+    if (err.code !== "ENOENT") throw err;
+  }
+
+  return exists;
+};
+
+function findPackage(fileSystem, start) {
+  var file = path.join(start, "package.json");
+  if (exists(fileSystem, file)) {
+    return require(file);
+  }
+
+  var up = path.dirname(start);
+
+  // Reached root
+  if (up !== start) {
+    return findPackage(fileSystem, up);
+  }
+};
 
 module.exports.pitch = function (request) {
 	if (this.cacheable) this.cacheable();
 
 	var options = loaderUtils.getOptions(this) || {};
 
-	var pkg = findPackage(this.resourcePath) || {};
+	var pkg = findPackage(fs, path.dirname(this.resourcePath)) || {};
   if (options.attrs) {
     Object.keys(options.attrs).forEach(function(key) {
 			options.attrs[key] = options.attrs[key]
