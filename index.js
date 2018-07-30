@@ -6,34 +6,9 @@ var path = require("path");
 var fs = require("fs");
 var loaderUtils = require("loader-utils");
 var validateOptions = require('schema-utils');
+var findPackage = require('./lib/utils').findPackage;
 
 module.exports = function () {};
-
-function exists(fileSystem, filename) {
-  var exists = false;
-
-  try {
-    exists = fileSystem.statSync(filename).isFile();
-  } catch (err) {
-    if (err.code !== "ENOENT") throw err;
-  }
-
-  return exists;
-};
-
-function findPackage(fileSystem, start) {
-  var file = path.join(start, "package.json");
-  if (exists(fileSystem, file)) {
-    return require(file);
-  }
-
-  var up = path.dirname(start);
-
-  // Reached root
-  if (up !== start) {
-    return findPackage(fileSystem, up);
-  }
-};
 
 module.exports.pitch = function (request) {
 	if (this.cacheable) this.cacheable();
