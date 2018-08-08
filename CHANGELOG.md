@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.22.1"></a>
+## [0.22.1](https://github.com/webpack-contrib/style-loader/compare/v0.22.0...v0.22.1) (2018-08-08)
+
+
+### Bug Fixes
+
+* **addStyles:** use `var` instead of `const` (IE fix) ([#338](https://github.com/webpack-contrib/style-loader/issues/338)) ([1ca12ab](https://github.com/webpack-contrib/style-loader/commit/1ca12ab))
+
+
+
 <a name="0.22.0"></a>
 # [0.22.0](https://github.com/webpack-contrib/style-loader/compare/v0.21.0...v0.22.0) (2018-08-07)
 
