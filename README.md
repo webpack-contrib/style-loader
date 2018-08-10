@@ -246,6 +246,8 @@ A `transform` is a function that can modify the css just before it is loaded int
 This function will be called on the css that is about to be loaded and the return value of the function will be loaded into the page instead of the original css.
 If the return value of the `transform` function is falsy, the css will not be loaded into the page at all.
 
+> Warning: In case you are using ES Module syntax in tranform.js then you have to transpile it otherwise it will throw error.
+
 **webpack.config.js**
 ```js
 {
