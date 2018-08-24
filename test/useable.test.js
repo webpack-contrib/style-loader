@@ -48,11 +48,11 @@ describe("useable tests", function () {
       requiredCssTwo = ".requiredTwo { color: cyan }",
       localScopedCss = ":local(.className) { background: red; }",
       localComposingCss = `
-      :local(.composingClass) {
-        composes: className from './localScoped.css';
-        color: blue;
-      }
-    `,
+        :local(.composingClass) {
+          composes: className from './localScoped.css';
+          color: blue;
+        }
+      `,
       requiredStyle = `<style type="text/css">${requiredCss}</style>`,
       existingStyle = `<style id="existing-style">.existing { color: yellow }</style>`,
       checkValue = '<div class="check">check</div>',
