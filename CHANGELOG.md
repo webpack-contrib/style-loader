@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.23.0"></a>
+# [0.23.0](https://github.com/webpack-contrib/style-loader/compare/v0.22.1...v0.23.0) (2018-08-27)
+
+
+### Features
+
+* **useable:** add `insertInto` support (`options.insertInto`) ([#341](https://github.com/webpack-contrib/style-loader/issues/341)) ([2588aca](https://github.com/webpack-contrib/style-loader/commit/2588aca))
+
+
+
 <a name="0.22.1"></a>
 ## [0.22.1](https://github.com/webpack-contrib/style-loader/compare/v0.22.0...v0.22.1) (2018-08-08)
 
