@@ -285,6 +285,48 @@ describe("basic tests", function() {
     runCompilerTest(expected, done);
   }); // it type attribute
 
+  it("dynamic attrs [name].[ext]", function(done) {
+    // Setup
+    styleLoaderOptions.attrs = {'data-from': '[name].[ext]'};
+
+    fs.writeFileSync(
+      rootDir + "main.js",
+      [
+        "var a = require('./style.css');"
+      ].join("\n")
+    );
+
+    // Run
+    let expected = [
+      existingStyle,
+      `<style data-from="style.css" type="text/css">${requiredCss}</style>`
+    ].join("\n");
+
+    runCompilerTest(expected, done);
+  }); // it dynamic attrs
+
+  it("dynamic attrs [path]&[folder]", function(done) {
+    // Setup
+    styleLoaderOptions.attrs = {'data-from': '[path][name].[ext]?[folder]'};
+
+    fs.writeFileSync(
+      rootDir + "main.js",
+      [
+        "var a = require('./style.css');"
+      ].join("\n")
+    );
+
+    let folder = path.basename(rootDir);
+
+    // Run
+    let expected = [
+      existingStyle,
+      `<style data-from="${rootDir}style.css?${folder}" type="text/css">${requiredCss}</style>`
+    ].join("\n");
+
+    runCompilerTest(expected, done);
+  }); // it dynamic attrs
+
   it("url", function(done) {
     cssRule.use = [
       {

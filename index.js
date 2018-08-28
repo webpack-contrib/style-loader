@@ -14,6 +14,19 @@ module.exports.pitch = function (request) {
 
 	var options = loaderUtils.getOptions(this) || {};
 
+	var attrs = {};
+	var dynamicAttributesMatcher = /\[\S+\]/;
+	var dynamicAttributesMatched = false;
+	var value;
+	for (var key in options.attrs || {}) {
+		value = options.attrs[key];
+		if(dynamicAttributesMatcher.test(value)){
+			dynamicAttributesMatched = true;
+			value = loaderUtils.interpolateName(this, value, options);
+		}
+		attrs[key] = value;
+	}
+
 	validateOptions(require('./options.json'), options, 'Style Loader')
 
 	options.hmr = typeof options.hmr === 'undefined' ? true : options.hmr;
@@ -82,6 +95,8 @@ module.exports.pitch = function (request) {
 		options.transform ? "transform = require(" + loaderUtils.stringifyRequest(this, "!" + path.resolve(options.transform)) + ");" : "",
  		"",
 		"var options = " + JSON.stringify(options),
+		"",
+		dynamicAttributesMatched ? "options.attrs = " + JSON.stringify(attrs) : "",
 		"",
 		"options.transform = transform",
 		"options.insertInto = " + insertInto + ";",
