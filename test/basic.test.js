@@ -226,7 +226,10 @@ describe("basic tests", function() {
 
   it("attrs", function(done) {
     // Setup
-    styleLoaderOptions.attrs = {id: 'style-tag-id'};
+    styleLoaderOptions.attrs = {
+      id: 'style-tag-id',
+      component: '[name]@[version]',
+    };
 
     fs.writeFileSync(
       rootDir + "main.js",
@@ -235,12 +238,13 @@ describe("basic tests", function() {
       ].join("\n")
     );
 
+    const { version, name } = require('../package.json');
+
     // Run
     let expected = [
       existingStyle,
-      `<style id="${styleLoaderOptions.attrs.id}" type="text/css">${requiredCss}</style>`
+      `<style id="${styleLoaderOptions.attrs.id}" component="${name}@${version}" type="text/css">${requiredCss}</style>`
     ].join("\n");
-
     runCompilerTest(expected, done);
   }); // it attrs
 

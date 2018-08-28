@@ -3,9 +3,10 @@
 	Author Tobias Koppers @sokra
 */
 var path = require("path");
-
+var fs = require("fs");
 var loaderUtils = require("loader-utils");
 var validateOptions = require('schema-utils');
+var findPackage = require('./lib/utils').findPackage;
 
 module.exports = function () {};
 
@@ -14,6 +15,15 @@ module.exports.pitch = function (request) {
 
 	var options = loaderUtils.getOptions(this) || {};
 
+	var pkg = findPackage(fs, path.dirname(this.resourcePath)) || {};
+  if (options.attrs) {
+    Object.keys(options.attrs).forEach(function(key) {
+			options.attrs[key] = options.attrs[key]
+				.replace(/\[name\]/ig, pkg.name)
+				.replace(/\[version\]/ig, pkg.version);
+    });
+	}
+	
 	validateOptions(require('./options.json'), options, 'Style Loader')
 
 	options.hmr = typeof options.hmr === 'undefined' ? true : options.hmr;
