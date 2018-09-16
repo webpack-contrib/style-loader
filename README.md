@@ -18,7 +18,7 @@
 npm install style-loader --save-dev
 ```
 
-<h2 align="center"><a href="https://webpack.js.org/concepts/loaders">Usage</a></h2>
+<h2 align="center">Usage</h2>
 
 It's recommended to combine `style-loader` with the [`css-loader`](https://github.com/webpack/css-loader)
 
