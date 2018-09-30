@@ -17,6 +17,7 @@ module.exports.pitch = function (request) {
 	validateOptions(require('./options.json'), options, 'Style Loader')
 
 	options.hmr = typeof options.hmr === 'undefined' ? true : options.hmr;
+	options.manualReload = typeof options.manualReload === 'undefined' ? false : options.manualReload;
 
 	// The variable is needed, because the function should be inlined.
 	// If is just stored it in options, JSON.stringify will quote
@@ -55,8 +56,13 @@ module.exports.pitch = function (request) {
 		"			return idx === 0;",
 		"		}(content.locals, newContent.locals));",
 		"",
-		// This error is caught and not shown and causes a full reload
-		"		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');",
+		// Changing CSS locals should require a full reload under most conditions.
+		// Throwing an error will be silently caught and cause a full reload.
+		// In the cases were an automatic full reload is not wanted, e.g.
+		// the error is not silent caught, warn that the locals were changed.
+		(options.manualReload)
+		? "		if(!locals) console.warn('CSS-modules locals were changed. Full-reload may be required.');"
+		: "		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');",
 		"",
 		"		update(newContent);",
 		"	});",

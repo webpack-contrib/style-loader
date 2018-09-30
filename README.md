@@ -145,6 +145,7 @@ Styles are not added on `import/require()`, but instead on call to `use`/`ref`. 
 |**`singleton`**|`{Boolean}`|`undefined`|Reuses a single `<style></style>` element, instead of adding/removing individual elements for each required module.|
 |**`sourceMap`**|`{Boolean}`|`false`|Enable/Disable Sourcemaps|
 |**`convertToAbsoluteUrls`**|`{Boolean}`|`false`|Converts relative URLs to absolute urls, when source maps are enabled|
+|**`manualReload`**|`{Boolean}`|`false`|Enable/Disable automatic full reload|
 
 ### `hmr`
 
