@@ -391,6 +391,20 @@ If convertToAbsoluteUrls and sourceMaps are both enabled, relative urls will be 
 }
 ```
 
+### `manualReload`
+
+[PR#298](https://github.com/webpack/style-loader/pull/298) introduced behavior for an automatic full reload if css-modules locals were changed by silently handling throwing an error. This works for most situations, but in certain situations - e.g. using webpack-dev-middleware directly in Express.js for remote/non-same host development, the thrown error will crash the loader. If manualReload is enabled, an error is not thrown and instead the console warns that css-modules locals has been changed. This restores the behavior to prior the introduction of PR#298 and resolves [this issue](https://github.com/webpack/style-loader/issues/320) where style-loader was aborting.
+
+**webpack.config.js**
+```js
+{
+  loader: 'style-loader',
+  options: {
+    manualReload: true
+  }
+}
+```
+
 <h2 align="center">Maintainers</h2>
 
 <table>
