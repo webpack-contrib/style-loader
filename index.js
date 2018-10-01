@@ -65,6 +65,12 @@ module.exports.pitch = function (request) {
 		: "		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');",
 		"",
 		"		update(newContent);",
+		"",
+		// Export the locals for the newContent otherwise a full reload will be
+		// necessary. We are not worried about any conflicts since the above 
+		// function asserts that newContent.locals will be a strict superset to
+		// content.locals.
+		"		module.exports = newContent.locals;",
 		"	});",
 		"",
 		// When the module is disposed, remove the <style> tags
