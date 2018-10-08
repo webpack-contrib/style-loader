@@ -84,7 +84,7 @@ import url from 'file.css'
 <link rel="stylesheet" href="path/to/file.css">
 ```
 
-> :information_source: Source maps and assets referenced with `url`: when style loader is used with `{ options: { sourceMap: true } }` option, the CSS modules will be generated as `Blob`s, so relative paths don't work (they would be relative to `chrome:blob` or `chrome:devtools`). In order for assets to maintain correct paths setting `output.publicPath` property of webpack configuration must be set, so that absolute paths are generated. Alternatively you can enable the `convertToAbsoluteUrls` option mentioned above.
+> ℹ️ Source maps and assets referenced with `url`: when style loader is used with `{ options: { sourceMap: true } }` option, the CSS modules will be generated as `Blob`s, so relative paths don't work (they would be relative to `chrome:blob` or `chrome:devtools`). In order for assets to maintain correct paths setting `output.publicPath` property of webpack configuration must be set, so that absolute paths are generated. Alternatively you can enable the `convertToAbsoluteUrls` option mentioned above.
 
 ### `Useable`
 
@@ -130,7 +130,7 @@ style.unuse(); // = style.unref();
 
 Styles are not added on `import/require()`, but instead on call to `use`/`ref`. Styles are removed from page if `unuse`/`unref` is called exactly as often as `use`/`ref`.
 
-:warning: Behavior is undefined when `unuse`/`unref` is called more often than `use`/`ref`. Don't do that.
+> ⚠️  Behavior is undefined when `unuse`/`unref` is called more often than `use`/`ref`. Don't do that.
 
 <h2 align="center">Options</h2>
 
@@ -246,7 +246,7 @@ A `transform` is a function that can modify the css just before it is loaded int
 This function will be called on the css that is about to be loaded and the return value of the function will be loaded into the page instead of the original css.
 If the return value of the `transform` function is falsy, the css will not be loaded into the page at all.
 
-> :Warning: In case you are using ES Module syntax in `tranform.js` then, you **need to transpile** it or otherwise it will throw an `{Error}`.
+> ⚠️ In case you are using ES Module syntax in `tranform.js` then, you **need to transpile** it or otherwise it will throw an `{Error}`.
 
 **webpack.config.js**
 ```js
