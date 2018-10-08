@@ -536,6 +536,31 @@ describe("basic tests", function() {
 
       runCompilerTest(expected, done);
     });
+
+    it("es6 export: should throw error transform is not a function", function(done) {
+      const transform = require('./transforms/transform_es6');
+      styleLoaderOptions.transform = 'test/transforms/transform_es6';
+
+      // const expectedTansformedStyle = transform(requiredStyle);
+      const expected = new TypeError('transform is not a function').message;
+
+      runCompilerTest(expected, done, function() { 
+        try { 
+          let test = transform(requiredStyle);
+        } catch(error) { 
+          return error.message;
+        } });
+    });
+
+    it("es6 export: should not throw any error", function(done) {
+      const transform = require('./transforms/transform_es6');
+      styleLoaderOptions.transform = 'test/transforms/transform_es6';
+
+      const expectedTansformedStyle = transform[Object.keys(transform)[0]](requiredStyle);
+      const expected = [existingStyle, expectedTansformedStyle].join("\n");
+
+      runCompilerTest(expected, done);
+    });
   });
 
   describe("HMR", function() {
