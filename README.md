@@ -80,6 +80,8 @@ import url from 'file.css'
 }
 ```
 
+Note: This does not insert the `<link href="path/to/file.css" rel="stylesheet">` tag on build time but instead at runtime via JavaScript. You should use [MiniCssExtractPlugin](https://webpack.js.org/plugins/mini-css-extract-plugin/) if you want to include a static link.
+
 ```html
 <link rel="stylesheet" href="path/to/file.css">
 ```
