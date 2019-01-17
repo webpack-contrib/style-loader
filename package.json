@@ -25,9 +25,8 @@
     "jsdom": "^9.0.0",
     "memory-fs": "^0.4.0",
     "mocha": "^4.0.0",
-    "nsp": "^3.2.1",
     "sinon": "^4.0.0",
-    "standard-version": "^4.0.0",
+    "standard-version": "^4.4.0",
     "webpack": "^2.0.0"
   },
   "scripts": {
@@ -36,7 +35,7 @@
     "ci:test": "npm run test",
     "ci:coverage": "npm run test:coverage",
     "release": "standard-version",
-    "security": "nsp check"
+    "security": "npm audit --audit-level high"
   },
   "repository": "https://github.com/webpack-contrib/style-loader.git",
   "bugs": "https://github.com/webpack-contrib/style-loader/issues",
