@@ -6,15 +6,19 @@ var path = require("path");
 
 var loaderUtils = require("loader-utils");
 var validateOptions = require('schema-utils');
+var schema = require('./options.json')
 
 module.exports = function () {};
 
 module.exports.pitch = function (request) {
 	if (this.cacheable) this.cacheable();
 
-	var options = loaderUtils.getOptions(this) || {};
-
-	validateOptions(require('./options.json'), options, 'Style Loader')
+  var options = loaderUtils.getOptions(this);
+  if (options) {
+    validateOptions(schema, options, 'Style Loader');
+  } else {
+    options = {};
+  }
 
 	options.hmr = typeof options.hmr === 'undefined' ? true : options.hmr;
 
