@@ -6,7 +6,9 @@ var path = require("path");
 
 var loaderUtils = require("loader-utils");
 var validateOptions = require('schema-utils');
-var schema = require('./options.json')
+var schema = require('./options.json');
+
+var addStylesPath = path.join(__dirname, "lib", "addStyles.js");
 
 module.exports = function () {};
 
@@ -21,16 +23,17 @@ module.exports.pitch = function (request) {
 	var insertInto;
 
   if (options) {
-    validateOptions(schema, options, 'Style Loader');
+    validateOptions(schema, options, 'Style Loader (Useable)');
     options.hmr = typeof options.hmr === 'undefined' ? true : options.hmr;
 
-    if (typeof options.insertInto === "function") {
+    var insertIntoType = typeof options.insertInto;
+    if (insertIntoType === "function") {
       insertInto = options.insertInto.toString();
     }
 
     // We need to check if it a string, or variable will be "undefined"
     // and the loader crashes
-    if (typeof options.insertInto === "string") {
+    else if (insertIntoType === "string") {
       insertInto = '"' + options.insertInto + '"';
     }
   } else {
@@ -91,7 +94,7 @@ module.exports.pitch = function (request) {
 		"options.insertInto = " + insertInto + ";",
 		"",
 		// Add styles to the DOM
-		"var update = require(" + loaderUtils.stringifyRequest(this, "!" + path.join(__dirname, "lib", "addStyles.js")) + ")(content, options);",
+		"var update = require(" + loaderUtils.stringifyRequest(this, "!" + addStylesPath) + ")(content, options);",
 		"",
 		"if(content.locals) module.exports = content.locals;",
 		"",

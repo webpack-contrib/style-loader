@@ -544,10 +544,10 @@ describe("basic tests", function() {
       // const expectedTansformedStyle = transform(requiredStyle);
       const expected = new TypeError('transform is not a function').message;
 
-      runCompilerTest(expected, done, function() { 
-        try { 
+      runCompilerTest(expected, done, function() {
+        try {
           let test = transform(requiredStyle);
-        } catch(error) { 
+        } catch(error) {
           return error.message;
         } });
     });
