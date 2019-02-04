@@ -20,6 +20,7 @@ describe("basic tests", function() {
       }
     `,
     requiredStyle = `<style type="text/css">${requiredCss}</style>`,
+    requiredStyleTwo = `<style>${requiredCss}</style>`,
     existingStyle = `<style id="existing-style">.existing { color: yellow }</style>`,
     checkValue = '<div class="check">check</div>',
     rootDir = path.resolve(__dirname + "/../") + "/",
@@ -285,6 +286,15 @@ describe("basic tests", function() {
     runCompilerTest(expected, done);
   }); // it type attribute
 
+  it('without type', function(done) {
+    styleLoaderOptions.attrs = {
+      type: false,
+    };
+
+    let expected = [existingStyle, requiredStyleTwo].join("\n");
+    runCompilerTest(expected, done);
+  }); // it without type
+
   it("url", function(done) {
     cssRule.use = [
       {
@@ -544,10 +554,10 @@ describe("basic tests", function() {
       // const expectedTansformedStyle = transform(requiredStyle);
       const expected = new TypeError('transform is not a function').message;
 
-      runCompilerTest(expected, done, function() { 
-        try { 
+      runCompilerTest(expected, done, function() {
+        try {
           let test = transform(requiredStyle);
-        } catch(error) { 
+        } catch(error) {
           return error.message;
         } });
     });
