@@ -138,7 +138,7 @@ Styles are not added on `import/require()`, but instead on call to `use`/`ref`. 
 |:--:|:--:|:-----:|:----------|
 |**`hmr`**|`{Boolean}`|`true`|Enable/disable Hot Module Replacement (HMR), if disabled no HMR Code will be added (good for non local development/production)|
 |**`base`** |`{Number}`|`true`|Set module ID base (DLLPlugin)|
-|**`attrs`**|`{Object}`|`{}`|Add custom attrs to `<style></style>`|
+|**`attrs`**|`{Object\|Boolean}`|`{}`|Add custom attrs to `<style></style>` or removes default type|
 |**`transform`** |`{Function}`|`false`|Transform/Conditionally load CSS by passing a transform/condition function|
 |**`insertAt`**|`{String\|Object}`|`bottom`|Inserts `<style></style>` at the given position|
 |**`insertInto`**|`{String\|Function}`|`<head>`|Inserts `<style></style>` into the given position|
