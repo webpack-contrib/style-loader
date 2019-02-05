@@ -53,7 +53,7 @@ describe("useable tests", function () {
           color: blue;
         }
       `,
-      requiredStyle = `<style type="text/css">${requiredCss}</style>`,
+      requiredStyle = `<style>${requiredCss}</style>`,
       existingStyle = `<style id="existing-style">.existing { color: yellow }</style>`,
       checkValue = '<div class="check">check</div>',
       rootDir = path.resolve(__dirname + "/../") + "/",
