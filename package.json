@@ -4,7 +4,7 @@
   "author": "Tobias Koppers @sokra",
   "description": "style loader module for webpack",
   "engines": {
-    "node": ">= 0.12.0"
+    "node": ">= 6"
   },
   "main": "index.js",
   "files": [
