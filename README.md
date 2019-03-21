@@ -99,6 +99,7 @@ By convention the `Reference Counter API` should be bound to `.useable.css` and 
     rules: [
       {
         test: /\.css$/,
+        exclude: /\.useable\.css$/,
         use: [
           { loader: "style-loader" },
           { loader: "css-loader" },
