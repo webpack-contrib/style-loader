@@ -20,11 +20,19 @@
   },
   "devDependencies": {
     "css-loader": "^0.28.0",
+    "eslint": "^5.15.3",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-config-webpack": "^1.2.5",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-prettier": "^3.0.1",
     "file-loader": "^1.0.0",
+    "husky": "^1.3.1",
     "jest": "^24.5.0",
     "jsdom": "^14.0.0",
+    "lint-staged": "^8.1.5",
     "memory-fs": "^0.4.0",
     "nsp": "^3.2.1",
+    "prettier": "^1.16.4",
     "sinon": "^4.0.0",
     "standard-version": "^4.0.0",
     "webpack": "^2.0.0"
@@ -32,7 +40,24 @@
   "scripts": {
     "test": "jest",
     "release": "standard-version",
-    "security": "nsp check"
+    "security": "nsp check",
+    "lint": "eslint lib test *.js",
+    "pretty": "prettier --loglevel warn --write \"**/*.{js,css,md,json}\""
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.{css,md,json,yml}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "repository": "https://github.com/webpack-contrib/style-loader.git",
   "bugs": "https://github.com/webpack-contrib/style-loader/issues",
