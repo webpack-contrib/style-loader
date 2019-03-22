@@ -1,16 +1,12 @@
-// Node v4 requires "use strict" to allow block scoped let & const
 "use strict";
 
-describe("basic tests", function() {
-  var path = require("path");
+const path = require("path");
+const { setup, runCompilerTest, runSourceTest } = require("./utils");
 
-  var utils = require("./utils"),
-    runCompilerTest = utils.runCompilerTest,
-    runSourceTest = utils.runSourceTest;
+describe("basic tests", () => {
+  let fs;
 
-  var fs;
-
-  var requiredCss = ".required { color: blue }",
+  const requiredCss = ".required { color: blue }",
     requiredCssTwo = ".requiredTwo { color: cyan }",
     localScopedCss = ":local(.className) { background: red; }",
     localComposingCss = `
@@ -44,10 +40,10 @@ describe("basic tests", function() {
       "var css = require('./style.css');",
     ].join("\n");
 
-  var styleLoaderOptions = {};
-  var cssRule = {};
+  const styleLoaderOptions = {};
+  const cssRule = {};
 
-  var defaultCssRule = {
+  const defaultCssRule = {
     test: /\.css?$/,
     use: [
       {
@@ -58,7 +54,7 @@ describe("basic tests", function() {
     ]
   };
 
-  var webpackConfig = {
+  const webpackConfig = {
     entry: "./main.js",
     output: {
       filename: "bundle.js"
@@ -68,8 +64,8 @@ describe("basic tests", function() {
     }
   };
 
-  var setupWebpackConfig = function() {
-    fs = utils.setup(webpackConfig, jsdomHtml);
+  const setupWebpackConfig = () => {
+    fs = setup(webpackConfig, jsdomHtml);
 
     // Create a tiny file system. rootDir is used because loaders are referring to absolute paths.
     fs.mkdirpSync(rootDir);
@@ -80,26 +76,26 @@ describe("basic tests", function() {
     fs.writeFileSync(rootDir + "localComposing.css", localComposingCss);
   };
 
-  beforeEach(function() {
+  beforeEach(() => {
     // Reset all style-loader options
-    for (var member in styleLoaderOptions) {
+    for (const member in styleLoaderOptions) {
       delete styleLoaderOptions[member];
     }
 
-    for (var member in defaultCssRule) {
+    for (const member in defaultCssRule) {
       cssRule[member] = defaultCssRule[member];
     }
 
     setupWebpackConfig();
   }); // before each
 
-  it("insert at bottom", function(done) {
+  it("insert at bottom", (done) => {
     let expected = [existingStyle, requiredStyle].join("\n");
 
     runCompilerTest(expected, done);
   }); // it insert at bottom
 
-  it("insert at top", function(done) {
+  it("insert at top", (done) => {
     styleLoaderOptions.insertAt = "top";
 
     let expected = [requiredStyle, existingStyle].join("\n");
@@ -107,7 +103,7 @@ describe("basic tests", function() {
     runCompilerTest(expected, done);
   }); // it insert at top
 
-  it("insert at before", function(done) {
+  it("insert at before", (done) => {
     styleLoaderOptions.insertAt = {
         before: "#existing-style"
     };
@@ -117,7 +113,7 @@ describe("basic tests", function() {
     runCompilerTest(expected, done);
   }); // it insert at before
 
-  it("insert at before invalid selector", function(done) {
+  it("insert at before invalid selector", (done) => {
     styleLoaderOptions.insertAt = {
         before: "#missing"
     };
@@ -127,7 +123,7 @@ describe("basic tests", function() {
     runCompilerTest(expected, done);
   }); // it insert at before
 
-  it("insert into", function(done) {
+  it("insert into", (done) => {
     let selector = "div.target";
     styleLoaderOptions.insertInto = selector;
 
@@ -136,7 +132,7 @@ describe("basic tests", function() {
     runCompilerTest(expected, done, undefined, selector);
   }); // it insert into
 
-  it("insert into iframe", function(done) {
+  it("insert into iframe", (done) => {
     let selector = "iframe.iframeTarget";
     styleLoaderOptions.insertInto = selector;
 
@@ -147,7 +143,7 @@ describe("basic tests", function() {
     }, selector);
   }); // it insert into
 
-  it("insert into custom element by function", function(done) {
+  it("insert into custom element by function", (done) => {
     const selector = "#test-shadow";
     styleLoaderOptions.insertInto = () => document.querySelector("#test-shadow");
 
@@ -158,7 +154,7 @@ describe("basic tests", function() {
     }, selector);
   });
 
-  it("insert at before with insert into custom element by function", function(done) {
+  it("insert at before with insert into custom element by function", (done) => {
     const selector = "#head";
     styleLoaderOptions.insertInto = () => document.querySelector("#head");
 
@@ -182,7 +178,7 @@ describe("basic tests", function() {
     }, selector);
   }); // it insert at before with insert into
 
-  it("singleton (true)", function(done) {
+  it("singleton (true)", (done) => {
     // Setup
     styleLoaderOptions.singleton = true;
 
@@ -203,7 +199,7 @@ describe("basic tests", function() {
     runCompilerTest(expected, done);
   }); // it singleton
 
-  it("singleton (false)", function(done) {
+  it("singleton (false)", (done) => {
     // Setup
     styleLoaderOptions.singleton = false;
 
@@ -224,7 +220,7 @@ describe("basic tests", function() {
     runCompilerTest(expected, done);
   }); // it singleton
 
-  it("attrs", function(done) {
+  it("attrs", (done) => {
     // Setup
     styleLoaderOptions.attrs = {id: 'style-tag-id'};
 
@@ -244,7 +240,7 @@ describe("basic tests", function() {
     runCompilerTest(expected, done);
   }); // it attrs
 
-  it("nonce", function(done) {
+  it("nonce", (done) => {
     // Setup
     const expectedNonce = "testNonce";
 
@@ -265,7 +261,7 @@ describe("basic tests", function() {
     runCompilerTest(expected, done);
   }); // it attrs
 
-  it("type attribute", function(done) {
+  it("type attribute", (done) => {
     // Setup
     styleLoaderOptions.attrs = {type: 'text/less'};
 
@@ -285,7 +281,7 @@ describe("basic tests", function() {
     runCompilerTest(expected, done);
   }); // it type attribute
 
-  it("url", function(done) {
+  it("url", (done) => {
     cssRule.use = [
       {
         loader: "style-loader/url",
@@ -303,7 +299,7 @@ describe("basic tests", function() {
     runCompilerTest(expected, done);
   }); // it url
 
-  it("url with attrs", function (done) {
+  it("url with attrs", (done) => {
     cssRule.use = [
       {
         loader: "style-loader/url",
@@ -326,7 +322,7 @@ describe("basic tests", function() {
     runCompilerTest(expected, done);
   }); // it url with attrs
 
-  it("url with type attribute", function (done) {
+  it("url with type attribute", (done) => {
     cssRule.use = [
       {
         loader: "style-loader/url",
@@ -348,7 +344,7 @@ describe("basic tests", function() {
     runCompilerTest(expected, done);
   }); // it url with type attribute
 
-  it("useable", function(done) {
+  it("useable", (done) => {
     cssRule.use = [
       {
         loader: "style-loader/useable"
@@ -376,7 +372,7 @@ describe("basic tests", function() {
     runCompilerTest(expected, done);
   }); // it useable
 
-  it("useable without negative refs", function(done) {
+  it("useable without negative refs", (done) => {
     cssRule.use = [
       {
         loader: "style-loader/useable"
@@ -402,7 +398,7 @@ describe("basic tests", function() {
     runCompilerTest(expected, done);
   }); // it useable
 
-  it("local scope", function(done) {
+  it("local scope", (done) => {
     cssRule.use = [
       {
         loader: "style-loader"
@@ -423,10 +419,12 @@ describe("basic tests", function() {
     );
 
     let expected = 'localScoped-className_3dIU6Uf';
-    runCompilerTest(expected, done, function() { return this.css.className; });
+    runCompilerTest(expected, done, function() {
+      return this.css.className;
+    });
   }); // it local scope
 
-  it("local scope, composing", function(done) {
+  it("local scope, composing", (done) => {
     cssRule.use = [
       {
         loader: "style-loader"
@@ -453,7 +451,7 @@ describe("basic tests", function() {
     });
   }); // it local scope, composing
 
-  it("local scope, composing, custom getLocalIdent", function(done) {
+  it("local scope, composing, custom getLocalIdent", (done) => {
     cssRule.use = [
       {
         loader: "style-loader"
@@ -484,7 +482,7 @@ describe("basic tests", function() {
     });
   }); // it local scope, composing, custom getLocalIdent
 
-  it("local scope, useable", function(done) {
+  it("local scope, useable", (done) => {
     cssRule.use = [
       {
         loader: "style-loader/useable"
@@ -509,9 +507,9 @@ describe("basic tests", function() {
     runCompilerTest(expected, done, function() { return this.css.locals.className; });
   }); // it local scope
 
-  describe("transform function", function() {
+  describe("transform function", () => {
 
-    it("should not load the css if the transform function returns false", function(done) {
+    it("should not load the css if the transform function returns false", (done) => {
       styleLoaderOptions.transform = 'test/transforms/false';
 
       const expected = existingStyle;
@@ -519,7 +517,7 @@ describe("basic tests", function() {
       runCompilerTest(expected, done);
     });
 
-    it("should not load the css if the transform function returns undefined", function(done) {
+    it("should not load the css if the transform function returns undefined", (done) => {
       styleLoaderOptions.transform = 'test/transforms/noop';
 
       const expected = existingStyle;
@@ -537,22 +535,22 @@ describe("basic tests", function() {
       runCompilerTest(expected, done);
     });
 
-    it("es6 export: should throw error transform is not a function", function(done) {
+    it("es6 export: should throw error transform is not a function", (done) => {
       const transform = require('./transforms/transform_es6');
       styleLoaderOptions.transform = 'test/transforms/transform_es6';
 
       // const expectedTansformedStyle = transform(requiredStyle);
       const expected = new TypeError('transform is not a function').message;
 
-      runCompilerTest(expected, done, function() { 
-        try { 
+      runCompilerTest(expected, done, () => {
+        try {
           let test = transform(requiredStyle);
-        } catch(error) { 
+        } catch(error) {
           return error.message;
         } });
     });
 
-    it("es6 export: should not throw any error", function(done) {
+    it("es6 export: should not throw any error", (done) => {
       const transform = require('./transforms/transform_es6');
       styleLoaderOptions.transform = 'test/transforms/transform_es6';
 
@@ -563,18 +561,18 @@ describe("basic tests", function() {
     });
   });
 
-  describe("HMR", function() {
-    it("should output HMR code block by default", function(done) {
+  describe("HMR", () => {
+    it("should output HMR code block by default", (done) => {
       runSourceTest(/module\.hot/g, null, done);
     });
 
-    it("should output HMR code block when options.hmr is true", function(done) {
+    it("should output HMR code block when options.hmr is true", (done) => {
       styleLoaderOptions.hmr = true;
       setupWebpackConfig();
       runSourceTest(/module\.hot/g, null, done);
     });
 
-    it("should not output HMR code block when options.hmr is false", function(done) {
+    it("should not output HMR code block when options.hmr is false", (done) => {
       styleLoaderOptions.hmr = false;
       setupWebpackConfig();
       runSourceTest(null, /module\.hot/g, done);

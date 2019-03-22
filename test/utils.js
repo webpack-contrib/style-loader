@@ -1,19 +1,18 @@
 // Node v4 requires "use strict" to allow block scoped let & const
 "use strict";
 
-var MemoryFS = require("memory-fs");
-var realFs = require("fs");
-var webpack = require("webpack");
-var path = require("path");
-var jsdom = require("jsdom");
+const realFs = require("fs");
+const path = require("path");
+const assert = require("assert");
+const webpack = require("webpack");
+const MemoryFS = require("memory-fs");
+const jsdom = require("jsdom");
 
-var assert = require("assert");
-
-var compiler;
-var jsdomHtml;
+let compiler;
+let jsdomHtml;
 
 module.exports = {
-  setup: function(webpackConfig, _jsdomHtml) {
+  setup: (webpackConfig, _jsdomHtml) => {
     let fs = new MemoryFS();
 
     jsdomHtml = _jsdomHtml;
@@ -57,43 +56,51 @@ module.exports = {
    *  @param {function} done - Async callback from Mocha.
    *  @param {function} actual - Executed in the context of jsdom window, should return a string to compare to.
    */
-  runCompilerTest: function(expected, done, actual, selector) {
+  runCompilerTest: (expected, done, actual, selector) => {
     selector = selector || "head"
-    compiler.run(function(err, stats) {
+    compiler.run((err, stats) => {
       if (stats.compilation.errors.length) {
         throw new Error(stats.compilation.errors);
       }
 
       const bundleJs = stats.compilation.assets["bundle.js"].source();
 
-      jsdom.env({
-        html: jsdomHtml,
-        src: [bundleJs],
-        virtualConsole: jsdom.createVirtualConsole().sendTo(console),
-        done: function(err, window) {
-          if (typeof actual === 'function') {
-            assert.equal(actual.apply(window), expected);
-          } else {
-            assert.equal(window.document.querySelector(selector).innerHTML.trim(), expected);
-          }
-          // free memory associated with the window
-          window.close();
+      const virtualConsole = new jsdom.VirtualConsole();
+      virtualConsole.sendTo(console);
 
-          done();
+      try {
+        const { window } = new jsdom.JSDOM(jsdomHtml, {
+          resources: 'usable',
+          runScripts: "dangerously",
+          virtualConsole,
+        });
+
+        window.eval(bundleJs);
+
+        if (typeof actual === 'function') {
+          assert.equal(actual.apply(window), expected);
+        } else {
+          assert.equal(window.document.querySelector(selector).innerHTML.trim(), expected);
         }
-      });
+        // free memory associated with the window
+        window.close();
+
+        done();
+      } catch(e) {
+        throw e;
+      }
     });
   },
 
   /**
    * Runs the test against Webpack compiled source code
-   * 
+   *
    * @param {RegExp} match - regex to match the source code
    * @param {RegExp} noMatch - regex to NOT match the source code
    * @param {Function} done - Async callback (mocha)
    */
-  runSourceTest: function(match, noMatch, done) {
-    compiler.run(function(err, stats) {
+  runSourceTest: (match, noMatch, done) => {
+    compiler.run((err, stats) => {
       if (stats.compilation.errors.length) {
         throw new Error(stats.compilation.errors);
       }

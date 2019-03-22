@@ -1,16 +1,14 @@
-// Node v4 requires "use strict" to allow block scoped let & const
 "use strict";
 
-var assert = require("assert");
-var sinon = require('sinon');
-var loaderUtils = require('loader-utils');
+const assert = require("assert");
+const sinon = require('sinon');
+const loaderUtils = require('loader-utils');
+const useable = require("../useable");
 
-var useable = require("../useable");
-
-describe("useable tests", function () {
-  describe('hmr', function () {
-    var sandbox = sinon.sandbox.create();
-    var getOptions;
+describe("useable tests", () => {
+  describe('hmr', () => {
+    const sandbox = sinon.sandbox.create();
+    let getOptions;
 
     beforeEach(() => {
       // Mock loaderUtils to override options
@@ -21,30 +19,28 @@ describe("useable tests", function () {
       sandbox.restore();
     });
 
-    it("should output HMR code by default", function () {
+    it("should output HMR code by default", () => {
       assert.equal(/(module\.hot)/g.test(useable.pitch()), true);
     });
 
-    it("should NOT output HMR code when options.hmr is false", function () {
+    it("should NOT output HMR code when options.hmr is false", () => {
       getOptions.returns({hmr: false});
       assert.equal(/(module\.hot)/g.test(useable.pitch()), false);
     });
 
-    it("should output HMR code when options.hmr is true", function () {
+    it("should output HMR code when options.hmr is true", () => {
       getOptions.returns({hmr: true});
       assert.equal(/(module\.hot)/g.test(useable.pitch()), true);
     });
   });
 
-  describe('insert into', function () {
-    var path = require("path");
+  describe('insert into', () => {
+    const path = require("path");
+    const { setup, runCompilerTest } = require("./utils");
 
-    var utils = require("./utils"),
-      runCompilerTest = utils.runCompilerTest;
+    let fs;
 
-    var fs;
-
-    var requiredCss = ".required { color: blue }",
+    const requiredCss = ".required { color: blue }",
       requiredCssTwo = ".requiredTwo { color: cyan }",
       localScopedCss = ":local(.className) { background: red; }",
       localComposingCss = `
@@ -78,10 +74,10 @@ describe("useable tests", function () {
         "css.use();",
       ].join("\n");
 
-    var styleLoaderOptions = {};
-    var cssRule = {};
+    const styleLoaderOptions = {};
+    const cssRule = {};
 
-    var defaultCssRule = {
+    const defaultCssRule = {
       test: /\.css?$/,
       use: [
         {
@@ -92,7 +88,7 @@ describe("useable tests", function () {
       ]
     };
 
-    var webpackConfig = {
+    const webpackConfig = {
       entry: "./main.js",
       output: {
         filename: "bundle.js"
@@ -102,8 +98,8 @@ describe("useable tests", function () {
       }
     };
 
-    var setupWebpackConfig = function() {
-      fs = utils.setup(webpackConfig, jsdomHtml);
+    const setupWebpackConfig = () => {
+      fs = setup(webpackConfig, jsdomHtml);
 
       // Create a tiny file system. rootDir is used because loaders are referring to absolute paths.
       fs.mkdirpSync(rootDir);
@@ -114,27 +110,27 @@ describe("useable tests", function () {
       fs.writeFileSync(rootDir + "localComposing.css", localComposingCss);
     };
 
-    beforeEach(function() {
+    beforeEach(() => {
       // Reset all style-loader options
-      for (var member in styleLoaderOptions) {
+      for (const member in styleLoaderOptions) {
         delete styleLoaderOptions[member];
       }
 
-      for (var member in defaultCssRule) {
+      for (const member in defaultCssRule) {
         cssRule[member] = defaultCssRule[member];
       }
 
       setupWebpackConfig();
     }); // before each
 
-    it("insert into iframe", function(done) {
+    it("insert into iframe", (done) => {
       let selector = "iframe.iframeTarget";
       styleLoaderOptions.insertInto = selector;
 
       let expected = requiredStyle;
 
       runCompilerTest(expected, done, function() {
-        return this.document.querySelector(selector).contentDocument.head.innerHTML;
+        return this.window.document.querySelector(selector).contentDocument.head.innerHTML;
       }, selector);
     }); // it insert into
 

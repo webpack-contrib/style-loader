@@ -1,137 +1,140 @@
-// Node v4 requires "use strict" to allow block scoped let & const
 "use strict";
-var assert = require("assert");
-var url = require('url');
 
-describe("fix urls tests", function() {
-    var fixUrls = require("../lib/urls");
-    var defaultUrl = "https://x.y.z/a/b.html";
+const assert = require("assert");
+const url = require('url');
 
-    beforeEach(function() {
+describe("fix urls tests", () => {
+    const fixUrls = require("../lib/urls");
+    const defaultUrl = "https://x.y.z/a/b.html";
+
+    beforeEach(() => {
         global.window = {
             location: url.parse(defaultUrl)
         };
     });
 
-    var assertUrl = function (origCss, expectedCss, specialUrl) {
+    const assertUrl = (origCss, expectedCss, specialUrl) => {
         if (specialUrl) {
             global.window = {
                 location: url.parse(specialUrl)
             };
         }
-        var resultCss = fixUrls(origCss, specialUrl || defaultUrl);
-        expectedCss = expectedCss || origCss;
+        const resultCss = fixUrls(origCss);
 
-        assert.equal(expectedCss, resultCss);
+        assert.equal(expectedCss || origCss, resultCss);
     };
 
     // no change
-    it("Null css is not modified", function() {
-      assertUrl(null)
+    it("Null css is not modified", () => {
+      assertUrl(null);
     });
 
-    it("Blank css is not modified", function() { assertUrl("") });
+    it("Blank css is not modified", () => {
+      assertUrl("");
+    });
 
-    it("No url is not modified", function () { assertUrl("body { }") });
+    it("No url is not modified", () => {
+      assertUrl("body { }");
+    });
 
-    it("Full url isn't changed (no quotes)", function() {
+    it("Full url isn't changed (no quotes)", () => {
       assertUrl("body { background-image:url(http://example.com/bg.jpg); }")
     });
 
-    it("Full url isn't changed (no quotes, spaces)", function() {
+    it("Full url isn't changed (no quotes, spaces)", () => {
       assertUrl("body { background-image:url ( http://example.com/bg.jpg  ); }");
     });
 
-    it("Full url isn't changed (double quotes)", function() {
+    it("Full url isn't changed (double quotes)", () => {
       assertUrl("body { background-image:url(\"http://example.com/bg.jpg\"); }")
     });
 
-    it("Full url isn't changed (double quotes, spaces)", function() {
+    it("Full url isn't changed (double quotes, spaces)", () => {
       assertUrl("body { background-image:url (  \"http://example.com/bg.jpg\" ); }")
     });
 
-    it("Full url isn't changed (single quotes)", function() {
+    it("Full url isn't changed (single quotes)", () => {
       assertUrl("body { background-image:url('http://example.com/bg.jpg'); }")
     });
 
-    it("Full url isn't changed (single quotes, spaces)", function() {
+    it("Full url isn't changed (single quotes, spaces)", () => {
       assertUrl("body { background-image:url ( 'http://example.com/bg.jpg'  ); }")
     });
 
-    it("Multiple full urls are not changed", function() {
+    it("Multiple full urls are not changed", () => {
       assertUrl(
           "body { background-image:url(http://example.com/bg.jpg); }\ndiv.main { background-image:url ( 'https://www.anothersite.com/another.png' ); }"
       );
     });
 
-    it("Http url isn't changed", function() {
+    it("Http url isn't changed", () => {
       assertUrl("body { background-image:url(http://example.com/bg.jpg); }");
     });
 
-    it("Https url isn't changed", function() {
+    it("Https url isn't changed", () => {
       assertUrl("body { background-image:url(https://example.com/bg.jpg); }");
     });
 
-    it("HTTPS url isn't changed", function() {
+    it("HTTPS url isn't changed", () => {
       assertUrl("body { background-image:url(HTTPS://example.com/bg.jpg); }")
     });
 
-    it("File url isn't changed", function() {
+    it("File url isn't changed", () => {
       assertUrl("body { background-image:url(file:///example.com/bg.jpg); }")
     });
 
-    it("Double slash url isn't changed", function() {
+    it("Double slash url isn't changed", () => {
       assertUrl(
           "body { background-image:url(//example.com/bg.jpg); }",
           "body { background-image:url(\"//example.com/bg.jpg\"); }"
       )
     });
 
-    it("Image data uri url isn't changed", function() {
+    it("Image data uri url isn't changed", () => {
       assertUrl("body { background-image:url(data:image/png;base64,qsrwABYuwNkimqm3gAAAABJRU5ErkJggg==); }")
     });
 
-    it("Font data uri url isn't changed", function() {
+    it("Font data uri url isn't changed", () => {
       assertUrl(
           "body { background-image:url(data:application/x-font-woff;charset=utf-8;base64,qsrwABYuwNkimqm3gAAAABJRU5ErkJggg); }"
       );
     });
 
     // relative urls
-    it("Relative url", function() {
+    it("Relative url", () => {
       assertUrl(
           "body { background-image:url (bg.jpg); }",
           "body { background-image:url(\"https://x.y.z/a/bg.jpg\"); }"
       );
     });
 
-    it("Relative url case sensitivity", function() {
+    it("Relative url case sensitivity", () => {
         assertUrl(
             "body { background-image:URL (bg.jpg); }",
             "body { background-image:url(\"https://x.y.z/a/bg.jpg\"); }"
         );
     });
 
-    it("Relative url with path", function() {
+    it("Relative url with path", () => {
       assertUrl(
           "body { background-image:url(c/d/bg.jpg); }",
           "body { background-image:url(\"https://x.y.z/a/c/d/bg.jpg\"); }"
       );
     });
-    it("Relative url with dot slash", function() {
+    it("Relative url with dot slash", () => {
       assertUrl(
           "body { background-image:url(./c/d/bg.jpg); }",
           "body { background-image:url(\"https://x.y.z/a/c/d/bg.jpg\"); }"
       );
     });
 
-    it("Multiple relative urls", function() {
+    it("Multiple relative urls", () => {
       assertUrl(
           "body { background-image:url(bg.jpg); }\ndiv.main { background-image:url(./c/d/bg.jpg); }",
           "body { background-image:url(\"https://x.y.z/a/bg.jpg\"); }\ndiv.main { background-image:url(\"https://x.y.z/a/c/d/bg.jpg\"); }"
       );
     });
-    it("Relative url that looks like data-uri", function() {
+    it("Relative url that looks like data-uri", () => {
       assertUrl(
           "body { background-image:url(data/image/png.base64); }",
           "body { background-image:url(\"https://x.y.z/a/data/image/png.base64\"); }"
@@ -139,12 +142,12 @@ describe("fix urls tests", function() {
     });
 
     // urls with hashes
-    it("Relative url with hash are not changed", function() {
+    it("Relative url with hash are not changed", () => {
         assertUrl("body { background-image:url(#bg.jpg); }");
     });
 
     // empty urls
-    it("Empty url should be skipped", function() {
+    it("Empty url should be skipped", () => {
       assertUrl("body { background-image:url(); }");
       assertUrl("body { background-image:url( ); }");
       assertUrl("body { background-image:url(\n); }");
@@ -155,13 +158,13 @@ describe("fix urls tests", function() {
     });
 
     // rooted urls
-    it("Rooted url", function() {
+    it("Rooted url", () => {
       assertUrl(
           "body { background-image:url(/bg.jpg); }",
           "body { background-image:url(\"https://x.y.z/bg.jpg\"); }"
       );
     });
-    it("Rooted url with path", function() {
+    it("Rooted url with path", () => {
       assertUrl(
           "body { background-image:url(/a/b/bg.jpg); }",
           "body { background-image:url(\"https://x.y.z/a/b/bg.jpg\"); }"
@@ -169,7 +172,7 @@ describe("fix urls tests", function() {
     });
 
     //special locations
-    it("Location with no path, filename only", function() {
+    it("Location with no path, filename only", () => {
       assertUrl(
           "body { background-image:url(bg.jpg); }",
           "body { background-image:url(\"http://x.y.z/bg.jpg\"); }",
@@ -177,21 +180,21 @@ describe("fix urls tests", function() {
       );
     });
 
-    it("Location with no path, path with filename", function() {
+    it("Location with no path, path with filename", () => {
       assertUrl(
           "body { background-image:url(a/bg.jpg); }",
           "body { background-image:url(\"http://x.y.z/a/bg.jpg\"); }",
           "http://x.y.z"
       );
     });
-    it("Location with no path, rel path with filename", function() {
+    it("Location with no path, rel path with filename", () => {
       assertUrl(
           "body { background-image:url(./a/bg.jpg); }",
           "body { background-image:url(\"http://x.y.z/a/bg.jpg\"); }",
           "http://x.y.z"
       );
     });
-    it("Location with no path, root filename", function() {
+    it("Location with no path, root filename", () => {
       assertUrl(
           "body { background-image:url(/a/bg.jpg); }",
           "body { background-image:url(\"http://x.y.z/a/bg.jpg\"); }",
@@ -199,14 +202,14 @@ describe("fix urls tests", function() {
       );
     });
 
-    it("Doesn't break inline SVG", function() {
+    it("Doesn't break inline SVG", () => {
         const svg = "url('data:image/svg+xml;charset=utf-8,<svg><feFlood flood-color=\"rgba(0,0,0,0.5)\" /></svg>')";
 
         assertUrl(
             "body: {  background: " + svg + " }"
         );
     });
-    it("Doesn't break inline SVG with HTML comment", function() {
+    it("Doesn't break inline SVG with HTML comment", () => {
         const svg = "url('data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C!--%20Comment%20--%3E%0A%3Csvg%3E%3C%2Fsvg%3E%0A')";
 
         assertUrl(

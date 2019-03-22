@@ -1,15 +1,14 @@
 // Node v4 requires "use strict" to allow block scoped let & const
 "use strict";
 
-var assert = require("assert");
-var sinon = require('sinon');
-var loaderUtils = require('loader-utils');
+const assert = require("assert");
+const sinon = require('sinon');
+const loaderUtils = require('loader-utils');
+const url = require("../url");
 
-var url = require("../url");
-
-describe("url tests", function () {
-  var sandbox = sinon.sandbox.create();
-  var getOptions;
+describe("url tests", () => {
+  const sandbox = sinon.sandbox.create();
+  let getOptions;
 
   beforeEach(() => {
     // Mock loaderUtils to override options
@@ -20,16 +19,16 @@ describe("url tests", function () {
     sandbox.restore();
   });
 
-  it("should output HMR code by default", function () {
+  it("should output HMR code by default", () => {
     assert.equal(/(module\.hot)/g.test(url.pitch()), true);
   });
 
-  it("should NOT output HMR code when options.hmr is false", function () {
+  it("should NOT output HMR code when options.hmr is false", () => {
     getOptions.returns({hmr: false});
     assert.equal(/(module\.hot)/g.test(url.pitch()), false);
   });
 
-  it("should output HMR code when options.hmr is true", function () {
+  it("should output HMR code when options.hmr is true", () => {
     getOptions.returns({hmr: true});
     assert.equal(/(module\.hot)/g.test(url.pitch()), true);
   });
