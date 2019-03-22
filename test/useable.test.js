@@ -1,11 +1,11 @@
-"use strict";
+'use strict';
 
-const assert = require("assert");
+const assert = require('assert');
 const sinon = require('sinon');
 const loaderUtils = require('loader-utils');
-const useable = require("../useable");
+const useable = require('../useable');
 
-describe("useable tests", () => {
+describe('useable tests', () => {
   describe('hmr', () => {
     const sandbox = sinon.sandbox.create();
     let getOptions;
@@ -19,60 +19,60 @@ describe("useable tests", () => {
       sandbox.restore();
     });
 
-    it("should output HMR code by default", () => {
+    it('should output HMR code by default', () => {
       assert.equal(/(module\.hot)/g.test(useable.pitch()), true);
     });
 
-    it("should NOT output HMR code when options.hmr is false", () => {
-      getOptions.returns({hmr: false});
+    it('should NOT output HMR code when options.hmr is false', () => {
+      getOptions.returns({ hmr: false });
       assert.equal(/(module\.hot)/g.test(useable.pitch()), false);
     });
 
-    it("should output HMR code when options.hmr is true", () => {
-      getOptions.returns({hmr: true});
+    it('should output HMR code when options.hmr is true', () => {
+      getOptions.returns({ hmr: true });
       assert.equal(/(module\.hot)/g.test(useable.pitch()), true);
     });
   });
 
   describe('insert into', () => {
-    const path = require("path");
-    const { setup, runCompilerTest } = require("./utils");
+    const path = require('path');
+    const { setup, runCompilerTest } = require('./utils');
 
     let fs;
 
-    const requiredCss = ".required { color: blue }",
-      requiredCssTwo = ".requiredTwo { color: cyan }",
-      localScopedCss = ":local(.className) { background: red; }",
-      localComposingCss = `
+    const requiredCss = '.required { color: blue }';
+    const requiredCssTwo = '.requiredTwo { color: cyan }';
+    const localScopedCss = ':local(.className) { background: red; }';
+    const localComposingCss = `
         :local(.composingClass) {
           composes: className from './localScoped.css';
           color: blue;
         }
-      `,
-      requiredStyle = `<style type="text/css">${requiredCss}</style>`,
-      existingStyle = `<style id="existing-style">.existing { color: yellow }</style>`,
-      checkValue = '<div class="check">check</div>',
-      rootDir = path.resolve(__dirname + "/../") + "/",
-      jsdomHtml = [
-        "<html>",
-        "<head id='head'>",
-        existingStyle,
-        "</head>",
-        "<body>",
-        "<div class='target'>",
-        checkValue,
-        "</div>",
-        "<iframe class='iframeTarget'/>",
-        "</body>",
-        "</html>"
-      ].join("\n"),
-      requiredJS = [
-        "var el = document.createElement('div');",
-        "el.id = \"test-shadow\";",
-        "document.body.appendChild(el)",
-        "var css = require('./style.css');",
-        "css.use();",
-      ].join("\n");
+      `;
+    const requiredStyle = `<style type="text/css">${requiredCss}</style>`;
+    const existingStyle = `<style id="existing-style">.existing { color: yellow }</style>`;
+    const checkValue = '<div class="check">check</div>';
+    const rootDir = `${path.resolve(`${__dirname}/../`)}/`;
+    const jsdomHtml = [
+      '<html>',
+      "<head id='head'>",
+      existingStyle,
+      '</head>',
+      '<body>',
+      "<div class='target'>",
+      checkValue,
+      '</div>',
+      "<iframe class='iframeTarget'/>",
+      '</body>',
+      '</html>',
+    ].join('\n');
+    const requiredJS = [
+      "var el = document.createElement('div');",
+      'el.id = "test-shadow";',
+      'document.body.appendChild(el)',
+      "var css = require('./style.css');",
+      'css.use();',
+    ].join('\n');
 
     const styleLoaderOptions = {};
     const cssRule = {};
@@ -81,21 +81,21 @@ describe("useable tests", () => {
       test: /\.css?$/,
       use: [
         {
-          loader: "style-loader/useable",
-          options: styleLoaderOptions
+          loader: 'style-loader/useable',
+          options: styleLoaderOptions,
         },
-        "css-loader"
-      ]
+        'css-loader',
+      ],
     };
 
     const webpackConfig = {
-      entry: "./main.js",
+      entry: './main.js',
       output: {
-        filename: "bundle.js"
+        filename: 'bundle.js',
       },
       module: {
-        rules: [cssRule]
-      }
+        rules: [cssRule],
+      },
     };
 
     const setupWebpackConfig = () => {
@@ -103,11 +103,11 @@ describe("useable tests", () => {
 
       // Create a tiny file system. rootDir is used because loaders are referring to absolute paths.
       fs.mkdirpSync(rootDir);
-      fs.writeFileSync(rootDir + "main.js", requiredJS);
-      fs.writeFileSync(rootDir + "style.css", requiredCss);
-      fs.writeFileSync(rootDir + "styleTwo.css", requiredCssTwo);
-      fs.writeFileSync(rootDir + "localScoped.css", localScopedCss);
-      fs.writeFileSync(rootDir + "localComposing.css", localComposingCss);
+      fs.writeFileSync(`${rootDir}main.js`, requiredJS);
+      fs.writeFileSync(`${rootDir}style.css`, requiredCss);
+      fs.writeFileSync(`${rootDir}styleTwo.css`, requiredCssTwo);
+      fs.writeFileSync(`${rootDir}localScoped.css`, localScopedCss);
+      fs.writeFileSync(`${rootDir}localComposing.css`, localComposingCss);
     };
 
     beforeEach(() => {
@@ -123,17 +123,21 @@ describe("useable tests", () => {
       setupWebpackConfig();
     }); // before each
 
-    it("insert into iframe", (done) => {
-      let selector = "iframe.iframeTarget";
+    it('insert into iframe', (done) => {
+      const selector = 'iframe.iframeTarget';
       styleLoaderOptions.insertInto = selector;
 
-      let expected = requiredStyle;
+      const expected = requiredStyle;
 
-      runCompilerTest(expected, done, function() {
-        return this.window.document.querySelector(selector).contentDocument.head.innerHTML;
-      }, selector);
+      runCompilerTest(
+        expected,
+        done,
+        function() {
+          return this.window.document.querySelector(selector).contentDocument
+            .head.innerHTML;
+        },
+        selector
+      );
     }); // it insert into
-
   });
-
 });

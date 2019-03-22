@@ -1,1 +1,1 @@
-module.exports = function (css) {}
+module.exports = function(css) {};

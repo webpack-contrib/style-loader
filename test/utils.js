@@ -1,19 +1,20 @@
 // Node v4 requires "use strict" to allow block scoped let & const
-"use strict";
 
-const realFs = require("fs");
-const path = require("path");
-const assert = require("assert");
-const webpack = require("webpack");
-const MemoryFS = require("memory-fs");
-const jsdom = require("jsdom");
+'use strict';
+
+const realFs = require('fs');
+const path = require('path');
+const assert = require('assert');
+const webpack = require('webpack');
+const MemoryFS = require('memory-fs');
+const jsdom = require('jsdom');
 
 let compiler;
 let jsdomHtml;
 
 module.exports = {
   setup: (webpackConfig, _jsdomHtml) => {
-    let fs = new MemoryFS();
+    const fs = new MemoryFS();
 
     jsdomHtml = _jsdomHtml;
 
@@ -21,9 +22,9 @@ module.exports = {
     Object.assign(webpackConfig, {
       resolveLoader: {
         alias: {
-          "style-loader": path.resolve(__dirname, "../")
-        }
-      }
+          'style-loader': path.resolve(__dirname, '../'),
+        },
+      },
     });
 
     compiler = webpack(webpackConfig);
@@ -34,17 +35,16 @@ module.exports = {
     compiler.resolvers.normal.fileSystem = fs;
     compiler.resolvers.context.fileSystem = fs;
 
-    ["readFileSync", "statSync"].forEach(fn => {
+    ['readFileSync', 'statSync'].forEach((fn) => {
       // Preserve the reference to original function
-      fs["mem" + fn] = fs[fn];
+      fs[`mem${fn}`] = fs[fn];
 
       compiler.inputFileSystem[fn] = function(_path) {
         // Fallback to real FS if file is not in the memoryFS
         if (fs.existsSync(_path)) {
-          return fs["mem" + fn].apply(fs, arguments);
-        } else {
-          return realFs[fn].apply(realFs, arguments);
+          return fs[`mem${fn}`].apply(fs, arguments);
         }
+        return realFs[fn].apply(realFs, arguments);
       };
     });
 
@@ -57,13 +57,13 @@ module.exports = {
    *  @param {function} actual - Executed in the context of jsdom window, should return a string to compare to.
    */
   runCompilerTest: (expected, done, actual, selector) => {
-    selector = selector || "head"
+    selector = selector || 'head';
     compiler.run((err, stats) => {
       if (stats.compilation.errors.length) {
         throw new Error(stats.compilation.errors);
       }
 
-      const bundleJs = stats.compilation.assets["bundle.js"].source();
+      const bundleJs = stats.compilation.assets['bundle.js'].source();
 
       const virtualConsole = new jsdom.VirtualConsole();
       virtualConsole.sendTo(console);
@@ -71,7 +71,7 @@ module.exports = {
       try {
         const { window } = new jsdom.JSDOM(jsdomHtml, {
           resources: 'usable',
-          runScripts: "dangerously",
+          runScripts: 'dangerously',
           virtualConsole,
         });
 
@@ -80,13 +80,16 @@ module.exports = {
         if (typeof actual === 'function') {
           assert.equal(actual.apply(window), expected);
         } else {
-          assert.equal(window.document.querySelector(selector).innerHTML.trim(), expected);
+          assert.equal(
+            window.document.querySelector(selector).innerHTML.trim(),
+            expected
+          );
         }
         // free memory associated with the window
         window.close();
 
         done();
-      } catch(e) {
+      } catch (e) {
         throw e;
       }
     });
@@ -105,7 +108,7 @@ module.exports = {
         throw new Error(stats.compilation.errors);
       }
 
-      const source = stats.compilation.assets["bundle.js"].source();
+      const source = stats.compilation.assets['bundle.js'].source();
 
       if (match) {
         assert.equal(match.test(source), true);
@@ -117,5 +120,5 @@ module.exports = {
 
       done();
     });
-  }
+  },
 };
