@@ -13,19 +13,25 @@ var compiler;
 var jsdomHtml;
 
 module.exports = {
-  setup: function(webpackConfig, _jsdomHtml) {
+  setup: function(webpackConfig, _jsdomHtml, config = {}) {
     let fs = new MemoryFS();
 
     jsdomHtml = _jsdomHtml;
 
     // Makes webpack resolve style-loader to local folder instead of node_modules
     Object.assign(webpackConfig, {
+      mode: 'development',
       resolveLoader: {
         alias: {
           "style-loader": path.resolve(__dirname, "../")
         }
-      }
+      },
+      plugins: []
     });
+
+    if (config.hmr) {
+      webpackConfig.plugins.push(new webpack.HotModuleReplacementPlugin())
+    }
 
     compiler = webpack(webpackConfig);
 
@@ -59,29 +65,41 @@ module.exports = {
    */
   runCompilerTest: function(expected, done, actual, selector) {
     selector = selector || "head"
+
     compiler.run(function(err, stats) {
       if (stats.compilation.errors.length) {
         throw new Error(stats.compilation.errors);
       }
 
       const bundleJs = stats.compilation.assets["bundle.js"].source();
+      const virtualConsole = new jsdom.VirtualConsole();
 
-      jsdom.env({
-        html: jsdomHtml,
-        src: [bundleJs],
-        virtualConsole: jsdom.createVirtualConsole().sendTo(console),
-        done: function(err, window) {
-          if (typeof actual === 'function') {
-            assert.equal(actual.apply(window), expected);
-          } else {
-            assert.equal(window.document.querySelector(selector).innerHTML.trim(), expected);
-          }
-          // free memory associated with the window
-          window.close();
+      virtualConsole.sendTo(console);
 
-          done();
+      try {
+        const { window } = new jsdom.JSDOM(jsdomHtml, {
+          resources: 'usable',
+          runScripts: 'dangerously',
+          virtualConsole,
+        });
+
+        window.eval(bundleJs);
+
+        if (typeof actual === 'function') {
+          assert.equal(actual.apply(window), expected);
+        } else {
+          assert.equal(
+            window.document.querySelector(selector).innerHTML.trim(),
+            expected
+          );
         }
-      });
+        // free memory associated with the window
+        window.close();
+
+        done();
+      } catch (e) {
+        throw e;
+      }
     });
   },
 
