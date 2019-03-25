@@ -68,8 +68,8 @@ describe("basic tests", function() {
     }
   };
 
-  var setupWebpackConfig = function() {
-    fs = utils.setup(webpackConfig, jsdomHtml);
+  var setupWebpackConfig = function(config) {
+    fs = utils.setup(webpackConfig, jsdomHtml, config);
 
     // Create a tiny file system. rootDir is used because loaders are referring to absolute paths.
     fs.mkdirpSync(rootDir);
@@ -410,6 +410,7 @@ describe("basic tests", function() {
       {
         loader: "css-loader",
         options: {
+          modules: true,
           localIdentName: '[name].[local]_[hash:base64:7]'
         }
       }
@@ -434,6 +435,7 @@ describe("basic tests", function() {
       {
         loader: "css-loader",
         options: {
+          modules: true,
           localIdentName: '[name].[local]_[hash:base64:7]'
         }
       }
@@ -461,7 +463,7 @@ describe("basic tests", function() {
       {
         loader: "css-loader",
         options: {
-          ident: 'css',
+          modules: true,
           localIdentName: '[name].[local]_[hash:base64:7]',
           getLocalIdent: (context, localIdentName, localName) => {
             return 'X' + localName;
@@ -492,6 +494,7 @@ describe("basic tests", function() {
       {
         loader: "css-loader",
         options: {
+          modules: true,
           localIdentName: '[name].[local]_[hash:base64:7]'
         }
       }
@@ -565,21 +568,31 @@ describe("basic tests", function() {
 
   describe("HMR", function() {
     it("should output HMR code block by default", function(done) {
-      runSourceTest(/module\.hot/g, null, done);
+      setupWebpackConfig({
+        hmr: true
+      });
+
+      runSourceTest(/module\.hot\.accept/g, null, done);
     });
 
     it("should output HMR code block when options.hmr is true", function(done) {
       styleLoaderOptions.hmr = true;
-      setupWebpackConfig();
-      runSourceTest(/module\.hot/g, null, done);
+
+      setupWebpackConfig({
+        hmr: true
+      });
+
+      runSourceTest(/module\.hot\.accept/g, null, done);
     });
 
     it("should not output HMR code block when options.hmr is false", function(done) {
       styleLoaderOptions.hmr = false;
-      setupWebpackConfig();
-      runSourceTest(null, /module\.hot/g, done);
+
+      setupWebpackConfig({
+        hmr: true
+      });
+
+      runSourceTest(null, /module\.hot\.accept/g, done);
     });
-
   });
-
 });
