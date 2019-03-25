@@ -1,37 +1,32 @@
-// Node v4 requires "use strict" to allow block scoped let & const
 "use strict";
 
-var assert = require("assert");
-var sinon = require('sinon');
 var loaderUtils = require('loader-utils');
 
 var url = require("../url");
 
 describe("url tests", function () {
-  var sandbox = sinon.sandbox.create();
   var getOptions;
 
   beforeEach(() => {
-    // Mock loaderUtils to override options
-    getOptions = sandbox.stub(loaderUtils, 'getOptions');
-  });
+    getOptions = jest.fn();
 
-  afterEach(() => {
-    sandbox.restore();
+    // Mock loaderUtils to override options
+    loaderUtils.getOptions = getOptions;
   });
 
   it("should output HMR code by default", function () {
-    assert.equal(/(module\.hot)/g.test(url.pitch()), true);
+    expect(/(module\.hot)/g.test(url.pitch())).toBe(true);
   });
 
   it("should NOT output HMR code when options.hmr is false", function () {
-    getOptions.returns({hmr: false});
-    assert.equal(/(module\.hot)/g.test(url.pitch()), false);
+    getOptions.mockReturnValue({ hmr: false });
+
+    expect(/(module\.hot)/g.test(url.pitch())).toBe(false);
   });
 
   it("should output HMR code when options.hmr is true", function () {
-    getOptions.returns({hmr: true});
-    assert.equal(/(module\.hot)/g.test(url.pitch()), true);
-  });
+    getOptions.mockReturnValue({ hmr: true });
 
+    expect(/(module\.hot)/g.test(url.pitch())).toBe(true);
+  });
 });
