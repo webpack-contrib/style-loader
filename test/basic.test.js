@@ -1,594 +1,617 @@
-"use strict";
+const path = require('path');
 
-describe("basic tests", function() {
-  var path = require("path");
+const utils = require('./utils');
 
-  var utils = require("./utils"),
-    runCompilerTest = utils.runCompilerTest,
-    runSourceTest = utils.runSourceTest;
+describe('basic tests', () => {
+  const { runCompilerTest } = utils;
+  const { runSourceTest } = utils;
 
-  var fs;
+  let fs;
 
-  var requiredCss = ".required { color: blue }",
-    requiredCssTwo = ".requiredTwo { color: cyan }",
-    localScopedCss = ":local(.className) { background: red; }",
-    localComposingCss = `
+  const requiredCss = '.required { color: blue }';
+  const requiredCssTwo = '.requiredTwo { color: cyan }';
+  const localScopedCss = ':local(.className) { background: red; }';
+  const localComposingCss = `
       :local(.composingClass) {
         composes: className from './localScoped.css';
         color: blue;
       }
-    `,
-    requiredStyle = `<style type="text/css">${requiredCss}</style>`,
-    existingStyle = `<style id="existing-style">.existing { color: yellow }</style>`,
-    checkValue = '<div class="check">check</div>',
-    rootDir = path.resolve(__dirname + "/../") + "/",
-    jsdomHtml = [
-      "<html>",
-      "<head id='head'>",
-      existingStyle,
-      "</head>",
-      "<body>",
-      "<div class='target'>",
-      checkValue,
-      "</div>",
-      "<iframe class='iframeTarget'/>",
-      "</body>",
-      "</html>"
-    ].join("\n"),
-    requiredJS = [
-      "var el = document.createElement('div');",
-      "el.id = \"test-shadow\";",
-      // "var shadow = el.attachShadow({ mode: 'open' })", // sadly shadow dom not working in jsdom
-      "document.body.appendChild(el)",
-      "var css = require('./style.css');",
-    ].join("\n");
+    `;
+  const requiredStyle = `<style type="text/css">${requiredCss}</style>`;
+  const existingStyle = `<style id="existing-style">.existing { color: yellow }</style>`;
+  const checkValue = '<div class="check">check</div>';
+  const rootDir = `${path.resolve(`${__dirname}/../`)}/`;
+  const jsdomHtml = [
+    '<html>',
+    "<head id='head'>",
+    existingStyle,
+    '</head>',
+    '<body>',
+    "<div class='target'>",
+    checkValue,
+    '</div>',
+    "<iframe class='iframeTarget'/>",
+    '</body>',
+    '</html>',
+  ].join('\n');
+  const requiredJS = [
+    "var el = document.createElement('div');",
+    'el.id = "test-shadow";',
+    // "var shadow = el.attachShadow({ mode: 'open' })", // sadly shadow dom not working in jsdom
+    'document.body.appendChild(el)',
+    "var css = require('./style.css');",
+  ].join('\n');
 
-  var styleLoaderOptions = {};
-  var cssRule = {};
+  const styleLoaderOptions = {};
+  const cssRule = {};
 
-  var defaultCssRule = {
+  const defaultCssRule = {
     test: /\.css?$/,
     use: [
       {
-        loader: "style-loader",
-        options: styleLoaderOptions
+        loader: 'style-loader',
+        options: styleLoaderOptions,
       },
-      "css-loader"
-    ]
+      'css-loader',
+    ],
   };
 
-  var webpackConfig = {
-    entry: "./main.js",
+  const webpackConfig = {
+    entry: './main.js',
     output: {
-      filename: "bundle.js"
+      filename: 'bundle.js',
     },
     module: {
-      rules: [cssRule]
-    }
+      rules: [cssRule],
+    },
   };
 
-  var setupWebpackConfig = function(config) {
+  const setupWebpackConfig = (config) => {
     fs = utils.setup(webpackConfig, jsdomHtml, config);
 
     // Create a tiny file system. rootDir is used because loaders are referring to absolute paths.
     fs.mkdirpSync(rootDir);
-    fs.writeFileSync(rootDir + "main.js", requiredJS);
-    fs.writeFileSync(rootDir + "style.css", requiredCss);
-    fs.writeFileSync(rootDir + "styleTwo.css", requiredCssTwo);
-    fs.writeFileSync(rootDir + "localScoped.css", localScopedCss);
-    fs.writeFileSync(rootDir + "localComposing.css", localComposingCss);
+    fs.writeFileSync(`${rootDir}main.js`, requiredJS);
+    fs.writeFileSync(`${rootDir}style.css`, requiredCss);
+    fs.writeFileSync(`${rootDir}styleTwo.css`, requiredCssTwo);
+    fs.writeFileSync(`${rootDir}localScoped.css`, localScopedCss);
+    fs.writeFileSync(`${rootDir}localComposing.css`, localComposingCss);
   };
 
-  beforeEach(function() {
+  beforeEach(() => {
     // Reset all style-loader options
-    for (var member in styleLoaderOptions) {
-      delete styleLoaderOptions[member];
+    for (const member in styleLoaderOptions) {
+      if (Object.prototype.hasOwnProperty.call(styleLoaderOptions, member)) {
+        delete styleLoaderOptions[member];
+      }
     }
 
-    for (var member in defaultCssRule) {
-      cssRule[member] = defaultCssRule[member];
+    for (const member in defaultCssRule) {
+      if (Object.prototype.hasOwnProperty.call(defaultCssRule, member)) {
+        cssRule[member] = defaultCssRule[member];
+      }
     }
 
     setupWebpackConfig();
-  }); // before each
-
-  it("insert at bottom", function(done) {
-    let expected = [existingStyle, requiredStyle].join("\n");
-
-    runCompilerTest(expected, done);
-  }); // it insert at bottom
-
-  it("insert at top", function(done) {
-    styleLoaderOptions.insertAt = "top";
-
-    let expected = [requiredStyle, existingStyle].join("\n");
-
-    runCompilerTest(expected, done);
-  }); // it insert at top
-
-  it("insert at before", function(done) {
-    styleLoaderOptions.insertAt = {
-        before: "#existing-style"
-    };
-
-    let expected = [requiredStyle, existingStyle].join("");
-
-    runCompilerTest(expected, done);
-  }); // it insert at before
-
-  it("insert at before invalid selector", function(done) {
-    styleLoaderOptions.insertAt = {
-        before: "#missing"
-    };
-
-    let expected = [existingStyle, requiredStyle].join("\n");
-
-    runCompilerTest(expected, done);
-  }); // it insert at before
-
-  it("insert into", function(done) {
-    let selector = "div.target";
-    styleLoaderOptions.insertInto = selector;
-
-    let expected = [checkValue, requiredStyle].join("\n");
-
-    runCompilerTest(expected, done, undefined, selector);
-  }); // it insert into
-
-  it("insert into iframe", function(done) {
-    let selector = "iframe.iframeTarget";
-    styleLoaderOptions.insertInto = selector;
-
-    let expected = requiredStyle;
-
-    runCompilerTest(expected, done, function() {
-      return this.document.querySelector(selector).contentDocument.head.innerHTML;
-    }, selector);
-  }); // it insert into
-
-  it("insert into custom element by function", function(done) {
-    const selector = "#test-shadow";
-    styleLoaderOptions.insertInto = () => document.querySelector("#test-shadow");
-
-    let expected = requiredStyle;
-
-    runCompilerTest(expected, done, function() {
-      return this.document.querySelector(selector).innerHTML;
-    }, selector);
   });
 
-  it("insert at before with insert into custom element by function", function(done) {
-    const selector = "#head";
-    styleLoaderOptions.insertInto = () => document.querySelector("#head");
+  it('insert at bottom', (done) => {
+    const expected = [existingStyle, requiredStyle].join('\n');
 
+    runCompilerTest(expected, done);
+  });
+
+  it('insert at top', (done) => {
+    styleLoaderOptions.insertAt = 'top';
+
+    const expected = [requiredStyle, existingStyle].join('\n');
+
+    runCompilerTest(expected, done);
+  });
+
+  it('insert at before', (done) => {
     styleLoaderOptions.insertAt = {
-        before: "#existing-style"
+      before: '#existing-style',
     };
 
-    let expected = requiredCss;
+    const expected = [requiredStyle, existingStyle].join('');
 
-    runCompilerTest(expected, done, function() {
-      let head = this.document.querySelector(selector);
-      let existingStyleIndex;
-      for (let i = 0; i < head.children.length; i++){
-        let html = `<style id="existing-style">${head.children[i].innerHTML}</style>`;
-        if(html === existingStyle){
+    runCompilerTest(expected, done);
+  });
+
+  it('insert at before invalid selector', (done) => {
+    styleLoaderOptions.insertAt = {
+      before: '#missing',
+    };
+
+    const expected = [existingStyle, requiredStyle].join('\n');
+
+    runCompilerTest(expected, done);
+  });
+
+  it('insert into', (done) => {
+    const selector = 'div.target';
+    styleLoaderOptions.insertInto = selector;
+
+    const expected = [checkValue, requiredStyle].join('\n');
+
+    // eslint-disable-next-line no-undefined
+    runCompilerTest(expected, done, undefined, selector);
+  });
+
+  it('insert into iframe', (done) => {
+    const selector = 'iframe.iframeTarget';
+
+    styleLoaderOptions.insertInto = selector;
+
+    runCompilerTest(
+      requiredStyle,
+      done,
+      function test() {
+        return this.document.querySelector(selector).contentDocument.head
+          .innerHTML;
+      },
+      selector
+    );
+  });
+
+  it('insert into custom element by function', (done) => {
+    const selector = '#test-shadow';
+
+    styleLoaderOptions.insertInto = () =>
+      document.querySelector('#test-shadow');
+
+    runCompilerTest(
+      requiredStyle,
+      done,
+      function test() {
+        return this.document.querySelector(selector).innerHTML;
+      },
+      selector
+    );
+  });
+
+  it('insert at before with insert into custom element by function', (done) => {
+    const selector = '#head';
+
+    styleLoaderOptions.insertInto = () => document.querySelector('#head');
+    styleLoaderOptions.insertAt = {
+      before: '#existing-style',
+    };
+
+    runCompilerTest(
+      requiredCss,
+      done,
+      function test() {
+        const head = this.document.querySelector(selector);
+        let existingStyleIndex;
+
+        for (let i = 0; i < head.children.length; i++) {
+          const html = `<style id="existing-style">${
+            head.children[i].innerHTML
+          }</style>`;
+
+          if (html === existingStyle) {
             existingStyleIndex = i;
             break;
+          }
         }
-      }
-      return head.children[existingStyleIndex - 1].innerHTML;
-    }, selector);
-  }); // it insert at before with insert into
 
-  it("singleton (true)", function(done) {
+        return head.children[existingStyleIndex - 1].innerHTML;
+      },
+      selector
+    );
+  });
+
+  it('singleton (true)', (done) => {
     // Setup
     styleLoaderOptions.singleton = true;
 
     fs.writeFileSync(
-      rootDir + "main.js",
+      `${rootDir}main.js`,
       [
         "var a = require('./style.css');",
-        "var b = require('./styleTwo.css');"
-      ].join("\n")
+        "var b = require('./styleTwo.css');",
+      ].join('\n')
     );
 
     // Run
-    let expected = [
+    const expected = [
       existingStyle,
-      `<style type="text/css">${requiredCss}${requiredCssTwo}</style>`
-    ].join("\n");
+      `<style type="text/css">${requiredCss}${requiredCssTwo}</style>`,
+    ].join('\n');
 
     runCompilerTest(expected, done);
-  }); // it singleton
+  });
 
-  it("singleton (false)", function(done) {
+  it('singleton (false)', (done) => {
     // Setup
     styleLoaderOptions.singleton = false;
 
     fs.writeFileSync(
-      rootDir + "main.js",
+      `${rootDir}main.js`,
       [
         "var a = require('./style.css');",
-        "var b = require('./styleTwo.css');"
-      ].join("\n")
+        "var b = require('./styleTwo.css');",
+      ].join('\n')
     );
 
     // Run
-    let expected = [
+    const expected = [
       existingStyle,
-      `<style type="text/css">${requiredCss}</style><style type="text/css">${requiredCssTwo}</style>`
-    ].join("\n");
+      `<style type="text/css">${requiredCss}</style><style type="text/css">${requiredCssTwo}</style>`,
+    ].join('\n');
 
     runCompilerTest(expected, done);
-  }); // it singleton
+  });
 
-  it("attrs", function(done) {
+  it('attrs', (done) => {
     // Setup
-    styleLoaderOptions.attrs = {id: 'style-tag-id'};
+    styleLoaderOptions.attrs = { id: 'style-tag-id' };
 
     fs.writeFileSync(
-      rootDir + "main.js",
-      [
-        "var a = require('./style.css');"
-      ].join("\n")
+      `${rootDir}main.js`,
+      ["var a = require('./style.css');"].join('\n')
     );
 
     // Run
-    let expected = [
+    const expected = [
       existingStyle,
-      `<style id="${styleLoaderOptions.attrs.id}" type="text/css">${requiredCss}</style>`
-    ].join("\n");
+      `<style id="${
+        styleLoaderOptions.attrs.id
+      }" type="text/css">${requiredCss}</style>`,
+    ].join('\n');
 
     runCompilerTest(expected, done);
-  }); // it attrs
+  });
 
-  it("nonce", function(done) {
+  it('nonce', (done) => {
     // Setup
-    const expectedNonce = "testNonce";
+    const expectedNonce = 'testNonce';
 
     fs.writeFileSync(
-      rootDir + "main.js",
+      `${rootDir}main.js`,
       [
         `__webpack_nonce__ = '${expectedNonce}'`,
-        "var a = require('./style.css');"
-      ].join("\n")
+        "var a = require('./style.css');",
+      ].join('\n')
     );
 
     // Run
-    let expected = [
+    const expected = [
       existingStyle,
-      `<style type="text/css" nonce="${expectedNonce}">${requiredCss}</style>`
-    ].join("\n");
+      `<style type="text/css" nonce="${expectedNonce}">${requiredCss}</style>`,
+    ].join('\n');
 
     runCompilerTest(expected, done);
-  }); // it attrs
+  });
 
-  it("type attribute", function(done) {
+  it('type attribute', (done) => {
     // Setup
-    styleLoaderOptions.attrs = {type: 'text/less'};
+    styleLoaderOptions.attrs = { type: 'text/less' };
 
     fs.writeFileSync(
-      rootDir + "main.js",
-      [
-        "var a = require('./style.css');"
-      ].join("\n")
+      `${rootDir}main.js`,
+      ["var a = require('./style.css');"].join('\n')
     );
 
     // Run
-    let expected = [
+    const expected = [
       existingStyle,
-      `<style type="${styleLoaderOptions.attrs.type}">${requiredCss}</style>`
-    ].join("\n");
+      `<style type="${styleLoaderOptions.attrs.type}">${requiredCss}</style>`,
+    ].join('\n');
 
     runCompilerTest(expected, done);
-  }); // it type attribute
+  });
 
-  it("url", function(done) {
+  it('url', (done) => {
     cssRule.use = [
       {
-        loader: "style-loader/url",
-        options: {}
+        loader: 'style-loader/url',
+        options: {},
       },
-      "file-loader"
+      'file-loader',
     ];
 
     // Run
-    let expected = [
+    const expected = [
       existingStyle,
-      '<link rel="stylesheet" type="text/css" href="ec9d4f4f24028c3d51bf1e7728e632ff.css">'
-    ].join("\n");
+      '<link rel="stylesheet" type="text/css" href="ec9d4f4f24028c3d51bf1e7728e632ff.css">',
+    ].join('\n');
 
     runCompilerTest(expected, done);
-  }); // it url
+  });
 
-  it("url with attrs", function (done) {
+  it('url with attrs', (done) => {
     cssRule.use = [
       {
-        loader: "style-loader/url",
+        loader: 'style-loader/url',
         options: {
           attrs: {
             'data-attr-1': 'attr-value-1',
-            'data-attr-2': 'attr-value-2'
-          }
-        }
+            'data-attr-2': 'attr-value-2',
+          },
+        },
       },
-      "file-loader"
+      'file-loader',
     ];
 
     // Run
-    let expected = [
+    const expected = [
       existingStyle,
-      '<link rel="stylesheet" type="text/css" href="ec9d4f4f24028c3d51bf1e7728e632ff.css" data-attr-1="attr-value-1" data-attr-2="attr-value-2">'
-    ].join("\n");
+      '<link rel="stylesheet" type="text/css" href="ec9d4f4f24028c3d51bf1e7728e632ff.css" data-attr-1="attr-value-1" data-attr-2="attr-value-2">',
+    ].join('\n');
 
     runCompilerTest(expected, done);
-  }); // it url with attrs
+  });
 
-  it("url with type attribute", function (done) {
+  it('url with type attribute', (done) => {
     cssRule.use = [
       {
-        loader: "style-loader/url",
+        loader: 'style-loader/url',
         options: {
           attrs: {
-            type: 'text/less'
-          }
-        }
+            type: 'text/less',
+          },
+        },
       },
-      "file-loader"
+      'file-loader',
     ];
 
     // Run
-    let expected = [
+    const expected = [
       existingStyle,
-      '<link rel="stylesheet" type="text/less" href="ec9d4f4f24028c3d51bf1e7728e632ff.css">'
-    ].join("\n");
+      '<link rel="stylesheet" type="text/less" href="ec9d4f4f24028c3d51bf1e7728e632ff.css">',
+    ].join('\n');
 
     runCompilerTest(expected, done);
-  }); // it url with type attribute
+  });
 
-  it("useable", function(done) {
+  it('useable', (done) => {
     cssRule.use = [
       {
-        loader: "style-loader/useable"
+        loader: 'style-loader/useable',
       },
-      "css-loader"
+      'css-loader',
     ];
 
     fs.writeFileSync(
-      rootDir + "main.js",
+      `${rootDir}main.js`,
       [
         "var css = require('./style.css');",
         "var cssTwo = require('./styleTwo.css');",
-        "css.use();",
-        "cssTwo.use();",
-        "css.unuse();"
-      ].join("\n")
+        'css.use();',
+        'cssTwo.use();',
+        'css.unuse();',
+      ].join('\n')
     );
 
     // Run
-    let expected = [
+    const expected = [
       existingStyle,
-      `<style type="text/css">${requiredCssTwo}</style>`
-    ].join("\n");
+      `<style type="text/css">${requiredCssTwo}</style>`,
+    ].join('\n');
 
     runCompilerTest(expected, done);
-  }); // it useable
+  });
 
-  it("useable without negative refs", function(done) {
+  it('useable without negative refs', (done) => {
     cssRule.use = [
       {
-        loader: "style-loader/useable"
+        loader: 'style-loader/useable',
       },
-      "css-loader"
+      'css-loader',
     ];
 
     fs.writeFileSync(
-      rootDir + "main.js",
+      `${rootDir}main.js`,
       [
         "var css = require('./style.css');",
-        "css.unuse();", // ref still 0
-        "css.use();",  // ref 1
-      ].join("\n")
+        // ref still 0
+        'css.unuse();',
+        // ref 1
+        'css.use();',
+      ].join('\n')
     );
 
     // Run
-    let expected = [
+    const expected = [
       existingStyle,
-      `<style type="text/css">${requiredCss}</style>`
-    ].join("\n");
+      `<style type="text/css">${requiredCss}</style>`,
+    ].join('\n');
 
     runCompilerTest(expected, done);
-  }); // it useable
+  });
 
-  it("local scope", function(done) {
+  it('local scope', (done) => {
     cssRule.use = [
       {
-        loader: "style-loader"
+        loader: 'style-loader',
       },
       {
-        loader: "css-loader",
-        options: {
-          modules: true,
-          localIdentName: '[name].[local]_[hash:base64:7]'
-        }
-      }
-    ];
-
-    fs.writeFileSync(
-      rootDir + "main.js",
-      [
-        "css = require('./localScoped.css');"
-      ].join("\n")
-    );
-
-    let expected = 'localScoped-className_3dIU6Uf';
-    runCompilerTest(expected, done, function() { return this.css.className; });
-  }); // it local scope
-
-  it("local scope, composing", function(done) {
-    cssRule.use = [
-      {
-        loader: "style-loader"
-      },
-      {
-        loader: "css-loader",
-        options: {
-          modules: true,
-          localIdentName: '[name].[local]_[hash:base64:7]'
-        }
-      }
-    ];
-
-    fs.writeFileSync(
-      rootDir + "main.js",
-      [
-        "css = require('./localComposing.css');"
-      ].join("\n")
-    );
-
-    let expected =
-      'localComposing-composingClass_3kXcqag localScoped-className_3dIU6Uf';
-    runCompilerTest(expected, done, function() {
-      return this.css.composingClass;
-    });
-  }); // it local scope, composing
-
-  it("local scope, composing, custom getLocalIdent", function(done) {
-    cssRule.use = [
-      {
-        loader: "style-loader"
-      },
-      {
-        loader: "css-loader",
+        loader: 'css-loader',
         options: {
           modules: true,
           localIdentName: '[name].[local]_[hash:base64:7]',
-          getLocalIdent: (context, localIdentName, localName) => {
-            return 'X' + localName;
-          }
-        }
-      }
+        },
+      },
     ];
 
     fs.writeFileSync(
-      rootDir + "main.js",
-      [
-        "css = require('./localComposing.css');"
-      ].join("\n")
+      `${rootDir}main.js`,
+      ["css = require('./localScoped.css');"].join('\n')
     );
 
-    let expected =
-      'XcomposingClass XclassName';
-    runCompilerTest(expected, done, function() {
-      return this.css.composingClass;
-    });
-  }); // it local scope, composing, custom getLocalIdent
+    const expected = 'localScoped-className_3dIU6Uf';
 
-  it("local scope, useable", function(done) {
+    runCompilerTest(expected, done, function getClassName() {
+      return this.css.className;
+    });
+  });
+
+  it('local scope, composing', (done) => {
     cssRule.use = [
       {
-        loader: "style-loader/useable"
+        loader: 'style-loader',
       },
       {
-        loader: "css-loader",
+        loader: 'css-loader',
         options: {
           modules: true,
-          localIdentName: '[name].[local]_[hash:base64:7]'
-        }
-      }
+          localIdentName: '[name].[local]_[hash:base64:7]',
+        },
+      },
     ];
 
     fs.writeFileSync(
-      rootDir + "main.js",
-      [
-        "css = require('./localScoped.css');"
-      ].join("\n")
+      `${rootDir}main.js`,
+      ["css = require('./localComposing.css');"].join('\n')
     );
 
-    let expected = 'localScoped-className_3dIU6Uf';
+    const expected =
+      'localComposing-composingClass_3kXcqag localScoped-className_3dIU6Uf';
 
-    runCompilerTest(expected, done, function() { return this.css.locals.className; });
-  }); // it local scope
+    runCompilerTest(expected, done, function getComposingClass() {
+      return this.css.composingClass;
+    });
+  });
 
-  describe("transform function", function() {
+  it('local scope, composing, custom getLocalIdent', (done) => {
+    cssRule.use = [
+      {
+        loader: 'style-loader',
+      },
+      {
+        loader: 'css-loader',
+        options: {
+          modules: true,
+          localIdentName: '[name].[local]_[hash:base64:7]',
+          getLocalIdent: (context, localIdentName, localName) =>
+            `X${localName}`,
+        },
+      },
+    ];
 
-    it("should not load the css if the transform function returns false", function(done) {
+    fs.writeFileSync(
+      `${rootDir}main.js`,
+      ["css = require('./localComposing.css');"].join('\n')
+    );
+
+    const expected = 'XcomposingClass XclassName';
+    runCompilerTest(expected, done, function getComposingClass() {
+      return this.css.composingClass;
+    });
+  });
+
+  it('local scope, useable', (done) => {
+    cssRule.use = [
+      {
+        loader: 'style-loader/useable',
+      },
+      {
+        loader: 'css-loader',
+        options: {
+          modules: true,
+          localIdentName: '[name].[local]_[hash:base64:7]',
+        },
+      },
+    ];
+
+    fs.writeFileSync(
+      `${rootDir}main.js`,
+      ["css = require('./localScoped.css');"].join('\n')
+    );
+
+    const expected = 'localScoped-className_3dIU6Uf';
+
+    runCompilerTest(expected, done, function getClassName() {
+      return this.css.locals.className;
+    });
+  });
+
+  describe('transform function', () => {
+    it('should not load the css if the transform function returns false', (done) => {
       styleLoaderOptions.transform = 'test/transforms/false';
 
-      const expected = existingStyle;
-
-      runCompilerTest(expected, done);
+      runCompilerTest(existingStyle, done);
     });
 
-    it("should not load the css if the transform function returns undefined", function(done) {
+    it('should not load the css if the transform function returns undefined', (done) => {
       styleLoaderOptions.transform = 'test/transforms/noop';
 
-      const expected = existingStyle;
-
-      runCompilerTest(expected, done);
+      runCompilerTest(existingStyle, done);
     });
 
-    it("should load the transformed css returned by the transform function", function(done) {
+    it('should load the transformed css returned by the transform function', (done) => {
+      // eslint-disable-next-line global-require
       const transform = require('./transforms/transform');
+
       styleLoaderOptions.transform = 'test/transforms/transform';
 
       const expectedTansformedStyle = transform(requiredStyle);
-      const expected = [existingStyle, expectedTansformedStyle].join("\n");
+      const expected = [existingStyle, expectedTansformedStyle].join('\n');
 
       runCompilerTest(expected, done);
     });
 
-    it("es6 export: should throw error transform is not a function", function(done) {
+    it('es6 export: should throw error transform is not a function', (done) => {
+      // eslint-disable-next-line global-require
       const transform = require('./transforms/transform_es6');
+
       styleLoaderOptions.transform = 'test/transforms/transform_es6';
 
       // const expectedTansformedStyle = transform(requiredStyle);
       const expected = new TypeError('transform is not a function').message;
 
-      runCompilerTest(expected, done, function() { 
-        try { 
-          let test = transform(requiredStyle);
-        } catch(error) { 
+      // eslint-disable-next-line consistent-return
+      runCompilerTest(expected, done, () => {
+        try {
+          transform(requiredStyle);
+        } catch (error) {
           return error.message;
-        } });
+        }
+      });
     });
 
-    it("es6 export: should not throw any error", function(done) {
+    it('es6 export: should not throw any error', (done) => {
+      // eslint-disable-next-line global-require
       const transform = require('./transforms/transform_es6');
+
       styleLoaderOptions.transform = 'test/transforms/transform_es6';
 
-      const expectedTansformedStyle = transform[Object.keys(transform)[0]](requiredStyle);
-      const expected = [existingStyle, expectedTansformedStyle].join("\n");
+      const expectedTansformedStyle = transform[Object.keys(transform)[0]](
+        requiredStyle
+      );
+      const expected = [existingStyle, expectedTansformedStyle].join('\n');
 
       runCompilerTest(expected, done);
     });
   });
 
-  describe("HMR", function() {
-    it("should output HMR code block by default", function(done) {
+  describe('HMR', () => {
+    it('should output HMR code block by default', (done) => {
       setupWebpackConfig({
-        hmr: true
+        hmr: true,
       });
 
       runSourceTest(/module\.hot\.accept/g, null, done);
     });
 
-    it("should output HMR code block when options.hmr is true", function(done) {
+    it('should output HMR code block when options.hmr is true', (done) => {
       styleLoaderOptions.hmr = true;
 
       setupWebpackConfig({
-        hmr: true
+        hmr: true,
       });
 
       runSourceTest(/module\.hot\.accept/g, null, done);
     });
 
-    it("should not output HMR code block when options.hmr is false", function(done) {
+    it('should not output HMR code block when options.hmr is false', (done) => {
       styleLoaderOptions.hmr = false;
 
       setupWebpackConfig({
-        hmr: true
+        hmr: true,
       });
 
       runSourceTest(null, /module\.hot\.accept/g, done);

@@ -1,3 +1,1 @@
-module.exports = function (css) { 
-  return false;
-}
+module.exports = () => false;

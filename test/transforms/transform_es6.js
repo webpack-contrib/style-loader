@@ -1,3 +1,1 @@
-exports.default = function (css) {
-    return css.replace('.required', '.transformed');
-}
+exports.default = (css) => css.replace('.required', '.transformed');
