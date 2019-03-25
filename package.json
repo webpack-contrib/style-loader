@@ -19,23 +19,25 @@
     "schema-utils": "^1.0.0"
   },
   "devDependencies": {
+    "babel-jest": "^24.5.0",
+    "jest": "^24.0.0",
     "css-loader": "^2.1.1",
     "file-loader": "^3.0.1",
-    "istanbul": "^0.4.5",
     "jsdom": "^14.0.0",
     "memory-fs": "^0.4.0",
-    "mocha": "^6.0.2",
-    "sinon": "^7.3.0",
+    "semver": "^5.6.0",
     "standard-version": "^5.0.2",
     "webpack": "^4.29.6"
   },
   "scripts": {
-    "test": "mocha",
-    "test:coverage": "istanbul cover node_modules/mocha/bin/_mocha",
-    "ci:test": "npm run test",
-    "ci:coverage": "npm run test:coverage",
     "release": "standard-version",
-    "security": "npm audit"
+    "security": "npm audit",
+    "test:only": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --collectCoverageFrom='lib/**/*.js' --coverage",
+    "test": "npm run test:only",
+    "ci:test": "npm run test:only -- --runInBand",
+    "ci:coverage": "npm run test:coverage -- --runInBand"
   },
   "repository": "https://github.com/webpack-contrib/style-loader.git",
   "bugs": "https://github.com/webpack-contrib/style-loader/issues",

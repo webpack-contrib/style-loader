@@ -1,41 +1,10 @@
-// Node v4 requires "use strict" to allow block scoped let & const
 "use strict";
 
-var assert = require("assert");
-var sinon = require('sinon');
 var loaderUtils = require('loader-utils');
 
 var useable = require("../useable");
 
 describe("useable tests", function () {
-  describe('hmr', function () {
-    var sandbox = sinon.sandbox.create();
-    var getOptions;
-
-    beforeEach(() => {
-      // Mock loaderUtils to override options
-      getOptions = sandbox.stub(loaderUtils, 'getOptions');
-    });
-
-    afterEach(() => {
-      sandbox.restore();
-    });
-
-    it("should output HMR code by default", function () {
-      assert.equal(/(module\.hot)/g.test(useable.pitch()), true);
-    });
-
-    it("should NOT output HMR code when options.hmr is false", function () {
-      getOptions.returns({hmr: false});
-      assert.equal(/(module\.hot)/g.test(useable.pitch()), false);
-    });
-
-    it("should output HMR code when options.hmr is true", function () {
-      getOptions.returns({hmr: true});
-      assert.equal(/(module\.hot)/g.test(useable.pitch()), true);
-    });
-  });
-
   describe('insert into', function () {
     var path = require("path");
 
@@ -129,15 +98,39 @@ describe("useable tests", function () {
 
     it("insert into iframe", function(done) {
       let selector = "iframe.iframeTarget";
+
       styleLoaderOptions.insertInto = selector;
 
-      let expected = requiredStyle;
-
-      runCompilerTest(expected, done, function() {
+      runCompilerTest(requiredStyle, done, function() {
         return this.document.querySelector(selector).contentDocument.head.innerHTML;
       }, selector);
-    }); // it insert into
-
+    });
   });
 
+  describe('hmr', function () {
+    var getOptions;
+
+    beforeEach(() => {
+      getOptions = jest.fn();
+
+      // Mock loaderUtils to override options
+      loaderUtils.getOptions = getOptions;
+    });
+
+    it("should output HMR code by default", function () {
+      expect(/(module\.hot)/g.test(useable.pitch())).toBe(true);
+    });
+
+    it("should NOT output HMR code when options.hmr is false", function () {
+      getOptions.mockReturnValue({ hmr: false });
+
+      expect(/(module\.hot)/g.test(useable.pitch())).toBe(false);
+    });
+
+    it("should output HMR code when options.hmr is true", function () {
+      getOptions.mockReturnValue({ hmr: true });
+
+      expect(/(module\.hot)/g.test(useable.pitch())).toBe(true);
+    });
+  });
 });

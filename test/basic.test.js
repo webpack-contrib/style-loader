@@ -1,4 +1,3 @@
-// Node v4 requires "use strict" to allow block scoped let & const
 "use strict";
 
 describe("basic tests", function() {

@@ -1,4 +1,3 @@
-// Node v4 requires "use strict" to allow block scoped let & const
 "use strict";
 
 var MemoryFS = require("memory-fs");
@@ -60,11 +59,11 @@ module.exports = {
 
   /*
    *  @param {string} expected - Expected value.
-   *  @param {function} done - Async callback from Mocha.
+   *  @param {function} done - Async callback.
    *  @param {function} actual - Executed in the context of jsdom window, should return a string to compare to.
    */
   runCompilerTest: function(expected, done, actual, selector) {
-    selector = selector || "head"
+    selector = selector || "head";
 
     compiler.run(function(err, stats) {
       if (stats.compilation.errors.length) {
@@ -108,7 +107,7 @@ module.exports = {
    * 
    * @param {RegExp} match - regex to match the source code
    * @param {RegExp} noMatch - regex to NOT match the source code
-   * @param {Function} done - Async callback (mocha)
+   * @param {Function} done - Async callback
    */
   runSourceTest: function(match, noMatch, done) {
     compiler.run(function(err, stats) {
