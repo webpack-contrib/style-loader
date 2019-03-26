@@ -1,19 +1,17 @@
-"use strict";
+const realFs = require('fs');
+const path = require('path');
+const assert = require('assert');
 
-var MemoryFS = require("memory-fs");
-var realFs = require("fs");
-var webpack = require("webpack");
-var path = require("path");
-var jsdom = require("jsdom");
+const MemoryFS = require('memory-fs');
+const webpack = require('webpack');
+const jsdom = require('jsdom');
 
-var assert = require("assert");
-
-var compiler;
-var jsdomHtml;
+let compiler;
+let jsdomHtml;
 
 module.exports = {
-  setup: function(webpackConfig, _jsdomHtml, config = {}) {
-    let fs = new MemoryFS();
+  setup(webpackConfig, _jsdomHtml, config = {}) {
+    const fs = new MemoryFS();
 
     jsdomHtml = _jsdomHtml;
 
@@ -22,14 +20,14 @@ module.exports = {
       mode: 'development',
       resolveLoader: {
         alias: {
-          "style-loader": path.resolve(__dirname, "../")
-        }
+          'style-loader': path.resolve(__dirname, '../'),
+        },
       },
-      plugins: []
+      plugins: [],
     });
 
     if (config.hmr) {
-      webpackConfig.plugins.push(new webpack.HotModuleReplacementPlugin())
+      webpackConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
     }
 
     compiler = webpack(webpackConfig);
@@ -40,17 +38,19 @@ module.exports = {
     compiler.resolvers.normal.fileSystem = fs;
     compiler.resolvers.context.fileSystem = fs;
 
-    ["readFileSync", "statSync"].forEach(fn => {
+    ['readFileSync', 'statSync'].forEach((fn) => {
       // Preserve the reference to original function
-      fs["mem" + fn] = fs[fn];
+      fs[`mem${fn}`] = fs[fn];
 
-      compiler.inputFileSystem[fn] = function(_path) {
+      compiler.inputFileSystem[fn] = function inputFileSystem(_path) {
         // Fallback to real FS if file is not in the memoryFS
         if (fs.existsSync(_path)) {
-          return fs["mem" + fn].apply(fs, arguments);
-        } else {
-          return realFs[fn].apply(realFs, arguments);
+          // eslint-disable-next-line prefer-spread, prefer-rest-params
+          return fs[`mem${fn}`].apply(fs, arguments);
         }
+
+        // eslint-disable-next-line prefer-spread, prefer-rest-params
+        return realFs[fn].apply(realFs, arguments);
       };
     });
 
@@ -62,15 +62,16 @@ module.exports = {
    *  @param {function} done - Async callback.
    *  @param {function} actual - Executed in the context of jsdom window, should return a string to compare to.
    */
-  runCompilerTest: function(expected, done, actual, selector) {
-    selector = selector || "head";
+  runCompilerTest(expected, done, actual, selector) {
+    // eslint-disable-next-line no-param-reassign
+    selector = selector || 'head';
 
-    compiler.run(function(err, stats) {
+    compiler.run((err, stats) => {
       if (stats.compilation.errors.length) {
         throw new Error(stats.compilation.errors);
       }
 
-      const bundleJs = stats.compilation.assets["bundle.js"].source();
+      const bundleJs = stats.compilation.assets['bundle.js'].source();
       const virtualConsole = new jsdom.VirtualConsole();
 
       virtualConsole.sendTo(console);
@@ -104,18 +105,18 @@ module.exports = {
 
   /**
    * Runs the test against Webpack compiled source code
-   * 
+   *
    * @param {RegExp} match - regex to match the source code
    * @param {RegExp} noMatch - regex to NOT match the source code
    * @param {Function} done - Async callback
    */
-  runSourceTest: function(match, noMatch, done) {
-    compiler.run(function(err, stats) {
+  runSourceTest(match, noMatch, done) {
+    compiler.run((err, stats) => {
       if (stats.compilation.errors.length) {
         throw new Error(stats.compilation.errors);
       }
 
-      const source = stats.compilation.assets["bundle.js"].source();
+      const source = stats.compilation.assets['bundle.js'].source();
 
       if (match) {
         assert.equal(match.test(source), true);
@@ -127,5 +128,5 @@ module.exports = {
 
       done();
     });
-  }
+  },
 };

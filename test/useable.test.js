@@ -1,114 +1,123 @@
-"use strict";
+const path = require('path');
 
-var loaderUtils = require('loader-utils');
+const loaderUtils = require('loader-utils');
 
-var useable = require("../useable");
+const useable = require('../useable');
 
-describe("useable tests", function () {
-  describe('insert into', function () {
-    var path = require("path");
+const utils = require('./utils');
 
-    var utils = require("./utils"),
-      runCompilerTest = utils.runCompilerTest;
+describe('useable tests', () => {
+  describe('insert into', () => {
+    const { runCompilerTest } = utils;
 
-    var fs;
+    let fs;
 
-    var requiredCss = ".required { color: blue }",
-      requiredCssTwo = ".requiredTwo { color: cyan }",
-      localScopedCss = ":local(.className) { background: red; }",
-      localComposingCss = `
+    const requiredCss = '.required { color: blue }';
+    const requiredCssTwo = '.requiredTwo { color: cyan }';
+    const localScopedCss = ':local(.className) { background: red; }';
+    const localComposingCss = `
         :local(.composingClass) {
           composes: className from './localScoped.css';
           color: blue;
         }
-      `,
-      requiredStyle = `<style type="text/css">${requiredCss}</style>`,
-      existingStyle = `<style id="existing-style">.existing { color: yellow }</style>`,
-      checkValue = '<div class="check">check</div>',
-      rootDir = path.resolve(__dirname + "/../") + "/",
-      jsdomHtml = [
-        "<html>",
-        "<head id='head'>",
-        existingStyle,
-        "</head>",
-        "<body>",
-        "<div class='target'>",
-        checkValue,
-        "</div>",
-        "<iframe class='iframeTarget'/>",
-        "</body>",
-        "</html>"
-      ].join("\n"),
-      requiredJS = [
-        "var el = document.createElement('div');",
-        "el.id = \"test-shadow\";",
-        "document.body.appendChild(el)",
-        "var css = require('./style.css');",
-        "css.use();",
-      ].join("\n");
+      `;
+    const requiredStyle = `<style type="text/css">${requiredCss}</style>`;
+    const existingStyle = `<style id="existing-style">.existing { color: yellow }</style>`;
+    const checkValue = '<div class="check">check</div>';
+    const rootDir = `${path.resolve(`${__dirname}/../`)}/`;
+    const jsdomHtml = [
+      '<html>',
+      "<head id='head'>",
+      existingStyle,
+      '</head>',
+      '<body>',
+      "<div class='target'>",
+      checkValue,
+      '</div>',
+      "<iframe class='iframeTarget'/>",
+      '</body>',
+      '</html>',
+    ].join('\n');
+    const requiredJS = [
+      "var el = document.createElement('div');",
+      'el.id = "test-shadow";',
+      'document.body.appendChild(el)',
+      "var css = require('./style.css');",
+      'css.use();',
+    ].join('\n');
 
-    var styleLoaderOptions = {};
-    var cssRule = {};
+    const styleLoaderOptions = {};
+    const cssRule = {};
 
-    var defaultCssRule = {
+    const defaultCssRule = {
       test: /\.css?$/,
       use: [
         {
-          loader: "style-loader/useable",
-          options: styleLoaderOptions
+          loader: 'style-loader/useable',
+          options: styleLoaderOptions,
         },
-        "css-loader"
-      ]
+        'css-loader',
+      ],
     };
 
-    var webpackConfig = {
-      entry: "./main.js",
+    const webpackConfig = {
+      entry: './main.js',
       output: {
-        filename: "bundle.js"
+        filename: 'bundle.js',
       },
       module: {
-        rules: [cssRule]
-      }
+        rules: [cssRule],
+      },
     };
 
-    var setupWebpackConfig = function() {
+    const setupWebpackConfig = () => {
       fs = utils.setup(webpackConfig, jsdomHtml);
 
       // Create a tiny file system. rootDir is used because loaders are referring to absolute paths.
       fs.mkdirpSync(rootDir);
-      fs.writeFileSync(rootDir + "main.js", requiredJS);
-      fs.writeFileSync(rootDir + "style.css", requiredCss);
-      fs.writeFileSync(rootDir + "styleTwo.css", requiredCssTwo);
-      fs.writeFileSync(rootDir + "localScoped.css", localScopedCss);
-      fs.writeFileSync(rootDir + "localComposing.css", localComposingCss);
+      fs.writeFileSync(`${rootDir}main.js`, requiredJS);
+      fs.writeFileSync(`${rootDir}style.css`, requiredCss);
+      fs.writeFileSync(`${rootDir}styleTwo.css`, requiredCssTwo);
+      fs.writeFileSync(`${rootDir}localScoped.css`, localScopedCss);
+      fs.writeFileSync(`${rootDir}localComposing.css`, localComposingCss);
     };
 
-    beforeEach(function() {
+    beforeEach(() => {
       // Reset all style-loader options
-      for (var member in styleLoaderOptions) {
-        delete styleLoaderOptions[member];
+      for (const member in styleLoaderOptions) {
+        if (Object.prototype.hasOwnProperty.call(styleLoaderOptions, member)) {
+          delete styleLoaderOptions[member];
+        }
       }
 
-      for (var member in defaultCssRule) {
-        cssRule[member] = defaultCssRule[member];
+      for (const member in defaultCssRule) {
+        if (Object.prototype.hasOwnProperty.call(defaultCssRule, member)) {
+          cssRule[member] = defaultCssRule[member];
+        }
       }
 
       setupWebpackConfig();
-    }); // before each
+    });
 
-    it("insert into iframe", function(done) {
-      let selector = "iframe.iframeTarget";
+    it('insert into iframe', (done) => {
+      const selector = 'iframe.iframeTarget';
 
       styleLoaderOptions.insertInto = selector;
 
-      runCompilerTest(requiredStyle, done, function() {
-        return this.document.querySelector(selector).contentDocument.head.innerHTML;
-      }, selector);
+      runCompilerTest(
+        requiredStyle,
+        done,
+        function test() {
+          return this.document.querySelector(selector).contentDocument.head
+            .innerHTML;
+        },
+        selector
+      );
     });
   });
 
-  describe('hmr', function () {
-    var getOptions;
+  describe('hmr', () => {
+    let getOptions;
 
     beforeEach(() => {
       getOptions = jest.fn();
@@ -117,17 +126,17 @@ describe("useable tests", function () {
       loaderUtils.getOptions = getOptions;
     });
 
-    it("should output HMR code by default", function () {
+    it('should output HMR code by default', () => {
       expect(/(module\.hot)/g.test(useable.pitch())).toBe(true);
     });
 
-    it("should NOT output HMR code when options.hmr is false", function () {
+    it('should NOT output HMR code when options.hmr is false', () => {
       getOptions.mockReturnValue({ hmr: false });
 
       expect(/(module\.hot)/g.test(useable.pitch())).toBe(false);
     });
 
-    it("should output HMR code when options.hmr is true", function () {
+    it('should output HMR code when options.hmr is true', () => {
       getOptions.mockReturnValue({ hmr: true });
 
       expect(/(module\.hot)/g.test(useable.pitch())).toBe(true);

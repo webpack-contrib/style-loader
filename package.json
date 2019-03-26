@@ -1,12 +1,37 @@
 {
   "name": "style-loader",
   "version": "0.23.1",
-  "author": "Tobias Koppers @sokra",
   "description": "style loader module for webpack",
+  "license": "MIT",
+  "repository": "webpack-contrib/style-loader",
+  "author": "Tobias Koppers @sokra",
+  "homepage": "https://github.com/webpack-contrib/style-loader",
+  "bugs": "https://github.com/webpack-contrib/style-loader/issues",
+  "main": "dist/index.js",
   "engines": {
-    "node": ">= 0.12.0"
+    "node": ">= 6.9.0"
   },
-  "main": "index.js",
+  "scripts": {
+    "start": "npm run build -- -w",
+    "prebuild": "npm run clean",
+    "build": "cross-env NODE_ENV=production babel src -d dist --ignore 'src/**/*.test.js' --copy-files",
+    "clean": "del-cli dist",
+    "commitlint": "commitlint --from=master",
+    "lint": "eslint --cache src test",
+    "prepublish": "npm run build",
+    "release": "standard-version",
+    "security": "npm audit",
+    "test:only": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --collectCoverageFrom='src/**/*.js' --coverage",
+    "pretest": "npm run lint",
+    "test": "npm run test:only",
+    "ci:lint": "npm run lint && npm run security",
+    "ci:test": "npm run test:only -- --runInBand",
+    "ci:coverage": "npm run test:coverage -- --runInBand",
+    "ci:lint:commits": "commitlint --from=origin/master --to=${CIRCLE_SHA1}",
+    "defaults": "webpack-defaults"
+  },
   "files": [
     "lib",
     "url.js",
@@ -14,33 +39,75 @@
     "useable.js",
     "options.json"
   ],
+  "peerDependencies": {
+    "webpack": "^4.0.0"
+  },
   "dependencies": {
     "loader-utils": "^1.2.3",
     "schema-utils": "^1.0.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "@commitlint/cli": "^7.5.2",
+    "@commitlint/config-conventional": "^7.5.0",
+    "@webpack-contrib/defaults": "^3.0.0",
+    "@webpack-contrib/eslint-config-webpack": "^3.0.0",
     "babel-jest": "^24.5.0",
-    "jest": "^24.0.0",
+    "cross-env": "^5.2.0",
     "css-loader": "^2.1.1",
+    "del": "^4.0.0",
+    "del-cli": "^1.1.0",
+    "eslint": "^5.15.3",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-prettier": "^3.0.1",
     "file-loader": "^3.0.1",
+    "husky": "^1.3.1",
+    "jest": "^24.0.0",
     "jsdom": "^14.0.0",
+    "lint-staged": "^8.1.5",
     "memory-fs": "^0.4.0",
+    "prettier": "^1.16.4",
     "semver": "^5.6.0",
     "standard-version": "^5.0.2",
     "webpack": "^4.29.6"
   },
-  "scripts": {
-    "release": "standard-version",
-    "security": "npm audit",
-    "test:only": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --collectCoverageFrom='lib/**/*.js' --coverage",
-    "test": "npm run test:only",
-    "ci:test": "npm run test:only -- --runInBand",
-    "ci:coverage": "npm run test:coverage -- --runInBand"
+  "keywords": [
+    "webpack"
+  ],
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "6.9.0"
+          }
+        }
+      ]
+    ]
   },
-  "repository": "https://github.com/webpack-contrib/style-loader.git",
-  "bugs": "https://github.com/webpack-contrib/style-loader/issues",
-  "homepage": "https://github.com/webpack-contrib/style-loader#readme",
-  "license": "MIT"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "arrowParens": "always"
+  }
 }

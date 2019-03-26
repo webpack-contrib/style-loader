@@ -1,3 +1,1 @@
-module.exports = function() {
-  return document.querySelector("#test-shadow");
-};
+module.exports = () => document.querySelector('#test-shadow');

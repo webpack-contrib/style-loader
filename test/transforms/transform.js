@@ -1,3 +1,1 @@
-module.exports = function (css) {
-  return css.replace('.required', '.transformed');
-}
+module.exports = (css) => css.replace('.required', '.transformed');
