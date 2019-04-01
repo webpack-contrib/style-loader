@@ -1,39 +1,40 @@
-/* eslint-disable */
+import fixUrls from './urls';
 
-var stylesInDom = {};
+const stylesInDom = {};
 
-var memoize = function(fn) {
-  var memo;
+const memoize = (fn) => {
+  let memo;
 
-  return function() {
+  return (...args) => {
     if (typeof memo === 'undefined') {
-      memo = fn.apply(this, arguments);
+      memo = fn.apply(this, args);
     }
 
     return memo;
   };
 };
 
-var isOldIE = memoize(function() {
-  // Test for IE <= 9 as proposed by Browserhacks
-  // @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
-  // Tests for existence of standard globals is to allow style-loader
-  // to operate correctly into non-standard environments
-  // @see https://github.com/webpack-contrib/style-loader/issues/177
-  return window && document && document.all && !window.atob;
-});
+const isOldIE = memoize(
+  () =>
+    // Test for IE <= 9 as proposed by Browserhacks
+    // @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+    // Tests for existence of standard globals is to allow style-loader
+    // to operate correctly into non-standard environments
+    // @see https://github.com/webpack-contrib/style-loader/issues/177
+    window && document && document.all && !window.atob
+);
 
-var getTarget = function(target, parent) {
+const getTarget = (target, parent) => {
   if (parent) {
     return parent.querySelector(target);
   }
   return document.querySelector(target);
 };
 
-var getElement = (function(fn) {
-  var memo = {};
+const getElement = (() => {
+  const memo = {};
 
-  return function(target, parent) {
+  return (target, parent) => {
     // If passing function in options, then use it for resolve "head" element.
     // Useful for Shadow Root style i.e
     // {
@@ -44,7 +45,7 @@ var getElement = (function(fn) {
     }
 
     if (typeof memo[target] === 'undefined') {
-      var styleTarget = getTarget.call(this, target, parent);
+      let styleTarget = getTarget.call(this, target, parent);
 
       // Special case to return head of iframe instead of iframe itself
       if (
@@ -67,13 +68,11 @@ var getElement = (function(fn) {
   };
 })();
 
-var singleton = null;
-var singletonCounter = 0;
-var stylesInsertedAtTop = [];
+let singleton = null;
+let singletonCounter = 0;
+const stylesInsertedAtTop = [];
 
-var fixUrls = require('./urls');
-
-module.exports = function(list, options) {
+module.exports = (list, options) => {
   if (typeof DEBUG !== 'undefined' && DEBUG) {
     if (typeof document !== 'object') {
       throw new Error(
@@ -102,32 +101,32 @@ module.exports = function(list, options) {
     options.insertAt = 'bottom';
   }
 
-  var styles = listToStyles(list, options);
+  const styles = listToStyles(list, options);
 
   addStylesToDom(styles, options);
 
   return function update(newList) {
-    var mayRemove = [];
+    const mayRemove = [];
 
-    for (var i = 0; i < styles.length; i++) {
-      var item = styles[i];
-      var domStyle = stylesInDom[item.id];
+    for (let i = 0; i < styles.length; i++) {
+      const item = styles[i];
+      const domStyle = stylesInDom[item.id];
 
-      domStyle.refs--;
+      domStyle.refs -= 1;
       mayRemove.push(domStyle);
     }
 
     if (newList) {
-      var newStyles = listToStyles(newList, options);
+      const newStyles = listToStyles(newList, options);
 
       addStylesToDom(newStyles, options);
     }
 
-    for (var i = 0; i < mayRemove.length; i++) {
-      var domStyle = mayRemove[i];
+    for (let i = 0; i < mayRemove.length; i++) {
+      const domStyle = mayRemove[i];
 
       if (domStyle.refs === 0) {
-        for (var j = 0; j < domStyle.parts.length; j++) {
+        for (let j = 0; j < domStyle.parts.length; j++) {
           domStyle.parts[j]();
         }
 
@@ -138,14 +137,16 @@ module.exports = function(list, options) {
 };
 
 function addStylesToDom(styles, options) {
-  for (var i = 0; i < styles.length; i++) {
-    var item = styles[i];
-    var domStyle = stylesInDom[item.id];
+  for (let i = 0; i < styles.length; i++) {
+    const item = styles[i];
+    const domStyle = stylesInDom[item.id];
 
     if (domStyle) {
-      domStyle.refs++;
+      domStyle.refs += 1;
 
-      for (var j = 0; j < domStyle.parts.length; j++) {
+      let j = 0;
+
+      for (j = 0; j < domStyle.parts.length; j++) {
         domStyle.parts[j](item.parts[j]);
       }
 
@@ -153,31 +154,28 @@ function addStylesToDom(styles, options) {
         domStyle.parts.push(addStyle(item.parts[j], options));
       }
     } else {
-      var parts = [];
+      const parts = [];
 
-      for (var j = 0; j < item.parts.length; j++) {
+      for (let j = 0; j < item.parts.length; j++) {
         parts.push(addStyle(item.parts[j], options));
       }
 
-      stylesInDom[item.id] = { id: item.id, refs: 1, parts: parts };
+      stylesInDom[item.id] = { id: item.id, refs: 1, parts };
     }
   }
 }
 
 function listToStyles(list, options) {
-  var styles = [];
-  var newStyles = {};
+  const styles = [];
+  const newStyles = {};
 
-  for (var i = 0; i < list.length; i++) {
-    var item = list[i];
-    var id = options.base ? item[0] + options.base : item[0];
-    var css = item[1];
-    var media = item[2];
-    var sourceMap = item[3];
-    var part = { css: css, media: media, sourceMap: sourceMap };
+  for (let i = 0; i < list.length; i++) {
+    const [itemId, css, media, sourceMap] = list[i];
+    const id = options.base ? itemId + options.base : itemId;
+    const part = { css, media, sourceMap };
 
     if (!newStyles[id]) {
-      styles.push((newStyles[id] = { id: id, parts: [part] }));
+      styles.push((newStyles[id] = { id, parts: [part] }));
     } else {
       newStyles[id].parts.push(part);
     }
@@ -187,7 +185,7 @@ function listToStyles(list, options) {
 }
 
 function insertStyleElement(options, style) {
-  var target = getElement(options.insertInto);
+  const target = getElement(options.insertInto);
 
   if (!target) {
     throw new Error(
@@ -195,7 +193,7 @@ function insertStyleElement(options, style) {
     );
   }
 
-  var lastStyleElementInsertedAtTop =
+  const lastStyleElementInsertedAtTop =
     stylesInsertedAtTop[stylesInsertedAtTop.length - 1];
 
   if (options.insertAt === 'top') {
@@ -211,7 +209,7 @@ function insertStyleElement(options, style) {
   } else if (options.insertAt === 'bottom') {
     target.appendChild(style);
   } else if (typeof options.insertAt === 'object' && options.insertAt.before) {
-    var nextSibling = getElement(options.insertAt.before, target);
+    const nextSibling = getElement(options.insertAt.before, target);
 
     target.insertBefore(style, nextSibling);
   } else {
@@ -223,12 +221,12 @@ function insertStyleElement(options, style) {
 
 function removeStyleElement(style) {
   if (style.parentNode === null) {
-    return false;
+    return;
   }
 
   style.parentNode.removeChild(style);
 
-  var idx = stylesInsertedAtTop.indexOf(style);
+  const idx = stylesInsertedAtTop.indexOf(style);
 
   if (idx >= 0) {
     stylesInsertedAtTop.splice(idx, 1);
@@ -236,14 +234,14 @@ function removeStyleElement(style) {
 }
 
 function createStyleElement(options) {
-  var style = document.createElement('style');
+  const style = document.createElement('style');
 
-  if (options.attrs.type === undefined) {
+  if (typeof options.attrs.type === 'undefined') {
     options.attrs.type = 'text/css';
   }
 
-  if (options.attrs.nonce === undefined) {
-    var nonce = getNonce();
+  if (typeof options.attrs.nonce === 'undefined') {
+    const nonce = getNonce();
 
     if (nonce) {
       options.attrs.nonce = nonce;
@@ -257,9 +255,9 @@ function createStyleElement(options) {
 }
 
 function createLinkElement(options) {
-  var link = document.createElement('link');
+  const link = document.createElement('link');
 
-  if (options.attrs.type === undefined) {
+  if (typeof options.attrs.type === 'undefined') {
     options.attrs.type = 'text/css';
   }
 
@@ -272,7 +270,7 @@ function createLinkElement(options) {
 }
 
 function addAttrs(el, attrs) {
-  Object.keys(attrs).forEach(function(key) {
+  Object.keys(attrs).forEach((key) => {
     el.setAttribute(key, attrs[key]);
   });
 }
@@ -286,7 +284,10 @@ function getNonce() {
 }
 
 function addStyle(obj, options) {
-  var style, update, remove, result;
+  let style;
+  let update;
+  let remove;
+  let result;
 
   // If a transform function was defined, run it on the css
   if (options.transform && obj.css) {
@@ -302,14 +303,16 @@ function addStyle(obj, options) {
     } else {
       // If the transform function returns a falsy value, don't add this css.
       // This allows conditional loading of css
-      return function() {
+      return () => {
         // noop
       };
     }
   }
 
   if (options.singleton) {
-    var styleIndex = singletonCounter++;
+    singletonCounter += 1;
+
+    const styleIndex = singletonCounter;
 
     style = singleton || (singleton = createStyleElement(options));
 
@@ -325,7 +328,7 @@ function addStyle(obj, options) {
   ) {
     style = createLinkElement(options);
     update = updateLink.bind(null, style, options);
-    remove = function() {
+    remove = () => {
       removeStyleElement(style);
 
       if (style.href) {
@@ -335,7 +338,7 @@ function addStyle(obj, options) {
   } else {
     style = createStyleElement(options);
     update = applyToTag.bind(null, style);
-    remove = function() {
+    remove = () => {
       removeStyleElement(style);
     };
   }
@@ -359,10 +362,10 @@ function addStyle(obj, options) {
   };
 }
 
-var replaceText = (function() {
-  var textStore = [];
+const replaceText = (() => {
+  const textStore = [];
 
-  return function(index, replacement) {
+  return (index, replacement) => {
     textStore[index] = replacement;
 
     return textStore.filter(Boolean).join('\n');
@@ -370,13 +373,13 @@ var replaceText = (function() {
 })();
 
 function applyToSingletonTag(style, index, remove, obj) {
-  var css = remove ? '' : obj.css;
+  const css = remove ? '' : obj.css;
 
   if (style.styleSheet) {
     style.styleSheet.cssText = replaceText(index, css);
   } else {
-    var cssNode = document.createTextNode(css);
-    var childNodes = style.childNodes;
+    const cssNode = document.createTextNode(css);
+    const { childNodes } = style;
 
     if (childNodes[index]) {
       style.removeChild(childNodes[index]);
@@ -391,8 +394,8 @@ function applyToSingletonTag(style, index, remove, obj) {
 }
 
 function applyToTag(style, obj) {
-  var css = obj.css;
-  var media = obj.media;
+  const { css } = obj;
+  const { media } = obj;
 
   if (media) {
     style.setAttribute('media', media);
@@ -410,8 +413,8 @@ function applyToTag(style, obj) {
 }
 
 function updateLink(link, options, obj) {
-  var css = obj.css;
-  var sourceMap = obj.sourceMap;
+  let { css } = obj;
+  const { sourceMap } = obj;
 
   /*
     If convertToAbsoluteUrls isn't defined, but sourcemaps are enabled
@@ -419,7 +422,8 @@ function updateLink(link, options, obj) {
     on by default.  Otherwise default to the convertToAbsoluteUrls option
     directly
   */
-  var autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
+  const autoFixUrls =
+    typeof options.convertToAbsoluteUrls === 'undefined' && sourceMap;
 
   if (options.convertToAbsoluteUrls || autoFixUrls) {
     css = fixUrls(css);
@@ -427,15 +431,13 @@ function updateLink(link, options, obj) {
 
   if (sourceMap) {
     // http://stackoverflow.com/a/26603875
-    css +=
-      '\n/*# sourceMappingURL=data:application/json;base64,' +
-      btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) +
-      ' */';
+    css += `\n/*# sourceMappingURL=data:application/json;base64,${btoa(
+      unescape(encodeURIComponent(JSON.stringify(sourceMap)))
+    )} */`;
   }
 
-  var blob = new Blob([css], { type: 'text/css' });
-
-  var oldSrc = link.href;
+  const blob = new Blob([css], { type: 'text/css' });
+  const oldSrc = link.href;
 
   link.href = URL.createObjectURL(blob);
 
