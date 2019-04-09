@@ -146,7 +146,7 @@ Styles are not added on `import/require()`, but instead on call to `use`/`ref`. 
 |       **`singleton`**       |     `{Boolean}`      | `undefined` | Reuses a single `<style></style>` element, instead of adding/removing individual elements for each required module.            |
 |       **`sourceMap`**       |     `{Boolean}`      |   `false`   | Enable/Disable Sourcemaps                                                                                                      |
 | **`convertToAbsoluteUrls`** |     `{Boolean}`      |   `false`   | Converts relative URLs to absolute urls, when source maps are enabled                                                          |
-
+| **`insertionTag`** |     `{String}`      |   undefined   | Defines which of the three types of insertion tags to use.  Options are `'style'` to use `<style>` tags, `'link'` to use `<link>` tags or `singleton` to use a single `<style>` tag for all styles.  If left `undefined`, automatic resolution is used, which prefers `<style>` tags unless sourcemaps are used, when it instead prefers `<link>` tags.                                                            |
 ### `hmr`
 
 Enable/disable Hot Module Replacement (HMR), if disabled no HMR Code will be added.

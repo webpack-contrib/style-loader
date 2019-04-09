@@ -82,7 +82,9 @@ module.exports = {
           runScripts: 'dangerously',
           virtualConsole,
         });
-
+        // JSDom doesn't implement these.
+        window.URL.createObjectURL = (arg) => `fakeJsdomObjectUrl(${arg})`;
+        window.URL.revokeObjectURL = () => {};
         window.eval(bundleJs);
 
         if (typeof actual === 'function') {

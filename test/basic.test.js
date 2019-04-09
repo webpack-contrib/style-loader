@@ -245,6 +245,159 @@ describe('basic tests', () => {
     runCompilerTest(expected, done);
   });
 
+  it('insertionTag = style', (done) => {
+    // Setup
+    styleLoaderOptions.insertionTag = 'style';
+
+    fs.writeFileSync(
+      `${rootDir}main.js`,
+      [
+        "var a = require('./style.css');",
+        "var b = require('./styleTwo.css');",
+      ].join('\n')
+    );
+
+    // Run
+    const expected = [
+      existingStyle,
+      `<style type="text/css">${requiredCss}</style><style type="text/css">${requiredCssTwo}</style>`,
+    ].join('\n');
+
+    runCompilerTest(expected, done);
+  });
+
+  it('insertionTag = link', (done) => {
+    // Setup
+    styleLoaderOptions.insertionTag = 'link';
+
+    fs.writeFileSync(
+      `${rootDir}main.js`,
+      [
+        "var a = require('./style.css');",
+        "var b = require('./styleTwo.css');",
+      ].join('\n')
+    );
+
+    // Run
+    const expected = [
+      existingStyle,
+      '<link type="text/css" rel="stylesheet" href="fakeJsdomObjectUrl([object Blob])"><link type="text/css" rel="stylesheet" href="fakeJsdomObjectUrl([object Blob])">',
+    ].join('\n');
+
+    runCompilerTest(expected, done);
+  });
+
+  it('insertionTag = singleton', (done) => {
+    styleLoaderOptions.insertionTag = 'singleton';
+
+    fs.writeFileSync(
+      `${rootDir}main.js`,
+      [
+        "var a = require('./style.css');",
+        "var b = require('./styleTwo.css');",
+      ].join('\n')
+    );
+
+    // Run
+    const expected = [
+      existingStyle,
+      `<style type="text/css">${requiredCss}${requiredCssTwo}</style>`,
+    ].join('\n');
+
+    runCompilerTest(expected, done);
+  });
+
+  it('insertionTag = style uses sourceMaps', (done) => {
+    // Setup
+    cssRule.use = [
+      {
+        loader: 'style-loader',
+        options: {
+          sourceMap: true,
+          insertionTag: 'style',
+        },
+      },
+      {
+        loader: 'css-loader',
+        options: { sourceMap: true },
+      },
+    ];
+    setupWebpackConfig();
+
+    fs.writeFileSync(
+      `${rootDir}main.js`,
+      [
+        "var a = require('./style.css');",
+        "var b = require('./styleTwo.css');",
+      ].join('\n')
+    );
+    // Run
+    const expected = [
+      existingStyle,
+      `\n<style type="text/css">${requiredCss}\n`,
+      '/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxZQUFZLFlBQVkiLCJmaWxlIjoic3R5bGUuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnJlcXVpcmVkIHsgY29sb3I6IGJsdWUgfSJdfQ== */</style>',
+      `<style type="text/css">${requiredCssTwo}\n`,
+      '/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlVHdvLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxlQUFlLFlBQVkiLCJmaWxlIjoic3R5bGVUd28uY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnJlcXVpcmVkVHdvIHsgY29sb3I6IGN5YW4gfSJdfQ== */</style>',
+    ].join('');
+
+    runCompilerTest(expected, done);
+  });
+
+  it('insertionTag = style respects options.sourceMap value', (done) => {
+    // Setup
+    cssRule.use = [
+      {
+        loader: 'style-loader',
+        options: {
+          sourceMap: false,
+          insertionTag: 'style',
+        },
+      },
+      {
+        loader: 'css-loader',
+        options: { sourceMap: true },
+      },
+    ];
+    setupWebpackConfig();
+
+    fs.writeFileSync(
+      `${rootDir}main.js`,
+      [
+        "var a = require('./style.css');",
+        "var b = require('./styleTwo.css');",
+      ].join('\n')
+    );
+    // Run
+    const expected = [
+      existingStyle,
+      `<style type="text/css">${requiredCss}</style><style type="text/css">${requiredCssTwo}</style>`,
+    ].join('\n');
+
+    runCompilerTest(expected, done);
+  });
+
+  it('insertionTag overrides options.singleton', (done) => {
+    // Setup
+    styleLoaderOptions.singleton = true;
+    styleLoaderOptions.insertionTag = 'style';
+
+    fs.writeFileSync(
+      `${rootDir}main.js`,
+      [
+        "var a = require('./style.css');",
+        "var b = require('./styleTwo.css');",
+      ].join('\n')
+    );
+
+    // Run
+    const expected = [
+      existingStyle,
+      `<style type="text/css">${requiredCss}</style><style type="text/css">${requiredCssTwo}</style>`,
+    ].join('\n');
+
+    runCompilerTest(expected, done);
+  });
+
   it('attrs', (done) => {
     // Setup
     styleLoaderOptions.attrs = { id: 'style-tag-id' };

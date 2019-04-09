@@ -27,6 +27,10 @@
     },
     "convertToAbsoluteUrls": {
       "type": "boolean"
+    },
+    "insertionTag": {
+      "type": "string",
+      "enum": ["style", "link", "singleton"]
     }
   },
   "additionalProperties": false

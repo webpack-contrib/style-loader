@@ -308,21 +308,16 @@ function addStyle(obj, options) {
     }
   }
 
-  if (options.singleton) {
+  const insertionTag = insertionTagToUse(obj, options);
+
+  if (insertionTag === 'singleton') {
     var styleIndex = singletonCounter++;
 
     style = singleton || (singleton = createStyleElement(options));
 
     update = applyToSingletonTag.bind(null, style, styleIndex, false);
     remove = applyToSingletonTag.bind(null, style, styleIndex, true);
-  } else if (
-    obj.sourceMap &&
-    typeof URL === 'function' &&
-    typeof URL.createObjectURL === 'function' &&
-    typeof URL.revokeObjectURL === 'function' &&
-    typeof Blob === 'function' &&
-    typeof btoa === 'function'
-  ) {
+  } else if (insertionTag === 'link') {
     style = createLinkElement(options);
     update = updateLink.bind(null, style, options);
     remove = function() {
@@ -334,7 +329,7 @@ function addStyle(obj, options) {
     };
   } else {
     style = createStyleElement(options);
-    update = applyToTag.bind(null, style);
+    update = applyToTag.bind(null, style, options);
     remove = function() {
       removeStyleElement(style);
     };
@@ -390,12 +385,35 @@ function applyToSingletonTag(style, index, remove, obj) {
   }
 }
 
-function applyToTag(style, obj) {
+function insertionTagToUse(obj, options) {
+  if (options.insertionTag) {
+    return options.insertionTag;
+  } else if (options.singleton) {
+    return 'singleton';
+  } else if (
+    obj.sourceMap &&
+    typeof URL === 'function' &&
+    typeof URL.createObjectURL === 'function' &&
+    typeof URL.revokeObjectURL === 'function' &&
+    typeof Blob === 'function' &&
+    typeof btoa === 'function'
+  ) {
+    return 'link';
+  }
+  return 'style';
+}
+
+function applyToTag(style, options, obj) {
   var css = obj.css;
   var media = obj.media;
 
   if (media) {
     style.setAttribute('media', media);
+  }
+
+  var sourceMap = obj.sourceMap;
+  if (sourceMap && options.sourceMap) {
+    css += '\n' + createSourceMapString(sourceMap);
   }
 
   if (style.styleSheet) {
@@ -404,9 +422,14 @@ function applyToTag(style, obj) {
     while (style.firstChild) {
       style.removeChild(style.firstChild);
     }
-
     style.appendChild(document.createTextNode(css));
   }
+}
+
+function createSourceMapString(sourceMap) {
+  return '/*# sourceMappingURL=data:application/json;base64,' +
+      btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) +
+      ' */';
 }
 
 function updateLink(link, options, obj) {
@@ -426,11 +449,7 @@ function updateLink(link, options, obj) {
   }
 
   if (sourceMap) {
-    // http://stackoverflow.com/a/26603875
-    css +=
-      '\n/*# sourceMappingURL=data:application/json;base64,' +
-      btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) +
-      ' */';
+    css += '\n' + createSourceMapString(sourceMap);
   }
 
   var blob = new Blob([css], { type: 'text/css' });
