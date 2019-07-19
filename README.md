@@ -82,8 +82,6 @@ import url from 'file.css';
 <link rel="stylesheet" href="path/to/file.css" />
 ```
 
-> ℹ️ Source maps and assets referenced with `url`: when style loader is used with `{ options: { sourceMap: true } }` option, the CSS modules will be generated as `Blob`s, so relative paths don't work (they would be relative to `chrome:blob` or `chrome:devtools`). In order for assets to maintain correct paths setting `output.publicPath` property of webpack configuration must be set, so that absolute paths are generated. Alternatively you can enable the `convertToAbsoluteUrls` option mentioned above.
-
 ### `Useable`
 
 The `style-loader` injects the styles lazily making them useable on-demand via `style.use()` / `style.unuse()`
@@ -145,7 +143,6 @@ Styles are not added on `import/require()`, but instead on call to `use`/`ref`. 
 |      **`insertInto`**       | `{String\|Function}` |  `<head>`   | Inserts `<style></style>` into the given position                                                                              |
 |       **`singleton`**       |     `{Boolean}`      | `undefined` | Reuses a single `<style></style>` element, instead of adding/removing individual elements for each required module.            |
 |       **`sourceMap`**       |     `{Boolean}`      |   `false`   | Enable/Disable Sourcemaps                                                                                                      |
-| **`convertToAbsoluteUrls`** |     `{Boolean}`      |   `false`   | Converts relative URLs to absolute urls, when source maps are enabled                                                          |
 
 ### `hmr`
 
@@ -393,22 +390,6 @@ Enable/Disable source map loading
   loader: 'style-loader',
   options: {
     sourceMap: true
-  }
-}
-```
-
-### `convertToAbsoluteUrls`
-
-If convertToAbsoluteUrls and sourceMaps are both enabled, relative urls will be converted to absolute urls right before the css is injected into the page. This resolves [an issue](https://github.com/webpack/style-loader/pull/96) where relative resources fail to load when source maps are enabled. You can enable it with the convertToAbsoluteUrls option.
-
-**webpack.config.js**
-
-```js
-{
-  loader: 'style-loader',
-  options: {
-    sourceMap: true,
-    convertToAbsoluteUrls: true
   }
 }
 ```

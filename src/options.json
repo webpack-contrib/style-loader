@@ -24,9 +24,6 @@
     },
     "sourceMap": {
       "type": "boolean"
-    },
-    "convertToAbsoluteUrls": {
-      "type": "boolean"
     }
   },
   "additionalProperties": false
