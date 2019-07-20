@@ -21,7 +21,7 @@ describe('useable tests', () => {
           color: blue;
         }
       `;
-    const requiredStyle = `<style type="text/css">${requiredCss}</style>`;
+    const requiredStyle = `<style>${requiredCss}</style>`;
     const existingStyle = `<style id="existing-style">.existing { color: yellow }</style>`;
     const checkValue = '<div class="check">check</div>';
     const rootDir = `${path.resolve(`${__dirname}/../`)}/`;

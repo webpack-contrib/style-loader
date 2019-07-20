@@ -17,7 +17,7 @@ describe('basic tests', () => {
         color: blue;
       }
     `;
-  const requiredStyle = `<style type="text/css">${requiredCss}</style>`;
+  const requiredStyle = `<style>${requiredCss}</style>`;
   const existingStyle = `<style id="existing-style">.existing { color: yellow }</style>`;
   const checkValue = '<div class="check">check</div>';
   const rootDir = `${path.resolve(`${__dirname}/../`)}/`;
@@ -218,7 +218,7 @@ describe('basic tests', () => {
     // Run
     const expected = [
       existingStyle,
-      `<style type="text/css">${requiredCss}${requiredCssTwo}</style>`,
+      `<style>${requiredCss}${requiredCssTwo}</style>`,
     ].join('\n');
 
     runCompilerTest(expected, done);
@@ -239,7 +239,7 @@ describe('basic tests', () => {
     // Run
     const expected = [
       existingStyle,
-      `<style type="text/css">${requiredCss}</style><style type="text/css">${requiredCssTwo}</style>`,
+      `<style>${requiredCss}</style><style>${requiredCssTwo}</style>`,
     ].join('\n');
 
     runCompilerTest(expected, done);
@@ -257,9 +257,7 @@ describe('basic tests', () => {
     // Run
     const expected = [
       existingStyle,
-      `<style id="${
-        styleLoaderOptions.attrs.id
-      }" type="text/css">${requiredCss}</style>`,
+      `<style id="${styleLoaderOptions.attrs.id}">${requiredCss}</style>`,
     ].join('\n');
 
     runCompilerTest(expected, done);
@@ -280,7 +278,7 @@ describe('basic tests', () => {
     // Run
     const expected = [
       existingStyle,
-      `<style type="text/css" nonce="${expectedNonce}">${requiredCss}</style>`,
+      `<style nonce="${expectedNonce}">${requiredCss}</style>`,
     ].join('\n');
 
     runCompilerTest(expected, done);
@@ -316,7 +314,7 @@ describe('basic tests', () => {
     // Run
     const expected = [
       existingStyle,
-      '<link rel="stylesheet" type="text/css" href="ec9d4f4f24028c3d51bf1e7728e632ff.css">',
+      '<link rel="stylesheet" href="ec9d4f4f24028c3d51bf1e7728e632ff.css">',
     ].join('\n');
 
     runCompilerTest(expected, done);
@@ -339,7 +337,7 @@ describe('basic tests', () => {
     // Run
     const expected = [
       existingStyle,
-      '<link rel="stylesheet" type="text/css" href="ec9d4f4f24028c3d51bf1e7728e632ff.css" data-attr-1="attr-value-1" data-attr-2="attr-value-2">',
+      '<link rel="stylesheet" href="ec9d4f4f24028c3d51bf1e7728e632ff.css" data-attr-1="attr-value-1" data-attr-2="attr-value-2">',
     ].join('\n');
 
     runCompilerTest(expected, done);
@@ -361,7 +359,7 @@ describe('basic tests', () => {
     // Run
     const expected = [
       existingStyle,
-      '<link rel="stylesheet" type="text/less" href="ec9d4f4f24028c3d51bf1e7728e632ff.css">',
+      '<link rel="stylesheet" href="ec9d4f4f24028c3d51bf1e7728e632ff.css" type="text/less">',
     ].join('\n');
 
     runCompilerTest(expected, done);
@@ -387,10 +385,9 @@ describe('basic tests', () => {
     );
 
     // Run
-    const expected = [
-      existingStyle,
-      `<style type="text/css">${requiredCssTwo}</style>`,
-    ].join('\n');
+    const expected = [existingStyle, `<style>${requiredCssTwo}</style>`].join(
+      '\n'
+    );
 
     runCompilerTest(expected, done);
   });
@@ -415,10 +412,9 @@ describe('basic tests', () => {
     );
 
     // Run
-    const expected = [
-      existingStyle,
-      `<style type="text/css">${requiredCss}</style>`,
-    ].join('\n');
+    const expected = [existingStyle, `<style>${requiredCss}</style>`].join(
+      '\n'
+    );
 
     runCompilerTest(expected, done);
   });
