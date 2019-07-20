@@ -238,10 +238,6 @@ function removeStyleElement(style) {
 function createStyleElement(options) {
   var style = document.createElement('style');
 
-  if (options.attrs.type === undefined) {
-    options.attrs.type = 'text/css';
-  }
-
   if (options.attrs.nonce === undefined) {
     var nonce = getNonce();
 
@@ -258,10 +254,6 @@ function createStyleElement(options) {
 
 function createLinkElement(options) {
   var link = document.createElement('link');
-
-  if (options.attrs.type === undefined) {
-    options.attrs.type = 'text/css';
-  }
 
   options.attrs.rel = 'stylesheet';
 

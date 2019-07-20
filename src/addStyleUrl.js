@@ -23,7 +23,6 @@ module.exports = function addStyleUrl(url, options) {
   var link = document.createElement('link');
 
   link.rel = 'stylesheet';
-  link.type = 'text/css';
   link.href = url;
 
   addAttrs(link, options.attrs);
