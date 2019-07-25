@@ -33,11 +33,7 @@
     "defaults": "webpack-defaults"
   },
   "files": [
-    "lib",
-    "url.js",
-    "index.js",
-    "useable.js",
-    "options.json"
+    "dist"
   ],
   "peerDependencies": {
     "webpack": "^4.0.0"
