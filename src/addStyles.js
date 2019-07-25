@@ -71,8 +71,6 @@ var singleton = null;
 var singletonCounter = 0;
 var stylesInsertedAtTop = [];
 
-var fixUrls = require('./urls');
-
 module.exports = function(list, options) {
   if (typeof DEBUG !== 'undefined' && DEBUG) {
     if (typeof document !== 'object') {
@@ -256,21 +254,6 @@ function createStyleElement(options) {
   return style;
 }
 
-function createLinkElement(options) {
-  var link = document.createElement('link');
-
-  if (options.attrs.type === undefined) {
-    options.attrs.type = 'text/css';
-  }
-
-  options.attrs.rel = 'stylesheet';
-
-  addAttrs(link, options.attrs);
-  insertStyleElement(options, link);
-
-  return link;
-}
-
 function addAttrs(el, attrs) {
   Object.keys(attrs).forEach(function(key) {
     el.setAttribute(key, attrs[key]);
@@ -315,23 +298,6 @@ function addStyle(obj, options) {
 
     update = applyToSingletonTag.bind(null, style, styleIndex, false);
     remove = applyToSingletonTag.bind(null, style, styleIndex, true);
-  } else if (
-    obj.sourceMap &&
-    typeof URL === 'function' &&
-    typeof URL.createObjectURL === 'function' &&
-    typeof URL.revokeObjectURL === 'function' &&
-    typeof Blob === 'function' &&
-    typeof btoa === 'function'
-  ) {
-    style = createLinkElement(options);
-    update = updateLink.bind(null, style, options);
-    remove = function() {
-      removeStyleElement(style);
-
-      if (style.href) {
-        URL.revokeObjectURL(style.href);
-      }
-    };
   } else {
     style = createStyleElement(options);
     update = applyToTag.bind(null, style);
@@ -393,9 +359,18 @@ function applyToSingletonTag(style, index, remove, obj) {
 function applyToTag(style, obj) {
   var css = obj.css;
   var media = obj.media;
+  var sourceMap = obj.sourceMap;
 
   if (media) {
     style.setAttribute('media', media);
+  }
+
+  if (sourceMap) {
+    css +=
+      '\n/*# sourceURL=' + sourceMap.sources[0] + ' */'
+      // http://stackoverflow.com/a/26603875
+      '\n/*# sourceMappingURL=data:application/json;base64,' +
+      btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + ' */'
   }
 
   if (style.styleSheet) {
@@ -406,40 +381,5 @@ function applyToTag(style, obj) {
     }
 
     style.appendChild(document.createTextNode(css));
-  }
-}
-
-function updateLink(link, options, obj) {
-  var css = obj.css;
-  var sourceMap = obj.sourceMap;
-
-  /*
-    If convertToAbsoluteUrls isn't defined, but sourcemaps are enabled
-    and there is no publicPath defined then lets turn convertToAbsoluteUrls
-    on by default.  Otherwise default to the convertToAbsoluteUrls option
-    directly
-  */
-  var autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
-
-  if (options.convertToAbsoluteUrls || autoFixUrls) {
-    css = fixUrls(css);
-  }
-
-  if (sourceMap) {
-    // http://stackoverflow.com/a/26603875
-    css +=
-      '\n/*# sourceMappingURL=data:application/json;base64,' +
-      btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) +
-      ' */';
-  }
-
-  var blob = new Blob([css], { type: 'text/css' });
-
-  var oldSrc = link.href;
-
-  link.href = URL.createObjectURL(blob);
-
-  if (oldSrc) {
-    URL.revokeObjectURL(oldSrc);
   }
 }
