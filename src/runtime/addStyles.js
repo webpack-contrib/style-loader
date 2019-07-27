@@ -194,10 +194,10 @@ function insertStyleElement(options, style) {
     );
   }
 
-  var lastStyleElementInsertedAtTop =
-    stylesInsertedAtTop[stylesInsertedAtTop.length - 1];
-
   if (options.insertAt === 'top') {
+    var lastStyleElementInsertedAtTop =
+      stylesInsertedAtTop[stylesInsertedAtTop.length - 1];
+
     if (!lastStyleElementInsertedAtTop) {
       target.insertBefore(style, target.firstChild);
     } else if (lastStyleElementInsertedAtTop.nextSibling) {
