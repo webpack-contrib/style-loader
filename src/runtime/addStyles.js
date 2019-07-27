@@ -57,6 +57,7 @@ var getElement = (function() {
           // due to cross-origin restrictions
           styleTarget = styleTarget.contentDocument.head;
         } catch (e) {
+          // istanbul ignore next
           styleTarget = null;
         }
       }
@@ -73,6 +74,7 @@ var singletonCounter = 0;
 var stylesInsertedAtTop = [];
 
 module.exports = function(list, options) {
+  /* istanbul ignore if  */
   if (typeof DEBUG !== 'undefined' && DEBUG) {
     if (typeof document !== 'object') {
       throw new Error(
@@ -112,8 +114,10 @@ module.exports = function(list, options) {
       var item = styles[i];
       var domStyle = stylesInDom[item.id];
 
-      domStyle.refs--;
-      mayRemove.push(domStyle);
+      if (domStyle) {
+        domStyle.refs--;
+        mayRemove.push(domStyle);
+      }
     }
 
     if (newList) {
@@ -323,6 +327,7 @@ function addStyle(obj, options) {
   };
 }
 
+/* istanbul ignore next  */
 var replaceText = (function() {
   var textStore = [];
 
@@ -336,6 +341,8 @@ var replaceText = (function() {
 function applyToSingletonTag(style, index, remove, obj) {
   var css = remove ? '' : obj.css;
 
+  // For old IE
+  /* istanbul ignore if  */
   if (style.styleSheet) {
     style.styleSheet.cssText = replaceText(index, css);
   } else {
@@ -374,6 +381,8 @@ function applyToTag(style, obj) {
       ' */';
   }
 
+  // For old IE
+  /* istanbul ignore if  */
   if (style.styleSheet) {
     style.styleSheet.cssText = css;
   } else {
