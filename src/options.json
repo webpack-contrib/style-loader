@@ -2,27 +2,35 @@
   "type": "object",
   "properties": {
     "hmr": {
+      "description": "Enables/Disables Hot Module Replacement (https://github.com/webpack-contrib/style-loader#hmr).",
       "type": "boolean"
     },
     "base": {
+      "description": "Set module ID base for DLLPlugin (https://github.com/webpack-contrib/style-loader#base).",
       "type": "number"
     },
     "attrs": {
+      "description": "Add custom attrs to <style></style> (https://github.com/webpack-contrib/style-loader#attrs).",
       "type": "object"
     },
     "insertAt": {
+      "description": "Inserts <style></style> at the given position (https://github.com/webpack-contrib/style-loader#insertat).",
       "type": ["string", "object"]
     },
     "insertInto": {
+      "description": "Inserts <style></style> into the given position (https://github.com/webpack-contrib/style-loader#insertinto).",
       "anyOf": [{ "type": "string" }, { "instanceof": "Function" }]
     },
     "transform": {
+      "description": "Transform/Conditionally load CSS by passing a transform/condition function (https://github.com/webpack-contrib/style-loader#transform).",
       "type": "string"
     },
     "singleton": {
+      "description": "Reuses a single <style></style> element, instead of adding/removing individual elements for each required module (https://github.com/webpack-contrib/style-loader#singleton).",
       "type": "boolean"
     },
     "sourceMap": {
+      "description": "Enable/Disable Sourcemaps (https://github.com/webpack-contrib/style-loader#sourcemap).",
       "type": "boolean"
     }
   },
