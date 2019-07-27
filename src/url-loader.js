@@ -10,7 +10,10 @@ module.exports = () => {};
 module.exports.pitch = function loader(request) {
   const options = loaderUtils.getOptions(this) || {};
 
-  validateOptions(schema, options, 'Style Loader (URL)');
+  validateOptions(schema, options, {
+    name: 'Style Loader (URL)',
+    baseDataPath: 'options',
+  });
 
   options.hmr = typeof options.hmr === 'undefined' ? true : options.hmr;
 
