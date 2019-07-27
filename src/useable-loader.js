@@ -73,7 +73,7 @@ module.exports.pitch = function loader(request) {
     'if(!(refs++)) {',
     `  dispose = require(${loaderUtils.stringifyRequest(
       this,
-      `!${path.join(__dirname, 'addStyles.js')}`
+      `!${path.join(__dirname, 'runtime/addStyles.js')}`
     )})(content, options);`,
     '}',
     '',

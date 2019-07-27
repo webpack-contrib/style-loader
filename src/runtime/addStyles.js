@@ -1,3 +1,4 @@
+/* eslint-env browser */
 /* eslint-disable */
 
 var stylesInDom = {};
@@ -30,7 +31,7 @@ var getTarget = function(target, parent) {
   return document.querySelector(target);
 };
 
-var getElement = (function(fn) {
+var getElement = (function() {
   var memo = {};
 
   return function(target, parent) {
@@ -248,16 +249,13 @@ function createStyleElement(options) {
     }
   }
 
-  addAttrs(style, options.attrs);
+  Object.keys(options.attrs).forEach((key) => {
+    style.setAttribute(key, options.attrs[key]);
+  });
+
   insertStyleElement(options, style);
 
   return style;
-}
-
-function addAttrs(el, attrs) {
-  Object.keys(attrs).forEach(function(key) {
-    el.setAttribute(key, attrs[key]);
-  });
 }
 
 function getNonce() {
@@ -367,10 +365,13 @@ function applyToTag(style, obj) {
 
   if (sourceMap) {
     css +=
-      '\n/*# sourceURL=' + sourceMap.sources[0] + ' */'
+      '\n/*# sourceURL=' +
+      sourceMap.sources[0] +
+      ' */' +
       // http://stackoverflow.com/a/26603875
       '\n/*# sourceMappingURL=data:application/json;base64,' +
-      btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + ' */'
+      btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) +
+      ' */';
   }
 
   if (style.styleSheet) {
