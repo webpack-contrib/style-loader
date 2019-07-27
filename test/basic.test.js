@@ -1,3 +1,4 @@
+/* eslint-env browser */
 const path = require('path');
 
 const utils = require('./utils');
@@ -49,7 +50,7 @@ describe('basic tests', () => {
     test: /\.css?$/,
     use: [
       {
-        loader: 'style-loader',
+        loader: path.resolve(__dirname, '../src/index.js'),
         options: styleLoaderOptions,
       },
       'css-loader',
@@ -187,9 +188,7 @@ describe('basic tests', () => {
         let existingStyleIndex;
 
         for (let i = 0; i < head.children.length; i++) {
-          const html = `<style id="existing-style">${
-            head.children[i].innerHTML
-          }</style>`;
+          const html = `<style id="existing-style">${head.children[i].innerHTML}</style>`;
 
           if (html === existingStyle) {
             existingStyleIndex = i;
@@ -257,9 +256,7 @@ describe('basic tests', () => {
     // Run
     const expected = [
       existingStyle,
-      `<style id="${
-        styleLoaderOptions.attrs.id
-      }" type="text/css">${requiredCss}</style>`,
+      `<style id="${styleLoaderOptions.attrs.id}" type="text/css">${requiredCss}</style>`,
     ].join('\n');
 
     runCompilerTest(expected, done);
@@ -307,7 +304,7 @@ describe('basic tests', () => {
   it('url', (done) => {
     cssRule.use = [
       {
-        loader: 'style-loader/url',
+        loader: path.resolve(__dirname, '../src/url-loader.js'),
         options: {},
       },
       'file-loader',
@@ -325,7 +322,7 @@ describe('basic tests', () => {
   it('url with attrs', (done) => {
     cssRule.use = [
       {
-        loader: 'style-loader/url',
+        loader: path.resolve(__dirname, '../src/url-loader.js'),
         options: {
           attrs: {
             'data-attr-1': 'attr-value-1',
@@ -348,7 +345,7 @@ describe('basic tests', () => {
   it('url with type attribute', (done) => {
     cssRule.use = [
       {
-        loader: 'style-loader/url',
+        loader: path.resolve(__dirname, '../src/url-loader.js'),
         options: {
           attrs: {
             type: 'text/less',
@@ -370,7 +367,7 @@ describe('basic tests', () => {
   it('useable', (done) => {
     cssRule.use = [
       {
-        loader: 'style-loader/useable',
+        loader: path.resolve(__dirname, '../src/useable-loader.js'),
       },
       'css-loader',
     ];
@@ -398,7 +395,7 @@ describe('basic tests', () => {
   it('useable without negative refs', (done) => {
     cssRule.use = [
       {
-        loader: 'style-loader/useable',
+        loader: path.resolve(__dirname, '../src/useable-loader.js'),
       },
       'css-loader',
     ];
@@ -426,13 +423,14 @@ describe('basic tests', () => {
   it('local scope', (done) => {
     cssRule.use = [
       {
-        loader: 'style-loader',
+        loader: path.join(__dirname, '../src/index.js'),
       },
       {
         loader: 'css-loader',
         options: {
-          modules: true,
-          localIdentName: '[name].[local]_[hash:base64:7]',
+          modules: {
+            localIdentName: '[name].[local]_[hash:base64:7]',
+          },
         },
       },
     ];
@@ -442,7 +440,7 @@ describe('basic tests', () => {
       ["css = require('./localScoped.css');"].join('\n')
     );
 
-    const expected = 'localScoped-className_3dIU6Uf';
+    const expected = 'localScoped.className_3dIU6Uf';
 
     runCompilerTest(expected, done, function getClassName() {
       return this.css.className;
@@ -452,13 +450,14 @@ describe('basic tests', () => {
   it('local scope, composing', (done) => {
     cssRule.use = [
       {
-        loader: 'style-loader',
+        loader: path.resolve(__dirname, '../src/index.js'),
       },
       {
         loader: 'css-loader',
         options: {
-          modules: true,
-          localIdentName: '[name].[local]_[hash:base64:7]',
+          modules: {
+            localIdentName: '[name].[local]_[hash:base64:7]',
+          },
         },
       },
     ];
@@ -469,7 +468,7 @@ describe('basic tests', () => {
     );
 
     const expected =
-      'localComposing-composingClass_3kXcqag localScoped-className_3dIU6Uf';
+      'localComposing.composingClass_3kXcqag localScoped.className_3dIU6Uf';
 
     runCompilerTest(expected, done, function getComposingClass() {
       return this.css.composingClass;
@@ -479,15 +478,16 @@ describe('basic tests', () => {
   it('local scope, composing, custom getLocalIdent', (done) => {
     cssRule.use = [
       {
-        loader: 'style-loader',
+        loader: path.resolve(__dirname, '../src/index.js'),
       },
       {
         loader: 'css-loader',
         options: {
-          modules: true,
-          localIdentName: '[name].[local]_[hash:base64:7]',
-          getLocalIdent: (context, localIdentName, localName) =>
-            `X${localName}`,
+          modules: {
+            localIdentName: '[name].[local]_[hash:base64:7]',
+            getLocalIdent: (context, localIdentName, localName) =>
+              `X${localName}`,
+          },
         },
       },
     ];
@@ -506,13 +506,14 @@ describe('basic tests', () => {
   it('local scope, useable', (done) => {
     cssRule.use = [
       {
-        loader: 'style-loader/useable',
+        loader: path.resolve(__dirname, '../src/useable-loader.js'),
       },
       {
         loader: 'css-loader',
         options: {
-          modules: true,
-          localIdentName: '[name].[local]_[hash:base64:7]',
+          modules: {
+            localIdentName: '[name].[local]_[hash:base64:7]',
+          },
         },
       },
     ];
@@ -522,7 +523,7 @@ describe('basic tests', () => {
       ["css = require('./localScoped.css');"].join('\n')
     );
 
-    const expected = 'localScoped-className_3dIU6Uf';
+    const expected = 'localScoped.className_3dIU6Uf';
 
     runCompilerTest(expected, done, function getClassName() {
       return this.css.locals.className;

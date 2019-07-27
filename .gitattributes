@@ -2,3 +2,4 @@
 yarn.lock -diff
 * text=auto
 package-lock.json -diff
+bin/* eol=lf

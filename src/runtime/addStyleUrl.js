@@ -1,7 +1,8 @@
+/* eslint-env browser */
 /* eslint-disable */
 
 function addAttrs(element, attrs) {
-  Object.keys(attrs).forEach(function(key) {
+  Object.keys(attrs).forEach((key) => {
     element.setAttribute(key, attrs[key]);
   });
 }
@@ -20,7 +21,7 @@ module.exports = function addStyleUrl(url, options) {
   options.attrs = typeof options.attrs === 'object' ? options.attrs : {};
   options.hmr = typeof options.hmr === 'undefined' ? true : options.hmr;
 
-  var link = document.createElement('link');
+  const link = document.createElement('link');
 
   link.rel = 'stylesheet';
   link.type = 'text/css';
@@ -28,12 +29,12 @@ module.exports = function addStyleUrl(url, options) {
 
   addAttrs(link, options.attrs);
 
-  var head = document.getElementsByTagName('head')[0];
+  const [head] = document.getElementsByTagName('head');
 
   head.appendChild(link);
 
   if (options.hmr && module.hot) {
-    return function(url) {
+    return (url) => {
       if (typeof url === 'string') {
         link.href = url;
       } else {

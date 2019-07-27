@@ -99,7 +99,7 @@ module.exports.pitch = function loader(request) {
     // Add styles to the DOM
     `var update = require(${loaderUtils.stringifyRequest(
       this,
-      `!${path.join(__dirname, 'addStyles.js')}`
+      `!${path.join(__dirname, 'runtime/addStyles.js')}`
     )})(content, options);`,
     '',
     'if(content.locals) module.exports = content.locals;',

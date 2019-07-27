@@ -35,7 +35,7 @@ module.exports.pitch = function loader(request) {
     // Adds some reference to a CSS file to the DOM by adding a <link> tag
     `var update = require(${loaderUtils.stringifyRequest(
       this,
-      `!${path.join(__dirname, 'addStyleUrl.js')}`
+      `!${path.join(__dirname, 'runtime/addStyleUrl.js')}`
     )})(`,
     `  require(${loaderUtils.stringifyRequest(this, `!!${request}`)})`,
     `, ${JSON.stringify(options)});`,

@@ -1,18 +1,24 @@
-[![npm][npm]][npm-url]
-[![node][node]][node-url]
-[![deps][deps]][deps-url]
-[![chat][chat]][chat-url]
-
 <div align="center">
   <a href="https://github.com/webpack/webpack">
     <img width="200" height="200"
       src="https://webpack.js.org/assets/icon-square-big.svg">
   </a>
   <h1>Style Loader</h1>
-  <p>Adds CSS to the DOM by injecting a <code>&lt;style&gt;</code> tag</p>
 </div>
 
-<h2 align="center">Install</h2>
+[![npm][npm]][npm-url]
+[![node][node]][node-url]
+[![deps][deps]][deps-url]
+[![tests][tests]][tests-url]
+[![coverage][cover]][cover-url]
+[![chat][chat]][chat-url]
+[![size][size]][size-url]
+
+# style-loader
+
+Adds CSS to the DOM by injecting a <code>&lt;style&gt;</code> tag
+
+## Getting Started
 
 ```bash
 npm install style-loader --save-dev
@@ -131,18 +137,18 @@ Styles are not added on `import/require()`, but instead on call to `use`/`ref`. 
 
 > ⚠️ Behavior is undefined when `unuse`/`unref` is called more often than `use`/`ref`. Don't do that.
 
-<h2 align="center">Options</h2>
+## Options
 
-|            Name             |         Type         |   Default   | Description                                                                                                                    |
-| :-------------------------: | :------------------: | :---------: | :----------------------------------------------------------------------------------------------------------------------------- |
-|          **`hmr`**          |     `{Boolean}`      |   `true`    | Enable/disable Hot Module Replacement (HMR), if disabled no HMR Code will be added (good for non local development/production) |
-|         **`base`**          |      `{Number}`      |   `true`    | Set module ID base (DLLPlugin)                                                                                                 |
-|         **`attrs`**         |      `{Object}`      |    `{}`     | Add custom attrs to `<style></style>`                                                                                          |
-|       **`transform`**       |     `{Function}`     |   `false`   | Transform/Conditionally load CSS by passing a transform/condition function                                                     |
-|       **`insertAt`**        |  `{String\|Object}`  |  `bottom`   | Inserts `<style></style>` at the given position                                                                                |
-|      **`insertInto`**       | `{String\|Function}` |  `<head>`   | Inserts `<style></style>` into the given position                                                                              |
-|       **`singleton`**       |     `{Boolean}`      | `undefined` | Reuses a single `<style></style>` element, instead of adding/removing individual elements for each required module.            |
-|       **`sourceMap`**       |     `{Boolean}`      |   `false`   | Enable/Disable Sourcemaps                                                                                                      |
+|       Name       |         Type         |   Default   | Description                                                                                                                    |
+| :--------------: | :------------------: | :---------: | :----------------------------------------------------------------------------------------------------------------------------- |
+|    **`hmr`**     |     `{Boolean}`      |   `true`    | Enable/disable Hot Module Replacement (HMR), if disabled no HMR Code will be added (good for non local development/production) |
+|    **`base`**    |      `{Number}`      |   `true`    | Set module ID base (DLLPlugin)                                                                                                 |
+|   **`attrs`**    |      `{Object}`      |    `{}`     | Add custom attrs to `<style></style>`                                                                                          |
+| **`transform`**  |     `{Function}`     |   `false`   | Transform/Conditionally load CSS by passing a transform/condition function                                                     |
+|  **`insertAt`**  |  `{String\|Object}`  |  `bottom`   | Inserts `<style></style>` at the given position                                                                                |
+| **`insertInto`** | `{String\|Function}` |  `<head>`   | Inserts `<style></style>` into the given position                                                                              |
+| **`singleton`**  |     `{Boolean}`      | `undefined` | Reuses a single `<style></style>` element, instead of adding/removing individual elements for each required module.            |
+| **`sourceMap`**  |     `{Boolean}`      |   `false`   | Enable/Disable Sourcemaps                                                                                                      |
 
 ### `hmr`
 
@@ -394,71 +400,27 @@ Enable/Disable source map loading
 }
 ```
 
-<h2 align="center">Maintainers</h2>
+## Contributing
 
-<table>
-  <tbody>
-    <tr>
-      <td align="center">
-        <a href="https://github.com/bebraw">
-          <img width="150" height="150" src="https://github.com/bebraw.png?v=3&s=150">
-          </br>
-          Juho Vepsäläinen
-        </a>
-      </td>
-      <td align="center">
-        <a href="https://github.com/d3viant0ne">
-          <img width="150" height="150" src="https://github.com/d3viant0ne.png?v=3&s=150">
-          </br>
-          Joshua Wiens
-        </a>
-      </td>
-      <td align="center">
-        <a href="https://github.com/sapegin">
-          <img width="150" height="150" src="https://github.com/sapegin.png?v=3&s=150">
-          </br>
-          Artem Sapegin
-        </a>
-      </td>
-      <td align="center">
-        <a href="https://github.com/michael-ciniawsky">
-          <img width="150" height="150" src="https://github.com/michael-ciniawsky.png?v=3&s=150">
-          </br>
-          Michael Ciniawsky
-        </a>
-      </td>
-      <td align="center">
-        <a href="https://github.com/evilebottnawi">
-          <img width="150" height="150" src="https://github.com/evilebottnawi.png?v=3&s=150">
-          </br>
-          Alexander Krasnoyarov
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td align="center">
-        <a href="https://github.com/sokra">
-          <img width="150" height="150" src="https://github.com/sokra.png?v=3&s=150">
-          </br>
-          Tobias Koppers
-        </a>
-      </td>
-      <td align="center">
-        <a href="https://github.com/SpaceK33z">
-          <img width="150" height="150" src="https://github.com/SpaceK33z.png?v=3&s=150">
-          </br>
-          Kees Kluskens
-        </a>
-      </td>
-    <tr>
-  <tbody>
-</table>
+Please take a moment to read our contributing guidelines if you haven't yet done so.
+
+[CONTRIBUTING](./.github/CONTRIBUTING.md)
+
+## License
+
+[MIT](./LICENSE)
 
 [npm]: https://img.shields.io/npm/v/style-loader.svg
 [npm-url]: https://npmjs.com/package/style-loader
 [node]: https://img.shields.io/node/v/style-loader.svg
 [node-url]: https://nodejs.org
-[deps]: https://david-dm.org/webpack/style-loader.svg
-[deps-url]: https://david-dm.org/webpack/file-loader
+[deps]: https://david-dm.org/webpack-contrib/style-loader.svg
+[deps-url]: https://david-dm.org/webpack-contrib/style-loader
+[tests]: https://dev.azure.com/webpack-contrib/style-loader/_apis/build/status/webpack-contrib.style-loader?branchName=master
+[tests-url]: https://dev.azure.com/webpack-contrib/style-loader/_build/latest?definitionId=18&branchName=master
+[cover]: https://codecov.io/gh/webpack-contrib/style-loader/branch/master/graph/badge.svg
+[cover-url]: https://codecov.io/gh/webpack-contrib/style-loader
 [chat]: https://badges.gitter.im/webpack/webpack.svg
 [chat-url]: https://gitter.im/webpack/webpack
+[size]: https://packagephobia.now.sh/badge?p=style-loader
+[size-url]: https://packagephobia.now.sh/result?p=style-loader
