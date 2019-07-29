@@ -28,6 +28,7 @@
     "test:only": "cross-env NODE_ENV=test jest",
     "test:watch": "cross-env NODE_ENV=test jest --watch",
     "test:coverage": "cross-env NODE_ENV=test jest --collectCoverageFrom=\"src/**/*.js\" --coverage",
+    "test:manual": "npm run build && webpack-dev-server test/manual/src/index.js --open --config test/manual/webpack.config.js",
     "pretest": "npm run lint",
     "test": "cross-env NODE_ENV=test npm run test:coverage",
     "defaults": "webpack-defaults"
@@ -69,9 +70,13 @@
     "memory-fs": "^0.4.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^1.16.4",
+    "sass": "^1.22.7",
+    "sass-loader": "^7.1.0",
     "semver": "^6.3.0",
     "standard-version": "^6.0.1",
-    "webpack": "^4.29.6"
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2"
   },
   "keywords": [
     "webpack"
