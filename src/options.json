@@ -21,10 +21,6 @@
       "description": "Inserts <style></style> into the given position (https://github.com/webpack-contrib/style-loader#insertinto).",
       "anyOf": [{ "type": "string" }, { "instanceof": "Function" }]
     },
-    "transform": {
-      "description": "Transform/Conditionally load CSS by passing a transform/condition function (https://github.com/webpack-contrib/style-loader#transform).",
-      "type": "string"
-    },
     "singleton": {
       "description": "Reuses a single <style></style> element, instead of adding/removing individual elements for each required module (https://github.com/webpack-contrib/style-loader#singleton).",
       "type": "boolean"

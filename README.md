@@ -151,7 +151,6 @@ Styles are not added on `import/require()`, but instead on call to `use`/`ref`. 
 |    **`hmr`**     |     `{Boolean}`      |   `true`    | Enable/disable Hot Module Replacement (HMR), if disabled no HMR Code will be added (good for non local development/production) |
 |    **`base`**    |      `{Number}`      |   `true`    | Set module ID base (DLLPlugin)                                                                                                 |
 | **`attributes`** |      `{Object}`      |    `{}`     | Add custom attributes to `<style></style>`                                                                                     |
-| **`transform`**  |     `{Function}`     |   `false`   | Transform/Conditionally load CSS by passing a transform/condition function                                                     |
 |  **`insertAt`**  |  `{String\|Object}`  |  `bottom`   | Inserts `<style></style>` at the given position                                                                                |
 | **`insertInto`** | `{String\|Function}` |  `<head>`   | Inserts `<style></style>` into the given position                                                                              |
 | **`singleton`**  |     `{Boolean}`      | `undefined` | Reuses a single `<style></style>` element, instead of adding/removing individual elements for each required module.            |
@@ -300,75 +299,6 @@ module.exports = {
       },
     ],
   },
-};
-```
-
-### `transform`
-
-A `transform` is a function that can modify the css just before it is loaded into the page by the style-loader.
-This function will be called on the css that is about to be loaded and the return value of the function will be loaded into the page instead of the original css.
-If the return value of the `transform` function is falsy, the css will not be loaded into the page at all.
-
-> ⚠️ In case you are using ES Module syntax in `tranform.js` then, you **need to transpile** it or otherwise it will throw an `{Error}`.
-
-**webpack.config.js**
-
-```js
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        loader: 'style-loader',
-        options: {
-          transform: 'path/to/transform.js',
-        },
-      },
-    ],
-  },
-};
-```
-
-**transform.js**
-
-```js
-module.exports = function(css) {
-  // Here we can change the original css
-  return css.replace('.classNameA', '.classNameB');
-};
-```
-
-#### `Conditional`
-
-**webpack.config.js**
-
-```js
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        loader: 'style-loader',
-        options: {
-          transform: 'path/to/conditional.js',
-        },
-      },
-    ],
-  },
-};
-```
-
-**conditional.js**
-
-```js
-module.exports = function(css) {
-  // If the condition is matched load [and transform] the CSS
-  if (css.includes('something I want to check')) {
-    return css;
-  }
-
-  // If a falsy value is returned, the CSS won't be loaded
-  return false;
 };
 ```
 

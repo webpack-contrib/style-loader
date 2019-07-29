@@ -586,36 +586,4 @@ describe('addStyle', () => {
       })
     ).toThrowErrorMatchingSnapshot();
   });
-
-  it('should work with "transform" option', () => {
-    addStyle([['./style-34.css', '.foo { color: red }', '']], {
-      transform: (css) => {
-        return css.replace('red', 'yellow');
-      },
-    });
-
-    expect(document.documentElement.innerHTML).toMatchSnapshot();
-  });
-
-  it('should work with "transform" option #2', () => {
-    addStyle([['./style-35.css', '.foo { color: red }', '']], {
-      transform: {
-        default: (css) => {
-          return css.replace('red', 'yellow');
-        },
-      },
-    });
-
-    expect(document.documentElement.innerHTML).toMatchSnapshot();
-  });
-
-  it('should work with "transform" option #3', () => {
-    addStyle([['./style-36.css', '.foo { color: red }', '']], {
-      transform: () => {
-        return false;
-      },
-    });
-
-    expect(document.documentElement.innerHTML).toMatchSnapshot();
-  });
 });

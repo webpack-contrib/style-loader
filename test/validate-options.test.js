@@ -31,9 +31,6 @@ it('validate options', () => {
   expect(() => validate({ attributes: { id: 'id' } })).not.toThrow();
   expect(() => validate({ attributes: true })).toThrowErrorMatchingSnapshot();
 
-  expect(() => validate({ transform: 'path/to/transform.js' })).not.toThrow();
-  expect(() => validate({ transform: true })).toThrowErrorMatchingSnapshot();
-
   expect(() => validate({ insertAt: 'top' })).not.toThrow();
   expect(() =>
     validate({

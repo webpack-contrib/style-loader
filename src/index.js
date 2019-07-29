@@ -83,20 +83,10 @@ module.exports.pitch = function loader(request) {
     '',
     "if(typeof content === 'string') content = [[module.id, content, '']];",
     '',
-    // Transform styles",
-    'var transform;',
     'var insertInto;',
-    '',
-    options.transform
-      ? `transform = require(${loaderUtils.stringifyRequest(
-          this,
-          `!${path.resolve(options.transform)}`
-        )});`
-      : '',
     '',
     `var options = ${JSON.stringify(options)}`,
     '',
-    'options.transform = transform',
     `options.insertInto = ${insertInto};`,
     '',
     // Add styles to the DOM
