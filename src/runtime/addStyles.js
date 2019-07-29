@@ -28,6 +28,7 @@ var getTarget = function(target, parent) {
   if (parent) {
     return parent.querySelector(target);
   }
+
   return document.querySelector(target);
 };
 
@@ -190,7 +191,26 @@ function listToStyles(list, options) {
   return styles;
 }
 
-function insertStyleElement(options, style) {
+function insertStyleElement(options) {
+  var style = document.createElement('style');
+
+  if (options.attributes.type === undefined) {
+    options.attributes.type = 'text/css';
+  }
+
+  if (options.attributes.nonce === undefined) {
+    var nonce =
+      typeof __webpack_nonce__ !== 'undefined' ? __webpack_nonce__ : null;
+
+    if (nonce) {
+      options.attributes.nonce = nonce;
+    }
+  }
+
+  Object.keys(options.attributes).forEach((key) => {
+    style.setAttribute(key, options.attributes[key]);
+  });
+
   var target = getElement(options.insertInto);
 
   if (!target) {
@@ -223,6 +243,8 @@ function insertStyleElement(options, style) {
       "[Style Loader]\n\n Invalid value for parameter 'insertAt' ('options.insertAt') found.\n Must be 'top', 'bottom', or Object.\n (https://github.com/webpack-contrib/style-loader#insertat)\n"
     );
   }
+
+  return style;
 }
 
 function removeStyleElement(style) {
@@ -239,50 +261,19 @@ function removeStyleElement(style) {
   }
 }
 
-function createStyleElement(options) {
-  var style = document.createElement('style');
-
-  if (options.attributes.type === undefined) {
-    options.attributes.type = 'text/css';
-  }
-
-  if (options.attributes.nonce === undefined) {
-    var nonce = getNonce();
-
-    if (nonce) {
-      options.attributes.nonce = nonce;
-    }
-  }
-
-  Object.keys(options.attributes).forEach((key) => {
-    style.setAttribute(key, options.attributes[key]);
-  });
-
-  insertStyleElement(options, style);
-
-  return style;
-}
-
-function getNonce() {
-  if (typeof __webpack_nonce__ === 'undefined') {
-    return null;
-  }
-
-  return __webpack_nonce__;
-}
-
 function addStyle(obj, options) {
   var style, update, remove, result;
 
   if (options.singleton) {
     var styleIndex = singletonCounter++;
 
-    style = singleton || (singleton = createStyleElement(options));
+    style = singleton || (singleton = insertStyleElement(options));
 
     update = applyToSingletonTag.bind(null, style, styleIndex, false);
     remove = applyToSingletonTag.bind(null, style, styleIndex, true);
   } else {
-    style = createStyleElement(options);
+    style = insertStyleElement(options);
+
     update = applyToTag.bind(null, style, options);
     remove = function() {
       removeStyleElement(style);
