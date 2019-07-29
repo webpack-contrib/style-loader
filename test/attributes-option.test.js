@@ -1,18 +1,25 @@
-/* eslint-env browser */
-
 import compile from './helpers/compiler';
 import runTestInJsdom from './helpers/runTestInJsdom';
 
-describe('loader', () => {
+describe('attributes option', () => {
   const injectTypes = ['styleTag', 'useableStyleTag', 'linkTag'];
 
   injectTypes.forEach((injectType) => {
-    expect.assertions(3);
+    it(`should add attributes to tag ("injectType" option is "${injectType}")`, async () => {
+      expect.assertions(3);
 
-    it(`should work ("injectType" option is "${injectType}")`, async () => {
       const testId =
         injectType === 'useableStyleTag' ? './useable.js' : './simple.js';
-      const stats = await compile(testId, { loader: { injectType } });
+      const stats = await compile(testId, {
+        loader: {
+          injectType,
+          options: {
+            attributes: {
+              id: 'style-tag-id',
+            },
+          },
+        },
+      });
 
       runTestInJsdom(stats, (dom) => {
         expect(dom.serialize()).toMatchSnapshot('DOM');
@@ -22,18 +29,18 @@ describe('loader', () => {
       expect(stats.compilation.errors).toMatchSnapshot('errors');
     });
 
-    it(`should work with css modules ("injectType" option is "${injectType}")`, async () => {
+    it(`should override/add default type attribute to tag ("injectType" option is "${injectType}")`, async () => {
       expect.assertions(3);
 
       const testId =
-        injectType === 'useableStyleTag'
-          ? './useable-css-modules.js'
-          : './css-modules.js';
+        injectType === 'useableStyleTag' ? './useable.js' : './simple.js';
       const stats = await compile(testId, {
-        loader: { injectType },
-        cssLoader: {
+        loader: {
+          injectType,
           options: {
-            modules: { localIdentName: '[name]-[local]_[hash:base64:7]' },
+            attributes: {
+              type: 'text/less',
+            },
           },
         },
       });
@@ -47,13 +54,25 @@ describe('loader', () => {
     });
   });
 
-  it('should work for useable inject type and negative ref', async () => {
+  it('should add nonce attribute', async () => {
     expect.assertions(3);
 
-    const testId = './useable-negative-refs.js';
-    const stats = await compile(testId, {
-      loader: { injectType: 'useableStyleTag' },
+    const testId = './nonce-require.js';
+    const stats = await compile(testId);
+
+    runTestInJsdom(stats, (dom) => {
+      expect(dom.serialize()).toMatchSnapshot('DOM');
     });
+
+    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
+    expect(stats.compilation.errors).toMatchSnapshot('errors');
+  });
+
+  it('should add nonce attribute #2', async () => {
+    expect.assertions(3);
+
+    const testId = './nonce-import.js';
+    const stats = await compile(testId);
 
     runTestInJsdom(stats, (dom) => {
       expect(dom.serialize()).toMatchSnapshot('DOM');

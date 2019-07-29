@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`hmr option false with HotModuleReplacementPlugin ("injectType" option is "linkTag"): errors 1`] = `Array []`;
+
+exports[`hmr option false with HotModuleReplacementPlugin ("injectType" option is "linkTag"): warnings 1`] = `Array []`;
+
+exports[`hmr option false with HotModuleReplacementPlugin ("injectType" option is "styleTag"): errors 1`] = `Array []`;
+
+exports[`hmr option false with HotModuleReplacementPlugin ("injectType" option is "styleTag"): warnings 1`] = `Array []`;
+
+exports[`hmr option false with HotModuleReplacementPlugin ("injectType" option is "useableStyleTag"): errors 1`] = `Array []`;
+
+exports[`hmr option false with HotModuleReplacementPlugin ("injectType" option is "useableStyleTag"): warnings 1`] = `Array []`;
+
+exports[`hmr option false without HotModuleReplacementPlugin ("injectType" option is "linkTag"): errors 1`] = `Array []`;
+
+exports[`hmr option false without HotModuleReplacementPlugin ("injectType" option is "linkTag"): warnings 1`] = `Array []`;
+
+exports[`hmr option false without HotModuleReplacementPlugin ("injectType" option is "styleTag"): errors 1`] = `Array []`;
+
+exports[`hmr option false without HotModuleReplacementPlugin ("injectType" option is "styleTag"): warnings 1`] = `Array []`;
+
+exports[`hmr option false without HotModuleReplacementPlugin ("injectType" option is "useableStyleTag"): errors 1`] = `Array []`;
+
+exports[`hmr option false without HotModuleReplacementPlugin ("injectType" option is "useableStyleTag"): warnings 1`] = `Array []`;
+
+exports[`hmr option not specified with HotModuleReplacementPlugin ("injectType" option is "linkTag"): errors 1`] = `Array []`;
+
+exports[`hmr option not specified with HotModuleReplacementPlugin ("injectType" option is "linkTag"): warnings 1`] = `Array []`;
+
+exports[`hmr option not specified with HotModuleReplacementPlugin ("injectType" option is "styleTag"): errors 1`] = `Array []`;
+
+exports[`hmr option not specified with HotModuleReplacementPlugin ("injectType" option is "styleTag"): warnings 1`] = `Array []`;
+
+exports[`hmr option not specified with HotModuleReplacementPlugin ("injectType" option is "useableStyleTag"): errors 1`] = `Array []`;
+
+exports[`hmr option not specified with HotModuleReplacementPlugin ("injectType" option is "useableStyleTag"): warnings 1`] = `Array []`;
+
+exports[`hmr option not specified without HotModuleReplacementPlugin ("injectType" option is "linkTag"): errors 1`] = `Array []`;
+
+exports[`hmr option not specified without HotModuleReplacementPlugin ("injectType" option is "linkTag"): warnings 1`] = `Array []`;
+
+exports[`hmr option not specified without HotModuleReplacementPlugin ("injectType" option is "styleTag"): errors 1`] = `Array []`;
+
+exports[`hmr option not specified without HotModuleReplacementPlugin ("injectType" option is "styleTag"): warnings 1`] = `Array []`;
+
+exports[`hmr option not specified without HotModuleReplacementPlugin ("injectType" option is "useableStyleTag"): errors 1`] = `Array []`;
+
+exports[`hmr option not specified without HotModuleReplacementPlugin ("injectType" option is "useableStyleTag"): warnings 1`] = `Array []`;
+
+exports[`hmr option true with HotModuleReplacementPlugin ("injectType" option is "linkTag"): errors 1`] = `Array []`;
+
+exports[`hmr option true with HotModuleReplacementPlugin ("injectType" option is "linkTag"): warnings 1`] = `Array []`;
+
+exports[`hmr option true with HotModuleReplacementPlugin ("injectType" option is "styleTag"): errors 1`] = `Array []`;
+
+exports[`hmr option true with HotModuleReplacementPlugin ("injectType" option is "styleTag"): warnings 1`] = `Array []`;
+
+exports[`hmr option true with HotModuleReplacementPlugin ("injectType" option is "useableStyleTag"): errors 1`] = `Array []`;
+
+exports[`hmr option true with HotModuleReplacementPlugin ("injectType" option is "useableStyleTag"): warnings 1`] = `Array []`;
+
+exports[`hmr option true without HotModuleReplacementPlugin ("injectType" option is "linkTag"): errors 1`] = `Array []`;
+
+exports[`hmr option true without HotModuleReplacementPlugin ("injectType" option is "linkTag"): warnings 1`] = `Array []`;
+
+exports[`hmr option true without HotModuleReplacementPlugin ("injectType" option is "styleTag"): errors 1`] = `Array []`;
+
+exports[`hmr option true without HotModuleReplacementPlugin ("injectType" option is "styleTag"): warnings 1`] = `Array []`;
+
+exports[`hmr option true without HotModuleReplacementPlugin ("injectType" option is "useableStyleTag"): errors 1`] = `Array []`;
+
+exports[`hmr option true without HotModuleReplacementPlugin ("injectType" option is "useableStyleTag"): warnings 1`] = `Array []`;

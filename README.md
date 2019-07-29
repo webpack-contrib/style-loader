@@ -16,7 +16,7 @@
 
 # style-loader
 
-Adds CSS to the DOM by injecting a <code>&lt;style&gt;</code> tag
+Adds CSS to the DOM.
 
 ## Getting Started
 
