@@ -304,7 +304,7 @@ function addStyle(obj, options) {
     remove = applyToSingletonTag.bind(null, style, styleIndex, true);
   } else {
     style = createStyleElement(options);
-    update = applyToTag.bind(null, style);
+    update = applyToTag.bind(null, style, options);
     remove = function() {
       removeStyleElement(style);
     };
@@ -363,7 +363,7 @@ function applyToSingletonTag(style, index, remove, obj) {
   }
 }
 
-function applyToTag(style, obj) {
+function applyToTag(style, options, obj) {
   var css = obj.css;
   var media = obj.media;
   var sourceMap = obj.sourceMap;
@@ -372,7 +372,7 @@ function applyToTag(style, obj) {
     style.setAttribute('media', media);
   }
 
-  if (sourceMap) {
+  if (options.sourceMap && sourceMap) {
     css +=
       '\n/*# sourceURL=' +
       sourceMap.sources[0] +
