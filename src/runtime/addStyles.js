@@ -372,11 +372,8 @@ function applyToTag(style, options, obj) {
     style.setAttribute('media', media);
   }
 
-  if (options.sourceMap && sourceMap) {
+  if (options.sourceMap && sourceMap && btoa) {
     css +=
-      '\n/*# sourceURL=' +
-      sourceMap.sources[0] +
-      ' */' +
       // http://stackoverflow.com/a/26603875
       '\n/*# sourceMappingURL=data:application/json;base64,' +
       btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) +
