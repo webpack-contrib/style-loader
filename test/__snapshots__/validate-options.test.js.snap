@@ -21,18 +21,12 @@ exports[`validate options 3`] = `
 
 exports[`validate options 4`] = `
 "Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
- - options.transform should be a string.
-   -> Transform/Conditionally load CSS by passing a transform/condition function (https://github.com/webpack-contrib/style-loader#transform)."
-`;
-
-exports[`validate options 5`] = `
-"Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
  - options.insertAt should be:
    string | object
    -> Inserts <style></style> at the given position (https://github.com/webpack-contrib/style-loader#insertat)."
 `;
 
-exports[`validate options 6`] = `
+exports[`validate options 5`] = `
 "Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
  - options.insertInto should be one of these:
    string | function
@@ -42,20 +36,20 @@ exports[`validate options 6`] = `
     * options.insertInto should be an instance of function."
 `;
 
-exports[`validate options 7`] = `
+exports[`validate options 6`] = `
 "Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
  - options.singleton should be a boolean.
    -> Reuses a single <style></style> element, instead of adding/removing individual elements for each required module (https://github.com/webpack-contrib/style-loader#singleton)."
 `;
 
-exports[`validate options 8`] = `
+exports[`validate options 7`] = `
 "Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
  - options.sourceMap should be a boolean.
    -> Enable/Disable Sourcemaps (https://github.com/webpack-contrib/style-loader#sourcemap)."
 `;
 
-exports[`validate options 9`] = `
+exports[`validate options 8`] = `
 "Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { hmr?, base?, attributes?, insertAt?, insertInto?, transform?, singleton?, sourceMap? }"
+   object { hmr?, base?, attributes?, insertAt?, insertInto?, singleton?, sourceMap? }"
 `;

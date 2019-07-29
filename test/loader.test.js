@@ -535,65 +535,6 @@ describe('basic tests', () => {
     });
   });
 
-  describe('transform function', () => {
-    it('should not load the css if the transform function returns false', (done) => {
-      styleLoaderOptions.transform = 'test/transforms/false';
-
-      runCompilerTest(existingStyle, done);
-    });
-
-    it('should not load the css if the transform function returns undefined', (done) => {
-      styleLoaderOptions.transform = 'test/transforms/noop';
-
-      runCompilerTest(existingStyle, done);
-    });
-
-    it('should load the transformed css returned by the transform function', (done) => {
-      // eslint-disable-next-line global-require
-      const transform = require('./transforms/transform');
-
-      styleLoaderOptions.transform = 'test/transforms/transform';
-
-      const expectedTansformedStyle = transform(requiredStyle);
-      const expected = [existingStyle, expectedTansformedStyle].join('\n');
-
-      runCompilerTest(expected, done);
-    });
-
-    it('es6 export: should throw error transform is not a function', (done) => {
-      // eslint-disable-next-line global-require
-      const transform = require('./transforms/transform_es6');
-
-      styleLoaderOptions.transform = 'test/transforms/transform_es6';
-
-      // const expectedTansformedStyle = transform(requiredStyle);
-      const expected = new TypeError('transform is not a function').message;
-
-      // eslint-disable-next-line consistent-return
-      runCompilerTest(expected, done, () => {
-        try {
-          transform(requiredStyle);
-        } catch (error) {
-          return error.message;
-        }
-      });
-    });
-
-    it('es6 export: should not throw any error', (done) => {
-      // eslint-disable-next-line global-require
-      const transform = require('./transforms/transform_es6');
-
-      styleLoaderOptions.transform = 'test/transforms/transform_es6';
-
-      const expectedTansformedStyle = transform[Object.keys(transform)[0]](
-        requiredStyle
-      );
-      const expected = [existingStyle, expectedTansformedStyle].join('\n');
-
-      runCompilerTest(expected, done);
-    });
-  });
-
   describe('HMR', () => {
     it('should output HMR code block by default', (done) => {
       setupWebpackConfig({
