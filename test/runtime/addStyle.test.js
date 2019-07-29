@@ -37,22 +37,22 @@ describe('addStyle', () => {
     expect(document.documentElement.innerHTML).toMatchSnapshot();
   });
 
-  it('should work with "attrs" option', () => {
+  it('should work with "attributes" option', () => {
     addStyle([['./style-3.css', '.foo { color: red }', '']], {
-      attrs: { foo: 'bar' },
+      attributes: { foo: 'bar' },
     });
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
   });
 
-  it('should work with "attrs" option #2', () => {
+  it('should work with "attributes" option #2', () => {
     addStyle(
       [
         ['./style-4-1.css', '.foo { color: red }', ''],
         ['./style-4-2.css', '.bar { color: blue }', ''],
       ],
       {
-        attrs: { foo: 'bar' },
+        attributes: { foo: 'bar' },
       }
     );
 

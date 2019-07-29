@@ -249,9 +249,9 @@ describe('basic tests', () => {
     runCompilerTest(expected, done);
   });
 
-  it('attrs', (done) => {
+  it('attributes', (done) => {
     // Setup
-    styleLoaderOptions.attrs = { id: 'style-tag-id' };
+    styleLoaderOptions.attributes = { id: 'style-tag-id' };
 
     fs.writeFileSync(
       `${rootDir}main.js`,
@@ -261,7 +261,7 @@ describe('basic tests', () => {
     // Run
     const expected = [
       existingStyle,
-      `<style id="${styleLoaderOptions.attrs.id}" type="text/css">${requiredCss}</style>`,
+      `<style id="${styleLoaderOptions.attributes.id}" type="text/css">${requiredCss}</style>`,
     ].join('\n');
 
     runCompilerTest(expected, done);
@@ -290,7 +290,7 @@ describe('basic tests', () => {
 
   it('type attribute', (done) => {
     // Setup
-    styleLoaderOptions.attrs = { type: 'text/less' };
+    styleLoaderOptions.attributes = { type: 'text/less' };
 
     fs.writeFileSync(
       `${rootDir}main.js`,
@@ -300,7 +300,7 @@ describe('basic tests', () => {
     // Run
     const expected = [
       existingStyle,
-      `<style type="${styleLoaderOptions.attrs.type}">${requiredCss}</style>`,
+      `<style type="${styleLoaderOptions.attributes.type}">${requiredCss}</style>`,
     ].join('\n');
 
     runCompilerTest(expected, done);
@@ -324,12 +324,12 @@ describe('basic tests', () => {
     runCompilerTest(expected, done);
   });
 
-  it('url with attrs', (done) => {
+  it('url with attributes', (done) => {
     cssRule.use = [
       {
         loader: path.resolve(__dirname, '../src/url-loader.js'),
         options: {
-          attrs: {
+          attributes: {
             'data-attr-1': 'attr-value-1',
             'data-attr-2': 'attr-value-2',
           },
@@ -352,7 +352,7 @@ describe('basic tests', () => {
       {
         loader: path.resolve(__dirname, '../src/url-loader.js'),
         options: {
-          attrs: {
+          attributes: {
             type: 'text/less',
           },
         },

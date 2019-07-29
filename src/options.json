@@ -9,8 +9,8 @@
       "description": "Set module ID base for DLLPlugin (https://github.com/webpack-contrib/style-loader#base).",
       "type": "number"
     },
-    "attrs": {
-      "description": "Add custom attrs to <style></style> (https://github.com/webpack-contrib/style-loader#attrs).",
+    "attributes": {
+      "description": "Add custom attributes to tag (https://github.com/webpack-contrib/style-loader#attributes).",
       "type": "object"
     },
     "insertAt": {

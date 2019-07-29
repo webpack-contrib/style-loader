@@ -27,9 +27,9 @@ it('validate options', () => {
   expect(() => validate({ base: 1000 })).not.toThrow();
   expect(() => validate({ base: 'unknown' })).toThrowErrorMatchingSnapshot();
 
-  expect(() => validate({ attrs: {} })).not.toThrow();
-  expect(() => validate({ attrs: { attrs: { id: 'id' } } })).not.toThrow();
-  expect(() => validate({ attrs: true })).toThrowErrorMatchingSnapshot();
+  expect(() => validate({ attributes: {} })).not.toThrow();
+  expect(() => validate({ attributes: { id: 'id' } })).not.toThrow();
+  expect(() => validate({ attributes: true })).toThrowErrorMatchingSnapshot();
 
   expect(() => validate({ transform: 'path/to/transform.js' })).not.toThrow();
   expect(() => validate({ transform: true })).toThrowErrorMatchingSnapshot();

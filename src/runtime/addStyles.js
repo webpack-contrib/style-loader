@@ -85,7 +85,8 @@ module.exports = function(list, options) {
 
   options = options || {};
 
-  options.attrs = typeof options.attrs === 'object' ? options.attrs : {};
+  options.attributes =
+    typeof options.attributes === 'object' ? options.attributes : {};
 
   // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
   // tags it will allow on a page
@@ -241,20 +242,20 @@ function removeStyleElement(style) {
 function createStyleElement(options) {
   var style = document.createElement('style');
 
-  if (options.attrs.type === undefined) {
-    options.attrs.type = 'text/css';
+  if (options.attributes.type === undefined) {
+    options.attributes.type = 'text/css';
   }
 
-  if (options.attrs.nonce === undefined) {
+  if (options.attributes.nonce === undefined) {
     var nonce = getNonce();
 
     if (nonce) {
-      options.attrs.nonce = nonce;
+      options.attributes.nonce = nonce;
     }
   }
 
-  Object.keys(options.attrs).forEach((key) => {
-    style.setAttribute(key, options.attrs[key]);
+  Object.keys(options.attributes).forEach((key) => {
+    style.setAttribute(key, options.attributes[key]);
   });
 
   insertStyleElement(options, style);
