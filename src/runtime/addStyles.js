@@ -278,7 +278,8 @@ function addStyle(obj, options) {
     result =
       typeof options.transform === 'function'
         ? options.transform(obj.css)
-        : options.transform.default(obj.css);
+        : // ES3 compatibility
+          options.transform['default'](obj.css);
 
     if (result) {
       // If transform returns a value, use that instead of the original css.
