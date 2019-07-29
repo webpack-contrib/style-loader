@@ -16,8 +16,8 @@ describe('addStyle', () => {
     expect(document.documentElement.innerHTML).toMatchSnapshot();
   });
 
-  it('should work with "attrs" option', () => {
-    addStyleUrl('./style-1.css', { attrs: { foo: 'bar' } });
+  it('should work with "attributes" option', () => {
+    addStyleUrl('./style-1.css', { attributes: { foo: 'bar' } });
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
   });

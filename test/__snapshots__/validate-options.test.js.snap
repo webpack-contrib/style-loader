@@ -14,9 +14,9 @@ exports[`validate options 2`] = `
 
 exports[`validate options 3`] = `
 "Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
- - options.attrs should be an object:
+ - options.attributes should be an object:
    object { … }
-   -> Add custom attrs to <style></style> (https://github.com/webpack-contrib/style-loader#attrs)."
+   -> Add custom attributes to tag (https://github.com/webpack-contrib/style-loader#attributes)."
 `;
 
 exports[`validate options 4`] = `
@@ -57,5 +57,5 @@ exports[`validate options 8`] = `
 exports[`validate options 9`] = `
 "Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { hmr?, base?, attrs?, insertAt?, insertInto?, transform?, singleton?, sourceMap? }"
+   object { hmr?, base?, attributes?, insertAt?, insertInto?, transform?, singleton?, sourceMap? }"
 `;

@@ -20,38 +20,48 @@ Adds CSS to the DOM by injecting a <code>&lt;style&gt;</code> tag
 
 ## Getting Started
 
-```bash
-npm install style-loader --save-dev
+To begin, you'll need to install `css-loader`:
+
+```console
+npm install --save-dev style-loader
 ```
 
-<h2 align="center">Usage</h2>
+It's recommended to combine `style-loader` with the [`css-loader`](https://github.com/webpack-contrib/css-loader)
 
-It's recommended to combine `style-loader` with the [`css-loader`](https://github.com/webpack/css-loader)
+Then add the loader to your `webpack` config. For example:
+
+**style.css**
+
+```css
+body {
+  background: green;
+}
+```
 
 **component.js**
 
 ```js
-import style from './file.css';
+import style from './style.css';
 ```
 
 **webpack.config.js**
 
 ```js
-{
+module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
       },
     ],
-  }
-}
+  },
+};
 ```
 
-#### `Locals (CSS Modules)`
+### `Locals (CSS Modules)`
 
-When using [local scoped CSS](https://github.com/webpack/css-loader#css-scope) the module exports the generated identifiers (locals).
+When using [local scoped CSS](https://github.com/webpack/css-loader#css-scope) the module exports the generated identifiers (locals):
 
 **component.js**
 
@@ -72,7 +82,7 @@ import url from 'file.css';
 **webpack.config.js**
 
 ```js
-{
+module.exports = {
   module: {
     rules: [
       {
@@ -80,8 +90,8 @@ import url from 'file.css';
         use: [{ loader: 'style-loader/url' }, { loader: 'file-loader' }],
       },
     ],
-  }
-}
+  },
+};
 ```
 
 ```html
@@ -97,29 +107,26 @@ By convention the `Reference Counter API` should be bound to `.useable.css` and 
 **webpack.config.js**
 
 ```js
-{
+module.exports = {
   module: {
     rules: [
       {
         test: /\.css$/,
         exclude: /\.useable\.css$/,
-        use: [
-          { loader: "style-loader" },
-          { loader: "css-loader" },
-        ],
+        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
       },
       {
         test: /\.useable\.css$/,
         use: [
           {
-            loader: "style-loader/useable"
+            loader: 'style-loader/useable',
           },
-          { loader: "css-loader" },
+          { loader: 'css-loader' },
         ],
       },
     ],
   },
-}
+};
 ```
 
 #### `Reference Counter API`
@@ -143,7 +150,7 @@ Styles are not added on `import/require()`, but instead on call to `use`/`ref`. 
 | :--------------: | :------------------: | :---------: | :----------------------------------------------------------------------------------------------------------------------------- |
 |    **`hmr`**     |     `{Boolean}`      |   `true`    | Enable/disable Hot Module Replacement (HMR), if disabled no HMR Code will be added (good for non local development/production) |
 |    **`base`**    |      `{Number}`      |   `true`    | Set module ID base (DLLPlugin)                                                                                                 |
-|   **`attrs`**    |      `{Object}`      |    `{}`     | Add custom attrs to `<style></style>`                                                                                          |
+| **`attributes`** |      `{Object}`      |    `{}`     | Add custom attributes to `<style></style>`                                                                                     |
 | **`transform`**  |     `{Function}`     |   `false`   | Transform/Conditionally load CSS by passing a transform/condition function                                                     |
 |  **`insertAt`**  |  `{String\|Object}`  |  `bottom`   | Inserts `<style></style>` at the given position                                                                                |
 | **`insertInto`** | `{String\|Function}` |  `<head>`   | Inserts `<style></style>` into the given position                                                                              |
@@ -158,12 +165,24 @@ This could be used for non local development and production.
 **webpack.config.js**
 
 ```js
-{
-  loader: 'style-loader',
-  options: {
-    hmr: false
-  }
-}
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          {
+            loader: 'style-loader',
+            options: {
+              hmr: false,
+            },
+          },
+          { loader: 'css-loader' },
+        ],
+      },
+    ],
+  },
+};
 ```
 
 ### `base`
@@ -173,40 +192,60 @@ This setting is primarily used as a workaround for [css clashes](https://github.
 **webpack.dll1.config.js**
 
 ```js
-{
-  test: /\.css$/,
-  use: [
-    'style-loader',
-    'css-loader'
-  ]
-}
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          { loader: 'css-loader' },
+        ],
+      },
+    ],
+  },
+};
 ```
 
 **webpack.dll2.config.js**
 
 ```js
-{
-  test: /\.css$/,
-  use: [
-    { loader: 'style-loader', options: { base: 1000 } },
-    'css-loader'
-  ]
-}
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          { loader: 'style-loader', options: { base: 1000 } },
+          { loader: 'css-loader' },
+        ],
+      },
+    ],
+  },
+};
 ```
 
 **webpack.app.config.js**
 
-```
-{
-  test: /\.css$/,
-  use: [
-    { loader: 'style-loader', options: { base: 2000 } },
-    'css-loader'
-  ]
-}
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          { loader: 'style-loader', options: { base: 2000 } },
+          { loader: 'css-loader' },
+        ],
+      },
+    ],
+  },
+};
 ```
 
-### `attrs`
+### `attributes`
 
 If defined, style-loader will attach given attributes with their values on `<style>` / `<link>` element.
 
@@ -219,13 +258,19 @@ import style from './file.css';
 **webpack.config.js**
 
 ```js
-{
-  test: /\.css$/,
-  use: [
-    { loader: 'style-loader', options: { attrs: { id: 'id' } } }
-    { loader: 'css-loader' }
-  ]
-}
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          { loader: 'style-loader', options: { attributes: { id: 'id' } } },
+          { loader: 'css-loader' },
+        ],
+      },
+    ],
+  },
+};
 ```
 
 ```html
@@ -243,13 +288,19 @@ import link from './file.css';
 **webpack.config.js**
 
 ```js
-{
-  test: /\.css$/,
-  use: [
-    { loader: 'style-loader/url', options: { attrs: { id: 'id' } } }
-    { loader: 'file-loader' }
-  ]
-}
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          { loader: 'style-loader/url', options: { attributes: { id: 'id' } } },
+          { loader: 'file-loader' },
+        ],
+      },
+    ],
+  },
+};
 ```
 
 ### `transform`
@@ -263,12 +314,19 @@ If the return value of the `transform` function is falsy, the css will not be lo
 **webpack.config.js**
 
 ```js
-{
-  loader: 'style-loader',
-  options: {
-    transform: 'path/to/transform.js'
-  }
-}
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        loader: 'style-loader',
+        options: {
+          transform: 'path/to/transform.js',
+        },
+      },
+    ],
+  },
+};
 ```
 
 **transform.js**
@@ -276,9 +334,7 @@ If the return value of the `transform` function is falsy, the css will not be lo
 ```js
 module.exports = function(css) {
   // Here we can change the original css
-  const transformed = css.replace('.classNameA', '.classNameB');
-
-  return transformed;
+  return css.replace('.classNameA', '.classNameB');
 };
 ```
 
@@ -287,12 +343,19 @@ module.exports = function(css) {
 **webpack.config.js**
 
 ```js
-{
-  loader: 'style-loader',
-  options: {
-    transform: 'path/to/conditional.js'
-  }
-}
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        loader: 'style-loader',
+        options: {
+          transform: 'path/to/conditional.js',
+        },
+      },
+    ],
+  },
+};
 ```
 
 **conditional.js**
@@ -303,6 +366,7 @@ module.exports = function(css) {
   if (css.includes('something I want to check')) {
     return css;
   }
+
   // If a falsy value is returned, the CSS won't be loaded
   return false;
 };
@@ -315,12 +379,24 @@ By default, the style-loader appends `<style>` elements to the end of the style 
 **webpack.config.js**
 
 ```js
-{
-  loader: 'style-loader',
-  options: {
-    insertAt: 'top'
-  }
-}
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          {
+            loader: 'style-loader',
+            options: {
+              insertAt: 'top',
+            },
+          },
+          { loader: 'css-loader' },
+        ],
+      },
+    ],
+  },
+};
 ```
 
 A new `<style>` element can be inserted before a specific element by passing an object, e.g.
@@ -328,14 +404,26 @@ A new `<style>` element can be inserted before a specific element by passing an 
 **webpack.config.js**
 
 ```js
-{
-  loader: 'style-loader',
-  options: {
-    insertAt: {
-        before: '#id'
-    }
-  }
-}
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          {
+            loader: 'style-loader',
+            options: {
+              insertAt: {
+                before: '#id',
+              },
+            },
+          },
+          { loader: 'css-loader' },
+        ],
+      },
+    ],
+  },
+};
 ```
 
 ### `insertInto`
@@ -347,12 +435,24 @@ You can also pass function to override default behavior and insert styles in you
 **webpack.config.js**
 
 ```js
-{
-  loader: 'style-loader',
-  options: {
-    insertInto: () => document.querySelector("#root"),
-  }
-}
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          {
+            loader: 'style-loader',
+            options: {
+              insertInto: () => document.querySelector('#root'),
+            },
+          },
+          { loader: 'css-loader' },
+        ],
+      },
+    ],
+  },
+};
 ```
 
 Using function you can insert the styles into a [ShadowRoot](https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot), e.g
@@ -360,12 +460,24 @@ Using function you can insert the styles into a [ShadowRoot](https://developer.m
 **webpack.config.js**
 
 ```js
-{
-  loader: 'style-loader',
-  options: {
-    insertInto: () => document.querySelector("#root").shadowRoot,
-  }
-}
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          {
+            loader: 'style-loader',
+            options: {
+              insertInto: () => document.querySelector('#root').shadowRoot,
+            },
+          },
+          { loader: 'css-loader' },
+        ],
+      },
+    ],
+  },
+};
 ```
 
 ### `singleton`
@@ -377,12 +489,19 @@ If defined, the style-loader will reuse a single `<style></style>` element, inst
 **webpack.config.js**
 
 ```js
-{
-  loader: 'style-loader',
-  options: {
-    singleton: true
-  }
-}
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          { loader: 'style-loader', options: { singleton: true } },
+          { loader: 'css-loader' },
+        ],
+      },
+    ],
+  },
+};
 ```
 
 ### `sourceMap`
@@ -392,12 +511,19 @@ Enable/Disable source map loading
 **webpack.config.js**
 
 ```js
-{
-  loader: 'style-loader',
-  options: {
-    sourceMap: true
-  }
-}
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          { loader: 'style-loader', options: { sourceMap: true } },
+          { loader: 'css-loader', options: { sourceMap: true } },
+        ],
+      },
+    ],
+  },
+};
 ```
 
 ## Contributing
