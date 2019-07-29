@@ -8,6 +8,7 @@ function addAttrs(element, attrs) {
 }
 
 module.exports = function addStyleUrl(url, options) {
+  /* istanbul ignore if  */
   if (typeof DEBUG !== 'undefined' && DEBUG) {
     if (typeof document !== 'object') {
       throw new Error(
@@ -29,7 +30,7 @@ module.exports = function addStyleUrl(url, options) {
 
   addAttrs(link, options.attrs);
 
-  const [head] = document.getElementsByTagName('head');
+  const head = document.getElementsByTagName('head')[0];
 
   head.appendChild(link);
 

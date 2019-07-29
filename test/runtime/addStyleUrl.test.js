@@ -15,4 +15,10 @@ describe('addStyle', () => {
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
   });
+
+  it('should work with "attrs" option', () => {
+    addStyleUrl('./style-1.css', { attrs: { foo: 'bar' } });
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+  });
 });
