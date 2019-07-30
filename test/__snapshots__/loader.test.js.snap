@@ -1,0 +1,156 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`loader should work ("injectType" option is "linkTag"): DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<link rel=\\"stylesheet\\" type=\\"text/css\\" href=\\"ceb98dd1e5ab94be0d4081cb8b89f79d.css\\"></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`loader should work ("injectType" option is "linkTag"): errors 1`] = `Array []`;
+
+exports[`loader should work ("injectType" option is "linkTag"): warnings 1`] = `Array []`;
+
+exports[`loader should work ("injectType" option is "styleTag"): DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style type=\\"text/css\\">body {
+  color: red;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`loader should work ("injectType" option is "styleTag"): errors 1`] = `Array []`;
+
+exports[`loader should work ("injectType" option is "styleTag"): warnings 1`] = `Array []`;
+
+exports[`loader should work ("injectType" option is "useableStyleTag"): DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style type=\\"text/css\\">h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`loader should work ("injectType" option is "useableStyleTag"): errors 1`] = `Array []`;
+
+exports[`loader should work ("injectType" option is "useableStyleTag"): warnings 1`] = `Array []`;
+
+exports[`loader should work for useable inject type and negative ref: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style type=\\"text/css\\">body {
+  color: red;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`loader should work for useable inject type and negative ref: errors 1`] = `Array []`;
+
+exports[`loader should work for useable inject type and negative ref: warnings 1`] = `Array []`;
+
+exports[`loader should work with css modules ("injectType" option is "linkTag"): DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<link rel=\\"stylesheet\\" type=\\"text/css\\" href=\\"c0991b068ef7e388f9ad3ad2b823d126.css\\"></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+<div class=\\"undefined\\">Water</div><div class=\\"undefined\\">Ground</div></body></html>"
+`;
+
+exports[`loader should work with css modules ("injectType" option is "linkTag"): errors 1`] = `Array []`;
+
+exports[`loader should work with css modules ("injectType" option is "linkTag"): warnings 1`] = `Array []`;
+
+exports[`loader should work with css modules ("injectType" option is "styleTag"): DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style type=\\"text/css\\">.css-modules-local-scoped-className_2SS6AUo {
+  background: red;
+}
+</style><style type=\\"text/css\\">.css-modules-myClassName_29qd4Wo {
+  background: red;
+}
+
+.css-modules-myComposingClass_EtB1JLd {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+<div class=\\"css-modules-myClassName_29qd4Wo\\">Water</div><div class=\\"css-modules-myComposingClass_EtB1JLd css-modules-local-scoped-className_2SS6AUo\\">Ground</div></body></html>"
+`;
+
+exports[`loader should work with css modules ("injectType" option is "styleTag"): errors 1`] = `Array []`;
+
+exports[`loader should work with css modules ("injectType" option is "styleTag"): warnings 1`] = `Array []`;
+
+exports[`loader should work with css modules ("injectType" option is "useableStyleTag"): DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style type=\\"text/css\\">.css-modules-local-scoped-className_2SS6AUo {
+  background: red;
+}
+</style><style type=\\"text/css\\">.css-modules-myClassName_29qd4Wo {
+  background: red;
+}
+
+.css-modules-myComposingClass_EtB1JLd {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+<div class=\\"css-modules-myClassName_29qd4Wo\\">Water</div><div class=\\"css-modules-myComposingClass_EtB1JLd css-modules-local-scoped-className_2SS6AUo\\">Ground</div></body></html>"
+`;
+
+exports[`loader should work with css modules ("injectType" option is "useableStyleTag"): errors 1`] = `Array []`;
+
+exports[`loader should work with css modules ("injectType" option is "useableStyleTag"): warnings 1`] = `Array []`;

@@ -1,0 +1,194 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`insert option should insert styles before "#existing-style" id: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style type=\\"text/css\\">body {
+  color: red;
+}
+</style><style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`insert option should insert styles before "#existing-style" id: errors 1`] = `Array []`;
+
+exports[`insert option should insert styles before "#existing-style" id: warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles before exists styles: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style type=\\"text/css\\">body {
+  color: red;
+}
+</style><style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+<div id=\\"test-shadow\\"></div></body></html>"
+`;
+
+exports[`insert option should insert styles before exists styles: errors 1`] = `Array []`;
+
+exports[`insert option should insert styles before exists styles: warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles in bottom when not specified: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style type=\\"text/css\\">body {
+  color: red;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`insert option should insert styles in bottom when not specified: errors 1`] = `Array []`;
+
+exports[`insert option should insert styles in bottom when not specified: warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles in bottom when selector was not found: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style type=\\"text/css\\">body {
+  color: red;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`insert option should insert styles in bottom when selector was not found: errors 1`] = `Array []`;
+
+exports[`insert option should insert styles in bottom when selector was not found: warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles in bottom: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style type=\\"text/css\\">body {
+  color: red;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`insert option should insert styles in bottom: errors 1`] = `Array []`;
+
+exports[`insert option should insert styles in bottom: warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles in runtime created element: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+<div id=\\"test-shadow\\"><style type=\\"text/css\\">body {
+  color: red;
+}
+</style></div></body></html>"
+`;
+
+exports[`insert option should insert styles in runtime created element: errors 1`] = `Array []`;
+
+exports[`insert option should insert styles in runtime created element: warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles in top: DOM 1`] = `
+"<!DOCTYPE html><html><head><style type=\\"text/css\\">body {
+  color: red;
+}
+</style>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`insert option should insert styles in top: errors 1`] = `Array []`;
+
+exports[`insert option should insert styles in top: warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles into target when target is iframe: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`insert option should insert styles into target when target is iframe: errors 1`] = `Array []`;
+
+exports[`insert option should insert styles into target when target is iframe: iframe head 1`] = `
+"<style type=\\"text/css\\">body {
+  color: red;
+}
+</style>"
+`;
+
+exports[`insert option should insert styles into target when target is iframe: warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles into target: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"><style type=\\"text/css\\">body {
+  color: red;
+}
+</style></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`insert option should insert styles into target: errors 1`] = `Array []`;
+
+exports[`insert option should insert styles into target: warnings 1`] = `Array []`;
