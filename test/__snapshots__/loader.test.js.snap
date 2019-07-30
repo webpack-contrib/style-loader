@@ -1,5 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`loader should inject hmr code with HotModuleReplacementPlugin ("injectType" option is "linkTag"): errors 1`] = `Array []`;
+
+exports[`loader should inject hmr code with HotModuleReplacementPlugin ("injectType" option is "linkTag"): warnings 1`] = `Array []`;
+
+exports[`loader should inject hmr code with HotModuleReplacementPlugin ("injectType" option is "styleTag"): errors 1`] = `Array []`;
+
+exports[`loader should inject hmr code with HotModuleReplacementPlugin ("injectType" option is "styleTag"): warnings 1`] = `Array []`;
+
+exports[`loader should inject hmr code with HotModuleReplacementPlugin ("injectType" option is "useableStyleTag"): errors 1`] = `Array []`;
+
+exports[`loader should inject hmr code with HotModuleReplacementPlugin ("injectType" option is "useableStyleTag"): warnings 1`] = `Array []`;
+
+exports[`loader should not inject hmr code without HotModuleReplacementPlugin ("injectType" option is "linkTag"): errors 1`] = `Array []`;
+
+exports[`loader should not inject hmr code without HotModuleReplacementPlugin ("injectType" option is "linkTag"): warnings 1`] = `Array []`;
+
+exports[`loader should not inject hmr code without HotModuleReplacementPlugin ("injectType" option is "styleTag"): errors 1`] = `Array []`;
+
+exports[`loader should not inject hmr code without HotModuleReplacementPlugin ("injectType" option is "styleTag"): warnings 1`] = `Array []`;
+
+exports[`loader should not inject hmr code without HotModuleReplacementPlugin ("injectType" option is "useableStyleTag"): errors 1`] = `Array []`;
+
+exports[`loader should not inject hmr code without HotModuleReplacementPlugin ("injectType" option is "useableStyleTag"): warnings 1`] = `Array []`;
+
 exports[`loader should work ("injectType" option is "linkTag"): DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>

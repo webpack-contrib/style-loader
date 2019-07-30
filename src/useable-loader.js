@@ -15,8 +15,6 @@ module.exports.pitch = function loader(request) {
     baseDataPath: 'options',
   });
 
-  options.hmr = typeof options.hmr === 'undefined' ? true : options.hmr;
-
   // The variable is needed, because the function should be inlined.
   // If is just stored it in options, JSON.stringify will quote
   // the function and it would be just a string at runtime
@@ -89,6 +87,6 @@ module.exports.pitch = function loader(request) {
     '    dispose = null;',
     '  }',
     '};',
-    options.hmr ? hmr : '',
+    this.hot ? hmr : '',
   ].join('\n');
 };

@@ -20,10 +20,6 @@ it('validate options', () => {
       'file.css'
     );
 
-  expect(() => validate({ hmr: true })).not.toThrow();
-  expect(() => validate({ hmr: false })).not.toThrow();
-  expect(() => validate({ hmr: 'unknown' })).toThrowErrorMatchingSnapshot();
-
   expect(() => validate({ base: 1000 })).not.toThrow();
   expect(() => validate({ base: 'unknown' })).toThrowErrorMatchingSnapshot();
 
