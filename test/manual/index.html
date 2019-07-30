@@ -8,19 +8,57 @@
   <body>
     <h1>style-loader manual tests</h1>
 
-    <article>
-      <h2>Pure css</h2>
-      <div class="red">Red</div>
-      <div class="green">Green</div>
-      <div class="blue">Blue</div>
-    </article>
+    <section>
+      <h2>The "injectType" is "styleTag"</h2>
 
-    <article>
-      <h2>Sass/SCSS</h2>
-      <div class="sass-red">Red</div>
-      <div class="sass-green">Green</div>
-      <div class="sass-blue">Blue</div>
-    </article>
+      <article>
+        <h3>Pure css</h3>
+        <div class="red">Red</div>
+        <div class="green">Green</div>
+        <div class="blue">Blue</div>
+        <div class="background"></div>
+      </article>
+
+      <article>
+        <h3>Sass/SCSS</h3>
+        <div class="sass-red">Red</div>
+        <div class="sass-green">Green</div>
+        <div class="sass-blue">Blue</div>
+        <div class="sass-background"></div>
+      </article>
+    </section>
+
+    <section>
+      <h2>The "injectType" is "lazyStyleTag"</h2>
+
+      <article>
+        <h3>Pure css</h3>
+        <div class="lazy-red">Red</div>
+        <div class="lazy-green">Green</div>
+        <div class="lazy-blue">Blue</div>
+        <div class="lazy-background"></div>
+      </article>
+
+      <article>
+        <h3>Sass/SCSS</h3>
+        <div class="sass-lazy-red">Red</div>
+        <div class="sass-lazy-green">Green</div>
+        <div class="sass-lazy-blue">Blue</div>
+        <div class="sass-lazy-background"></div>
+      </article>
+    </section>
+
+    <section>
+      <h2>The "injectType" is "linkTag"</h2>
+
+      <article>
+        <h3>Pure css</h3>
+        <div class="link-red">Red</div>
+        <div class="link-green">Green</div>
+        <div class="link-blue">Blue</div>
+        <div class="link-background"></div>
+      </article>
+    </section>
 
     <script async defer src="/dist/main.js"></script>
   </body>

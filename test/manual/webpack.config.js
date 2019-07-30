@@ -1,4 +1,6 @@
-const enableSourceMap =
+// Commands:
+// SOURCE_MAP=yes npm run test:manual
+const ENABLE_SOURCE_MAP =
   typeof process.env.SOURCE_MAP !== 'undefined'
     ? Boolean(process.env.SOURCE_MAP)
     : false;
@@ -12,34 +14,67 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
+        exclude: [/\.lazy\.css$/i, /\.link\.css$/i],
         use: [
           {
             loader: require.resolve('../../dist/index.js'),
             options: {
-              sourceMap: enableSourceMap,
+              sourceMap: ENABLE_SOURCE_MAP,
             },
           },
           {
             loader: 'css-loader',
             options: {
-              sourceMap: enableSourceMap,
+              sourceMap: ENABLE_SOURCE_MAP,
             },
           },
         ],
       },
       {
-        test: /\.scss$/i,
+        test: /\.lazy\.css$/i,
         use: [
           {
-            loader: require.resolve('../../dist/index.js'),
+            loader: require.resolve('../../dist/useable-loader.js'),
             options: {
-              sourceMap: enableSourceMap,
+              sourceMap: ENABLE_SOURCE_MAP,
             },
           },
           {
             loader: 'css-loader',
             options: {
-              sourceMap: enableSourceMap,
+              sourceMap: ENABLE_SOURCE_MAP,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.link\.css$/i,
+        use: [
+          {
+            loader: require.resolve('../../dist/url-loader.js'),
+            options: {
+              sourceMap: ENABLE_SOURCE_MAP,
+            },
+          },
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
+      {
+        test: /\.scss$/i,
+        exclude: /\.lazy\.scss$/i,
+        use: [
+          {
+            loader: require.resolve('../../dist/index.js'),
+            options: {
+              sourceMap: ENABLE_SOURCE_MAP,
+            },
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: ENABLE_SOURCE_MAP,
             },
           },
           {
@@ -47,10 +82,40 @@ module.exports = {
             options: {
               // eslint-disable-next-line global-require
               implementation: require('sass'),
-              sourceMap: enableSourceMap,
+              sourceMap: ENABLE_SOURCE_MAP,
             },
           },
         ],
+      },
+      {
+        test: /\.lazy\.scss$/i,
+        use: [
+          {
+            loader: require.resolve('../../dist/useable-loader.js'),
+            options: {
+              sourceMap: ENABLE_SOURCE_MAP,
+            },
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: ENABLE_SOURCE_MAP,
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              // eslint-disable-next-line global-require
+              implementation: require('sass'),
+              sourceMap: ENABLE_SOURCE_MAP,
+            },
+          },
+        ],
+      },
+
+      {
+        test: /\.png$/i,
+        loader: 'file-loader',
       },
     ],
   },

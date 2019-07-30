@@ -2,19 +2,19 @@ $red: red;
 $green: green;
 $blue: blue;
 
-.sass-red {
+.sass-lazy-red {
   color: $red;
 }
 
-.sass-green {
+.sass-lazy-green {
   color: $green;
 }
 
-.sass-blue {
+.sass-lazy-blue {
   color: $blue;
 }
 
-.sass-background {
+.sass-lazy-background {
   height: 1200px;
   background: url('./logo.png') center no-repeat;
 }

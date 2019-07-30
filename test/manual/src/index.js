@@ -2,3 +2,9 @@
 
 import './style.css';
 import './other-style.scss';
+import styleLazy from './style.lazy.css';
+import otherStyleLazy from './other-style.lazy.scss';
+import './style.link.css';
+
+styleLazy.use();
+otherStyleLazy.use();
