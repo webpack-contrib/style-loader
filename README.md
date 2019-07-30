@@ -146,43 +146,14 @@ Styles are not added on `import/require()`, but instead on call to `use`/`ref`. 
 
 ## Options
 
-|       Name       |         Type         |   Default   | Description                                                                                                                    |
-| :--------------: | :------------------: | :---------: | :----------------------------------------------------------------------------------------------------------------------------- |
-|    **`hmr`**     |     `{Boolean}`      |   `true`    | Enable/disable Hot Module Replacement (HMR), if disabled no HMR Code will be added (good for non local development/production) |
-|    **`base`**    |      `{Number}`      |   `true`    | Set module ID base (DLLPlugin)                                                                                                 |
-| **`attributes`** |      `{Object}`      |    `{}`     | Add custom attributes to `<style></style>`                                                                                     |
-|  **`insertAt`**  |  `{String\|Object}`  |  `bottom`   | Inserts `<style></style>` at the given position                                                                                |
-| **`insertInto`** | `{String\|Function}` |  `<head>`   | Inserts `<style></style>` into the given position                                                                              |
-| **`singleton`**  |     `{Boolean}`      | `undefined` | Reuses a single `<style></style>` element, instead of adding/removing individual elements for each required module.            |
-| **`sourceMap`**  |     `{Boolean}`      |   `false`   | Enable/Disable Sourcemaps                                                                                                      |
-
-### `hmr`
-
-Enable/disable Hot Module Replacement (HMR), if disabled no HMR Code will be added.
-This could be used for non local development and production.
-
-**webpack.config.js**
-
-```js
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        use: [
-          {
-            loader: 'style-loader',
-            options: {
-              hmr: false,
-            },
-          },
-          { loader: 'css-loader' },
-        ],
-      },
-    ],
-  },
-};
-```
+|       Name       |         Type         |   Default   | Description                                                                                                         |
+| :--------------: | :------------------: | :---------: | :------------------------------------------------------------------------------------------------------------------ |
+|    **`base`**    |      `{Number}`      |   `true`    | Set module ID base (DLLPlugin)                                                                                      |
+| **`attributes`** |      `{Object}`      |    `{}`     | Add custom attributes to `<style></style>`                                                                          |
+|  **`insertAt`**  |  `{String\|Object}`  |  `bottom`   | Inserts `<style></style>` at the given position                                                                     |
+| **`insertInto`** | `{String\|Function}` |  `<head>`   | Inserts `<style></style>` into the given position                                                                   |
+| **`singleton`**  |     `{Boolean}`      | `undefined` | Reuses a single `<style></style>` element, instead of adding/removing individual elements for each required module. |
+| **`sourceMap`**  |     `{Boolean}`      |   `false`   | Enable/Disable Sourcemaps                                                                                           |
 
 ### `base`
 

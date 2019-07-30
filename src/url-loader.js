@@ -15,8 +15,6 @@ module.exports.pitch = function loader(request) {
     baseDataPath: 'options',
   });
 
-  options.hmr = typeof options.hmr === 'undefined' ? true : options.hmr;
-
   const hmr = [
     // Hot Module Replacement
     'if(module.hot) {',
@@ -42,6 +40,6 @@ module.exports.pitch = function loader(request) {
     )})(`,
     `  require(${loaderUtils.stringifyRequest(this, `!!${request}`)})`,
     `, ${JSON.stringify(options)});`,
-    options.hmr ? hmr : '',
+    this.hot ? hmr : '',
   ].join('\n');
 };

@@ -1,10 +1,6 @@
 {
   "type": "object",
   "properties": {
-    "hmr": {
-      "description": "Enables/Disables Hot Module Replacement (https://github.com/webpack-contrib/style-loader#hmr).",
-      "type": "boolean"
-    },
     "base": {
       "description": "Set module ID base for DLLPlugin (https://github.com/webpack-contrib/style-loader#base).",
       "type": "number"

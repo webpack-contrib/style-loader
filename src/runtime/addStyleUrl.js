@@ -12,10 +12,8 @@ module.exports = function addStyleUrl(url, options) {
   }
 
   options = options || {};
-
   options.attributes =
     typeof options.attributes === 'object' ? options.attributes : {};
-  options.hmr = typeof options.hmr === 'undefined' ? true : options.hmr;
 
   const link = document.createElement('link');
 
@@ -30,7 +28,7 @@ module.exports = function addStyleUrl(url, options) {
 
   head.appendChild(link);
 
-  if (options.hmr && module.hot) {
+  if (module.hot) {
     return (url) => {
       if (typeof url === 'string') {
         link.href = url;

@@ -2,31 +2,25 @@
 
 exports[`validate options 1`] = `
 "Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
- - options.hmr should be a boolean.
-   -> Enables/Disables Hot Module Replacement (https://github.com/webpack-contrib/style-loader#hmr)."
-`;
-
-exports[`validate options 2`] = `
-"Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
  - options.base should be a number.
    -> Set module ID base for DLLPlugin (https://github.com/webpack-contrib/style-loader#base)."
 `;
 
-exports[`validate options 3`] = `
+exports[`validate options 2`] = `
 "Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
  - options.attributes should be an object:
    object { … }
    -> Add custom attributes to tag (https://github.com/webpack-contrib/style-loader#attributes)."
 `;
 
-exports[`validate options 4`] = `
+exports[`validate options 3`] = `
 "Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
  - options.insertAt should be:
    string | object
    -> Inserts <style></style> at the given position (https://github.com/webpack-contrib/style-loader#insertat)."
 `;
 
-exports[`validate options 5`] = `
+exports[`validate options 4`] = `
 "Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
  - options.insertInto should be one of these:
    string | function
@@ -36,20 +30,20 @@ exports[`validate options 5`] = `
     * options.insertInto should be an instance of function."
 `;
 
-exports[`validate options 6`] = `
+exports[`validate options 5`] = `
 "Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
  - options.singleton should be a boolean.
    -> Reuses a single <style></style> element, instead of adding/removing individual elements for each required module (https://github.com/webpack-contrib/style-loader#singleton)."
 `;
 
-exports[`validate options 7`] = `
+exports[`validate options 6`] = `
 "Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
  - options.sourceMap should be a boolean.
    -> Enable/Disable Sourcemaps (https://github.com/webpack-contrib/style-loader#sourcemap)."
 `;
 
-exports[`validate options 8`] = `
+exports[`validate options 7`] = `
 "Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { hmr?, base?, attributes?, insertAt?, insertInto?, singleton?, sourceMap? }"
+   object { base?, attributes?, insertAt?, insertInto?, singleton?, sourceMap? }"
 `;
