@@ -4,7 +4,7 @@ exports[`loader should work ("injectType" option is "linkTag"): DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" type=\\"text/css\\" href=\\"ceb98dd1e5ab94be0d4081cb8b89f79d.css\\"></head>
+<link rel=\\"stylesheet\\" href=\\"ceb98dd1e5ab94be0d4081cb8b89f79d.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -22,7 +22,7 @@ exports[`loader should work ("injectType" option is "styleTag"): DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style type=\\"text/css\\">body {
+<style>body {
   color: red;
 }
 </style></head>
@@ -43,7 +43,7 @@ exports[`loader should work ("injectType" option is "useableStyleTag"): DOM 1`] 
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style type=\\"text/css\\">h1 {
+<style>h1 {
   color: blue;
 }
 </style></head>
@@ -64,7 +64,7 @@ exports[`loader should work for useable inject type and negative ref: DOM 1`] = 
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style type=\\"text/css\\">body {
+<style>body {
   color: red;
 }
 </style></head>
@@ -85,7 +85,7 @@ exports[`loader should work with css modules ("injectType" option is "linkTag"):
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" type=\\"text/css\\" href=\\"c0991b068ef7e388f9ad3ad2b823d126.css\\"></head>
+<link rel=\\"stylesheet\\" href=\\"c0991b068ef7e388f9ad3ad2b823d126.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -103,10 +103,10 @@ exports[`loader should work with css modules ("injectType" option is "styleTag")
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style type=\\"text/css\\">.css-modules-local-scoped-className_2SS6AUo {
+<style>.css-modules-local-scoped-className_2SS6AUo {
   background: red;
 }
-</style><style type=\\"text/css\\">.css-modules-myClassName_29qd4Wo {
+</style><style>.css-modules-myClassName_29qd4Wo {
   background: red;
 }
 
@@ -131,10 +131,10 @@ exports[`loader should work with css modules ("injectType" option is "useableSty
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style type=\\"text/css\\">.css-modules-local-scoped-className_2SS6AUo {
+<style>.css-modules-local-scoped-className_2SS6AUo {
   background: red;
 }
-</style><style type=\\"text/css\\">.css-modules-myClassName_29qd4Wo {
+</style><style>.css-modules-myClassName_29qd4Wo {
   background: red;
 }
 

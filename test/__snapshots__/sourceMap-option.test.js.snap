@@ -4,7 +4,7 @@ exports[`sourceMap option false: DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style type=\\"text/css\\">body {
+<style>body {
   color: red;
 }
 </style></head>
@@ -25,7 +25,7 @@ exports[`sourceMap option not specified: DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style type=\\"text/css\\">body {
+<style>body {
   color: red;
 }
 </style></head>
@@ -46,7 +46,7 @@ exports[`sourceMap option true, but previous loader do not generate source map: 
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style type=\\"text/css\\">body {
+<style>body {
   color: red;
 }
 </style></head>
@@ -67,7 +67,7 @@ exports[`sourceMap option true: DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style type=\\"text/css\\">body {
+<style>body {
   color: red;
 }
 

@@ -1,5 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`addStyle should work 1`] = `"<head><title>Title</title><link rel=\\"stylesheet\\" type=\\"text/css\\" href=\\"./style-1.css\\"></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle should work 1`] = `"<head><title>Title</title><link rel=\\"stylesheet\\" href=\\"./style-1.css\\"></head><body><h1>Hello world</h1></body>"`;
 
-exports[`addStyle should work with "attributes" option 1`] = `"<head><title>Title</title><link rel=\\"stylesheet\\" type=\\"text/css\\" href=\\"./style-1.css\\" foo=\\"bar\\"></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle should work with "attributes" option 1`] = `"<head><title>Title</title><link rel=\\"stylesheet\\" href=\\"./style-1.css\\" foo=\\"bar\\"></head><body><h1>Hello world</h1></body>"`;

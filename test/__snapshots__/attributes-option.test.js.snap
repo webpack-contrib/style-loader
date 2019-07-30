@@ -4,7 +4,7 @@ exports[`attributes option should add attributes to tag ("injectType" option is 
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" type=\\"text/css\\" href=\\"ceb98dd1e5ab94be0d4081cb8b89f79d.css\\" id=\\"style-tag-id\\"></head>
+<link rel=\\"stylesheet\\" href=\\"ceb98dd1e5ab94be0d4081cb8b89f79d.css\\" id=\\"style-tag-id\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -22,7 +22,7 @@ exports[`attributes option should add attributes to tag ("injectType" option is 
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style id=\\"style-tag-id\\" type=\\"text/css\\">body {
+<style id=\\"style-tag-id\\">body {
   color: red;
 }
 </style></head>
@@ -43,7 +43,7 @@ exports[`attributes option should add attributes to tag ("injectType" option is 
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style id=\\"style-tag-id\\" type=\\"text/css\\">h1 {
+<style id=\\"style-tag-id\\">h1 {
   color: blue;
 }
 </style></head>
@@ -64,7 +64,7 @@ exports[`attributes option should add nonce attribute #2: DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style type=\\"text/css\\" nonce=\\"12345678\\">body {
+<style nonce=\\"12345678\\">body {
   color: red;
 }
 </style></head>
@@ -85,7 +85,7 @@ exports[`attributes option should add nonce attribute: DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style type=\\"text/css\\" nonce=\\"12345678\\">body {
+<style nonce=\\"12345678\\">body {
   color: red;
 }
 </style></head>
@@ -106,7 +106,7 @@ exports[`attributes option should override/add default type attribute to tag ("i
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" type=\\"text/less\\" href=\\"ceb98dd1e5ab94be0d4081cb8b89f79d.css\\"></head>
+<link rel=\\"stylesheet\\" href=\\"ceb98dd1e5ab94be0d4081cb8b89f79d.css\\" type=\\"text/less\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>

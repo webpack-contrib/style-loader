@@ -3,7 +3,7 @@
 exports[`insert option should insert styles before "#existing-style" id: DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
-  <style type=\\"text/css\\">body {
+  <style>body {
   color: red;
 }
 </style><style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -24,7 +24,7 @@ exports[`insert option should insert styles before "#existing-style" id: warning
 exports[`insert option should insert styles before exists styles: DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
-  <style type=\\"text/css\\">body {
+  <style>body {
   color: red;
 }
 </style><style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -46,7 +46,7 @@ exports[`insert option should insert styles in bottom when not specified: DOM 1`
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style type=\\"text/css\\">body {
+<style>body {
   color: red;
 }
 </style></head>
@@ -67,7 +67,7 @@ exports[`insert option should insert styles in bottom when selector was not foun
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style type=\\"text/css\\">body {
+<style>body {
   color: red;
 }
 </style></head>
@@ -88,7 +88,7 @@ exports[`insert option should insert styles in bottom: DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style type=\\"text/css\\">body {
+<style>body {
   color: red;
 }
 </style></head>
@@ -116,7 +116,7 @@ exports[`insert option should insert styles in runtime created element: DOM 1`] 
   <iframe class=\\"iframeTarget\\"></iframe>
 
 
-<div id=\\"test-shadow\\"><style type=\\"text/css\\">body {
+<div id=\\"test-shadow\\"><style>body {
   color: red;
 }
 </style></div></body></html>"
@@ -127,7 +127,7 @@ exports[`insert option should insert styles in runtime created element: errors 1
 exports[`insert option should insert styles in runtime created element: warnings 1`] = `Array []`;
 
 exports[`insert option should insert styles in top: DOM 1`] = `
-"<!DOCTYPE html><html><head><style type=\\"text/css\\">body {
+"<!DOCTYPE html><html><head><style>body {
   color: red;
 }
 </style>
@@ -164,7 +164,7 @@ exports[`insert option should insert styles into target when target is iframe: D
 exports[`insert option should insert styles into target when target is iframe: errors 1`] = `Array []`;
 
 exports[`insert option should insert styles into target when target is iframe: iframe head 1`] = `
-"<style type=\\"text/css\\">body {
+"<style>body {
   color: red;
 }
 </style>"
@@ -179,7 +179,7 @@ exports[`insert option should insert styles into target: DOM 1`] = `
 </head>
 <body>
   <h1>Body</h1>
-  <div class=\\"target\\"><style type=\\"text/css\\">body {
+  <div class=\\"target\\"><style>body {
   color: red;
 }
 </style></div>
