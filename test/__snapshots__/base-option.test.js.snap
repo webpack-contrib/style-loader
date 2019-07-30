@@ -4,7 +4,7 @@ exports[`base option should work: DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style type=\\"text/css\\">body {
+<style>body {
   color: red;
 }
 </style></head>

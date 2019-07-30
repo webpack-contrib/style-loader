@@ -194,10 +194,6 @@ function listToStyles(list, options) {
 function insertStyleElement(options) {
   var style = document.createElement('style');
 
-  if (options.attributes.type === undefined) {
-    options.attributes.type = 'text/css';
-  }
-
   if (options.attributes.nonce === undefined) {
     var nonce =
       typeof __webpack_nonce__ !== 'undefined' ? __webpack_nonce__ : null;
