@@ -3,7 +3,7 @@
 exports[`validate options 1`] = `
 "Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
  - options.injectType should be one of these:
-   \\"styleTag\\" | \\"singletonStyleTag\\" | \\"lazyStyleTag\\" | \\"singletonLazyStyleTag\\" | \\"linkTag\\"
+   \\"styleTag\\" | \\"singletonStyleTag\\" | \\"lazyStyleTag\\" | \\"lazySingletonStyleTag\\" | \\"linkTag\\"
    -> Allows to setup how styles will be injected in DOM."
 `;
 

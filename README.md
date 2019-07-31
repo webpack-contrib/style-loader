@@ -71,38 +71,33 @@ import style from './file.css';
 style.className === 'z849f98ca812';
 ```
 
-### `Useable`
+## Options
 
-The `style-loader` injects the styles lazily making them useable on-demand via `style.use()` / `style.unuse()`
+|       Name       |         Type         |  Default   | Description                                        |
+| :--------------: | :------------------: | :--------: | :------------------------------------------------- |
+| **`injectType`** |      `{String}`      | `styleTag` | Allows to setup how styles will be injected in DOM |
+| **`attributes`** |      `{Object}`      |    `{}`    | Add custom attributes to tag                       |
+|  **`insertAt`**  |  `{String\|Object}`  |  `bottom`  | Inserts tag at the given position                  |
+| **`insertInto`** | `{String\|Function}` |  `<head>`  | Inserts tag into the given position                |
+|    **`base`**    |      `{Number}`      |   `true`   | Set module ID base (DLLPlugin)                     |
 
-By convention the `Reference Counter API` should be bound to `.useable.css` and the `.css` should be loaded with basic `style-loader` usage.(similar to other file types, i.e. `.useable.less` and `.less`).
+### `injectType`
 
-**webpack.config.js**
+Type: `String`
+Default: `styleTag`
 
-```js
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        exclude: /\.useable\.css$/,
-        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
-      },
-      {
-        test: /\.useable\.css$/,
-        use: [
-          {
-            loader: 'style-loader/useable',
-          },
-          { loader: 'css-loader' },
-        ],
-      },
-    ],
-  },
-};
-```
+Allows to setup how styles will be injected in DOM.
 
-#### `Reference Counter API`
+Possible values:
+
+- `styleTag`
+- `singletonStyleTag`
+- `lazyStyleTag`
+- `lazySingletonStyleTag`
+- `linkTag`
+
+When you `lazyStyleTag` or `lazySingletonStyleTag` value the `style-loader` injects the styles lazily making them useable on-demand via `style.use()` / `style.unuse()`.
+It is named `Reference Counter API`.
 
 **component.js**
 
@@ -113,16 +108,47 @@ style.use(); // = style.ref();
 style.unuse(); // = style.unref();
 ```
 
+By convention the `Reference Counter API` should be bound to `.useable.css` and the `.css` should be loaded with basic `style-loader` usage.(similar to other file types, i.e. `.useable.less` and `.less`).
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        exclude: /\.useable\.css$/i,
+        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
+      },
+      {
+        test: /\.useable\.css$/i,
+        use: [
+          {
+            loader: 'style-loader',
+            options: {
+              // Can be `'lazyStyleTag'` or `'lazySingletonStyleTag'`
+              injectType: 'lazyStyleTag',
+            },
+          },
+          { loader: 'css-loader' },
+        ],
+      },
+    ],
+  },
+};
+```
+
 Styles are not added on `import/require()`, but instead on call to `use`/`ref`. Styles are removed from page if `unuse`/`unref` is called exactly as often as `use`/`ref`.
 
 > ⚠️ Behavior is undefined when `unuse`/`unref` is called more often than `use`/`ref`. Don't do that.
 
-### `Url`
+#### `styleTag`
 
-It's also possible to add a URL `<link href="path/to/file.css" rel="stylesheet">` instead of inlining the CSS `{String}` with `<style></style>` tag.
+Injects styles in multiple `<style></style>`. It is **default** behaviour.
 
 ```js
-import url from 'file.css';
+import './styles.css';
 ```
 
 **webpack.config.js**
@@ -132,33 +158,41 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: [{ loader: 'style-loader/url' }, { loader: 'file-loader' }],
+        test: /\.css$/i,
+        use: [
+          { loader: 'style-loader', options: { injectType: 'styleTag' } },
+          'css-loader',
+        ],
       },
     ],
   },
 };
 ```
 
+The loader inject styles like:
+
 ```html
-<link rel="stylesheet" href="path/to/file.css" />
+<style>
+  .foo {
+    color: red;
+  }
+</style>
+<style>
+  .bar {
+    color: blue;
+  }
+</style>
 ```
 
-## Options
+#### `singletonStyleTag`
 
-|       Name       |         Type         |   Default   | Description                                                                                                         |
-| :--------------: | :------------------: | :---------: | :------------------------------------------------------------------------------------------------------------------ |
-|    **`base`**    |      `{Number}`      |   `true`    | Set module ID base (DLLPlugin)                                                                                      |
-| **`attributes`** |      `{Object}`      |    `{}`     | Add custom attributes to `<style></style>`                                                                          |
-|  **`insertAt`**  |  `{String\|Object}`  |  `bottom`   | Inserts `<style></style>` at the given position                                                                     |
-| **`insertInto`** | `{String\|Function}` |  `<head>`   | Inserts `<style></style>` into the given position                                                                   |
-| **`singleton`**  |     `{Boolean}`      | `undefined` | Reuses a single `<style></style>` element, instead of adding/removing individual elements for each required module. |
+Injects styles in one `<style></style>`.
 
-### `base`
+```js
+import './styles.css';
+```
 
-This setting is primarily used as a workaround for [css clashes](https://github.com/webpack-contrib/style-loader/issues/163) when using one or more [DllPlugin](https://robertknight.github.io/posts/webpack-dll-plugins/)'s. `base` allows you to prevent either the _app_'s css (or _DllPlugin2_'s css) from overwriting _DllPlugin1_'s css by specifying a css module id base which is greater than the range used by _DllPlugin1_ e.g.:
-
-**webpack.dll1.config.js**
+**webpack.config.js**
 
 ```js
 module.exports = {
@@ -169,8 +203,9 @@ module.exports = {
         use: [
           {
             loader: 'style-loader',
+            options: { injectType: 'singletonStyleTag' },
           },
-          { loader: 'css-loader' },
+          'css-loader',
         ],
       },
     ],
@@ -178,17 +213,40 @@ module.exports = {
 };
 ```
 
-**webpack.dll2.config.js**
+The loader inject styles like:
+
+```html
+<style>
+  .foo {
+    color: red;
+  }
+  .bar {
+    color: blue;
+  }
+</style>
+```
+
+#### `lazyStyleTag`
+
+Injects styles in multiple `<style></style>` on demand (documentation above).
+
+```js
+import styles from './styles.css';
+
+styles.use();
+```
+
+**webpack.config.js**
 
 ```js
 module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.useable\.css$/i,
         use: [
-          { loader: 'style-loader', options: { base: 1000 } },
-          { loader: 'css-loader' },
+          { loader: 'style-loader', options: { injectType: 'lazyStyleTag' } },
+          'css-loader',
         ],
       },
     ],
@@ -196,25 +254,103 @@ module.exports = {
 };
 ```
 
-**webpack.app.config.js**
+The loader inject styles like:
+
+```html
+<style>
+  .foo {
+    color: red;
+  }
+</style>
+<style>
+  .bar {
+    color: blue;
+  }
+</style>
+```
+
+#### `lazySingletonStyleTag`
+
+Injects styles in one `<style></style>` on demand (documentation above).
+
+```js
+import styles from './styles.css';
+
+styles.use();
+```
+
+**webpack.config.js**
 
 ```js
 module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.useable\.css$/i,
         use: [
-          { loader: 'style-loader', options: { base: 2000 } },
-          { loader: 'css-loader' },
+          {
+            loader: 'style-loader',
+            options: { injectType: 'lazySingletonStyleTag' },
+          },
+          'css-loader',
         ],
       },
     ],
   },
 };
+```
+
+The loader generate this:
+
+```html
+<style>
+  .foo {
+    color: red;
+  }
+  .bar {
+    color: blue;
+  }
+</style>
+```
+
+#### `linkTag`
+
+Injects styles in multiple `<link rel="stylesheet" href="path/to/file.css">` .
+
+```js
+import './styles.css';
+import './other-styles.css';
+```
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          { loader: 'style-loader', options: { injectType: 'linkTag' } },
+          { loader: 'file-loader' },
+        ],
+      },
+    ],
+  },
+};
+```
+
+The loader generate this:
+
+```html
+<link rel="stylesheet" href="path/to/style.css" />
+<link rel="stylesheet" href="path/to/other-styles.css" />
 ```
 
 ### `attributes`
+
+Type: `Object`
+Default: `{}`
 
 If defined, style-loader will attach given attributes with their values on `<style>` / `<link>` element.
 
@@ -231,7 +367,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         use: [
           { loader: 'style-loader', options: { attributes: { id: 'id' } } },
           { loader: 'css-loader' },
@@ -354,13 +490,11 @@ module.exports = {
 };
 ```
 
-### `singleton`
+### `base`
 
-If defined, the style-loader will reuse a single `<style></style>` element, instead of adding/removing individual elements for each required module.
+This setting is primarily used as a workaround for [css clashes](https://github.com/webpack-contrib/style-loader/issues/163) when using one or more [DllPlugin](https://robertknight.github.io/posts/webpack-dll-plugins/)'s. `base` allows you to prevent either the _app_'s css (or _DllPlugin2_'s css) from overwriting _DllPlugin1_'s css by specifying a css module id base which is greater than the range used by _DllPlugin1_ e.g.:
 
-> ℹ️ This option is on by default in IE9, which has strict limitations on the number of style tags allowed on a page. You can enable or disable it with the singleton option.
-
-**webpack.config.js**
+**webpack.dll1.config.js**
 
 ```js
 module.exports = {
@@ -369,7 +503,45 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [
-          { loader: 'style-loader', options: { singleton: true } },
+          {
+            loader: 'style-loader',
+          },
+          { loader: 'css-loader' },
+        ],
+      },
+    ],
+  },
+};
+```
+
+**webpack.dll2.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          { loader: 'style-loader', options: { base: 1000 } },
+          { loader: 'css-loader' },
+        ],
+      },
+    ],
+  },
+};
+```
+
+**webpack.app.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          { loader: 'style-loader', options: { base: 2000 } },
           { loader: 'css-loader' },
         ],
       },

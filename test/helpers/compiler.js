@@ -8,47 +8,31 @@ import path from 'path';
 import webpack from 'webpack';
 import MemoryFS from 'memory-fs';
 
-function getLoaderByInjectType(injectType) {
-  // eslint-disable-next-line default-case
-  switch (injectType) {
-    case 'styleTag':
-      return path.resolve(__dirname, '../../src');
-    case 'useableStyleTag':
-      return path.resolve(__dirname, '../../src/useable-loader.js');
-    case 'linkTag':
-      return path.resolve(__dirname, '../../src/url-loader.js');
-  }
-
-  return path.join(__dirname, '../../src');
-}
-
-function getUse(config) {
+const module = (config) => {
   const shouldUseFileLoader =
     config.loader &&
-    config.loader.injectType &&
-    config.loader.injectType === 'linkTag';
+    config.loader.options &&
+    config.loader.options.injectType === 'linkTag';
 
-  return [
-    {
-      loader: getLoaderByInjectType(config.loader && config.loader.injectType),
-      options: (config.loader && config.loader.options) || {},
-    },
-    shouldUseFileLoader ? { loader: 'file-loader' } : false,
-    {
-      loader: 'css-loader',
-      options: (config.cssLoader && config.cssLoader.options) || {},
-    },
-  ].filter(Boolean);
-}
-
-const module = (config) => {
   return {
     rules: config.rules
       ? config.rules
       : [
           {
             test: (config.loader && config.loader.test) || /\.css$/i,
-            use: getUse(config),
+            use: [
+              {
+                loader: path.join(__dirname, '../../src'),
+                options: (config.loader && config.loader.options) || {},
+              },
+              shouldUseFileLoader
+                ? { loader: 'file-loader' }
+                : {
+                    loader: 'css-loader',
+                    options:
+                      (config.cssLoader && config.cssLoader.options) || {},
+                  },
+            ],
           },
         ],
   };

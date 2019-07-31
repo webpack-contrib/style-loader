@@ -31,7 +31,8 @@ module.exports = {
         test: /\.lazy\.css$/i,
         use: [
           {
-            loader: require.resolve('../../dist/useable-loader.js'),
+            loader: require.resolve('../../dist/index.js'),
+            options: { injectType: 'lazyStyleTag' },
           },
           {
             loader: 'css-loader',
@@ -45,7 +46,8 @@ module.exports = {
         test: /\.link\.css$/i,
         use: [
           {
-            loader: require.resolve('../../dist/url-loader.js'),
+            loader: require.resolve('../../dist/index.js'),
+            options: { injectType: 'linkTag' },
           },
           {
             loader: 'file-loader',
@@ -79,7 +81,8 @@ module.exports = {
         test: /\.lazy\.scss$/i,
         use: [
           {
-            loader: require.resolve('../../dist/useable-loader.js'),
+            loader: require.resolve('../../dist/index.js'),
+            options: { injectType: 'lazyStyleTag' },
           },
           {
             loader: 'css-loader',

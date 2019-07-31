@@ -30,7 +30,105 @@ module.exports.pitch = function loader(request) {
     insertInto = `"${options.insertInto}"`;
   }
 
-  const hmrCode = `
+  const injectType = options.injectType || 'styleTag';
+
+  switch (injectType) {
+    case 'linkTag': {
+      const hmrCode = this.hot
+        ? `
+if (module.hot) {  
+  module.hot.accept(
+    ${loaderUtils.stringifyRequest(this, `!!${request}`)}, 
+    function() {
+      update(require(${loaderUtils.stringifyRequest(this, `!!${request}`)}));
+    }
+  );
+    
+  module.hot.dispose(function() { 
+    update(); 
+  });
+}`
+        : '';
+
+      return `var update = require(${loaderUtils.stringifyRequest(
+        this,
+        `!${path.join(__dirname, 'runtime/addStyleUrl.js')}`
+      )})(require(${loaderUtils.stringifyRequest(
+        this,
+        `!!${request}`
+      )}), ${JSON.stringify(options)});
+      ${hmrCode}`;
+    }
+
+    case 'lazyStyleTag':
+    case 'lazySingletonStyleTag': {
+      const isSingleton = injectType === 'lazySingletonStyleTag';
+
+      const hmrCode = this.hot
+        ? `
+if (module.hot) {
+  var lastRefs = module.hot.data && module.hot.data.refs || 0; 
+  
+  if (lastRefs) {
+    exports.ref();
+    if (!content.locals) {
+      refs = lastRefs;
+    }
+  }
+  
+  if (!content.locals) {
+    module.hot.accept();
+  } 
+  
+  module.hot.dispose(function(data) {
+    data.refs = content.locals ? 0 : refs;
+  
+    if (dispose) {
+      dispose();
+    }
+  });
+}`
+        : '';
+
+      return `var refs = 0;
+var dispose;
+var content = require(${loaderUtils.stringifyRequest(this, `!!${request}`)});
+var options = ${JSON.stringify(options)};
+
+options.insertInto = ${insertInto};
+options.singleton = ${isSingleton};
+    
+if (typeof content === 'string') content = [[module.id, content, '']];
+if (content.locals) exports.locals = content.locals;
+
+exports.use = exports.ref = function() {
+  if (!(refs++)) {
+    dispose = require(${loaderUtils.stringifyRequest(
+      this,
+      `!${path.join(__dirname, 'runtime/addStyles.js')}`
+    )})(content, options);
+  }
+
+ return exports;
+};
+
+exports.unuse = exports.unref = function() {
+  if (refs > 0 && !--refs) {
+    dispose();
+    dispose = null;
+  }
+};
+${hmrCode}
+`;
+    }
+
+    case 'styleTag':
+    case 'singletonStyleTag':
+    default: {
+      const isSingleton = injectType === 'singletonStyleTag';
+
+      const hmrCode = this.hot
+        ? `
 if (module.hot) {
   module.hot.accept(
     ${loaderUtils.stringifyRequest(this, `!!${request}`)}, 
@@ -67,10 +165,13 @@ if (module.hot) {
   module.hot.dispose(function() { 
     update(); 
   });
-}`;
+}`
+        : '';
 
-  return `
-var content = require(${loaderUtils.stringifyRequest(this, `!!${request}`)});
+      return `var content = require(${loaderUtils.stringifyRequest(
+        this,
+        `!!${request}`
+      )});
 
 if (typeof content === 'string') content = [[module.id, content, '']];
 
@@ -79,13 +180,15 @@ var insertInto;
 var options = ${JSON.stringify(options)}
 
 options.insertInto = ${insertInto};
+options.singleton = ${isSingleton};
 
 var update = require(${loaderUtils.stringifyRequest(
-    this,
-    `!${path.join(__dirname, 'runtime/addStyles.js')}`
-  )})(content, options);
+        this,
+        `!${path.join(__dirname, 'runtime/addStyles.js')}`
+      )})(content, options);
 
 if (content.locals) module.exports = content.locals;
-${this.hot ? hmrCode : ''}
-`;
+${hmrCode}`;
+    }
+  }
 };

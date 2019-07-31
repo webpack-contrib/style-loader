@@ -1,13 +1,12 @@
 /* eslint-env browser */
-import compile from './helpers/compiler';
-import runTestInJsdom from './helpers/runTestInJsdom';
+import { compile, runTestInJsdom } from './helpers';
 
 describe('insert option', () => {
   it('should insert styles in bottom when not specified', async () => {
     expect.assertions(3);
 
     const testId = './simple.js';
-    const stats = await compile(testId, {});
+    const stats = await compile(testId);
 
     runTestInJsdom(stats, (dom) => {
       expect(dom.serialize()).toMatchSnapshot('DOM');

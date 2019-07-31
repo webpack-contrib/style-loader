@@ -1,6 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`loader should generate source maps when previous loader emit them ("injectType" option is "lazyStyleTag"): DOM 1`] = `
+exports[`loader should generate source maps when previous loader emit them when the "injectType" option is "lazySingletonStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`loader should generate source maps when previous loader emit them when the "injectType" option is "lazySingletonStyleTag": errors 1`] = `Array []`;
+
+exports[`loader should generate source maps when previous loader emit them when the "injectType" option is "lazySingletonStyleTag": warnings 1`] = `Array []`;
+
+exports[`loader should generate source maps when previous loader emit them when the "injectType" option is "lazyStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -22,11 +46,11 @@ exports[`loader should generate source maps when previous loader emit them ("inj
 </body></html>"
 `;
 
-exports[`loader should generate source maps when previous loader emit them ("injectType" option is "lazyStyleTag"): errors 1`] = `Array []`;
+exports[`loader should generate source maps when previous loader emit them when the "injectType" option is "lazyStyleTag": errors 1`] = `Array []`;
 
-exports[`loader should generate source maps when previous loader emit them ("injectType" option is "lazyStyleTag"): warnings 1`] = `Array []`;
+exports[`loader should generate source maps when previous loader emit them when the "injectType" option is "lazyStyleTag": warnings 1`] = `Array []`;
 
-exports[`loader should generate source maps when previous loader emit them ("injectType" option is "linkTag"): DOM 1`] = `
+exports[`loader should generate source maps when previous loader emit them when the "injectType" option is "linkTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -40,11 +64,11 @@ exports[`loader should generate source maps when previous loader emit them ("inj
 </body></html>"
 `;
 
-exports[`loader should generate source maps when previous loader emit them ("injectType" option is "linkTag"): errors 1`] = `Array []`;
+exports[`loader should generate source maps when previous loader emit them when the "injectType" option is "linkTag": errors 1`] = `Array []`;
 
-exports[`loader should generate source maps when previous loader emit them ("injectType" option is "linkTag"): warnings 1`] = `Array []`;
+exports[`loader should generate source maps when previous loader emit them when the "injectType" option is "linkTag": warnings 1`] = `Array []`;
 
-exports[`loader should generate source maps when previous loader emit them ("injectType" option is "singletonLazyStyleTag"): DOM 1`] = `
+exports[`loader should generate source maps when previous loader emit them when the "injectType" option is "singletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -64,35 +88,11 @@ h1 {
 </body></html>"
 `;
 
-exports[`loader should generate source maps when previous loader emit them ("injectType" option is "singletonLazyStyleTag"): errors 1`] = `Array []`;
+exports[`loader should generate source maps when previous loader emit them when the "injectType" option is "singletonStyleTag": errors 1`] = `Array []`;
 
-exports[`loader should generate source maps when previous loader emit them ("injectType" option is "singletonLazyStyleTag"): warnings 1`] = `Array []`;
+exports[`loader should generate source maps when previous loader emit them when the "injectType" option is "singletonStyleTag": warnings 1`] = `Array []`;
 
-exports[`loader should generate source maps when previous loader emit them ("injectType" option is "singletonStyleTag"): DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>body {
-  color: red;
-}
-h1 {
-  color: blue;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-</body></html>"
-`;
-
-exports[`loader should generate source maps when previous loader emit them ("injectType" option is "singletonStyleTag"): errors 1`] = `Array []`;
-
-exports[`loader should generate source maps when previous loader emit them ("injectType" option is "singletonStyleTag"): warnings 1`] = `Array []`;
-
-exports[`loader should generate source maps when previous loader emit them ("injectType" option is "styleTag"): DOM 1`] = `
+exports[`loader should generate source maps when previous loader emit them when the "injectType" option is "styleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -114,31 +114,55 @@ exports[`loader should generate source maps when previous loader emit them ("inj
 </body></html>"
 `;
 
-exports[`loader should generate source maps when previous loader emit them ("injectType" option is "styleTag"): errors 1`] = `Array []`;
+exports[`loader should generate source maps when previous loader emit them when the "injectType" option is "styleTag": errors 1`] = `Array []`;
 
-exports[`loader should generate source maps when previous loader emit them ("injectType" option is "styleTag"): warnings 1`] = `Array []`;
+exports[`loader should generate source maps when previous loader emit them when the "injectType" option is "styleTag": warnings 1`] = `Array []`;
 
-exports[`loader should inject hmr code with HotModuleReplacementPlugin ("injectType" option is "lazyStyleTag"): errors 1`] = `Array []`;
+exports[`loader should inject hmr code with HotModuleReplacementPlugin when the "injectType" option is "lazySingletonStyleTag": errors 1`] = `Array []`;
 
-exports[`loader should inject hmr code with HotModuleReplacementPlugin ("injectType" option is "lazyStyleTag"): warnings 1`] = `Array []`;
+exports[`loader should inject hmr code with HotModuleReplacementPlugin when the "injectType" option is "lazySingletonStyleTag": warnings 1`] = `Array []`;
 
-exports[`loader should inject hmr code with HotModuleReplacementPlugin ("injectType" option is "linkTag"): errors 1`] = `Array []`;
+exports[`loader should inject hmr code with HotModuleReplacementPlugin when the "injectType" option is "lazyStyleTag": errors 1`] = `Array []`;
 
-exports[`loader should inject hmr code with HotModuleReplacementPlugin ("injectType" option is "linkTag"): warnings 1`] = `Array []`;
+exports[`loader should inject hmr code with HotModuleReplacementPlugin when the "injectType" option is "lazyStyleTag": warnings 1`] = `Array []`;
 
-exports[`loader should inject hmr code with HotModuleReplacementPlugin ("injectType" option is "singletonLazyStyleTag"): errors 1`] = `Array []`;
+exports[`loader should inject hmr code with HotModuleReplacementPlugin when the "injectType" option is "linkTag": errors 1`] = `Array []`;
 
-exports[`loader should inject hmr code with HotModuleReplacementPlugin ("injectType" option is "singletonLazyStyleTag"): warnings 1`] = `Array []`;
+exports[`loader should inject hmr code with HotModuleReplacementPlugin when the "injectType" option is "linkTag": warnings 1`] = `Array []`;
 
-exports[`loader should inject hmr code with HotModuleReplacementPlugin ("injectType" option is "singletonStyleTag"): errors 1`] = `Array []`;
+exports[`loader should inject hmr code with HotModuleReplacementPlugin when the "injectType" option is "singletonStyleTag": errors 1`] = `Array []`;
 
-exports[`loader should inject hmr code with HotModuleReplacementPlugin ("injectType" option is "singletonStyleTag"): warnings 1`] = `Array []`;
+exports[`loader should inject hmr code with HotModuleReplacementPlugin when the "injectType" option is "singletonStyleTag": warnings 1`] = `Array []`;
 
-exports[`loader should inject hmr code with HotModuleReplacementPlugin ("injectType" option is "styleTag"): errors 1`] = `Array []`;
+exports[`loader should inject hmr code with HotModuleReplacementPlugin when the "injectType" option is "styleTag": errors 1`] = `Array []`;
 
-exports[`loader should inject hmr code with HotModuleReplacementPlugin ("injectType" option is "styleTag"): warnings 1`] = `Array []`;
+exports[`loader should inject hmr code with HotModuleReplacementPlugin when the "injectType" option is "styleTag": warnings 1`] = `Array []`;
 
-exports[`loader should not generate source maps when previous loader don't emit them ("injectType" option is "lazyStyleTag"): DOM 1`] = `
+exports[`loader should not generate source maps when previous loader don't emit them when the "injectType" option is "lazySingletonStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`loader should not generate source maps when previous loader don't emit them when the "injectType" option is "lazySingletonStyleTag": errors 1`] = `Array []`;
+
+exports[`loader should not generate source maps when previous loader don't emit them when the "injectType" option is "lazySingletonStyleTag": warnings 1`] = `Array []`;
+
+exports[`loader should not generate source maps when previous loader don't emit them when the "injectType" option is "lazyStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -158,11 +182,11 @@ exports[`loader should not generate source maps when previous loader don't emit 
 </body></html>"
 `;
 
-exports[`loader should not generate source maps when previous loader don't emit them ("injectType" option is "lazyStyleTag"): errors 1`] = `Array []`;
+exports[`loader should not generate source maps when previous loader don't emit them when the "injectType" option is "lazyStyleTag": errors 1`] = `Array []`;
 
-exports[`loader should not generate source maps when previous loader don't emit them ("injectType" option is "lazyStyleTag"): warnings 1`] = `Array []`;
+exports[`loader should not generate source maps when previous loader don't emit them when the "injectType" option is "lazyStyleTag": warnings 1`] = `Array []`;
 
-exports[`loader should not generate source maps when previous loader don't emit them ("injectType" option is "linkTag"): DOM 1`] = `
+exports[`loader should not generate source maps when previous loader don't emit them when the "injectType" option is "linkTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -176,11 +200,11 @@ exports[`loader should not generate source maps when previous loader don't emit 
 </body></html>"
 `;
 
-exports[`loader should not generate source maps when previous loader don't emit them ("injectType" option is "linkTag"): errors 1`] = `Array []`;
+exports[`loader should not generate source maps when previous loader don't emit them when the "injectType" option is "linkTag": errors 1`] = `Array []`;
 
-exports[`loader should not generate source maps when previous loader don't emit them ("injectType" option is "linkTag"): warnings 1`] = `Array []`;
+exports[`loader should not generate source maps when previous loader don't emit them when the "injectType" option is "linkTag": warnings 1`] = `Array []`;
 
-exports[`loader should not generate source maps when previous loader don't emit them ("injectType" option is "singletonLazyStyleTag"): DOM 1`] = `
+exports[`loader should not generate source maps when previous loader don't emit them when the "injectType" option is "singletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -200,11 +224,97 @@ h1 {
 </body></html>"
 `;
 
-exports[`loader should not generate source maps when previous loader don't emit them ("injectType" option is "singletonLazyStyleTag"): errors 1`] = `Array []`;
+exports[`loader should not generate source maps when previous loader don't emit them when the "injectType" option is "singletonStyleTag": errors 1`] = `Array []`;
 
-exports[`loader should not generate source maps when previous loader don't emit them ("injectType" option is "singletonLazyStyleTag"): warnings 1`] = `Array []`;
+exports[`loader should not generate source maps when previous loader don't emit them when the "injectType" option is "singletonStyleTag": warnings 1`] = `Array []`;
 
-exports[`loader should not generate source maps when previous loader don't emit them ("injectType" option is "singletonStyleTag"): DOM 1`] = `
+exports[`loader should not generate source maps when previous loader don't emit them when the "injectType" option is "styleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+</style><style>h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`loader should not generate source maps when previous loader don't emit them when the "injectType" option is "styleTag": errors 1`] = `Array []`;
+
+exports[`loader should not generate source maps when previous loader don't emit them when the "injectType" option is "styleTag": warnings 1`] = `Array []`;
+
+exports[`loader should not inject hmr code without HotModuleReplacementPlugin when the "injectType" option is "lazySingletonStyleTag": errors 1`] = `Array []`;
+
+exports[`loader should not inject hmr code without HotModuleReplacementPlugin when the "injectType" option is "lazySingletonStyleTag": warnings 1`] = `Array []`;
+
+exports[`loader should not inject hmr code without HotModuleReplacementPlugin when the "injectType" option is "lazyStyleTag": errors 1`] = `Array []`;
+
+exports[`loader should not inject hmr code without HotModuleReplacementPlugin when the "injectType" option is "lazyStyleTag": warnings 1`] = `Array []`;
+
+exports[`loader should not inject hmr code without HotModuleReplacementPlugin when the "injectType" option is "linkTag": errors 1`] = `Array []`;
+
+exports[`loader should not inject hmr code without HotModuleReplacementPlugin when the "injectType" option is "linkTag": warnings 1`] = `Array []`;
+
+exports[`loader should not inject hmr code without HotModuleReplacementPlugin when the "injectType" option is "singletonStyleTag": errors 1`] = `Array []`;
+
+exports[`loader should not inject hmr code without HotModuleReplacementPlugin when the "injectType" option is "singletonStyleTag": warnings 1`] = `Array []`;
+
+exports[`loader should not inject hmr code without HotModuleReplacementPlugin when the "injectType" option is "styleTag": errors 1`] = `Array []`;
+
+exports[`loader should not inject hmr code without HotModuleReplacementPlugin when the "injectType" option is "styleTag": warnings 1`] = `Array []`;
+
+exports[`loader should work when ref is negative when the "injectType" option is "lazySingletonStyleTag"): DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`loader should work when ref is negative when the "injectType" option is "lazySingletonStyleTag"): errors 1`] = `Array []`;
+
+exports[`loader should work when ref is negative when the "injectType" option is "lazySingletonStyleTag"): warnings 1`] = `Array []`;
+
+exports[`loader should work when ref is negative when the "injectType" option is "lazyStyleTag"): DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`loader should work when ref is negative when the "injectType" option is "lazyStyleTag"): errors 1`] = `Array []`;
+
+exports[`loader should work when ref is negative when the "injectType" option is "lazyStyleTag"): warnings 1`] = `Array []`;
+
+exports[`loader should work when the "injectType" option is "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -224,11 +334,11 @@ h1 {
 </body></html>"
 `;
 
-exports[`loader should not generate source maps when previous loader don't emit them ("injectType" option is "singletonStyleTag"): errors 1`] = `Array []`;
+exports[`loader should work when the "injectType" option is "lazySingletonStyleTag": errors 1`] = `Array []`;
 
-exports[`loader should not generate source maps when previous loader don't emit them ("injectType" option is "singletonStyleTag"): warnings 1`] = `Array []`;
+exports[`loader should work when the "injectType" option is "lazySingletonStyleTag": warnings 1`] = `Array []`;
 
-exports[`loader should not generate source maps when previous loader don't emit them ("injectType" option is "styleTag"): DOM 1`] = `
+exports[`loader should work when the "injectType" option is "lazyStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -248,55 +358,11 @@ exports[`loader should not generate source maps when previous loader don't emit 
 </body></html>"
 `;
 
-exports[`loader should not generate source maps when previous loader don't emit them ("injectType" option is "styleTag"): errors 1`] = `Array []`;
+exports[`loader should work when the "injectType" option is "lazyStyleTag": errors 1`] = `Array []`;
 
-exports[`loader should not generate source maps when previous loader don't emit them ("injectType" option is "styleTag"): warnings 1`] = `Array []`;
+exports[`loader should work when the "injectType" option is "lazyStyleTag": warnings 1`] = `Array []`;
 
-exports[`loader should not inject hmr code without HotModuleReplacementPlugin ("injectType" option is "lazyStyleTag"): errors 1`] = `Array []`;
-
-exports[`loader should not inject hmr code without HotModuleReplacementPlugin ("injectType" option is "lazyStyleTag"): warnings 1`] = `Array []`;
-
-exports[`loader should not inject hmr code without HotModuleReplacementPlugin ("injectType" option is "linkTag"): errors 1`] = `Array []`;
-
-exports[`loader should not inject hmr code without HotModuleReplacementPlugin ("injectType" option is "linkTag"): warnings 1`] = `Array []`;
-
-exports[`loader should not inject hmr code without HotModuleReplacementPlugin ("injectType" option is "singletonLazyStyleTag"): errors 1`] = `Array []`;
-
-exports[`loader should not inject hmr code without HotModuleReplacementPlugin ("injectType" option is "singletonLazyStyleTag"): warnings 1`] = `Array []`;
-
-exports[`loader should not inject hmr code without HotModuleReplacementPlugin ("injectType" option is "singletonStyleTag"): errors 1`] = `Array []`;
-
-exports[`loader should not inject hmr code without HotModuleReplacementPlugin ("injectType" option is "singletonStyleTag"): warnings 1`] = `Array []`;
-
-exports[`loader should not inject hmr code without HotModuleReplacementPlugin ("injectType" option is "styleTag"): errors 1`] = `Array []`;
-
-exports[`loader should not inject hmr code without HotModuleReplacementPlugin ("injectType" option is "styleTag"): warnings 1`] = `Array []`;
-
-exports[`loader should work ("injectType" option is "lazyStyleTag"): DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>body {
-  color: red;
-}
-</style><style>h1 {
-  color: blue;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-</body></html>"
-`;
-
-exports[`loader should work ("injectType" option is "lazyStyleTag"): errors 1`] = `Array []`;
-
-exports[`loader should work ("injectType" option is "lazyStyleTag"): warnings 1`] = `Array []`;
-
-exports[`loader should work ("injectType" option is "linkTag"): DOM 1`] = `
+exports[`loader should work when the "injectType" option is "linkTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -310,11 +376,11 @@ exports[`loader should work ("injectType" option is "linkTag"): DOM 1`] = `
 </body></html>"
 `;
 
-exports[`loader should work ("injectType" option is "linkTag"): errors 1`] = `Array []`;
+exports[`loader should work when the "injectType" option is "linkTag": errors 1`] = `Array []`;
 
-exports[`loader should work ("injectType" option is "linkTag"): warnings 1`] = `Array []`;
+exports[`loader should work when the "injectType" option is "linkTag": warnings 1`] = `Array []`;
 
-exports[`loader should work ("injectType" option is "singletonLazyStyleTag"): DOM 1`] = `
+exports[`loader should work when the "injectType" option is "singletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -334,35 +400,11 @@ h1 {
 </body></html>"
 `;
 
-exports[`loader should work ("injectType" option is "singletonLazyStyleTag"): errors 1`] = `Array []`;
+exports[`loader should work when the "injectType" option is "singletonStyleTag": errors 1`] = `Array []`;
 
-exports[`loader should work ("injectType" option is "singletonLazyStyleTag"): warnings 1`] = `Array []`;
+exports[`loader should work when the "injectType" option is "singletonStyleTag": warnings 1`] = `Array []`;
 
-exports[`loader should work ("injectType" option is "singletonStyleTag"): DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>body {
-  color: red;
-}
-h1 {
-  color: blue;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-</body></html>"
-`;
-
-exports[`loader should work ("injectType" option is "singletonStyleTag"): errors 1`] = `Array []`;
-
-exports[`loader should work ("injectType" option is "singletonStyleTag"): warnings 1`] = `Array []`;
-
-exports[`loader should work ("injectType" option is "styleTag"): DOM 1`] = `
+exports[`loader should work when the "injectType" option is "styleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -382,16 +424,23 @@ exports[`loader should work ("injectType" option is "styleTag"): DOM 1`] = `
 </body></html>"
 `;
 
-exports[`loader should work ("injectType" option is "styleTag"): errors 1`] = `Array []`;
+exports[`loader should work when the "injectType" option is "styleTag": errors 1`] = `Array []`;
 
-exports[`loader should work ("injectType" option is "styleTag"): warnings 1`] = `Array []`;
+exports[`loader should work when the "injectType" option is "styleTag": warnings 1`] = `Array []`;
 
-exports[`loader should work when ref is negative ("injectType" option is "lazyStyleTag"): DOM 1`] = `
+exports[`loader should work with css modules when the "injectType" option is "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>body {
-  color: red;
+<style>.css-modules-local-scoped-className_2SS6AUo {
+  background: red;
+}
+.css-modules-myClassName_29qd4Wo {
+  background: red;
+}
+
+.css-modules-myComposingClass_EtB1JLd {
+  color: blue;
 }
 </style></head>
 <body>
@@ -400,35 +449,14 @@ exports[`loader should work when ref is negative ("injectType" option is "lazySt
   <iframe class=\\"iframeTarget\\"></iframe>
 
 
-</body></html>"
+<div class=\\"css-modules-myClassName_29qd4Wo\\">Water</div><div class=\\"css-modules-myComposingClass_EtB1JLd css-modules-local-scoped-className_2SS6AUo\\">Ground</div></body></html>"
 `;
 
-exports[`loader should work when ref is negative ("injectType" option is "lazyStyleTag"): DOM 2`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>body {
-  color: red;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
+exports[`loader should work with css modules when the "injectType" option is "lazySingletonStyleTag": errors 1`] = `Array []`;
 
+exports[`loader should work with css modules when the "injectType" option is "lazySingletonStyleTag": warnings 1`] = `Array []`;
 
-</body></html>"
-`;
-
-exports[`loader should work when ref is negative ("injectType" option is "lazyStyleTag"): errors 1`] = `Array []`;
-
-exports[`loader should work when ref is negative ("injectType" option is "lazyStyleTag"): errors 2`] = `Array []`;
-
-exports[`loader should work when ref is negative ("injectType" option is "lazyStyleTag"): warnings 1`] = `Array []`;
-
-exports[`loader should work when ref is negative ("injectType" option is "lazyStyleTag"): warnings 2`] = `Array []`;
-
-exports[`loader should work with css modules ("injectType" option is "lazyStyleTag"): DOM 1`] = `
+exports[`loader should work with css modules when the "injectType" option is "lazyStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -452,11 +480,11 @@ exports[`loader should work with css modules ("injectType" option is "lazyStyleT
 <div class=\\"css-modules-myClassName_29qd4Wo\\">Water</div><div class=\\"css-modules-myComposingClass_EtB1JLd css-modules-local-scoped-className_2SS6AUo\\">Ground</div></body></html>"
 `;
 
-exports[`loader should work with css modules ("injectType" option is "lazyStyleTag"): errors 1`] = `Array []`;
+exports[`loader should work with css modules when the "injectType" option is "lazyStyleTag": errors 1`] = `Array []`;
 
-exports[`loader should work with css modules ("injectType" option is "lazyStyleTag"): warnings 1`] = `Array []`;
+exports[`loader should work with css modules when the "injectType" option is "lazyStyleTag": warnings 1`] = `Array []`;
 
-exports[`loader should work with css modules ("injectType" option is "linkTag"): DOM 1`] = `
+exports[`loader should work with css modules when the "injectType" option is "linkTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -470,11 +498,11 @@ exports[`loader should work with css modules ("injectType" option is "linkTag"):
 <div class=\\"undefined\\">Water</div><div class=\\"undefined\\">Ground</div></body></html>"
 `;
 
-exports[`loader should work with css modules ("injectType" option is "linkTag"): errors 1`] = `Array []`;
+exports[`loader should work with css modules when the "injectType" option is "linkTag": errors 1`] = `Array []`;
 
-exports[`loader should work with css modules ("injectType" option is "linkTag"): warnings 1`] = `Array []`;
+exports[`loader should work with css modules when the "injectType" option is "linkTag": warnings 1`] = `Array []`;
 
-exports[`loader should work with css modules ("injectType" option is "singletonLazyStyleTag"): DOM 1`] = `
+exports[`loader should work with css modules when the "injectType" option is "singletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -498,39 +526,11 @@ exports[`loader should work with css modules ("injectType" option is "singletonL
 <div class=\\"css-modules-myClassName_29qd4Wo\\">Water</div><div class=\\"css-modules-myComposingClass_EtB1JLd css-modules-local-scoped-className_2SS6AUo\\">Ground</div></body></html>"
 `;
 
-exports[`loader should work with css modules ("injectType" option is "singletonLazyStyleTag"): errors 1`] = `Array []`;
+exports[`loader should work with css modules when the "injectType" option is "singletonStyleTag": errors 1`] = `Array []`;
 
-exports[`loader should work with css modules ("injectType" option is "singletonLazyStyleTag"): warnings 1`] = `Array []`;
+exports[`loader should work with css modules when the "injectType" option is "singletonStyleTag": warnings 1`] = `Array []`;
 
-exports[`loader should work with css modules ("injectType" option is "singletonStyleTag"): DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.css-modules-local-scoped-className_2SS6AUo {
-  background: red;
-}
-.css-modules-myClassName_29qd4Wo {
-  background: red;
-}
-
-.css-modules-myComposingClass_EtB1JLd {
-  color: blue;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div class=\\"css-modules-myClassName_29qd4Wo\\">Water</div><div class=\\"css-modules-myComposingClass_EtB1JLd css-modules-local-scoped-className_2SS6AUo\\">Ground</div></body></html>"
-`;
-
-exports[`loader should work with css modules ("injectType" option is "singletonStyleTag"): errors 1`] = `Array []`;
-
-exports[`loader should work with css modules ("injectType" option is "singletonStyleTag"): warnings 1`] = `Array []`;
-
-exports[`loader should work with css modules ("injectType" option is "styleTag"): DOM 1`] = `
+exports[`loader should work with css modules when the "injectType" option is "styleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -554,9 +554,9 @@ exports[`loader should work with css modules ("injectType" option is "styleTag")
 <div class=\\"css-modules-myClassName_29qd4Wo\\">Water</div><div class=\\"css-modules-myComposingClass_EtB1JLd css-modules-local-scoped-className_2SS6AUo\\">Ground</div></body></html>"
 `;
 
-exports[`loader should work with css modules ("injectType" option is "styleTag"): errors 1`] = `Array []`;
+exports[`loader should work with css modules when the "injectType" option is "styleTag": errors 1`] = `Array []`;
 
-exports[`loader should work with css modules ("injectType" option is "styleTag"): warnings 1`] = `Array []`;
+exports[`loader should work with css modules when the "injectType" option is "styleTag": warnings 1`] = `Array []`;
 
 exports[`loader should work: DOM 1`] = `
 "<!DOCTYPE html><html><head>

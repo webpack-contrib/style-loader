@@ -3,4 +3,3 @@ import styleOther from './style-other.css';
 
 style.use();
 styleOther.use();
-style.unuse();
