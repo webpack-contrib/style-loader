@@ -50,11 +50,5 @@ it('validate options', () => {
     validate({ singleton: 'unknown' })
   ).toThrowErrorMatchingSnapshot();
 
-  expect(() => validate({ sourceMap: true })).not.toThrow();
-  expect(() => validate({ sourceMap: false })).not.toThrow();
-  expect(() =>
-    validate({ sourceMap: 'unknown' })
-  ).toThrowErrorMatchingSnapshot();
-
   expect(() => validate({ unknown: 'unknown' })).toThrowErrorMatchingSnapshot();
 });

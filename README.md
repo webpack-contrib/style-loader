@@ -71,33 +71,6 @@ import style from './file.css';
 style.className === 'z849f98ca812';
 ```
 
-### `Url`
-
-It's also possible to add a URL `<link href="path/to/file.css" rel="stylesheet">` instead of inlining the CSS `{String}` with `<style></style>` tag.
-
-```js
-import url from 'file.css';
-```
-
-**webpack.config.js**
-
-```js
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: [{ loader: 'style-loader/url' }, { loader: 'file-loader' }],
-      },
-    ],
-  },
-};
-```
-
-```html
-<link rel="stylesheet" href="path/to/file.css" />
-```
-
 ### `Useable`
 
 The `style-loader` injects the styles lazily making them useable on-demand via `style.use()` / `style.unuse()`
@@ -144,6 +117,33 @@ Styles are not added on `import/require()`, but instead on call to `use`/`ref`. 
 
 > ⚠️ Behavior is undefined when `unuse`/`unref` is called more often than `use`/`ref`. Don't do that.
 
+### `Url`
+
+It's also possible to add a URL `<link href="path/to/file.css" rel="stylesheet">` instead of inlining the CSS `{String}` with `<style></style>` tag.
+
+```js
+import url from 'file.css';
+```
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [{ loader: 'style-loader/url' }, { loader: 'file-loader' }],
+      },
+    ],
+  },
+};
+```
+
+```html
+<link rel="stylesheet" href="path/to/file.css" />
+```
+
 ## Options
 
 |       Name       |         Type         |   Default   | Description                                                                                                         |
@@ -153,7 +153,6 @@ Styles are not added on `import/require()`, but instead on call to `use`/`ref`. 
 |  **`insertAt`**  |  `{String\|Object}`  |  `bottom`   | Inserts `<style></style>` at the given position                                                                     |
 | **`insertInto`** | `{String\|Function}` |  `<head>`   | Inserts `<style></style>` into the given position                                                                   |
 | **`singleton`**  |     `{Boolean}`      | `undefined` | Reuses a single `<style></style>` element, instead of adding/removing individual elements for each required module. |
-| **`sourceMap`**  |     `{Boolean}`      |   `false`   | Enable/Disable Sourcemaps                                                                                           |
 
 ### `base`
 
@@ -245,32 +244,6 @@ module.exports = {
 
 ```html
 <style id="id"></style>
-```
-
-#### `Url`
-
-**component.js**
-
-```js
-import link from './file.css';
-```
-
-**webpack.config.js**
-
-```js
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: [
-          { loader: 'style-loader/url', options: { attributes: { id: 'id' } } },
-          { loader: 'file-loader' },
-        ],
-      },
-    ],
-  },
-};
 ```
 
 ### `insertAt`
@@ -405,9 +378,12 @@ module.exports = {
 };
 ```
 
-### `sourceMap`
+## Examples
 
-Enable/Disable source map loading
+### Source maps
+
+The loader automatically inject source maps when previous loader emit them.
+Therefore, to generate source maps, set the `sourceMap` option to `true` for the previous loader.
 
 **webpack.config.js**
 
@@ -418,7 +394,7 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [
-          { loader: 'style-loader', options: { sourceMap: true } },
+          'style-loader',
           { loader: 'css-loader', options: { sourceMap: true } },
         ],
       },

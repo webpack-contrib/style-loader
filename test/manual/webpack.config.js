@@ -18,9 +18,6 @@ module.exports = {
         use: [
           {
             loader: require.resolve('../../dist/index.js'),
-            options: {
-              sourceMap: ENABLE_SOURCE_MAP,
-            },
           },
           {
             loader: 'css-loader',
@@ -35,9 +32,6 @@ module.exports = {
         use: [
           {
             loader: require.resolve('../../dist/useable-loader.js'),
-            options: {
-              sourceMap: ENABLE_SOURCE_MAP,
-            },
           },
           {
             loader: 'css-loader',
@@ -52,9 +46,6 @@ module.exports = {
         use: [
           {
             loader: require.resolve('../../dist/url-loader.js'),
-            options: {
-              sourceMap: ENABLE_SOURCE_MAP,
-            },
           },
           {
             loader: 'file-loader',
@@ -67,9 +58,6 @@ module.exports = {
         use: [
           {
             loader: require.resolve('../../dist/index.js'),
-            options: {
-              sourceMap: ENABLE_SOURCE_MAP,
-            },
           },
           {
             loader: 'css-loader',
@@ -92,9 +80,6 @@ module.exports = {
         use: [
           {
             loader: require.resolve('../../dist/useable-loader.js'),
-            options: {
-              sourceMap: ENABLE_SOURCE_MAP,
-            },
           },
           {
             loader: 'css-loader',
