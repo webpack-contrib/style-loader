@@ -15,31 +15,26 @@ module.exports.pitch = function loader(request) {
     baseDataPath: 'options',
   });
 
-  const hmr = [
-    // Hot Module Replacement
-    'if(module.hot) {',
-    `  module.hot.accept(${loaderUtils.stringifyRequest(
-      this,
-      `!!${request}`
-    )}, function() {`,
-    `    update(require(${loaderUtils.stringifyRequest(
-      this,
-      `!!${request}`
-    )}));`,
-    '  });',
-    '',
-    '  module.hot.dispose(function() { update(); });',
-    '}',
-  ].join('\n');
+  const hmrCode = `
+if (module.hot) {  
+  module.hot.accept(
+    ${loaderUtils.stringifyRequest(this, `!!${request}`)}, 
+    function() {
+      update(require(${loaderUtils.stringifyRequest(this, `!!${request}`)}));
+    }
+  );
+    
+  module.hot.dispose(function() { 
+    update(); 
+  });
+}`;
 
-  return [
-    // Adds some reference to a CSS file to the DOM by adding a <link> tag
-    `var update = require(${loaderUtils.stringifyRequest(
-      this,
-      `!${path.join(__dirname, 'runtime/addStyleUrl.js')}`
-    )})(`,
-    `  require(${loaderUtils.stringifyRequest(this, `!!${request}`)})`,
-    `, ${JSON.stringify(options)});`,
-    this.hot ? hmr : '',
-  ].join('\n');
+  return `var update = require(${loaderUtils.stringifyRequest(
+    this,
+    `!${path.join(__dirname, 'runtime/addStyleUrl.js')}`
+  )})(require(${loaderUtils.stringifyRequest(
+    this,
+    `!!${request}`
+  )}), ${JSON.stringify(options)});
+  ${this.hot ? hmrCode : ''}`;
 };

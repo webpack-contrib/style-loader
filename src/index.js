@@ -30,71 +30,62 @@ module.exports.pitch = function loader(request) {
     insertInto = `"${options.insertInto}"`;
   }
 
-  const hmr = [
-    // Hot Module Replacement,
-    'if(module.hot) {',
-    // When the styles change, update the <style> tags
-    `	module.hot.accept(${loaderUtils.stringifyRequest(
-      this,
-      `!!${request}`
-    )}, function() {`,
-    `		var newContent = require(${loaderUtils.stringifyRequest(
-      this,
-      `!!${request}`
-    )});`,
-    '',
-    "		if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];",
-    '',
-    '		var locals = (function(a, b) {',
-    '			var key, idx = 0;',
-    '',
-    '			for(key in a) {',
-    '				if(!b || a[key] !== b[key]) return false;',
-    '				idx++;',
-    '			}',
-    '',
-    '			for(key in b) idx--;',
-    '',
-    '			return idx === 0;',
-    '		}(content.locals, newContent.locals));',
-    '',
-    // This error is caught and not shown and causes a full reload
-    "		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');",
-    '',
-    '		update(newContent);',
-    '	});',
-    '',
-    // When the module is disposed, remove the <style> tags
-    '	module.hot.dispose(function() { update(); });',
-    '}',
-  ].join('\n');
+  const hmrCode = `
+if (module.hot) {
+  module.hot.accept(
+    ${loaderUtils.stringifyRequest(this, `!!${request}`)}, 
+    function() {
+      var newContent = require(${loaderUtils.stringifyRequest(
+        this,
+        `!!${request}`
+      )});
 
-  return [
-    // Style Loader
-    // Adds CSS to the DOM by adding a <style> tag
-    '',
-    // Load styles
-    `var content = require(${loaderUtils.stringifyRequest(
-      this,
-      `!!${request}`
-    )});`,
-    '',
-    "if(typeof content === 'string') content = [[module.id, content, '']];",
-    '',
-    'var insertInto;',
-    '',
-    `var options = ${JSON.stringify(options)}`,
-    '',
-    `options.insertInto = ${insertInto};`,
-    '',
-    // Add styles to the DOM
-    `var update = require(${loaderUtils.stringifyRequest(
-      this,
-      `!${path.join(__dirname, 'runtime/addStyles.js')}`
-    )})(content, options);`,
-    '',
-    'if(content.locals) module.exports = content.locals;',
-    '',
-    this.hot ? hmr : '',
-  ].join('\n');
+      if (typeof newContent === 'string') 
+        newContent = [[module.id, newContent, '']];
+
+      var locals = (function(a, b) {
+        var key, 
+          idx = 0;
+
+        for (key in a) {
+          if(!b || a[key] !== b[key]) return false;
+          idx++;
+        }
+
+        for (key in b) idx--;
+
+        return idx === 0;
+      }(content.locals, newContent.locals));
+
+      if (!locals) 
+        throw new Error('Aborting CSS HMR due to changed css-modules locals.');
+
+      update(newContent);
+    }
+  );
+
+  module.hot.dispose(function() { 
+    update(); 
+  });
+}`;
+
+  return `
+var content = require(${loaderUtils.stringifyRequest(this, `!!${request}`)});
+
+if (typeof content === 'string') content = [[module.id, content, '']];
+
+var insertInto;
+
+var options = ${JSON.stringify(options)}
+
+options.insertInto = ${insertInto};
+
+var update = require(${loaderUtils.stringifyRequest(
+    this,
+    `!${path.join(__dirname, 'runtime/addStyles.js')}`
+  )})(content, options);
+
+if (content.locals) module.exports = content.locals;
+${this.hot ? hmrCode : ''}
+`;
 };
