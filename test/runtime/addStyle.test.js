@@ -106,6 +106,26 @@ describe('addStyle', () => {
     expect(document.documentElement.innerHTML).toMatchSnapshot();
   });
 
+  it('should work with "insertAt" option #4', () => {
+    document.head.innerHTML = '';
+
+    const update = addStyle(
+      [
+        ['./style-45.css', '.foo { color: red }', ''],
+        ['./style-46.css', '.bar { color: blue }', ''],
+      ],
+      {
+        insertAt: 'top',
+      }
+    );
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+
+    update([['./style-45.css', '.foo { color: black }', '']]);
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+  });
+
   it('should work with "insertInto" option', () => {
     addStyle(
       [
