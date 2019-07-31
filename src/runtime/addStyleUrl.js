@@ -15,6 +15,15 @@ module.exports = function addStyleUrl(url, options) {
   options.attributes =
     typeof options.attributes === 'object' ? options.attributes : {};
 
+  if (options.attributes.nonce === undefined) {
+    var nonce =
+      typeof __webpack_nonce__ !== 'undefined' ? __webpack_nonce__ : null;
+
+    if (nonce) {
+      options.attributes.nonce = nonce;
+    }
+  }
+
   const link = document.createElement('link');
 
   link.rel = 'stylesheet';

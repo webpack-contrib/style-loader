@@ -2,8 +2,9 @@
 
 exports[`validate options 1`] = `
 "Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
- - options.base should be a number.
-   -> Set module ID base for DLLPlugin (https://github.com/webpack-contrib/style-loader#base)."
+ - options.injectType should be one of these:
+   \\"styleTag\\" | \\"singletonStyleTag\\" | \\"lazyStyleTag\\" | \\"lazySingletonStyleTag\\" | \\"linkTag\\"
+   -> Allows to setup how styles will be injected in DOM."
 `;
 
 exports[`validate options 2`] = `
@@ -32,12 +33,6 @@ exports[`validate options 4`] = `
 
 exports[`validate options 5`] = `
 "Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
- - options.singleton should be a boolean.
-   -> Reuses a single <style></style> element, instead of adding/removing individual elements for each required module (https://github.com/webpack-contrib/style-loader#singleton)."
-`;
-
-exports[`validate options 6`] = `
-"Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { base?, attributes?, insertAt?, insertInto?, singleton? }"
+   object { base?, injectType?, attributes?, insertAt?, insertInto? }"
 `;

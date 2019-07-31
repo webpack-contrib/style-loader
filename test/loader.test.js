@@ -2,19 +2,37 @@
 
 import webpack from 'webpack';
 
-import compile from './helpers/compiler';
-import runTestInJsdom from './helpers/runTestInJsdom';
+import { compile, getTestId, runTestInJsdom } from './helpers';
 
 describe('loader', () => {
-  const injectTypes = ['styleTag', 'useableStyleTag', 'linkTag'];
+  const injectTypes = [
+    'styleTag',
+    'singletonStyleTag',
+    'lazyStyleTag',
+    'lazySingletonStyleTag',
+    'linkTag',
+  ];
+
+  it(`should work`, async () => {
+    const testId = './simple.js';
+    const stats = await compile(testId);
+
+    runTestInJsdom(stats, (dom) => {
+      expect(dom.serialize()).toMatchSnapshot('DOM');
+    });
+
+    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
+    expect(stats.compilation.errors).toMatchSnapshot('errors');
+  });
 
   injectTypes.forEach((injectType) => {
-    expect.assertions(3);
+    it(`should work when the "injectType" option is "${injectType}"`, async () => {
+      expect.assertions(3);
 
-    it(`should work ("injectType" option is "${injectType}")`, async () => {
-      const testId =
-        injectType === 'useableStyleTag' ? './useable.js' : './simple.js';
-      const stats = await compile(testId, { loader: { injectType } });
+      const testId = getTestId('simple.js', injectType);
+      const stats = await compile(testId, {
+        loader: { options: { injectType } },
+      });
 
       runTestInJsdom(stats, (dom) => {
         expect(dom.serialize()).toMatchSnapshot('DOM');
@@ -24,15 +42,12 @@ describe('loader', () => {
       expect(stats.compilation.errors).toMatchSnapshot('errors');
     });
 
-    it(`should work with css modules ("injectType" option is "${injectType}")`, async () => {
+    it(`should work with css modules when the "injectType" option is "${injectType}"`, async () => {
       expect.assertions(3);
 
-      const testId =
-        injectType === 'useableStyleTag'
-          ? './useable-css-modules.js'
-          : './css-modules.js';
+      const testId = getTestId('css-modules.js', injectType);
       const stats = await compile(testId, {
-        loader: { injectType },
+        loader: { options: { injectType } },
         cssLoader: {
           options: {
             modules: { localIdentName: '[name]-[local]_[hash:base64:7]' },
@@ -48,9 +63,13 @@ describe('loader', () => {
       expect(stats.compilation.errors).toMatchSnapshot('errors');
     });
 
-    it(`should not inject hmr code without HotModuleReplacementPlugin ("injectType" option is "${injectType}")`, async () => {
+    it(`should not inject hmr code without HotModuleReplacementPlugin when the "injectType" option is "${injectType}"`, async () => {
+      expect.assertions(4);
+
       const testId = './hot.js';
-      const stats = await compile(testId, { loader: { injectType } });
+      const stats = await compile(testId, {
+        loader: { options: { injectType } },
+      });
 
       runTestInJsdom(stats, (dom) => {
         expect(dom.window.hotApi).not.toBeDefined();
@@ -64,13 +83,13 @@ describe('loader', () => {
       expect(stats.compilation.errors).toMatchSnapshot('errors');
     });
 
-    it(`should inject hmr code with HotModuleReplacementPlugin ("injectType" option is "${injectType}")`, async () => {
+    it(`should inject hmr code with HotModuleReplacementPlugin when the "injectType" option is "${injectType}"`, async () => {
       expect.assertions(4);
 
       const testId = './hot.js';
       const stats = await compile(testId, {
         plugins: [new webpack.HotModuleReplacementPlugin()],
-        loader: { injectType },
+        loader: { options: { injectType } },
       });
 
       runTestInJsdom(stats, (dom) => {
@@ -85,14 +104,13 @@ describe('loader', () => {
       expect(stats.compilation.errors).toMatchSnapshot('errors');
     });
 
-    it(`should not generate source maps when previous loader don't emit them ("injectType" option is "${injectType}")`, async () => {
+    it(`should not generate source maps when previous loader don't emit them when the "injectType" option is "${injectType}"`, async () => {
       expect.assertions(3);
 
-      const testId =
-        injectType === 'useableStyleTag' ? './useable.js' : './simple.js';
+      const testId = getTestId('simple.js', injectType);
       const stats = await compile(testId, {
         devtool: 'source-map',
-        loader: { injectType },
+        loader: { options: { injectType } },
       });
 
       runTestInJsdom(stats, (dom) => {
@@ -104,19 +122,14 @@ describe('loader', () => {
     });
 
     // `linkTag` doesn't generate source maps, original source should contains them
-    it(`should generate source maps when previous loader emit them ("injectType" option is "${injectType}")`, async () => {
+    it(`should generate source maps when previous loader emit them when the "injectType" option is "${injectType}"`, async () => {
       expect.assertions(3);
 
-      const testId =
-        injectType === 'useableStyleTag' ? './useable.js' : './simple.js';
+      const testId = getTestId('simple.js', injectType);
       const stats = await compile(testId, {
         devtool: 'source-map',
-        loader: { injectType },
-        cssLoader: {
-          options: {
-            sourceMap: true,
-          },
-        },
+        loader: { options: { injectType } },
+        cssLoader: { options: { sourceMap: true } },
       });
 
       runTestInJsdom(stats, (dom) => {
@@ -126,21 +139,23 @@ describe('loader', () => {
       expect(stats.compilation.warnings).toMatchSnapshot('warnings');
       expect(stats.compilation.errors).toMatchSnapshot('errors');
     });
-  });
 
-  it('should work for useable inject type and negative ref', async () => {
-    expect.assertions(3);
+    if (['lazyStyleTag', 'lazySingletonStyleTag'].includes(injectType)) {
+      it(`should work when ref is negative when the "injectType" option is "${injectType}")`, async () => {
+        expect.assertions(3);
 
-    const testId = './useable-negative-refs.js';
-    const stats = await compile(testId, {
-      loader: { injectType: 'useableStyleTag' },
-    });
+        const testId = './lazy-negative-refs.js';
+        const stats = await compile(testId, {
+          loader: { options: { injectType } },
+        });
 
-    runTestInJsdom(stats, (dom) => {
-      expect(dom.serialize()).toMatchSnapshot('DOM');
-    });
+        runTestInJsdom(stats, (dom) => {
+          expect(dom.serialize()).toMatchSnapshot('DOM');
+        });
 
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+        expect(stats.compilation.warnings).toMatchSnapshot('warnings');
+        expect(stats.compilation.errors).toMatchSnapshot('errors');
+      });
+    }
   });
 });

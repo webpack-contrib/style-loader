@@ -20,8 +20,14 @@ it('validate options', () => {
       'file.css'
     );
 
-  expect(() => validate({ base: 1000 })).not.toThrow();
-  expect(() => validate({ base: 'unknown' })).toThrowErrorMatchingSnapshot();
+  expect(() => validate({ injectType: 'styleTag' })).not.toThrow();
+  expect(() => validate({ injectType: 'singletonStyleTag' })).not.toThrow();
+  expect(() => validate({ injectType: 'lazyStyleTag' })).not.toThrow();
+  expect(() => validate({ injectType: 'lazySingletonStyleTag' })).not.toThrow();
+  expect(() => validate({ injectType: 'linkTag' })).not.toThrow();
+  expect(() =>
+    validate({ injectType: 'unknown' })
+  ).toThrowErrorMatchingSnapshot();
 
   expect(() => validate({ attributes: {} })).not.toThrow();
   expect(() => validate({ attributes: { id: 'id' } })).not.toThrow();
@@ -43,12 +49,6 @@ it('validate options', () => {
   ).not.toThrow();
   expect(() => validate({ insertInto: 'test' })).not.toThrow();
   expect(() => validate({ insertInto: true })).toThrowErrorMatchingSnapshot();
-
-  expect(() => validate({ singleton: true })).not.toThrow();
-  expect(() => validate({ singleton: false })).not.toThrow();
-  expect(() =>
-    validate({ singleton: 'unknown' })
-  ).toThrowErrorMatchingSnapshot();
 
   expect(() => validate({ unknown: 'unknown' })).toThrowErrorMatchingSnapshot();
 });

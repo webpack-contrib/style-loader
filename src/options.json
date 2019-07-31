@@ -5,6 +5,16 @@
       "description": "Set module ID base for DLLPlugin (https://github.com/webpack-contrib/style-loader#base).",
       "type": "number"
     },
+    "injectType": {
+      "description": "Allows to setup how styles will be injected in DOM.",
+      "enum": [
+        "styleTag",
+        "singletonStyleTag",
+        "lazyStyleTag",
+        "lazySingletonStyleTag",
+        "linkTag"
+      ]
+    },
     "attributes": {
       "description": "Add custom attributes to tag (https://github.com/webpack-contrib/style-loader#attributes).",
       "type": "object"
@@ -16,10 +26,6 @@
     "insertInto": {
       "description": "Inserts <style></style> into the given position (https://github.com/webpack-contrib/style-loader#insertinto).",
       "anyOf": [{ "type": "string" }, { "instanceof": "Function" }]
-    },
-    "singleton": {
-      "description": "Reuses a single <style></style> element, instead of adding/removing individual elements for each required module (https://github.com/webpack-contrib/style-loader#singleton).",
-      "type": "boolean"
     }
   },
   "additionalProperties": false

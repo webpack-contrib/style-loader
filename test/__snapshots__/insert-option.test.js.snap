@@ -6,6 +6,9 @@ exports[`insert option should insert styles before "#existing-style" id: DOM 1`]
   <style>body {
   color: red;
 }
+</style><style>h1 {
+  color: blue;
+}
 </style><style id=\\"existing-style\\">.existing { color: yellow }</style>
 </head>
 <body>
@@ -49,6 +52,9 @@ exports[`insert option should insert styles in bottom when not specified: DOM 1`
 <style>body {
   color: red;
 }
+</style><style>h1 {
+  color: blue;
+}
 </style></head>
 <body>
   <h1>Body</h1>
@@ -70,6 +76,9 @@ exports[`insert option should insert styles in bottom when selector was not foun
 <style>body {
   color: red;
 }
+</style><style>h1 {
+  color: blue;
+}
 </style></head>
 <body>
   <h1>Body</h1>
@@ -90,6 +99,9 @@ exports[`insert option should insert styles in bottom: DOM 1`] = `
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
 <style>body {
   color: red;
+}
+</style><style>h1 {
+  color: blue;
 }
 </style></head>
 <body>
@@ -130,6 +142,9 @@ exports[`insert option should insert styles in top: DOM 1`] = `
 "<!DOCTYPE html><html><head><style>body {
   color: red;
 }
+</style><style>h1 {
+  color: blue;
+}
 </style>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -167,6 +182,9 @@ exports[`insert option should insert styles into target when target is iframe: i
 "<style>body {
   color: red;
 }
+</style><style>h1 {
+  color: blue;
+}
 </style>"
 `;
 
@@ -181,6 +199,9 @@ exports[`insert option should insert styles into target: DOM 1`] = `
   <h1>Body</h1>
   <div class=\\"target\\"><style>body {
   color: red;
+}
+</style><style>h1 {
+  color: blue;
 }
 </style></div>
   <iframe class=\\"iframeTarget\\"></iframe>

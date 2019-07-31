@@ -7,6 +7,9 @@ exports[`base option should work: DOM 1`] = `
 <style>body {
   color: red;
 }
+</style><style>h1 {
+  color: blue;
+}
 </style></head>
 <body>
   <h1>Body</h1>
