@@ -38,12 +38,6 @@ exports[`validate options 5`] = `
 
 exports[`validate options 6`] = `
 "Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
- - options.sourceMap should be a boolean.
-   -> Enable/Disable Sourcemaps (https://github.com/webpack-contrib/style-loader#sourcemap)."
-`;
-
-exports[`validate options 7`] = `
-"Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { base?, attributes?, insertAt?, insertInto?, singleton?, sourceMap? }"
+   object { base?, attributes?, insertAt?, insertInto?, singleton? }"
 `;

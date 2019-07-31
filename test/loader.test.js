@@ -84,6 +84,48 @@ describe('loader', () => {
       expect(stats.compilation.warnings).toMatchSnapshot('warnings');
       expect(stats.compilation.errors).toMatchSnapshot('errors');
     });
+
+    it(`should not generate source maps when previous loader don't emit them ("injectType" option is "${injectType}")`, async () => {
+      expect.assertions(3);
+
+      const testId =
+        injectType === 'useableStyleTag' ? './useable.js' : './simple.js';
+      const stats = await compile(testId, {
+        devtool: 'source-map',
+        loader: { injectType },
+      });
+
+      runTestInJsdom(stats, (dom) => {
+        expect(dom.serialize()).toMatchSnapshot('DOM');
+      });
+
+      expect(stats.compilation.warnings).toMatchSnapshot('warnings');
+      expect(stats.compilation.errors).toMatchSnapshot('errors');
+    });
+
+    // `linkTag` doesn't generate source maps, original source should contains them
+    it(`should generate source maps when previous loader emit them ("injectType" option is "${injectType}")`, async () => {
+      expect.assertions(3);
+
+      const testId =
+        injectType === 'useableStyleTag' ? './useable.js' : './simple.js';
+      const stats = await compile(testId, {
+        devtool: 'source-map',
+        loader: { injectType },
+        cssLoader: {
+          options: {
+            sourceMap: true,
+          },
+        },
+      });
+
+      runTestInJsdom(stats, (dom) => {
+        expect(dom.serialize()).toMatchSnapshot('DOM');
+      });
+
+      expect(stats.compilation.warnings).toMatchSnapshot('warnings');
+      expect(stats.compilation.errors).toMatchSnapshot('errors');
+    });
   });
 
   it('should work for useable inject type and negative ref', async () => {

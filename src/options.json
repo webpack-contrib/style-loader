@@ -20,10 +20,6 @@
     "singleton": {
       "description": "Reuses a single <style></style> element, instead of adding/removing individual elements for each required module (https://github.com/webpack-contrib/style-loader#singleton).",
       "type": "boolean"
-    },
-    "sourceMap": {
-      "description": "Enable/Disable Sourcemaps (https://github.com/webpack-contrib/style-loader#sourcemap).",
-      "type": "boolean"
     }
   },
   "additionalProperties": false

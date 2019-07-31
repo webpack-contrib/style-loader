@@ -171,7 +171,7 @@ describe('addStyle', () => {
     expect(document.documentElement.innerHTML).toMatchSnapshot();
   });
 
-  it('should work with "sourceMap" option', () => {
+  it('should work with source maps', () => {
     addStyle([
       [
         './style-13-1.css',
@@ -187,56 +187,6 @@ describe('addStyle', () => {
         },
       ],
     ]);
-
-    expect(document.documentElement.innerHTML).toMatchSnapshot();
-  });
-
-  it('should work with "sourceMap" option #2', () => {
-    addStyle(
-      [
-        [
-          './style-13-2.css',
-          '.foo { color: red }',
-          '',
-          {
-            version: 3,
-            sources: ['style-13-2.css'],
-            names: [],
-            mappings: 'AAAA,cAAqB,eAAe,EAAE',
-            file: 'style-13-2.css',
-            sourcesContent: ['.foo { color: red }'],
-          },
-        ],
-      ],
-      {
-        sourceMap: true,
-      }
-    );
-
-    expect(document.documentElement.innerHTML).toMatchSnapshot();
-  });
-
-  it('should work with "sourceMap" option #3', () => {
-    addStyle(
-      [
-        [
-          './style-13-3.css',
-          '.foo { color: red }',
-          '',
-          {
-            version: 3,
-            sources: ['style-13-3.css'],
-            names: [],
-            mappings: 'AAAA,cAAqB,eAAe,EAAE',
-            file: 'style-13-3.css',
-            sourcesContent: ['.foo { color: red }'],
-          },
-        ],
-      ],
-      {
-        sourceMap: false,
-      }
-    );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
   });
