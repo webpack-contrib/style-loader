@@ -574,6 +574,108 @@ module.exports = {
 };
 ```
 
+### Nonce
+
+There are two ways to work with `nonce`:
+
+- using the `attirbutes` option
+- using the `__webpack_nonce__` variable
+
+> ⚠ the `__webpack_nonce__` variable takes precedence over the `attibutes` option, so if define the `__webpack_nonce__` variable the `attributes` option will not be used
+
+### `attirbutes`
+
+**component.js**
+
+```js
+import './style.css';
+```
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          {
+            loader: 'style-loader',
+            options: {
+              attributes: {
+                nonce: '12345678',
+              },
+            },
+          },
+          'css-loader',
+        ],
+      },
+    ],
+  },
+};
+```
+
+The loader generate:
+
+```html
+<style nonce="12345678">
+  .foo {
+    color: red;
+  }
+</style>
+```
+
+### `webpack_nonce`
+
+**create-nonce.js**
+
+```js
+__webpack_nonce__ = '12345678';
+```
+
+**component.js**
+
+```js
+import './create-nonce.js';
+import './style.css';
+```
+
+Alternative example for `require`:
+
+**component.js**
+
+```js
+__webpack_nonce__ = '12345678';
+
+require('./style.css');
+```
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
+};
+```
+
+The loader generate:
+
+```html
+<style nonce="12345678">
+  .foo {
+    color: red;
+  }
+</style>
+```
+
 ## Contributing
 
 Please take a moment to read our contributing guidelines if you haven't yet done so.
