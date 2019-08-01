@@ -626,7 +626,7 @@ The loader generate:
 </style>
 ```
 
-### `webpack_nonce`
+### `__webpack_nonce__`
 
 **create-nonce.js**
 
