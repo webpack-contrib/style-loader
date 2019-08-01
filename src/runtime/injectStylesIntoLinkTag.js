@@ -1,4 +1,33 @@
-module.exports = function injectStylesIntoLinkTag(url, options) {
+const getTarget = (function getTarget() {
+  const memo = {};
+
+  return function memorize(target) {
+    if (typeof memo[target] === 'undefined') {
+      let styleTarget = document.querySelector(target);
+
+      // Special case to return head of iframe instead of iframe itself
+      if (
+        window.HTMLIFrameElement &&
+        styleTarget instanceof window.HTMLIFrameElement
+      ) {
+        try {
+          // This will throw an exception if access to iframe is blocked
+          // due to cross-origin restrictions
+          styleTarget = styleTarget.contentDocument.head;
+        } catch (e) {
+          // istanbul ignore next
+          styleTarget = null;
+        }
+      }
+
+      memo[target] = styleTarget;
+    }
+
+    return memo[target];
+  };
+})();
+
+module.exports = (url, options) => {
   options = options || {};
   options.attributes =
     typeof options.attributes === 'object' ? options.attributes : {};
@@ -21,17 +50,25 @@ module.exports = function injectStylesIntoLinkTag(url, options) {
     link.setAttribute(key, options.attributes[key]);
   });
 
-  const head = document.getElementsByTagName('head')[0];
+  if (typeof options.insert === 'function') {
+    options.insert(link);
+  } else {
+    const target = getTarget(options.insert || 'head');
 
-  head.appendChild(link);
+    if (!target) {
+      throw new Error(
+        "Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid."
+      );
+    }
 
-  if (module.hot) {
-    return (newUrl) => {
-      if (typeof newUrl === 'string') {
-        link.href = newUrl;
-      } else {
-        head.removeChild(link);
-      }
-    };
+    target.appendChild(link);
   }
+
+  return (newUrl) => {
+    if (typeof newUrl === 'string') {
+      link.href = newUrl;
+    } else {
+      link.parentNode.removeChild(link);
+    }
+  };
 };

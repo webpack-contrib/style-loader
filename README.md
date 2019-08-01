@@ -73,20 +73,19 @@ style.className === 'z849f98ca812';
 
 ## Options
 
-|       Name       |         Type         |  Default   | Description                                        |
-| :--------------: | :------------------: | :--------: | :------------------------------------------------- |
-| **`injectType`** |      `{String}`      | `styleTag` | Allows to setup how styles will be injected in DOM |
-| **`attributes`** |      `{Object}`      |    `{}`    | Add custom attributes to tag                       |
-|  **`insertAt`**  |  `{String\|Object}`  |  `bottom`  | Inserts tag at the given position                  |
-| **`insertInto`** | `{String\|Function}` |  `<head>`  | Inserts tag into the given position                |
-|    **`base`**    |      `{Number}`      |   `true`   | Set module ID base (DLLPlugin)                     |
+|       Name       |         Type         |  Default   | Description                                          |
+| :--------------: | :------------------: | :--------: | :--------------------------------------------------- |
+| **`injectType`** |      `{String}`      | `styleTag` | Allows to setup how styles will be injected into DOM |
+| **`attributes`** |      `{Object}`      |    `{}`    | Adds custom attributes to tag                        |
+|   **`insert`**   | `{String\|Function}` |   `head`   | Inserts tag at the given position into DOM           |
+|    **`base`**    |      `{Number}`      |   `true`   | Sets module ID base (DLLPlugin)                      |
 
 ### `injectType`
 
 Type: `String`
 Default: `styleTag`
 
-Allows to setup how styles will be injected in DOM.
+Allows to setup how styles will be injected into DOM.
 
 Possible values:
 
@@ -118,7 +117,7 @@ module.exports = {
       {
         test: /\.css$/i,
         exclude: /\.lazy\.css$/i,
-        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.lazy\.css$/i,
@@ -130,7 +129,7 @@ module.exports = {
               injectType: 'lazyStyleTag',
             },
           },
-          { loader: 'css-loader' },
+          'css-loader',
         ],
       },
     ],
@@ -381,9 +380,19 @@ module.exports = {
 <style id="id"></style>
 ```
 
-### `insertAt`
+### `insert`
 
-By default, the style-loader appends `<style>` elements to the end of the style target, which is the `<head>` tag of the page unless specified by `insertInto`. This will cause CSS created by the loader to take priority over CSS already present in the target. To insert style elements at the beginning of the target, set this query parameter to 'top', e.g
+Type: `String|Function`
+Default: `head`
+
+By default, the `style-loader` appends `<style>`/`<link>` elements to the end of the style target, which is the `<head>` tag of the page unless specified by `insert`.
+This will cause CSS created by the loader to take priority over CSS already present in the target.
+You can use other values if the standard behavior is not suitable for you, but we do not recommend doing this.
+If you target an [iframe](https://developer.mozilla.org/en-US/docs/Web/API/HTMLIFrameElement) make sure you have sufficient access rights, the styles will be injected into the content document head.
+
+#### `String`
+
+Allows to setup custom [query selector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector) where styles inject into DOM.
 
 **webpack.config.js**
 
@@ -397,10 +406,10 @@ module.exports = {
           {
             loader: 'style-loader',
             options: {
-              insertAt: 'top',
+              insert: 'body',
             },
           },
-          { loader: 'css-loader' },
+          'css-loader',
         ],
       },
     ],
@@ -408,7 +417,14 @@ module.exports = {
 };
 ```
 
-A new `<style>` element can be inserted before a specific element by passing an object, e.g.
+A new `<style>`/`<link>` elements will be inserted into at bottom of `body` tag.
+
+#### `Function`
+
+Allows to override default behavior and insert styles at any position.
+
+> ⚠ Do not forget that this code will be used in the browser and not all browsers support latest ECMA features like `let`, `const`, `arrow function expression` and etc, we recommend use only ECMA 5 features, but it is depends what browsers you want to support
+> ⚠ Do not forget that some doom methods may not be available in older browsers, we recommended use only [DOM core level 2 properties](https://caniuse.com/#search=DOM%20Core), but it is depends what browsers you want to support
 
 **webpack.config.js**
 
@@ -422,12 +438,26 @@ module.exports = {
           {
             loader: 'style-loader',
             options: {
-              insertAt: {
-                before: '#id',
+              insert: function insertAtTop(element) {
+                var parent = document.querySelector('head');
+                // eslint-disable-next-line no-underscore-dangle
+                var lastInsertedElement =
+                  window._lastElementInsertedByStyleLoader;
+
+                if (!lastInsertedElement) {
+                  parent.insertBefore(element, parent.firstChild);
+                } else if (lastInsertedElement.nextSibling) {
+                  parent.insertBefore(element, lastInsertedElement.nextSibling);
+                } else {
+                  parent.appendChild(element);
+                }
+
+                // eslint-disable-next-line no-underscore-dangle
+                window._lastElementInsertedByStyleLoader = element;
               },
             },
           },
-          { loader: 'css-loader' },
+          'css-loader',
         ],
       },
     ],
@@ -435,59 +465,7 @@ module.exports = {
 };
 ```
 
-### `insertInto`
-
-By default, the style-loader inserts the `<style>` elements into the `<head>` tag of the page. If you want the tags to be inserted somewhere else you can specify a CSS selector for that element here. If you target an [IFrame](https://developer.mozilla.org/en-US/docs/Web/API/HTMLIFrameElement) make sure you have sufficient access rights, the styles will be injected into the content document head.
-
-You can also pass function to override default behavior and insert styles in your container, e.g
-
-**webpack.config.js**
-
-```js
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        use: [
-          {
-            loader: 'style-loader',
-            options: {
-              insertInto: () => document.querySelector('#root'),
-            },
-          },
-          { loader: 'css-loader' },
-        ],
-      },
-    ],
-  },
-};
-```
-
-Using function you can insert the styles into a [ShadowRoot](https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot), e.g
-
-**webpack.config.js**
-
-```js
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        use: [
-          {
-            loader: 'style-loader',
-            options: {
-              insertInto: () => document.querySelector('#root').shadowRoot,
-            },
-          },
-          { loader: 'css-loader' },
-        ],
-      },
-    ],
-  },
-};
-```
+Insert styles at top of `head` tag.
 
 ### `base`
 
@@ -501,12 +479,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        use: [
-          {
-            loader: 'style-loader',
-          },
-          { loader: 'css-loader' },
-        ],
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },
@@ -523,7 +496,7 @@ module.exports = {
         test: /\.css$/i,
         use: [
           { loader: 'style-loader', options: { base: 1000 } },
-          { loader: 'css-loader' },
+          'css-loader',
         ],
       },
     ],
@@ -541,7 +514,7 @@ module.exports = {
         test: /\.css$/i,
         use: [
           { loader: 'style-loader', options: { base: 2000 } },
-          { loader: 'css-loader' },
+          'css-loader',
         ],
       },
     ],
@@ -581,9 +554,9 @@ There are two ways to work with `nonce`:
 - using the `attirbutes` option
 - using the `__webpack_nonce__` variable
 
-> ⚠ the `__webpack_nonce__` variable takes precedence over the `attibutes` option, so if define the `__webpack_nonce__` variable the `attributes` option will not be used
+> ⚠ the `attibutes` option takes precedence over the `__webpack_nonce__` variable
 
-### `attirbutes`
+#### `attirbutes`
 
 **component.js**
 
@@ -626,7 +599,7 @@ The loader generate:
 </style>
 ```
 
-### `__webpack_nonce__`
+#### `__webpack_nonce__`
 
 **create-nonce.js**
 
@@ -674,6 +647,90 @@ The loader generate:
     color: red;
   }
 </style>
+```
+
+#### Insert styles at top
+
+Inserts styles at top of `head` tag.
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          {
+            loader: 'style-loader',
+            options: {
+              insert: function insertAtTop(element) {
+                var parent = document.querySelector('head');
+                var lastInsertedElement =
+                  window._lastElementInsertedByStyleLoader;
+
+                if (!lastInsertedElement) {
+                  parent.insertBefore(element, parent.firstChild);
+                } else if (lastInsertedElement.nextSibling) {
+                  parent.insertBefore(element, lastInsertedElement.nextSibling);
+                } else {
+                  parent.appendChild(element);
+                }
+
+                window._lastElementInsertedByStyleLoader = element;
+              },
+            },
+          },
+          'css-loader',
+        ],
+      },
+    ],
+  },
+};
+```
+
+#### Insert styles before target element
+
+Inserts styles before `#id` element.
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          {
+            loader: 'style-loader',
+            options: {
+              insert: function insertBeforeAt(element) {
+                const parent = document.querySelector('head');
+                const target = document.querySelector('#id');
+
+                const lastInsertedElement =
+                  window._lastElementInsertedByStyleLoader;
+
+                if (!lastInsertedElement) {
+                  parent.insertBefore(element, target);
+                } else if (lastInsertedElement.nextSibling) {
+                  parent.insertBefore(element, lastInsertedElement.nextSibling);
+                } else {
+                  parent.appendChild(element);
+                }
+
+                window._lastElementInsertedByStyleLoader = element;
+              },
+            },
+          },
+          'css-loader',
+        ],
+      },
+    ],
+  },
+};
 ```
 
 ## Contributing

@@ -272,7 +272,7 @@ exports[`loader should not inject hmr code without HotModuleReplacementPlugin wh
 
 exports[`loader should not inject hmr code without HotModuleReplacementPlugin when the "injectType" option is "styleTag": warnings 1`] = `Array []`;
 
-exports[`loader should work when ref is negative when the "injectType" option is "lazySingletonStyleTag"): DOM 1`] = `
+exports[`loader should work when ref is negative when the "injectType" option is "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -289,11 +289,11 @@ exports[`loader should work when ref is negative when the "injectType" option is
 </body></html>"
 `;
 
-exports[`loader should work when ref is negative when the "injectType" option is "lazySingletonStyleTag"): errors 1`] = `Array []`;
+exports[`loader should work when ref is negative when the "injectType" option is "lazySingletonStyleTag": errors 1`] = `Array []`;
 
-exports[`loader should work when ref is negative when the "injectType" option is "lazySingletonStyleTag"): warnings 1`] = `Array []`;
+exports[`loader should work when ref is negative when the "injectType" option is "lazySingletonStyleTag": warnings 1`] = `Array []`;
 
-exports[`loader should work when ref is negative when the "injectType" option is "lazyStyleTag"): DOM 1`] = `
+exports[`loader should work when ref is negative when the "injectType" option is "lazyStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -310,9 +310,9 @@ exports[`loader should work when ref is negative when the "injectType" option is
 </body></html>"
 `;
 
-exports[`loader should work when ref is negative when the "injectType" option is "lazyStyleTag"): errors 1`] = `Array []`;
+exports[`loader should work when ref is negative when the "injectType" option is "lazyStyleTag": errors 1`] = `Array []`;
 
-exports[`loader should work when ref is negative when the "injectType" option is "lazyStyleTag"): warnings 1`] = `Array []`;
+exports[`loader should work when ref is negative when the "injectType" option is "lazyStyleTag": warnings 1`] = `Array []`;
 
 exports[`loader should work when the "injectType" option is "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>

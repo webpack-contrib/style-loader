@@ -15,20 +15,12 @@ module.exports.pitch = function loader(request) {
     baseDataPath: 'options',
   });
 
-  // The variable is needed, because the function should be inlined.
-  // If is just stored it in options, JSON.stringify will quote
-  // the function and it would be just a string at runtime
-  let insertInto;
-
-  if (typeof options.insertInto === 'function') {
-    insertInto = options.insertInto.toString();
-  }
-
-  // We need to check if it a string, or variable will be "undefined"
-  // and the loader crashes
-  if (typeof options.insertInto === 'string') {
-    insertInto = `"${options.insertInto}"`;
-  }
+  const insert =
+    typeof options.insert === 'undefined'
+      ? '"head"'
+      : typeof options.insert === 'string'
+      ? JSON.stringify(options.insert)
+      : options.insert.toString();
 
   const injectType = options.injectType || 'styleTag';
 
@@ -50,14 +42,18 @@ if (module.hot) {
 }`
         : '';
 
-      return `var update = require(${loaderUtils.stringifyRequest(
+      return `var options = ${JSON.stringify(options)};
+
+options.insert = ${insert};
+
+var update = require(${loaderUtils.stringifyRequest(
         this,
         `!${path.join(__dirname, 'runtime/injectStylesIntoLinkTag.js')}`
       )})(require(${loaderUtils.stringifyRequest(
         this,
         `!!${request}`
-      )}), ${JSON.stringify(options)});
-      ${hmrCode}`;
+      )}), options);
+${hmrCode}`;
     }
 
     case 'lazyStyleTag':
@@ -95,7 +91,7 @@ var dispose;
 var content = require(${loaderUtils.stringifyRequest(this, `!!${request}`)});
 var options = ${JSON.stringify(options)};
 
-options.insertInto = ${insertInto};
+options.insert = ${insert};
 options.singleton = ${isSingleton};
 
 if (typeof content === 'string') content = [[module.id, content, '']];
@@ -179,7 +175,7 @@ var insertInto;
 
 var options = ${JSON.stringify(options)}
 
-options.insertInto = ${insertInto};
+options.insert = ${insert};
 options.singleton = ${isSingleton};
 
 var update = require(${loaderUtils.stringifyRequest(

@@ -1,196 +1,144 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`insert option should insert styles before "#existing-style" id: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style>body {
-  color: red;
-}
-</style><style>h1 {
-  color: blue;
-}
-</style><style id=\\"existing-style\\">.existing { color: yellow }</style>
-</head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-</body></html>"
-`;
-
-exports[`insert option should insert styles before "#existing-style" id: errors 1`] = `Array []`;
-
-exports[`insert option should insert styles before "#existing-style" id: warnings 1`] = `Array []`;
-
-exports[`insert option should insert styles before exists styles: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style>body {
-  color: red;
-}
-</style><style id=\\"existing-style\\">.existing { color: yellow }</style>
-</head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div id=\\"test-shadow\\"></div></body></html>"
-`;
-
-exports[`insert option should insert styles before exists styles: errors 1`] = `Array []`;
-
-exports[`insert option should insert styles before exists styles: warnings 1`] = `Array []`;
-
-exports[`insert option should insert styles in bottom when not specified: DOM 1`] = `
+exports[`insert option should insert styles into "body" bottom when the "injectType" option is "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+<style>body {
+  color: red;
+}
+h1 {
+  color: blue;
+}
+</style></body></html>"
+`;
+
+exports[`insert option should insert styles into "body" bottom when the "injectType" option is "lazySingletonStyleTag": errors 1`] = `Array []`;
+
+exports[`insert option should insert styles into "body" bottom when the "injectType" option is "lazySingletonStyleTag": warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles into "body" bottom when the "injectType" option is "lazyStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
 <style>body {
   color: red;
 }
 </style><style>h1 {
   color: blue;
 }
-</style></head>
+</style></body></html>"
+`;
+
+exports[`insert option should insert styles into "body" bottom when the "injectType" option is "lazyStyleTag": errors 1`] = `Array []`;
+
+exports[`insert option should insert styles into "body" bottom when the "injectType" option is "lazyStyleTag": warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles into "body" bottom when the "injectType" option is "linkTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
   <iframe class=\\"iframeTarget\\"></iframe>
 
 
-</body></html>"
+<link rel=\\"stylesheet\\" href=\\"a4197ed8dcb93d681801318bd25a41ed.css\\"><link rel=\\"stylesheet\\" href=\\"b37e8500d4037735f116e83ab5fd79a3.css\\"></body></html>"
 `;
 
-exports[`insert option should insert styles in bottom when not specified: errors 1`] = `Array []`;
+exports[`insert option should insert styles into "body" bottom when the "injectType" option is "linkTag": errors 1`] = `Array []`;
 
-exports[`insert option should insert styles in bottom when not specified: warnings 1`] = `Array []`;
+exports[`insert option should insert styles into "body" bottom when the "injectType" option is "linkTag": warnings 1`] = `Array []`;
 
-exports[`insert option should insert styles in bottom when selector was not found: DOM 1`] = `
+exports[`insert option should insert styles into "body" bottom when the "injectType" option is "singletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+<style>body {
+  color: red;
+}
+h1 {
+  color: blue;
+}
+</style></body></html>"
+`;
+
+exports[`insert option should insert styles into "body" bottom when the "injectType" option is "singletonStyleTag": errors 1`] = `Array []`;
+
+exports[`insert option should insert styles into "body" bottom when the "injectType" option is "singletonStyleTag": warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles into "body" bottom when the "injectType" option is "styleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
 <style>body {
   color: red;
 }
 </style><style>h1 {
   color: blue;
 }
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-</body></html>"
+</style></body></html>"
 `;
 
-exports[`insert option should insert styles in bottom when selector was not found: errors 1`] = `Array []`;
+exports[`insert option should insert styles into "body" bottom when the "injectType" option is "styleTag": errors 1`] = `Array []`;
 
-exports[`insert option should insert styles in bottom when selector was not found: warnings 1`] = `Array []`;
+exports[`insert option should insert styles into "body" bottom when the "injectType" option is "styleTag": warnings 1`] = `Array []`;
 
-exports[`insert option should insert styles in bottom: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>body {
-  color: red;
-}
-</style><style>h1 {
-  color: blue;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-</body></html>"
-`;
-
-exports[`insert option should insert styles in bottom: errors 1`] = `Array []`;
-
-exports[`insert option should insert styles in bottom: warnings 1`] = `Array []`;
-
-exports[`insert option should insert styles in runtime created element: DOM 1`] = `
+exports[`insert option should insert styles into "div.target" bottom when the "injectType" option is "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
 </head>
 <body>
   <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div id=\\"test-shadow\\"><style>body {
+  <div class=\\"target\\"><style>body {
   color: red;
 }
-</style></div></body></html>"
-`;
-
-exports[`insert option should insert styles in runtime created element: errors 1`] = `Array []`;
-
-exports[`insert option should insert styles in runtime created element: warnings 1`] = `Array []`;
-
-exports[`insert option should insert styles in top: DOM 1`] = `
-"<!DOCTYPE html><html><head><style>body {
-  color: red;
-}
-</style><style>h1 {
+h1 {
   color: blue;
 }
-</style>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-</head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
+</style></div>
   <iframe class=\\"iframeTarget\\"></iframe>
 
 
 </body></html>"
 `;
 
-exports[`insert option should insert styles in top: errors 1`] = `Array []`;
+exports[`insert option should insert styles into "div.target" bottom when the "injectType" option is "lazySingletonStyleTag": errors 1`] = `Array []`;
 
-exports[`insert option should insert styles in top: warnings 1`] = `Array []`;
+exports[`insert option should insert styles into "div.target" bottom when the "injectType" option is "lazySingletonStyleTag": warnings 1`] = `Array []`;
 
-exports[`insert option should insert styles into target when target is iframe: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-</head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-</body></html>"
-`;
-
-exports[`insert option should insert styles into target when target is iframe: errors 1`] = `Array []`;
-
-exports[`insert option should insert styles into target when target is iframe: iframe head 1`] = `
-"<style>body {
-  color: red;
-}
-</style><style>h1 {
-  color: blue;
-}
-</style>"
-`;
-
-exports[`insert option should insert styles into target when target is iframe: warnings 1`] = `Array []`;
-
-exports[`insert option should insert styles into target: DOM 1`] = `
+exports[`insert option should insert styles into "div.target" bottom when the "injectType" option is "lazyStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -210,6 +158,660 @@ exports[`insert option should insert styles into target: DOM 1`] = `
 </body></html>"
 `;
 
-exports[`insert option should insert styles into target: errors 1`] = `Array []`;
+exports[`insert option should insert styles into "div.target" bottom when the "injectType" option is "lazyStyleTag": errors 1`] = `Array []`;
 
-exports[`insert option should insert styles into target: warnings 1`] = `Array []`;
+exports[`insert option should insert styles into "div.target" bottom when the "injectType" option is "lazyStyleTag": warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles into "div.target" bottom when the "injectType" option is "linkTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"><link rel=\\"stylesheet\\" href=\\"a4197ed8dcb93d681801318bd25a41ed.css\\"><link rel=\\"stylesheet\\" href=\\"b37e8500d4037735f116e83ab5fd79a3.css\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`insert option should insert styles into "div.target" bottom when the "injectType" option is "linkTag": errors 1`] = `Array []`;
+
+exports[`insert option should insert styles into "div.target" bottom when the "injectType" option is "linkTag": warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles into "div.target" bottom when the "injectType" option is "singletonStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"><style>body {
+  color: red;
+}
+h1 {
+  color: blue;
+}
+</style></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`insert option should insert styles into "div.target" bottom when the "injectType" option is "singletonStyleTag": errors 1`] = `Array []`;
+
+exports[`insert option should insert styles into "div.target" bottom when the "injectType" option is "singletonStyleTag": warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles into "div.target" bottom when the "injectType" option is "styleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"><style>body {
+  color: red;
+}
+</style><style>h1 {
+  color: blue;
+}
+</style></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`insert option should insert styles into "div.target" bottom when the "injectType" option is "styleTag": errors 1`] = `Array []`;
+
+exports[`insert option should insert styles into "div.target" bottom when the "injectType" option is "styleTag": warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles into "head" bottom when not specified and when the "injectType" option is "lazySingletonStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`insert option should insert styles into "head" bottom when not specified and when the "injectType" option is "lazySingletonStyleTag": errors 1`] = `Array []`;
+
+exports[`insert option should insert styles into "head" bottom when not specified and when the "injectType" option is "lazySingletonStyleTag": warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles into "head" bottom when not specified and when the "injectType" option is "lazyStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+</style><style>h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`insert option should insert styles into "head" bottom when not specified and when the "injectType" option is "lazyStyleTag": errors 1`] = `Array []`;
+
+exports[`insert option should insert styles into "head" bottom when not specified and when the "injectType" option is "lazyStyleTag": warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles into "head" bottom when not specified and when the "injectType" option is "linkTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<link rel=\\"stylesheet\\" href=\\"a4197ed8dcb93d681801318bd25a41ed.css\\"><link rel=\\"stylesheet\\" href=\\"b37e8500d4037735f116e83ab5fd79a3.css\\"></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`insert option should insert styles into "head" bottom when not specified and when the "injectType" option is "linkTag": errors 1`] = `Array []`;
+
+exports[`insert option should insert styles into "head" bottom when not specified and when the "injectType" option is "linkTag": warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles into "head" bottom when not specified and when the "injectType" option is "singletonStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`insert option should insert styles into "head" bottom when not specified and when the "injectType" option is "singletonStyleTag": errors 1`] = `Array []`;
+
+exports[`insert option should insert styles into "head" bottom when not specified and when the "injectType" option is "singletonStyleTag": warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles into "head" bottom when not specified and when the "injectType" option is "styleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+</style><style>h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`insert option should insert styles into "head" bottom when not specified and when the "injectType" option is "styleTag": errors 1`] = `Array []`;
+
+exports[`insert option should insert styles into "head" bottom when not specified and when the "injectType" option is "styleTag": warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles into "head" top when the "injectType" option is "lazySingletonStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head><style>body {
+  color: red;
+}
+h1 {
+  color: blue;
+}
+</style>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`insert option should insert styles into "head" top when the "injectType" option is "lazySingletonStyleTag": errors 1`] = `Array []`;
+
+exports[`insert option should insert styles into "head" top when the "injectType" option is "lazySingletonStyleTag": warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles into "head" top when the "injectType" option is "lazyStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head><style>body {
+  color: red;
+}
+</style><style>h1 {
+  color: blue;
+}
+</style>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`insert option should insert styles into "head" top when the "injectType" option is "lazyStyleTag": errors 1`] = `Array []`;
+
+exports[`insert option should insert styles into "head" top when the "injectType" option is "lazyStyleTag": warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles into "head" top when the "injectType" option is "linkTag": DOM 1`] = `
+"<!DOCTYPE html><html><head><link rel=\\"stylesheet\\" href=\\"a4197ed8dcb93d681801318bd25a41ed.css\\"><link rel=\\"stylesheet\\" href=\\"b37e8500d4037735f116e83ab5fd79a3.css\\">
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`insert option should insert styles into "head" top when the "injectType" option is "linkTag": errors 1`] = `Array []`;
+
+exports[`insert option should insert styles into "head" top when the "injectType" option is "linkTag": warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles into "head" top when the "injectType" option is "singletonStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head><style>body {
+  color: red;
+}
+h1 {
+  color: blue;
+}
+</style>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`insert option should insert styles into "head" top when the "injectType" option is "singletonStyleTag": errors 1`] = `Array []`;
+
+exports[`insert option should insert styles into "head" top when the "injectType" option is "singletonStyleTag": warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles into "head" top when the "injectType" option is "styleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head><style>body {
+  color: red;
+}
+</style><style>h1 {
+  color: blue;
+}
+</style>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`insert option should insert styles into "head" top when the "injectType" option is "styleTag": errors 1`] = `Array []`;
+
+exports[`insert option should insert styles into "head" top when the "injectType" option is "styleTag": warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles into "iframe.iframeTarget" bottom when the "injectType" option is "lazySingletonStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`insert option should insert styles into "iframe.iframeTarget" bottom when the "injectType" option is "lazySingletonStyleTag": errors 1`] = `Array []`;
+
+exports[`insert option should insert styles into "iframe.iframeTarget" bottom when the "injectType" option is "lazySingletonStyleTag": iframe head 1`] = `
+"<style>body {
+  color: red;
+}
+h1 {
+  color: blue;
+}
+</style>"
+`;
+
+exports[`insert option should insert styles into "iframe.iframeTarget" bottom when the "injectType" option is "lazySingletonStyleTag": warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles into "iframe.iframeTarget" bottom when the "injectType" option is "lazyStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`insert option should insert styles into "iframe.iframeTarget" bottom when the "injectType" option is "lazyStyleTag": errors 1`] = `Array []`;
+
+exports[`insert option should insert styles into "iframe.iframeTarget" bottom when the "injectType" option is "lazyStyleTag": iframe head 1`] = `
+"<style>body {
+  color: red;
+}
+</style><style>h1 {
+  color: blue;
+}
+</style>"
+`;
+
+exports[`insert option should insert styles into "iframe.iframeTarget" bottom when the "injectType" option is "lazyStyleTag": warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles into "iframe.iframeTarget" bottom when the "injectType" option is "linkTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`insert option should insert styles into "iframe.iframeTarget" bottom when the "injectType" option is "linkTag": errors 1`] = `Array []`;
+
+exports[`insert option should insert styles into "iframe.iframeTarget" bottom when the "injectType" option is "linkTag": iframe head 1`] = `"<link rel=\\"stylesheet\\" href=\\"a4197ed8dcb93d681801318bd25a41ed.css\\"><link rel=\\"stylesheet\\" href=\\"b37e8500d4037735f116e83ab5fd79a3.css\\">"`;
+
+exports[`insert option should insert styles into "iframe.iframeTarget" bottom when the "injectType" option is "linkTag": warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles into "iframe.iframeTarget" bottom when the "injectType" option is "singletonStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`insert option should insert styles into "iframe.iframeTarget" bottom when the "injectType" option is "singletonStyleTag": errors 1`] = `Array []`;
+
+exports[`insert option should insert styles into "iframe.iframeTarget" bottom when the "injectType" option is "singletonStyleTag": iframe head 1`] = `
+"<style>body {
+  color: red;
+}
+h1 {
+  color: blue;
+}
+</style>"
+`;
+
+exports[`insert option should insert styles into "iframe.iframeTarget" bottom when the "injectType" option is "singletonStyleTag": warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles into "iframe.iframeTarget" bottom when the "injectType" option is "styleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`insert option should insert styles into "iframe.iframeTarget" bottom when the "injectType" option is "styleTag": errors 1`] = `Array []`;
+
+exports[`insert option should insert styles into "iframe.iframeTarget" bottom when the "injectType" option is "styleTag": iframe head 1`] = `
+"<style>body {
+  color: red;
+}
+</style><style>h1 {
+  color: blue;
+}
+</style>"
+`;
+
+exports[`insert option should insert styles into "iframe.iframeTarget" bottom when the "injectType" option is "styleTag": warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles into before "#existing-style" id when the "injectType" option is "lazySingletonStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style>body {
+  color: red;
+}
+h1 {
+  color: blue;
+}
+</style><style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`insert option should insert styles into before "#existing-style" id when the "injectType" option is "lazySingletonStyleTag": errors 1`] = `Array []`;
+
+exports[`insert option should insert styles into before "#existing-style" id when the "injectType" option is "lazySingletonStyleTag": warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles into before "#existing-style" id when the "injectType" option is "lazyStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style>body {
+  color: red;
+}
+</style><style>h1 {
+  color: blue;
+}
+</style><style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`insert option should insert styles into before "#existing-style" id when the "injectType" option is "lazyStyleTag": errors 1`] = `Array []`;
+
+exports[`insert option should insert styles into before "#existing-style" id when the "injectType" option is "lazyStyleTag": warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles into before "#existing-style" id when the "injectType" option is "linkTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <link rel=\\"stylesheet\\" href=\\"a4197ed8dcb93d681801318bd25a41ed.css\\"><link rel=\\"stylesheet\\" href=\\"b37e8500d4037735f116e83ab5fd79a3.css\\"><style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`insert option should insert styles into before "#existing-style" id when the "injectType" option is "linkTag": errors 1`] = `Array []`;
+
+exports[`insert option should insert styles into before "#existing-style" id when the "injectType" option is "linkTag": warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles into before "#existing-style" id when the "injectType" option is "singletonStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style>body {
+  color: red;
+}
+h1 {
+  color: blue;
+}
+</style><style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`insert option should insert styles into before "#existing-style" id when the "injectType" option is "singletonStyleTag": errors 1`] = `Array []`;
+
+exports[`insert option should insert styles into before "#existing-style" id when the "injectType" option is "singletonStyleTag": warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles into before "#existing-style" id when the "injectType" option is "styleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style>body {
+  color: red;
+}
+</style><style>h1 {
+  color: blue;
+}
+</style><style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`insert option should insert styles into before "#existing-style" id when the "injectType" option is "styleTag": errors 1`] = `Array []`;
+
+exports[`insert option should insert styles into before "#existing-style" id when the "injectType" option is "styleTag": warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles into runtime created element bottom when the "injectType" option is "lazySingletonStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+<div id=\\"test-shadow\\"><style>body {
+  color: red;
+}
+h1 {
+  color: blue;
+}
+</style></div></body></html>"
+`;
+
+exports[`insert option should insert styles into runtime created element bottom when the "injectType" option is "lazySingletonStyleTag": errors 1`] = `Array []`;
+
+exports[`insert option should insert styles into runtime created element bottom when the "injectType" option is "lazySingletonStyleTag": warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles into runtime created element bottom when the "injectType" option is "lazyStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+<div id=\\"test-shadow\\"><style>body {
+  color: red;
+}
+</style><style>h1 {
+  color: blue;
+}
+</style></div></body></html>"
+`;
+
+exports[`insert option should insert styles into runtime created element bottom when the "injectType" option is "lazyStyleTag": errors 1`] = `Array []`;
+
+exports[`insert option should insert styles into runtime created element bottom when the "injectType" option is "lazyStyleTag": warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles into runtime created element bottom when the "injectType" option is "linkTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+<div id=\\"test-shadow\\"><link rel=\\"stylesheet\\" href=\\"a4197ed8dcb93d681801318bd25a41ed.css\\"><link rel=\\"stylesheet\\" href=\\"b37e8500d4037735f116e83ab5fd79a3.css\\"></div></body></html>"
+`;
+
+exports[`insert option should insert styles into runtime created element bottom when the "injectType" option is "linkTag": errors 1`] = `Array []`;
+
+exports[`insert option should insert styles into runtime created element bottom when the "injectType" option is "linkTag": warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles into runtime created element bottom when the "injectType" option is "singletonStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+<div id=\\"test-shadow\\"><style>body {
+  color: red;
+}
+h1 {
+  color: blue;
+}
+</style></div></body></html>"
+`;
+
+exports[`insert option should insert styles into runtime created element bottom when the "injectType" option is "singletonStyleTag": errors 1`] = `Array []`;
+
+exports[`insert option should insert styles into runtime created element bottom when the "injectType" option is "singletonStyleTag": warnings 1`] = `Array []`;
+
+exports[`insert option should insert styles into runtime created element bottom when the "injectType" option is "styleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+<div id=\\"test-shadow\\"><style>body {
+  color: red;
+}
+</style><style>h1 {
+  color: blue;
+}
+</style></div></body></html>"
+`;
+
+exports[`insert option should insert styles into runtime created element bottom when the "injectType" option is "styleTag": errors 1`] = `Array []`;
+
+exports[`insert option should insert styles into runtime created element bottom when the "injectType" option is "styleTag": warnings 1`] = `Array []`;

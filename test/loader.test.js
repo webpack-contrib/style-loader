@@ -141,7 +141,7 @@ describe('loader', () => {
     });
 
     if (['lazyStyleTag', 'lazySingletonStyleTag'].includes(injectType)) {
-      it(`should work when ref is negative when the "injectType" option is "${injectType}")`, async () => {
+      it(`should work when ref is negative when the "injectType" option is "${injectType}"`, async () => {
         expect.assertions(3);
 
         const testId = './lazy-negative-refs.js';
