@@ -75,15 +75,6 @@ var singletonCounter = 0;
 var stylesInsertedAtTop = [];
 
 module.exports = function(list, options) {
-  /* istanbul ignore if  */
-  if (typeof DEBUG !== 'undefined' && DEBUG) {
-    if (typeof document !== 'object') {
-      throw new Error(
-        'The style-loader cannot be used in a non-browser environment'
-      );
-    }
-  }
-
   options = options || {};
 
   options.attributes =
