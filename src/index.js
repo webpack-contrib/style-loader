@@ -36,16 +36,16 @@ module.exports.pitch = function loader(request) {
     case 'linkTag': {
       const hmrCode = this.hot
         ? `
-if (module.hot) {  
+if (module.hot) {
   module.hot.accept(
-    ${loaderUtils.stringifyRequest(this, `!!${request}`)}, 
+    ${loaderUtils.stringifyRequest(this, `!!${request}`)},
     function() {
       update(require(${loaderUtils.stringifyRequest(this, `!!${request}`)}));
     }
   );
-    
-  module.hot.dispose(function() { 
-    update(); 
+
+  module.hot.dispose(function() {
+    update();
   });
 }`
         : '';
@@ -67,7 +67,7 @@ if (module.hot) {
       const hmrCode = this.hot
         ? `
 if (module.hot) {
-  var lastRefs = module.hot.data && module.hot.data.refs || 0; 
+  var lastRefs = module.hot.data && module.hot.data.refs || 0;
   
   if (lastRefs) {
     exports.ref();
@@ -75,14 +75,14 @@ if (module.hot) {
       refs = lastRefs;
     }
   }
-  
+
   if (!content.locals) {
     module.hot.accept();
-  } 
-  
+  }
+
   module.hot.dispose(function(data) {
     data.refs = content.locals ? 0 : refs;
-  
+
     if (dispose) {
       dispose();
     }
@@ -97,11 +97,11 @@ var options = ${JSON.stringify(options)};
 
 options.insertInto = ${insertInto};
 options.singleton = ${isSingleton};
-    
+
 if (typeof content === 'string') content = [[module.id, content, '']];
 if (content.locals) exports.locals = content.locals;
 
-exports.use = exports.ref = function() {
+exports.use = function() {
   if (!(refs++)) {
     dispose = require(${loaderUtils.stringifyRequest(
       this,
@@ -112,7 +112,7 @@ exports.use = exports.ref = function() {
  return exports;
 };
 
-exports.unuse = exports.unref = function() {
+exports.unuse = function() {
   if (refs > 0 && !--refs) {
     dispose();
     dispose = null;
@@ -131,18 +131,18 @@ ${hmrCode}
         ? `
 if (module.hot) {
   module.hot.accept(
-    ${loaderUtils.stringifyRequest(this, `!!${request}`)}, 
+    ${loaderUtils.stringifyRequest(this, `!!${request}`)},
     function() {
       var newContent = require(${loaderUtils.stringifyRequest(
         this,
         `!!${request}`
       )});
 
-      if (typeof newContent === 'string') 
+      if (typeof newContent === 'string')
         newContent = [[module.id, newContent, '']];
 
       var locals = (function(a, b) {
-        var key, 
+        var key,
           idx = 0;
 
         for (key in a) {
@@ -155,7 +155,7 @@ if (module.hot) {
         return idx === 0;
       }(content.locals, newContent.locals));
 
-      if (!locals) 
+      if (!locals)
         throw new Error('Aborting CSS HMR due to changed css-modules locals.');
 
       update(newContent);
@@ -163,7 +163,7 @@ if (module.hot) {
   );
 
   module.hot.dispose(function() { 
-    update(); 
+    update();
   });
 }`
         : '';
