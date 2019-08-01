@@ -97,18 +97,17 @@ Possible values:
 - `linkTag`
 
 When you `lazyStyleTag` or `lazySingletonStyleTag` value the `style-loader` injects the styles lazily making them useable on-demand via `style.use()` / `style.unuse()`.
-It is named `Reference Counter API`.
 
 **component.js**
 
 ```js
 import style from './file.css';
 
-style.use(); // = style.ref();
-style.unuse(); // = style.unref();
+style.use();
+style.unuse();
 ```
 
-By convention the `Reference Counter API` should be bound to `.useable.css` and the `.css` should be loaded with basic `style-loader` usage.(similar to other file types, i.e. `.useable.less` and `.less`).
+We recommend following `.lazy.css` naming convention for lazy styles and the `.css` for basic `style-loader` usage (similar to other file types, i.e. `.lazy.less` and `.less`).
 
 **webpack.config.js**
 
@@ -118,11 +117,11 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        exclude: /\.useable\.css$/i,
+        exclude: /\.lazy\.css$/i,
         use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
       },
       {
-        test: /\.useable\.css$/i,
+        test: /\.lazy\.css$/i,
         use: [
           {
             loader: 'style-loader',
@@ -139,9 +138,9 @@ module.exports = {
 };
 ```
 
-Styles are not added on `import/require()`, but instead on call to `use`/`ref`. Styles are removed from page if `unuse`/`unref` is called exactly as often as `use`/`ref`.
+Styles are not added on `import/require()`, but instead on call to `use`. Styles are removed from page if `unuse` is called exactly as often as `use`.
 
-> ⚠️ Behavior is undefined when `unuse`/`unref` is called more often than `use`/`ref`. Don't do that.
+> ⚠️ Behavior is undefined when `unuse` is called more often than `use`. Don't do that.
 
 #### `styleTag`
 
@@ -243,7 +242,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.useable\.css$/i,
+        test: /\.lazy\.css$/i,
         use: [
           { loader: 'style-loader', options: { injectType: 'lazyStyleTag' } },
           'css-loader',
@@ -286,7 +285,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.useable\.css$/i,
+        test: /\.lazy\.css$/i,
         use: [
           {
             loader: 'style-loader',
