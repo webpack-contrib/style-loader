@@ -1,13 +1,10 @@
-/* eslint-env browser */
-/* eslint-disable */
-
-module.exports = function addStyleUrl(url, options) {
+module.exports = function injectStylesIntoLinkTag(url, options) {
   options = options || {};
   options.attributes =
     typeof options.attributes === 'object' ? options.attributes : {};
 
-  if (options.attributes.nonce === undefined) {
-    var nonce =
+  if (typeof options.attributes.nonce === 'undefined') {
+    const nonce =
       typeof __webpack_nonce__ !== 'undefined' ? __webpack_nonce__ : null;
 
     if (nonce) {
@@ -29,9 +26,9 @@ module.exports = function addStyleUrl(url, options) {
   head.appendChild(link);
 
   if (module.hot) {
-    return (url) => {
-      if (typeof url === 'string') {
-        link.href = url;
+    return (newUrl) => {
+      if (typeof newUrl === 'string') {
+        link.href = newUrl;
       } else {
         head.removeChild(link);
       }

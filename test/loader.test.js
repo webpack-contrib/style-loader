@@ -13,7 +13,7 @@ describe('loader', () => {
     'linkTag',
   ];
 
-  it(`should work`, async () => {
+  it('should work', async () => {
     const testId = './simple.js';
     const stats = await compile(testId);
 

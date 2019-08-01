@@ -53,7 +53,7 @@ const output = (config) => {
 export default function(fixture, config = {}, options = {}) {
   // webpack Config
   config = {
-    mode: 'development',
+    mode: config.mode || 'development',
     devtool: config.devtool || false,
     context: path.resolve(__dirname, '..', 'fixtures'),
     entry: `./${fixture}`,
