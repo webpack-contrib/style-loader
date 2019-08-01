@@ -52,7 +52,7 @@ if (module.hot) {
 
       return `var update = require(${loaderUtils.stringifyRequest(
         this,
-        `!${path.join(__dirname, 'runtime/addStyleUrl.js')}`
+        `!${path.join(__dirname, 'runtime/injectStylesIntoLinkTag.js')}`
       )})(require(${loaderUtils.stringifyRequest(
         this,
         `!!${request}`
@@ -105,7 +105,7 @@ exports.use = exports.ref = function() {
   if (!(refs++)) {
     dispose = require(${loaderUtils.stringifyRequest(
       this,
-      `!${path.join(__dirname, 'runtime/addStyles.js')}`
+      `!${path.join(__dirname, 'runtime/injectStylesIntoStyleTag.js')}`
     )})(content, options);
   }
 
@@ -184,7 +184,7 @@ options.singleton = ${isSingleton};
 
 var update = require(${loaderUtils.stringifyRequest(
         this,
-        `!${path.join(__dirname, 'runtime/addStyles.js')}`
+        `!${path.join(__dirname, 'runtime/injectStylesIntoStyleTag.js')}`
       )})(content, options);
 
 if (content.locals) module.exports = content.locals;

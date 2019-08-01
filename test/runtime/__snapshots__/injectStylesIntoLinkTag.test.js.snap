@@ -2,4 +2,6 @@
 
 exports[`addStyle should work 1`] = `"<head><title>Title</title><link rel=\\"stylesheet\\" href=\\"./style-1.css\\"></head><body><h1>Hello world</h1></body>"`;
 
+exports[`addStyle should work with "__webpack_nonce__" variable 1`] = `"<head><title>Title</title><link rel=\\"stylesheet\\" href=\\"./style-1.css\\" nonce=\\"none\\"></head><body><h1>Hello world</h1></body>"`;
+
 exports[`addStyle should work with "attributes" option 1`] = `"<head><title>Title</title><link rel=\\"stylesheet\\" href=\\"./style-1.css\\" foo=\\"bar\\"></head><body><h1>Hello world</h1></body>"`;
