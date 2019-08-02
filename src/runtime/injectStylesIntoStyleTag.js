@@ -3,7 +3,7 @@ const stylesInDom = {};
 const isOldIE = (function isOldIE() {
   let memo;
 
-  return function memorized() {
+  return function memorize() {
     if (typeof memo === 'undefined') {
       // Test for IE <= 9 as proposed by Browserhacks
       // @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
@@ -17,29 +17,12 @@ const isOldIE = (function isOldIE() {
   };
 })();
 
-function getTarget(target, parent) {
-  if (parent) {
-    return parent.querySelector(target);
-  }
-
-  return document.querySelector(target);
-}
-
-const getElement = (function getElement() {
+const getTarget = (function getTarget() {
   const memo = {};
 
-  return function memorized(target, parent) {
-    // If passing function in options, then use it for resolve "head" element.
-    // Useful for Shadow Root style i.e
-    // {
-    //   insertInto: function () { return document.querySelector("#foo").shadowRoot }
-    // }
-    if (typeof target === 'function') {
-      return target();
-    }
-
+  return function memorize(target) {
     if (typeof memo[target] === 'undefined') {
-      let styleTarget = getTarget.call(this, target, parent);
+      let styleTarget = document.querySelector(target);
 
       // Special case to return head of iframe instead of iframe itself
       if (
@@ -63,68 +46,27 @@ const getElement = (function getElement() {
   };
 })();
 
-let singleton = null;
-let singletonCounter = 0;
-const stylesInsertedAtTop = [];
+function listToStyles(list, options) {
+  const styles = [];
+  const newStyles = {};
 
-module.exports = (list, options) => {
-  options = options || {};
+  for (let i = 0; i < list.length; i++) {
+    const item = list[i];
+    const id = options.base ? item[0] + options.base : item[0];
+    const css = item[1];
+    const media = item[2];
+    const sourceMap = item[3];
+    const part = { css, media, sourceMap };
 
-  options.attributes =
-    typeof options.attributes === 'object' ? options.attributes : {};
-
-  // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-  // tags it will allow on a page
-  if (!options.singleton && typeof options.singleton !== 'boolean') {
-    options.singleton = isOldIE();
+    if (!newStyles[id]) {
+      styles.push((newStyles[id] = { id, parts: [part] }));
+    } else {
+      newStyles[id].parts.push(part);
+    }
   }
 
-  // By default, add <style> tags to the <head> element
-  if (!options.insertInto) {
-    options.insertInto = 'head';
-  }
-
-  // By default, add <style> tags to the bottom of the target
-  if (!options.insertAt) {
-    options.insertAt = 'bottom';
-  }
-
-  const styles = listToStyles(list, options);
-
-  addStylesToDom(styles, options);
-
-  return function update(newList) {
-    const mayRemove = [];
-
-    for (let i = 0; i < styles.length; i++) {
-      const item = styles[i];
-      const domStyle = stylesInDom[item.id];
-
-      if (domStyle) {
-        domStyle.refs--;
-        mayRemove.push(domStyle);
-      }
-    }
-
-    if (newList) {
-      const newStyles = listToStyles(newList, options);
-
-      addStylesToDom(newStyles, options);
-    }
-
-    for (let i = 0; i < mayRemove.length; i++) {
-      const domStyle = mayRemove[i];
-
-      if (domStyle.refs === 0) {
-        for (let j = 0; j < domStyle.parts.length; j++) {
-          domStyle.parts[j]();
-        }
-
-        delete stylesInDom[domStyle.id];
-      }
-    }
-  };
-};
+  return styles;
+}
 
 function addStylesToDom(styles, options) {
   for (let i = 0; i < styles.length; i++) {
@@ -154,28 +96,6 @@ function addStylesToDom(styles, options) {
   }
 }
 
-function listToStyles(list, options) {
-  const styles = [];
-  const newStyles = {};
-
-  for (let i = 0; i < list.length; i++) {
-    const item = list[i];
-    const id = options.base ? item[0] + options.base : item[0];
-    const css = item[1];
-    const media = item[2];
-    const sourceMap = item[3];
-    const part = { css, media, sourceMap };
-
-    if (!newStyles[id]) {
-      styles.push((newStyles[id] = { id, parts: [part] }));
-    } else {
-      newStyles[id].parts.push(part);
-    }
-  }
-
-  return styles;
-}
-
 function insertStyleElement(options) {
   const style = document.createElement('style');
 
@@ -192,94 +112,30 @@ function insertStyleElement(options) {
     style.setAttribute(key, options.attributes[key]);
   });
 
-  const target = getElement(options.insertInto);
+  if (typeof options.insert === 'function') {
+    options.insert(style);
+  } else {
+    const target = getTarget(options.insert || 'head');
 
-  if (!target) {
-    throw new Error(
-      "Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid."
-    );
-  }
-
-  if (options.insertAt === 'top') {
-    const lastStyleElementInsertedAtTop =
-      stylesInsertedAtTop[stylesInsertedAtTop.length - 1];
-
-    if (!lastStyleElementInsertedAtTop) {
-      target.insertBefore(style, target.firstChild);
-    } else if (lastStyleElementInsertedAtTop.nextSibling) {
-      target.insertBefore(style, lastStyleElementInsertedAtTop.nextSibling);
-    } else {
-      target.appendChild(style);
+    if (!target) {
+      throw new Error(
+        "Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid."
+      );
     }
 
-    stylesInsertedAtTop.push(style);
-  } else if (options.insertAt === 'bottom') {
     target.appendChild(style);
-  } else if (typeof options.insertAt === 'object' && options.insertAt.before) {
-    const nextSibling = getElement(options.insertAt.before, target);
-
-    target.insertBefore(style, nextSibling);
-  } else {
-    throw new Error(
-      "[Style Loader]\n\n Invalid value for parameter 'insertAt' ('options.insertAt') found.\n Must be 'top', 'bottom', or Object.\n (https://github.com/webpack-contrib/style-loader#insertat)\n"
-    );
   }
 
   return style;
 }
 
 function removeStyleElement(style) {
+  // istanbul ignore if
   if (style.parentNode === null) {
     return false;
   }
 
   style.parentNode.removeChild(style);
-
-  const idx = stylesInsertedAtTop.indexOf(style);
-
-  if (idx >= 0) {
-    stylesInsertedAtTop.splice(idx, 1);
-  }
-}
-
-function addStyle(obj, options) {
-  let style;
-  let update;
-  let remove;
-
-  if (options.singleton) {
-    const styleIndex = singletonCounter++;
-
-    style = singleton || (singleton = insertStyleElement(options));
-
-    update = applyToSingletonTag.bind(null, style, styleIndex, false);
-    remove = applyToSingletonTag.bind(null, style, styleIndex, true);
-  } else {
-    style = insertStyleElement(options);
-
-    update = applyToTag.bind(null, style, options);
-    remove = () => {
-      removeStyleElement(style);
-    };
-  }
-
-  update(obj);
-
-  return function updateStyle(newObj) {
-    if (newObj) {
-      if (
-        newObj.css === obj.css &&
-        newObj.media === obj.media &&
-        newObj.sourceMap === obj.sourceMap
-      ) {
-        return;
-      }
-
-      update((obj = newObj));
-    } else {
-      remove();
-    }
-  };
 }
 
 /* istanbul ignore next  */
@@ -343,3 +199,95 @@ function applyToTag(style, options, obj) {
     style.appendChild(document.createTextNode(css));
   }
 }
+
+let singleton = null;
+let singletonCounter = 0;
+
+function addStyle(obj, options) {
+  let style;
+  let update;
+  let remove;
+
+  if (options.singleton) {
+    const styleIndex = singletonCounter++;
+
+    style = singleton || (singleton = insertStyleElement(options));
+
+    update = applyToSingletonTag.bind(null, style, styleIndex, false);
+    remove = applyToSingletonTag.bind(null, style, styleIndex, true);
+  } else {
+    style = insertStyleElement(options);
+
+    update = applyToTag.bind(null, style, options);
+    remove = () => {
+      removeStyleElement(style);
+    };
+  }
+
+  update(obj);
+
+  return function updateStyle(newObj) {
+    if (newObj) {
+      if (
+        newObj.css === obj.css &&
+        newObj.media === obj.media &&
+        newObj.sourceMap === obj.sourceMap
+      ) {
+        return;
+      }
+
+      update((obj = newObj));
+    } else {
+      remove();
+    }
+  };
+}
+
+module.exports = (list, options) => {
+  options = options || {};
+
+  options.attributes =
+    typeof options.attributes === 'object' ? options.attributes : {};
+
+  // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+  // tags it will allow on a page
+  if (!options.singleton && typeof options.singleton !== 'boolean') {
+    options.singleton = isOldIE();
+  }
+
+  const styles = listToStyles(list, options);
+
+  addStylesToDom(styles, options);
+
+  return function update(newList) {
+    const mayRemove = [];
+
+    for (let i = 0; i < styles.length; i++) {
+      const item = styles[i];
+      const domStyle = stylesInDom[item.id];
+
+      if (domStyle) {
+        domStyle.refs--;
+        mayRemove.push(domStyle);
+      }
+    }
+
+    if (newList) {
+      const newStyles = listToStyles(newList, options);
+
+      addStylesToDom(newStyles, options);
+    }
+
+    for (let i = 0; i < mayRemove.length; i++) {
+      const domStyle = mayRemove[i];
+
+      if (domStyle.refs === 0) {
+        for (let j = 0; j < domStyle.parts.length; j++) {
+          domStyle.parts[j]();
+        }
+
+        delete stylesInDom[domStyle.id];
+      }
+    }
+  };
+};

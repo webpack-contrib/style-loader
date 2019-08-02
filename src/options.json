@@ -1,12 +1,8 @@
 {
   "type": "object",
   "properties": {
-    "base": {
-      "description": "Set module ID base for DLLPlugin (https://github.com/webpack-contrib/style-loader#base).",
-      "type": "number"
-    },
     "injectType": {
-      "description": "Allows to setup how styles will be injected in DOM.",
+      "description": "Allows to setup how styles will be injected into DOM (https://github.com/webpack-contrib/style-loader#injecttype).",
       "enum": [
         "styleTag",
         "singletonStyleTag",
@@ -16,16 +12,23 @@
       ]
     },
     "attributes": {
-      "description": "Add custom attributes to tag (https://github.com/webpack-contrib/style-loader#attributes).",
+      "description": "Adds custom attributes to tag (https://github.com/webpack-contrib/style-loader#attributes).",
       "type": "object"
     },
-    "insertAt": {
-      "description": "Inserts <style></style> at the given position (https://github.com/webpack-contrib/style-loader#insertat).",
-      "type": ["string", "object"]
+    "insert": {
+      "description": "Inserts `<style>`/`<link>` at the given position (https://github.com/webpack-contrib/style-loader#insert).",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "instanceof": "Function"
+        }
+      ]
     },
-    "insertInto": {
-      "description": "Inserts <style></style> into the given position (https://github.com/webpack-contrib/style-loader#insertinto).",
-      "anyOf": [{ "type": "string" }, { "instanceof": "Function" }]
+    "base": {
+      "description": "Sets module ID base for DLLPlugin (https://github.com/webpack-contrib/style-loader#base).",
+      "type": "number"
     }
   },
   "additionalProperties": false

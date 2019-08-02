@@ -2,6 +2,42 @@
 
 import injectStylesIntoStyleTag from '../../src/runtime/injectStylesIntoStyleTag';
 
+function insertAtTop(element) {
+  const parent = document.querySelector('head');
+  // eslint-disable-next-line no-underscore-dangle
+  const lastInsertedElement = window._lastElementInsertedByStyleLoader;
+
+  if (!lastInsertedElement) {
+    parent.insertBefore(element, parent.firstChild);
+  } else if (lastInsertedElement.nextSibling) {
+    parent.insertBefore(element, lastInsertedElement.nextSibling);
+  } else {
+    parent.appendChild(element);
+  }
+
+  // eslint-disable-next-line no-underscore-dangle
+  window._lastElementInsertedByStyleLoader = element;
+}
+
+function insertBeforeAt(element) {
+  const parent = document.querySelector('head');
+  const target = document.querySelector('#id');
+
+  // eslint-disable-next-line no-underscore-dangle
+  const lastInsertedElement = window._lastElementInsertedByStyleLoader;
+
+  if (!lastInsertedElement) {
+    parent.insertBefore(element, target);
+  } else if (lastInsertedElement.nextSibling) {
+    parent.insertBefore(element, lastInsertedElement.nextSibling);
+  } else {
+    parent.appendChild(element);
+  }
+
+  // eslint-disable-next-line no-underscore-dangle
+  window._lastElementInsertedByStyleLoader = element;
+}
+
 describe('addStyle', () => {
   beforeEach(() => {
     document.head.innerHTML = '<title>Title</title>';
@@ -16,19 +52,7 @@ describe('addStyle', () => {
     expect(document.documentElement.innerHTML).toMatchSnapshot();
   });
 
-  it('should work with media', () => {
-    injectStylesIntoStyleTag([
-      [
-        './style-media.css',
-        '.foo { color: red }',
-        'screen and (min-width:320px)',
-      ],
-    ]);
-
-    expect(document.documentElement.innerHTML).toMatchSnapshot();
-  });
-
-  it('should work #2', () => {
+  it('should work with multiple styles', () => {
     injectStylesIntoStyleTag([
       ['./style-2-1.css', '.foo { color: red }', ''],
       ['./style-2-2.css', '.bar { color: blue }', ''],
@@ -37,8 +61,79 @@ describe('addStyle', () => {
     expect(document.documentElement.innerHTML).toMatchSnapshot();
   });
 
+  it('should work with same module id in list', () => {
+    injectStylesIntoStyleTag([
+      ['./style-3.css', '.foo { color: red }', ''],
+      ['./style-3.css', '.foo { color: green }', ''],
+    ]);
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+  });
+
+  it('should work with media', () => {
+    injectStylesIntoStyleTag([
+      ['./style-4.css', '.foo { color: red }', 'screen and (min-width:320px)'],
+    ]);
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+  });
+
+  it('should work with source maps', () => {
+    injectStylesIntoStyleTag([
+      [
+        './style-5.css',
+        '.foo { color: red }',
+        '',
+        {
+          version: 3,
+          sources: ['style-5.css'],
+          names: [],
+          mappings: 'AAAA,cAAqB,eAAe,EAAE',
+          file: 'style-5.css',
+          sourcesContent: ['.foo { color: red }'],
+        },
+      ],
+    ]);
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+  });
+
+  it('should work with "__webpack_nonce__" variable', () => {
+    // eslint-disable-next-line no-underscore-dangle
+    window.__webpack_nonce__ = '12345678';
+
+    injectStylesIntoStyleTag([['./style-6.css', '.foo { color: red }', '']]);
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+
+    // eslint-disable-next-line no-underscore-dangle, no-undefined
+    window.__webpack_nonce__ = undefined;
+  });
+
+  it('should work with "nonce" attribute and "__webpack_nonce__" variable', () => {
+    // eslint-disable-next-line no-underscore-dangle
+    window.__webpack_nonce__ = '12345678';
+
+    injectStylesIntoStyleTag([['./style-7.css', '.foo { color: red }', '']], {
+      attributes: { nonce: '87654321' },
+    });
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+
+    // eslint-disable-next-line no-underscore-dangle, no-undefined
+    window.__webpack_nonce__ = undefined;
+  });
+
+  it('should work with "base" option', () => {
+    injectStylesIntoStyleTag([['./style-8.css', '.foo { color: red }', '']], {
+      base: 1000,
+    });
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+  });
+
   it('should work with "attributes" option', () => {
-    injectStylesIntoStyleTag([['./style-3.css', '.foo { color: red }', '']], {
+    injectStylesIntoStyleTag([['./style-9.css', '.foo { color: red }', '']], {
       attributes: { foo: 'bar' },
     });
 
@@ -48,8 +143,8 @@ describe('addStyle', () => {
   it('should work with "attributes" option #2', () => {
     injectStylesIntoStyleTag(
       [
-        ['./style-4-1.css', '.foo { color: red }', ''],
-        ['./style-4-2.css', '.bar { color: blue }', ''],
+        ['./style-10-1.css', '.foo { color: red }', ''],
+        ['./style-10-2.css', '.bar { color: blue }', ''],
       ],
       {
         attributes: { foo: 'bar' },
@@ -59,180 +154,131 @@ describe('addStyle', () => {
     expect(document.documentElement.innerHTML).toMatchSnapshot();
   });
 
-  it('should work with "insertAt" option', () => {
+  it('should work with "insert" option', () => {
     injectStylesIntoStyleTag(
       [
-        ['./style-5-1.css', '.foo { color: red }', ''],
-        ['./style-5-2.css', '.bar { color: blue }', ''],
+        ['./style-11-1.css', '.foo { color: red }', ''],
+        ['./style-11-2.css', '.bar { color: blue }', ''],
       ],
       {
-        insertAt: 'top',
+        insert: 'head',
       }
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
   });
 
-  it('should work with "insertAt" option #2', () => {
+  it('should work with "insert" option #2', () => {
     injectStylesIntoStyleTag(
       [
-        ['./style-6-1.css', '.foo { color: red }', ''],
-        ['./style-6-2.css', '.bar { color: blue }', ''],
+        ['./style-12-1.css', '.foo { color: red }', ''],
+        ['./style-12-2.css', '.bar { color: blue }', ''],
       ],
       {
-        insertAt: 'bottom',
+        insert: 'body',
       }
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
   });
 
-  it('should work with "insertAt" option #3', () => {
+  it('should work with "insert" option #3', () => {
+    document.body.innerHTML =
+      "<h1>Hello world</h1><iframe class='iframeTarget'/>";
+
+    injectStylesIntoStyleTag(
+      [
+        ['./style-13-1.css', '.foo { color: red }', ''],
+        ['./style-13-2.css', '.bar { color: blue }', ''],
+      ],
+      {
+        insert: 'iframe.iframeTarget',
+      }
+    );
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+    expect(
+      document.getElementsByClassName('iframeTarget')[0].contentDocument.head
+        .innerHTML
+    ).toMatchSnapshot();
+  });
+
+  it('should work with "insert" option #4', () => {
+    injectStylesIntoStyleTag(
+      [
+        ['./style-14-1.css', '.foo { color: red }', ''],
+        ['./style-14-2.css', '.bar { color: blue }', ''],
+      ],
+      {
+        insert: insertAtTop,
+      }
+    );
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+
+    // eslint-disable-next-line no-underscore-dangle
+    window._lastElementInsertedByStyleLoader = null;
+  });
+
+  it('should work with "insert" option #5', () => {
     document.head.innerHTML =
       '<title>Title</title><script src="https://example.com/script.js" id="id"></script>';
 
     injectStylesIntoStyleTag(
       [
-        ['./style-7-1.css', '.foo { color: red }', ''],
-        ['./style-7-2.css', '.bar { color: blue }', ''],
+        ['./style-15-1.css', '.foo { color: red }', ''],
+        ['./style-15-2.css', '.bar { color: blue }', ''],
       ],
       {
-        insertAt: {
-          before: '#id',
-        },
+        insert: insertBeforeAt,
       }
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
   });
 
-  it('should work with "insertAt" option #4', () => {
-    document.head.innerHTML = '';
-
-    const update = injectStylesIntoStyleTag(
-      [
-        ['./style-45.css', '.foo { color: red }', ''],
-        ['./style-46.css', '.bar { color: blue }', ''],
-      ],
-      {
-        insertAt: 'top',
-      }
-    );
-
-    expect(document.documentElement.innerHTML).toMatchSnapshot();
-
-    update([['./style-45.css', '.foo { color: black }', '']]);
-
-    expect(document.documentElement.innerHTML).toMatchSnapshot();
-  });
-
-  it('should work with "insertInto" option', () => {
-    injectStylesIntoStyleTag(
-      [
-        ['./style-8-1.css', '.foo { color: red }', ''],
-        ['./style-8-2.css', '.bar { color: blue }', ''],
-      ],
-      {
-        insertInto: 'head',
-      }
-    );
-
-    expect(document.documentElement.innerHTML).toMatchSnapshot();
-  });
-
-  it('should work with "insertInto" option #2', () => {
-    injectStylesIntoStyleTag(
-      [
-        ['./style-9-1.css', '.foo { color: red }', ''],
-        ['./style-9-2.css', '.bar { color: blue }', ''],
-      ],
-      {
-        insertInto: 'body',
-      }
-    );
-
-    expect(document.documentElement.innerHTML).toMatchSnapshot();
-  });
-
-  it('should work with "insertInto" option #3', () => {
+  it('should work with "insert" option #6', () => {
     document.body.innerHTML =
       '<h1>Hello world</h1><div><div id="root"></div></div>';
 
     injectStylesIntoStyleTag(
       [
-        ['./style-10-1.css', '.foo { color: red }', ''],
-        ['./style-10-2.css', '.bar { color: blue }', ''],
+        ['./style-16-1.css', '.foo { color: red }', ''],
+        ['./style-16-2.css', '.bar { color: blue }', ''],
       ],
       {
-        insertInto: () => document.querySelector('#root'),
+        insert: (style) => document.querySelector('#root').appendChild(style),
       }
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
   });
 
-  it('should work with source maps', () => {
-    injectStylesIntoStyleTag([
-      [
-        './style-13-1.css',
-        '.foo { color: red }',
-        '',
+  it('should throw error with incorrect "insert" option', () => {
+    expect(() =>
+      injectStylesIntoStyleTag(
+        [['./style-17.css', '.foo { color: red }', '']],
         {
-          version: 3,
-          sources: ['style-13-1.css'],
-          names: [],
-          mappings: 'AAAA,cAAqB,eAAe,EAAE',
-          file: 'style-13-1.css',
-          sourcesContent: ['.foo { color: red }'],
-        },
-      ],
-    ]);
-
-    expect(document.documentElement.innerHTML).toMatchSnapshot();
+          insert: 'invalid',
+        }
+      )
+    ).toThrowErrorMatchingSnapshot();
   });
 
-  it('should work with nonce', () => {
-    // eslint-disable-next-line no-underscore-dangle
-    window.__webpack_nonce__ = 'none';
-
-    injectStylesIntoStyleTag([['./style-14.css', '.foo { color: red }', '']]);
-
-    expect(document.documentElement.innerHTML).toMatchSnapshot();
-
-    // eslint-disable-next-line no-underscore-dangle, no-undefined
-    window.__webpack_nonce__ = undefined;
+  it('should throw error with invalid "insert" option', () => {
+    expect(() =>
+      injectStylesIntoStyleTag(
+        [['./style-18.css', '.foo { color: red }', '']],
+        {
+          insert: '#test><><><',
+        }
+      )
+    ).toThrowErrorMatchingSnapshot();
   });
 
   it('should work with updates', () => {
     const update = injectStylesIntoStyleTag([
-      ['./style-15.css', '.foo { color: red }', ''],
-    ]);
-
-    expect(document.documentElement.innerHTML).toMatchSnapshot();
-
-    update([['./style-15.css', '.foo { color: blue }', '']]);
-
-    expect(document.documentElement.innerHTML).toMatchSnapshot();
-  });
-
-  it('should work with updates #2', () => {
-    const update = injectStylesIntoStyleTag([
-      ['./style-16.css', '.foo { color: red }', ''],
-    ]);
-
-    expect(document.documentElement.innerHTML).toMatchSnapshot();
-
-    update([
-      ['./style-16.css', '.foo { color: blue }', ''],
-      ['./style-17.css', '.foo { color: red }', ''],
-    ]);
-
-    expect(document.documentElement.innerHTML).toMatchSnapshot();
-  });
-
-  it('should work with updates #3', () => {
-    const update = injectStylesIntoStyleTag([
-      ['./style-18.css', '.foo { color: red }', ''],
+      ['./style-19.css', '.foo { color: red }', ''],
     ]);
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -242,15 +288,58 @@ describe('addStyle', () => {
     expect(document.documentElement.innerHTML).toMatchSnapshot();
   });
 
-  it('should work with updates #5', () => {
+  it('should work with updates #2', () => {
     const update = injectStylesIntoStyleTag([
-      ['./style-20.css', '.foo { color: blue }', 'screen and (min-width:320px'],
+      ['./style-20-1.css', '.foo { color: red }', ''],
+    ]);
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+
+    update([['./style-20-2.css', '.foo { color: blue }', '']]);
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+  });
+
+  it('should work with updates #3', () => {
+    const update = injectStylesIntoStyleTag([
+      ['./style-21-1.css', '.foo { color: red }', ''],
     ]);
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
 
     update([
-      ['./style-20.css', '.foo { color: blue }', 'screen and (min-width:320px'],
+      ['./style-21-1.css', '.foo { color: blue }', ''],
+      ['./style-21-2.css', '.foo { color: red }', ''],
+    ]);
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+  });
+
+  it('should work with updates #4', () => {
+    const update = injectStylesIntoStyleTag([
+      ['./style-22.css', '.foo { color: red }', ''],
+    ]);
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+
+    update();
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+  });
+
+  it('should work with updates #5', () => {
+    const update = injectStylesIntoStyleTag([
+      ['./style-23.css', '.foo { color: red }', 'screen and (min-width:320px)'],
+    ]);
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+
+    update([
+      [
+        './style-23.css',
+        '.foo { color: blue }',
+        'screen and (min-width:640px)',
+      ],
     ]);
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -259,8 +348,8 @@ describe('addStyle', () => {
   it('should work with updates #6', () => {
     const update = injectStylesIntoStyleTag(
       [
-        ['./style-21.css', '.foo { color: red }', ''],
-        ['./style-22.css', '.foo { color: yellow }', ''],
+        ['./style-24-1.css', '.foo { color: red }', ''],
+        ['./style-24-2.css', '.bar { color: yellow }', ''],
       ],
       { singleton: true }
     );
@@ -268,8 +357,8 @@ describe('addStyle', () => {
     expect(document.documentElement.innerHTML).toMatchSnapshot();
 
     update([
-      ['./style-21.css', '.foo { color: blue }', ''],
-      ['./style-22.css', '.foo { color: yellow }', ''],
+      ['./style-24-1.css', '.foo { color: blue }', ''],
+      ['./style-24-2.css', '.bar { color: yellow }', ''],
     ]);
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -277,294 +366,157 @@ describe('addStyle', () => {
 
   it('should work with updates #7', () => {
     const update = injectStylesIntoStyleTag([
-      ['./style-23.css', '.foo { color: red }', ''],
-      ['./style-24.css', '.foo { color: blue }', ''],
+      ['./style-25-1.css', '.foo { color: red }', ''],
+      ['./style-25-2.css', '.bar { color: blue }', ''],
     ]);
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
 
     update([
-      ['./style-23.css', '.foo { color: green }', ''],
-      ['./style-25.css', '.foo { color: black }', ''],
+      ['./style-25-1.css', '.foo { color: green }', ''],
+      ['./style-25-2.css', '.bar { color: black }', ''],
     ]);
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
   });
 
   it('should work with updates #8', () => {
-    document.body.innerHTML = '<h1>Hello world</h1><div id="id"></div>';
-
-    const update = injectStylesIntoStyleTag(
-      [['./style-26.css', '.foo { color: red }', '']],
-      {
-        insertInto: () => document.querySelector('#id'),
-      }
-    );
+    const update = injectStylesIntoStyleTag([
+      [
+        './style-26-1.css',
+        '.foo { color: red }',
+        'screen and (min-width: 320px)',
+        {
+          version: 3,
+          sources: ['style-26-1.css'],
+          names: [],
+          mappings: 'AAAA,cAAqB,eAAe,EAAE',
+          file: 'style-26-1.css',
+          sourcesContent: [
+            '@media screen and (max-width: 320px) { .foo { color: red } }',
+          ],
+        },
+      ],
+      [
+        './style-26-2.css',
+        '.bar { color: yellow }',
+        'screen and (max-width: 240px)',
+        {
+          version: 3,
+          sources: ['style-26-2.css'],
+          names: [],
+          mappings: 'AAAA,cAAqB,eAAe,EAAE',
+          file: 'style-26-2.css',
+          sourcesContent: [
+            '@media screen and (max-width: 240px) { .bar { color: yellow } }',
+          ],
+        },
+      ],
+    ]);
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
 
-    update([]);
+    update([
+      [
+        './style-26-1.css',
+        '.foo { color: black }',
+        'screen and (min-width: 640px)',
+        {
+          version: 3,
+          sources: ['style-26-1.css'],
+          names: [],
+          mappings: 'BBBB,cAAqB,eAAe,EAAE',
+          file: 'style-26-1.css',
+          sourcesContent: [
+            '@media screen and (min-width: 640px) { .foo { color: black } }',
+          ],
+        },
+      ],
+      [
+        './style-26-2.css',
+        '.bar { color: black }',
+        'screen and (max-width: 1240px)',
+        {
+          version: 3,
+          sources: ['style-26-2.css'],
+          names: [],
+          mappings: 'BBBB,cAAqB,eAAe,EAAE',
+          file: 'style-26-2.css',
+          sourcesContent: [
+            '@media screen and (max-width: 1240px) { .bar { color: black } }',
+          ],
+        },
+      ],
+    ]);
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+
+    update();
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
   });
 
   it('should work with updates #9', () => {
-    document.body.innerHTML = '<h1>Hello world</h1><div id="id"></div>';
-
-    const update = injectStylesIntoStyleTag(
-      [
-        ['./style-37.css', '.foo { color: blue }', ''],
-        ['./style-38.css', '.foo { color: yellow }', ''],
-      ],
-      {
-        insertInto: () => document.querySelector('#id'),
-      }
-    );
+    const update = injectStylesIntoStyleTag([
+      ['./style-27.css', '.foo { color: red }', ''],
+    ]);
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
 
-    update([['./style-37.css', '.foo { color: black }', '']]);
-
-    expect(document.documentElement.innerHTML).toMatchSnapshot();
-
-    update([]);
+    update([
+      ['./style-27.css', '.foo { color: black }', ''],
+      ['./style-27.css', '.foo { color: red }', ''],
+      ['./style-27.css', '.foo { color: yellow }', ''],
+    ]);
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
   });
 
   it('should work with updates #10', () => {
-    document.body.innerHTML =
-      '<h1>Hello world</h1><div><div id="custom"></div></div>';
-
     const update = injectStylesIntoStyleTag(
-      [['./style-38.css', '.foo { color: red }', '']],
+      [
+        ['./style-28-1.css', '.foo { color: red }', ''],
+        ['./style-28-2.css', '.bar { color: blue }', ''],
+      ],
       {
-        insertInto: '#custom',
+        insert: insertAtTop,
       }
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
 
-    const element = document.querySelector('#custom');
-
-    element.parentNode.removeChild(element);
-
-    update([['./style-38.css', '.foo { color: blue }', '']]);
+    update([
+      ['./style-28-1.css', '.foo { color: black }', ''],
+      ['./style-28-2.css', '.bar { color: white }', ''],
+    ]);
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
+
+    // eslint-disable-next-line no-underscore-dangle
+    window._lastElementInsertedByStyleLoader = null;
   });
 
   it('should work with updates #11', () => {
+    document.head.innerHTML =
+      '<title>Title</title><script src="https://example.com/script.js" id="id"></script>';
+
     const update = injectStylesIntoStyleTag(
-      [['./style-39.css', '.foo { color: red }', '']],
+      [
+        ['./style-29-1.css', '.foo { color: red }', ''],
+        ['./style-29-2.css', '.bar { color: blue }', ''],
+      ],
       {
-        insertAt: 'top',
+        insert: insertBeforeAt,
       }
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
 
-    update([]);
-
-    expect(document.documentElement.innerHTML).toMatchSnapshot();
-  });
-
-  it('should work with updates #12', () => {
-    const update = injectStylesIntoStyleTag([
-      [
-        './style-40.css',
-        '.foo { color: red }',
-        '',
-        {
-          version: 3,
-          sources: ['style-40.css'],
-          names: [],
-          mappings: 'AAAA,cAAqB,eAAe,EAAE',
-          file: 'style-40.css',
-          sourcesContent: ['.foo { color: red }'],
-        },
-      ],
-    ]);
-
-    expect(document.documentElement.innerHTML).toMatchSnapshot();
-
     update([
-      [
-        './style-40.css',
-        '.foo { color: black }',
-        '',
-        {
-          version: 3,
-          sources: ['style-40.css'],
-          names: [],
-          mappings: 'BBBB,cAAqB,eAAe,EAAE',
-          file: 'style-40.css',
-          sourcesContent: ['.foo { color: black }'],
-        },
-      ],
+      ['./style-29-1.css', '.foo { color: black }', ''],
+      ['./style-29-2.css', '.bar { color: white }', ''],
     ]);
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
-  });
-
-  it('should work with updates #13', () => {
-    const update = injectStylesIntoStyleTag([
-      ['./style-41.css', '.foo { color: red }', 'screen and (min-width:320px)'],
-    ]);
-
-    expect(document.documentElement.innerHTML).toMatchSnapshot();
-
-    update([
-      [
-        './style-41.css',
-        '.foo { color: black }',
-        'screen and (min-width:640px)',
-      ],
-    ]);
-
-    expect(document.documentElement.innerHTML).toMatchSnapshot();
-  });
-
-  it('should work with updates #14', () => {
-    const update = injectStylesIntoStyleTag([
-      [
-        './style-42.css',
-        '.foo { color: red }',
-        '',
-        {
-          version: 3,
-          sources: ['style-42.css'],
-          names: [],
-          mappings: 'AAAA,cAAqB,eAAe,EAAE',
-          file: 'style-42.css',
-          sourcesContent: ['.foo { color: red }'],
-        },
-      ],
-      [
-        './style-43.css',
-        '.bar { color: yellow }',
-        '',
-        {
-          version: 3,
-          sources: ['style-43.css'],
-          names: [],
-          mappings: 'AAAA,cAAqB,eAAe,EAAE',
-          file: 'style-43.css',
-          sourcesContent: ['.foo { color: red }'],
-        },
-      ],
-    ]);
-
-    expect(document.documentElement.innerHTML).toMatchSnapshot();
-
-    update([
-      ['./style-42.css', '.foo { color: black }', ''],
-      ['./style-43.css', '.bar { color: gray }', ''],
-    ]);
-
-    expect(document.documentElement.innerHTML).toMatchSnapshot();
-  });
-
-  it('should work with updates #15', () => {
-    const update = injectStylesIntoStyleTag([
-      ['./style-44.css', '.foo { color: red }', ''],
-    ]);
-
-    expect(document.documentElement.innerHTML).toMatchSnapshot();
-
-    update([
-      ['./style-44.css', '.foo { color: black }', ''],
-      ['./style-44.css', '.foo { color: red }', ''],
-      ['./style-44.css', '.foo { color: yellow }', ''],
-    ]);
-
-    expect(document.documentElement.innerHTML).toMatchSnapshot();
-  });
-
-  it('should insert style tag in iframe', () => {
-    document.body.innerHTML =
-      "<h1>Hello world</h1><iframe class='iframeTarget'/>";
-
-    injectStylesIntoStyleTag([['./style-27.css', '.foo { color: red }', '']], {
-      insertInto: 'iframe.iframeTarget',
-    });
-
-    expect(document.documentElement.innerHTML).toMatchSnapshot();
-    expect(
-      document.getElementsByClassName('iframeTarget')[0].contentDocument.head
-        .innerHTML
-    ).toMatchSnapshot();
-  });
-
-  it('should work with "base" option', () => {
-    injectStylesIntoStyleTag([['./style-28.css', '.foo { color: red }', '']], {
-      base: 1000,
-    });
-
-    expect(document.documentElement.innerHTML).toMatchSnapshot();
-  });
-
-  it('should work with same module id in list', () => {
-    const update = injectStylesIntoStyleTag([
-      ['./style-29.css', '.foo { color: red }', ''],
-      ['./style-29.css', '.foo { color: green }', ''],
-    ]);
-
-    expect(document.documentElement.innerHTML).toMatchSnapshot();
-
-    update([
-      ['./style-29.css', '.foo { color: black }', ''],
-      ['./style-29.css', '.foo { color: yellow }', ''],
-    ]);
-
-    expect(document.documentElement.innerHTML).toMatchSnapshot();
-  });
-
-  it('should throw error with invalid "insertInto" option', () => {
-    expect(() =>
-      injectStylesIntoStyleTag(
-        [['./style-30.css', '.foo { color: red }', '']],
-        {
-          insertInto: '#test><><><',
-        }
-      )
-    ).toThrowErrorMatchingSnapshot();
-  });
-
-  it('should throw error with invalid "insertAt" option', () => {
-    expect(() =>
-      injectStylesIntoStyleTag(
-        [['./style-31.css', '.foo { color: red }', '']],
-        {
-          insertAt: 'invalid',
-        }
-      )
-    ).toThrowErrorMatchingSnapshot();
-  });
-
-  it('should work "insertAt" option and with children', () => {
-    const update = injectStylesIntoStyleTag(
-      [['./style-32.css', '.foo { color: red }', '']],
-      {
-        insertAt: 'top',
-      }
-    );
-
-    expect(document.documentElement.innerHTML).toMatchSnapshot();
-
-    update([['./style-32.css', '.foo { color: blue }', '']]);
-
-    expect(document.documentElement.innerHTML).toMatchSnapshot();
-  });
-
-  it('should throw error with invalid "insertInto" option', () => {
-    expect(() =>
-      injectStylesIntoStyleTag(
-        [['./style-33.css', '.foo { color: red }', '']],
-        {
-          insertInto: 'invalid',
-        }
-      )
-    ).toThrowErrorMatchingSnapshot();
   });
 });

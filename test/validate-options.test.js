@@ -33,22 +33,14 @@ it('validate options', () => {
   expect(() => validate({ attributes: { id: 'id' } })).not.toThrow();
   expect(() => validate({ attributes: true })).toThrowErrorMatchingSnapshot();
 
-  expect(() => validate({ insertAt: 'top' })).not.toThrow();
   expect(() =>
     validate({
-      insertAt: {
-        before: '#id',
-      },
+      // eslint-disable-next-line no-undef
+      insert: (element) => document.querySelector('#root').appendChild(element),
     })
   ).not.toThrow();
-  expect(() => validate({ insertAt: true })).toThrowErrorMatchingSnapshot();
-
-  expect(() =>
-    // eslint-disable-next-line no-undef
-    validate({ insertInto: () => document.querySelector('#root') })
-  ).not.toThrow();
-  expect(() => validate({ insertInto: 'test' })).not.toThrow();
-  expect(() => validate({ insertInto: true })).toThrowErrorMatchingSnapshot();
+  expect(() => validate({ insert: 'test' })).not.toThrow();
+  expect(() => validate({ insert: true })).toThrowErrorMatchingSnapshot();
 
   expect(() => validate({ unknown: 'unknown' })).toThrowErrorMatchingSnapshot();
 });
