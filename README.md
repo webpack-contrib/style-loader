@@ -186,6 +186,8 @@ The loader inject styles like:
 
 Injects styles in one `<style></style>`.
 
+> ⚠ Source maps do not work.
+
 ```js
 import './styles.css';
 ```
@@ -270,6 +272,8 @@ The loader inject styles like:
 #### `lazySingletonStyleTag`
 
 Injects styles in one `<style></style>` on demand (documentation above).
+
+> ⚠ Source maps do not work.
 
 ```js
 import styles from './styles.css';
