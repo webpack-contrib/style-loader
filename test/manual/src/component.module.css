@@ -1,0 +1,20 @@
+@value v-red: red;
+@value v-green: green;
+@value v-blue: blue;
+
+.module-red {
+  color: v-red;
+}
+
+.module-green {
+  color: v-green;
+}
+
+.module-blue {
+  color: v-blue;
+}
+
+.module-background {
+  height: 1200px;
+  background: url('./logo.png') center no-repeat;
+}
