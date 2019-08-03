@@ -14,6 +14,21 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
+        exclude: [/\.module\.css$/i, /\.lazy\.css$/i, /\.link\.css$/i],
+        use: [
+          {
+            loader: require.resolve('../../dist/index.js'),
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: ENABLE_SOURCE_MAP,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.module\.css$/i,
         exclude: [/\.lazy\.css$/i, /\.link\.css$/i],
         use: [
           {
@@ -23,6 +38,7 @@ module.exports = {
             loader: 'css-loader',
             options: {
               sourceMap: ENABLE_SOURCE_MAP,
+              modules: true,
             },
           },
         ],
