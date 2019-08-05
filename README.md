@@ -16,7 +16,7 @@
 
 # style-loader
 
-Adds CSS to the DOM.
+Inject CSS into the DOM.
 
 ## Getting Started
 
@@ -41,7 +41,7 @@ body {
 **component.js**
 
 ```js
-import style from './style.css';
+import './style.css';
 ```
 
 **webpack.config.js**
@@ -52,40 +52,28 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },
 };
 ```
 
-### `Locals (CSS Modules)`
-
-When using [local scoped CSS](https://github.com/webpack/css-loader#css-scope) the module exports the generated identifiers (locals):
-
-**component.js**
-
-```js
-import style from './file.css';
-
-style.className === 'z849f98ca812';
-```
-
 ## Options
 
-|       Name       |         Type         |  Default   | Description                                          |
-| :--------------: | :------------------: | :--------: | :--------------------------------------------------- |
-| **`injectType`** |      `{String}`      | `styleTag` | Allows to setup how styles will be injected into DOM |
-| **`attributes`** |      `{Object}`      |    `{}`    | Adds custom attributes to tag                        |
-|   **`insert`**   | `{String\|Function}` |   `head`   | Inserts tag at the given position into DOM           |
-|    **`base`**    |      `{Number}`      |   `true`   | Sets module ID base (DLLPlugin)                      |
+|       Name       |         Type         |  Default   | Description                                              |
+| :--------------: | :------------------: | :--------: | :------------------------------------------------------- |
+| **`injectType`** |      `{String}`      | `styleTag` | Allows to setup how styles will be injected into the DOM |
+| **`attributes`** |      `{Object}`      |    `{}`    | Adds custom attributes to tag                            |
+|   **`insert`**   | `{String\|Function}` |   `head`   | Inserts tag at the given position into the DOM           |
+|    **`base`**    |      `{Number}`      |   `true`   | Sets module ID base (DLLPlugin)                          |
 
 ### `injectType`
 
 Type: `String`
 Default: `styleTag`
 
-Allows to setup how styles will be injected into DOM.
+Allows to setup how styles will be injected into the DOM.
 
 Possible values:
 
@@ -95,60 +83,29 @@ Possible values:
 - `lazySingletonStyleTag`
 - `linkTag`
 
-When you `lazyStyleTag` or `lazySingletonStyleTag` value the `style-loader` injects the styles lazily making them useable on-demand via `style.use()` / `style.unuse()`.
-
-**component.js**
-
-```js
-import style from './file.css';
-
-style.use();
-style.unuse();
-```
-
-We recommend following `.lazy.css` naming convention for lazy styles and the `.css` for basic `style-loader` usage (similar to other file types, i.e. `.lazy.less` and `.less`).
-
-**webpack.config.js**
-
-```js
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        exclude: /\.lazy\.css$/i,
-        use: ['style-loader', 'css-loader'],
-      },
-      {
-        test: /\.lazy\.css$/i,
-        use: [
-          {
-            loader: 'style-loader',
-            options: {
-              // Can be `'lazyStyleTag'` or `'lazySingletonStyleTag'`
-              injectType: 'lazyStyleTag',
-            },
-          },
-          'css-loader',
-        ],
-      },
-    ],
-  },
-};
-```
-
-Styles are not added on `import/require()`, but instead on call to `use`. Styles are removed from page if `unuse` is called exactly as often as `use`.
-
-> ⚠️ Behavior is undefined when `unuse` is called more often than `use`. Don't do that.
-
 #### `styleTag`
 
-Injects styles in multiple `<style></style>`. It is **default** behaviour.
+Automatically injects styles into the DOM using multiple `<style></style>`. It is **default** behaviour.
+
+**component.js**
 
 ```js
 import './styles.css';
 ```
 
+Example with c Locals (CSS Modules):
+
+**component-with-css-modules.js**
+
+```js
+import styles from './styles.css';
+
+const divElement = document.createElement('div');
+divElement.className = styles['my-class'];
+```
+
+All locals (class names) stored in imported object.
+
 **webpack.config.js**
 
 ```js
@@ -158,6 +115,7 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [
+          // The `injectType`  option can be avoided because it is default behaviour
           { loader: 'style-loader', options: { injectType: 'styleTag' } },
           'css-loader',
         ],
@@ -184,13 +142,26 @@ The loader inject styles like:
 
 #### `singletonStyleTag`
 
-Injects styles in one `<style></style>`.
+Automatically injects styles into the DOM using one `<style></style>`.
 
 > ⚠ Source maps do not work.
+
+**component.js**
 
 ```js
 import './styles.css';
 ```
+
+**component-with-css-modules.js**
+
+```js
+import styles from './styles.css';
+
+const divElement = document.createElement('div');
+divElement.className = styles['my-class'];
+```
+
+All locals (class names) stored in imported object.
 
 **webpack.config.js**
 
@@ -228,13 +199,34 @@ The loader inject styles like:
 
 #### `lazyStyleTag`
 
-Injects styles in multiple `<style></style>` on demand (documentation above).
+Injects styles into the DOM using multiple `<style></style>` on demand.
+We recommend following `.lazy.css` naming convention for lazy styles and the `.css` for basic `style-loader` usage (similar to other file types, i.e. `.lazy.less` and `.less`).
+When you `lazyStyleTag` value the `style-loader` injects the styles lazily making them useable on-demand via `style.use()` / `style.unuse()`.
+
+> ⚠️ Behavior is undefined when `unuse` is called more often than `use`. Don't do that.
+
+**component.js**
 
 ```js
-import styles from './styles.css';
+import styles from './styles.lazy.css';
 
 styles.use();
+// For removing styles you can use
+// styles.unuse();
 ```
+
+**component-with-css-modules.js**
+
+```js
+import styles from './styles.lazy.css';
+
+styles.use();
+
+const divElement = document.createElement('div');
+divElement.className = styles.locals['my-class'];
+```
+
+All locals (class names) stored in `locals` property of imported object.
 
 **webpack.config.js**
 
@@ -242,6 +234,11 @@ styles.use();
 module.exports = {
   module: {
     rules: [
+      {
+        test: /\.css$/i,
+        exclude: /\.lazy\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
       {
         test: /\.lazy\.css$/i,
         use: [
@@ -271,15 +268,36 @@ The loader inject styles like:
 
 #### `lazySingletonStyleTag`
 
-Injects styles in one `<style></style>` on demand (documentation above).
+Injects styles into the DOM using one `<style></style>` on demand.
+We recommend following `.lazy.css` naming convention for lazy styles and the `.css` for basic `style-loader` usage (similar to other file types, i.e. `.lazy.less` and `.less`).
+When you `lazySingletonStyleTag` value the `style-loader` injects the styles lazily making them useable on-demand via `style.use()` / `style.unuse()`.
 
-> ⚠ Source maps do not work.
+> ⚠️ Source maps do not work.
+
+> ⚠️ Behavior is undefined when `unuse` is called more often than `use`. Don't do that.
+
+**component.js**
 
 ```js
 import styles from './styles.css';
 
 styles.use();
+// For removing styles you can use
+// styles.unuse();
 ```
+
+**component-with-css-modules.js**
+
+```js
+import styles from './styles.lazy.css';
+
+styles.use();
+
+const divElement = document.createElement('div');
+divElement.className = styles.locals['my-class'];
+```
+
+All locals (class names) stored in `locals` property of imported object.
 
 **webpack.config.js**
 
@@ -288,12 +306,14 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.css$/i,
+        exclude: /\.lazy\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
         test: /\.lazy\.css$/i,
         use: [
-          {
-            loader: 'style-loader',
-            options: { injectType: 'lazySingletonStyleTag' },
-          },
+          { loader: 'style-loader', options: { injectType: 'lazyStyleTag' } },
           'css-loader',
         ],
       },
@@ -317,7 +337,7 @@ The loader generate this:
 
 #### `linkTag`
 
-Injects styles in multiple `<link rel="stylesheet" href="path/to/file.css">` .
+Injects styles into the DOM using multiple `<link rel="stylesheet" href="path/to/file.css">` .
 
 ```js
 import './styles.css';
@@ -331,7 +351,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/i,
+        test: /\.link\.css$/i,
         use: [
           { loader: 'style-loader', options: { injectType: 'linkTag' } },
           { loader: 'file-loader' },
@@ -354,7 +374,7 @@ The loader generate this:
 Type: `Object`
 Default: `{}`
 
-If defined, style-loader will attach given attributes with their values on `<style>` / `<link>` element.
+If defined, the `style-loader` will attach given attributes with their values on `<style>` / `<link>` element.
 
 **component.js**
 
@@ -396,7 +416,7 @@ If you target an [iframe](https://developer.mozilla.org/en-US/docs/Web/API/HTMLI
 
 #### `String`
 
-Allows to setup custom [query selector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector) where styles inject into DOM.
+Allows to setup custom [query selector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector) where styles inject into the DOM.
 
 **webpack.config.js**
 
