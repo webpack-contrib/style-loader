@@ -6,6 +6,7 @@ const ENABLE_SOURCE_MAP =
     : false;
 
 module.exports = {
+  devtool: ENABLE_SOURCE_MAP ? 'source-map' : false,
   mode: 'development',
   output: {
     publicPath: '/dist/',

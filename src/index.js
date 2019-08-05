@@ -132,39 +132,23 @@ ${hmrCode}
       const hmrCode = this.hot
         ? `
 if (module.hot) {
-  module.hot.accept(
-    ${loaderUtils.stringifyRequest(this, `!!${request}`)},
-    function() {
-      var newContent = require(${loaderUtils.stringifyRequest(
-        this,
-        `!!${request}`
-      )});
+  if (!content.locals) {
+    module.hot.accept(
+      ${loaderUtils.stringifyRequest(this, `!!${request}`)},
+      function () {
+        var newContent = require(${loaderUtils.stringifyRequest(
+          this,
+          `!!${request}`
+        )});
 
-      if (typeof newContent === 'string') {
-        newContent = [[module.id, newContent, '']];
-      }
-
-      var locals = (function(a, b) {
-        var key,
-          idx = 0;
-
-        for (key in a) {
-          if(!b || a[key] !== b[key]) return false;
-          idx++;
+        if (typeof newContent === 'string') {
+          newContent = [[module.id, newContent, '']];
         }
-
-        for (key in b) idx--;
-
-        return idx === 0;
-      }(content.locals, newContent.locals));
-
-      if (!locals) {
-        throw new Error('Aborting CSS HMR due to changed css-modules locals.');
+        
+        update(newContent);
       }
-
-      update(newContent);
-    }
-  );
+    )
+  }
 
   module.hot.dispose(function() { 
     update();
