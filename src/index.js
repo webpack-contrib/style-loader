@@ -66,7 +66,8 @@ if (module.hot) {
   var lastRefs = module.hot.data && module.hot.data.refs || 0;
   
   if (lastRefs) {
-    exports.ref();
+    exports.use();
+
     if (!content.locals) {
       refs = lastRefs;
     }
@@ -94,8 +95,13 @@ var options = ${JSON.stringify(options)};
 options.insert = ${insert};
 options.singleton = ${isSingleton};
 
-if (typeof content === 'string') content = [[module.id, content, '']];
-if (content.locals) exports.locals = content.locals;
+if (typeof content === 'string') {
+  content = [[module.id, content, '']];
+}
+
+if (content.locals) {
+  exports.locals = content.locals;
+}
 
 exports.use = function() {
   if (!(refs++)) {
@@ -134,8 +140,9 @@ if (module.hot) {
         `!!${request}`
       )});
 
-      if (typeof newContent === 'string')
+      if (typeof newContent === 'string') {
         newContent = [[module.id, newContent, '']];
+      }
 
       var locals = (function(a, b) {
         var key,
@@ -151,8 +158,9 @@ if (module.hot) {
         return idx === 0;
       }(content.locals, newContent.locals));
 
-      if (!locals)
+      if (!locals) {
         throw new Error('Aborting CSS HMR due to changed css-modules locals.');
+      }
 
       update(newContent);
     }
@@ -169,9 +177,9 @@ if (module.hot) {
         `!!${request}`
       )});
 
-if (typeof content === 'string') content = [[module.id, content, '']];
-
-var insertInto;
+if (typeof content === 'string') {
+  content = [[module.id, content, '']];
+}
 
 var options = ${JSON.stringify(options)}
 
@@ -183,7 +191,9 @@ var update = require(${loaderUtils.stringifyRequest(
         `!${path.join(__dirname, 'runtime/injectStylesIntoStyleTag.js')}`
       )})(content, options);
 
-if (content.locals) module.exports = content.locals;
+if (content.locals) {
+  module.exports = content.locals;
+}
 ${hmrCode}`;
     }
   }
