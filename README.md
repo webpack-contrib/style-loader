@@ -577,12 +577,12 @@ module.exports = {
 
 There are two ways to work with `nonce`:
 
-- using the `attirbutes` option
+- using the `attributes` option
 - using the `__webpack_nonce__` variable
 
-> ⚠ the `attibutes` option takes precedence over the `__webpack_nonce__` variable
+> ⚠ the `attributes` option takes precedence over the `__webpack_nonce__` variable
 
-#### `attirbutes`
+#### `attributes`
 
 **component.js**
 
