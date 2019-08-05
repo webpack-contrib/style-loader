@@ -14,7 +14,12 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        exclude: [/\.module\.css$/i, /\.lazy\.css$/i, /\.link\.css$/i],
+        exclude: [
+          /\.module\.css$/i,
+          /\.lazy\.css$/i,
+          /\.lazy\.module\.css$/i,
+          /\.link\.css$/i,
+        ],
         use: [
           {
             loader: require.resolve('../../dist/index.js'),
@@ -29,7 +34,7 @@ module.exports = {
       },
       {
         test: /\.module\.css$/i,
-        exclude: [/\.lazy\.css$/i, /\.link\.css$/i],
+        exclude: [/\.lazy\.css$/i, /\.link\.css$/i, /\.lazy\.module\.css$/i],
         use: [
           {
             loader: require.resolve('../../dist/index.js'),
@@ -58,6 +63,23 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.lazy\.module\.css$/i,
+        use: [
+          {
+            loader: require.resolve('../../dist/index.js'),
+            options: { injectType: 'lazyStyleTag' },
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: ENABLE_SOURCE_MAP,
+              modules: true,
+            },
+          },
+        ],
+      },
+
       {
         test: /\.link\.css$/i,
         use: [
