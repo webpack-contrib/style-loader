@@ -339,6 +339,8 @@ The loader generate this:
 
 Injects styles into the DOM using multiple `<link rel="stylesheet" href="path/to/file.css">` .
 
+> ℹ️ The loader will dynamically insert the `<link href="path/to/file.css" rel="stylesheet">` tag at runtime via JavaScript. You should use [MiniCssExtractPlugin](https://webpack.js.org/plugins/mini-css-extract-plugin/) if you want to include a static `<link href="path/to/file.css" rel="stylesheet">`.
+
 ```js
 import './styles.css';
 import './other-styles.css';
