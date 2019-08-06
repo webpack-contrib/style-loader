@@ -1,6 +1,39 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [1.0.0](https://github.com/webpack-contrib/style-loader/compare/v0.23.1...v1.0.0) (2019-08-06)
+
+
+### Bug Fixes
+
+* es3 compatibility ([#390](https://github.com/webpack-contrib/style-loader/issues/390)) ([ae24ec2](https://github.com/webpack-contrib/style-loader/commit/ae24ec2))
+* restore original hot reloading behaviour for locals ([#419](https://github.com/webpack-contrib/style-loader/issues/419)) ([f026429](https://github.com/webpack-contrib/style-loader/commit/f026429))
+* better handle source maps ([#383](https://github.com/webpack-contrib/style-loader/issues/383)) ([84ec8e5](https://github.com/webpack-contrib/style-loader/commit/84ec8e5))
+
+
+### Features
+
+* new `injectType` option ([e2664e9](https://github.com/webpack-contrib/style-loader/commit/e2664e9))
+* remove type `text/css` from style and link element ([#399](https://github.com/webpack-contrib/style-loader/issues/399)) ([b0187d6](https://github.com/webpack-contrib/style-loader/commit/b0187d6))
+
+
+### BREAKING CHANGES
+
+* minimum required Node.js version is `8.9.0`
+* minimum require `wepback` version is `4.0.0`
+* the `convertToAbsoluteUrls` option was removed, you don't need this anymore
+* the `attrs` option was renamed to the `attributes` option
+* the `transform` option was removed without replacement
+* the `hmr` option was removed, `webpack` automatically inject HMR code when it is required (when the `HotModuleReplacementPlugin` plugin was used)
+* the `sourceMap` option was removed. The loader automatically inject source maps if the previous loader emit them
+* the `ref`/`unref` api methods were removed for `useable` loader, please use the `use`/`unuse` api methods
+* the `style-loader/url` loader was removed in favor `injectType` option (look the documentation about the `injectType` option)
+* the `style-loader/useable` loader was removed in favor `injectType` option (look the documentation about the `injectType` option)
+* the `singleton` option was removed (look documentation about the `injectType` option)
+* the `insertAt` option was removed in favor the `insert` option (look the documentation about the `insert` option and examples)
+* the `insertInto` options was removed in favor the `insert` option (look the documentation about the `insert` option and examples)
+
 
 <a name="0.23.1"></a>
 ## [0.23.1](https://github.com/webpack-contrib/style-loader/compare/v0.23.0...v0.23.1) (2018-10-08)
