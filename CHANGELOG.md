@@ -21,7 +21,7 @@ All notable changes to this project will be documented in this file. See [standa
 ### BREAKING CHANGES
 
 * minimum required Node.js version is `8.9.0`
-* minimum require `wepback` version is `4.0.0`
+* minimum required `webpack` version is `4.0.0`
 * the `convertToAbsoluteUrls` option was removed, you don't need this anymore
 * the `attrs` option was renamed to the `attributes` option
 * the `transform` option was removed without replacement
