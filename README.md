@@ -20,7 +20,7 @@ Inject CSS into the DOM.
 
 ## Getting Started
 
-To begin, you'll need to install `css-loader`:
+To begin, you'll need to install `style-loader`:
 
 ```console
 npm install --save-dev style-loader
