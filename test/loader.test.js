@@ -25,6 +25,36 @@ describe('loader', () => {
     expect(stats.compilation.errors).toMatchSnapshot('errors');
   });
 
+  it('should work when the "injectType" option is "linkTag" and "file-loader" uses ES module syntax', async () => {
+    const testId = './simple.js';
+    const stats = await compile(testId, {
+      loader: { options: { injectType: 'linkTag' } },
+      fileLoader: { options: { esModule: true } },
+    });
+
+    runTestInJsdom(stats, (dom) => {
+      expect(dom.serialize()).toMatchSnapshot('DOM');
+    });
+
+    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
+    expect(stats.compilation.errors).toMatchSnapshot('errors');
+  });
+
+  it('should work when the "injectType" option is "linkTag" and "file-loader" uses CommonJS module syntax', async () => {
+    const testId = './simple.js';
+    const stats = await compile(testId, {
+      loader: { options: { injectType: 'linkTag' } },
+      fileLoader: { options: { esModule: false } },
+    });
+
+    runTestInJsdom(stats, (dom) => {
+      expect(dom.serialize()).toMatchSnapshot('DOM');
+    });
+
+    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
+    expect(stats.compilation.errors).toMatchSnapshot('errors');
+  });
+
   injectTypes.forEach((injectType) => {
     it(`should work when the "injectType" option is "${injectType}"`, async () => {
       expect.assertions(3);

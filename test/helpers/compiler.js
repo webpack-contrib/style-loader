@@ -26,7 +26,11 @@ const module = (config) => {
                 options: (config.loader && config.loader.options) || {},
               },
               shouldUseFileLoader
-                ? { loader: 'file-loader' }
+                ? {
+                    loader: 'file-loader',
+                    options:
+                      (config.fileLoader && config.fileLoader.options) || {},
+                  }
                 : {
                     loader: 'css-loader',
                     options:

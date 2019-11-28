@@ -44,7 +44,7 @@ module.exports = (url, options) => {
   const link = document.createElement('link');
 
   link.rel = 'stylesheet';
-  link.href = url;
+  link.href = url.__esModule ? url.default : url;
 
   Object.keys(options.attributes).forEach((key) => {
     link.setAttribute(key, options.attributes[key]);
