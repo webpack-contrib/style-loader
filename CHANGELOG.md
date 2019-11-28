@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/webpack-contrib/style-loader/compare/v1.0.0...v1.0.1) (2019-11-28)
+
+
+### Bug Fixes
+
+* compatibility `linkTag` with ES module syntax ([#429](https://github.com/webpack-contrib/style-loader/issues/429)) ([2cdb9c3](https://github.com/webpack-contrib/style-loader/commit/2cdb9c3f51edebec69e8b22ff43b520a5e1c679b))
+
 ## [1.0.0](https://github.com/webpack-contrib/style-loader/compare/v0.23.1...v1.0.0) (2019-08-06)
 
 
@@ -21,7 +28,7 @@ All notable changes to this project will be documented in this file. See [standa
 ### BREAKING CHANGES
 
 * minimum required Node.js version is `8.9.0`
-* minimum require `wepback` version is `4.0.0`
+* minimum required `wepback` version is `4.0.0`
 * the `convertToAbsoluteUrls` option was removed, you don't need this anymore
 * the `attrs` option was renamed to the `attributes` option
 * the `transform` option was removed without replacement
