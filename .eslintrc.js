@@ -12,6 +12,7 @@ module.exports = {
         __webpack_nonce__: 'readonly',
       },
       rules: {
+        'no-underscore-dangle': 'off',
         'no-plusplus': 'off',
         'consistent-return': 'off',
         'no-param-reassign': 'off',
