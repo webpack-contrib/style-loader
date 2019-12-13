@@ -450,7 +450,7 @@ A new `<style>`/`<link>` elements will be inserted into at bottom of `body` tag.
 Allows to override default behavior and insert styles at any position.
 
 > ⚠ Do not forget that this code will be used in the browser and not all browsers support latest ECMA features like `let`, `const`, `arrow function expression` and etc, we recommend use only ECMA 5 features, but it is depends what browsers you want to support
-> ⚠ Do not forget that some doom methods may not be available in older browsers, we recommended use only [DOM core level 2 properties](https://caniuse.com/#search=DOM%20Core), but it is depends what browsers you want to support
+> ⚠ Do not forget that some DOM methods may not be available in older browsers, we recommended use only [DOM core level 2 properties](https://caniuse.com/#search=DOM%20Core), but it is depends what browsers you want to support
 
 **webpack.config.js**
 
