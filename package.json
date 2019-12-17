@@ -41,7 +41,7 @@
     "dist"
   ],
   "peerDependencies": {
-    "webpack": "^4.0.0"
+    "webpack": "^4.0.0 || ^5.0.0"
   },
   "dependencies": {
     "loader-utils": "^1.2.3",
@@ -58,7 +58,7 @@
     "babel-jest": "^24.9.0",
     "commitlint-azure-pipelines-cli": "^1.0.2",
     "cross-env": "^6.0.3",
-    "css-loader": "webpack-contrib/css-loader#master",
+    "css-loader": "^3.4.0",
     "del": "^5.1.0",
     "del-cli": "^3.0.0",
     "es-check": "^5.1.0",

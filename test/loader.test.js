@@ -170,45 +170,44 @@ describe('loader', () => {
       expect(stats.compilation.errors).toMatchSnapshot('errors');
     });
 
-    // Uncomment after `css-loader` release the `esModule` option
-    // if (
-    //   [
-    //     'styleTag',
-    //     'singletonStyleTag',
-    //     'lazyStyleTag',
-    //     'lazySingletonStyleTag',
-    //   ].includes(injectType)
-    // ) {
-    //   it(`should work when the "injectType" option is "${injectType}" and "css-loader" uses ES module syntax`, async () => {
-    //     const testId = getTestId('simple.js', injectType);
-    //     const stats = await compile(testId, {
-    //       loader: { options: { injectType } },
-    //       cssLoader: { options: { esModule: true } },
-    //     });
-    //
-    //     runTestInJsdom(stats, (dom) => {
-    //       expect(dom.serialize()).toMatchSnapshot('DOM');
-    //     });
-    //
-    //     expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    //     expect(stats.compilation.errors).toMatchSnapshot('errors');
-    //   });
-    //
-    //   it(`should work when the "injectType" option is "${injectType}" and "css-loader" uses CommonJS module syntax`, async () => {
-    //     const testId = getTestId('simple.js', injectType);
-    //     const stats = await compile(testId, {
-    //       loader: { options: { injectType } },
-    //       cssLoader: { options: { esModule: true } },
-    //     });
-    //
-    //     runTestInJsdom(stats, (dom) => {
-    //       expect(dom.serialize()).toMatchSnapshot('DOM');
-    //     });
-    //
-    //     expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    //     expect(stats.compilation.errors).toMatchSnapshot('errors');
-    //   });
-    // }
+    if (
+      [
+        'styleTag',
+        'singletonStyleTag',
+        'lazyStyleTag',
+        'lazySingletonStyleTag',
+      ].includes(injectType)
+    ) {
+      it(`should work when the "injectType" option is "${injectType}" and "css-loader" uses ES module syntax`, async () => {
+        const testId = getTestId('simple.js', injectType);
+        const stats = await compile(testId, {
+          loader: { options: { injectType } },
+          cssLoader: { options: { esModule: true } },
+        });
+
+        runTestInJsdom(stats, (dom) => {
+          expect(dom.serialize()).toMatchSnapshot('DOM');
+        });
+
+        expect(stats.compilation.warnings).toMatchSnapshot('warnings');
+        expect(stats.compilation.errors).toMatchSnapshot('errors');
+      });
+
+      it(`should work when the "injectType" option is "${injectType}" and "css-loader" uses CommonJS module syntax`, async () => {
+        const testId = getTestId('simple.js', injectType);
+        const stats = await compile(testId, {
+          loader: { options: { injectType } },
+          cssLoader: { options: { esModule: true } },
+        });
+
+        runTestInJsdom(stats, (dom) => {
+          expect(dom.serialize()).toMatchSnapshot('DOM');
+        });
+
+        expect(stats.compilation.warnings).toMatchSnapshot('warnings');
+        expect(stats.compilation.errors).toMatchSnapshot('errors');
+      });
+    }
 
     if (['lazyStyleTag', 'lazySingletonStyleTag'].includes(injectType)) {
       it(`should work when ref is negative when the "injectType" option is "${injectType}"`, async () => {
