@@ -5,6 +5,11 @@ const ENABLE_SOURCE_MAP =
     ? Boolean(process.env.SOURCE_MAP)
     : false;
 
+const ENABLE_ES_MODULE =
+  typeof process.env.ES_MODULE !== 'undefined'
+    ? Boolean(process.env.ES_MODULE)
+    : false;
+
 module.exports = {
   devtool: ENABLE_SOURCE_MAP ? 'source-map' : false,
   mode: 'development',
@@ -29,6 +34,7 @@ module.exports = {
             loader: 'css-loader',
             options: {
               sourceMap: ENABLE_SOURCE_MAP,
+              esModule: ENABLE_ES_MODULE,
             },
           },
         ],
@@ -44,6 +50,7 @@ module.exports = {
             loader: 'css-loader',
             options: {
               sourceMap: ENABLE_SOURCE_MAP,
+              esModule: ENABLE_ES_MODULE,
               modules: true,
             },
           },
@@ -60,6 +67,7 @@ module.exports = {
             loader: 'css-loader',
             options: {
               sourceMap: ENABLE_SOURCE_MAP,
+              esModule: ENABLE_ES_MODULE,
             },
           },
         ],
@@ -75,6 +83,7 @@ module.exports = {
             loader: 'css-loader',
             options: {
               sourceMap: ENABLE_SOURCE_MAP,
+              esModule: ENABLE_ES_MODULE,
               modules: true,
             },
           },
@@ -104,6 +113,7 @@ module.exports = {
             loader: 'css-loader',
             options: {
               sourceMap: ENABLE_SOURCE_MAP,
+              esModule: ENABLE_ES_MODULE,
             },
           },
           {
@@ -127,6 +137,7 @@ module.exports = {
             loader: 'css-loader',
             options: {
               sourceMap: ENABLE_SOURCE_MAP,
+              esModule: ENABLE_ES_MODULE,
             },
           },
           {

@@ -1,5 +1,5 @@
 /* eslint-env browser */
-
+/* eslint-disable no-console */
 import './style.css';
 import './other-style.scss';
 import component from './component.module.css';
@@ -8,6 +8,12 @@ import otherStyleLazy from './other-style.lazy.scss';
 import componentLazy from './component.lazy.module.css';
 import './style.link.css';
 import './custom-square';
+
+console.log('___LOCALS___');
+console.log(component);
+
+console.log('___LOCALS_LAZY___');
+console.log(componentLazy);
 
 styleLazy.use();
 otherStyleLazy.use();

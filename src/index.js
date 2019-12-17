@@ -32,7 +32,13 @@ if (module.hot) {
   module.hot.accept(
     ${loaderUtils.stringifyRequest(this, `!!${request}`)},
     function() {
-      update(require(${loaderUtils.stringifyRequest(this, `!!${request}`)}));
+      var newContent = require(${loaderUtils.stringifyRequest(
+        this,
+        `!!${request}`
+      )});
+      newContent = newContent.__esModule ? newContent.default : newContent;
+
+      update(newContent);
     }
   );
 
@@ -46,13 +52,13 @@ if (module.hot) {
 
 options.insert = ${insert};
 
+var content = require(${loaderUtils.stringifyRequest(this, `!!${request}`)});
+content = content.__esModule ? content.default : content;
+
 var update = require(${loaderUtils.stringifyRequest(
         this,
         `!${path.join(__dirname, 'runtime/injectStylesIntoLinkTag.js')}`
-      )})(require(${loaderUtils.stringifyRequest(
-        this,
-        `!!${request}`
-      )}), options);
+      )})(content, options);
 ${hmrCode}`;
     }
 
@@ -90,6 +96,8 @@ if (module.hot) {
       return `var refs = 0;
 var dispose;
 var content = require(${loaderUtils.stringifyRequest(this, `!!${request}`)});
+content = content.__esModule ? content.default : content;
+
 var options = ${JSON.stringify(options)};
 
 options.insert = ${insert};
@@ -140,6 +148,7 @@ if (module.hot) {
           this,
           `!!${request}`
         )});
+        newContent = newContent.__esModule ? newContent.default : newContent;
 
         if (typeof newContent === 'string') {
           newContent = [[module.id, newContent, '']];
@@ -160,6 +169,7 @@ if (module.hot) {
         this,
         `!!${request}`
       )});
+content = content.__esModule ? content.default : content;
 
 if (typeof content === 'string') {
   content = [[module.id, content, '']];
