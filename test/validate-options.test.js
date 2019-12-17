@@ -1,46 +1,74 @@
-import loader from '../src/index';
+import { getCompiler, compile } from './helpers';
 
-it('validate options', () => {
-  const validate = (options) =>
-    loader.pitch.call(
-      Object.assign(
-        {},
-        {
-          query: options,
-          loaders: [],
-          remainingRequest: 'file.css',
-          currentRequest: 'file.css',
-          async: () => (error) => {
-            if (error) {
-              throw error;
-            }
-          },
+describe('validate options', () => {
+  const tests = {
+    injectType: {
+      success: [
+        'styleTag',
+        'singletonStyleTag',
+        'lazyStyleTag',
+        'lazySingletonStyleTag',
+        'linkTag',
+      ],
+      failure: ['unknown'],
+    },
+    attributes: {
+      success: [{}, { id: 'id' }],
+      failure: [true],
+    },
+    insert: {
+      success: ['selector', () => {}],
+      failure: [true],
+    },
+    unknown: {
+      success: [],
+      failure: [1, true, false, 'test', /test/, [], {}, { foo: 'bar' }],
+    },
+  };
+
+  function stringifyValue(value) {
+    if (
+      Array.isArray(value) ||
+      (value && typeof value === 'object' && value.constructor === Object)
+    ) {
+      return JSON.stringify(value);
+    }
+
+    return value;
+  }
+
+  async function createTestCase(key, value, type) {
+    it(`should ${
+      type === 'success' ? 'successfully validate' : 'throw an error on'
+    } the "${key}" option with "${stringifyValue(value)}" value`, async () => {
+      const compiler = getCompiler('simple.js', { [key]: value });
+
+      let stats;
+
+      try {
+        stats = await compile(compiler);
+      } finally {
+        if (type === 'success') {
+          expect(stats.hasErrors()).toBe(false);
+        } else if (type === 'failure') {
+          const {
+            compilation: { errors },
+          } = stats;
+
+          expect(errors).toHaveLength(2);
+          expect(() => {
+            throw new Error(errors[0].error.message);
+          }).toThrowErrorMatchingSnapshot();
         }
-      ),
-      'file.css'
-    );
+      }
+    });
+  }
 
-  expect(() => validate({ injectType: 'styleTag' })).not.toThrow();
-  expect(() => validate({ injectType: 'singletonStyleTag' })).not.toThrow();
-  expect(() => validate({ injectType: 'lazyStyleTag' })).not.toThrow();
-  expect(() => validate({ injectType: 'lazySingletonStyleTag' })).not.toThrow();
-  expect(() => validate({ injectType: 'linkTag' })).not.toThrow();
-  expect(() =>
-    validate({ injectType: 'unknown' })
-  ).toThrowErrorMatchingSnapshot();
-
-  expect(() => validate({ attributes: {} })).not.toThrow();
-  expect(() => validate({ attributes: { id: 'id' } })).not.toThrow();
-  expect(() => validate({ attributes: true })).toThrowErrorMatchingSnapshot();
-
-  expect(() =>
-    validate({
-      // eslint-disable-next-line no-undef
-      insert: (element) => document.querySelector('#root').appendChild(element),
-    })
-  ).not.toThrow();
-  expect(() => validate({ insert: 'test' })).not.toThrow();
-  expect(() => validate({ insert: true })).toThrowErrorMatchingSnapshot();
-
-  expect(() => validate({ unknown: 'unknown' })).toThrowErrorMatchingSnapshot();
+  for (const [key, values] of Object.entries(tests)) {
+    for (const type of Object.keys(values)) {
+      for (const value of values[type]) {
+        createTestCase(key, value, type);
+      }
+    }
+  }
 });
