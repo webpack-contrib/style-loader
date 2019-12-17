@@ -65,7 +65,7 @@ describe('loader', () => {
                 test: /\.css$/i,
                 use: [
                   {
-                    loader: path.resolve(__dirname, '../src'),
+                    loader: path.resolve(__dirname, '../src/cjs.js'),
                     options: { injectType },
                   },
                   injectType === 'linkTag'
@@ -147,7 +147,7 @@ describe('loader', () => {
                 test: /\.css$/i,
                 use: [
                   {
-                    loader: path.resolve(__dirname, '../src'),
+                    loader: path.resolve(__dirname, '../src/cjs.js'),
                     options: { injectType },
                   },
                   injectType === 'linkTag'
@@ -188,7 +188,7 @@ describe('loader', () => {
                 test: /\.css$/i,
                 use: [
                   {
-                    loader: path.resolve(__dirname, '../src'),
+                    loader: path.resolve(__dirname, '../src/cjs.js'),
                     options: { injectType },
                   },
                   injectType === 'linkTag'
@@ -225,7 +225,7 @@ describe('loader', () => {
                 test: /\.css$/i,
                 use: [
                   {
-                    loader: path.resolve(__dirname, '../src'),
+                    loader: path.resolve(__dirname, '../src/cjs.js'),
                     options: { injectType },
                   },
                   injectType === 'linkTag'
@@ -262,7 +262,7 @@ describe('loader', () => {
                 test: /\.css$/i,
                 use: [
                   {
-                    loader: path.resolve(__dirname, '../src'),
+                    loader: path.resolve(__dirname, '../src/cjs.js'),
                     options: { injectType },
                   },
                   injectType === 'linkTag'

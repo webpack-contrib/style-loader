@@ -20,7 +20,7 @@ export default (fixture, loaderOptions = {}, config = {}) => {
           test: /\.css$/i,
           use: [
             {
-              loader: path.resolve(__dirname, '../../src'),
+              loader: path.resolve(__dirname, '../../src/cjs.js'),
               options: loaderOptions || {},
             },
             loaderOptions &&

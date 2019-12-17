@@ -5,9 +5,9 @@ import validateOptions from 'schema-utils';
 
 import schema from './options.json';
 
-module.exports = () => {};
+const loaderApi = () => {};
 
-module.exports.pitch = function loader(request) {
+loaderApi.pitch = function loader(request) {
   const options = loaderUtils.getOptions(this) || {};
 
   validateOptions(schema, options, {
@@ -192,3 +192,5 @@ ${hmrCode}`;
     }
   }
 };
+
+export default loaderApi;
