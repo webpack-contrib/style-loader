@@ -1,7 +1,9 @@
-const jsdom = require('jsdom');
+import jsdom from 'jsdom';
 
-function runInJsDom(stats, testFn) {
-  const bundle = stats.compilation.assets['main.bundle.js'].source();
+import { readAsset } from './index';
+
+function runInJsDom(assetName, compiler, stats, testFn) {
+  const bundle = readAsset(assetName, compiler, stats);
   const virtualConsole = new jsdom.VirtualConsole();
 
   virtualConsole.sendTo(console);

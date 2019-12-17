@@ -25,7 +25,7 @@ describe('insert option', () => {
       const compiler = getCompiler(entry, { injectType });
       const stats = await compile(compiler);
 
-      runInJsDom(stats, (dom) => {
+      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
         expect(dom.serialize()).toMatchSnapshot('DOM');
       });
 
@@ -40,7 +40,7 @@ describe('insert option', () => {
       const compiler = getCompiler(entry, { injectType, insert: 'body' });
       const stats = await compile(compiler);
 
-      runInJsDom(stats, (dom) => {
+      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
         expect(dom.serialize()).toMatchSnapshot('DOM');
       });
 
@@ -55,7 +55,7 @@ describe('insert option', () => {
       const compiler = getCompiler(entry, { injectType, insert: 'div.target' });
       const stats = await compile(compiler);
 
-      runInJsDom(stats, (dom) => {
+      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
         expect(dom.serialize()).toMatchSnapshot('DOM');
       });
 
@@ -71,7 +71,7 @@ describe('insert option', () => {
       const compiler = getCompiler(entry, { injectType, insert: selector });
       const stats = await compile(compiler);
 
-      runInJsDom(stats, (dom) => {
+      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
         expect(
           dom.window.document.querySelector(selector).contentDocument.head
             .innerHTML
@@ -94,7 +94,7 @@ describe('insert option', () => {
       });
       const stats = await compile(compiler);
 
-      runInJsDom(stats, (dom) => {
+      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
         expect(dom.serialize()).toMatchSnapshot('DOM');
       });
 
@@ -128,7 +128,7 @@ describe('insert option', () => {
       });
       const stats = await compile(compiler);
 
-      runInJsDom(stats, (dom) => {
+      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
         expect(dom.serialize()).toMatchSnapshot('DOM');
       });
 
@@ -164,7 +164,7 @@ describe('insert option', () => {
       });
       const stats = await compile(compiler);
 
-      runInJsDom(stats, (dom) => {
+      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
         expect(dom.serialize()).toMatchSnapshot('DOM');
       });
 

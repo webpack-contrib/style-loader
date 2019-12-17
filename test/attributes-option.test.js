@@ -31,7 +31,7 @@ describe('attributes option', () => {
       });
       const stats = await compile(compiler);
 
-      runInJsDom(stats, (dom) => {
+      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
         expect(dom.serialize()).toMatchSnapshot('DOM');
       });
 
@@ -46,7 +46,7 @@ describe('attributes option', () => {
       const compiler = getCompiler(entry, { injectType });
       const stats = await compile(compiler);
 
-      runInJsDom(stats, (dom) => {
+      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
         expect(dom.serialize()).toMatchSnapshot('DOM');
       });
 
@@ -61,7 +61,7 @@ describe('attributes option', () => {
       const compiler = getCompiler(entry, { injectType });
       const stats = await compile(compiler);
 
-      runInJsDom(stats, (dom) => {
+      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
         expect(dom.serialize()).toMatchSnapshot('DOM');
       });
 

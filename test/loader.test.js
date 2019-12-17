@@ -27,7 +27,7 @@ describe('loader', () => {
     const compiler = getCompiler('./simple.js');
     const stats = await compile(compiler);
 
-    runInJsDom(stats, (dom) => {
+    runInJsDom('main.bundle.js', compiler, stats, (dom) => {
       expect(dom.serialize()).toMatchSnapshot('DOM');
     });
 
@@ -43,7 +43,7 @@ describe('loader', () => {
       const compiler = getCompiler(entry, { injectType });
       const stats = await compile(compiler);
 
-      runInJsDom(stats, (dom) => {
+      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
         expect(dom.serialize()).toMatchSnapshot('DOM');
       });
 
@@ -86,7 +86,7 @@ describe('loader', () => {
       );
       const stats = await compile(compiler);
 
-      runInJsDom(stats, (dom) => {
+      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
         expect(dom.serialize()).toMatchSnapshot('DOM');
       });
 
@@ -100,7 +100,7 @@ describe('loader', () => {
       const compiler = getCompiler('./hot.js', { injectType });
       const stats = await compile(compiler);
 
-      runInJsDom(stats, (dom) => {
+      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
         expect(dom.window.hotApi).not.toBeDefined();
       });
 
@@ -121,7 +121,7 @@ describe('loader', () => {
       );
       const stats = await compile(compiler);
 
-      runInJsDom(stats, (dom) => {
+      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
         expect(dom.window.hotApi).toBeDefined();
       });
 
@@ -164,7 +164,7 @@ describe('loader', () => {
       );
       const stats = await compile(compiler);
 
-      runInJsDom(stats, (dom) => {
+      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
         expect(dom.serialize()).toMatchSnapshot('DOM');
       });
 
@@ -205,7 +205,7 @@ describe('loader', () => {
       );
       const stats = await compile(compiler);
 
-      runInJsDom(stats, (dom) => {
+      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
         expect(dom.serialize()).toMatchSnapshot('DOM');
       });
 
@@ -242,7 +242,7 @@ describe('loader', () => {
       );
       const stats = await compile(compiler);
 
-      runInJsDom(stats, (dom) => {
+      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
         expect(dom.serialize()).toMatchSnapshot('DOM');
       });
 
@@ -279,7 +279,7 @@ describe('loader', () => {
       );
       const stats = await compile(compiler);
 
-      runInJsDom(stats, (dom) => {
+      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
         expect(dom.serialize()).toMatchSnapshot('DOM');
       });
 
@@ -296,7 +296,7 @@ describe('loader', () => {
         });
         const stats = await compile(compiler);
 
-        runInJsDom(stats, (dom) => {
+        runInJsDom('main.bundle.js', compiler, stats, (dom) => {
           expect(dom.serialize()).toMatchSnapshot('DOM');
         });
 

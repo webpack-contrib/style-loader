@@ -13,7 +13,7 @@ describe('base option', () => {
     const compiler = getCompiler('./simple.js', { base: 1000 });
     const stats = await compile(compiler);
 
-    runInJsDom(stats, (dom) => {
+    runInJsDom('main.bundle.js', compiler, stats, (dom) => {
       expect(dom.serialize()).toMatchSnapshot('DOM');
     });
 
