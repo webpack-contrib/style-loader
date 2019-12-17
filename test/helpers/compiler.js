@@ -6,7 +6,7 @@
 import del from 'del';
 import path from 'path';
 import webpack from 'webpack';
-import MemoryFS from 'memory-fs';
+import { createFsFromVolume, Volume } from 'memfs';
 
 const module = (config) => {
   const shouldUseFileLoader =
@@ -78,7 +78,11 @@ export default function(fixture, config = {}, options = {}) {
   const compiler = webpack(config);
 
   if (!options.output) {
-    compiler.outputFileSystem = new MemoryFS();
+    const outputFileSystem = createFsFromVolume(new Volume());
+    // Todo remove when we drop webpack@4 support
+    outputFileSystem.join = path.join.bind(path);
+
+    compiler.outputFileSystem = outputFileSystem;
   }
 
   return new Promise((resolve, reject) =>
