@@ -55,10 +55,11 @@ options.insert = ${insert};
 var content = require(${loaderUtils.stringifyRequest(this, `!!${request}`)});
 content = content.__esModule ? content.default : content;
 
-var update = require(${loaderUtils.stringifyRequest(
+var api = require(${loaderUtils.stringifyRequest(
         this,
         `!${path.join(__dirname, 'runtime/injectStylesIntoLinkTag.js')}`
-      )})(content, options);
+      )});
+var update = api(content, options);
 ${hmrCode}`;
     }
 
@@ -113,10 +114,11 @@ if (content.locals) {
 
 exports.use = function() {
   if (!(refs++)) {
-    dispose = require(${loaderUtils.stringifyRequest(
+    var api = require(${loaderUtils.stringifyRequest(
       this,
       `!${path.join(__dirname, 'runtime/injectStylesIntoStyleTag.js')}`
-    )})(content, options);
+    )});
+    dispose = api(content, options);
   }
 
  return exports;
@@ -180,10 +182,11 @@ var options = ${JSON.stringify(options)}
 options.insert = ${insert};
 options.singleton = ${isSingleton};
 
-var update = require(${loaderUtils.stringifyRequest(
+var api = require(${loaderUtils.stringifyRequest(
         this,
         `!${path.join(__dirname, 'runtime/injectStylesIntoStyleTag.js')}`
-      )})(content, options);
+      )});
+var update = api(content, options);
 
 if (content.locals) {
   module.exports = content.locals;
