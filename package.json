@@ -11,7 +11,7 @@
     "type": "opencollective",
     "url": "https://opencollective.com/webpack"
   },
-  "main": "dist/index.js",
+  "main": "dist/cjs.js",
   "engines": {
     "node": ">= 8.9.0"
   },
