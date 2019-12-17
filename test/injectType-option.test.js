@@ -1,6 +1,13 @@
 /* eslint-env browser */
 
-import { compile, getTestId, runTestInJsdom } from './helpers';
+import {
+  compile,
+  getCompiler,
+  getEntryByInjectType,
+  getErrors,
+  getWarnings,
+  runInJsDom,
+} from './helpers/index';
 
 describe('injectType option', () => {
   const injectTypes = [
@@ -15,17 +22,16 @@ describe('injectType option', () => {
     it(`should work when the "injectType" option is "${injectType}"`, async () => {
       expect.assertions(3);
 
-      const testId = getTestId('simple.js', injectType);
-      const stats = await compile(testId, {
-        loader: { options: { injectType } },
-      });
+      const entry = getEntryByInjectType('simple.js', injectType);
+      const compiler = getCompiler(entry, { injectType });
+      const stats = await compile(compiler);
 
-      runTestInJsdom(stats, (dom) => {
+      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
         expect(dom.serialize()).toMatchSnapshot('DOM');
       });
 
-      expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-      expect(stats.compilation.errors).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
     });
   });
 });

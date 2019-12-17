@@ -1,24 +1,23 @@
-import compile from './helpers/compiler';
-import runTestInJsdom from './helpers/runTestInJsdom';
+import {
+  compile,
+  getCompiler,
+  getErrors,
+  getWarnings,
+  runInJsDom,
+} from './helpers/index';
 
 describe('base option', () => {
   it('should work', async () => {
     expect.assertions(3);
 
-    const testId = './simple.js';
-    const stats = await compile(testId, {
-      loader: {
-        options: {
-          base: 1000,
-        },
-      },
-    });
+    const compiler = getCompiler('./simple.js', { base: 1000 });
+    const stats = await compile(compiler);
 
-    runTestInJsdom(stats, (dom) => {
+    runInJsDom('main.bundle.js', compiler, stats, (dom) => {
       expect(dom.serialize()).toMatchSnapshot('DOM');
     });
 
-    expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-    expect(stats.compilation.errors).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 });

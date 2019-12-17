@@ -1,4 +1,11 @@
-import { compile, getTestId, runTestInJsdom } from './helpers';
+import {
+  compile,
+  getCompiler,
+  getEntryByInjectType,
+  getErrors,
+  getWarnings,
+  runInJsDom,
+} from './helpers/index';
 
 describe('attributes option', () => {
   const injectTypes = [
@@ -13,58 +20,53 @@ describe('attributes option', () => {
     it(`should add attributes to tag when the "injectType" option is "${injectType}"`, async () => {
       expect.assertions(3);
 
-      const testId = getTestId('simple.js', injectType);
-      const stats = await compile(testId, {
-        loader: {
-          options: {
-            injectType,
-            attributes: {
-              type: 'text/css',
-              foo: 'bar',
-              'data-id': 'style-tag-id',
-            },
-          },
+      const entry = getEntryByInjectType('simple.js', injectType);
+      const compiler = getCompiler(entry, {
+        injectType,
+        attributes: {
+          type: 'text/css',
+          foo: 'bar',
+          'data-id': 'style-tag-id',
         },
       });
+      const stats = await compile(compiler);
 
-      runTestInJsdom(stats, (dom) => {
+      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
         expect(dom.serialize()).toMatchSnapshot('DOM');
       });
 
-      expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-      expect(stats.compilation.errors).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
     });
 
     it(`should add nonce attribute when "injectType" option is "${injectType}"`, async () => {
       expect.assertions(3);
 
-      const testId = getTestId('nonce-require.js', injectType);
-      const stats = await compile(testId, {
-        loader: { options: { injectType } },
-      });
+      const entry = getEntryByInjectType('nonce-require.js', injectType);
+      const compiler = getCompiler(entry, { injectType });
+      const stats = await compile(compiler);
 
-      runTestInJsdom(stats, (dom) => {
+      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
         expect(dom.serialize()).toMatchSnapshot('DOM');
       });
 
-      expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-      expect(stats.compilation.errors).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
     });
 
     it(`should add nonce attribute when "injectType" option is "${injectType}" #2`, async () => {
       expect.assertions(3);
 
-      const testId = getTestId('nonce-import.js', injectType);
-      const stats = await compile(testId, {
-        loader: { options: { injectType } },
-      });
+      const entry = getEntryByInjectType('nonce-import.js', injectType);
+      const compiler = getCompiler(entry, { injectType });
+      const stats = await compile(compiler);
 
-      runTestInJsdom(stats, (dom) => {
+      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
         expect(dom.serialize()).toMatchSnapshot('DOM');
       });
 
-      expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-      expect(stats.compilation.errors).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
     });
   });
 });

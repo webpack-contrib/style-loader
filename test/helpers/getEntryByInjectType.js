@@ -1,7 +1,7 @@
-function getTestId(testId, injectType) {
+function getEntryByInjectType(testId, injectType) {
   const isLazy = injectType && injectType.toLowerCase().includes('lazy');
 
   return `./${isLazy ? 'lazy-' : ''}${testId}`;
 }
 
-export default getTestId;
+export default getEntryByInjectType;
