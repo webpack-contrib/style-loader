@@ -28,7 +28,7 @@ module.exports = {
         ],
         use: [
           {
-            loader: require.resolve('../../dist/index.js'),
+            loader: require.resolve('../../dist/cjs.js'),
           },
           {
             loader: 'css-loader',
@@ -44,7 +44,7 @@ module.exports = {
         exclude: [/\.lazy\.css$/i, /\.link\.css$/i, /\.lazy\.module\.css$/i],
         use: [
           {
-            loader: require.resolve('../../dist/index.js'),
+            loader: require.resolve('../../dist/cjs.js'),
           },
           {
             loader: 'css-loader',
@@ -60,7 +60,7 @@ module.exports = {
         test: /\.lazy\.css$/i,
         use: [
           {
-            loader: require.resolve('../../dist/index.js'),
+            loader: require.resolve('../../dist/cjs.js'),
             options: { injectType: 'lazyStyleTag' },
           },
           {
@@ -76,7 +76,7 @@ module.exports = {
         test: /\.lazy\.module\.css$/i,
         use: [
           {
-            loader: require.resolve('../../dist/index.js'),
+            loader: require.resolve('../../dist/cjs.js'),
             options: { injectType: 'lazyStyleTag' },
           },
           {
@@ -94,7 +94,7 @@ module.exports = {
         test: /\.link\.css$/i,
         use: [
           {
-            loader: require.resolve('../../dist/index.js'),
+            loader: require.resolve('../../dist/cjs.js'),
             options: { injectType: 'linkTag' },
           },
           {
@@ -107,7 +107,7 @@ module.exports = {
         exclude: /\.lazy\.scss$/i,
         use: [
           {
-            loader: require.resolve('../../dist/index.js'),
+            loader: require.resolve('../../dist/cjs.js'),
           },
           {
             loader: 'css-loader',
@@ -130,7 +130,7 @@ module.exports = {
         test: /\.lazy\.scss$/i,
         use: [
           {
-            loader: require.resolve('../../dist/index.js'),
+            loader: require.resolve('../../dist/cjs.js'),
             options: { injectType: 'lazyStyleTag' },
           },
           {
