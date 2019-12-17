@@ -1,5 +1,12 @@
 /* eslint-env browser */
-import { compile, getTestId, runTestInJsdom } from './helpers';
+import {
+  compile,
+  getCompiler,
+  getEntryByInjectType,
+  getErrors,
+  getWarnings,
+  runInJsDom,
+} from './helpers/index';
 
 describe('insert option', () => {
   const injectTypes = [
@@ -14,61 +21,57 @@ describe('insert option', () => {
     it(`should insert styles into "head" bottom when not specified and when the "injectType" option is "${injectType}"`, async () => {
       expect.assertions(3);
 
-      const testId = getTestId('simple.js', injectType);
-      const stats = await compile(testId, {
-        loader: { options: { injectType } },
-      });
+      const entry = getEntryByInjectType('simple.js', injectType);
+      const compiler = getCompiler(entry, { injectType });
+      const stats = await compile(compiler);
 
-      runTestInJsdom(stats, (dom) => {
+      runInJsDom(stats, (dom) => {
         expect(dom.serialize()).toMatchSnapshot('DOM');
       });
 
-      expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-      expect(stats.compilation.errors).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
     });
 
     it(`should insert styles into "body" bottom when the "injectType" option is "${injectType}"`, async () => {
       expect.assertions(3);
 
-      const testId = getTestId('simple.js', injectType);
-      const stats = await compile(testId, {
-        loader: { options: { injectType, insert: 'body' } },
-      });
+      const entry = getEntryByInjectType('simple.js', injectType);
+      const compiler = getCompiler(entry, { injectType, insert: 'body' });
+      const stats = await compile(compiler);
 
-      runTestInJsdom(stats, (dom) => {
+      runInJsDom(stats, (dom) => {
         expect(dom.serialize()).toMatchSnapshot('DOM');
       });
 
-      expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-      expect(stats.compilation.errors).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
     });
 
     it(`should insert styles into "div.target" bottom when the "injectType" option is "${injectType}"`, async () => {
       expect.assertions(3);
 
-      const testId = getTestId('simple.js', injectType);
-      const stats = await compile(testId, {
-        loader: { options: { injectType, insert: 'div.target' } },
-      });
+      const entry = getEntryByInjectType('simple.js', injectType);
+      const compiler = getCompiler(entry, { injectType, insert: 'div.target' });
+      const stats = await compile(compiler);
 
-      runTestInJsdom(stats, (dom) => {
+      runInJsDom(stats, (dom) => {
         expect(dom.serialize()).toMatchSnapshot('DOM');
       });
 
-      expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-      expect(stats.compilation.errors).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
     });
 
     it(`should insert styles into "iframe.iframeTarget" bottom when the "injectType" option is "${injectType}"`, async () => {
       expect.assertions(4);
 
       const selector = 'iframe.iframeTarget';
-      const testId = getTestId('simple.js', injectType);
-      const stats = await compile(testId, {
-        loader: { options: { injectType, insert: selector } },
-      });
+      const entry = getEntryByInjectType('simple.js', injectType);
+      const compiler = getCompiler(entry, { injectType, insert: selector });
+      const stats = await compile(compiler);
 
-      runTestInJsdom(stats, (dom) => {
+      runInJsDom(stats, (dom) => {
         expect(
           dom.window.document.querySelector(selector).contentDocument.head
             .innerHTML
@@ -76,106 +79,97 @@ describe('insert option', () => {
         expect(dom.serialize()).toMatchSnapshot('DOM');
       });
 
-      expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-      expect(stats.compilation.errors).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
     });
 
     it(`should insert styles into runtime created element bottom when the "injectType" option is "${injectType}"`, async () => {
       expect.assertions(3);
 
-      const testId = getTestId('element.js', injectType);
-      const stats = await compile(testId, {
-        loader: {
-          options: {
-            injectType,
-            insert: (element) =>
-              document.querySelector('#test-shadow').appendChild(element),
-          },
-        },
+      const entry = getEntryByInjectType('element.js', injectType);
+      const compiler = getCompiler(entry, {
+        injectType,
+        insert: (element) =>
+          document.querySelector('#test-shadow').appendChild(element),
       });
+      const stats = await compile(compiler);
 
-      runTestInJsdom(stats, (dom) => {
+      runInJsDom(stats, (dom) => {
         expect(dom.serialize()).toMatchSnapshot('DOM');
       });
 
-      expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-      expect(stats.compilation.errors).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
     });
 
     it(`should insert styles into "head" top when the "injectType" option is "${injectType}"`, async () => {
       expect.assertions(3);
 
-      const testId = getTestId('simple.js', injectType);
-      const stats = await compile(testId, {
-        loader: {
-          options: {
-            injectType,
-            insert: (element) => {
-              const parent = document.querySelector('head');
-              const lastInsertedElement =
-                // eslint-disable-next-line no-underscore-dangle
-                window._lastElementInsertedByStyleLoader;
+      const entry = getEntryByInjectType('simple.js', injectType);
+      const compiler = getCompiler(entry, {
+        injectType,
+        insert: (element) => {
+          const parent = document.querySelector('head');
+          const lastInsertedElement =
+            // eslint-disable-next-line no-underscore-dangle
+            window._lastElementInsertedByStyleLoader;
 
-              if (!lastInsertedElement) {
-                parent.insertBefore(element, parent.firstChild);
-              } else if (lastInsertedElement.nextSibling) {
-                parent.insertBefore(element, lastInsertedElement.nextSibling);
-              } else {
-                parent.appendChild(element);
-              }
+          if (!lastInsertedElement) {
+            parent.insertBefore(element, parent.firstChild);
+          } else if (lastInsertedElement.nextSibling) {
+            parent.insertBefore(element, lastInsertedElement.nextSibling);
+          } else {
+            parent.appendChild(element);
+          }
 
-              // eslint-disable-next-line no-underscore-dangle
-              window._lastElementInsertedByStyleLoader = element;
-            },
-          },
+          // eslint-disable-next-line no-underscore-dangle
+          window._lastElementInsertedByStyleLoader = element;
         },
       });
+      const stats = await compile(compiler);
 
-      runTestInJsdom(stats, (dom) => {
+      runInJsDom(stats, (dom) => {
         expect(dom.serialize()).toMatchSnapshot('DOM');
       });
 
-      expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-      expect(stats.compilation.errors).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
     });
 
     it(`should insert styles into before "#existing-style" id when the "injectType" option is "${injectType}"`, async () => {
       expect.assertions(3);
 
-      const testId = getTestId('simple.js', injectType);
-      const stats = await compile(testId, {
-        loader: {
-          options: {
-            injectType,
-            insert: (element) => {
-              const parent = document.querySelector('head');
-              const target = document.querySelector('#existing-style');
+      const entry = getEntryByInjectType('simple.js', injectType);
+      const compiler = getCompiler(entry, {
+        injectType,
+        insert: (element) => {
+          const parent = document.querySelector('head');
+          const target = document.querySelector('#existing-style');
 
-              const lastInsertedElement =
-                // eslint-disable-next-line no-underscore-dangle
-                window._lastElementInsertedByStyleLoader;
+          const lastInsertedElement =
+            // eslint-disable-next-line no-underscore-dangle
+            window._lastElementInsertedByStyleLoader;
 
-              if (!lastInsertedElement) {
-                parent.insertBefore(element, target);
-              } else if (lastInsertedElement.nextSibling) {
-                parent.insertBefore(element, lastInsertedElement.nextSibling);
-              } else {
-                parent.appendChild(element);
-              }
+          if (!lastInsertedElement) {
+            parent.insertBefore(element, target);
+          } else if (lastInsertedElement.nextSibling) {
+            parent.insertBefore(element, lastInsertedElement.nextSibling);
+          } else {
+            parent.appendChild(element);
+          }
 
-              // eslint-disable-next-line no-underscore-dangle
-              window._lastElementInsertedByStyleLoader = element;
-            },
-          },
+          // eslint-disable-next-line no-underscore-dangle
+          window._lastElementInsertedByStyleLoader = element;
         },
       });
+      const stats = await compile(compiler);
 
-      runTestInJsdom(stats, (dom) => {
+      runInJsDom(stats, (dom) => {
         expect(dom.serialize()).toMatchSnapshot('DOM');
       });
 
-      expect(stats.compilation.warnings).toMatchSnapshot('warnings');
-      expect(stats.compilation.errors).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
     });
   });
 });

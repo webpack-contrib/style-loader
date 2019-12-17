@@ -1,6 +1,6 @@
 const jsdom = require('jsdom');
 
-function runTestInJsdom(stats, testFn) {
+function runInJsDom(stats, testFn) {
   const bundle = stats.compilation.assets['main.bundle.js'].source();
   const virtualConsole = new jsdom.VirtualConsole();
 
@@ -39,4 +39,4 @@ function runTestInJsdom(stats, testFn) {
   }
 }
 
-export default runTestInJsdom;
+export default runInJsDom;

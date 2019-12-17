@@ -314,7 +314,7 @@ exports[`loader should work when ref is negative when the "injectType" option is
 
 exports[`loader should work when ref is negative when the "injectType" option is "lazyStyleTag": warnings 1`] = `Array []`;
 
-exports[`loader should work when the "injectType" option is "lazySingletonStyleTag" and "css-loader" uses CommonJS module syntax: DOM 1`] = `
+exports[`loader should work when the "injectType" option is "lazySingletonStyleTag" and CommonJS module syntax used: DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -334,11 +334,11 @@ h1 {
 </body></html>"
 `;
 
-exports[`loader should work when the "injectType" option is "lazySingletonStyleTag" and "css-loader" uses CommonJS module syntax: errors 1`] = `Array []`;
+exports[`loader should work when the "injectType" option is "lazySingletonStyleTag" and CommonJS module syntax used: errors 1`] = `Array []`;
 
-exports[`loader should work when the "injectType" option is "lazySingletonStyleTag" and "css-loader" uses CommonJS module syntax: warnings 1`] = `Array []`;
+exports[`loader should work when the "injectType" option is "lazySingletonStyleTag" and CommonJS module syntax used: warnings 1`] = `Array []`;
 
-exports[`loader should work when the "injectType" option is "lazySingletonStyleTag" and "css-loader" uses ES module syntax: DOM 1`] = `
+exports[`loader should work when the "injectType" option is "lazySingletonStyleTag" and ES module syntax used: DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -358,9 +358,9 @@ h1 {
 </body></html>"
 `;
 
-exports[`loader should work when the "injectType" option is "lazySingletonStyleTag" and "css-loader" uses ES module syntax: errors 1`] = `Array []`;
+exports[`loader should work when the "injectType" option is "lazySingletonStyleTag" and ES module syntax used: errors 1`] = `Array []`;
 
-exports[`loader should work when the "injectType" option is "lazySingletonStyleTag" and "css-loader" uses ES module syntax: warnings 1`] = `Array []`;
+exports[`loader should work when the "injectType" option is "lazySingletonStyleTag" and ES module syntax used: warnings 1`] = `Array []`;
 
 exports[`loader should work when the "injectType" option is "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -386,7 +386,7 @@ exports[`loader should work when the "injectType" option is "lazySingletonStyleT
 
 exports[`loader should work when the "injectType" option is "lazySingletonStyleTag": warnings 1`] = `Array []`;
 
-exports[`loader should work when the "injectType" option is "lazyStyleTag" and "css-loader" uses CommonJS module syntax: DOM 1`] = `
+exports[`loader should work when the "injectType" option is "lazyStyleTag" and CommonJS module syntax used: DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -406,11 +406,11 @@ exports[`loader should work when the "injectType" option is "lazyStyleTag" and "
 </body></html>"
 `;
 
-exports[`loader should work when the "injectType" option is "lazyStyleTag" and "css-loader" uses CommonJS module syntax: errors 1`] = `Array []`;
+exports[`loader should work when the "injectType" option is "lazyStyleTag" and CommonJS module syntax used: errors 1`] = `Array []`;
 
-exports[`loader should work when the "injectType" option is "lazyStyleTag" and "css-loader" uses CommonJS module syntax: warnings 1`] = `Array []`;
+exports[`loader should work when the "injectType" option is "lazyStyleTag" and CommonJS module syntax used: warnings 1`] = `Array []`;
 
-exports[`loader should work when the "injectType" option is "lazyStyleTag" and "css-loader" uses ES module syntax: DOM 1`] = `
+exports[`loader should work when the "injectType" option is "lazyStyleTag" and ES module syntax used: DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -430,9 +430,9 @@ exports[`loader should work when the "injectType" option is "lazyStyleTag" and "
 </body></html>"
 `;
 
-exports[`loader should work when the "injectType" option is "lazyStyleTag" and "css-loader" uses ES module syntax: errors 1`] = `Array []`;
+exports[`loader should work when the "injectType" option is "lazyStyleTag" and ES module syntax used: errors 1`] = `Array []`;
 
-exports[`loader should work when the "injectType" option is "lazyStyleTag" and "css-loader" uses ES module syntax: warnings 1`] = `Array []`;
+exports[`loader should work when the "injectType" option is "lazyStyleTag" and ES module syntax used: warnings 1`] = `Array []`;
 
 exports[`loader should work when the "injectType" option is "lazyStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -458,7 +458,7 @@ exports[`loader should work when the "injectType" option is "lazyStyleTag": erro
 
 exports[`loader should work when the "injectType" option is "lazyStyleTag": warnings 1`] = `Array []`;
 
-exports[`loader should work when the "injectType" option is "linkTag" and "file-loader" uses CommonJS module syntax: DOM 1`] = `
+exports[`loader should work when the "injectType" option is "linkTag" and CommonJS module syntax used: DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -472,11 +472,11 @@ exports[`loader should work when the "injectType" option is "linkTag" and "file-
 </body></html>"
 `;
 
-exports[`loader should work when the "injectType" option is "linkTag" and "file-loader" uses CommonJS module syntax: errors 1`] = `Array []`;
+exports[`loader should work when the "injectType" option is "linkTag" and CommonJS module syntax used: errors 1`] = `Array []`;
 
-exports[`loader should work when the "injectType" option is "linkTag" and "file-loader" uses CommonJS module syntax: warnings 1`] = `Array []`;
+exports[`loader should work when the "injectType" option is "linkTag" and CommonJS module syntax used: warnings 1`] = `Array []`;
 
-exports[`loader should work when the "injectType" option is "linkTag" and "file-loader" uses ES module syntax: DOM 1`] = `
+exports[`loader should work when the "injectType" option is "linkTag" and ES module syntax used: DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -490,9 +490,9 @@ exports[`loader should work when the "injectType" option is "linkTag" and "file-
 </body></html>"
 `;
 
-exports[`loader should work when the "injectType" option is "linkTag" and "file-loader" uses ES module syntax: errors 1`] = `Array []`;
+exports[`loader should work when the "injectType" option is "linkTag" and ES module syntax used: errors 1`] = `Array []`;
 
-exports[`loader should work when the "injectType" option is "linkTag" and "file-loader" uses ES module syntax: warnings 1`] = `Array []`;
+exports[`loader should work when the "injectType" option is "linkTag" and ES module syntax used: warnings 1`] = `Array []`;
 
 exports[`loader should work when the "injectType" option is "linkTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -512,7 +512,7 @@ exports[`loader should work when the "injectType" option is "linkTag": errors 1`
 
 exports[`loader should work when the "injectType" option is "linkTag": warnings 1`] = `Array []`;
 
-exports[`loader should work when the "injectType" option is "singletonStyleTag" and "css-loader" uses CommonJS module syntax: DOM 1`] = `
+exports[`loader should work when the "injectType" option is "singletonStyleTag" and CommonJS module syntax used: DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -532,11 +532,11 @@ h1 {
 </body></html>"
 `;
 
-exports[`loader should work when the "injectType" option is "singletonStyleTag" and "css-loader" uses CommonJS module syntax: errors 1`] = `Array []`;
+exports[`loader should work when the "injectType" option is "singletonStyleTag" and CommonJS module syntax used: errors 1`] = `Array []`;
 
-exports[`loader should work when the "injectType" option is "singletonStyleTag" and "css-loader" uses CommonJS module syntax: warnings 1`] = `Array []`;
+exports[`loader should work when the "injectType" option is "singletonStyleTag" and CommonJS module syntax used: warnings 1`] = `Array []`;
 
-exports[`loader should work when the "injectType" option is "singletonStyleTag" and "css-loader" uses ES module syntax: DOM 1`] = `
+exports[`loader should work when the "injectType" option is "singletonStyleTag" and ES module syntax used: DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -556,9 +556,9 @@ h1 {
 </body></html>"
 `;
 
-exports[`loader should work when the "injectType" option is "singletonStyleTag" and "css-loader" uses ES module syntax: errors 1`] = `Array []`;
+exports[`loader should work when the "injectType" option is "singletonStyleTag" and ES module syntax used: errors 1`] = `Array []`;
 
-exports[`loader should work when the "injectType" option is "singletonStyleTag" and "css-loader" uses ES module syntax: warnings 1`] = `Array []`;
+exports[`loader should work when the "injectType" option is "singletonStyleTag" and ES module syntax used: warnings 1`] = `Array []`;
 
 exports[`loader should work when the "injectType" option is "singletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -584,7 +584,7 @@ exports[`loader should work when the "injectType" option is "singletonStyleTag":
 
 exports[`loader should work when the "injectType" option is "singletonStyleTag": warnings 1`] = `Array []`;
 
-exports[`loader should work when the "injectType" option is "styleTag" and "css-loader" uses CommonJS module syntax: DOM 1`] = `
+exports[`loader should work when the "injectType" option is "styleTag" and CommonJS module syntax used: DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -604,11 +604,11 @@ exports[`loader should work when the "injectType" option is "styleTag" and "css-
 </body></html>"
 `;
 
-exports[`loader should work when the "injectType" option is "styleTag" and "css-loader" uses CommonJS module syntax: errors 1`] = `Array []`;
+exports[`loader should work when the "injectType" option is "styleTag" and CommonJS module syntax used: errors 1`] = `Array []`;
 
-exports[`loader should work when the "injectType" option is "styleTag" and "css-loader" uses CommonJS module syntax: warnings 1`] = `Array []`;
+exports[`loader should work when the "injectType" option is "styleTag" and CommonJS module syntax used: warnings 1`] = `Array []`;
 
-exports[`loader should work when the "injectType" option is "styleTag" and "css-loader" uses ES module syntax: DOM 1`] = `
+exports[`loader should work when the "injectType" option is "styleTag" and ES module syntax used: DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -628,9 +628,9 @@ exports[`loader should work when the "injectType" option is "styleTag" and "css-
 </body></html>"
 `;
 
-exports[`loader should work when the "injectType" option is "styleTag" and "css-loader" uses ES module syntax: errors 1`] = `Array []`;
+exports[`loader should work when the "injectType" option is "styleTag" and ES module syntax used: errors 1`] = `Array []`;
 
-exports[`loader should work when the "injectType" option is "styleTag" and "css-loader" uses ES module syntax: warnings 1`] = `Array []`;
+exports[`loader should work when the "injectType" option is "styleTag" and ES module syntax used: warnings 1`] = `Array []`;
 
 exports[`loader should work when the "injectType" option is "styleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
