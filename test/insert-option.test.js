@@ -8,7 +8,7 @@ import {
   runInJsDom,
 } from './helpers/index';
 
-describe('insert option', () => {
+describe('"insert" option', () => {
   const injectTypes = [
     'styleTag',
     'singletonStyleTag',

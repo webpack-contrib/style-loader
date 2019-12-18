@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`attributes option should add attributes to tag when the "injectType" option is "lazySingletonStyleTag": DOM 1`] = `
+exports[`"attributes" option should add attributes to tag when the "injectType" option is "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -20,11 +20,11 @@ h1 {
 </body></html>"
 `;
 
-exports[`attributes option should add attributes to tag when the "injectType" option is "lazySingletonStyleTag": errors 1`] = `Array []`;
+exports[`"attributes" option should add attributes to tag when the "injectType" option is "lazySingletonStyleTag": errors 1`] = `Array []`;
 
-exports[`attributes option should add attributes to tag when the "injectType" option is "lazySingletonStyleTag": warnings 1`] = `Array []`;
+exports[`"attributes" option should add attributes to tag when the "injectType" option is "lazySingletonStyleTag": warnings 1`] = `Array []`;
 
-exports[`attributes option should add attributes to tag when the "injectType" option is "lazyStyleTag": DOM 1`] = `
+exports[`"attributes" option should add attributes to tag when the "injectType" option is "lazyStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -44,11 +44,11 @@ exports[`attributes option should add attributes to tag when the "injectType" op
 </body></html>"
 `;
 
-exports[`attributes option should add attributes to tag when the "injectType" option is "lazyStyleTag": errors 1`] = `Array []`;
+exports[`"attributes" option should add attributes to tag when the "injectType" option is "lazyStyleTag": errors 1`] = `Array []`;
 
-exports[`attributes option should add attributes to tag when the "injectType" option is "lazyStyleTag": warnings 1`] = `Array []`;
+exports[`"attributes" option should add attributes to tag when the "injectType" option is "lazyStyleTag": warnings 1`] = `Array []`;
 
-exports[`attributes option should add attributes to tag when the "injectType" option is "linkTag": DOM 1`] = `
+exports[`"attributes" option should add attributes to tag when the "injectType" option is "linkTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -62,11 +62,11 @@ exports[`attributes option should add attributes to tag when the "injectType" op
 </body></html>"
 `;
 
-exports[`attributes option should add attributes to tag when the "injectType" option is "linkTag": errors 1`] = `Array []`;
+exports[`"attributes" option should add attributes to tag when the "injectType" option is "linkTag": errors 1`] = `Array []`;
 
-exports[`attributes option should add attributes to tag when the "injectType" option is "linkTag": warnings 1`] = `Array []`;
+exports[`"attributes" option should add attributes to tag when the "injectType" option is "linkTag": warnings 1`] = `Array []`;
 
-exports[`attributes option should add attributes to tag when the "injectType" option is "singletonStyleTag": DOM 1`] = `
+exports[`"attributes" option should add attributes to tag when the "injectType" option is "singletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -86,11 +86,11 @@ h1 {
 </body></html>"
 `;
 
-exports[`attributes option should add attributes to tag when the "injectType" option is "singletonStyleTag": errors 1`] = `Array []`;
+exports[`"attributes" option should add attributes to tag when the "injectType" option is "singletonStyleTag": errors 1`] = `Array []`;
 
-exports[`attributes option should add attributes to tag when the "injectType" option is "singletonStyleTag": warnings 1`] = `Array []`;
+exports[`"attributes" option should add attributes to tag when the "injectType" option is "singletonStyleTag": warnings 1`] = `Array []`;
 
-exports[`attributes option should add attributes to tag when the "injectType" option is "styleTag": DOM 1`] = `
+exports[`"attributes" option should add attributes to tag when the "injectType" option is "styleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -110,11 +110,11 @@ exports[`attributes option should add attributes to tag when the "injectType" op
 </body></html>"
 `;
 
-exports[`attributes option should add attributes to tag when the "injectType" option is "styleTag": errors 1`] = `Array []`;
+exports[`"attributes" option should add attributes to tag when the "injectType" option is "styleTag": errors 1`] = `Array []`;
 
-exports[`attributes option should add attributes to tag when the "injectType" option is "styleTag": warnings 1`] = `Array []`;
+exports[`"attributes" option should add attributes to tag when the "injectType" option is "styleTag": warnings 1`] = `Array []`;
 
-exports[`attributes option should add nonce attribute when "injectType" option is "lazySingletonStyleTag" #2: DOM 1`] = `
+exports[`"attributes" option should add nonce attribute when "injectType" option is "lazySingletonStyleTag" #2: DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -131,11 +131,11 @@ exports[`attributes option should add nonce attribute when "injectType" option i
 </body></html>"
 `;
 
-exports[`attributes option should add nonce attribute when "injectType" option is "lazySingletonStyleTag" #2: errors 1`] = `Array []`;
+exports[`"attributes" option should add nonce attribute when "injectType" option is "lazySingletonStyleTag" #2: errors 1`] = `Array []`;
 
-exports[`attributes option should add nonce attribute when "injectType" option is "lazySingletonStyleTag" #2: warnings 1`] = `Array []`;
+exports[`"attributes" option should add nonce attribute when "injectType" option is "lazySingletonStyleTag" #2: warnings 1`] = `Array []`;
 
-exports[`attributes option should add nonce attribute when "injectType" option is "lazySingletonStyleTag": DOM 1`] = `
+exports[`"attributes" option should add nonce attribute when "injectType" option is "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -152,11 +152,11 @@ exports[`attributes option should add nonce attribute when "injectType" option i
 </body></html>"
 `;
 
-exports[`attributes option should add nonce attribute when "injectType" option is "lazySingletonStyleTag": errors 1`] = `Array []`;
+exports[`"attributes" option should add nonce attribute when "injectType" option is "lazySingletonStyleTag": errors 1`] = `Array []`;
 
-exports[`attributes option should add nonce attribute when "injectType" option is "lazySingletonStyleTag": warnings 1`] = `Array []`;
+exports[`"attributes" option should add nonce attribute when "injectType" option is "lazySingletonStyleTag": warnings 1`] = `Array []`;
 
-exports[`attributes option should add nonce attribute when "injectType" option is "lazyStyleTag" #2: DOM 1`] = `
+exports[`"attributes" option should add nonce attribute when "injectType" option is "lazyStyleTag" #2: DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -173,11 +173,11 @@ exports[`attributes option should add nonce attribute when "injectType" option i
 </body></html>"
 `;
 
-exports[`attributes option should add nonce attribute when "injectType" option is "lazyStyleTag" #2: errors 1`] = `Array []`;
+exports[`"attributes" option should add nonce attribute when "injectType" option is "lazyStyleTag" #2: errors 1`] = `Array []`;
 
-exports[`attributes option should add nonce attribute when "injectType" option is "lazyStyleTag" #2: warnings 1`] = `Array []`;
+exports[`"attributes" option should add nonce attribute when "injectType" option is "lazyStyleTag" #2: warnings 1`] = `Array []`;
 
-exports[`attributes option should add nonce attribute when "injectType" option is "lazyStyleTag": DOM 1`] = `
+exports[`"attributes" option should add nonce attribute when "injectType" option is "lazyStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -194,11 +194,11 @@ exports[`attributes option should add nonce attribute when "injectType" option i
 </body></html>"
 `;
 
-exports[`attributes option should add nonce attribute when "injectType" option is "lazyStyleTag": errors 1`] = `Array []`;
+exports[`"attributes" option should add nonce attribute when "injectType" option is "lazyStyleTag": errors 1`] = `Array []`;
 
-exports[`attributes option should add nonce attribute when "injectType" option is "lazyStyleTag": warnings 1`] = `Array []`;
+exports[`"attributes" option should add nonce attribute when "injectType" option is "lazyStyleTag": warnings 1`] = `Array []`;
 
-exports[`attributes option should add nonce attribute when "injectType" option is "linkTag" #2: DOM 1`] = `
+exports[`"attributes" option should add nonce attribute when "injectType" option is "linkTag" #2: DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -212,11 +212,11 @@ exports[`attributes option should add nonce attribute when "injectType" option i
 </body></html>"
 `;
 
-exports[`attributes option should add nonce attribute when "injectType" option is "linkTag" #2: errors 1`] = `Array []`;
+exports[`"attributes" option should add nonce attribute when "injectType" option is "linkTag" #2: errors 1`] = `Array []`;
 
-exports[`attributes option should add nonce attribute when "injectType" option is "linkTag" #2: warnings 1`] = `Array []`;
+exports[`"attributes" option should add nonce attribute when "injectType" option is "linkTag" #2: warnings 1`] = `Array []`;
 
-exports[`attributes option should add nonce attribute when "injectType" option is "linkTag": DOM 1`] = `
+exports[`"attributes" option should add nonce attribute when "injectType" option is "linkTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -230,11 +230,11 @@ exports[`attributes option should add nonce attribute when "injectType" option i
 </body></html>"
 `;
 
-exports[`attributes option should add nonce attribute when "injectType" option is "linkTag": errors 1`] = `Array []`;
+exports[`"attributes" option should add nonce attribute when "injectType" option is "linkTag": errors 1`] = `Array []`;
 
-exports[`attributes option should add nonce attribute when "injectType" option is "linkTag": warnings 1`] = `Array []`;
+exports[`"attributes" option should add nonce attribute when "injectType" option is "linkTag": warnings 1`] = `Array []`;
 
-exports[`attributes option should add nonce attribute when "injectType" option is "singletonStyleTag" #2: DOM 1`] = `
+exports[`"attributes" option should add nonce attribute when "injectType" option is "singletonStyleTag" #2: DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -251,11 +251,11 @@ exports[`attributes option should add nonce attribute when "injectType" option i
 </body></html>"
 `;
 
-exports[`attributes option should add nonce attribute when "injectType" option is "singletonStyleTag" #2: errors 1`] = `Array []`;
+exports[`"attributes" option should add nonce attribute when "injectType" option is "singletonStyleTag" #2: errors 1`] = `Array []`;
 
-exports[`attributes option should add nonce attribute when "injectType" option is "singletonStyleTag" #2: warnings 1`] = `Array []`;
+exports[`"attributes" option should add nonce attribute when "injectType" option is "singletonStyleTag" #2: warnings 1`] = `Array []`;
 
-exports[`attributes option should add nonce attribute when "injectType" option is "singletonStyleTag": DOM 1`] = `
+exports[`"attributes" option should add nonce attribute when "injectType" option is "singletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -272,11 +272,11 @@ exports[`attributes option should add nonce attribute when "injectType" option i
 </body></html>"
 `;
 
-exports[`attributes option should add nonce attribute when "injectType" option is "singletonStyleTag": errors 1`] = `Array []`;
+exports[`"attributes" option should add nonce attribute when "injectType" option is "singletonStyleTag": errors 1`] = `Array []`;
 
-exports[`attributes option should add nonce attribute when "injectType" option is "singletonStyleTag": warnings 1`] = `Array []`;
+exports[`"attributes" option should add nonce attribute when "injectType" option is "singletonStyleTag": warnings 1`] = `Array []`;
 
-exports[`attributes option should add nonce attribute when "injectType" option is "styleTag" #2: DOM 1`] = `
+exports[`"attributes" option should add nonce attribute when "injectType" option is "styleTag" #2: DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -293,11 +293,11 @@ exports[`attributes option should add nonce attribute when "injectType" option i
 </body></html>"
 `;
 
-exports[`attributes option should add nonce attribute when "injectType" option is "styleTag" #2: errors 1`] = `Array []`;
+exports[`"attributes" option should add nonce attribute when "injectType" option is "styleTag" #2: errors 1`] = `Array []`;
 
-exports[`attributes option should add nonce attribute when "injectType" option is "styleTag" #2: warnings 1`] = `Array []`;
+exports[`"attributes" option should add nonce attribute when "injectType" option is "styleTag" #2: warnings 1`] = `Array []`;
 
-exports[`attributes option should add nonce attribute when "injectType" option is "styleTag": DOM 1`] = `
+exports[`"attributes" option should add nonce attribute when "injectType" option is "styleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -314,6 +314,6 @@ exports[`attributes option should add nonce attribute when "injectType" option i
 </body></html>"
 `;
 
-exports[`attributes option should add nonce attribute when "injectType" option is "styleTag": errors 1`] = `Array []`;
+exports[`"attributes" option should add nonce attribute when "injectType" option is "styleTag": errors 1`] = `Array []`;
 
-exports[`attributes option should add nonce attribute when "injectType" option is "styleTag": warnings 1`] = `Array []`;
+exports[`"attributes" option should add nonce attribute when "injectType" option is "styleTag": warnings 1`] = `Array []`;

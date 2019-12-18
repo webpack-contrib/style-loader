@@ -9,7 +9,7 @@ import {
   runInJsDom,
 } from './helpers/index';
 
-describe('injectType option', () => {
+describe('"injectType" option', () => {
   const injectTypes = [
     'styleTag',
     'singletonStyleTag',
