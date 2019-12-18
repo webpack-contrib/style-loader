@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`base option should work: DOM 1`] = `
+exports[`"base" option should work: DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -20,6 +20,6 @@ exports[`base option should work: DOM 1`] = `
 </body></html>"
 `;
 
-exports[`base option should work: errors 1`] = `Array []`;
+exports[`"base" option should work: errors 1`] = `Array []`;
 
-exports[`base option should work: warnings 1`] = `Array []`;
+exports[`"base" option should work: warnings 1`] = `Array []`;

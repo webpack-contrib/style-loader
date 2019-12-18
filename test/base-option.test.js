@@ -6,7 +6,7 @@ import {
   runInJsDom,
 } from './helpers/index';
 
-describe('base option', () => {
+describe('"base" option', () => {
   it('should work', async () => {
     expect.assertions(3);
 
