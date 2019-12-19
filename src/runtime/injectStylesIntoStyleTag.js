@@ -46,7 +46,7 @@ const getTarget = (function getTarget() {
   };
 })();
 
-function addStylesToDom(list, options) {
+function addModulesToDom(list, options) {
   const styles = [];
   const newStyles = {};
 
@@ -251,7 +251,7 @@ module.exports = (list, options) => {
     options.singleton = isOldIE();
   }
 
-  const styles = addStylesToDom(list, options);
+  const styles = addModulesToDom(list, options);
 
   return function update(newList) {
     const mayRemove = [];
@@ -267,7 +267,7 @@ module.exports = (list, options) => {
     }
 
     if (newList) {
-      addStylesToDom(newList, options);
+      addModulesToDom(newList, options);
     }
 
     for (let i = 0; i < mayRemove.length; i++) {
