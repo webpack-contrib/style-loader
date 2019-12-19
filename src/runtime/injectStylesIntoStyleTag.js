@@ -96,18 +96,19 @@ function addStylesToDom(list, options) {
 
 function insertStyleElement(options) {
   const style = document.createElement('style');
+  const attributes = options.attributes || {};
 
-  if (typeof options.attributes.nonce === 'undefined') {
+  if (typeof attributes.nonce === 'undefined') {
     const nonce =
       typeof __webpack_nonce__ !== 'undefined' ? __webpack_nonce__ : null;
 
     if (nonce) {
-      options.attributes.nonce = nonce;
+      attributes.nonce = nonce;
     }
   }
 
-  Object.keys(options.attributes).forEach((key) => {
-    style.setAttribute(key, options.attributes[key]);
+  Object.keys(attributes).forEach((key) => {
+    style.setAttribute(key, attributes[key]);
   });
 
   if (typeof options.insert === 'function') {
@@ -243,9 +244,6 @@ function addStyle(obj, options) {
 
 module.exports = (list, options) => {
   options = options || {};
-
-  options.attributes =
-    typeof options.attributes === 'object' ? options.attributes : {};
 
   // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
   // tags it will allow on a page
