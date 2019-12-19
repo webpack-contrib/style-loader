@@ -4,6 +4,7 @@ import './style.css';
 import './other-style.scss';
 import component from './component.module.css';
 import styleLazy from './style.lazy.css';
+import useUnse from './use-unuse.lazy.css';
 import otherStyleLazy from './other-style.lazy.scss';
 import componentLazy from './component.lazy.module.css';
 import './style.link.css';
@@ -89,3 +90,9 @@ articleElement2.appendChild(divElement7);
 articleElement2.appendChild(divElement8);
 
 document.querySelectorAll('section')[1].appendChild(articleElement2);
+
+const api = useUnse.use();
+
+setTimeout(() => {
+  api.unuse();
+}, 6000);
