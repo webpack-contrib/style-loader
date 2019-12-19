@@ -46,7 +46,7 @@ const getTarget = (function getTarget() {
   };
 })();
 
-function listToStyles(list, options) {
+function addStylesToDom(list, options) {
   const styles = [];
   const newStyles = {};
 
@@ -65,10 +65,6 @@ function listToStyles(list, options) {
     }
   }
 
-  return styles;
-}
-
-function addStylesToDom(styles, options) {
   for (let i = 0; i < styles.length; i++) {
     const item = styles[i];
     const domStyle = stylesInDom[item.id];
@@ -94,6 +90,8 @@ function addStylesToDom(styles, options) {
       stylesInDom[item.id] = { id: item.id, refs: 1, parts };
     }
   }
+
+  return styles;
 }
 
 function insertStyleElement(options) {
@@ -255,9 +253,7 @@ module.exports = (list, options) => {
     options.singleton = isOldIE();
   }
 
-  const styles = listToStyles(list, options);
-
-  addStylesToDom(styles, options);
+  const styles = addStylesToDom(list, options);
 
   return function update(newList) {
     const mayRemove = [];
@@ -273,9 +269,7 @@ module.exports = (list, options) => {
     }
 
     if (newList) {
-      const newStyles = listToStyles(newList, options);
-
-      addStylesToDom(newStyles, options);
+      addStylesToDom(newList, options);
     }
 
     for (let i = 0; i < mayRemove.length; i++) {
