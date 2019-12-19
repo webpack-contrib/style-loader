@@ -287,6 +287,19 @@ describe('loader', () => {
       expect(getErrors(stats)).toMatchSnapshot('errors');
     });
 
+    it(`should keep right order when the "injectType" option is "${injectType}"`, async () => {
+      const entry = getEntryByInjectType('order.js', injectType);
+      const compiler = getCompiler(entry, { injectType });
+      const stats = await compile(compiler);
+
+      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
+        expect(dom.serialize()).toMatchSnapshot('DOM');
+      });
+
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
+    });
+
     if (['lazyStyleTag', 'lazySingletonStyleTag'].includes(injectType)) {
       it(`should work when ref is negative when the "injectType" option is "${injectType}"`, async () => {
         expect.assertions(3);
