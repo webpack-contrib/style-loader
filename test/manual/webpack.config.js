@@ -10,6 +10,11 @@ const ENABLE_ES_MODULE =
     ? Boolean(process.env.ES_MODULE)
     : false;
 
+const ENABLE_PREVIOUS_ES_MODULE =
+  typeof process.env.PREVIOUS_ES_MODULE !== 'undefined'
+    ? Boolean(process.env.PREVIOUS_ES_MODULE)
+    : false;
+
 module.exports = {
   devtool: ENABLE_SOURCE_MAP ? 'source-map' : false,
   mode: 'development',
@@ -29,12 +34,13 @@ module.exports = {
         use: [
           {
             loader: require.resolve('../../dist/cjs.js'),
+            options: { esModule: ENABLE_ES_MODULE },
           },
           {
             loader: 'css-loader',
             options: {
               sourceMap: ENABLE_SOURCE_MAP,
-              esModule: ENABLE_ES_MODULE,
+              esModule: ENABLE_PREVIOUS_ES_MODULE,
             },
           },
         ],
@@ -45,12 +51,13 @@ module.exports = {
         use: [
           {
             loader: require.resolve('../../dist/cjs.js'),
+            options: { esModule: ENABLE_ES_MODULE },
           },
           {
             loader: 'css-loader',
             options: {
               sourceMap: ENABLE_SOURCE_MAP,
-              esModule: ENABLE_ES_MODULE,
+              esModule: ENABLE_PREVIOUS_ES_MODULE,
               modules: true,
             },
           },
@@ -61,13 +68,13 @@ module.exports = {
         use: [
           {
             loader: require.resolve('../../dist/cjs.js'),
-            options: { injectType: 'lazyStyleTag' },
+            options: { injectType: 'lazyStyleTag', esModule: ENABLE_ES_MODULE },
           },
           {
             loader: 'css-loader',
             options: {
               sourceMap: ENABLE_SOURCE_MAP,
-              esModule: ENABLE_ES_MODULE,
+              esModule: ENABLE_PREVIOUS_ES_MODULE,
             },
           },
         ],
@@ -77,13 +84,13 @@ module.exports = {
         use: [
           {
             loader: require.resolve('../../dist/cjs.js'),
-            options: { injectType: 'lazyStyleTag' },
+            options: { injectType: 'lazyStyleTag', esModule: ENABLE_ES_MODULE },
           },
           {
             loader: 'css-loader',
             options: {
               sourceMap: ENABLE_SOURCE_MAP,
-              esModule: ENABLE_ES_MODULE,
+              esModule: ENABLE_PREVIOUS_ES_MODULE,
               modules: true,
             },
           },
@@ -95,10 +102,11 @@ module.exports = {
         use: [
           {
             loader: require.resolve('../../dist/cjs.js'),
-            options: { injectType: 'linkTag' },
+            options: { injectType: 'linkTag', esModule: ENABLE_ES_MODULE },
           },
           {
             loader: 'file-loader',
+            options: { esModule: ENABLE_PREVIOUS_ES_MODULE },
           },
         ],
       },
@@ -108,12 +116,13 @@ module.exports = {
         use: [
           {
             loader: require.resolve('../../dist/cjs.js'),
+            options: { esModule: ENABLE_ES_MODULE },
           },
           {
             loader: 'css-loader',
             options: {
               sourceMap: ENABLE_SOURCE_MAP,
-              esModule: ENABLE_ES_MODULE,
+              esModule: ENABLE_PREVIOUS_ES_MODULE,
             },
           },
           {
@@ -131,13 +140,13 @@ module.exports = {
         use: [
           {
             loader: require.resolve('../../dist/cjs.js'),
-            options: { injectType: 'lazyStyleTag' },
+            options: { injectType: 'lazyStyleTag', esModule: ENABLE_ES_MODULE },
           },
           {
             loader: 'css-loader',
             options: {
               sourceMap: ENABLE_SOURCE_MAP,
-              esModule: ENABLE_ES_MODULE,
+              esModule: ENABLE_PREVIOUS_ES_MODULE,
             },
           },
           {

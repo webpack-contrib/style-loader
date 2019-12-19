@@ -21,8 +21,11 @@ loaderApi.pitch = function loader(request) {
       : typeof options.insert === 'string'
       ? JSON.stringify(options.insert)
       : options.insert.toString();
-
   const injectType = options.injectType || 'styleTag';
+  const esModule =
+    typeof options.esModule !== 'undefined' ? options.esModule : false;
+
+  delete options.esModule;
 
   switch (injectType) {
     case 'linkTag': {
@@ -32,13 +35,18 @@ if (module.hot) {
   module.hot.accept(
     ${loaderUtils.stringifyRequest(this, `!!${request}`)},
     function() {
-      var newContent = require(${loaderUtils.stringifyRequest(
-        this,
-        `!!${request}`
-      )});
-      newContent = newContent.__esModule ? newContent.default : newContent;
+     ${
+       esModule
+         ? `update(content);`
+         : `var newContent = require(${loaderUtils.stringifyRequest(
+             this,
+             `!!${request}`
+           )});
 
-      update(newContent);
+           newContent = newContent.__esModule ? newContent.default : newContent;
+
+           update(newContent);`
+     }
     }
   );
 
@@ -48,18 +56,34 @@ if (module.hot) {
 }`
         : '';
 
-      return `var options = ${JSON.stringify(options)};
+      return `${
+        esModule
+          ? `import api from ${loaderUtils.stringifyRequest(
+              this,
+              `!${path.join(__dirname, 'runtime/injectStylesIntoLinkTag.js')}`
+            )};
+            import content from ${loaderUtils.stringifyRequest(
+              this,
+              `!!${request}`
+            )};`
+          : `var api = require(${loaderUtils.stringifyRequest(
+              this,
+              `!${path.join(__dirname, 'runtime/injectStylesIntoLinkTag.js')}`
+            )});
+            var content = require(${loaderUtils.stringifyRequest(
+              this,
+              `!!${request}`
+            )});
+
+            content = content.__esModule ? content.default : content;`
+      }
+
+var options = ${JSON.stringify(options)};
 
 options.insert = ${insert};
 
-var content = require(${loaderUtils.stringifyRequest(this, `!!${request}`)});
-content = content.__esModule ? content.default : content;
-
-var api = require(${loaderUtils.stringifyRequest(
-        this,
-        `!${path.join(__dirname, 'runtime/injectStylesIntoLinkTag.js')}`
-      )});
 var update = api(content, options);
+
 ${hmrCode}`;
     }
 
@@ -71,9 +95,9 @@ ${hmrCode}`;
         ? `
 if (module.hot) {
   var lastRefs = module.hot.data && module.hot.data.refs || 0;
-  
+
   if (lastRefs) {
-    exports.use();
+    exported.use();
 
     if (!content.locals) {
       refs = lastRefs;
@@ -94,42 +118,62 @@ if (module.hot) {
 }`
         : '';
 
-      return `var refs = 0;
-var dispose;
-var content = require(${loaderUtils.stringifyRequest(this, `!!${request}`)});
-content = content.__esModule ? content.default : content;
+      return `${
+        esModule
+          ? `import api from ${loaderUtils.stringifyRequest(
+              this,
+              `!${path.join(__dirname, 'runtime/injectStylesIntoStyleTag.js')}`
+            )};
+            import content from ${loaderUtils.stringifyRequest(
+              this,
+              `!!${request}`
+            )};`
+          : `var api = require(${loaderUtils.stringifyRequest(
+              this,
+              `!${path.join(__dirname, 'runtime/injectStylesIntoStyleTag.js')}`
+            )});
+            var content = require(${loaderUtils.stringifyRequest(
+              this,
+              `!!${request}`
+            )});
 
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.id, content, '']];
+            }`
+      }
+
+var refs = 0;
+var dispose;
 var options = ${JSON.stringify(options)};
 
 options.insert = ${insert};
 options.singleton = ${isSingleton};
 
-if (typeof content === 'string') {
-  content = [[module.id, content, '']];
-}
+var exported = {};
 
 if (content.locals) {
-  exports.locals = content.locals;
+  exported.locals = content.locals;
 }
 
-exports.use = function() {
+exported.use = function() {
   if (!(refs++)) {
-    var api = require(${loaderUtils.stringifyRequest(
-      this,
-      `!${path.join(__dirname, 'runtime/injectStylesIntoStyleTag.js')}`
-    )});
     dispose = api(content, options);
   }
 
- return exports;
+  return exported;
 };
 
-exports.unuse = function() {
+exported.unuse = function() {
   if (refs > 0 && !--refs) {
     dispose();
     dispose = null;
   }
 };
+
+${esModule ? 'export default' : 'module.exports ='} exported;
+
 ${hmrCode}
 `;
     }
@@ -146,17 +190,22 @@ if (module.hot) {
     module.hot.accept(
       ${loaderUtils.stringifyRequest(this, `!!${request}`)},
       function () {
-        var newContent = require(${loaderUtils.stringifyRequest(
-          this,
-          `!!${request}`
-        )});
-        newContent = newContent.__esModule ? newContent.default : newContent;
+        ${
+          esModule
+            ? `update(content);`
+            : `var newContent = require(${loaderUtils.stringifyRequest(
+                this,
+                `!!${request}`
+              )});
 
-        if (typeof newContent === 'string') {
-          newContent = [[module.id, newContent, '']];
+              newContent = newContent.__esModule ? newContent.default : newContent;
+
+              if (typeof newContent === 'string') {
+                newContent = [[module.id, newContent, '']];
+              }
+
+              update(newContent);`
         }
-        
-        update(newContent);
       }
     )
   }
@@ -167,30 +216,44 @@ if (module.hot) {
 }`
         : '';
 
-      return `var content = require(${loaderUtils.stringifyRequest(
-        this,
-        `!!${request}`
-      )});
-content = content.__esModule ? content.default : content;
+      return `${
+        esModule
+          ? `import api from ${loaderUtils.stringifyRequest(
+              this,
+              `!${path.join(__dirname, 'runtime/injectStylesIntoStyleTag.js')}`
+            )};
+            import content from ${loaderUtils.stringifyRequest(
+              this,
+              `!!${request}`
+            )};
+            var clonedContent = content;`
+          : `var api = require(${loaderUtils.stringifyRequest(
+              this,
+              `!${path.join(__dirname, 'runtime/injectStylesIntoStyleTag.js')}`
+            )});
+            var content = require(${loaderUtils.stringifyRequest(
+              this,
+              `!!${request}`
+            )});
 
-if (typeof content === 'string') {
-  content = [[module.id, content, '']];
-}
+            content = content.__esModule ? content.default : content;
 
-var options = ${JSON.stringify(options)}
+            if (typeof content === 'string') {
+              content = [[module.id, content, '']];
+            }`
+      }
+
+var options = ${JSON.stringify(options)};
 
 options.insert = ${insert};
 options.singleton = ${isSingleton};
 
-var api = require(${loaderUtils.stringifyRequest(
-        this,
-        `!${path.join(__dirname, 'runtime/injectStylesIntoStyleTag.js')}`
-      )});
 var update = api(content, options);
 
-if (content.locals) {
-  module.exports = content.locals;
-}
+var exported = content.locals ? content.locals : {};
+
+${esModule ? 'export default' : 'module.exports ='} exported;
+
 ${hmrCode}`;
     }
   }

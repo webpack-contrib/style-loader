@@ -1,0 +1,799 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`"esModule" option should work when not specified and when the "injectType" option is "lazySingletonStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work when not specified and when the "injectType" option is "lazySingletonStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option should work when not specified and when the "injectType" option is "lazySingletonStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work when not specified and when the "injectType" option is "lazyStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+</style><style>h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work when not specified and when the "injectType" option is "lazyStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option should work when not specified and when the "injectType" option is "lazyStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work when not specified and when the "injectType" option is "linkTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<link rel=\\"stylesheet\\" href=\\"a4197ed8dcb93d681801318bd25a41ed.css\\"><link rel=\\"stylesheet\\" href=\\"b37e8500d4037735f116e83ab5fd79a3.css\\"></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work when not specified and when the "injectType" option is "linkTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option should work when not specified and when the "injectType" option is "linkTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work when not specified and when the "injectType" option is "singletonStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work when not specified and when the "injectType" option is "singletonStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option should work when not specified and when the "injectType" option is "singletonStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work when not specified and when the "injectType" option is "styleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+</style><style>h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work when not specified and when the "injectType" option is "styleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option should work when not specified and when the "injectType" option is "styleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazySingletonStyleTag" and CommonJS module syntax used: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazySingletonStyleTag" and CommonJS module syntax used: errors 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazySingletonStyleTag" and CommonJS module syntax used: warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazySingletonStyleTag" and ES module syntax used: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazySingletonStyleTag" and ES module syntax used: errors 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazySingletonStyleTag" and ES module syntax used: warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazySingletonStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazySingletonStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazySingletonStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazyStyleTag" and CommonJS module syntax used: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+</style><style>h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazyStyleTag" and CommonJS module syntax used: errors 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazyStyleTag" and CommonJS module syntax used: warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazyStyleTag" and ES module syntax used: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+</style><style>h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazyStyleTag" and ES module syntax used: errors 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazyStyleTag" and ES module syntax used: warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazyStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+</style><style>h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazyStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazyStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "linkTag" and CommonJS module syntax used: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<link rel=\\"stylesheet\\" href=\\"a4197ed8dcb93d681801318bd25a41ed.css\\"><link rel=\\"stylesheet\\" href=\\"b37e8500d4037735f116e83ab5fd79a3.css\\"></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "linkTag" and CommonJS module syntax used: errors 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "linkTag" and CommonJS module syntax used: warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "linkTag" and ES module syntax used: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<link rel=\\"stylesheet\\" href=\\"a4197ed8dcb93d681801318bd25a41ed.css\\"><link rel=\\"stylesheet\\" href=\\"b37e8500d4037735f116e83ab5fd79a3.css\\"></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "linkTag" and ES module syntax used: errors 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "linkTag" and ES module syntax used: warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "linkTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<link rel=\\"stylesheet\\" href=\\"a4197ed8dcb93d681801318bd25a41ed.css\\"><link rel=\\"stylesheet\\" href=\\"b37e8500d4037735f116e83ab5fd79a3.css\\"></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "linkTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "linkTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "singletonStyleTag" and CommonJS module syntax used: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "singletonStyleTag" and CommonJS module syntax used: errors 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "singletonStyleTag" and CommonJS module syntax used: warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "singletonStyleTag" and ES module syntax used: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "singletonStyleTag" and ES module syntax used: errors 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "singletonStyleTag" and ES module syntax used: warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "singletonStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "singletonStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "singletonStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "styleTag" and CommonJS module syntax used: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+</style><style>h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "styleTag" and CommonJS module syntax used: errors 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "styleTag" and CommonJS module syntax used: warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "styleTag" and ES module syntax used: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+</style><style>h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "styleTag" and ES module syntax used: errors 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "styleTag" and ES module syntax used: warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "styleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+</style><style>h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "styleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "styleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazySingletonStyleTag" and CommonJS module syntax used: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazySingletonStyleTag" and CommonJS module syntax used: errors 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazySingletonStyleTag" and CommonJS module syntax used: warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazySingletonStyleTag" and ES module syntax used: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazySingletonStyleTag" and ES module syntax used: errors 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazySingletonStyleTag" and ES module syntax used: warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazySingletonStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazySingletonStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazySingletonStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazyStyleTag" and CommonJS module syntax used: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+</style><style>h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazyStyleTag" and CommonJS module syntax used: errors 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazyStyleTag" and CommonJS module syntax used: warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazyStyleTag" and ES module syntax used: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+</style><style>h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazyStyleTag" and ES module syntax used: errors 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazyStyleTag" and ES module syntax used: warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazyStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+</style><style>h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazyStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazyStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "linkTag" and CommonJS module syntax used: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<link rel=\\"stylesheet\\" href=\\"a4197ed8dcb93d681801318bd25a41ed.css\\"><link rel=\\"stylesheet\\" href=\\"b37e8500d4037735f116e83ab5fd79a3.css\\"></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "linkTag" and CommonJS module syntax used: errors 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "linkTag" and CommonJS module syntax used: warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "linkTag" and ES module syntax used: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<link rel=\\"stylesheet\\" href=\\"a4197ed8dcb93d681801318bd25a41ed.css\\"><link rel=\\"stylesheet\\" href=\\"b37e8500d4037735f116e83ab5fd79a3.css\\"></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "linkTag" and ES module syntax used: errors 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "linkTag" and ES module syntax used: warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "linkTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<link rel=\\"stylesheet\\" href=\\"a4197ed8dcb93d681801318bd25a41ed.css\\"><link rel=\\"stylesheet\\" href=\\"b37e8500d4037735f116e83ab5fd79a3.css\\"></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "linkTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "linkTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "singletonStyleTag" and CommonJS module syntax used: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "singletonStyleTag" and CommonJS module syntax used: errors 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "singletonStyleTag" and CommonJS module syntax used: warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "singletonStyleTag" and ES module syntax used: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "singletonStyleTag" and ES module syntax used: errors 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "singletonStyleTag" and ES module syntax used: warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "singletonStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "singletonStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "singletonStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "styleTag" and CommonJS module syntax used: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+</style><style>h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "styleTag" and CommonJS module syntax used: errors 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "styleTag" and CommonJS module syntax used: warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "styleTag" and ES module syntax used: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+</style><style>h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "styleTag" and ES module syntax used: errors 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "styleTag" and ES module syntax used: warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "styleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+</style><style>h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "styleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "styleTag": warnings 1`] = `Array []`;
