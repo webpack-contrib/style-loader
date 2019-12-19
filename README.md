@@ -67,6 +67,7 @@ module.exports = {
 | **`attributes`** |      `{Object}`      |    `{}`    | Adds custom attributes to tag                            |
 |   **`insert`**   | `{String\|Function}` |   `head`   | Inserts tag at the given position into the DOM           |
 |    **`base`**    |      `{Number}`      |   `true`   | Sets module ID base (DLLPlugin)                          |
+|  **`esModule`**  |     `{Boolean}`      |  `false`   | Use ES modules syntax                                    |
 
 ### `injectType`
 
@@ -542,6 +543,34 @@ module.exports = {
           { loader: 'style-loader', options: { base: 2000 } },
           'css-loader',
         ],
+      },
+    ],
+  },
+};
+```
+
+### `esModule`
+
+Type: `Boolean`
+Default: `false`
+
+By default, `style-loader` generates JS modules that use the CommonJS modules syntax.
+There are some cases in which using ES modules is beneficial, like in the case of [module concatenation](https://webpack.js.org/plugins/module-concatenation-plugin/) and [tree shaking](https://webpack.js.org/guides/tree-shaking/).
+
+You can enable a ES module syntax using:
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        loader: 'css-loader',
+        options: {
+          esModule: true,
+        },
       },
     ],
   },

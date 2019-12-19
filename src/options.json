@@ -29,6 +29,10 @@
     "base": {
       "description": "Sets module ID base for DLLPlugin (https://github.com/webpack-contrib/style-loader#base).",
       "type": "number"
+    },
+    "esModule": {
+      "description": "Use the ES modules syntax (https://github.com/webpack-contrib/css-loader#esmodule).",
+      "type": "boolean"
     }
   },
   "additionalProperties": false
