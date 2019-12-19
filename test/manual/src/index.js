@@ -8,6 +8,7 @@ import useUnse from './use-unuse.lazy.css';
 import otherStyleLazy from './other-style.lazy.scss';
 import componentLazy from './component.lazy.module.css';
 import './style.link.css';
+import './order.css';
 import './custom-square';
 
 console.log('___LOCALS___');
