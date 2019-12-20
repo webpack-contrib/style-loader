@@ -139,11 +139,7 @@ if (module.hot) {
               `!!${request}`
             )});
 
-            content = content.__esModule ? content.default : content;
-
-            if (typeof content === 'string') {
-              content = [[module.id, content, '']];
-            }`
+            content = content.__esModule ? content.default : content;`
       }
 
 var refs = 0;
@@ -203,10 +199,6 @@ if (module.hot) {
 
               newContent = newContent.__esModule ? newContent.default : newContent;
 
-              if (typeof newContent === 'string') {
-                newContent = [[module.id, newContent, '']];
-              }
-
               update(newContent);`
         }
       }
@@ -239,11 +231,7 @@ if (module.hot) {
               `!!${request}`
             )});
 
-            content = content.__esModule ? content.default : content;
-
-            if (typeof content === 'string') {
-              content = [[module.id, content, '']];
-            }`
+            content = content.__esModule ? content.default : content;`
       }
 
 var options = ${JSON.stringify(options)};
