@@ -84,7 +84,9 @@ options.insert = ${insert};
 
 var update = api(content, options);
 
-${hmrCode}`;
+${hmrCode}
+
+${esModule ? `export default {}` : ''}`;
     }
 
     case 'lazyStyleTag':
@@ -174,10 +176,9 @@ exported.unuse = function() {
   }
 };
 
-${esModule ? 'export default' : 'module.exports ='} exported;
-
 ${hmrCode}
-`;
+
+${esModule ? 'export default' : 'module.exports ='} exported;`;
     }
 
     case 'styleTag':
@@ -255,9 +256,9 @@ var update = api(id, content, options);
 
 var exported = content.locals ? content.locals : {};
 
-${esModule ? 'export default' : 'module.exports ='} exported;
+${hmrCode}
 
-${hmrCode}`;
+${esModule ? 'export default' : 'module.exports ='} exported;`;
     }
   }
 };
