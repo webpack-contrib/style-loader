@@ -1,4 +1,6 @@
-const css = require('./style.css');
+let css = require('./style.css');
+
+css = css.__esModule ? css.default : css;
 
 // ref still 0
 css.unuse();
