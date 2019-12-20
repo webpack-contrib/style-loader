@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/webpack-contrib/style-loader/compare/v1.1.0...v1.1.1) (2019-12-20)
+
+
+### Bug Fixes
+
+* add empty default export for `linkTag` value ([7ee8b04](https://github.com/webpack-contrib/style-loader/commit/7ee8b04fd519847cef93052c31efa0d0012ed54e))
+
 ## [1.1.0](https://github.com/webpack-contrib/style-loader/compare/v1.0.2...v1.1.0) (2019-12-20)
 
 
