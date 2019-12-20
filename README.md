@@ -79,9 +79,7 @@ Allows to setup how styles will be injected into the DOM.
 Possible values:
 
 - `styleTag`
-- `singletonStyleTag`
 - `lazyStyleTag`
-- `lazySingletonStyleTag`
 - `linkTag`
 
 #### `styleTag`
@@ -135,63 +133,6 @@ The loader inject styles like:
   }
 </style>
 <style>
-  .bar {
-    color: blue;
-  }
-</style>
-```
-
-#### `singletonStyleTag`
-
-Automatically injects styles into the DOM using one `<style></style>`.
-
-> ⚠ Source maps do not work.
-
-**component.js**
-
-```js
-import './styles.css';
-```
-
-**component-with-css-modules.js**
-
-```js
-import styles from './styles.css';
-
-const divElement = document.createElement('div');
-divElement.className = styles['my-class'];
-```
-
-All locals (class names) stored in imported object.
-
-**webpack.config.js**
-
-```js
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        use: [
-          {
-            loader: 'style-loader',
-            options: { injectType: 'singletonStyleTag' },
-          },
-          'css-loader',
-        ],
-      },
-    ],
-  },
-};
-```
-
-The loader inject styles like:
-
-```html
-<style>
-  .foo {
-    color: red;
-  }
   .bar {
     color: blue;
   }
@@ -261,75 +202,6 @@ The loader inject styles like:
   }
 </style>
 <style>
-  .bar {
-    color: blue;
-  }
-</style>
-```
-
-#### `lazySingletonStyleTag`
-
-Injects styles into the DOM using one `<style></style>` on demand.
-We recommend following `.lazy.css` naming convention for lazy styles and the `.css` for basic `style-loader` usage (similar to other file types, i.e. `.lazy.less` and `.less`).
-When you `lazySingletonStyleTag` value the `style-loader` injects the styles lazily making them useable on-demand via `style.use()` / `style.unuse()`.
-
-> ⚠️ Source maps do not work.
-
-> ⚠️ Behavior is undefined when `unuse` is called more often than `use`. Don't do that.
-
-**component.js**
-
-```js
-import styles from './styles.css';
-
-styles.use();
-// For removing styles you can use
-// styles.unuse();
-```
-
-**component-with-css-modules.js**
-
-```js
-import styles from './styles.lazy.css';
-
-styles.use();
-
-const divElement = document.createElement('div');
-divElement.className = styles.locals['my-class'];
-```
-
-All locals (class names) stored in `locals` property of imported object.
-
-**webpack.config.js**
-
-```js
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        exclude: /\.lazy\.css$/i,
-        use: ['style-loader', 'css-loader'],
-      },
-      {
-        test: /\.lazy\.css$/i,
-        use: [
-          { loader: 'style-loader', options: { injectType: 'lazyStyleTag' } },
-          'css-loader',
-        ],
-      },
-    ],
-  },
-};
-```
-
-The loader generate this:
-
-```html
-<style>
-  .foo {
-    color: red;
-  }
   .bar {
     color: blue;
   }

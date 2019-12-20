@@ -379,26 +379,6 @@ describe('addStyle', () => {
   });
 
   it('should work with updates #6', () => {
-    const update = injectStylesIntoStyleTag(
-      getId(),
-      [
-        ['./style-24-1.css', '.foo { color: red }', ''],
-        ['./style-24-2.css', '.bar { color: yellow }', ''],
-      ],
-      { singleton: true }
-    );
-
-    expect(document.documentElement.innerHTML).toMatchSnapshot();
-
-    update([
-      ['./style-24-1.css', '.foo { color: blue }', ''],
-      ['./style-24-2.css', '.bar { color: yellow }', ''],
-    ]);
-
-    expect(document.documentElement.innerHTML).toMatchSnapshot();
-  });
-
-  it('should work with updates #7', () => {
     const update = injectStylesIntoStyleTag(getId(), [
       ['./style-25-1.css', '.foo { color: red }', ''],
       ['./style-25-2.css', '.bar { color: blue }', ''],
@@ -414,7 +394,7 @@ describe('addStyle', () => {
     expect(document.documentElement.innerHTML).toMatchSnapshot();
   });
 
-  it('should work with updates #8', () => {
+  it('should work with updates #7', () => {
     const update = injectStylesIntoStyleTag(getId(), [
       [
         './style-26-1.css',
@@ -490,7 +470,7 @@ describe('addStyle', () => {
     expect(document.documentElement.innerHTML).toMatchSnapshot();
   });
 
-  it('should work with updates #9', () => {
+  it('should work with updates #8', () => {
     const update = injectStylesIntoStyleTag(getId(), [
       ['./style-27.css', '.foo { color: red }', ''],
     ]);
@@ -506,7 +486,7 @@ describe('addStyle', () => {
     expect(document.documentElement.innerHTML).toMatchSnapshot();
   });
 
-  it('should work with updates #10', () => {
+  it('should work with updates #8', () => {
     const update = injectStylesIntoStyleTag(
       getId(),
       [
@@ -531,7 +511,7 @@ describe('addStyle', () => {
     window._lastElementInsertedByStyleLoader = null;
   });
 
-  it('should work with updates #11', () => {
+  it('should work with updates #9', () => {
     document.head.innerHTML =
       '<title>Title</title><script src="https://example.com/script.js" id="id"></script>';
 
@@ -556,7 +536,7 @@ describe('addStyle', () => {
     expect(document.documentElement.innerHTML).toMatchSnapshot();
   });
 
-  it('should work with updates #12', () => {
+  it('should work with updates #10', () => {
     const update = injectStylesIntoStyleTag(getId(), [
       ['./order-1.css', '.order { color: red }', ''],
       [
@@ -624,7 +604,7 @@ describe('addStyle', () => {
     expect(document.documentElement.innerHTML).toMatchSnapshot();
   });
 
-  it('should work with updates #12', () => {
+  it('should work with updates #11', () => {
     const update = injectStylesIntoStyleTag(getId(), [
       ['./style-30.css', '.foo { color: red }', ''],
       ['./style-31.css', '.bar { color: blue }', ''],
@@ -637,7 +617,7 @@ describe('addStyle', () => {
     expect(document.documentElement.innerHTML).toMatchSnapshot();
   });
 
-  it('should work with updates #13', () => {
+  it('should work with updates #12', () => {
     const update1 = injectStylesIntoStyleTag(getId(), [
       ['./style-32.css', '.red { color: red }', ''],
     ]);
@@ -675,7 +655,7 @@ describe('addStyle', () => {
     expect(document.documentElement.innerHTML).toMatchSnapshot();
   });
 
-  it('should work with updates #14', () => {
+  it('should work with updates #13', () => {
     const update1 = injectStylesIntoStyleTag(getId(), [
       ['./style-35.css', '.red { color: red }', ''],
     ]);

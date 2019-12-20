@@ -16,7 +16,7 @@ exports[`validate options should throw an error on the "esModule" option with "t
 exports[`validate options should throw an error on the "injectType" option with "unknown" value 1`] = `
 "Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
  - options.injectType should be one of these:
-   \\"styleTag\\" | \\"singletonStyleTag\\" | \\"lazyStyleTag\\" | \\"lazySingletonStyleTag\\" | \\"linkTag\\"
+   \\"styleTag\\" | \\"lazyStyleTag\\" | \\"linkTag\\"
    -> Allows to setup how styles will be injected into DOM (https://github.com/webpack-contrib/style-loader#injecttype)."
 `;
 

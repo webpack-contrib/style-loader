@@ -9,13 +9,7 @@ import {
 } from './helpers/index';
 
 describe('"insert" option', () => {
-  const injectTypes = [
-    'styleTag',
-    'singletonStyleTag',
-    'lazyStyleTag',
-    'lazySingletonStyleTag',
-    'linkTag',
-  ];
+  const injectTypes = ['styleTag', 'lazyStyleTag', 'linkTag'];
 
   injectTypes.forEach((injectType) => {
     it(`should insert styles into "head" bottom when not specified and when the "injectType" option is "${injectType}"`, async () => {

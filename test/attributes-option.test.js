@@ -8,13 +8,7 @@ import {
 } from './helpers/index';
 
 describe('"attributes" option', () => {
-  const injectTypes = [
-    'styleTag',
-    'singletonStyleTag',
-    'lazyStyleTag',
-    'lazySingletonStyleTag',
-    'linkTag',
-  ];
+  const injectTypes = ['styleTag', 'lazyStyleTag', 'linkTag'];
 
   injectTypes.forEach((injectType) => {
     it(`should add attributes to tag when the "injectType" option is "${injectType}"`, async () => {

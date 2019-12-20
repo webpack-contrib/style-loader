@@ -10,13 +10,7 @@ import {
 } from './helpers/index';
 
 describe('"injectType" option', () => {
-  const injectTypes = [
-    'styleTag',
-    'singletonStyleTag',
-    'lazyStyleTag',
-    'lazySingletonStyleTag',
-    'linkTag',
-  ];
+  const injectTypes = ['styleTag', 'lazyStyleTag', 'linkTag'];
 
   injectTypes.forEach((injectType) => {
     it(`should work when the "injectType" option is "${injectType}"`, async () => {

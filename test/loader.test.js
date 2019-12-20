@@ -15,13 +15,7 @@ import {
 } from './helpers/index';
 
 describe('loader', () => {
-  const injectTypes = [
-    'styleTag',
-    'singletonStyleTag',
-    'lazyStyleTag',
-    'lazySingletonStyleTag',
-    'linkTag',
-  ];
+  const injectTypes = ['styleTag', 'lazyStyleTag', 'linkTag'];
 
   it('should work', async () => {
     const compiler = getCompiler('./simple.js');
@@ -287,7 +281,7 @@ describe('loader', () => {
       expect(getErrors(stats)).toMatchSnapshot('errors');
     });
 
-    if (['lazyStyleTag', 'lazySingletonStyleTag'].includes(injectType)) {
+    if (['lazyStyleTag'].includes(injectType)) {
       it(`should work when ref is negative when the "injectType" option is "${injectType}"`, async () => {
         expect.assertions(3);
 

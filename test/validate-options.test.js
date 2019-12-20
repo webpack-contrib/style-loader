@@ -3,13 +3,7 @@ import { getCompiler, compile } from './helpers';
 describe('validate options', () => {
   const tests = {
     injectType: {
-      success: [
-        'styleTag',
-        'singletonStyleTag',
-        'lazyStyleTag',
-        'lazySingletonStyleTag',
-        'linkTag',
-      ],
+      success: ['styleTag', 'lazyStyleTag', 'linkTag'],
       failure: ['unknown'],
     },
     attributes: {

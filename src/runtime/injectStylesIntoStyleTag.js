@@ -1,22 +1,5 @@
 const stylesInDom = {};
 
-const isOldIE = (function isOldIE() {
-  let memo;
-
-  return function memorize() {
-    if (typeof memo === 'undefined') {
-      // Test for IE <= 9 as proposed by Browserhacks
-      // @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
-      // Tests for existence of standard globals is to allow style-loader
-      // to operate correctly into non-standard environments
-      // @see https://github.com/webpack-contrib/style-loader/issues/177
-      memo = Boolean(window && document && document.all && !window.atob);
-    }
-
-    return memo;
-  };
-})();
-
 const getTarget = (function getTarget() {
   const memo = {};
 
@@ -119,40 +102,6 @@ function removeStyleElement(style) {
   style.parentNode.removeChild(style);
 }
 
-/* istanbul ignore next  */
-const replaceText = (function replaceText() {
-  const textStore = [];
-
-  return function replace(index, replacement) {
-    textStore[index] = replacement;
-
-    return textStore.filter(Boolean).join('\n');
-  };
-})();
-
-function applyToSingletonTag(style, index, remove, obj) {
-  const css = remove ? '' : obj.css;
-
-  // For old IE
-  /* istanbul ignore if  */
-  if (style.styleSheet) {
-    style.styleSheet.cssText = replaceText(index, css);
-  } else {
-    const cssNode = document.createTextNode(css);
-    const childNodes = style.childNodes;
-
-    if (childNodes[index]) {
-      style.removeChild(childNodes[index]);
-    }
-
-    if (childNodes.length) {
-      style.insertBefore(cssNode, childNodes[index]);
-    } else {
-      style.appendChild(cssNode);
-    }
-  }
-}
-
 function applyToTag(style, options, obj) {
   let css = obj.css;
   const media = obj.media;
@@ -183,29 +132,12 @@ function applyToTag(style, options, obj) {
   }
 }
 
-let singleton = null;
-let singletonCounter = 0;
-
 function addStyle(obj, options) {
-  let style;
-  let update;
-  let remove;
-
-  if (options.singleton) {
-    const styleIndex = singletonCounter++;
-
-    style = singleton || (singleton = insertStyleElement(options));
-
-    update = applyToSingletonTag.bind(null, style, styleIndex, false);
-    remove = applyToSingletonTag.bind(null, style, styleIndex, true);
-  } else {
-    style = insertStyleElement(options);
-
-    update = applyToTag.bind(null, style, options);
-    remove = () => {
-      removeStyleElement(style);
-    };
-  }
+  const style = insertStyleElement(options);
+  const update = applyToTag.bind(null, style, options);
+  const remove = () => {
+    removeStyleElement(style);
+  };
 
   update(obj);
 
@@ -228,12 +160,6 @@ function addStyle(obj, options) {
 
 module.exports = (id, list, options) => {
   options = options || {};
-
-  // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-  // tags it will allow on a page
-  if (!options.singleton && typeof options.singleton !== 'boolean') {
-    options.singleton = isOldIE();
-  }
 
   addModulesToDom(id, list, options);
 

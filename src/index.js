@@ -89,10 +89,7 @@ ${hmrCode}
 ${esModule ? `export default {}` : ''}`;
     }
 
-    case 'lazyStyleTag':
-    case 'lazySingletonStyleTag': {
-      const isSingleton = injectType === 'lazySingletonStyleTag';
-
+    case 'lazyStyleTag': {
       const hmrCode = this.hot
         ? `
 if (module.hot) {
@@ -147,7 +144,6 @@ var dispose;
 var options = ${JSON.stringify(options)};
 
 options.insert = ${insert};
-options.singleton = ${isSingleton};
 
 var exported = {};
 
@@ -178,10 +174,7 @@ ${esModule ? 'export default' : 'module.exports ='} exported;`;
     }
 
     case 'styleTag':
-    case 'singletonStyleTag':
     default: {
-      const isSingleton = injectType === 'singletonStyleTag';
-
       const hmrCode = this.hot
         ? `
 if (module.hot) {
@@ -237,7 +230,6 @@ if (module.hot) {
 var options = ${JSON.stringify(options)};
 
 options.insert = ${insert};
-options.singleton = ${isSingleton};
 
 var id = ${loaderUtils.stringifyRequest(this, `!!${request}`)};
 var update = api(id, content, options);
