@@ -145,18 +145,18 @@ exports[`loader should keep right order when the "injectType" option is "lazySin
 <style>div {
   background: red;
 }
-div {
+@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);div {
+  background: blue;
+}
+@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);div {
   background: red;
 }
-@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);div {
+@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);div {
+  background: blue;
+}
+@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);div {
   width: 100%;
   height: 200px;
-}
-div {
-  background: blue;
-}
-div {
-  background: blue;
 }
 </style></head>
 <body>
@@ -179,18 +179,18 @@ exports[`loader should keep right order when the "injectType" option is "lazySty
 <style>div {
   background: red;
 }
-</style><style>div {
+</style><style>@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);</style><style>div {
+  background: blue;
+}
+</style><style>@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);</style><style>div {
   background: red;
 }
-</style><style>@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);</style><style>@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);</style><style>@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);</style><style>@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);</style><style>div {
+</style><style>@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);</style><style media=\\"screen and (min-width: 2000px)\\">div {
+  background: blue;
+}
+</style><style>@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);</style><style>div {
   width: 100%;
   height: 200px;
-}
-</style><style>div {
-  background: blue;
-}
-</style><style media=\\"screen and (min-width: 2000px)\\">div {
-  background: blue;
 }
 </style></head>
 <body>
@@ -231,18 +231,18 @@ exports[`loader should keep right order when the "injectType" option is "singlet
 <style>div {
   background: red;
 }
-div {
+@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);div {
+  background: blue;
+}
+@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);div {
   background: red;
 }
-@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);div {
+@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);div {
+  background: blue;
+}
+@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);div {
   width: 100%;
   height: 200px;
-}
-div {
-  background: blue;
-}
-div {
-  background: blue;
 }
 </style></head>
 <body>
@@ -265,18 +265,18 @@ exports[`loader should keep right order when the "injectType" option is "styleTa
 <style>div {
   background: red;
 }
-</style><style>div {
+</style><style>@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);</style><style>div {
+  background: blue;
+}
+</style><style>@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);</style><style>div {
   background: red;
 }
-</style><style>@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);</style><style>@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);</style><style>@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);</style><style>@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);</style><style>div {
+</style><style>@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);</style><style media=\\"screen and (min-width: 2000px)\\">div {
+  background: blue;
+}
+</style><style>@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);</style><style>div {
   width: 100%;
   height: 200px;
-}
-</style><style>div {
-  background: blue;
-}
-</style><style media=\\"screen and (min-width: 2000px)\\">div {
-  background: blue;
 }
 </style></head>
 <body>

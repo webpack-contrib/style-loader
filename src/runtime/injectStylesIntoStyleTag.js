@@ -46,49 +46,34 @@ const getTarget = (function getTarget() {
   };
 })();
 
-function addModulesToDom(list, options) {
-  const styles = [];
-  const newStyles = {};
+function addModulesToDom(id, list, options) {
+  id = options.base ? id + options.base : id;
+
+  if (!stylesInDom[id]) {
+    stylesInDom[id] = [];
+  }
 
   for (let i = 0; i < list.length; i++) {
     const item = list[i];
-    const id = options.base ? item[0] + options.base : item[0];
     const part = { css: item[1], media: item[2], sourceMap: item[3] };
+    const styleInDomById = stylesInDom[id];
 
-    if (!newStyles[id]) {
-      styles.push((newStyles[id] = { id, parts: [part] }));
+    if (styleInDomById[i]) {
+      styleInDomById[i].updater(part);
     } else {
-      newStyles[id].parts.push(part);
+      styleInDomById.push({ updater: addStyle(part, options) });
     }
   }
 
-  for (let i = 0; i < styles.length; i++) {
-    const item = styles[i];
-    const domStyle = stylesInDom[item.id];
-    let j = 0;
-
-    if (domStyle) {
-      domStyle.refs++;
-
-      for (; j < domStyle.parts.length; j++) {
-        domStyle.parts[j](item.parts[j]);
-      }
-
-      for (; j < item.parts.length; j++) {
-        domStyle.parts.push(addStyle(item.parts[j], options));
-      }
-    } else {
-      const parts = [];
-
-      for (; j < item.parts.length; j++) {
-        parts.push(addStyle(item.parts[j], options));
-      }
-
-      stylesInDom[item.id] = { id: item.id, refs: 1, parts };
-    }
+  for (let j = list.length; j < stylesInDom[id].length; j++) {
+    stylesInDom[id][j].updater();
   }
 
-  return styles;
+  stylesInDom[id].length = list.length;
+
+  if (stylesInDom[id].length === 0) {
+    delete stylesInDom[id];
+  }
 }
 
 function insertStyleElement(options) {
@@ -175,6 +160,8 @@ function applyToTag(style, options, obj) {
 
   if (media) {
     style.setAttribute('media', media);
+  } else {
+    style.removeAttribute('media');
   }
 
   if (sourceMap && btoa) {
@@ -239,7 +226,7 @@ function addStyle(obj, options) {
   };
 }
 
-module.exports = (list, options) => {
+module.exports = (id, list, options) => {
   options = options || {};
 
   // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
@@ -248,35 +235,9 @@ module.exports = (list, options) => {
     options.singleton = isOldIE();
   }
 
-  const styles = addModulesToDom(list, options);
+  addModulesToDom(id, list, options);
 
   return function update(newList) {
-    const mayRemove = [];
-
-    for (let i = 0; i < styles.length; i++) {
-      const item = styles[i];
-      const domStyle = stylesInDom[item.id];
-
-      if (domStyle) {
-        domStyle.refs--;
-        mayRemove.push(domStyle);
-      }
-    }
-
-    if (newList) {
-      addModulesToDom(newList, options);
-    }
-
-    for (let i = 0; i < mayRemove.length; i++) {
-      const domStyle = mayRemove[i];
-
-      if (domStyle.refs === 0) {
-        for (let j = 0; j < domStyle.parts.length; j++) {
-          domStyle.parts[j]();
-        }
-
-        delete stylesInDom[domStyle.id];
-      }
-    }
+    addModulesToDom(id, newList || [], options);
   };
 };
