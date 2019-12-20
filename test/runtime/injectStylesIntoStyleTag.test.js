@@ -555,4 +555,155 @@ describe('addStyle', () => {
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
   });
+
+  it('should work with updates #12', () => {
+    const update = injectStylesIntoStyleTag(getId(), [
+      ['./order-1.css', '.order { color: red }', ''],
+      [
+        './order.css',
+        '.@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");',
+        '',
+      ],
+      ['./order-2.css', '.order { color: blue }', ''],
+      [
+        './order.css',
+        '.@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");',
+        '',
+      ],
+      ['./order-1.css', '.order { color: red }', ''],
+      [
+        './order.css',
+        '.@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");',
+        '',
+      ],
+      [
+        './order-2.css',
+        '.order { color: blue }',
+        'screen and (min-width: 2000px)',
+      ],
+      [
+        './order.css',
+        '.@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");',
+        '',
+      ],
+    ]);
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+
+    update([
+      ['./order-1.css', '.order { color: orange }', ''],
+      [
+        './order.css',
+        '.@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");',
+        '',
+      ],
+      ['./order-2.css', '.order { color: blue }', ''],
+      [
+        './order.css',
+        '.@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");',
+        '',
+      ],
+      ['./order-1.css', '.order { color: orange }', ''],
+      [
+        './order.css',
+        '.@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");',
+        '',
+      ],
+      [
+        './order-2.css',
+        '.order { color: blue }',
+        'screen and (min-width: 2000px)',
+      ],
+      [
+        './order.css',
+        '.@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");',
+        '',
+      ],
+    ]);
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+  });
+
+  it('should work with updates #12', () => {
+    const update = injectStylesIntoStyleTag(getId(), [
+      ['./style-30.css', '.foo { color: red }', ''],
+      ['./style-31.css', '.bar { color: blue }', ''],
+    ]);
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+
+    update([]);
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+  });
+
+  it('should work with updates #13', () => {
+    const update1 = injectStylesIntoStyleTag(getId(), [
+      ['./style-32.css', '.red { color: red }', ''],
+    ]);
+    const update2 = injectStylesIntoStyleTag(getId(), [
+      ['./style-33.css', '.green { color: green }', ''],
+    ]);
+    const update3 = injectStylesIntoStyleTag(getId(), [
+      ['./style-34.css', '.blue { color: blue }', ''],
+    ]);
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+
+    update1([['./style-32.css', '.red { color: black }', '']]);
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+
+    update2([['./style-33.css', '.green { color: black }', '']]);
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+
+    update3([['./style-34.css', '.blue { color: black }', '']]);
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+
+    update1();
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+
+    update2();
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+
+    update3();
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+  });
+
+  it('should work with updates #14', () => {
+    const update1 = injectStylesIntoStyleTag(getId(), [
+      ['./style-35.css', '.red { color: red }', ''],
+    ]);
+    const update2 = injectStylesIntoStyleTag(getId(), [
+      ['./style-36.css', '.green { color: green }', ''],
+    ]);
+    const update3 = injectStylesIntoStyleTag(getId(), [
+      ['./style-37.css', '.blue { color: blue }', ''],
+    ]);
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+
+    update2([['./style-36.css', '.green { color: black }', '']]);
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+
+    injectStylesIntoStyleTag(getId(), [
+      ['./style-38.css', '.white { color: white }', ''],
+    ]);
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+
+    update1();
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+
+    update3();
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+  });
 });
