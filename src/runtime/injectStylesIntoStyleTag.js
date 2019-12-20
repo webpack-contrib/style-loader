@@ -46,70 +46,51 @@ const getTarget = (function getTarget() {
   };
 })();
 
-function listToStyles(list, options) {
-  const styles = [];
-  const newStyles = {};
+function addModulesToDom(id, list, options) {
+  id = options.base ? id + options.base : id;
+
+  if (!stylesInDom[id]) {
+    stylesInDom[id] = [];
+  }
 
   for (let i = 0; i < list.length; i++) {
     const item = list[i];
-    const id = options.base ? item[0] + options.base : item[0];
-    const css = item[1];
-    const media = item[2];
-    const sourceMap = item[3];
-    const part = { css, media, sourceMap };
+    const part = { css: item[1], media: item[2], sourceMap: item[3] };
+    const styleInDomById = stylesInDom[id];
 
-    if (!newStyles[id]) {
-      styles.push((newStyles[id] = { id, parts: [part] }));
+    if (styleInDomById[i]) {
+      styleInDomById[i].updater(part);
     } else {
-      newStyles[id].parts.push(part);
+      styleInDomById.push({ updater: addStyle(part, options) });
     }
   }
 
-  return styles;
-}
+  for (let j = list.length; j < stylesInDom[id].length; j++) {
+    stylesInDom[id][j].updater();
+  }
 
-function addStylesToDom(styles, options) {
-  for (let i = 0; i < styles.length; i++) {
-    const item = styles[i];
-    const domStyle = stylesInDom[item.id];
-    let j = 0;
+  stylesInDom[id].length = list.length;
 
-    if (domStyle) {
-      domStyle.refs++;
-
-      for (; j < domStyle.parts.length; j++) {
-        domStyle.parts[j](item.parts[j]);
-      }
-
-      for (; j < item.parts.length; j++) {
-        domStyle.parts.push(addStyle(item.parts[j], options));
-      }
-    } else {
-      const parts = [];
-
-      for (; j < item.parts.length; j++) {
-        parts.push(addStyle(item.parts[j], options));
-      }
-
-      stylesInDom[item.id] = { id: item.id, refs: 1, parts };
-    }
+  if (stylesInDom[id].length === 0) {
+    delete stylesInDom[id];
   }
 }
 
 function insertStyleElement(options) {
   const style = document.createElement('style');
+  const attributes = options.attributes || {};
 
-  if (typeof options.attributes.nonce === 'undefined') {
+  if (typeof attributes.nonce === 'undefined') {
     const nonce =
       typeof __webpack_nonce__ !== 'undefined' ? __webpack_nonce__ : null;
 
     if (nonce) {
-      options.attributes.nonce = nonce;
+      attributes.nonce = nonce;
     }
   }
 
-  Object.keys(options.attributes).forEach((key) => {
-    style.setAttribute(key, options.attributes[key]);
+  Object.keys(attributes).forEach((key) => {
+    style.setAttribute(key, attributes[key]);
   });
 
   if (typeof options.insert === 'function') {
@@ -179,6 +160,8 @@ function applyToTag(style, options, obj) {
 
   if (media) {
     style.setAttribute('media', media);
+  } else {
+    style.removeAttribute('media');
   }
 
   if (sourceMap && btoa) {
@@ -243,11 +226,8 @@ function addStyle(obj, options) {
   };
 }
 
-module.exports = (list, options) => {
+module.exports = (id, list, options) => {
   options = options || {};
-
-  options.attributes =
-    typeof options.attributes === 'object' ? options.attributes : {};
 
   // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
   // tags it will allow on a page
@@ -255,39 +235,9 @@ module.exports = (list, options) => {
     options.singleton = isOldIE();
   }
 
-  const styles = listToStyles(list, options);
-
-  addStylesToDom(styles, options);
+  addModulesToDom(id, list, options);
 
   return function update(newList) {
-    const mayRemove = [];
-
-    for (let i = 0; i < styles.length; i++) {
-      const item = styles[i];
-      const domStyle = stylesInDom[item.id];
-
-      if (domStyle) {
-        domStyle.refs--;
-        mayRemove.push(domStyle);
-      }
-    }
-
-    if (newList) {
-      const newStyles = listToStyles(newList, options);
-
-      addStylesToDom(newStyles, options);
-    }
-
-    for (let i = 0; i < mayRemove.length; i++) {
-      const domStyle = mayRemove[i];
-
-      if (domStyle.refs === 0) {
-        for (let j = 0; j < domStyle.parts.length; j++) {
-          domStyle.parts[j]();
-        }
-
-        delete stylesInDom[domStyle.id];
-      }
-    }
+    addModulesToDom(id, newList || [], options);
   };
 };
