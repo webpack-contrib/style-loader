@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/webpack-contrib/style-loader/compare/v1.0.2...v1.1.0) (2019-12-20)
+
+
+### Features
+
+* `esModule` option ([#441](https://github.com/webpack-contrib/style-loader/issues/441)) ([3415266](https://github.com/webpack-contrib/style-loader/commit/3415266f58f2be00bec1d66ae9e658437e0d0a6c))
+
+
+### Bug Fixes
+
+* order of imported styles ([#443](https://github.com/webpack-contrib/style-loader/issues/443)) ([c7d6e3a](https://github.com/webpack-contrib/style-loader/commit/c7d6e3a3fba63a76e8f342d84e00b69af92c7ebc))
+
 ### [1.0.2](https://github.com/webpack-contrib/style-loader/compare/v1.0.1...v1.0.2) (2019-12-17)
 
 
