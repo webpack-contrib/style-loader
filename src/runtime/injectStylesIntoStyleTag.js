@@ -47,6 +47,10 @@ const getTarget = (function getTarget() {
 })();
 
 function addModulesToDom(id, list, options) {
+  if (Object.prototype.toString.call(list) !== '[object Array]') {
+    return;
+  }
+
   id = options.base ? id + options.base : id;
 
   if (!stylesInDom[id]) {

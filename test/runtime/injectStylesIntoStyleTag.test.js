@@ -706,4 +706,10 @@ describe('addStyle', () => {
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
   });
+
+  it('issue 447', () => {
+    injectStylesIntoStyleTag(getId(), {});
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+  });
 });
