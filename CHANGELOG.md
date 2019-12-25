@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.2](https://github.com/webpack-contrib/style-loader/compare/v1.1.1...v1.1.2) (2019-12-25)
+
+
+### Bug Fixes
+
+* algorithm for importing modules ([#449](https://github.com/webpack-contrib/style-loader/issues/449)) ([91ceaf2](https://github.com/webpack-contrib/style-loader/commit/91ceaf2b7e03f065d2a8cace1b733777848d4e86))
+* checking that the list of modules is an array ([#448](https://github.com/webpack-contrib/style-loader/issues/448)) ([1138ed7](https://github.com/webpack-contrib/style-loader/commit/1138ed7e04848b570a70e493b410902cfc4a9076))
+
 ### [1.1.1](https://github.com/webpack-contrib/style-loader/compare/v1.1.0...v1.1.1) (2019-12-20)
 
 
