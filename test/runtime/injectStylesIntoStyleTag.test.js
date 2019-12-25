@@ -712,4 +712,66 @@ describe('addStyle', () => {
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
   });
+
+  it('issue 447 #2', () => {
+    const update = injectStylesIntoStyleTag(getId(), {});
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+
+    update({});
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+  });
+
+  it('should work with empty modules list', () => {
+    const update = injectStylesIntoStyleTag(getId(), []);
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+
+    update([]);
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+  });
+
+  it('should work without modules', () => {
+    const update = injectStylesIntoStyleTag(getId());
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+
+    update();
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+  });
+
+  it('should work with empty modules list #2', () => {
+    const update = injectStylesIntoStyleTag(getId());
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+
+    update();
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+
+    update([['./style-39.css', '.foo { color: red }', '']]);
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+  });
+
+  it('should work with empty modules list #3', () => {
+    const update = injectStylesIntoStyleTag(getId());
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+
+    update();
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+
+    update([['./style-39.css', '.foo { color: red }', '']]);
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+
+    update();
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+  });
 });

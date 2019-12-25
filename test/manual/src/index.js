@@ -9,6 +9,8 @@ import otherStyleLazy from './other-style.lazy.scss';
 import componentLazy from './component.lazy.module.css';
 import './style.link.css';
 import './order.css';
+import './nested.css';
+import './nested/style.css';
 import './custom-square';
 
 console.log('___LOCALS___');

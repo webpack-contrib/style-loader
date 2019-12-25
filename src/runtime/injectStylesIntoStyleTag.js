@@ -1,5 +1,3 @@
-const stylesInDom = {};
-
 const isOldIE = (function isOldIE() {
   let memo;
 
@@ -46,37 +44,21 @@ const getTarget = (function getTarget() {
   };
 })();
 
-function addModulesToDom(id, list, options) {
-  if (Object.prototype.toString.call(list) !== '[object Array]') {
-    return;
-  }
+const stylesInDom = {};
 
-  id = options.base ? id + options.base : id;
-
-  if (!stylesInDom[id]) {
-    stylesInDom[id] = [];
-  }
-
+function modulesToDom(moduleId, list, options) {
   for (let i = 0; i < list.length; i++) {
-    const item = list[i];
-    const part = { css: item[1], media: item[2], sourceMap: item[3] };
-    const styleInDomById = stylesInDom[id];
+    const part = {
+      css: list[i][1],
+      media: list[i][2],
+      sourceMap: list[i][3],
+    };
 
-    if (styleInDomById[i]) {
-      styleInDomById[i].updater(part);
+    if (stylesInDom[moduleId][i]) {
+      stylesInDom[moduleId][i](part);
     } else {
-      styleInDomById.push({ updater: addStyle(part, options) });
+      stylesInDom[moduleId].push(addStyle(part, options));
     }
-  }
-
-  for (let j = list.length; j < stylesInDom[id].length; j++) {
-    stylesInDom[id][j].updater();
-  }
-
-  stylesInDom[id].length = list.length;
-
-  if (stylesInDom[id].length === 0) {
-    delete stylesInDom[id];
   }
 }
 
@@ -230,7 +212,7 @@ function addStyle(obj, options) {
   };
 }
 
-module.exports = (id, list, options) => {
+module.exports = (moduleId, list, options) => {
   options = options || {};
 
   // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
@@ -239,9 +221,37 @@ module.exports = (id, list, options) => {
     options.singleton = isOldIE();
   }
 
-  addModulesToDom(id, list, options);
+  moduleId = options.base ? moduleId + options.base : moduleId;
+
+  list = list || [];
+
+  if (!stylesInDom[moduleId]) {
+    stylesInDom[moduleId] = [];
+  }
+
+  modulesToDom(moduleId, list, options);
 
   return function update(newList) {
-    addModulesToDom(id, newList || [], options);
+    newList = newList || [];
+
+    if (Object.prototype.toString.call(newList) !== '[object Array]') {
+      return;
+    }
+
+    if (!stylesInDom[moduleId]) {
+      stylesInDom[moduleId] = [];
+    }
+
+    modulesToDom(moduleId, newList, options);
+
+    for (let j = newList.length; j < stylesInDom[moduleId].length; j++) {
+      stylesInDom[moduleId][j]();
+    }
+
+    stylesInDom[moduleId].length = newList.length;
+
+    if (stylesInDom[moduleId].length === 0) {
+      delete stylesInDom[moduleId];
+    }
   };
 };

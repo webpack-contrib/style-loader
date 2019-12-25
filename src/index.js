@@ -161,9 +161,7 @@ if (content.locals) {
 
 exported.use = function() {
   if (!(refs++)) {
-    var id = ${loaderUtils.stringifyRequest(this, `!!${request}`)};
-
-    dispose = api(id, content, options);
+    dispose = api(module.id, content, options);
   }
 
   return exported;
@@ -251,8 +249,7 @@ var options = ${JSON.stringify(options)};
 options.insert = ${insert};
 options.singleton = ${isSingleton};
 
-var id = ${loaderUtils.stringifyRequest(this, `!!${request}`)};
-var update = api(id, content, options);
+var update = api(module.id, content, options);
 
 var exported = content.locals ? content.locals : {};
 

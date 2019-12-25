@@ -362,6 +362,30 @@ exports[`loader should work when the "injectType" option is "lazySingletonStyleT
 
 exports[`loader should work when the "injectType" option is "lazySingletonStyleTag" and ES module syntax used: warnings 1`] = `Array []`;
 
+exports[`loader should work when the "injectType" option is "lazySingletonStyleTag" and files have same name: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.foo {
+  color: red;
+}
+.bar {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`loader should work when the "injectType" option is "lazySingletonStyleTag" and files have same name: errors 1`] = `Array []`;
+
+exports[`loader should work when the "injectType" option is "lazySingletonStyleTag" and files have same name: warnings 1`] = `Array []`;
+
 exports[`loader should work when the "injectType" option is "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
@@ -434,6 +458,30 @@ exports[`loader should work when the "injectType" option is "lazyStyleTag" and E
 
 exports[`loader should work when the "injectType" option is "lazyStyleTag" and ES module syntax used: warnings 1`] = `Array []`;
 
+exports[`loader should work when the "injectType" option is "lazyStyleTag" and files have same name: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.foo {
+  color: red;
+}
+</style><style>.bar {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`loader should work when the "injectType" option is "lazyStyleTag" and files have same name: errors 1`] = `Array []`;
+
+exports[`loader should work when the "injectType" option is "lazyStyleTag" and files have same name: warnings 1`] = `Array []`;
+
 exports[`loader should work when the "injectType" option is "lazyStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
@@ -493,6 +541,24 @@ exports[`loader should work when the "injectType" option is "linkTag" and ES mod
 exports[`loader should work when the "injectType" option is "linkTag" and ES module syntax used: errors 1`] = `Array []`;
 
 exports[`loader should work when the "injectType" option is "linkTag" and ES module syntax used: warnings 1`] = `Array []`;
+
+exports[`loader should work when the "injectType" option is "linkTag" and files have same name: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<link rel=\\"stylesheet\\" href=\\"04ef9d7491cb6b87d905831b3cb52fdc.css\\"><link rel=\\"stylesheet\\" href=\\"a948740e081d1358c62c536683d63685.css\\"></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`loader should work when the "injectType" option is "linkTag" and files have same name: errors 1`] = `Array []`;
+
+exports[`loader should work when the "injectType" option is "linkTag" and files have same name: warnings 1`] = `Array []`;
 
 exports[`loader should work when the "injectType" option is "linkTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -559,6 +625,30 @@ h1 {
 exports[`loader should work when the "injectType" option is "singletonStyleTag" and ES module syntax used: errors 1`] = `Array []`;
 
 exports[`loader should work when the "injectType" option is "singletonStyleTag" and ES module syntax used: warnings 1`] = `Array []`;
+
+exports[`loader should work when the "injectType" option is "singletonStyleTag" and files have same name: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.foo {
+  color: red;
+}
+.bar {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`loader should work when the "injectType" option is "singletonStyleTag" and files have same name: errors 1`] = `Array []`;
+
+exports[`loader should work when the "injectType" option is "singletonStyleTag" and files have same name: warnings 1`] = `Array []`;
 
 exports[`loader should work when the "injectType" option is "singletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -631,6 +721,30 @@ exports[`loader should work when the "injectType" option is "styleTag" and ES mo
 exports[`loader should work when the "injectType" option is "styleTag" and ES module syntax used: errors 1`] = `Array []`;
 
 exports[`loader should work when the "injectType" option is "styleTag" and ES module syntax used: warnings 1`] = `Array []`;
+
+exports[`loader should work when the "injectType" option is "styleTag" and files have same name: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.foo {
+  color: red;
+}
+</style><style>.bar {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`loader should work when the "injectType" option is "styleTag" and files have same name: errors 1`] = `Array []`;
+
+exports[`loader should work when the "injectType" option is "styleTag" and files have same name: warnings 1`] = `Array []`;
 
 exports[`loader should work when the "injectType" option is "styleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
