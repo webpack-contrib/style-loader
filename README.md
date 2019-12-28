@@ -105,7 +105,7 @@ const divElement = document.createElement('div');
 divElement.className = styles['my-class'];
 ```
 
-All locals (class names) stored in imported object.
+All locals (class names) stored in imported object. To achieve this behaviour you also have to setup `modules` option for `css-loader`. For more information consult with `css-loader` [`documentation`](https://github.com/webpack-contrib/css-loader).
 
 **webpack.config.js**
 
@@ -118,7 +118,7 @@ module.exports = {
         use: [
           // The `injectType`  option can be avoided because it is default behaviour
           { loader: 'style-loader', options: { injectType: 'styleTag' } },
-          'css-loader',
+          { loader: 'css-loader', options: { modules: true } },
         ],
       },
     ],
@@ -177,7 +177,7 @@ module.exports = {
             loader: 'style-loader',
             options: { injectType: 'singletonStyleTag' },
           },
-          'css-loader',
+          { loader: 'css-loader', options: { modules: true } },
         ],
       },
     ],
@@ -244,7 +244,7 @@ module.exports = {
         test: /\.lazy\.css$/i,
         use: [
           { loader: 'style-loader', options: { injectType: 'lazyStyleTag' } },
-          'css-loader',
+          { loader: 'css-loader', options: { modules: true } },
         ],
       },
     ],
@@ -315,7 +315,7 @@ module.exports = {
         test: /\.lazy\.css$/i,
         use: [
           { loader: 'style-loader', options: { injectType: 'lazyStyleTag' } },
-          'css-loader',
+          { loader: 'css-loader', options: { modules: true } },
         ],
       },
     ],
