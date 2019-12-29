@@ -94,7 +94,7 @@ Automatically injects styles into the DOM using multiple `<style></style>`. It i
 import './styles.css';
 ```
 
-Example with c Locals (CSS Modules):
+Example with Locals (CSS Modules):
 
 **component-with-css-modules.js**
 
@@ -314,7 +314,10 @@ module.exports = {
       {
         test: /\.lazy\.css$/i,
         use: [
-          { loader: 'style-loader', options: { injectType: 'lazyStyleTag' } },
+          {
+            loader: 'style-loader',
+            options: { injectType: 'lazySingletonStyleTag' },
+          },
           'css-loader',
         ],
       },
