@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.3](https://github.com/webpack-contrib/style-loader/compare/v1.1.2...v1.1.3) (2020-01-17)
+
+
+### Bug Fixes
+
+* injection algorithm ([#456](https://github.com/webpack-contrib/style-loader/issues/456)) ([236b243](https://github.com/webpack-contrib/style-loader/commit/236b2436fb0003eeba5f0aa33e7caf9f35d4fc7a))
+
 ### [1.1.2](https://github.com/webpack-contrib/style-loader/compare/v1.1.1...v1.1.2) (2019-12-25)
 
 
