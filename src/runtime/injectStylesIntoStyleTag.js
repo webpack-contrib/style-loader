@@ -72,8 +72,7 @@ function modulesToDom(list, options) {
     idCountMap[id] = count + 1;
 
     const index = getIndexByIdentifier(identifier);
-    const part = {
-      identifier,
+    const obj = {
       css: item[1],
       media: item[2],
       sourceMap: item[3],
@@ -81,11 +80,11 @@ function modulesToDom(list, options) {
 
     if (index !== -1) {
       stylesInDom[index].references++;
-      stylesInDom[index].updater(part);
+      stylesInDom[index].updater(obj);
     } else {
       stylesInDom.push({
         identifier,
-        updater: addStyle(part, options),
+        updater: addStyle(obj, options),
         references: 1,
       });
     }
