@@ -44,22 +44,56 @@ const getTarget = (function getTarget() {
   };
 })();
 
-const stylesInDom = {};
+const stylesInDom = [];
 
-function modulesToDom(moduleId, list, options) {
-  for (let i = 0; i < list.length; i++) {
-    const part = {
-      css: list[i][1],
-      media: list[i][2],
-      sourceMap: list[i][3],
-    };
+function getIndexByIdentifier(identifier) {
+  let result = -1;
 
-    if (stylesInDom[moduleId][i]) {
-      stylesInDom[moduleId][i](part);
-    } else {
-      stylesInDom[moduleId].push(addStyle(part, options));
+  for (let i = 0; i < stylesInDom.length; i++) {
+    if (stylesInDom[i].identifier === identifier) {
+      result = i;
+      break;
     }
   }
+
+  return result;
+}
+
+function modulesToDom(list, options) {
+  const idCountMap = {};
+  const identifiers = [];
+
+  for (let i = 0; i < list.length; i++) {
+    const item = list[i];
+    const id = options.base ? item[0] + options.base : item[0];
+    const count = idCountMap[id] || 0;
+    const identifier = `${id} ${count}`;
+
+    idCountMap[id] = count + 1;
+
+    const index = getIndexByIdentifier(identifier);
+    const part = {
+      identifier,
+      css: item[1],
+      media: item[2],
+      sourceMap: item[3],
+    };
+
+    if (index !== -1) {
+      stylesInDom[index].references++;
+      stylesInDom[index].updater(part);
+    } else {
+      stylesInDom.push({
+        identifier,
+        updater: addStyle(part, options),
+        references: 1,
+      });
+    }
+
+    identifiers.push(identifier);
+  }
+
+  return identifiers;
 }
 
 function insertStyleElement(options) {
@@ -117,7 +151,11 @@ const replaceText = (function replaceText() {
 })();
 
 function applyToSingletonTag(style, index, remove, obj) {
-  const css = remove ? '' : obj.css;
+  const css = remove
+    ? ''
+    : obj.media
+    ? `@media ${obj.media} {${obj.css}}`
+    : obj.css;
 
   // For old IE
   /* istanbul ignore if  */
@@ -212,7 +250,7 @@ function addStyle(obj, options) {
   };
 }
 
-module.exports = (moduleId, list, options) => {
+module.exports = (list, options) => {
   options = options || {};
 
   // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
@@ -221,15 +259,9 @@ module.exports = (moduleId, list, options) => {
     options.singleton = isOldIE();
   }
 
-  moduleId = options.base ? moduleId + options.base : moduleId;
-
   list = list || [];
 
-  if (!stylesInDom[moduleId]) {
-    stylesInDom[moduleId] = [];
-  }
-
-  modulesToDom(moduleId, list, options);
+  let lastIdentifiers = modulesToDom(list, options);
 
   return function update(newList) {
     newList = newList || [];
@@ -238,20 +270,25 @@ module.exports = (moduleId, list, options) => {
       return;
     }
 
-    if (!stylesInDom[moduleId]) {
-      stylesInDom[moduleId] = [];
+    for (let i = 0; i < lastIdentifiers.length; i++) {
+      const identifier = lastIdentifiers[i];
+      const index = getIndexByIdentifier(identifier);
+
+      stylesInDom[index].references--;
     }
 
-    modulesToDom(moduleId, newList, options);
+    const newLastIdentifiers = modulesToDom(newList, options);
 
-    for (let j = newList.length; j < stylesInDom[moduleId].length; j++) {
-      stylesInDom[moduleId][j]();
+    for (let i = 0; i < lastIdentifiers.length; i++) {
+      const identifier = lastIdentifiers[i];
+      const index = getIndexByIdentifier(identifier);
+
+      if (stylesInDom[index].references === 0) {
+        stylesInDom[index].updater();
+        stylesInDom.splice(index, 1);
+      }
     }
 
-    stylesInDom[moduleId].length = newList.length;
-
-    if (stylesInDom[moduleId].length === 0) {
-      delete stylesInDom[moduleId];
-    }
+    lastIdentifiers = newLastIdentifiers;
   };
 };

@@ -12,6 +12,10 @@ import './order.css';
 import './nested.css';
 import './nested/style.css';
 import './custom-square';
+import one from './modules/one.module.css';
+import two from './modules/two.module.css';
+import toolbar from './modules/toolbar.module.css';
+import page from './modules/page.module.css';
 
 console.log('___LOCALS___');
 console.log(component);
@@ -99,3 +103,14 @@ const api = useUnse.use();
 setTimeout(() => {
   api.unuse();
 }, 6000);
+
+const selector1 = document.querySelector('.selector1');
+selector1.className = one.selector1;
+const selector2 = document.querySelector('.selector2');
+selector2.className = two.selector2;
+const toolbar1 = document.querySelector('.toolbar');
+toolbar1.className = toolbar.toolbar;
+const common1 = document.querySelector('.common');
+common1.className = toolbar.common;
+const pageBtn = document.querySelector('.page-btn');
+pageBtn.className = page['page-btn'];

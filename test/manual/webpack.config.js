@@ -34,7 +34,10 @@ module.exports = {
         use: [
           {
             loader: require.resolve('../../dist/cjs.js'),
-            options: { esModule: ENABLE_ES_MODULE },
+            options: {
+              esModule: ENABLE_ES_MODULE,
+              // injectType: 'singletonStyleTag',
+            },
           },
           {
             loader: 'css-loader',

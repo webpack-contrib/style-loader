@@ -1,27 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`validate options should throw an error on the "attributes" option with "true" value 1`] = `
-"Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
+"Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
  - options.attributes should be an object:
    object { … }
    -> Adds custom attributes to tag (https://github.com/webpack-contrib/style-loader#attributes)."
 `;
 
 exports[`validate options should throw an error on the "esModule" option with "true" value 1`] = `
-"Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
+"Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
  - options.esModule should be a boolean.
    -> Use the ES modules syntax (https://github.com/webpack-contrib/css-loader#esmodule)."
 `;
 
 exports[`validate options should throw an error on the "injectType" option with "unknown" value 1`] = `
-"Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
+"Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
  - options.injectType should be one of these:
    \\"styleTag\\" | \\"singletonStyleTag\\" | \\"lazyStyleTag\\" | \\"lazySingletonStyleTag\\" | \\"linkTag\\"
    -> Allows to setup how styles will be injected into DOM (https://github.com/webpack-contrib/style-loader#injecttype)."
 `;
 
 exports[`validate options should throw an error on the "insert" option with "true" value 1`] = `
-"Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
+"Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
  - options.insert should be one of these:
    string | function
    -> Inserts \`<style>\`/\`<link>\` at the given position (https://github.com/webpack-contrib/style-loader#insert).
@@ -31,49 +31,49 @@ exports[`validate options should throw an error on the "insert" option with "tru
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "/test/" value 1`] = `
-"Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
+"Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
    object { injectType?, attributes?, insert?, base?, esModule? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "[]" value 1`] = `
-"Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
+"Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
    object { injectType?, attributes?, insert?, base?, esModule? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "{"foo":"bar"}" value 1`] = `
-"Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
+"Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
    object { injectType?, attributes?, insert?, base?, esModule? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "{}" value 1`] = `
-"Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
+"Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
    object { injectType?, attributes?, insert?, base?, esModule? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "1" value 1`] = `
-"Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
+"Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
    object { injectType?, attributes?, insert?, base?, esModule? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "false" value 1`] = `
-"Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
+"Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
    object { injectType?, attributes?, insert?, base?, esModule? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "test" value 1`] = `
-"Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
+"Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
    object { injectType?, attributes?, insert?, base?, esModule? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "true" value 1`] = `
-"Invalid options object. Style Loader has been initialised using an options object that does not match the API schema.
+"Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
    object { injectType?, attributes?, insert?, base?, esModule? }"
 `;

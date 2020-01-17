@@ -1,0 +1,4 @@
+.selector2 {
+  composes: common from './common.module.css';
+  background-color: navy;
+}
