@@ -63,11 +63,11 @@ module.exports = {
 
 |       Name       |         Type         |  Default   | Description                                              |
 | :--------------: | :------------------: | :--------: | :------------------------------------------------------- |
-| **`injectType`** |      `{String}`      | `styleTag` | Allows to setup how styles will be injected into the DOM |
-| **`attributes`** |      `{Object}`      |    `{}`    | Adds custom attributes to tag                            |
-|   **`insert`**   | `{String\|Function}` |   `head`   | Inserts tag at the given position into the DOM           |
-|    **`base`**    |      `{Number}`      |   `true`   | Sets module ID base (DLLPlugin)                          |
-|  **`esModule`**  |     `{Boolean}`      |  `false`   | Use ES modules syntax                                    |
+| [**`injectType`**](#injecttype) |      `{String}`      | `styleTag` | Allows to setup how styles will be injected into the DOM |
+| [**`attributes`**](#attributes) |      `{Object}`      |    `{}`    | Adds custom attributes to tag                            |
+|   [**`insert`**](#insert)   | `{String\|Function}` |   `head`   | Inserts tag at the given position into the DOM           |
+|    [**`base`**](#base)    |      `{Number}`      |   `true`   | Sets module ID base (DLLPlugin)                          |
+|  [**`esModule`**](#esmodule)  |     `{Boolean}`      |  `false`   | Use ES modules syntax                                    |
 
 ### `injectType`
 
