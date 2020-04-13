@@ -33,6 +33,10 @@
     "esModule": {
       "description": "Use the ES modules syntax (https://github.com/webpack-contrib/css-loader#esmodule).",
       "type": "boolean"
+    },
+    "styleCustom": {
+      "description": "custom style and css when insert to element",
+      "type": "function"
     }
   },
   "additionalProperties": false

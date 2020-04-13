@@ -195,7 +195,13 @@ function applyToTag(style, options, obj) {
 
   // For old IE
   /* istanbul ignore if  */
-  if (style.styleSheet) {
+  if (
+    options &&
+    options.styleCustom &&
+    typeof options.styleCustom === 'function'
+  ) {
+    options.styleCustom(css, style);
+  } else if (style.styleSheet) {
     style.styleSheet.cssText = css;
   } else {
     while (style.firstChild) {
