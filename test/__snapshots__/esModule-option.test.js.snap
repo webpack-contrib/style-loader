@@ -52,7 +52,7 @@ exports[`"esModule" option should work when not specified and when the "injectTy
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" href=\\"b7ec60149d04b7df3ec0b0ea905c958f.css\\"><link rel=\\"stylesheet\\" href=\\"3ad0380f4e321840594c0b1a5f8ac163.css\\"></head>
+<link rel=\\"stylesheet\\" href=\\"style.css\\"><link rel=\\"stylesheet\\" href=\\"style-other.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -298,7 +298,7 @@ exports[`"esModule" option should work with a value equal to "false" and when th
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" href=\\"b7ec60149d04b7df3ec0b0ea905c958f.css\\"><link rel=\\"stylesheet\\" href=\\"3ad0380f4e321840594c0b1a5f8ac163.css\\"></head>
+<link rel=\\"stylesheet\\" href=\\"style.css\\"><link rel=\\"stylesheet\\" href=\\"style-other.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -640,7 +640,7 @@ exports[`"esModule" option should work with a value equal to "true" and when the
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" href=\\"b7ec60149d04b7df3ec0b0ea905c958f.css\\"><link rel=\\"stylesheet\\" href=\\"3ad0380f4e321840594c0b1a5f8ac163.css\\"></head>
+<link rel=\\"stylesheet\\" href=\\"style.css\\"><link rel=\\"stylesheet\\" href=\\"style-other.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>

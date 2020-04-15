@@ -59,7 +59,7 @@ exports[`"insert" option should insert styles into "body" bottom when the "injec
   <iframe class=\\"iframeTarget\\"></iframe>
 
 
-<link rel=\\"stylesheet\\" href=\\"b7ec60149d04b7df3ec0b0ea905c958f.css\\"><link rel=\\"stylesheet\\" href=\\"3ad0380f4e321840594c0b1a5f8ac163.css\\"></body></html>"
+<link rel=\\"stylesheet\\" href=\\"style.css\\"><link rel=\\"stylesheet\\" href=\\"style-other.css\\"></body></html>"
 `;
 
 exports[`"insert" option should insert styles into "body" bottom when the "injectType" option is "linkTag": errors 1`] = `Array []`;
@@ -169,7 +169,7 @@ exports[`"insert" option should insert styles into "div.target" bottom when the 
 </head>
 <body>
   <h1>Body</h1>
-  <div class=\\"target\\"><link rel=\\"stylesheet\\" href=\\"b7ec60149d04b7df3ec0b0ea905c958f.css\\"><link rel=\\"stylesheet\\" href=\\"3ad0380f4e321840594c0b1a5f8ac163.css\\"></div>
+  <div class=\\"target\\"><link rel=\\"stylesheet\\" href=\\"style.css\\"><link rel=\\"stylesheet\\" href=\\"style-other.css\\"></div>
   <iframe class=\\"iframeTarget\\"></iframe>
 
 
@@ -280,7 +280,7 @@ exports[`"insert" option should insert styles into "head" bottom when not specif
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" href=\\"b7ec60149d04b7df3ec0b0ea905c958f.css\\"><link rel=\\"stylesheet\\" href=\\"3ad0380f4e321840594c0b1a5f8ac163.css\\"></head>
+<link rel=\\"stylesheet\\" href=\\"style.css\\"><link rel=\\"stylesheet\\" href=\\"style-other.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -391,7 +391,7 @@ exports[`"insert" option should insert styles into "head" top when the "injectTy
 exports[`"insert" option should insert styles into "head" top when the "injectType" option is "lazyStyleTag": warnings 1`] = `Array []`;
 
 exports[`"insert" option should insert styles into "head" top when the "injectType" option is "linkTag": DOM 1`] = `
-"<!DOCTYPE html><html><head><link rel=\\"stylesheet\\" href=\\"b7ec60149d04b7df3ec0b0ea905c958f.css\\"><link rel=\\"stylesheet\\" href=\\"3ad0380f4e321840594c0b1a5f8ac163.css\\">
+"<!DOCTYPE html><html><head><link rel=\\"stylesheet\\" href=\\"style.css\\"><link rel=\\"stylesheet\\" href=\\"style-other.css\\">
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
 </head>
@@ -528,7 +528,7 @@ exports[`"insert" option should insert styles into "iframe.iframeTarget" bottom 
 
 exports[`"insert" option should insert styles into "iframe.iframeTarget" bottom when the "injectType" option is "linkTag": errors 1`] = `Array []`;
 
-exports[`"insert" option should insert styles into "iframe.iframeTarget" bottom when the "injectType" option is "linkTag": iframe head 1`] = `"<link rel=\\"stylesheet\\" href=\\"b7ec60149d04b7df3ec0b0ea905c958f.css\\"><link rel=\\"stylesheet\\" href=\\"3ad0380f4e321840594c0b1a5f8ac163.css\\">"`;
+exports[`"insert" option should insert styles into "iframe.iframeTarget" bottom when the "injectType" option is "linkTag": iframe head 1`] = `"<link rel=\\"stylesheet\\" href=\\"style.css\\"><link rel=\\"stylesheet\\" href=\\"style-other.css\\">"`;
 
 exports[`"insert" option should insert styles into "iframe.iframeTarget" bottom when the "injectType" option is "linkTag": warnings 1`] = `Array []`;
 
@@ -639,7 +639,7 @@ exports[`"insert" option should insert styles into before "#existing-style" id w
 exports[`"insert" option should insert styles into before "#existing-style" id when the "injectType" option is "linkTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
-  <link rel=\\"stylesheet\\" href=\\"b7ec60149d04b7df3ec0b0ea905c958f.css\\"><link rel=\\"stylesheet\\" href=\\"3ad0380f4e321840594c0b1a5f8ac163.css\\"><style id=\\"existing-style\\">.existing { color: yellow }</style>
+  <link rel=\\"stylesheet\\" href=\\"style.css\\"><link rel=\\"stylesheet\\" href=\\"style-other.css\\"><style id=\\"existing-style\\">.existing { color: yellow }</style>
 </head>
 <body>
   <h1>Body</h1>
@@ -761,7 +761,7 @@ exports[`"insert" option should insert styles into runtime created element botto
   <iframe class=\\"iframeTarget\\"></iframe>
 
 
-<div id=\\"test-shadow\\"><link rel=\\"stylesheet\\" href=\\"b7ec60149d04b7df3ec0b0ea905c958f.css\\"><link rel=\\"stylesheet\\" href=\\"3ad0380f4e321840594c0b1a5f8ac163.css\\"></div></body></html>"
+<div id=\\"test-shadow\\"><link rel=\\"stylesheet\\" href=\\"style.css\\"><link rel=\\"stylesheet\\" href=\\"style-other.css\\"></div></body></html>"
 `;
 
 exports[`"insert" option should insert styles into runtime created element bottom when the "injectType" option is "linkTag": errors 1`] = `Array []`;
