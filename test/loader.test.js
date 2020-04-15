@@ -69,7 +69,10 @@ describe('loader', () => {
                     options: { injectType },
                   },
                   injectType === 'linkTag'
-                    ? { loader: 'file-loader' }
+                    ? {
+                        loader: 'file-loader',
+                        options: { name: '[path][name].[ext]' },
+                      }
                     : {
                         loader: 'css-loader',
                         options: {
@@ -151,7 +154,10 @@ describe('loader', () => {
                     options: { injectType },
                   },
                   injectType === 'linkTag'
-                    ? { loader: 'file-loader' }
+                    ? {
+                        loader: 'file-loader',
+                        options: { name: '[path][name].[ext]' },
+                      }
                     : {
                         loader: 'css-loader',
                         options: { sourceMap: false },
@@ -192,7 +198,10 @@ describe('loader', () => {
                     options: { injectType },
                   },
                   injectType === 'linkTag'
-                    ? { loader: 'file-loader' }
+                    ? {
+                        loader: 'file-loader',
+                        options: { name: '[path][name].[ext]' },
+                      }
                     : {
                         loader: 'css-loader',
                         options: { sourceMap: true },
@@ -229,7 +238,10 @@ describe('loader', () => {
                     options: { injectType },
                   },
                   injectType === 'linkTag'
-                    ? { loader: 'file-loader' }
+                    ? {
+                        loader: 'file-loader',
+                        options: { name: '[path][name].[ext]' },
+                      }
                     : {
                         loader: 'css-loader',
                         options: { esModule: true },
@@ -266,7 +278,10 @@ describe('loader', () => {
                     options: { injectType },
                   },
                   injectType === 'linkTag'
-                    ? { loader: 'file-loader' }
+                    ? {
+                        loader: 'file-loader',
+                        options: { name: '[path][name].[ext]' },
+                      }
                     : {
                         loader: 'css-loader',
                         options: { esModule: false },
