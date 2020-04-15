@@ -1,4 +1,4 @@
-name: sass-loader
+name: style-loader
 
 on:
   push:

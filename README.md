@@ -807,8 +807,8 @@ Please take a moment to read our contributing guidelines if you haven't yet done
 [node-url]: https://nodejs.org
 [deps]: https://david-dm.org/webpack-contrib/style-loader.svg
 [deps-url]: https://david-dm.org/webpack-contrib/style-loader
-[tests]: https://dev.azure.com/webpack-contrib/style-loader/_apis/build/status/webpack-contrib.style-loader?branchName=master
-[tests-url]: https://dev.azure.com/webpack-contrib/style-loader/_build/latest?definitionId=18&branchName=master
+[tests]: https://github.com/webpack-contrib/style-loader/workflows/style-loader/badge.svg
+[tests-url]: https://github.com/webpack-contrib/style-loader/actions
 [cover]: https://codecov.io/gh/webpack-contrib/style-loader/branch/master/graph/badge.svg
 [cover-url]: https://codecov.io/gh/webpack-contrib/style-loader
 [chat]: https://badges.gitter.im/webpack/webpack.svg
