@@ -54,7 +54,7 @@ exports[`loader should generate source maps when previous loader emit them when 
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" href=\\"a4197ed8dcb93d681801318bd25a41ed.css\\"><link rel=\\"stylesheet\\" href=\\"b37e8500d4037735f116e83ab5fd79a3.css\\"></head>
+<link rel=\\"stylesheet\\" href=\\"b7ec60149d04b7df3ec0b0ea905c958f.css\\"><link rel=\\"stylesheet\\" href=\\"3ad0380f4e321840594c0b1a5f8ac163.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -190,7 +190,7 @@ exports[`loader should not generate source maps when previous loader don't emit 
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" href=\\"a4197ed8dcb93d681801318bd25a41ed.css\\"><link rel=\\"stylesheet\\" href=\\"b37e8500d4037735f116e83ab5fd79a3.css\\"></head>
+<link rel=\\"stylesheet\\" href=\\"b7ec60149d04b7df3ec0b0ea905c958f.css\\"><link rel=\\"stylesheet\\" href=\\"3ad0380f4e321840594c0b1a5f8ac163.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -510,7 +510,7 @@ exports[`loader should work when the "injectType" option is "linkTag" and Common
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" href=\\"a4197ed8dcb93d681801318bd25a41ed.css\\"><link rel=\\"stylesheet\\" href=\\"b37e8500d4037735f116e83ab5fd79a3.css\\"></head>
+<link rel=\\"stylesheet\\" href=\\"b7ec60149d04b7df3ec0b0ea905c958f.css\\"><link rel=\\"stylesheet\\" href=\\"3ad0380f4e321840594c0b1a5f8ac163.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -528,7 +528,7 @@ exports[`loader should work when the "injectType" option is "linkTag" and ES mod
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" href=\\"a4197ed8dcb93d681801318bd25a41ed.css\\"><link rel=\\"stylesheet\\" href=\\"b37e8500d4037735f116e83ab5fd79a3.css\\"></head>
+<link rel=\\"stylesheet\\" href=\\"b7ec60149d04b7df3ec0b0ea905c958f.css\\"><link rel=\\"stylesheet\\" href=\\"3ad0380f4e321840594c0b1a5f8ac163.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -546,7 +546,7 @@ exports[`loader should work when the "injectType" option is "linkTag" and files 
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" href=\\"04ef9d7491cb6b87d905831b3cb52fdc.css\\"><link rel=\\"stylesheet\\" href=\\"a948740e081d1358c62c536683d63685.css\\"></head>
+<link rel=\\"stylesheet\\" href=\\"1401b8f43471fce6b5976c74400fa9f5.css\\"><link rel=\\"stylesheet\\" href=\\"fca28e4b4529873225c2d35572d54d07.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -564,7 +564,7 @@ exports[`loader should work when the "injectType" option is "linkTag": DOM 1`] =
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" href=\\"a4197ed8dcb93d681801318bd25a41ed.css\\"><link rel=\\"stylesheet\\" href=\\"b37e8500d4037735f116e83ab5fd79a3.css\\"></head>
+<link rel=\\"stylesheet\\" href=\\"b7ec60149d04b7df3ec0b0ea905c958f.css\\"><link rel=\\"stylesheet\\" href=\\"3ad0380f4e321840594c0b1a5f8ac163.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -830,7 +830,7 @@ exports[`loader should work with css modules when the "injectType" option is "li
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" href=\\"dda6b2e038a2056203e89a49994912ef.css\\"></head>
+<link rel=\\"stylesheet\\" href=\\"46f413702a8834c0c3cafe80ea39c35d.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
