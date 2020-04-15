@@ -26,7 +26,11 @@ export default (fixture, loaderOptions = {}, config = {}) => {
             loaderOptions &&
             loaderOptions.injectType &&
             loaderOptions.injectType === 'linkTag'
-              ? { loader: 'file-loader' }
+              ? {
+                  loader: 'file-loader',
+                  // TODO buggy on windows
+                  options: { name: '[path][name].[ext]' },
+                }
               : { loader: 'css-loader' },
           ],
         },

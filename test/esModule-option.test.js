@@ -61,7 +61,10 @@ describe('"esModule" option', () => {
                     options: { injectType, esModule: true },
                   },
                   injectType === 'linkTag'
-                    ? { loader: 'file-loader', options: { esModule: true } }
+                    ? {
+                        loader: 'file-loader',
+                        options: { esModule: true, name: '[path][name].[ext]' },
+                      }
                     : { loader: 'css-loader', options: { esModule: true } },
                 ],
               },
@@ -97,7 +100,10 @@ describe('"esModule" option', () => {
                   injectType === 'linkTag'
                     ? {
                         loader: 'file-loader',
-                        options: { esModule: false },
+                        options: {
+                          esModule: false,
+                          name: '[path][name].[ext]',
+                        },
                       }
                     : {
                         loader: 'css-loader',
@@ -148,7 +154,10 @@ describe('"esModule" option', () => {
                     options: { injectType, esModule: false },
                   },
                   injectType === 'linkTag'
-                    ? { loader: 'file-loader', options: { esModule: true } }
+                    ? {
+                        loader: 'file-loader',
+                        options: { esModule: true, name: '[path][name].[ext]' },
+                      }
                     : { loader: 'css-loader', options: { esModule: true } },
                 ],
               },
@@ -184,7 +193,10 @@ describe('"esModule" option', () => {
                   injectType === 'linkTag'
                     ? {
                         loader: 'file-loader',
-                        options: { esModule: false },
+                        options: {
+                          esModule: false,
+                          name: '[path][name].[ext]',
+                        },
                       }
                     : {
                         loader: 'css-loader',

@@ -1,123 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`loader should generate source maps when previous loader emit them when the "injectType" option is "lazySingletonStyleTag": DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>body {
-  color: red;
-}
-h1 {
-  color: blue;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-</body></html>"
-`;
-
-exports[`loader should generate source maps when previous loader emit them when the "injectType" option is "lazySingletonStyleTag": errors 1`] = `Array []`;
-
-exports[`loader should generate source maps when previous loader emit them when the "injectType" option is "lazySingletonStyleTag": warnings 1`] = `Array []`;
-
-exports[`loader should generate source maps when previous loader emit them when the "injectType" option is "lazyStyleTag": DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>body {
-  color: red;
-}
-
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFVBQVU7QUFDWiIsImZpbGUiOiJzdHlsZS5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJib2R5IHtcbiAgY29sb3I6IHJlZDtcbn1cbiJdfQ== */</style><style>h1 {
-  color: blue;
-}
-
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlLW90aGVyLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFdBQVc7QUFDYiIsImZpbGUiOiJzdHlsZS1vdGhlci5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJoMSB7XG4gIGNvbG9yOiBibHVlO1xufVxuIl19 */</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-</body></html>"
-`;
-
-exports[`loader should generate source maps when previous loader emit them when the "injectType" option is "lazyStyleTag": errors 1`] = `Array []`;
-
-exports[`loader should generate source maps when previous loader emit them when the "injectType" option is "lazyStyleTag": warnings 1`] = `Array []`;
-
-exports[`loader should generate source maps when previous loader emit them when the "injectType" option is "linkTag": DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" href=\\"a4197ed8dcb93d681801318bd25a41ed.css\\"><link rel=\\"stylesheet\\" href=\\"b37e8500d4037735f116e83ab5fd79a3.css\\"></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-</body></html>"
-`;
-
-exports[`loader should generate source maps when previous loader emit them when the "injectType" option is "linkTag": errors 1`] = `Array []`;
-
-exports[`loader should generate source maps when previous loader emit them when the "injectType" option is "linkTag": warnings 1`] = `Array []`;
-
-exports[`loader should generate source maps when previous loader emit them when the "injectType" option is "singletonStyleTag": DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>body {
-  color: red;
-}
-h1 {
-  color: blue;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-</body></html>"
-`;
-
-exports[`loader should generate source maps when previous loader emit them when the "injectType" option is "singletonStyleTag": errors 1`] = `Array []`;
-
-exports[`loader should generate source maps when previous loader emit them when the "injectType" option is "singletonStyleTag": warnings 1`] = `Array []`;
-
-exports[`loader should generate source maps when previous loader emit them when the "injectType" option is "styleTag": DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>body {
-  color: red;
-}
-
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFVBQVU7QUFDWiIsImZpbGUiOiJzdHlsZS5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJib2R5IHtcbiAgY29sb3I6IHJlZDtcbn1cbiJdfQ== */</style><style>h1 {
-  color: blue;
-}
-
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlLW90aGVyLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFdBQVc7QUFDYiIsImZpbGUiOiJzdHlsZS1vdGhlci5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJoMSB7XG4gIGNvbG9yOiBibHVlO1xufVxuIl19 */</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-</body></html>"
-`;
-
-exports[`loader should generate source maps when previous loader emit them when the "injectType" option is "styleTag": errors 1`] = `Array []`;
-
-exports[`loader should generate source maps when previous loader emit them when the "injectType" option is "styleTag": warnings 1`] = `Array []`;
-
 exports[`loader should inject hmr code with HotModuleReplacementPlugin when the "injectType" option is "lazySingletonStyleTag": errors 1`] = `Array []`;
 
 exports[`loader should inject hmr code with HotModuleReplacementPlugin when the "injectType" option is "lazySingletonStyleTag": warnings 1`] = `Array []`;
@@ -190,7 +72,7 @@ exports[`loader should not generate source maps when previous loader don't emit 
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" href=\\"a4197ed8dcb93d681801318bd25a41ed.css\\"><link rel=\\"stylesheet\\" href=\\"b37e8500d4037735f116e83ab5fd79a3.css\\"></head>
+<link rel=\\"stylesheet\\" href=\\"style.css\\"><link rel=\\"stylesheet\\" href=\\"style-other.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -510,7 +392,7 @@ exports[`loader should work when the "injectType" option is "linkTag" and Common
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" href=\\"a4197ed8dcb93d681801318bd25a41ed.css\\"><link rel=\\"stylesheet\\" href=\\"b37e8500d4037735f116e83ab5fd79a3.css\\"></head>
+<link rel=\\"stylesheet\\" href=\\"style.css\\"><link rel=\\"stylesheet\\" href=\\"style-other.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -528,7 +410,7 @@ exports[`loader should work when the "injectType" option is "linkTag" and ES mod
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" href=\\"a4197ed8dcb93d681801318bd25a41ed.css\\"><link rel=\\"stylesheet\\" href=\\"b37e8500d4037735f116e83ab5fd79a3.css\\"></head>
+<link rel=\\"stylesheet\\" href=\\"style.css\\"><link rel=\\"stylesheet\\" href=\\"style-other.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -546,7 +428,7 @@ exports[`loader should work when the "injectType" option is "linkTag" and files 
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" href=\\"04ef9d7491cb6b87d905831b3cb52fdc.css\\"><link rel=\\"stylesheet\\" href=\\"a948740e081d1358c62c536683d63685.css\\"></head>
+<link rel=\\"stylesheet\\" href=\\"nested/style.css\\"><link rel=\\"stylesheet\\" href=\\"other-nested/style.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -564,7 +446,7 @@ exports[`loader should work when the "injectType" option is "linkTag": DOM 1`] =
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" href=\\"a4197ed8dcb93d681801318bd25a41ed.css\\"><link rel=\\"stylesheet\\" href=\\"b37e8500d4037735f116e83ab5fd79a3.css\\"></head>
+<link rel=\\"stylesheet\\" href=\\"style.css\\"><link rel=\\"stylesheet\\" href=\\"style-other.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -830,7 +712,7 @@ exports[`loader should work with css modules when the "injectType" option is "li
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" href=\\"dda6b2e038a2056203e89a49994912ef.css\\"></head>
+<link rel=\\"stylesheet\\" href=\\"css-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>

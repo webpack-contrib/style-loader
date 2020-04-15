@@ -52,7 +52,7 @@ exports[`"attributes" option should add attributes to tag when the "injectType" 
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" href=\\"a4197ed8dcb93d681801318bd25a41ed.css\\" type=\\"text/css\\" foo=\\"bar\\" data-id=\\"style-tag-id\\"><link rel=\\"stylesheet\\" href=\\"b37e8500d4037735f116e83ab5fd79a3.css\\" type=\\"text/css\\" foo=\\"bar\\" data-id=\\"style-tag-id\\"></head>
+<link rel=\\"stylesheet\\" href=\\"style.css\\" type=\\"text/css\\" foo=\\"bar\\" data-id=\\"style-tag-id\\"><link rel=\\"stylesheet\\" href=\\"style-other.css\\" type=\\"text/css\\" foo=\\"bar\\" data-id=\\"style-tag-id\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -202,7 +202,7 @@ exports[`"attributes" option should add nonce attribute when "injectType" option
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" href=\\"a4197ed8dcb93d681801318bd25a41ed.css\\" nonce=\\"12345678\\"></head>
+<link rel=\\"stylesheet\\" href=\\"style.css\\" nonce=\\"12345678\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -220,7 +220,7 @@ exports[`"attributes" option should add nonce attribute when "injectType" option
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" href=\\"a4197ed8dcb93d681801318bd25a41ed.css\\" nonce=\\"12345678\\"></head>
+<link rel=\\"stylesheet\\" href=\\"style.css\\" nonce=\\"12345678\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
