@@ -3,6 +3,8 @@ import path from 'path';
 import loaderUtils from 'loader-utils';
 import validateOptions from 'schema-utils';
 
+import isEqualLocals from './runtime/isEqualLocals';
+
 import schema from './options.json';
 
 const loaderApi = () => {};
@@ -187,13 +189,22 @@ ${esModule ? 'export default' : 'module.exports ='} exported;`;
       const hmrCode = this.hot
         ? `
 if (module.hot) {
-  if (!content.locals) {
+  if (!content.locals || module.hot.invalidate) {
+    var isEqualLocals = ${isEqualLocals.toString()};
+    var oldLocals = content.locals;
+
     module.hot.accept(
       ${loaderUtils.stringifyRequest(this, `!!${request}`)},
       function () {
         ${
           esModule
-            ? `update(content);`
+            ? `if (!isEqualLocals(oldLocals, content.locals)) {
+                module.hot.invalidate();
+              }
+
+              oldLocals = content.locals;
+
+              update(content);`
             : `var newContent = require(${loaderUtils.stringifyRequest(
                 this,
                 `!!${request}`
@@ -204,6 +215,12 @@ if (module.hot) {
               if (typeof newContent === 'string') {
                 newContent = [[module.id, newContent, '']];
               }
+
+              if (!isEqualLocals(oldLocals, newContent.locals)) {
+                module.hot.invalidate();
+              }
+
+              oldLocals = newContent.locals;
 
               update(newContent);`
         }
@@ -226,8 +243,7 @@ if (module.hot) {
             import content from ${loaderUtils.stringifyRequest(
               this,
               `!!${request}`
-            )};
-            var clonedContent = content;`
+            )};`
           : `var api = require(${loaderUtils.stringifyRequest(
               this,
               `!${path.join(__dirname, 'runtime/injectStylesIntoStyleTag.js')}`
