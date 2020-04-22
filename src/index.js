@@ -98,25 +98,60 @@ ${esModule ? `export default {}` : ''}`;
       const hmrCode = this.hot
         ? `
 if (module.hot) {
-  var lastRefs = module.hot.data && module.hot.data.refs || 0;
+  if (!content.locals || module.hot.invalidate) {
+    var isEqualLocals = ${isEqualLocals.toString()};
+    var oldLocals = content.locals;
 
-  if (lastRefs) {
-    exported.use();
+    module.hot.accept(
+      ${loaderUtils.stringifyRequest(this, `!!${request}`)},
+      function () {
+        ${
+          esModule
+            ? `if (refs <= 0) {
+                return;
+              }
 
-    if (!content.locals) {
-      refs = lastRefs;
-    }
+              if (!isEqualLocals(oldLocals, content.locals)) {
+                module.hot.invalidate();
+
+                return;
+              }
+
+              oldLocals = content.locals;
+
+              if (update) {
+                update(content);
+              }`
+            : `if (refs <= 0) {
+                return;
+              }
+
+              var newContent = require(${loaderUtils.stringifyRequest(
+                this,
+                `!!${request}`
+              )});
+
+              newContent = newContent.__esModule ? newContent.default : newContent;
+
+              if (!isEqualLocals(oldLocals, newContent.locals)) {
+                module.hot.invalidate();
+
+                return;
+              }
+
+              oldLocals = newContent.locals;
+
+              if (update) {
+                update(newContent);
+              }`
+        }
+      }
+    )
   }
 
-  if (!content.locals) {
-    module.hot.accept();
-  }
-
-  module.hot.dispose(function(data) {
-    data.refs = content.locals ? 0 : refs;
-
-    if (dispose) {
-      dispose();
+  module.hot.dispose(function() {
+    if (update) {
+      update();
     }
   });
 }`
@@ -149,7 +184,7 @@ if (module.hot) {
       }
 
 var refs = 0;
-var dispose;
+var update;
 var options = ${JSON.stringify(options)};
 
 options.insert = ${insert};
@@ -163,7 +198,7 @@ if (content.locals) {
 
 exported.use = function() {
   if (!(refs++)) {
-    dispose = api(content, options);
+    update = api(content, options);
   }
 
   return exported;
@@ -171,8 +206,8 @@ exported.use = function() {
 
 exported.unuse = function() {
   if (refs > 0 && !--refs) {
-    dispose();
-    dispose = null;
+    update();
+    update = null;
   }
 };
 
@@ -200,6 +235,8 @@ if (module.hot) {
           esModule
             ? `if (!isEqualLocals(oldLocals, content.locals)) {
                 module.hot.invalidate();
+
+                return;
               }
 
               oldLocals = content.locals;
@@ -218,6 +255,8 @@ if (module.hot) {
 
               if (!isEqualLocals(oldLocals, newContent.locals)) {
                 module.hot.invalidate();
+
+                return;
               }
 
               oldLocals = newContent.locals;
