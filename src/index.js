@@ -88,7 +88,7 @@ var update = api(content, options);
 
 ${hmrCode}
 
-${esModule ? `export default {}` : ''}`;
+${esModule ? 'export default {}' : ''}`;
     }
 
     case 'lazyStyleTag':
@@ -107,11 +107,7 @@ if (module.hot) {
       function () {
         ${
           esModule
-            ? `if (refs <= 0) {
-                return;
-              }
-
-              if (!isEqualLocals(oldLocals, content.locals)) {
+            ? `if (!isEqualLocals(oldLocals, content.locals)) {
                 module.hot.invalidate();
 
                 return;
@@ -119,14 +115,10 @@ if (module.hot) {
 
               oldLocals = content.locals;
 
-              if (update) {
+              if (update && refs > 0) {
                 update(content);
               }`
-            : `if (refs <= 0) {
-                return;
-              }
-
-              var newContent = require(${loaderUtils.stringifyRequest(
+            : `var newContent = require(${loaderUtils.stringifyRequest(
                 this,
                 `!!${request}`
               )});
@@ -141,7 +133,7 @@ if (module.hot) {
 
               oldLocals = newContent.locals;
 
-              if (update) {
+              if (update && refs > 0) {
                 update(newContent);
               }`
         }
@@ -192,10 +184,7 @@ options.singleton = ${isSingleton};
 
 var exported = {};
 
-if (content.locals) {
-  exported.locals = content.locals;
-}
-
+exported.locals = content.locals || {};
 exported.use = function() {
   if (!(refs++)) {
     update = api(content, options);
@@ -203,7 +192,6 @@ exported.use = function() {
 
   return exported;
 };
-
 exported.unuse = function() {
   if (refs > 0 && !--refs) {
     update();
@@ -306,11 +294,9 @@ options.singleton = ${isSingleton};
 
 var update = api(content, options);
 
-var exported = content.locals ? content.locals : {};
-
 ${hmrCode}
 
-${esModule ? 'export default' : 'module.exports ='} exported;`;
+${esModule ? 'export default' : 'module.exports ='} content.locals || {};`;
     }
   }
 };
