@@ -16,6 +16,7 @@ import one from './modules/one.module.css';
 import two from './modules/two.module.css';
 import toolbar from './modules/toolbar.module.css';
 import page from './modules/page.module.css';
+import toogle from './toogle.lazy.css';
 
 console.log('___LOCALS___');
 console.log(component);
@@ -114,3 +115,28 @@ const common1 = document.querySelector('.common');
 common1.className = toolbar.common;
 const pageBtn = document.querySelector('.page-btn');
 pageBtn.className = page['page-btn'];
+
+const button = document.createElement('button');
+
+button.innerText = 'Toggle CSS';
+
+let used = false;
+
+button.addEventListener('click', () => {
+  if (!used) {
+    console.log('toggle on');
+    toogle.use();
+
+    used = true;
+  } else {
+    console.log('toggle off');
+
+    toogle.unuse();
+
+    used = false;
+  }
+});
+
+const toggleSection = document.getElementById('toggle-section');
+
+toggleSection.appendChild(button);
