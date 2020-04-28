@@ -39,15 +39,15 @@ if (module.hot) {
     function() {
      ${
        esModule
-         ? `update(content);`
-         : `var newContent = require(${loaderUtils.stringifyRequest(
+         ? 'update(content);'
+         : `content = require(${loaderUtils.stringifyRequest(
              this,
              `!!${request}`
            )});
 
-           newContent = newContent.__esModule ? newContent.default : newContent;
+           content = content.__esModule ? content.default : content;
 
-           update(newContent);`
+           update(content);`
      }
     }
   );
@@ -118,23 +118,23 @@ if (module.hot) {
               if (update && refs > 0) {
                 update(content);
               }`
-            : `var newContent = require(${loaderUtils.stringifyRequest(
+            : `content = require(${loaderUtils.stringifyRequest(
                 this,
                 `!!${request}`
               )});
 
-              newContent = newContent.__esModule ? newContent.default : newContent;
+              content = content.__esModule ? content.default : content;
 
-              if (!isEqualLocals(oldLocals, newContent.locals)) {
+              if (!isEqualLocals(oldLocals, content.locals)) {
                 module.hot.invalidate();
 
                 return;
               }
 
-              oldLocals = newContent.locals;
+              oldLocals = content.locals;
 
               if (update && refs > 0) {
-                update(newContent);
+                update(content);
               }`
         }
       }
@@ -230,26 +230,26 @@ if (module.hot) {
               oldLocals = content.locals;
 
               update(content);`
-            : `var newContent = require(${loaderUtils.stringifyRequest(
+            : `content = require(${loaderUtils.stringifyRequest(
                 this,
                 `!!${request}`
               )});
 
-              newContent = newContent.__esModule ? newContent.default : newContent;
+              content = content.__esModule ? content.default : content;
 
-              if (typeof newContent === 'string') {
-                newContent = [[module.id, newContent, '']];
+              if (typeof content === 'string') {
+                content = [[module.id, content, '']];
               }
 
-              if (!isEqualLocals(oldLocals, newContent.locals)) {
+              if (!isEqualLocals(oldLocals, content.locals)) {
                 module.hot.invalidate();
 
                 return;
               }
 
-              oldLocals = newContent.locals;
+              oldLocals = content.locals;
 
-              update(newContent);`
+              update(content);`
         }
       }
     )
