@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.1](https://github.com/webpack-contrib/style-loader/compare/v1.2.0...v1.2.1) (2020-04-28)
+
+
+### Bug Fixes
+
+* hot module replacement logic for lazy type ([#468](https://github.com/webpack-contrib/style-loader/issues/468)) ([88a5c2b](https://github.com/webpack-contrib/style-loader/commit/88a5c2bdb3405aa5cb889726f3908747106a6c01))
+
 ## [1.2.0](https://github.com/webpack-contrib/style-loader/compare/v1.1.4...v1.2.0) (2020-04-24)
 
 
