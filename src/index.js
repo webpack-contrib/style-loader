@@ -10,7 +10,7 @@ import schema from './options.json';
 const loaderApi = () => {};
 
 loaderApi.pitch = function loader(request) {
-  const options = { ...loaderUtils.getOptions(this) };
+  const options = loaderUtils.getOptions(this);
 
   validateOptions(schema, options, {
     name: 'Style Loader',
@@ -26,8 +26,12 @@ loaderApi.pitch = function loader(request) {
   const injectType = options.injectType || 'styleTag';
   const esModule =
     typeof options.esModule !== 'undefined' ? options.esModule : false;
-
-  delete options.esModule;
+  const runtimeOptions = {
+    injectType: options.injectType,
+    attributes: options.attributes,
+    insert: options.insert,
+    base: options.base,
+  };
 
   switch (injectType) {
     case 'linkTag': {
@@ -80,7 +84,7 @@ if (module.hot) {
             content = content.__esModule ? content.default : content;`
       }
 
-var options = ${JSON.stringify(options)};
+var options = ${JSON.stringify(runtimeOptions)};
 
 options.insert = ${insert};
 
@@ -177,7 +181,7 @@ if (module.hot) {
 
 var refs = 0;
 var update;
-var options = ${JSON.stringify(options)};
+var options = ${JSON.stringify(runtimeOptions)};
 
 options.insert = ${insert};
 options.singleton = ${isSingleton};
@@ -287,7 +291,7 @@ if (module.hot) {
             }`
       }
 
-var options = ${JSON.stringify(options)};
+var options = ${JSON.stringify(runtimeOptions)};
 
 options.insert = ${insert};
 options.singleton = ${isSingleton};
