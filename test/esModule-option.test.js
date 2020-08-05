@@ -17,8 +17,16 @@ describe('"esModule" option', () => {
     'lazySingletonStyleTag',
     'linkTag',
   ];
+  const commonjsExports = {
+    styleTag: 'module.exports = content.locals || {}',
+    singletonStyleTag: 'module.exports = content.locals || {}',
+    lazyStyleTag: 'module.exports = exported',
+    lazySingletonStyleTag: 'module.exports = exported',
+  };
 
   injectTypes.forEach((injectType) => {
+    const commonjsExport = commonjsExports[injectType];
+
     it(`should work when not specified and when the "injectType" option is "${injectType}"`, async () => {
       const entry = getEntryByInjectType('simple.js', injectType);
       const compiler = getCompiler(entry, { injectType });
@@ -37,8 +45,12 @@ describe('"esModule" option', () => {
       const compiler = getCompiler(entry, { injectType, esModule: true });
       const stats = await compile(compiler);
 
-      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
+      runInJsDom('main.bundle.js', compiler, stats, (dom, bundle) => {
         expect(dom.serialize()).toMatchSnapshot('DOM');
+
+        if (commonjsExport) {
+          expect(bundle).not.toEqual(expect.stringContaining(commonjsExport));
+        }
       });
 
       expect(getWarnings(stats)).toMatchSnapshot('warnings');
@@ -74,8 +86,12 @@ describe('"esModule" option', () => {
       );
       const stats = await compile(compiler);
 
-      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
+      runInJsDom('main.bundle.js', compiler, stats, (dom, bundle) => {
         expect(dom.serialize()).toMatchSnapshot('DOM');
+
+        if (commonjsExport) {
+          expect(bundle).not.toEqual(expect.stringContaining(commonjsExport));
+        }
       });
 
       expect(getWarnings(stats)).toMatchSnapshot('warnings');
@@ -117,8 +133,12 @@ describe('"esModule" option', () => {
       );
       const stats = await compile(compiler);
 
-      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
+      runInJsDom('main.bundle.js', compiler, stats, (dom, bundle) => {
         expect(dom.serialize()).toMatchSnapshot('DOM');
+
+        if (commonjsExport) {
+          expect(bundle).not.toEqual(expect.stringContaining(commonjsExport));
+        }
       });
 
       expect(getWarnings(stats)).toMatchSnapshot('warnings');
@@ -130,8 +150,12 @@ describe('"esModule" option', () => {
       const compiler = getCompiler(entry, { injectType, esModule: false });
       const stats = await compile(compiler);
 
-      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
+      runInJsDom('main.bundle.js', compiler, stats, (dom, bundle) => {
         expect(dom.serialize()).toMatchSnapshot('DOM');
+
+        if (commonjsExport) {
+          expect(bundle).toEqual(expect.stringContaining(commonjsExport));
+        }
       });
 
       expect(getWarnings(stats)).toMatchSnapshot('warnings');
@@ -167,8 +191,12 @@ describe('"esModule" option', () => {
       );
       const stats = await compile(compiler);
 
-      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
+      runInJsDom('main.bundle.js', compiler, stats, (dom, bundle) => {
         expect(dom.serialize()).toMatchSnapshot('DOM');
+
+        if (commonjsExport) {
+          expect(bundle).toEqual(expect.stringContaining(commonjsExport));
+        }
       });
 
       expect(getWarnings(stats)).toMatchSnapshot('warnings');
@@ -210,8 +238,12 @@ describe('"esModule" option', () => {
       );
       const stats = await compile(compiler);
 
-      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
+      runInJsDom('main.bundle.js', compiler, stats, (dom, bundle) => {
         expect(dom.serialize()).toMatchSnapshot('DOM');
+
+        if (commonjsExport) {
+          expect(bundle).toEqual(expect.stringContaining(commonjsExport));
+        }
       });
 
       expect(getWarnings(stats)).toMatchSnapshot('warnings');

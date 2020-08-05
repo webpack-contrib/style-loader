@@ -32,7 +32,7 @@ function runInJsDom(assetName, compiler, stats, testFn) {
 
     dom.window.eval(bundle);
 
-    testFn(dom);
+    testFn(dom, bundle);
 
     // free memory associated with the window
     dom.window.close();
