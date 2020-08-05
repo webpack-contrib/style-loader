@@ -10,7 +10,7 @@ import schema from './options.json';
 const loaderApi = () => {};
 
 loaderApi.pitch = function loader(request) {
-  const options = loaderUtils.getOptions(this);
+  const options = { ...loaderUtils.getOptions(this) };
 
   validateOptions(schema, options, {
     name: 'Style Loader',
