@@ -187,7 +187,7 @@ function applyToTag(style, options, obj) {
     style.removeAttribute('media');
   }
 
-  if (sourceMap && btoa) {
+  if (sourceMap && typeof btoa !== 'undefined') {
     css += `\n/*# sourceMappingURL=data:application/json;base64,${btoa(
       unescape(encodeURIComponent(JSON.stringify(sourceMap)))
     )} */`;
