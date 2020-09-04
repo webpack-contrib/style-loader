@@ -33,6 +33,10 @@
     "esModule": {
       "description": "Use the ES modules syntax (https://github.com/webpack-contrib/css-loader#esmodule).",
       "type": "boolean"
+    },
+    "cssPostProcess": {
+      "description": "Allows to post process the CSS in the browser before it is injected in the page (https://github.com/webpack-contrib/style-loader#csspostprocess)",
+      "instanceof": "Function"
     }
   },
   "additionalProperties": false

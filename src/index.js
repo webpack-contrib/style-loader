@@ -32,6 +32,10 @@ loaderApi.pitch = function loader(request) {
     insert: options.insert,
     base: options.base,
   };
+  const cssPostProcess =
+    typeof options.cssPostProcess !== 'function'
+      ? null
+      : JSON.stringify(options.cssPostProcess);
 
   switch (injectType) {
     case 'linkTag': {
@@ -87,6 +91,8 @@ if (module.hot) {
 var options = ${JSON.stringify(runtimeOptions)};
 
 options.insert = ${insert};
+
+options.cssPostProcess = ${cssPostProcess};
 
 var update = api(content, options);
 
@@ -184,6 +190,7 @@ var update;
 var options = ${JSON.stringify(runtimeOptions)};
 
 options.insert = ${insert};
+options.cssPostProcess = ${cssPostProcess};
 options.singleton = ${isSingleton};
 
 var exported = {};
@@ -294,6 +301,7 @@ if (module.hot) {
 var options = ${JSON.stringify(runtimeOptions)};
 
 options.insert = ${insert};
+options.cssPostProcess = ${cssPostProcess};
 options.singleton = ${isSingleton};
 
 var update = api(content, options);

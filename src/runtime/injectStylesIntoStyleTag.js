@@ -193,6 +193,10 @@ function applyToTag(style, options, obj) {
     )} */`;
   }
 
+  if (typeof options.cssPostProcess === 'function') {
+    css = options.cssPostProcess(css);
+  }
+
   // For old IE
   /* istanbul ignore if  */
   if (style.styleSheet) {

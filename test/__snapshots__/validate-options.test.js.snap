@@ -7,6 +7,18 @@ exports[`validate options should throw an error on the "attributes" option with 
    -> Adds custom attributes to tag (https://github.com/webpack-contrib/style-loader#attributes)."
 `;
 
+exports[`validate options should throw an error on the "cssPostProcess" option with "{}" value 1`] = `
+"Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
+ - options.cssPostProcess should be an instance of function.
+   -> Allows to post process the CSS in the browser before it is injected in the page (https://github.com/webpack-contrib/style-loader#csspostprocess)"
+`;
+
+exports[`validate options should throw an error on the "cssPostProcess" option with "true" value 1`] = `
+"Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
+ - options.cssPostProcess should be an instance of function.
+   -> Allows to post process the CSS in the browser before it is injected in the page (https://github.com/webpack-contrib/style-loader#csspostprocess)"
+`;
+
 exports[`validate options should throw an error on the "esModule" option with "true" value 1`] = `
 "Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
  - options.esModule should be a boolean.
@@ -33,47 +45,47 @@ exports[`validate options should throw an error on the "insert" option with "tru
 exports[`validate options should throw an error on the "unknown" option with "/test/" value 1`] = `
 "Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { injectType?, attributes?, insert?, base?, esModule? }"
+   object { injectType?, attributes?, insert?, base?, esModule?, cssPostProcess? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "[]" value 1`] = `
 "Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { injectType?, attributes?, insert?, base?, esModule? }"
+   object { injectType?, attributes?, insert?, base?, esModule?, cssPostProcess? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "{"foo":"bar"}" value 1`] = `
 "Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { injectType?, attributes?, insert?, base?, esModule? }"
+   object { injectType?, attributes?, insert?, base?, esModule?, cssPostProcess? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "{}" value 1`] = `
 "Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { injectType?, attributes?, insert?, base?, esModule? }"
+   object { injectType?, attributes?, insert?, base?, esModule?, cssPostProcess? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "1" value 1`] = `
 "Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { injectType?, attributes?, insert?, base?, esModule? }"
+   object { injectType?, attributes?, insert?, base?, esModule?, cssPostProcess? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "false" value 1`] = `
 "Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { injectType?, attributes?, insert?, base?, esModule? }"
+   object { injectType?, attributes?, insert?, base?, esModule?, cssPostProcess? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "test" value 1`] = `
 "Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { injectType?, attributes?, insert?, base?, esModule? }"
+   object { injectType?, attributes?, insert?, base?, esModule?, cssPostProcess? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "true" value 1`] = `
 "Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { injectType?, attributes?, insert?, base?, esModule? }"
+   object { injectType?, attributes?, insert?, base?, esModule?, cssPostProcess? }"
 `;

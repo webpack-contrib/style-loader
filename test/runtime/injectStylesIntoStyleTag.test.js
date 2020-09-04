@@ -792,4 +792,19 @@ describe('addStyle', () => {
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
   });
+
+  it('should work with "cssPostProcess"', () => {
+    document.body.innerHTML =
+      '<h1>Hello world</h1><div><div id="root" data-color="yellow"></div></div>';
+
+    injectStylesIntoStyleTag([['./style-44.css', '.foo { color: red }', '']], {
+      cssPostProcess: (css) => {
+        const rootElement = document.getElementById('root');
+        const color = rootElement.getAttribute('data-color');
+        return `${css} #root { color: ${color} }`;
+      },
+    });
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+  });
 });
