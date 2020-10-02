@@ -13,6 +13,7 @@ export default (fixture, loaderOptions = {}, config = {}) => {
       path: path.resolve(__dirname, '../outputs'),
       filename: '[name].bundle.js',
       chunkFilename: '[name].chunk.js',
+      publicPath: '',
     },
     module: {
       rules: [
