@@ -41,6 +41,7 @@ describe('isEqualLocals', () => {
     expect(isEqualLocals({ foo: true }, { foo: 'bar' })).toBe(false);
     // eslint-disable-next-line no-undefined
     expect(isEqualLocals({ foo: 'bar' }, { foo: undefined })).toBe(false);
+    // eslint-disable-next-line no-undefined
     expect(isEqualLocals({ foo: undefined }, { foo: 'bar' })).toBe(false);
     expect(isEqualLocals({ foo: { foo: 'bar' } }, { foo: 'bar' })).toBe(false);
   });
