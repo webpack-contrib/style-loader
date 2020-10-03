@@ -190,7 +190,7 @@ options.singleton = ${isSingleton};
 
 var exported = {};
 
-exported.locals = content.locals || {};
+${namedExport ? '' : 'exported.locals = content.locals || {};'}
 exported.use = function() {
   if (!(refs++)) {
     update = api(content, options);
@@ -209,11 +209,17 @@ ${hmrCode}
 
 ${
   esModule
-    ? namedExport
-      ? `export * from ${loaderUtils.stringifyRequest(this, `!!${request}`)}`
-      : 'export default exported'
-    : 'module.exports = exported'
-};
+    ? `${
+        namedExport
+          ? `export * from ${loaderUtils.stringifyRequest(
+              this,
+              `!!${request}`
+            )};`
+          : ''
+      };
+       export default exported;`
+    : 'module.exports = exported;'
+}
 `;
     }
 
@@ -312,10 +318,10 @@ ${hmrCode}
 ${
   esModule
     ? namedExport
-      ? `export * from ${loaderUtils.stringifyRequest(this, `!!${request}`)}`
-      : 'export default content.locals || {}'
-    : 'module.exports = content.locals || {}'
-};`;
+      ? `export * from ${loaderUtils.stringifyRequest(this, `!!${request}`)};`
+      : 'export default content.locals || {};'
+    : 'module.exports = content.locals || {};'
+}`;
     }
   }
 };

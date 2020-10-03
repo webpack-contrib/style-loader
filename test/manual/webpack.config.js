@@ -50,7 +50,13 @@ module.exports = {
       },
       {
         test: /\.module\.css$/i,
-        exclude: [/\.lazy\.css$/i, /\.link\.css$/i, /\.lazy\.module\.css$/i],
+        exclude: [
+          /\.lazy\.css$/i,
+          /\.link\.css$/i,
+          /\.lazy\.module\.css$/i,
+          /\.named-export\.module\.css$/i,
+          /\.named-export\.lazy\.module\.css$/i,
+        ],
         use: [
           {
             loader: require.resolve('../../dist/cjs.js'),
@@ -84,6 +90,7 @@ module.exports = {
       },
       {
         test: /\.lazy\.module\.css$/i,
+        exclude: [/\.named-export\.lazy\.module\.css$/i],
         use: [
           {
             loader: require.resolve('../../dist/cjs.js'),
@@ -99,7 +106,6 @@ module.exports = {
           },
         ],
       },
-
       {
         test: /\.link\.css$/i,
         use: [
@@ -162,7 +168,55 @@ module.exports = {
           },
         ],
       },
-
+      {
+        test: /\.named-export\.module\.css$/i,
+        use: [
+          {
+            loader: require.resolve('../../dist/cjs.js'),
+            options: {
+              esModule: true,
+              modules: {
+                namedExport: true,
+              },
+            },
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: ENABLE_SOURCE_MAP,
+              esModule: true,
+              modules: {
+                namedExport: true,
+              },
+            },
+          },
+        ],
+      },
+      {
+        test: /\.named-export\.lazy\.module\.css$/i,
+        use: [
+          {
+            loader: require.resolve('../../dist/cjs.js'),
+            options: {
+              injectType: 'lazyStyleTag',
+              esModule: true,
+              modules: {
+                namedExport: true,
+              },
+            },
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: ENABLE_SOURCE_MAP,
+              esModule: true,
+              modules: {
+                namedExport: true,
+              },
+            },
+          },
+        ],
+      },
       {
         test: /\.png$/i,
         loader: 'file-loader',
