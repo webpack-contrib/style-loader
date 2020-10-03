@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/webpack-contrib/style-loader/compare/v1.2.1...v1.3.0) (2020-10-03)
+
+### Features
+
+* added `modules.namedExport` ([#485](https://github.com/webpack-contrib/style-loader/issues/485)) ([15889db](https://github.com/webpack-contrib/style-loader/commit/15889db9a2d5d51712fc12e03b12a60c22fc33f4))
+
+
+### Bug Fixes
+
+* check if `btoa` exists for old IE versions ([#479](https://github.com/webpack-contrib/style-loader/issues/479)) ([732ef8b](https://github.com/webpack-contrib/style-loader/commit/732ef8bcb60ae72c3a84d3fa639f1eae6f26bbdc))
+* esModule option issue ([#476](https://github.com/webpack-contrib/style-loader/issues/476)) ([c623f27](https://github.com/webpack-contrib/style-loader/commit/c623f2750b0358492c7bf2dde0326a1c71c46f4f))
+
 ### [1.2.1](https://github.com/webpack-contrib/style-loader/compare/v1.2.0...v1.2.1) (2020-04-28)
 
 
