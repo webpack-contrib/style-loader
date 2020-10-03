@@ -26,6 +26,8 @@ loaderApi.pitch = function loader(request) {
   const injectType = options.injectType || 'styleTag';
   const esModule =
     typeof options.esModule !== 'undefined' ? options.esModule : false;
+  const namedExport =
+    esModule && options.modules && options.modules.namedExport;
   const runtimeOptions = {
     injectType: options.injectType,
     attributes: options.attributes,
@@ -205,7 +207,14 @@ exported.unuse = function() {
 
 ${hmrCode}
 
-${esModule ? 'export default' : 'module.exports ='} exported;`;
+${
+  esModule
+    ? namedExport
+      ? `export * from ${loaderUtils.stringifyRequest(this, `!!${request}`)}`
+      : 'export default exported'
+    : 'module.exports = exported'
+};
+`;
     }
 
     case 'styleTag':
@@ -300,7 +309,13 @@ var update = api(content, options);
 
 ${hmrCode}
 
-${esModule ? 'export default' : 'module.exports ='} content.locals || {};`;
+${
+  esModule
+    ? namedExport
+      ? `export * from ${loaderUtils.stringifyRequest(this, `!!${request}`)}`
+      : 'export default content.locals || {}'
+    : 'module.exports = content.locals || {}'
+};`;
     }
   }
 };
