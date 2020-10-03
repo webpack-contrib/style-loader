@@ -233,10 +233,10 @@ const divElement16 = document.createElement('div');
 divElement16.className = namedExportLazyBackground;
 
 h3Element4.appendChild(h3TextNode4);
-articleElement2.appendChild(h3Element4);
-articleElement2.appendChild(divElement13);
-articleElement2.appendChild(divElement14);
-articleElement2.appendChild(divElement15);
-articleElement2.appendChild(divElement16);
+articleElement4.appendChild(h3Element4);
+articleElement4.appendChild(divElement13);
+articleElement4.appendChild(divElement14);
+articleElement4.appendChild(divElement15);
+articleElement4.appendChild(divElement16);
 
 document.querySelectorAll('section')[1].appendChild(articleElement4);

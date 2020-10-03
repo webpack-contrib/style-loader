@@ -106,20 +106,22 @@ ${esModule ? 'export default {}' : ''}`;
 if (module.hot) {
   if (!content.locals || module.hot.invalidate) {
     var isEqualLocals = ${isEqualLocals.toString()};
-    var oldLocals = content.locals;
+    var oldLocals = ${namedExport ? 'locals' : 'content.locals'};
 
     module.hot.accept(
       ${loaderUtils.stringifyRequest(this, `!!${request}`)},
       function () {
         ${
           esModule
-            ? `if (!isEqualLocals(oldLocals, content.locals)) {
+            ? `if (!isEqualLocals(oldLocals, ${
+                namedExport ? 'locals' : 'content.locals'
+              }, ${namedExport})) {
                 module.hot.invalidate();
 
                 return;
               }
 
-              oldLocals = content.locals;
+              oldLocals = ${namedExport ? 'locals' : 'content.locals'};
 
               if (update && refs > 0) {
                 update(content);
@@ -161,10 +163,9 @@ if (module.hot) {
               this,
               `!${path.join(__dirname, 'runtime/injectStylesIntoStyleTag.js')}`
             )};
-            import content from ${loaderUtils.stringifyRequest(
-              this,
-              `!!${request}`
-            )};`
+            import content${
+              namedExport ? ', * as locals' : ''
+            } from ${loaderUtils.stringifyRequest(this, `!!${request}`)};`
           : `var api = require(${loaderUtils.stringifyRequest(
               this,
               `!${path.join(__dirname, 'runtime/injectStylesIntoStyleTag.js')}`
@@ -233,20 +234,22 @@ ${
 if (module.hot) {
   if (!content.locals || module.hot.invalidate) {
     var isEqualLocals = ${isEqualLocals.toString()};
-    var oldLocals = content.locals;
+    var oldLocals = ${namedExport ? 'locals' : 'content.locals'};
 
     module.hot.accept(
       ${loaderUtils.stringifyRequest(this, `!!${request}`)},
       function () {
         ${
           esModule
-            ? `if (!isEqualLocals(oldLocals, content.locals)) {
+            ? `if (!isEqualLocals(oldLocals, ${
+                namedExport ? 'locals' : 'content.locals'
+              }, ${namedExport})) {
                 module.hot.invalidate();
 
                 return;
               }
 
-              oldLocals = content.locals;
+              oldLocals = ${namedExport ? 'locals' : 'content.locals'};
 
               update(content);`
             : `content = require(${loaderUtils.stringifyRequest(
@@ -286,10 +289,9 @@ if (module.hot) {
               this,
               `!${path.join(__dirname, 'runtime/injectStylesIntoStyleTag.js')}`
             )};
-            import content from ${loaderUtils.stringifyRequest(
-              this,
-              `!!${request}`
-            )};`
+            import content${
+              namedExport ? ', * as locals' : ''
+            } from ${loaderUtils.stringifyRequest(this, `!!${request}`)};`
           : `var api = require(${loaderUtils.stringifyRequest(
               this,
               `!${path.join(__dirname, 'runtime/injectStylesIntoStyleTag.js')}`
