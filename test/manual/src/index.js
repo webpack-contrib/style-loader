@@ -17,6 +17,18 @@ import two from './modules/two.module.css';
 import toolbar from './modules/toolbar.module.css';
 import page from './modules/page.module.css';
 import toogle from './toogle.lazy.css';
+import {
+  namedExportRed,
+  namedExportGreen,
+  namedExportBlue,
+  namedExportBackground,
+} from './style.named-export.module.css';
+import api2, {
+  namedExportLazyRed,
+  namedExportLazyGreen,
+  namedExportLazyBlue,
+  namedExportLazyBackground,
+} from './style.named-export.lazy.module.css';
 
 console.log('___LOCALS___');
 console.log(component);
@@ -140,3 +152,91 @@ button.addEventListener('click', () => {
 const toggleSection = document.getElementById('toggle-section');
 
 toggleSection.appendChild(button);
+
+console.log('___NAMED_EXPORT___');
+console.log(
+  namedExportRed,
+  namedExportGreen,
+  namedExportBlue,
+  namedExportBackground
+);
+
+const articleElement3 = document.createElement('article');
+const h3Element3 = document.createElement('h3');
+const h3TextNode3 = document.createTextNode('Named export');
+
+const divElement9 = document.createElement('div');
+const divElement1Content1 = document.createTextNode('Red');
+
+divElement9.className = namedExportRed;
+divElement9.appendChild(divElement1Content1);
+
+const divElement10 = document.createElement('div');
+const divElement2Content1 = document.createTextNode('Green');
+
+divElement10.className = namedExportGreen;
+divElement10.appendChild(divElement2Content1);
+
+const divElement11 = document.createElement('div');
+const divElement3Content1 = document.createTextNode('Blue');
+
+divElement11.className = namedExportBlue;
+divElement11.appendChild(divElement3Content1);
+
+const divElement12 = document.createElement('div');
+
+divElement12.className = namedExportBackground;
+
+h3Element3.appendChild(h3TextNode3);
+articleElement3.appendChild(h3Element3);
+articleElement3.appendChild(divElement9);
+articleElement3.appendChild(divElement10);
+articleElement3.appendChild(divElement11);
+articleElement3.appendChild(divElement12);
+
+document.querySelectorAll('section')[0].appendChild(articleElement3);
+
+console.log('___LAZY_NAMED_EXPORT___');
+console.log(
+  namedExportLazyRed,
+  namedExportLazyGreen,
+  namedExportLazyBlue,
+  namedExportLazyBackground
+);
+
+api2.use();
+
+const articleElement4 = document.createElement('article');
+const h3Element4 = document.createElement('h3');
+const h3TextNode4 = document.createTextNode('Named export');
+
+const divElement13 = document.createElement('div');
+const divElement5Content1 = document.createTextNode('Red');
+
+divElement13.className = namedExportLazyRed;
+divElement13.appendChild(divElement5Content1);
+
+const divElement14 = document.createElement('div');
+const divElement6Content2 = document.createTextNode('Green');
+
+divElement14.className = namedExportLazyGreen;
+divElement14.appendChild(divElement6Content2);
+
+const divElement15 = document.createElement('div');
+const divElement7Content2 = document.createTextNode('Blue');
+
+divElement15.className = namedExportLazyBlue;
+divElement15.appendChild(divElement7Content2);
+
+const divElement16 = document.createElement('div');
+
+divElement16.className = namedExportLazyBackground;
+
+h3Element4.appendChild(h3TextNode4);
+articleElement4.appendChild(h3Element4);
+articleElement4.appendChild(divElement13);
+articleElement4.appendChild(divElement14);
+articleElement4.appendChild(divElement15);
+articleElement4.appendChild(divElement16);
+
+document.querySelectorAll('section')[1].appendChild(articleElement4);

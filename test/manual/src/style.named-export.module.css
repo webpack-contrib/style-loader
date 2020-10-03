@@ -1,0 +1,16 @@
+.named-export-red {
+  color: red;
+}
+
+.named-export-green {
+  color: green;
+}
+
+.named-export-blue {
+  color: blue;
+}
+
+.named-export-background {
+  height: 1200px;
+  background: url('./logo.png') center no-repeat;
+}

@@ -44,5 +44,22 @@ describe('isEqualLocals', () => {
     // eslint-disable-next-line no-undefined
     expect(isEqualLocals({ foo: undefined }, { foo: 'bar' })).toBe(false);
     expect(isEqualLocals({ foo: { foo: 'bar' } }, { foo: 'bar' })).toBe(false);
+
+    expect(isEqualLocals({ foo: 'bar' }, { foo: 'bar' }, true)).toBe(true);
+    expect(isEqualLocals({ foo: 'bar' }, { foo: 'baz' }, true)).toBe(false);
+    expect(
+      isEqualLocals(
+        { default: 'foo', foo: 'bar' },
+        { default: 'bar', foo: 'bar' },
+        true
+      )
+    ).toBe(true);
+    expect(
+      isEqualLocals(
+        { default: 'foo', foo: 'bar' },
+        { default: 'bar', foo: 'baz' },
+        true
+      )
+    ).toBe(false);
   });
 });
