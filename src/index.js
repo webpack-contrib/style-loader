@@ -1,7 +1,7 @@
 import path from 'path';
 
 import loaderUtils from 'loader-utils';
-import validateOptions from 'schema-utils';
+import { validate } from 'schema-utils';
 
 import isEqualLocals from './runtime/isEqualLocals';
 
@@ -12,7 +12,7 @@ const loaderApi = () => {};
 loaderApi.pitch = function loader(request) {
   const options = loaderUtils.getOptions(this);
 
-  validateOptions(schema, options, {
+  validate(schema, options, {
     name: 'Style Loader',
     baseDataPath: 'options',
   });
