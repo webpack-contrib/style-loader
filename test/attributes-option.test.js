@@ -43,7 +43,7 @@ describe('"attributes" option', () => {
       expect.assertions(3);
 
       const entry = getEntryByInjectType('nonce-require.js', injectType);
-      const compiler = getCompiler(entry, { injectType });
+      const compiler = getCompiler(entry, { injectType, esModule: false });
       const stats = await compile(compiler);
 
       runInJsDom('main.bundle.js', compiler, stats, (dom) => {

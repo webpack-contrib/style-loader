@@ -88,6 +88,7 @@ describe('"insert" option', () => {
 
       const entry = getEntryByInjectType('element.js', injectType);
       const compiler = getCompiler(entry, {
+        esModule: false,
         injectType,
         insert: (element) =>
           document.querySelector('#test-shadow').appendChild(element),
