@@ -13,7 +13,7 @@
   },
   "main": "dist/cjs.js",
   "engines": {
-    "node": ">= 8.9.0"
+    "node": ">= 10.13.0"
   },
   "scripts": {
     "start": "npm run build -- -w",
@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "loader-utils": "^2.0.0",
-    "schema-utils": "^2.7.0"
+    "schema-utils": "^3.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.11.6",
@@ -55,7 +55,7 @@
     "@commitlint/config-conventional": "^11.0.0",
     "@webpack-contrib/defaults": "^6.3.0",
     "@webpack-contrib/eslint-config-webpack": "^3.0.0",
-    "babel-jest": "^26.3.0",
+    "babel-jest": "^26.5.2",
     "cross-env": "^7.0.2",
     "css-loader": "^4.3.0",
     "del": "^6.0.0",
@@ -66,13 +66,13 @@
     "eslint-plugin-import": "^2.22.1",
     "file-loader": "^6.1.0",
     "husky": "^4.3.0",
-    "jest": "^26.4.2",
+    "jest": "^26.5.2",
     "jsdom": "^16.4.0",
     "lint-staged": "^10.4.0",
     "memfs": "^3.2.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.1.2",
-    "sass": "^1.26.11",
+    "sass": "^1.27.0",
     "sass-loader": "^10.0.2",
     "semver": "^7.3.2",
     "standard-version": "^9.0.0",
