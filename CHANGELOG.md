@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/webpack-contrib/style-loader/compare/v1.3.0...v2.0.0) (2020-10-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* minimum supported `Node.js` version is `10.13.0`
+* the `esModule` option is `true` by default, you need to change `const locals = require('./styles.css')`/`require('./styles.css')` on `import locals from './styles.css'`/`import './styles.css''` ([#489](https://github.com/webpack-contrib/style-loader/issues/489)) ([727a24d](https://github.com/webpack-contrib/style-loader/commit/727a24d173a4d71a4100ffc2a37ab6c6684a6301))
+* removed support for loaders returning `String` instead of `Array` ([#491](https://github.com/webpack-contrib/style-loader/issues/491)) ([7a0ce4c](https://github.com/webpack-contrib/style-loader/commit/7a0ce4cfd19a2be6ad8ffe274d38618a77b22199))
+
+### ⚠ NOTICE
+
+To avoid problems between `style-loader` and `mini-css-extract-plugin` because of changing the `esModule` option to `true` by default we strongly recommend upgrading `mini-css-extract-plugin` to `1.0.0` version.
+
 ## [1.3.0](https://github.com/webpack-contrib/style-loader/compare/v1.2.1...v1.3.0) (2020-10-03)
 
 ### Features
