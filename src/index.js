@@ -175,11 +175,7 @@ if (module.hot) {
               `!!${request}`
             )});
 
-            content = content.__esModule ? content.default : content;
-
-            if (typeof content === 'string') {
-              content = [[module.id, content, '']];
-            }`
+            content = content.__esModule ? content.default : content;`
       }
 
 var refs = 0;
@@ -301,11 +297,7 @@ if (module.hot) {
               `!!${request}`
             )});
 
-            content = content.__esModule ? content.default : content;
-
-            if (typeof content === 'string') {
-              content = [[module.id, content, '']];
-            }`
+            content = content.__esModule ? content.default : content;`
       }
 
 var options = ${JSON.stringify(runtimeOptions)};
