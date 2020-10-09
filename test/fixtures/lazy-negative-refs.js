@@ -1,6 +1,6 @@
-const css = require('./style.css');
+import api from './style.css';
 
 // ref still 0
-css.unuse();
+api.unuse();
 // ref 1
-css.use();
+api.use();
