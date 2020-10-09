@@ -324,6 +324,7 @@ describe('loader', () => {
 
         const compiler = getCompiler('./lazy-negative-refs.js', {
           injectType,
+          esModule: false,
         });
         const stats = await compile(compiler);
 

@@ -25,7 +25,7 @@ loaderApi.pitch = function loader(request) {
       : options.insert.toString();
   const injectType = options.injectType || 'styleTag';
   const esModule =
-    typeof options.esModule !== 'undefined' ? options.esModule : false;
+    typeof options.esModule !== 'undefined' ? options.esModule : true;
   const namedExport =
     esModule && options.modules && options.modules.namedExport;
   const runtimeOptions = {
