@@ -1,4 +1,5 @@
 {
+  "title": "Style Loader options",
   "type": "object",
   "properties": {
     "injectType": {
