@@ -1,7 +1,6 @@
 import path from 'path';
 
 import loaderUtils from 'loader-utils';
-import { validate } from 'schema-utils';
 
 import isEqualLocals from './runtime/isEqualLocals';
 
@@ -10,13 +9,7 @@ import schema from './options.json';
 const loaderApi = () => {};
 
 loaderApi.pitch = function loader(request) {
-  const options = loaderUtils.getOptions(this);
-
-  validate(schema, options, {
-    name: 'Style Loader',
-    baseDataPath: 'options',
-  });
-
+  const options = this.getOptions(schema);
   const insert =
     typeof options.insert === 'undefined'
       ? '"head"'
