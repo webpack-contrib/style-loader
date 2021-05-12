@@ -16,26 +16,34 @@ export default (fixture, loaderOptions = {}, config = {}) => {
       publicPath: '',
     },
     module: {
-      rules: [
-        {
-          test: /\.css$/i,
-          use: [
-            {
-              loader: path.resolve(__dirname, '../../src/cjs.js'),
-              options: loaderOptions || {},
-            },
-            loaderOptions &&
-            loaderOptions.injectType &&
-            loaderOptions.injectType === 'linkTag'
-              ? {
-                  loader: 'file-loader',
-                  // TODO buggy on windows
-                  options: { name: '[path][name].[ext]' },
-                }
-              : { loader: 'css-loader' },
-          ],
-        },
-      ],
+      rules: [].concat(
+        loaderOptions &&
+          loaderOptions.injectType &&
+          loaderOptions.injectType === 'linkTag'
+          ? [
+              {
+                test: /\.css$/i,
+                loader: path.resolve(__dirname, '../../src/cjs.js'),
+                options: loaderOptions || {},
+                type: 'asset/resource',
+                generator: {
+                  filename: '[path][name][ext]',
+                },
+              },
+            ]
+          : [
+              {
+                test: /\.css$/i,
+                use: [
+                  {
+                    loader: path.resolve(__dirname, '../../src/cjs.js'),
+                    options: loaderOptions || {},
+                  },
+                  { loader: 'css-loader' },
+                ],
+              },
+            ]
+      ),
     },
     plugins: [],
     ...config,
