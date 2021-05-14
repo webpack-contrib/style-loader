@@ -34,7 +34,6 @@ describe('"modules" option', () => {
                     options: {
                       injectType,
                       esModule: true,
-                      modules: { namedExport: true },
                     },
                   },
                   {

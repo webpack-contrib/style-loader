@@ -30,62 +30,50 @@ exports[`validate options should throw an error on the "insert" option with "tru
     * options.insert should be an instance of function."
 `;
 
-exports[`validate options should throw an error on the "modules" option with "true" value 1`] = `
-"Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
- - options.modules should be an object:
-   object { namedExport? }"
-`;
-
-exports[`validate options should throw an error on the "modules" option with "true" value 2`] = `
-"Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
- - options.modules should be an object:
-   object { namedExport? }"
-`;
-
 exports[`validate options should throw an error on the "unknown" option with "/test/" value 1`] = `
 "Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { injectType?, attributes?, insert?, base?, esModule?, modules? }"
+   object { injectType?, attributes?, insert?, base?, esModule? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "[]" value 1`] = `
 "Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { injectType?, attributes?, insert?, base?, esModule?, modules? }"
+   object { injectType?, attributes?, insert?, base?, esModule? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "{"foo":"bar"}" value 1`] = `
 "Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { injectType?, attributes?, insert?, base?, esModule?, modules? }"
+   object { injectType?, attributes?, insert?, base?, esModule? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "{}" value 1`] = `
 "Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { injectType?, attributes?, insert?, base?, esModule?, modules? }"
+   object { injectType?, attributes?, insert?, base?, esModule? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "1" value 1`] = `
 "Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { injectType?, attributes?, insert?, base?, esModule?, modules? }"
+   object { injectType?, attributes?, insert?, base?, esModule? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "false" value 1`] = `
 "Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { injectType?, attributes?, insert?, base?, esModule?, modules? }"
+   object { injectType?, attributes?, insert?, base?, esModule? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "test" value 1`] = `
 "Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { injectType?, attributes?, insert?, base?, esModule?, modules? }"
+   object { injectType?, attributes?, insert?, base?, esModule? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "true" value 1`] = `
 "Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { injectType?, attributes?, insert?, base?, esModule?, modules? }"
+   object { injectType?, attributes?, insert?, base?, esModule? }"
 `;
