@@ -61,14 +61,13 @@ module.exports = {
 
 ## Options
 
-|              Name               |         Type         |   Default   | Description                                              |
-| :-----------------------------: | :------------------: | :---------: | :------------------------------------------------------- |
-| [**`injectType`**](#injecttype) |      `{String}`      | `styleTag`  | Allows to setup how styles will be injected into the DOM |
-| [**`attributes`**](#attributes) |      `{Object}`      |    `{}`     | Adds custom attributes to tag                            |
-|     [**`insert`**](#insert)     | `{String\|Function}` |   `head`    | Inserts tag at the given position into the DOM           |
-|       [**`base`**](#base)       |      `{Number}`      |   `true`    | Sets module ID base (DLLPlugin)                          |
-|   [**`esModule`**](#esmodule)   |     `{Boolean}`      |   `true`    | Use ES modules syntax                                    |
-|    [**`modules`**](#modules)    |      `{Object}`      | `undefined` | Configuration CSS Modules                                |
+|              Name               |         Type         |  Default   | Description                                              |
+| :-----------------------------: | :------------------: | :--------: | :------------------------------------------------------- |
+| [**`injectType`**](#injecttype) |      `{String}`      | `styleTag` | Allows to setup how styles will be injected into the DOM |
+| [**`attributes`**](#attributes) |      `{Object}`      |    `{}`    | Adds custom attributes to tag                            |
+|     [**`insert`**](#insert)     | `{String\|Function}` |   `head`   | Inserts tag at the given position into the DOM           |
+|       [**`base`**](#base)       |      `{Number}`      |   `true`   | Sets module ID base (DLLPlugin)                          |
+|   [**`esModule`**](#esmodule)   |     `{Boolean}`      |   `true`   | Use ES modules syntax                                    |
 
 ### `injectType`
 
@@ -581,25 +580,15 @@ module.exports = {
 };
 ```
 
-### `modules`
+## Examples
 
-Type: `Object`
-Default: `undefined`
-
-Configuration CSS Modules.
-
-#### `namedExport`
-
-Type: `Boolean`
-Default: `false`
-
-Enables/disables ES modules named export for locals.
+### Configuration `namedExport` for CSS Modules
 
 > ⚠ Names of locals are converted to `camelCase`.
 
 > ⚠ It is not allowed to use JavaScript reserved words in css class names.
 
-> ⚠ Options `esModule` and `modules.namedExport` in `css-loader` and `style-loader` should be enabled.
+> ⚠ Options `esModule` and `modules.namedExport` in `css-loader` should be enabled.
 
 **styles.css**
 
@@ -635,9 +624,6 @@ module.exports = {
             loader: 'style-loader',
             options: {
               esModule: true,
-              modules: {
-                namedExport: true,
-              },
             },
           },
           {
@@ -655,8 +641,6 @@ module.exports = {
   },
 };
 ```
-
-## Examples
 
 ### Source maps
 

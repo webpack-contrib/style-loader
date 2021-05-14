@@ -33,16 +33,6 @@
     "esModule": {
       "description": "Use the ES modules syntax (https://github.com/webpack-contrib/css-loader#esmodule).",
       "type": "boolean"
-    },
-    "modules": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "namedExport": {
-          "description": "Enables/disables ES modules named export for locals (https://webpack.js.org/plugins/mini-css-extract-plugin/#namedexport).",
-          "type": "boolean"
-        }
-      }
     }
   },
   "additionalProperties": false
