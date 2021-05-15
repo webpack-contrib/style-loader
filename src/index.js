@@ -88,20 +88,21 @@ ${esModule ? 'export default {}' : ''}`;
 if (module.hot) {
   if (!content.locals || module.hot.invalidate) {
     var isEqualLocals = ${isEqualLocals.toString()};
-    var oldLocals = namedExport ? locals : content.locals;
+    var isNamedExport = ${esModule ? "!('locals' in content)" : false};
+    var oldLocals = isNamedExport ? namedExport : content.locals;
 
     module.hot.accept(
       ${stringifyRequest(this, `!!${request}`)},
       function () {
         ${
           esModule
-            ? `if (!isEqualLocals(oldLocals, namedExport ? locals : content.locals, namedExport)) {
+            ? `if (!isEqualLocals(oldLocals, isNamedExport ? namedExport : content.locals, isNamedExport)) {
                 module.hot.invalidate();
 
                 return;
               }
 
-              oldLocals = namedExport ? locals : content.locals;
+              oldLocals = isNamedExport ? namedExport : content.locals;
 
               if (update && refs > 0) {
                 update(content);
@@ -134,18 +135,22 @@ if (module.hot) {
 }`
         : '';
 
-      return `var namedExport;
+      return `
+      var exported = {};
       ${
         esModule
           ? `import api from ${stringifyRequest(
               this,
               `!${path.join(__dirname, 'runtime/injectStylesIntoStyleTag.js')}`
             )};
-            import content, * as locals from ${stringifyRequest(
+            import content, * as namedExport from ${stringifyRequest(
               this,
               `!!${request}`
             )};
-            namedExport = !("locals" in locals.default);
+            
+            if ("locals" in content) {
+              exported.locals = content.locals || {};
+            }
             `
           : `var api = require(${stringifyRequest(
               this,
@@ -153,7 +158,10 @@ if (module.hot) {
             )});
             var content = require(${stringifyRequest(this, `!!${request}`)});
 
-            content = content.__esModule ? content.default : content;`
+            content = content.__esModule ? content.default : content;
+            
+            exported.locals = content.locals || {};
+            `
       }
 
 var refs = 0;
@@ -162,12 +170,6 @@ var options = ${JSON.stringify(runtimeOptions)};
 
 options.insert = ${insert};
 options.singleton = ${isSingleton};
-
-var exported = {};
-
-if (!namedExport) {
-  exported.locals = content.locals || {};
-}
 
 exported.use = function() {
   if (!(refs++)) {
@@ -204,20 +206,21 @@ ${
 if (module.hot) {
   if (!content.locals || module.hot.invalidate) {
     var isEqualLocals = ${isEqualLocals.toString()};
-    var oldLocals = namedExport ? locals : content.locals;
+    var isNamedExport = ${esModule ? "!('locals' in content)" : false};
+    var oldLocals = isNamedExport ? namedExport : content.locals;
 
     module.hot.accept(
       ${stringifyRequest(this, `!!${request}`)},
       function () {
         ${
           esModule
-            ? `if (!isEqualLocals(oldLocals, namedExport ? locals : content.locals, namedExport)) {
+            ? `if (!isEqualLocals(oldLocals, isNamedExport ? namedExport : content.locals, isNamedExport)) {
                 module.hot.invalidate();
 
                 return;
               }
 
-              oldLocals = namedExport ? locals : content.locals;
+              oldLocals = isNamedExport ? namedExport : content.locals;
 
               update(content);`
             : `content = require(${stringifyRequest(this, `!!${request}`)});
@@ -248,19 +251,17 @@ if (module.hot) {
 }`
         : '';
 
-      return `var namedExport;
+      return `
       ${
         esModule
           ? `import api from ${stringifyRequest(
               this,
               `!${path.join(__dirname, 'runtime/injectStylesIntoStyleTag.js')}`
             )};
-            import content, * as locals from ${stringifyRequest(
+            import content, * as namedExport from ${stringifyRequest(
               this,
               `!!${request}`
-            )};
-            namedExport = !("locals" in locals.default);
-            `
+            )};`
           : `var api = require(${stringifyRequest(
               this,
               `!${path.join(__dirname, 'runtime/injectStylesIntoStyleTag.js')}`
