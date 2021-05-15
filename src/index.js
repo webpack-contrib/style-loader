@@ -145,8 +145,7 @@ if (module.hot) {
               this,
               `!!${request}`
             )};
-
-            namedExport = Object.keys(locals).length > 1;
+            namedExport = !("locals" in locals.default);
             `
           : `var api = require(${stringifyRequest(
               this,
@@ -260,7 +259,7 @@ if (module.hot) {
               this,
               `!!${request}`
             )};
-            namedExport = Object.keys(locals).length > 1 ;
+            namedExport = !("locals" in locals.default);
             `
           : `var api = require(${stringifyRequest(
               this,
