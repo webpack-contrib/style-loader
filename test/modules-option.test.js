@@ -1,4 +1,4 @@
-import path from 'path';
+import path from "path";
 
 import {
   compile,
@@ -6,14 +6,14 @@ import {
   getErrors,
   getWarnings,
   runInJsDom,
-} from './helpers/index';
+} from "./helpers/index";
 
 describe('"modules" option', () => {
   const injectTypes = [
-    'styleTag',
-    'singletonStyleTag',
-    'lazyStyleTag',
-    'lazySingletonStyleTag',
+    "styleTag",
+    "singletonStyleTag",
+    "lazyStyleTag",
+    "lazySingletonStyleTag",
   ];
 
   injectTypes.forEach((injectType) => {
@@ -21,7 +21,7 @@ describe('"modules" option', () => {
       expect.assertions(3);
 
       const compiler = getCompiler(
-        './named-export.js',
+        "./named-export.js",
         {},
         {
           module: {
@@ -30,14 +30,14 @@ describe('"modules" option', () => {
                 test: /\.css$/i,
                 use: [
                   {
-                    loader: path.resolve(__dirname, '../src/cjs.js'),
+                    loader: path.resolve(__dirname, "../src/cjs.js"),
                     options: {
                       injectType,
                       esModule: true,
                     },
                   },
                   {
-                    loader: 'css-loader',
+                    loader: "css-loader",
                     options: {
                       modules: {
                         namedExport: true,
@@ -52,12 +52,12 @@ describe('"modules" option', () => {
       );
       const stats = await compile(compiler);
 
-      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
-        expect(dom.serialize()).toMatchSnapshot('DOM');
+      runInJsDom("main.bundle.js", compiler, stats, (dom) => {
+        expect(dom.serialize()).toMatchSnapshot("DOM");
       });
 
-      expect(getWarnings(stats)).toMatchSnapshot('warnings');
-      expect(getErrors(stats)).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot("warnings");
+      expect(getErrors(stats)).toMatchSnapshot("errors");
     });
   });
 });

@@ -41,7 +41,7 @@ body {
 **component.js**
 
 ```js
-import './style.css';
+import "./style.css";
 ```
 
 **webpack.config.js**
@@ -52,7 +52,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
@@ -91,7 +91,7 @@ Automatically injects styles into the DOM using multiple `<style></style>`. It i
 **component.js**
 
 ```js
-import './styles.css';
+import "./styles.css";
 ```
 
 Example with Locals (CSS Modules):
@@ -99,10 +99,10 @@ Example with Locals (CSS Modules):
 **component-with-css-modules.js**
 
 ```js
-import styles from './styles.css';
+import styles from "./styles.css";
 
-const divElement = document.createElement('div');
-divElement.className = styles['my-class'];
+const divElement = document.createElement("div");
+divElement.className = styles["my-class"];
 ```
 
 All locals (class names) stored in imported object.
@@ -117,8 +117,8 @@ module.exports = {
         test: /\.css$/i,
         use: [
           // The `injectType`  option can be avoided because it is default behaviour
-          { loader: 'style-loader', options: { injectType: 'styleTag' } },
-          'css-loader',
+          { loader: "style-loader", options: { injectType: "styleTag" } },
+          "css-loader",
         ],
       },
     ],
@@ -150,16 +150,16 @@ Automatically injects styles into the DOM using one `<style></style>`.
 **component.js**
 
 ```js
-import './styles.css';
+import "./styles.css";
 ```
 
 **component-with-css-modules.js**
 
 ```js
-import styles from './styles.css';
+import styles from "./styles.css";
 
-const divElement = document.createElement('div');
-divElement.className = styles['my-class'];
+const divElement = document.createElement("div");
+divElement.className = styles["my-class"];
 ```
 
 All locals (class names) stored in imported object.
@@ -174,10 +174,10 @@ module.exports = {
         test: /\.css$/i,
         use: [
           {
-            loader: 'style-loader',
-            options: { injectType: 'singletonStyleTag' },
+            loader: "style-loader",
+            options: { injectType: "singletonStyleTag" },
           },
-          'css-loader',
+          "css-loader",
         ],
       },
     ],
@@ -209,7 +209,7 @@ When you `lazyStyleTag` value the `style-loader` injects the styles lazily makin
 **component.js**
 
 ```js
-import styles from './styles.lazy.css';
+import styles from "./styles.lazy.css";
 
 styles.use();
 // For removing styles you can use
@@ -219,12 +219,12 @@ styles.use();
 **component-with-css-modules.js**
 
 ```js
-import styles from './styles.lazy.css';
+import styles from "./styles.lazy.css";
 
 styles.use();
 
-const divElement = document.createElement('div');
-divElement.className = styles.locals['my-class'];
+const divElement = document.createElement("div");
+divElement.className = styles.locals["my-class"];
 ```
 
 All locals (class names) stored in `locals` property of imported object.
@@ -238,13 +238,13 @@ module.exports = {
       {
         test: /\.css$/i,
         exclude: /\.lazy\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        use: ["style-loader", "css-loader"],
       },
       {
         test: /\.lazy\.css$/i,
         use: [
-          { loader: 'style-loader', options: { injectType: 'lazyStyleTag' } },
-          'css-loader',
+          { loader: "style-loader", options: { injectType: "lazyStyleTag" } },
+          "css-loader",
         ],
       },
     ],
@@ -280,7 +280,7 @@ When you `lazySingletonStyleTag` value the `style-loader` injects the styles laz
 **component.js**
 
 ```js
-import styles from './styles.css';
+import styles from "./styles.css";
 
 styles.use();
 // For removing styles you can use
@@ -290,12 +290,12 @@ styles.use();
 **component-with-css-modules.js**
 
 ```js
-import styles from './styles.lazy.css';
+import styles from "./styles.lazy.css";
 
 styles.use();
 
-const divElement = document.createElement('div');
-divElement.className = styles.locals['my-class'];
+const divElement = document.createElement("div");
+divElement.className = styles.locals["my-class"];
 ```
 
 All locals (class names) stored in `locals` property of imported object.
@@ -309,16 +309,16 @@ module.exports = {
       {
         test: /\.css$/i,
         exclude: /\.lazy\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        use: ["style-loader", "css-loader"],
       },
       {
         test: /\.lazy\.css$/i,
         use: [
           {
-            loader: 'style-loader',
-            options: { injectType: 'lazySingletonStyleTag' },
+            loader: "style-loader",
+            options: { injectType: "lazySingletonStyleTag" },
           },
-          'css-loader',
+          "css-loader",
         ],
       },
     ],
@@ -346,8 +346,8 @@ Injects styles into the DOM using multiple `<link rel="stylesheet" href="path/to
 > ℹ️ The loader will dynamically insert the `<link href="path/to/file.css" rel="stylesheet">` tag at runtime via JavaScript. You should use [MiniCssExtractPlugin](https://webpack.js.org/plugins/mini-css-extract-plugin/) if you want to include a static `<link href="path/to/file.css" rel="stylesheet">`.
 
 ```js
-import './styles.css';
-import './other-styles.css';
+import "./styles.css";
+import "./other-styles.css";
 ```
 
 **webpack.config.js**
@@ -359,8 +359,8 @@ module.exports = {
       {
         test: /\.link\.css$/i,
         use: [
-          { loader: 'style-loader', options: { injectType: 'linkTag' } },
-          { loader: 'file-loader' },
+          { loader: "style-loader", options: { injectType: "linkTag" } },
+          { loader: "file-loader" },
         ],
       },
     ],
@@ -385,7 +385,7 @@ If defined, the `style-loader` will attach given attributes with their values on
 **component.js**
 
 ```js
-import style from './file.css';
+import style from "./file.css";
 ```
 
 **webpack.config.js**
@@ -397,8 +397,8 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [
-          { loader: 'style-loader', options: { attributes: { id: 'id' } } },
-          { loader: 'css-loader' },
+          { loader: "style-loader", options: { attributes: { id: "id" } } },
+          { loader: "css-loader" },
         ],
       },
     ],
@@ -434,12 +434,12 @@ module.exports = {
         test: /\.css$/i,
         use: [
           {
-            loader: 'style-loader',
+            loader: "style-loader",
             options: {
-              insert: 'body',
+              insert: "body",
             },
           },
-          'css-loader',
+          "css-loader",
         ],
       },
     ],
@@ -466,10 +466,10 @@ module.exports = {
         test: /\.css$/i,
         use: [
           {
-            loader: 'style-loader',
+            loader: "style-loader",
             options: {
               insert: function insertAtTop(element) {
-                var parent = document.querySelector('head');
+                var parent = document.querySelector("head");
                 // eslint-disable-next-line no-underscore-dangle
                 var lastInsertedElement =
                   window._lastElementInsertedByStyleLoader;
@@ -487,7 +487,7 @@ module.exports = {
               },
             },
           },
-          'css-loader',
+          "css-loader",
         ],
       },
     ],
@@ -509,7 +509,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
@@ -525,8 +525,8 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [
-          { loader: 'style-loader', options: { base: 1000 } },
-          'css-loader',
+          { loader: "style-loader", options: { base: 1000 } },
+          "css-loader",
         ],
       },
     ],
@@ -543,8 +543,8 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [
-          { loader: 'style-loader', options: { base: 2000 } },
-          'css-loader',
+          { loader: "style-loader", options: { base: 2000 } },
+          "css-loader",
         ],
       },
     ],
@@ -570,7 +570,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        loader: 'style-loader',
+        loader: "style-loader",
         options: {
           esModule: false,
         },
@@ -636,7 +636,7 @@ module.exports = {
 **index.js**
 
 ```js
-import { fooBaz, bar } from './styles.css';
+import { fooBaz, bar } from "./styles.css";
 
 console.log(fooBaz, bar);
 ```
@@ -656,7 +656,7 @@ module.exports = {
             loader: 'style-loader',
           },
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: {
               modules: {
                 namedExport: true,
@@ -684,8 +684,8 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [
-          'style-loader',
-          { loader: 'css-loader', options: { sourceMap: true } },
+          "style-loader",
+          { loader: "css-loader", options: { sourceMap: true } },
         ],
       },
     ],
@@ -707,7 +707,7 @@ There are two ways to work with `nonce`:
 **component.js**
 
 ```js
-import './style.css';
+import "./style.css";
 ```
 
 **webpack.config.js**
@@ -720,14 +720,14 @@ module.exports = {
         test: /\.css$/i,
         use: [
           {
-            loader: 'style-loader',
+            loader: "style-loader",
             options: {
               attributes: {
-                nonce: '12345678',
+                nonce: "12345678",
               },
             },
           },
-          'css-loader',
+          "css-loader",
         ],
       },
     ],
@@ -750,14 +750,14 @@ The loader generate:
 **create-nonce.js**
 
 ```js
-__webpack_nonce__ = '12345678';
+__webpack_nonce__ = "12345678";
 ```
 
 **component.js**
 
 ```js
-import './create-nonce.js';
-import './style.css';
+import "./create-nonce.js";
+import "./style.css";
 ```
 
 Alternative example for `require`:
@@ -765,9 +765,9 @@ Alternative example for `require`:
 **component.js**
 
 ```js
-__webpack_nonce__ = '12345678';
+__webpack_nonce__ = "12345678";
 
-require('./style.css');
+require("./style.css");
 ```
 
 **webpack.config.js**
@@ -778,7 +778,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
@@ -809,10 +809,10 @@ module.exports = {
         test: /\.css$/i,
         use: [
           {
-            loader: 'style-loader',
+            loader: "style-loader",
             options: {
               insert: function insertAtTop(element) {
-                var parent = document.querySelector('head');
+                var parent = document.querySelector("head");
                 var lastInsertedElement =
                   window._lastElementInsertedByStyleLoader;
 
@@ -828,7 +828,7 @@ module.exports = {
               },
             },
           },
-          'css-loader',
+          "css-loader",
         ],
       },
     ],
@@ -850,11 +850,11 @@ module.exports = {
         test: /\.css$/i,
         use: [
           {
-            loader: 'style-loader',
+            loader: "style-loader",
             options: {
               insert: function insertBeforeAt(element) {
-                const parent = document.querySelector('head');
-                const target = document.querySelector('#id');
+                const parent = document.querySelector("head");
+                const target = document.querySelector("#id");
 
                 const lastInsertedElement =
                   window._lastElementInsertedByStyleLoader;
@@ -871,7 +871,7 @@ module.exports = {
               },
             },
           },
-          'css-loader',
+          "css-loader",
         ],
       },
     ],

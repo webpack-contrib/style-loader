@@ -12,5 +12,5 @@
 
 .named-export-background {
   height: 1200px;
-  background: url('./logo.png') center no-repeat;
+  background: url("./logo.png") center no-repeat;
 }

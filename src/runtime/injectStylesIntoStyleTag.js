@@ -2,7 +2,7 @@ const isOldIE = (function isOldIE() {
   let memo;
 
   return function memorize() {
-    if (typeof memo === 'undefined') {
+    if (typeof memo === "undefined") {
       // Test for IE <= 9 as proposed by Browserhacks
       // @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
       // Tests for existence of standard globals is to allow style-loader
@@ -19,7 +19,7 @@ const getTarget = (function getTarget() {
   const memo = {};
 
   return function memorize(target) {
-    if (typeof memo[target] === 'undefined') {
+    if (typeof memo[target] === "undefined") {
       let styleTarget = document.querySelector(target);
 
       // Special case to return head of iframe instead of iframe itself
@@ -96,12 +96,12 @@ function modulesToDom(list, options) {
 }
 
 function insertStyleElement(options) {
-  const style = document.createElement('style');
+  const style = document.createElement("style");
   const attributes = options.attributes || {};
 
-  if (typeof attributes.nonce === 'undefined') {
+  if (typeof attributes.nonce === "undefined") {
     const nonce =
-      typeof __webpack_nonce__ !== 'undefined' ? __webpack_nonce__ : null;
+      typeof __webpack_nonce__ !== "undefined" ? __webpack_nonce__ : null;
 
     if (nonce) {
       attributes.nonce = nonce;
@@ -112,10 +112,10 @@ function insertStyleElement(options) {
     style.setAttribute(key, attributes[key]);
   });
 
-  if (typeof options.insert === 'function') {
+  if (typeof options.insert === "function") {
     options.insert(style);
   } else {
-    const target = getTarget(options.insert || 'head');
+    const target = getTarget(options.insert || "head");
 
     if (!target) {
       throw new Error(
@@ -145,13 +145,13 @@ const replaceText = (function replaceText() {
   return function replace(index, replacement) {
     textStore[index] = replacement;
 
-    return textStore.filter(Boolean).join('\n');
+    return textStore.filter(Boolean).join("\n");
   };
 })();
 
 function applyToSingletonTag(style, index, remove, obj) {
   const css = remove
-    ? ''
+    ? ""
     : obj.media
     ? `@media ${obj.media} {${obj.css}}`
     : obj.css;
@@ -182,12 +182,12 @@ function applyToTag(style, options, obj) {
   const sourceMap = obj.sourceMap;
 
   if (media) {
-    style.setAttribute('media', media);
+    style.setAttribute("media", media);
   } else {
-    style.removeAttribute('media');
+    style.removeAttribute("media");
   }
 
-  if (sourceMap && typeof btoa !== 'undefined') {
+  if (sourceMap && typeof btoa !== "undefined") {
     css += `\n/*# sourceMappingURL=data:application/json;base64,${btoa(
       unescape(encodeURIComponent(JSON.stringify(sourceMap)))
     )} */`;
@@ -254,7 +254,7 @@ module.exports = (list, options) => {
 
   // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
   // tags it will allow on a page
-  if (!options.singleton && typeof options.singleton !== 'boolean') {
+  if (!options.singleton && typeof options.singleton !== "boolean") {
     options.singleton = isOldIE();
   }
 
@@ -265,7 +265,7 @@ module.exports = (list, options) => {
   return function update(newList) {
     newList = newList || [];
 
-    if (Object.prototype.toString.call(newList) !== '[object Array]') {
+    if (Object.prototype.toString.call(newList) !== "[object Array]") {
       return;
     }
 
