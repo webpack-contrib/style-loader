@@ -797,3 +797,95 @@ exports[`"esModule" option should work with a value equal to "true" and when the
 exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "styleTag": errors 1`] = `Array []`;
 
 exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "styleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work with the "lazySingletonStyleTag" inject type: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+<div class=\\"KDvN8WTqb8V1KZHXZP-v\\">Water</div><div class=\\"_2ytpV86orKhgjYu_KpCdi _2SqzNMl3NVNNilgJp7bbug\\">Ground</div></body></html>"
+`;
+
+exports[`"esModule" option should work with the "lazySingletonStyleTag" inject type: errors 1`] = `Array []`;
+
+exports[`"esModule" option should work with the "lazySingletonStyleTag" inject type: warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work with the "lazyStyleTag" inject type: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+<div class=\\"KDvN8WTqb8V1KZHXZP-v\\">Water</div><div class=\\"_2ytpV86orKhgjYu_KpCdi _2SqzNMl3NVNNilgJp7bbug\\">Ground</div></body></html>"
+`;
+
+exports[`"esModule" option should work with the "lazyStyleTag" inject type: errors 1`] = `Array []`;
+
+exports[`"esModule" option should work with the "lazyStyleTag" inject type: warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work with the "singletonStyleTag" inject type: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>._2SqzNMl3NVNNilgJp7bbug {
+  background: red;
+}
+.KDvN8WTqb8V1KZHXZP-v {
+    background: red;
+}
+
+._2ytpV86orKhgjYu_KpCdi {
+    color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+<div class=\\"KDvN8WTqb8V1KZHXZP-v\\">Water</div><div class=\\"_2ytpV86orKhgjYu_KpCdi _2SqzNMl3NVNNilgJp7bbug\\">Ground</div></body></html>"
+`;
+
+exports[`"esModule" option should work with the "singletonStyleTag" inject type: errors 1`] = `Array []`;
+
+exports[`"esModule" option should work with the "singletonStyleTag" inject type: warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work with the "styleTag" inject type: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>._2SqzNMl3NVNNilgJp7bbug {
+  background: red;
+}
+</style><style>.KDvN8WTqb8V1KZHXZP-v {
+    background: red;
+}
+
+._2ytpV86orKhgjYu_KpCdi {
+    color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+<div class=\\"KDvN8WTqb8V1KZHXZP-v\\">Water</div><div class=\\"_2ytpV86orKhgjYu_KpCdi _2SqzNMl3NVNNilgJp7bbug\\">Ground</div></body></html>"
+`;
+
+exports[`"esModule" option should work with the "styleTag" inject type: errors 1`] = `Array []`;
+
+exports[`"esModule" option should work with the "styleTag" inject type: warnings 1`] = `Array []`;
