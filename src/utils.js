@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require("path");
 
 const matchRelativePath = /^\.\.?[/\\]/;
 
@@ -11,7 +11,7 @@ function isRelativePath(str) {
 }
 
 function stringifyRequest(loaderContext, request) {
-  const splitted = request.split('!');
+  const splitted = request.split("!");
   const { context } = loaderContext;
 
   return JSON.stringify(
@@ -19,7 +19,7 @@ function stringifyRequest(loaderContext, request) {
       .map((part) => {
         // First, separate singlePath from query, because the query might contain paths again
         const splittedPart = part.match(/^(.*?)(\?.*)/);
-        const query = splittedPart ? splittedPart[2] : '';
+        const query = splittedPart ? splittedPart[2] : "";
         let singlePath = splittedPart ? splittedPart[1] : part;
 
         if (isAbsolutePath(singlePath) && context) {
@@ -38,9 +38,9 @@ function stringifyRequest(loaderContext, request) {
           }
         }
 
-        return singlePath.replace(/\\/g, '/') + query;
+        return singlePath.replace(/\\/g, "/") + query;
       })
-      .join('!')
+      .join("!")
   );
 }
 
