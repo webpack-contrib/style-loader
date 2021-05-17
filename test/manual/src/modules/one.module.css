@@ -1,4 +1,4 @@
 .selector1 {
-  composes: common from './common.module.css';
+  composes: common from "./common.module.css";
   background-color: red;
 }

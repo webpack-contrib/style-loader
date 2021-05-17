@@ -7,17 +7,17 @@ class CustomSquare extends HTMLElement {
   // Specify observed attributes so that
   // attributeChangedCallback will work
   static get observedAttributes() {
-    return ['l'];
+    return ["l"];
   }
 
   constructor() {
     // Always call super first in constructor
     super();
 
-    this.attachShadow({ mode: 'open' });
+    this.attachShadow({ mode: "open" });
   }
   connectedCallback() {
-    const div = document.createElement('div');
+    const div = document.createElement("div");
 
     this.shadowRoot.appendChild(div);
 
@@ -25,14 +25,14 @@ class CustomSquare extends HTMLElement {
 
     bgPurple.replace(`div { 
     background: purple; 
-    width: ${this.getAttribute('l')}px;
-    height: ${this.getAttribute('l')}px;
+    width: ${this.getAttribute("l")}px;
+    height: ${this.getAttribute("l")}px;
 }`);
 
     this.shadowRoot.adoptedStyleSheets = [bgPurple];
   }
 }
 
-customElements.define('custom-square', CustomSquare);
+customElements.define("custom-square", CustomSquare);
 
 export default CustomSquare;

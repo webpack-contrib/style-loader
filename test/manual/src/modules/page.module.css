@@ -1,5 +1,5 @@
 .page-btn {
-  composes: selector1 from './one.module.css';
+  composes: selector1 from "./one.module.css";
 
   background: crimson;
 }
