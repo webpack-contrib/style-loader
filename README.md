@@ -61,14 +61,13 @@ module.exports = {
 
 ## Options
 
-|              Name               |         Type         |   Default   | Description                                              |
-| :-----------------------------: | :------------------: | :---------: | :------------------------------------------------------- |
-| [**`injectType`**](#injecttype) |      `{String}`      | `styleTag`  | Allows to setup how styles will be injected into the DOM |
-| [**`attributes`**](#attributes) |      `{Object}`      |    `{}`     | Adds custom attributes to tag                            |
-|     [**`insert`**](#insert)     | `{String\|Function}` |   `head`    | Inserts tag at the given position into the DOM           |
-|       [**`base`**](#base)       |      `{Number}`      |   `true`    | Sets module ID base (DLLPlugin)                          |
-|   [**`esModule`**](#esmodule)   |     `{Boolean}`      |   `true`    | Use ES modules syntax                                    |
-|    [**`modules`**](#modules)    |      `{Object}`      | `undefined` | Configuration CSS Modules                                |
+|              Name               |         Type         |  Default   | Description                                              |
+| :-----------------------------: | :------------------: | :--------: | :------------------------------------------------------- |
+| [**`injectType`**](#injecttype) |      `{String}`      | `styleTag` | Allows to setup how styles will be injected into the DOM |
+| [**`attributes`**](#attributes) |      `{Object}`      |    `{}`    | Adds custom attributes to tag                            |
+|     [**`insert`**](#insert)     | `{String\|Function}` |   `head`   | Inserts tag at the given position into the DOM           |
+|       [**`base`**](#base)       |      `{Number}`      |   `true`   | Sets module ID base (DLLPlugin)                          |
+|   [**`esModule`**](#esmodule)   |     `{Boolean}`      |   `true`   | Use ES modules syntax                                    |
 
 ### `injectType`
 
@@ -581,25 +580,47 @@ module.exports = {
 };
 ```
 
-### `modules`
+## Examples
 
-Type: `Object`
-Default: `undefined`
+### Recommend
 
-Configuration CSS Modules.
+For `production` builds it's recommended to extract the CSS from your bundle being able to use parallel loading of CSS/JS resources later on.
+This can be achieved by using the [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin), because it creates separate css files.
+For `development` mode (including `webpack-dev-server`) you can use `style-loader`, because it injects CSS into the DOM using multiple <style></style> and works faster.
 
-#### `namedExport`
+> i Do not use together `style-loader` and `mini-css-extract-plugin`.
 
-Type: `Boolean`
-Default: `false`
+**webpack.config.js**
 
-Enables/disables ES modules named export for locals.
+```js
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const devMode = process.env.NODE_ENV !== 'production';
+
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
+        ],
+      },
+    ],
+  },
+  plugins: [].concat(devMode ? [] : [new MiniCssExtractPlugin()]),
+};
+```
+
+### Named export for CSS Modules
 
 > ⚠ Names of locals are converted to `camelCase`.
 
 > ⚠ It is not allowed to use JavaScript reserved words in css class names.
 
-> ⚠ Options `esModule` and `modules.namedExport` in `css-loader` and `style-loader` should be enabled.
+> ⚠ Options `esModule` and `modules.namedExport` in `css-loader` should be enabled.
 
 **styles.css**
 
@@ -633,17 +654,10 @@ module.exports = {
         use: [
           {
             loader: 'style-loader',
-            options: {
-              esModule: true,
-              modules: {
-                namedExport: true,
-              },
-            },
           },
           {
             loader: 'css-loader',
             options: {
-              esModule: true,
               modules: {
                 namedExport: true,
               },
@@ -653,40 +667,6 @@ module.exports = {
       },
     ],
   },
-};
-```
-
-## Examples
-
-### Recommend
-
-For `production` builds it's recommended to extract the CSS from your bundle being able to use parallel loading of CSS/JS resources later on.
-This can be achieved by using the [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin), because it creates separate css files.
-For `development` mode (including `webpack-dev-server`) you can use `style-loader`, because it injects CSS into the DOM using multiple <style></style> and works faster.
-
-> i Do not use together `style-loader` and `mini-css-extract-plugin`.
-
-**webpack.config.js**
-
-```js
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const devMode = process.env.NODE_ENV !== 'production';
-
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.(sa|sc|c)ss$/,
-        use: [
-          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-          'css-loader',
-          'postcss-loader',
-          'sass-loader',
-        ],
-      },
-    ],
-  },
-  plugins: [].concat(devMode ? [] : [new MiniCssExtractPlugin()]),
 };
 ```
 

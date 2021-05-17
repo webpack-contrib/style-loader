@@ -175,9 +175,6 @@ module.exports = {
             loader: require.resolve('../../dist/cjs.js'),
             options: {
               esModule: true,
-              modules: {
-                namedExport: true,
-              },
             },
           },
           {
@@ -200,9 +197,6 @@ module.exports = {
             options: {
               injectType: 'lazyStyleTag',
               esModule: true,
-              modules: {
-                namedExport: true,
-              },
             },
           },
           {
