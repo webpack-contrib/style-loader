@@ -1,10 +1,5 @@
 import defaultImport, * as allImports from './es-modules.css';
 
-window.__cssExports = {
-  defaultImport,
-  allImports
-}
-
 const node1 = document.createElement("DIV");
 
 const textNode1 = document.createTextNode(`
