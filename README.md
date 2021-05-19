@@ -658,7 +658,7 @@ module.exports = {
 
 ## Examples
 
-### Recommended use case
+### Recommend
 
 For `production` mode you can use `mini-css-extract-plugin`, because it creates separate css files.
 For `development` mode (including `webpack-dev-server`) you can use `style-loader`, because it injects CSS into the DOM using multiple <style></style> and works faster.
@@ -671,15 +671,7 @@ For `development` mode (including `webpack-dev-server`) you can use `style-loade
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const devMode = process.env.NODE_ENV !== 'production';
 
-const plugins = [];
-
-if (!devMode) {
-  // enable in production only
-  plugins.push(new MiniCssExtractPlugin());
-}
-
 module.exports = {
-  plugins,
   module: {
     rules: [
       {
@@ -693,6 +685,7 @@ module.exports = {
       },
     ],
   },
+  plugins: [].concat(devMode ? [] : [new MiniCssExtractPlugin()]),
 };
 ```
 
