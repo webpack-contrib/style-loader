@@ -658,6 +658,44 @@ module.exports = {
 
 ## Examples
 
+### Recommended use case
+
+For `production` mode you can use `mini-css-extract-plugin`, because it creates separate css files.
+For `development` mode (including `webpack-dev-server`) you can use `style-loader`, because it injects CSS into the DOM using multiple <style></style> and works faster.
+
+> i Do not use together `style-loader` and `mini-css-extract-plugin`.
+
+**webpack.config.js**
+
+```js
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const devMode = process.env.NODE_ENV !== 'production';
+
+const plugins = [];
+
+if (!devMode) {
+  // enable in production only
+  plugins.push(new MiniCssExtractPlugin());
+}
+
+module.exports = {
+  plugins,
+  module: {
+    rules: [
+      {
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
+        ],
+      },
+    ],
+  },
+};
+```
+
 ### Source maps
 
 The loader automatically inject source maps when previous loader emit them.
