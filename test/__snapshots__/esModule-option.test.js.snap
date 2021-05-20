@@ -132,6 +132,46 @@ exports[`"esModule" option should work when modules enabled and when the "inject
 
 exports[`"esModule" option should work when modules enabled and when the "injectType" option is "lazySingletonStyleTag" and namedExport is "false": warnings 1`] = `Array []`;
 
+exports[`"esModule" option should work when modules enabled and when the "injectType" option is "lazySingletonStyleTag" and namedExport is "true" and exportOnlyLocals in css-loader enabled: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+<div>
+EXPORTED defaultImport:
+============================
+{}
+============================
+
+EXPORTED allImports:
+============================
+{
+	\\"bar\\": \\"_3TzX9kdhbEM9NjFT_lLbK_\\",
+	\\"baz\\": \\"_2zHxuubfFrOL9GmW-Gbppt\\",
+	\\"foo\\": \\"EwkYfSlfnYBz8E2xTBZva\\",
+	\\"default\\": {}
+}
+============================
+</div></body></html>"
+`;
+
+exports[`"esModule" option should work when modules enabled and when the "injectType" option is "lazySingletonStyleTag" and namedExport is "true" and exportOnlyLocals in css-loader enabled: errors 1`] = `Array []`;
+
+exports[`"esModule" option should work when modules enabled and when the "injectType" option is "lazySingletonStyleTag" and namedExport is "true" and exportOnlyLocals in css-loader enabled: warnings 1`] = `
+Array [
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+]
+`;
+
 exports[`"esModule" option should work when modules enabled and when the "injectType" option is "lazySingletonStyleTag" and namedExport is "true": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
@@ -206,6 +246,46 @@ EXPORTED allImports:
 exports[`"esModule" option should work when modules enabled and when the "injectType" option is "lazyStyleTag" and namedExport is "false": errors 1`] = `Array []`;
 
 exports[`"esModule" option should work when modules enabled and when the "injectType" option is "lazyStyleTag" and namedExport is "false": warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work when modules enabled and when the "injectType" option is "lazyStyleTag" and namedExport is "true" and exportOnlyLocals in css-loader enabled: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+<div>
+EXPORTED defaultImport:
+============================
+{}
+============================
+
+EXPORTED allImports:
+============================
+{
+	\\"bar\\": \\"_3TzX9kdhbEM9NjFT_lLbK_\\",
+	\\"baz\\": \\"_2zHxuubfFrOL9GmW-Gbppt\\",
+	\\"foo\\": \\"EwkYfSlfnYBz8E2xTBZva\\",
+	\\"default\\": {}
+}
+============================
+</div></body></html>"
+`;
+
+exports[`"esModule" option should work when modules enabled and when the "injectType" option is "lazyStyleTag" and namedExport is "true" and exportOnlyLocals in css-loader enabled: errors 1`] = `Array []`;
+
+exports[`"esModule" option should work when modules enabled and when the "injectType" option is "lazyStyleTag" and namedExport is "true" and exportOnlyLocals in css-loader enabled: warnings 1`] = `
+Array [
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+]
+`;
 
 exports[`"esModule" option should work when modules enabled and when the "injectType" option is "lazyStyleTag" and namedExport is "true": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -288,6 +368,45 @@ EXPORTED allImports:
 exports[`"esModule" option should work when modules enabled and when the "injectType" option is "singletonStyleTag" and namedExport is "false": errors 1`] = `Array []`;
 
 exports[`"esModule" option should work when modules enabled and when the "injectType" option is "singletonStyleTag" and namedExport is "false": warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work when modules enabled and when the "injectType" option is "singletonStyleTag" and namedExport is "true" and exportOnlyLocals in css-loader enabled: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+<div>
+EXPORTED defaultImport:
+============================
+{}
+============================
+
+EXPORTED allImports:
+============================
+{
+	\\"bar\\": \\"_3TzX9kdhbEM9NjFT_lLbK_\\",
+	\\"baz\\": \\"_2zHxuubfFrOL9GmW-Gbppt\\",
+	\\"foo\\": \\"EwkYfSlfnYBz8E2xTBZva\\",
+	\\"default\\": {}
+}
+============================
+</div></body></html>"
+`;
+
+exports[`"esModule" option should work when modules enabled and when the "injectType" option is "singletonStyleTag" and namedExport is "true" and exportOnlyLocals in css-loader enabled: errors 1`] = `Array []`;
+
+exports[`"esModule" option should work when modules enabled and when the "injectType" option is "singletonStyleTag" and namedExport is "true" and exportOnlyLocals in css-loader enabled: warnings 1`] = `
+Array [
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+]
+`;
 
 exports[`"esModule" option should work when modules enabled and when the "injectType" option is "singletonStyleTag" and namedExport is "true": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -381,6 +500,45 @@ EXPORTED allImports:
 exports[`"esModule" option should work when modules enabled and when the "injectType" option is "styleTag" and namedExport is "false": errors 1`] = `Array []`;
 
 exports[`"esModule" option should work when modules enabled and when the "injectType" option is "styleTag" and namedExport is "false": warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work when modules enabled and when the "injectType" option is "styleTag" and namedExport is "true" and exportOnlyLocals in css-loader enabled: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+<div>
+EXPORTED defaultImport:
+============================
+{}
+============================
+
+EXPORTED allImports:
+============================
+{
+	\\"bar\\": \\"_3TzX9kdhbEM9NjFT_lLbK_\\",
+	\\"baz\\": \\"_2zHxuubfFrOL9GmW-Gbppt\\",
+	\\"foo\\": \\"EwkYfSlfnYBz8E2xTBZva\\",
+	\\"default\\": {}
+}
+============================
+</div></body></html>"
+`;
+
+exports[`"esModule" option should work when modules enabled and when the "injectType" option is "styleTag" and namedExport is "true" and exportOnlyLocals in css-loader enabled: errors 1`] = `Array []`;
+
+exports[`"esModule" option should work when modules enabled and when the "injectType" option is "styleTag" and namedExport is "true" and exportOnlyLocals in css-loader enabled: warnings 1`] = `
+Array [
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+]
+`;
 
 exports[`"esModule" option should work when modules enabled and when the "injectType" option is "styleTag" and namedExport is "true": DOM 1`] = `
 "<!DOCTYPE html><html><head>
