@@ -2552,6 +2552,246 @@ Object {
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
 
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
+Object {
+  "default": Object {},
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
+Object {
+  "default": Object {},
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "linkTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "linkTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "linkTag": exports 1`] = `
+Object {
+  "default": Object {},
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "linkTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "singletonStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "singletonStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "singletonStyleTag": exports 1`] = `
+Object {
+  "default": Object {},
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "singletonStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": exports 1`] = `
+Object {
+  "default": Object {},
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
+Object {
+  "default": Object {},
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
+Object {
+  "default": Object {},
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "linkTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "linkTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "linkTag": exports 1`] = `
+Object {
+  "default": Object {},
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "linkTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "singletonStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "singletonStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "singletonStyleTag": exports 1`] = `
+Object {
+  "default": Object {},
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "singletonStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": exports 1`] = `
+Object {
+  "default": Object {},
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
+
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
@@ -2911,6 +3151,318 @@ Object {
 `;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
+Object {
+  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "default": Object {},
+  "foo": "EwkYfSlfnYBz8E2xTBZva",
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": warnings 1`] = `
+Array [
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+]
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
+Object {
+  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "default": Object {},
+  "foo": "EwkYfSlfnYBz8E2xTBZva",
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": warnings 1`] = `
+Array [
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+]
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "linkTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "linkTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "linkTag": exports 1`] = `
+Object {
+  "default": Object {},
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "linkTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "singletonStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "singletonStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "singletonStyleTag": exports 1`] = `
+Object {
+  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "default": Object {},
+  "foo": "EwkYfSlfnYBz8E2xTBZva",
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "singletonStyleTag": warnings 1`] = `
+Array [
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+]
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": exports 1`] = `
+Object {
+  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "default": Object {},
+  "foo": "EwkYfSlfnYBz8E2xTBZva",
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": warnings 1`] = `
+Array [
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+]
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
+Object {
+  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "default": Object {},
+  "foo": "EwkYfSlfnYBz8E2xTBZva",
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": warnings 1`] = `
+Array [
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+]
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
+Object {
+  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "default": Object {},
+  "foo": "EwkYfSlfnYBz8E2xTBZva",
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": warnings 1`] = `
+Array [
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+]
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "linkTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "linkTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "linkTag": exports 1`] = `
+Object {
+  "default": Object {},
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "linkTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "singletonStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "singletonStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "singletonStyleTag": exports 1`] = `
+Object {
+  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "default": Object {},
+  "foo": "EwkYfSlfnYBz8E2xTBZva",
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "singletonStyleTag": warnings 1`] = `
+Array [
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+]
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": exports 1`] = `
+Object {
+  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "default": Object {},
+  "foo": "EwkYfSlfnYBz8E2xTBZva",
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": warnings 1`] = `
+Array [
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+]
+`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
