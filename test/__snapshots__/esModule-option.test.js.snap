@@ -1,86 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`"esModule" option should work and when the "injectType" option is "linkTag" and CommonJS module syntax used in "css-loader": DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work and when the "injectType" option is "linkTag" and CommonJS module syntax used in "css-loader": errors 1`] = `Array []`;
-
-exports[`"esModule" option should work and when the "injectType" option is "linkTag" and CommonJS module syntax used in "css-loader": warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work and when the "injectType" option is "linkTag" and CommonJS module syntax: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTS:
-============================
-{}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work and when the "injectType" option is "linkTag" and CommonJS module syntax: errors 1`] = `Array []`;
-
-exports[`"esModule" option should work and when the "injectType" option is "linkTag" and CommonJS module syntax: warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work and when the "injectType" option is "linkTag" and ES module syntax used: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work and when the "injectType" option is "linkTag" and ES module syntax used: errors 1`] = `Array []`;
-
-exports[`"esModule" option should work and when the "injectType" option is "linkTag" and ES module syntax used: warnings 1`] = `Array []`;
-
 exports[`"esModule" option should work and when the "injectType" option is "linkTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
@@ -93,11 +12,8 @@ exports[`"esModule" option should work and when the "injectType" option is "link
 
 
 <div>
-EXPORTED defaultImport:
 ============================
-{}
-============================
-EXPORTED allImports:
+EXPORTS:
 ============================
 {
 	\\"default\\": {}
@@ -110,402 +26,7 @@ exports[`"esModule" option should work and when the "injectType" option is "link
 
 exports[`"esModule" option should work and when the "injectType" option is "linkTag": warnings 1`] = `Array []`;
 
-exports[`"esModule" option should work when modules enabled and when the "injectType" option is "lazySingletonStyleTag" and namedExport is "false": DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-</head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{
-	\\"locals\\": {
-		\\"foo\\": \\"EwkYfSlfnYBz8E2xTBZva\\",
-		\\"bar\\": \\"_3TzX9kdhbEM9NjFT_lLbK_\\",
-		\\"baz\\": \\"_2zHxuubfFrOL9GmW-Gbppt\\"
-	}
-}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"default\\": {
-		\\"locals\\": {
-			\\"foo\\": \\"EwkYfSlfnYBz8E2xTBZva\\",
-			\\"bar\\": \\"_3TzX9kdhbEM9NjFT_lLbK_\\",
-			\\"baz\\": \\"_2zHxuubfFrOL9GmW-Gbppt\\"
-		}
-	}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work when modules enabled and when the "injectType" option is "lazySingletonStyleTag" and namedExport is "false": errors 1`] = `Array []`;
-
-exports[`"esModule" option should work when modules enabled and when the "injectType" option is "lazySingletonStyleTag" and namedExport is "false": warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work when modules enabled and when the "injectType" option is "lazySingletonStyleTag" and namedExport is "true": DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-</head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"bar\\": \\"_3TzX9kdhbEM9NjFT_lLbK_\\",
-	\\"baz\\": \\"_2zHxuubfFrOL9GmW-Gbppt\\",
-	\\"foo\\": \\"EwkYfSlfnYBz8E2xTBZva\\",
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work when modules enabled and when the "injectType" option is "lazySingletonStyleTag" and namedExport is "true": errors 1`] = `Array []`;
-
-exports[`"esModule" option should work when modules enabled and when the "injectType" option is "lazySingletonStyleTag" and namedExport is "true": warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work when modules enabled and when the "injectType" option is "lazyStyleTag" and namedExport is "false": DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-</head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{
-	\\"locals\\": {
-		\\"foo\\": \\"EwkYfSlfnYBz8E2xTBZva\\",
-		\\"bar\\": \\"_3TzX9kdhbEM9NjFT_lLbK_\\",
-		\\"baz\\": \\"_2zHxuubfFrOL9GmW-Gbppt\\"
-	}
-}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"default\\": {
-		\\"locals\\": {
-			\\"foo\\": \\"EwkYfSlfnYBz8E2xTBZva\\",
-			\\"bar\\": \\"_3TzX9kdhbEM9NjFT_lLbK_\\",
-			\\"baz\\": \\"_2zHxuubfFrOL9GmW-Gbppt\\"
-		}
-	}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work when modules enabled and when the "injectType" option is "lazyStyleTag" and namedExport is "false": errors 1`] = `Array []`;
-
-exports[`"esModule" option should work when modules enabled and when the "injectType" option is "lazyStyleTag" and namedExport is "false": warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work when modules enabled and when the "injectType" option is "lazyStyleTag" and namedExport is "true": DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-</head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"bar\\": \\"_3TzX9kdhbEM9NjFT_lLbK_\\",
-	\\"baz\\": \\"_2zHxuubfFrOL9GmW-Gbppt\\",
-	\\"foo\\": \\"EwkYfSlfnYBz8E2xTBZva\\",
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work when modules enabled and when the "injectType" option is "lazyStyleTag" and namedExport is "true": errors 1`] = `Array []`;
-
-exports[`"esModule" option should work when modules enabled and when the "injectType" option is "lazyStyleTag" and namedExport is "true": warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work when modules enabled and when the "injectType" option is "singletonStyleTag" and namedExport is "false": DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{
-	\\"foo\\": \\"EwkYfSlfnYBz8E2xTBZva\\",
-	\\"bar\\": \\"_3TzX9kdhbEM9NjFT_lLbK_\\",
-	\\"baz\\": \\"_2zHxuubfFrOL9GmW-Gbppt\\"
-}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"default\\": {
-		\\"foo\\": \\"EwkYfSlfnYBz8E2xTBZva\\",
-		\\"bar\\": \\"_3TzX9kdhbEM9NjFT_lLbK_\\",
-		\\"baz\\": \\"_2zHxuubfFrOL9GmW-Gbppt\\"
-	}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work when modules enabled and when the "injectType" option is "singletonStyleTag" and namedExport is "false": errors 1`] = `Array []`;
-
-exports[`"esModule" option should work when modules enabled and when the "injectType" option is "singletonStyleTag" and namedExport is "false": warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work when modules enabled and when the "injectType" option is "singletonStyleTag" and namedExport is "true": DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"bar\\": \\"_3TzX9kdhbEM9NjFT_lLbK_\\",
-	\\"baz\\": \\"_2zHxuubfFrOL9GmW-Gbppt\\",
-	\\"foo\\": \\"EwkYfSlfnYBz8E2xTBZva\\",
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work when modules enabled and when the "injectType" option is "singletonStyleTag" and namedExport is "true": errors 1`] = `Array []`;
-
-exports[`"esModule" option should work when modules enabled and when the "injectType" option is "singletonStyleTag" and namedExport is "true": warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work when modules enabled and when the "injectType" option is "styleTag" and namedExport is "false": DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{
-	\\"foo\\": \\"EwkYfSlfnYBz8E2xTBZva\\",
-	\\"bar\\": \\"_3TzX9kdhbEM9NjFT_lLbK_\\",
-	\\"baz\\": \\"_2zHxuubfFrOL9GmW-Gbppt\\"
-}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"default\\": {
-		\\"foo\\": \\"EwkYfSlfnYBz8E2xTBZva\\",
-		\\"bar\\": \\"_3TzX9kdhbEM9NjFT_lLbK_\\",
-		\\"baz\\": \\"_2zHxuubfFrOL9GmW-Gbppt\\"
-	}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work when modules enabled and when the "injectType" option is "styleTag" and namedExport is "false": errors 1`] = `Array []`;
-
-exports[`"esModule" option should work when modules enabled and when the "injectType" option is "styleTag" and namedExport is "false": warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work when modules enabled and when the "injectType" option is "styleTag" and namedExport is "true": DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"bar\\": \\"_3TzX9kdhbEM9NjFT_lLbK_\\",
-	\\"baz\\": \\"_2zHxuubfFrOL9GmW-Gbppt\\",
-	\\"foo\\": \\"EwkYfSlfnYBz8E2xTBZva\\",
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work when modules enabled and when the "injectType" option is "styleTag" and namedExport is "true": errors 1`] = `Array []`;
-
-exports[`"esModule" option should work when modules enabled and when the "injectType" option is "styleTag" and namedExport is "true": warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "lazySingletonStyleTag" and CommonJS module syntax used in "css-loader": DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"0\\": [
-		\\"../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css\\",
-		\\".foo {\\\\n    color: red;\\\\n}\\\\n\\\\n.bar {\\\\n    color: blue;\\\\n}\\\\n\\\\n.baz {\\\\n    color: coral;\\\\n}\\\\n\\",
-		\\"\\"
-	],
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "lazySingletonStyleTag" and CommonJS module syntax used in "css-loader": errors 1`] = `Array []`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "lazySingletonStyleTag" and CommonJS module syntax used in "css-loader": warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "lazySingletonStyleTag" and CommonJS module syntax: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-</head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-</body></html>"
-`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "lazySingletonStyleTag" and CommonJS module syntax: errors 1`] = `
-Array [
-  "ModuleNotFoundError: Module not found: Error: Can't resolve '/test/fixtures/lazy-commonjs-modules.js' in '/test/fixtures'",
-]
-`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "lazySingletonStyleTag" and CommonJS module syntax: warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "lazySingletonStyleTag" and ES module syntax used: DOM 1`] = `
+exports[`"esModule" option should work when modules enabled and when the "injectType" option is "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
@@ -541,9 +62,123 @@ EXPORTED allImports:
 </div></body></html>"
 `;
 
-exports[`"esModule" option should work when not specified and when the "injectType" option is "lazySingletonStyleTag" and ES module syntax used: errors 1`] = `Array []`;
+exports[`"esModule" option should work when modules enabled and when the "injectType" option is "lazySingletonStyleTag": errors 1`] = `Array []`;
 
-exports[`"esModule" option should work when not specified and when the "injectType" option is "lazySingletonStyleTag" and ES module syntax used: warnings 1`] = `Array []`;
+exports[`"esModule" option should work when modules enabled and when the "injectType" option is "lazySingletonStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work when modules enabled and when the "injectType" option is "lazyStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.foo {
+    color: red;
+}
+
+.bar {
+    color: blue;
+}
+
+.baz {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+<div>
+EXPORTED defaultImport:
+============================
+{}
+============================
+EXPORTED allImports:
+============================
+{
+	\\"default\\": {}
+}
+============================
+</div></body></html>"
+`;
+
+exports[`"esModule" option should work when modules enabled and when the "injectType" option is "lazyStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option should work when modules enabled and when the "injectType" option is "lazyStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work when modules enabled and when the "injectType" option is "singletonStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.foo {
+    color: red;
+}
+
+.bar {
+    color: blue;
+}
+
+.baz {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+<div>
+============================
+EXPORTS:
+============================
+{
+	\\"default\\": {}
+}
+============================
+</div></body></html>"
+`;
+
+exports[`"esModule" option should work when modules enabled and when the "injectType" option is "singletonStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option should work when modules enabled and when the "injectType" option is "singletonStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option should work when modules enabled and when the "injectType" option is "styleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.foo {
+    color: red;
+}
+
+.bar {
+    color: blue;
+}
+
+.baz {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+<div>
+============================
+EXPORTS:
+============================
+{
+	\\"default\\": {}
+}
+============================
+</div></body></html>"
+`;
+
+exports[`"esModule" option should work when modules enabled and when the "injectType" option is "styleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option should work when modules enabled and when the "injectType" option is "styleTag": warnings 1`] = `Array []`;
 
 exports[`"esModule" option should work when not specified and when the "injectType" option is "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -585,113 +220,6 @@ exports[`"esModule" option should work when not specified and when the "injectTy
 
 exports[`"esModule" option should work when not specified and when the "injectType" option is "lazySingletonStyleTag": warnings 1`] = `Array []`;
 
-exports[`"esModule" option should work when not specified and when the "injectType" option is "lazyStyleTag" and CommonJS module syntax used in "css-loader": DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"0\\": [
-		\\"../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css\\",
-		\\".foo {\\\\n    color: red;\\\\n}\\\\n\\\\n.bar {\\\\n    color: blue;\\\\n}\\\\n\\\\n.baz {\\\\n    color: coral;\\\\n}\\\\n\\",
-		\\"\\"
-	],
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "lazyStyleTag" and CommonJS module syntax used in "css-loader": errors 1`] = `Array []`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "lazyStyleTag" and CommonJS module syntax used in "css-loader": warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "lazyStyleTag" and CommonJS module syntax: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-</head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-</body></html>"
-`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "lazyStyleTag" and CommonJS module syntax: errors 1`] = `
-Array [
-  "ModuleNotFoundError: Module not found: Error: Can't resolve '/test/fixtures/lazy-commonjs-modules.js' in '/test/fixtures'",
-]
-`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "lazyStyleTag" and CommonJS module syntax: warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "lazyStyleTag" and ES module syntax used: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "lazyStyleTag" and ES module syntax used: errors 1`] = `Array []`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "lazyStyleTag" and ES module syntax used: warnings 1`] = `Array []`;
-
 exports[`"esModule" option should work when not specified and when the "injectType" option is "lazyStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
@@ -732,87 +260,6 @@ exports[`"esModule" option should work when not specified and when the "injectTy
 
 exports[`"esModule" option should work when not specified and when the "injectType" option is "lazyStyleTag": warnings 1`] = `Array []`;
 
-exports[`"esModule" option should work when not specified and when the "injectType" option is "linkTag" and CommonJS module syntax used in "css-loader": DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "linkTag" and CommonJS module syntax used in "css-loader": errors 1`] = `Array []`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "linkTag" and CommonJS module syntax used in "css-loader": warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "linkTag" and CommonJS module syntax: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTS:
-============================
-{}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "linkTag" and CommonJS module syntax: errors 1`] = `Array []`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "linkTag" and CommonJS module syntax: warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "linkTag" and ES module syntax used: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "linkTag" and ES module syntax used: errors 1`] = `Array []`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "linkTag" and ES module syntax used: warnings 1`] = `Array []`;
-
 exports[`"esModule" option should work when not specified and when the "injectType" option is "linkTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
@@ -825,11 +272,8 @@ exports[`"esModule" option should work when not specified and when the "injectTy
 
 
 <div>
-EXPORTED defaultImport:
 ============================
-{}
-============================
-EXPORTED allImports:
+EXPORTS:
 ============================
 {
 	\\"default\\": {}
@@ -841,125 +285,6 @@ EXPORTED allImports:
 exports[`"esModule" option should work when not specified and when the "injectType" option is "linkTag": errors 1`] = `Array []`;
 
 exports[`"esModule" option should work when not specified and when the "injectType" option is "linkTag": warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "singletonStyleTag" and CommonJS module syntax used in "css-loader": DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"0\\": [
-		\\"../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css\\",
-		\\".foo {\\\\n    color: red;\\\\n}\\\\n\\\\n.bar {\\\\n    color: blue;\\\\n}\\\\n\\\\n.baz {\\\\n    color: coral;\\\\n}\\\\n\\",
-		\\"\\"
-	],
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "singletonStyleTag" and CommonJS module syntax used in "css-loader": errors 1`] = `Array []`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "singletonStyleTag" and CommonJS module syntax used in "css-loader": warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "singletonStyleTag" and CommonJS module syntax: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTS:
-============================
-{}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "singletonStyleTag" and CommonJS module syntax: errors 1`] = `Array []`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "singletonStyleTag" and CommonJS module syntax: warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "singletonStyleTag" and ES module syntax used: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "singletonStyleTag" and ES module syntax used: errors 1`] = `Array []`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "singletonStyleTag" and ES module syntax used: warnings 1`] = `Array []`;
 
 exports[`"esModule" option should work when not specified and when the "injectType" option is "singletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -984,11 +309,8 @@ exports[`"esModule" option should work when not specified and when the "injectTy
 
 
 <div>
-EXPORTED defaultImport:
 ============================
-{}
-============================
-EXPORTED allImports:
+EXPORTS:
 ============================
 {
 	\\"default\\": {}
@@ -1000,125 +322,6 @@ EXPORTED allImports:
 exports[`"esModule" option should work when not specified and when the "injectType" option is "singletonStyleTag": errors 1`] = `Array []`;
 
 exports[`"esModule" option should work when not specified and when the "injectType" option is "singletonStyleTag": warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "styleTag" and CommonJS module syntax used in "css-loader": DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"0\\": [
-		\\"../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css\\",
-		\\".foo {\\\\n    color: red;\\\\n}\\\\n\\\\n.bar {\\\\n    color: blue;\\\\n}\\\\n\\\\n.baz {\\\\n    color: coral;\\\\n}\\\\n\\",
-		\\"\\"
-	],
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "styleTag" and CommonJS module syntax used in "css-loader": errors 1`] = `Array []`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "styleTag" and CommonJS module syntax used in "css-loader": warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "styleTag" and CommonJS module syntax: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTS:
-============================
-{}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "styleTag" and CommonJS module syntax: errors 1`] = `Array []`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "styleTag" and CommonJS module syntax: warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "styleTag" and ES module syntax used: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "styleTag" and ES module syntax used: errors 1`] = `Array []`;
-
-exports[`"esModule" option should work when not specified and when the "injectType" option is "styleTag" and ES module syntax used: warnings 1`] = `Array []`;
 
 exports[`"esModule" option should work when not specified and when the "injectType" option is "styleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -1143,11 +346,8 @@ exports[`"esModule" option should work when not specified and when the "injectTy
 
 
 <div>
-EXPORTED defaultImport:
 ============================
-{}
-============================
-EXPORTED allImports:
+EXPORTS:
 ============================
 {
 	\\"default\\": {}
@@ -1159,113 +359,6 @@ EXPORTED allImports:
 exports[`"esModule" option should work when not specified and when the "injectType" option is "styleTag": errors 1`] = `Array []`;
 
 exports[`"esModule" option should work when not specified and when the "injectType" option is "styleTag": warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazySingletonStyleTag" and CommonJS module syntax used in "css-loader": DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"0\\": [
-		\\"../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css\\",
-		\\".foo {\\\\n    color: red;\\\\n}\\\\n\\\\n.bar {\\\\n    color: blue;\\\\n}\\\\n\\\\n.baz {\\\\n    color: coral;\\\\n}\\\\n\\",
-		\\"\\"
-	],
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazySingletonStyleTag" and CommonJS module syntax used in "css-loader": errors 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazySingletonStyleTag" and CommonJS module syntax used in "css-loader": warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazySingletonStyleTag" and CommonJS module syntax: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-</head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-</body></html>"
-`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazySingletonStyleTag" and CommonJS module syntax: errors 1`] = `
-Array [
-  "ModuleNotFoundError: Module not found: Error: Can't resolve '/test/fixtures/lazy-commonjs-modules.js' in '/test/fixtures'",
-]
-`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazySingletonStyleTag" and CommonJS module syntax: warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazySingletonStyleTag" and ES module syntax used: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazySingletonStyleTag" and ES module syntax used: errors 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazySingletonStyleTag" and ES module syntax used: warnings 1`] = `Array []`;
 
 exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -1307,113 +400,6 @@ exports[`"esModule" option should work with a value equal to "false" and when th
 
 exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazySingletonStyleTag": warnings 1`] = `Array []`;
 
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazyStyleTag" and CommonJS module syntax used in "css-loader": DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"0\\": [
-		\\"../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css\\",
-		\\".foo {\\\\n    color: red;\\\\n}\\\\n\\\\n.bar {\\\\n    color: blue;\\\\n}\\\\n\\\\n.baz {\\\\n    color: coral;\\\\n}\\\\n\\",
-		\\"\\"
-	],
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazyStyleTag" and CommonJS module syntax used in "css-loader": errors 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazyStyleTag" and CommonJS module syntax used in "css-loader": warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazyStyleTag" and CommonJS module syntax: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-</head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-</body></html>"
-`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazyStyleTag" and CommonJS module syntax: errors 1`] = `
-Array [
-  "ModuleNotFoundError: Module not found: Error: Can't resolve '/test/fixtures/lazy-commonjs-modules.js' in '/test/fixtures'",
-]
-`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazyStyleTag" and CommonJS module syntax: warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazyStyleTag" and ES module syntax used: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazyStyleTag" and ES module syntax used: errors 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazyStyleTag" and ES module syntax used: warnings 1`] = `Array []`;
-
 exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazyStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
@@ -1454,87 +440,6 @@ exports[`"esModule" option should work with a value equal to "false" and when th
 
 exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "lazyStyleTag": warnings 1`] = `Array []`;
 
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "linkTag" and CommonJS module syntax used in "css-loader": DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "linkTag" and CommonJS module syntax used in "css-loader": errors 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "linkTag" and CommonJS module syntax used in "css-loader": warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "linkTag" and CommonJS module syntax: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTS:
-============================
-{}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "linkTag" and CommonJS module syntax: errors 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "linkTag" and CommonJS module syntax: warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "linkTag" and ES module syntax used: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "linkTag" and ES module syntax used: errors 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "linkTag" and ES module syntax used: warnings 1`] = `Array []`;
-
 exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "linkTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
@@ -1547,11 +452,8 @@ exports[`"esModule" option should work with a value equal to "false" and when th
 
 
 <div>
-EXPORTED defaultImport:
 ============================
-{}
-============================
-EXPORTED allImports:
+EXPORTS:
 ============================
 {
 	\\"default\\": {}
@@ -1563,125 +465,6 @@ EXPORTED allImports:
 exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "linkTag": errors 1`] = `Array []`;
 
 exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "linkTag": warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "singletonStyleTag" and CommonJS module syntax used in "css-loader": DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"0\\": [
-		\\"../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css\\",
-		\\".foo {\\\\n    color: red;\\\\n}\\\\n\\\\n.bar {\\\\n    color: blue;\\\\n}\\\\n\\\\n.baz {\\\\n    color: coral;\\\\n}\\\\n\\",
-		\\"\\"
-	],
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "singletonStyleTag" and CommonJS module syntax used in "css-loader": errors 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "singletonStyleTag" and CommonJS module syntax used in "css-loader": warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "singletonStyleTag" and CommonJS module syntax: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTS:
-============================
-{}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "singletonStyleTag" and CommonJS module syntax: errors 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "singletonStyleTag" and CommonJS module syntax: warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "singletonStyleTag" and ES module syntax used: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "singletonStyleTag" and ES module syntax used: errors 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "singletonStyleTag" and ES module syntax used: warnings 1`] = `Array []`;
 
 exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "singletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -1706,11 +489,8 @@ exports[`"esModule" option should work with a value equal to "false" and when th
 
 
 <div>
-EXPORTED defaultImport:
 ============================
-{}
-============================
-EXPORTED allImports:
+EXPORTS:
 ============================
 {
 	\\"default\\": {}
@@ -1722,125 +502,6 @@ EXPORTED allImports:
 exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "singletonStyleTag": errors 1`] = `Array []`;
 
 exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "singletonStyleTag": warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "styleTag" and CommonJS module syntax used in "css-loader": DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"0\\": [
-		\\"../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css\\",
-		\\".foo {\\\\n    color: red;\\\\n}\\\\n\\\\n.bar {\\\\n    color: blue;\\\\n}\\\\n\\\\n.baz {\\\\n    color: coral;\\\\n}\\\\n\\",
-		\\"\\"
-	],
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "styleTag" and CommonJS module syntax used in "css-loader": errors 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "styleTag" and CommonJS module syntax used in "css-loader": warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "styleTag" and CommonJS module syntax: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTS:
-============================
-{}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "styleTag" and CommonJS module syntax: errors 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "styleTag" and CommonJS module syntax: warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "styleTag" and ES module syntax used: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "styleTag" and ES module syntax used: errors 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "styleTag" and ES module syntax used: warnings 1`] = `Array []`;
 
 exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "styleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -1865,11 +526,8 @@ exports[`"esModule" option should work with a value equal to "false" and when th
 
 
 <div>
-EXPORTED defaultImport:
 ============================
-{}
-============================
-EXPORTED allImports:
+EXPORTS:
 ============================
 {
 	\\"default\\": {}
@@ -1881,113 +539,6 @@ EXPORTED allImports:
 exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "styleTag": errors 1`] = `Array []`;
 
 exports[`"esModule" option should work with a value equal to "false" and when the "injectType" option is "styleTag": warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazySingletonStyleTag" and CommonJS module syntax used in "css-loader": DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"0\\": [
-		\\"../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css\\",
-		\\".foo {\\\\n    color: red;\\\\n}\\\\n\\\\n.bar {\\\\n    color: blue;\\\\n}\\\\n\\\\n.baz {\\\\n    color: coral;\\\\n}\\\\n\\",
-		\\"\\"
-	],
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazySingletonStyleTag" and CommonJS module syntax used in "css-loader": errors 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazySingletonStyleTag" and CommonJS module syntax used in "css-loader": warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazySingletonStyleTag" and CommonJS module syntax: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-</head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-</body></html>"
-`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazySingletonStyleTag" and CommonJS module syntax: errors 1`] = `
-Array [
-  "ModuleNotFoundError: Module not found: Error: Can't resolve '/test/fixtures/lazy-commonjs-modules.js' in '/test/fixtures'",
-]
-`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazySingletonStyleTag" and CommonJS module syntax: warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazySingletonStyleTag" and ES module syntax used: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazySingletonStyleTag" and ES module syntax used: errors 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazySingletonStyleTag" and ES module syntax used: warnings 1`] = `Array []`;
 
 exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -2029,113 +580,6 @@ exports[`"esModule" option should work with a value equal to "true" and when the
 
 exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazySingletonStyleTag": warnings 1`] = `Array []`;
 
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazyStyleTag" and CommonJS module syntax used in "css-loader": DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"0\\": [
-		\\"../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css\\",
-		\\".foo {\\\\n    color: red;\\\\n}\\\\n\\\\n.bar {\\\\n    color: blue;\\\\n}\\\\n\\\\n.baz {\\\\n    color: coral;\\\\n}\\\\n\\",
-		\\"\\"
-	],
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazyStyleTag" and CommonJS module syntax used in "css-loader": errors 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazyStyleTag" and CommonJS module syntax used in "css-loader": warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazyStyleTag" and CommonJS module syntax: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-</head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-</body></html>"
-`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazyStyleTag" and CommonJS module syntax: errors 1`] = `
-Array [
-  "ModuleNotFoundError: Module not found: Error: Can't resolve '/test/fixtures/lazy-commonjs-modules.js' in '/test/fixtures'",
-]
-`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazyStyleTag" and CommonJS module syntax: warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazyStyleTag" and ES module syntax used: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazyStyleTag" and ES module syntax used: errors 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazyStyleTag" and ES module syntax used: warnings 1`] = `Array []`;
-
 exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazyStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
@@ -2176,87 +620,6 @@ exports[`"esModule" option should work with a value equal to "true" and when the
 
 exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "lazyStyleTag": warnings 1`] = `Array []`;
 
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "linkTag" and CommonJS module syntax used in "css-loader": DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "linkTag" and CommonJS module syntax used in "css-loader": errors 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "linkTag" and CommonJS module syntax used in "css-loader": warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "linkTag" and CommonJS module syntax: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTS:
-============================
-{}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "linkTag" and CommonJS module syntax: errors 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "linkTag" and CommonJS module syntax: warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "linkTag" and ES module syntax used: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "linkTag" and ES module syntax used: errors 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "linkTag" and ES module syntax used: warnings 1`] = `Array []`;
-
 exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "linkTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
@@ -2269,11 +632,8 @@ exports[`"esModule" option should work with a value equal to "true" and when the
 
 
 <div>
-EXPORTED defaultImport:
 ============================
-{}
-============================
-EXPORTED allImports:
+EXPORTS:
 ============================
 {
 	\\"default\\": {}
@@ -2285,125 +645,6 @@ EXPORTED allImports:
 exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "linkTag": errors 1`] = `Array []`;
 
 exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "linkTag": warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "singletonStyleTag" and CommonJS module syntax used in "css-loader": DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"0\\": [
-		\\"../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css\\",
-		\\".foo {\\\\n    color: red;\\\\n}\\\\n\\\\n.bar {\\\\n    color: blue;\\\\n}\\\\n\\\\n.baz {\\\\n    color: coral;\\\\n}\\\\n\\",
-		\\"\\"
-	],
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "singletonStyleTag" and CommonJS module syntax used in "css-loader": errors 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "singletonStyleTag" and CommonJS module syntax used in "css-loader": warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "singletonStyleTag" and CommonJS module syntax: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTS:
-============================
-{}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "singletonStyleTag" and CommonJS module syntax: errors 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "singletonStyleTag" and CommonJS module syntax: warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "singletonStyleTag" and ES module syntax used: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "singletonStyleTag" and ES module syntax used: errors 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "singletonStyleTag" and ES module syntax used: warnings 1`] = `Array []`;
 
 exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "singletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -2428,11 +669,8 @@ exports[`"esModule" option should work with a value equal to "true" and when the
 
 
 <div>
-EXPORTED defaultImport:
 ============================
-{}
-============================
-EXPORTED allImports:
+EXPORTS:
 ============================
 {
 	\\"default\\": {}
@@ -2444,125 +682,6 @@ EXPORTED allImports:
 exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "singletonStyleTag": errors 1`] = `Array []`;
 
 exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "singletonStyleTag": warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "styleTag" and CommonJS module syntax used in "css-loader": DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"0\\": [
-		\\"../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css\\",
-		\\".foo {\\\\n    color: red;\\\\n}\\\\n\\\\n.bar {\\\\n    color: blue;\\\\n}\\\\n\\\\n.baz {\\\\n    color: coral;\\\\n}\\\\n\\",
-		\\"\\"
-	],
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "styleTag" and CommonJS module syntax used in "css-loader": errors 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "styleTag" and CommonJS module syntax used in "css-loader": warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "styleTag" and CommonJS module syntax: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTS:
-============================
-{}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "styleTag" and CommonJS module syntax: errors 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "styleTag" and CommonJS module syntax: warnings 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "styleTag" and ES module syntax used: DOM 1`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-<div>
-EXPORTED defaultImport:
-============================
-{}
-============================
-EXPORTED allImports:
-============================
-{
-	\\"default\\": {}
-}
-============================
-</div></body></html>"
-`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "styleTag" and ES module syntax used: errors 1`] = `Array []`;
-
-exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "styleTag" and ES module syntax used: warnings 1`] = `Array []`;
 
 exports[`"esModule" option should work with a value equal to "true" and when the "injectType" option is "styleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -2587,11 +706,8 @@ exports[`"esModule" option should work with a value equal to "true" and when the
 
 
 <div>
-EXPORTED defaultImport:
 ============================
-{}
-============================
-EXPORTED allImports:
+EXPORTS:
 ============================
 {
 	\\"default\\": {}

@@ -18,18 +18,32 @@ describe('"esModule" option', () => {
     "linkTag",
   ];
 
-  const esModuleValues = ["not specified", true, false, "named"];
+  const moduleTypes = ['commonjs-modules.js', 'es-modules.js'];
 
-  const commonjsExports = {
-    styleTag: "module.exports = content.locals || {}",
-    singletonStyleTag: "module.exports = content.locals || {}",
-    lazyStyleTag: "module.exports = exported",
-    lazySingletonStyleTag: "module.exports = exported",
-  };
+  const esModuleValues = [
+    // No CSS modules  
+    { styleLoader: {}, cssLoader: {} },
+    { styleLoader: { esModules: false }, cssLoader: { esModules: false } },
+    { styleLoader: { esModules: true }, cssLoader: { esModules: false } },
+    { styleLoader: { esModules: false }, cssLoader: { esModules: true } },
+    { styleLoader: { esModules: true }, cssLoader: { esModules: true } },
+    { styleLoader: {}, cssLoader: { modules: false } },
+      
+    // CSS modules
+    { styleLoader: {}, cssLoader: { modules: true } },
+    { styleLoader: {}, cssLoader: { modules: { namedExport: false } } },
+    { styleLoader: {}, cssLoader: { modules: { namedExport: true } } },
+    { styleLoader: { esModules: false }, cssLoader: { esModules: false, modules: { namedExport: false } } },
+    { styleLoader: { esModules: true }, cssLoader: { esModules: false, modules: { namedExport: false } } },
+    { styleLoader: { esModules: false }, cssLoader: { esModules: true, modules: { namedExport: false } } },
+    { styleLoader: { esModules: true }, cssLoader: { esModules: true, modules: { namedExport: false } } },
+    { styleLoader: { esModules: false }, cssLoader: { esModules: false, modules: { namedExport: true } } },
+    { styleLoader: { esModules: true }, cssLoader: { esModules: false, modules: { namedExport: true } } },
+    { styleLoader: { esModules: false }, cssLoader: { esModules: true, modules: { namedExport: true } } },
+    { styleLoader: { esModules: true }, cssLoader: { esModules: true, modules: { namedExport: true } } },
+  ];
 
   injectTypes.forEach((injectType) => {
-    const commonjsExport = commonjsExports[injectType];
-
     esModuleValues.forEach((esModuleValue) => {
       const isNamedExport =
         esModuleValue === "named" && injectType !== "linkTag";
@@ -48,105 +62,6 @@ describe('"esModule" option', () => {
       }`;
       testName += ` and when the "injectType" option is "${injectType}"`;
 
-      if (isNamedExport) {
-        it(`${testName} and namedExport is "true"`, async () => {
-          const compiler = getCompiler(
-            "./es-modules.js",
-            {},
-            {
-              module: {
-                rules: [
-                  {
-                    test: /\.css$/i,
-                    use: [
-                      {
-                        loader: path.resolve(__dirname, "../src/cjs.js"),
-                        options: {
-                          injectType,
-                          esModule: true,
-                        },
-                      },
-                      {
-                        loader: "css-loader",
-                        options: {
-                          modules: {
-                            namedExport: true,
-                          },
-                        },
-                      },
-                    ],
-                  },
-                ],
-              },
-            }
-          );
-          const stats = await compile(compiler);
-
-          runInJsDom("main.bundle.js", compiler, stats, (dom) => {
-            expect(dom.serialize()).toMatchSnapshot("DOM");
-          });
-
-          expect(getWarnings(stats)).toMatchSnapshot("warnings");
-          expect(getErrors(stats)).toMatchSnapshot("errors");
-        });
-
-        it(`${testName} and namedExport is "false"`, async () => {
-          const compiler = getCompiler(
-            "./es-modules.js",
-            {},
-            {
-              module: {
-                rules: [
-                  {
-                    test: /\.css$/i,
-                    use: [
-                      {
-                        loader: path.resolve(__dirname, "../src/cjs.js"),
-                        options: {
-                          injectType,
-                          esModule: true,
-                        },
-                      },
-                      {
-                        loader: "css-loader",
-                        options: {
-                          modules: {
-                            namedExport: false,
-                          },
-                        },
-                      },
-                    ],
-                  },
-                ],
-              },
-            }
-          );
-          const stats = await compile(compiler);
-
-          runInJsDom("main.bundle.js", compiler, stats, (dom) => {
-            expect(dom.serialize()).toMatchSnapshot("DOM");
-          });
-
-          expect(getWarnings(stats)).toMatchSnapshot("warnings");
-          expect(getErrors(stats)).toMatchSnapshot("errors");
-        });
-
-        return;
-      }
-
-      it(`${testName}`, async () => {
-        const entry = getEntryByInjectType("es-modules.js", injectType);
-        const compiler = getCompiler(entry, { injectType });
-        const stats = await compile(compiler);
-
-        runInJsDom("main.bundle.js", compiler, stats, (dom) => {
-          expect(dom.serialize()).toMatchSnapshot("DOM");
-        });
-
-        expect(getWarnings(stats)).toMatchSnapshot("warnings");
-        expect(getErrors(stats)).toMatchSnapshot("errors");
-      });
-
       it(`${testName} and ES module syntax used`, async () => {
         const entry = getEntryByInjectType("es-modules.js", injectType);
         const compiler = getCompiler(
@@ -160,7 +75,7 @@ describe('"esModule" option', () => {
                   use: [
                     {
                       loader: path.resolve(__dirname, "../src/cjs.js"),
-                      options: { injectType, esModule: true },
+                      options: esModuleValue.styleLoader,
                     },
                     injectType === "linkTag"
                       ? {
@@ -170,53 +85,9 @@ describe('"esModule" option', () => {
                             name: "[path][name].[ext]",
                           },
                         }
-                      : { loader: "css-loader", options: { esModule: true } },
-                  ],
-                },
-              ],
-            },
-          }
-        );
-        const stats = await compile(compiler);
-
-        runInJsDom("main.bundle.js", compiler, stats, (dom, bundle) => {
-          expect(dom.serialize()).toMatchSnapshot("DOM");
-
-          if (commonjsExport) {
-            expect(bundle).not.toEqual(expect.stringContaining(commonjsExport));
-          }
-        });
-
-        expect(getWarnings(stats)).toMatchSnapshot("warnings");
-        expect(getErrors(stats)).toMatchSnapshot("errors");
-      });
-
-      it(`${testName} and CommonJS module syntax`, async () => {
-        const entry = getEntryByInjectType("commonjs-modules.js", injectType);
-        const compiler = getCompiler(
-          entry,
-          { injectType },
-          {
-            module: {
-              rules: [
-                {
-                  test: /\.css$/i,
-                  use: [
-                    {
-                      loader: path.resolve(__dirname, "../src/cjs.js"),
-                      options: { injectType, esModule: false },
-                    },
-                    injectType === "linkTag"
-                      ? {
-                          loader: "file-loader",
-                          options: {
-                            esModule: false,
-                            name: "[path][name].[ext]",
-                          },
-                        }
                       : {
                           loader: "css-loader",
-                          options: { esModule: false },
+                          options: esModuleValue.cssLoader,
                         },
                   ],
                 },
@@ -228,53 +99,9 @@ describe('"esModule" option', () => {
 
         runInJsDom("main.bundle.js", compiler, stats, (dom) => {
           expect(dom.serialize()).toMatchSnapshot("DOM");
-        });
 
-        expect(getWarnings(stats)).toMatchSnapshot("warnings");
-        expect(getErrors(stats)).toMatchSnapshot("errors");
-      });
-
-      it(`${testName} and CommonJS module syntax used in "css-loader"`, async () => {
-        const entry = getEntryByInjectType("es-modules.js", injectType);
-        const compiler = getCompiler(
-          entry,
-          { injectType },
-          {
-            module: {
-              rules: [
-                {
-                  test: /\.css$/i,
-                  use: [
-                    {
-                      loader: path.resolve(__dirname, "../src/cjs.js"),
-                      options: { injectType, esModule: true },
-                    },
-                    injectType === "linkTag"
-                      ? {
-                          loader: "file-loader",
-                          options: {
-                            esModule: false,
-                            name: "[path][name].[ext]",
-                          },
-                        }
-                      : {
-                          loader: "css-loader",
-                          options: { esModule: false },
-                        },
-                  ],
-                },
-              ],
-            },
-          }
-        );
-        const stats = await compile(compiler);
-
-        runInJsDom("main.bundle.js", compiler, stats, (dom, bundle) => {
-          expect(dom.serialize()).toMatchSnapshot("DOM");
-
-          if (commonjsExport) {
-            expect(bundle).not.toEqual(expect.stringContaining(commonjsExport));
-          }
+          // TODO test using global variable
+          // expect(exports).toMatchSnapshot("exports");
         });
 
         expect(getWarnings(stats)).toMatchSnapshot("warnings");
