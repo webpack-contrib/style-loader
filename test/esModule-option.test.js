@@ -58,6 +58,22 @@ describe('"esModule" option', () => {
       styleLoader: { esModule: true },
       cssLoader: { esModule: true, modules: { namedExport: true } },
     },
+
+    // exportOnlyLocals should not lead to error
+    {
+      styleLoader: { esModule: true },
+      cssLoader: {
+        esModule: true,
+        modules: { namedExport: true, exportOnlyLocals: true },
+      },
+    },
+    {
+      styleLoader: { esModule: true },
+      cssLoader: {
+        esModule: true,
+        modules: { namedExport: false, exportOnlyLocals: true },
+      },
+    },
   ];
 
   injectTypes.forEach((injectType) => {

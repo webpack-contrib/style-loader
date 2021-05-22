@@ -147,8 +147,8 @@ if (module.hot) {
               this,
               `!!${request}`
             )};
-            
-            if ("locals" in content) {
+
+            if (content && ("locals" in content)) {
               exported.locals = content.locals || {};
             }
             `
@@ -283,8 +283,8 @@ ${hmrCode}
 ${
   esModule
     ? `export * from ${stringifyRequest(this, `!!${request}`)};
-       export default content.locals || {};`
-    : "module.exports = content.locals || {};"
+       export default content && content.locals || {};`
+    : "module.exports = content && content.locals || {};"
 }`;
     }
   }
