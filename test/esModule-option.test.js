@@ -191,7 +191,50 @@ describe('"esModule" option', () => {
         expect(getErrors(stats)).toMatchSnapshot("errors");
       });
 
-      it(`${testName} and CommonJS module syntax used`, async () => {
+      it(`${testName} and CommonJS module syntax`, async () => {
+        const entry = getEntryByInjectType("commonjs-modules.js", injectType);
+        const compiler = getCompiler(
+          entry,
+          { injectType },
+          {
+            module: {
+              rules: [
+                {
+                  test: /\.css$/i,
+                  use: [
+                    {
+                      loader: path.resolve(__dirname, "../src/cjs.js"),
+                      options: { injectType, esModule: false },
+                    },
+                    injectType === "linkTag"
+                      ? {
+                          loader: "file-loader",
+                          options: {
+                            esModule: false,
+                            name: "[path][name].[ext]",
+                          },
+                        }
+                      : {
+                          loader: "css-loader",
+                          options: { esModule: false },
+                        },
+                  ],
+                },
+              ],
+            },
+          }
+        );
+        const stats = await compile(compiler);
+
+        runInJsDom("main.bundle.js", compiler, stats, (dom) => {
+          expect(dom.serialize()).toMatchSnapshot("DOM");
+        });
+
+        expect(getWarnings(stats)).toMatchSnapshot("warnings");
+        expect(getErrors(stats)).toMatchSnapshot("errors");
+      });
+
+      it(`${testName} and CommonJS module syntax used in "css-loader"`, async () => {
         const entry = getEntryByInjectType("es-modules.js", injectType);
         const compiler = getCompiler(
           entry,
