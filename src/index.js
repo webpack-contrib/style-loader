@@ -148,8 +148,8 @@ if (module.hot) {
               `!!${request}`
             )};
 
-            if (content && ("locals" in content)) {
-              exported.locals = content.locals || {};
+            if (content && content.locals) {
+              exported.locals = content.locals;
             }
             `
           : `var api = require(${stringifyRequest(
@@ -206,7 +206,7 @@ ${
 if (module.hot) {
   if (!content.locals || module.hot.invalidate) {
     var isEqualLocals = ${isEqualLocals.toString()};
-    var isNamedExport = ${esModule ? "!('locals' in content)" : false};
+    var isNamedExport = ${esModule ? "!content.locals" : false};
     var oldLocals = isNamedExport ? namedExport : content.locals;
 
     module.hot.accept(
@@ -270,7 +270,6 @@ if (module.hot) {
 
             content = content.__esModule ? content.default : content;`
       }
-
 var options = ${JSON.stringify(runtimeOptions)};
 
 options.insert = ${insert};
@@ -283,7 +282,7 @@ ${hmrCode}
 ${
   esModule
     ? `export * from ${stringifyRequest(this, `!!${request}`)};
-       export default content && content.locals || {};`
+       export default content && content.locals ? content.locals : undefined;`
     : "module.exports = content && content.locals || {};"
 }`;
     }

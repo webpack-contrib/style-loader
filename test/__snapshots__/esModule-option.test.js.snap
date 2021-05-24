@@ -1678,7 +1678,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -1950,7 +1950,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -2125,7 +2125,7 @@ Object {
 ",
     "",
   ],
-  "default": Object {},
+  "default": undefined,
   "i": [Function],
   "toString": [Function],
 }
@@ -2178,7 +2178,7 @@ Object {
 ",
     "",
   ],
-  "default": Object {},
+  "default": undefined,
   "i": [Function],
   "toString": [Function],
 }
@@ -2204,7 +2204,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -2255,7 +2255,7 @@ Object {
 ",
     "",
   ],
-  "default": Object {},
+  "default": undefined,
   "i": [Function],
   "toString": [Function],
 }
@@ -2308,7 +2308,7 @@ Object {
 ",
     "",
   ],
-  "default": Object {},
+  "default": undefined,
   "i": [Function],
   "toString": [Function],
 }
@@ -2361,7 +2361,7 @@ Object {
 ",
     "",
   ],
-  "default": Object {},
+  "default": undefined,
   "i": [Function],
   "toString": [Function],
 }
@@ -2414,7 +2414,7 @@ Object {
 ",
     "",
   ],
-  "default": Object {},
+  "default": undefined,
   "i": [Function],
   "toString": [Function],
 }
@@ -2440,7 +2440,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -2491,7 +2491,7 @@ Object {
 ",
     "",
   ],
-  "default": Object {},
+  "default": undefined,
   "i": [Function],
   "toString": [Function],
 }
@@ -2544,7 +2544,7 @@ Object {
 ",
     "",
   ],
-  "default": Object {},
+  "default": undefined,
   "i": [Function],
   "toString": [Function],
 }
@@ -2570,7 +2570,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -2594,7 +2594,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -2618,7 +2618,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -2642,7 +2642,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "singletonStyleTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -2666,7 +2666,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -2690,7 +2690,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -2714,7 +2714,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -2738,7 +2738,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -2762,7 +2762,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "singletonStyleTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -2786,7 +2786,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -2888,7 +2888,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -3068,7 +3068,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -3172,13 +3172,14 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": Object {},
+  "default": undefined,
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": warnings 1`] = `
 Array [
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
   "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
   "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
   "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
@@ -3205,13 +3206,14 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": Object {},
+  "default": undefined,
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": warnings 1`] = `
 Array [
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
   "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
   "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
   "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
@@ -3236,7 +3238,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -3262,13 +3264,14 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": Object {},
+  "default": undefined,
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "singletonStyleTag": warnings 1`] = `
 Array [
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
   "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
   "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
   "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
@@ -3295,13 +3298,14 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": Object {},
+  "default": undefined,
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": warnings 1`] = `
 Array [
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
   "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
   "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
   "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
@@ -3328,13 +3332,14 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": Object {},
+  "default": undefined,
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": warnings 1`] = `
 Array [
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
   "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
   "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
   "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
@@ -3361,13 +3366,14 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": Object {},
+  "default": undefined,
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": warnings 1`] = `
 Array [
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
   "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
   "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
   "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
@@ -3392,7 +3398,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -3418,13 +3424,14 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": Object {},
+  "default": undefined,
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "singletonStyleTag": warnings 1`] = `
 Array [
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
   "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
   "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
   "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
@@ -3451,13 +3458,14 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": Object {},
+  "default": undefined,
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": warnings 1`] = `
 Array [
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
   "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
   "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
   "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
@@ -3495,7 +3503,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": Object {},
+  "default": undefined,
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
@@ -3533,7 +3541,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": Object {},
+  "default": undefined,
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
@@ -3558,7 +3566,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -3595,7 +3603,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": Object {},
+  "default": undefined,
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
@@ -3633,7 +3641,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": Object {},
+  "default": undefined,
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
@@ -3671,7 +3679,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": Object {},
+  "default": undefined,
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
@@ -3709,7 +3717,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": Object {},
+  "default": undefined,
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
@@ -3734,7 +3742,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -3771,7 +3779,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": Object {},
+  "default": undefined,
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
@@ -3809,7 +3817,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": Object {},
+  "default": undefined,
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
@@ -3845,7 +3853,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -3880,7 +3888,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -3904,7 +3912,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -3939,7 +3947,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "singletonStyleTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -3974,7 +3982,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -4009,7 +4017,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -4044,7 +4052,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -4068,7 +4076,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -4103,7 +4111,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "singletonStyleTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -4138,7 +4146,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -4240,7 +4248,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -4420,7 +4428,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -4535,7 +4543,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": Object {},
+  "default": undefined,
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
@@ -4573,7 +4581,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": Object {},
+  "default": undefined,
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
@@ -4598,7 +4606,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -4635,7 +4643,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": Object {},
+  "default": undefined,
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
@@ -4673,7 +4681,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": Object {},
+  "default": undefined,
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
@@ -4711,7 +4719,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": Object {},
+  "default": undefined,
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
@@ -4749,7 +4757,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": Object {},
+  "default": undefined,
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
@@ -4774,7 +4782,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -4811,7 +4819,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": Object {},
+  "default": undefined,
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
@@ -4849,7 +4857,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": Object {},
+  "default": undefined,
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
@@ -4885,7 +4893,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":fals
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -4920,7 +4928,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":fals
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -4944,7 +4952,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":fals
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -4979,7 +4987,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":fals
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "singletonStyleTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -5014,7 +5022,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":fals
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -5049,7 +5057,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":fals
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -5084,7 +5092,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":fals
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -5108,7 +5116,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":fals
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -5143,7 +5151,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":fals
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "singletonStyleTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -5178,7 +5186,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":fals
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -5280,7 +5288,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -5460,7 +5468,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -5573,7 +5581,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYP
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -5608,7 +5616,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYP
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -5632,7 +5640,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYP
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -5667,7 +5675,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYP
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "singletonStyleTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -5702,7 +5710,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYP
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -5737,7 +5745,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYP
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -5772,7 +5780,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYP
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -5796,7 +5804,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYP
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -5831,7 +5839,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYP
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "singletonStyleTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
@@ -5866,7 +5874,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYP
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": exports 1`] = `
 Object {
-  "default": Object {},
+  "default": undefined,
 }
 `;
 
