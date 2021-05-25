@@ -4,6 +4,12 @@ import { stringifyRequest } from "./utils";
 
 import isEqualLocals from "./runtime/isEqualLocals";
 
+import {
+  applyToSingletonTag,
+  applyToTag,
+  removeStyleElement,
+} from "./runtime/specificApy";
+
 import schema from "./options.json";
 
 const loaderApi = () => {};
@@ -71,6 +77,7 @@ if (module.hot) {
 var options = ${JSON.stringify(runtimeOptions)};
 
 options.insert = ${insert};
+options.specificApy = { applyToTag: ${applyToTag}, removeStyleElement: ${removeStyleElement} };
 
 var update = api(content, options);
 
@@ -170,6 +177,9 @@ var options = ${JSON.stringify(runtimeOptions)};
 
 options.insert = ${insert};
 options.singleton = ${isSingleton};
+options.specificApy = ${isSingleton}
+  ? { applyToSingletonTag: ${applyToSingletonTag} }
+  : { applyToTag: ${applyToTag}, removeStyleElement: ${removeStyleElement} };
 
 exported.use = function() {
   if (!(refs++)) {
@@ -274,6 +284,9 @@ var options = ${JSON.stringify(runtimeOptions)};
 
 options.insert = ${insert};
 options.singleton = ${isSingleton};
+options.specificApy = ${isSingleton}
+  ? { applyToSingletonTag: ${applyToSingletonTag} }
+  : { applyToTag: ${applyToTag}, removeStyleElement: ${removeStyleElement} };
 
 var update = api(content, options);
 
