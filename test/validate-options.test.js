@@ -26,6 +26,11 @@ describe("validate options", () => {
       success: [true, false],
       failure: ["true"],
     },
+    styleTagTransform: {
+      // eslint-disable-next-line func-names
+      success: [function () {}],
+      failure: ["true", true, []],
+    },
     unknown: {
       success: [],
       failure: [1, true, false, "test", /test/, [], {}, { foo: "bar" }],

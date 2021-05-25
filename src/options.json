@@ -36,6 +36,10 @@
     "esModule": {
       "description": "Use the ES modules syntax (https://github.com/webpack-contrib/css-loader#esmodule).",
       "type": "boolean"
+    },
+    "styleTagTransform": {
+      "description": "Transform tag and css when insert 'style' tag into the DOM",
+      "instanceof": "Function"
     }
   },
   "additionalProperties": false
