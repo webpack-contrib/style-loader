@@ -6,7 +6,7 @@ import {
   applyToSingletonTag,
   applyToTag,
   removeStyleElement,
-} from "../../src/runtime/specificApy";
+} from "../../src/runtime/specificApi";
 
 function insertAtTop(element) {
   const parent = document.querySelector("head");
@@ -45,7 +45,7 @@ function insertBeforeAt(element) {
 }
 
 const defaultOptions = {
-  specificApy: {
+  specificApi: {
     applyToSingletonTag,
     applyToTag,
     removeStyleElement,

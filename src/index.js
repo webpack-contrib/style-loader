@@ -8,7 +8,7 @@ import {
   applyToSingletonTag,
   applyToTag,
   removeStyleElement,
-} from "./runtime/specificApy";
+} from "./runtime/specificApi";
 
 import schema from "./options.json";
 
@@ -77,7 +77,7 @@ if (module.hot) {
 var options = ${JSON.stringify(runtimeOptions)};
 
 options.insert = ${insert};
-options.specificApy = { applyToTag: ${applyToTag}, removeStyleElement: ${removeStyleElement} };
+options.specificApi = { applyToTag: ${applyToTag}, removeStyleElement: ${removeStyleElement} };
 
 var update = api(content, options);
 
@@ -177,7 +177,7 @@ var options = ${JSON.stringify(runtimeOptions)};
 
 options.insert = ${insert};
 options.singleton = ${isSingleton};
-options.specificApy = ${isSingleton}
+options.specificApi = ${isSingleton}
   ? { applyToSingletonTag: ${applyToSingletonTag} }
   : { applyToTag: ${applyToTag}, removeStyleElement: ${removeStyleElement} };
 
@@ -284,7 +284,7 @@ var options = ${JSON.stringify(runtimeOptions)};
 
 options.insert = ${insert};
 options.singleton = ${isSingleton};
-options.specificApy = ${isSingleton}
+options.specificApi = ${isSingleton}
   ? { applyToSingletonTag: ${applyToSingletonTag} }
   : { applyToTag: ${applyToTag}, removeStyleElement: ${removeStyleElement} };
 

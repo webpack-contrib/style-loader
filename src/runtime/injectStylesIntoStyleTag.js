@@ -133,7 +133,7 @@ let singleton = null;
 let singletonCounter = 0;
 
 function addStyle(obj, options) {
-  const { specificApy } = options;
+  const { specificApi } = options;
   let style;
   let update;
   let remove;
@@ -143,13 +143,13 @@ function addStyle(obj, options) {
 
     style = singleton || (singleton = insertStyleElement(options));
 
-    update = specificApy.applyToSingletonTag.bind(
+    update = specificApi.applyToSingletonTag.bind(
       null,
       style,
       styleIndex,
       false
     );
-    remove = specificApy.applyToSingletonTag.bind(
+    remove = specificApi.applyToSingletonTag.bind(
       null,
       style,
       styleIndex,
@@ -158,9 +158,9 @@ function addStyle(obj, options) {
   } else {
     style = insertStyleElement(options);
 
-    update = specificApy.applyToTag.bind(null, style, options);
+    update = specificApi.applyToTag.bind(null, style, options);
     remove = () => {
-      specificApy.removeStyleElement(style);
+      specificApi.removeStyleElement(style);
     };
   }
 
