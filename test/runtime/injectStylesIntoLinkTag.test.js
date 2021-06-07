@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 /* eslint-env browser */
 
 import injectStylesIntoLinkTag from '../../src/runtime/injectStylesIntoLinkTag';
