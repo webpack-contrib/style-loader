@@ -8,6 +8,7 @@ import {
   applyToSingletonTag,
   applyToTag,
   removeStyleElement,
+  getTarget,
 } from "./runtime/specificApi";
 
 import schema from "./options.json";
@@ -22,6 +23,7 @@ loaderApi.pitch = function loader(request) {
       : typeof options.insert === "string"
       ? JSON.stringify(options.insert)
       : options.insert.toString();
+  const insertIsFunction = typeof options.insert === "function";
   const injectType = options.injectType || "styleTag";
   const esModule =
     typeof options.esModule !== "undefined" ? options.esModule : true;
@@ -77,7 +79,9 @@ if (module.hot) {
 var options = ${JSON.stringify(runtimeOptions)};
 
 options.insert = ${insert};
-options.specificApi = { applyToTag: ${applyToTag}, removeStyleElement: ${removeStyleElement} };
+options.specificApi = {
+  getTarget: ${insertIsFunction} ? undefined : ${getTarget}
+};
 
 var update = api(content, options);
 
@@ -166,7 +170,7 @@ if (module.hot) {
             var content = require(${stringifyRequest(this, `!!${request}`)});
 
             content = content.__esModule ? content.default : content;
-            
+
             exported.locals = content.locals || {};
             `
       }
@@ -178,8 +182,15 @@ var options = ${JSON.stringify(runtimeOptions)};
 options.insert = ${insert};
 options.singleton = ${isSingleton};
 options.specificApi = ${isSingleton}
-  ? { applyToSingletonTag: ${applyToSingletonTag} }
-  : { applyToTag: ${applyToTag}, removeStyleElement: ${removeStyleElement} };
+  ? {
+      applyToSingletonTag: ${applyToSingletonTag},
+      getTarget: ${insertIsFunction} ? undefined : ${getTarget}
+    }
+  : {
+      applyToTag: ${applyToTag},
+      removeStyleElement: ${removeStyleElement},
+      getTarget: ${insertIsFunction} ? undefined : ${getTarget}
+    };
 
 exported.use = function() {
   if (!(refs++)) {
@@ -285,8 +296,15 @@ var options = ${JSON.stringify(runtimeOptions)};
 options.insert = ${insert};
 options.singleton = ${isSingleton};
 options.specificApi = ${isSingleton}
-  ? { applyToSingletonTag: ${applyToSingletonTag} }
-  : { applyToTag: ${applyToTag}, removeStyleElement: ${removeStyleElement} };
+  ? {
+      applyToSingletonTag: ${applyToSingletonTag},
+      getTarget: ${insertIsFunction} ? undefined : ${getTarget}
+    }
+  : {
+      applyToTag: ${applyToTag},
+      removeStyleElement: ${removeStyleElement},
+      getTarget: ${insertIsFunction} ? undefined : ${getTarget}
+    };
 
 var update = api(content, options);
 

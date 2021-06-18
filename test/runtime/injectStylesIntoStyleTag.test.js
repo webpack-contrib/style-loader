@@ -6,6 +6,7 @@ import {
   applyToSingletonTag,
   applyToTag,
   removeStyleElement,
+  getTarget,
 } from "../../src/runtime/specificApi";
 
 function insertAtTop(element) {
@@ -49,6 +50,7 @@ const defaultOptions = {
     applyToSingletonTag,
     applyToTag,
     removeStyleElement,
+    getTarget,
   },
 };
 

@@ -1,32 +1,3 @@
-const getTarget = (function getTarget() {
-  const memo = {};
-
-  return function memorize(target) {
-    if (typeof memo[target] === "undefined") {
-      let styleTarget = document.querySelector(target);
-
-      // Special case to return head of iframe instead of iframe itself
-      if (
-        window.HTMLIFrameElement &&
-        styleTarget instanceof window.HTMLIFrameElement
-      ) {
-        try {
-          // This will throw an exception if access to iframe is blocked
-          // due to cross-origin restrictions
-          styleTarget = styleTarget.contentDocument.head;
-        } catch (e) {
-          // istanbul ignore next
-          styleTarget = null;
-        }
-      }
-
-      memo[target] = styleTarget;
-    }
-
-    return memo[target];
-  };
-})();
-
 module.exports = (url, options) => {
   options = options || {};
   options.attributes =
@@ -53,6 +24,8 @@ module.exports = (url, options) => {
   if (typeof options.insert === "function") {
     options.insert(link);
   } else {
+    const { specificApi } = options;
+    const getTarget = specificApi.getTarget();
     const target = getTarget(options.insert || "head");
 
     if (!target) {

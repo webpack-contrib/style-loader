@@ -1,3 +1,34 @@
+/* istanbul ignore next  */
+function getTarget() {
+  const memo = {};
+
+  return function memorize(target) {
+    if (typeof memo[target] === "undefined") {
+      let styleTarget = document.querySelector(target);
+
+      // Special case to return head of iframe instead of iframe itself
+      if (
+        window.HTMLIFrameElement &&
+        styleTarget instanceof window.HTMLIFrameElement
+      ) {
+        try {
+          // This will throw an exception if access to iframe is blocked
+          // due to cross-origin restrictions
+          styleTarget = styleTarget.contentDocument.head;
+        } catch (e) {
+          // istanbul ignore next
+          styleTarget = null;
+        }
+      }
+
+      memo[target] = styleTarget;
+    }
+
+    return memo[target];
+  };
+}
+
+/* istanbul ignore next  */
 const replaceText = (function replaceText() {
   const textStore = [];
 
@@ -13,8 +44,8 @@ function applyToSingletonTag(style, index, remove, obj) {
   const css = remove
     ? ""
     : obj.media
-    ? `@media ${obj.media} {${obj.css}}`
-    : obj.css;
+      ? `@media ${obj.media} {${obj.css}}`
+      : obj.css;
 
   // For old IE
   /* istanbul ignore if  */
@@ -76,4 +107,4 @@ function removeStyleElement(style) {
   style.parentNode.removeChild(style);
 }
 
-export { applyToSingletonTag, applyToTag, removeStyleElement };
+export { applyToSingletonTag, applyToTag, removeStyleElement, getTarget };
