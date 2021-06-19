@@ -44,8 +44,8 @@ function applyToSingletonTag(style, index, remove, obj) {
   const css = remove
     ? ""
     : obj.media
-      ? `@media ${obj.media} {${obj.css}}`
-      : obj.css;
+    ? `@media ${obj.media} {${obj.css}}`
+    : obj.css;
 
   // For old IE
   /* istanbul ignore if  */
@@ -107,4 +107,133 @@ function removeStyleElement(style) {
   style.parentNode.removeChild(style);
 }
 
-export { applyToSingletonTag, applyToTag, removeStyleElement, getTarget };
+/* istanbul ignore next  */
+function insertStyleElement(options) {
+  const style = document.createElement("style");
+  const attributes = options.attributes || {};
+
+  if (typeof attributes.nonce === "undefined") {
+    const nonce =
+      typeof __webpack_nonce__ !== "undefined" ? __webpack_nonce__ : null;
+
+    if (nonce) {
+      attributes.nonce = nonce;
+    }
+  }
+
+  Object.keys(attributes).forEach((key) => {
+    style.setAttribute(key, attributes[key]);
+  });
+
+  if (typeof options.insert === "function") {
+    options.insert(style);
+  } else {
+    // eslint-disable-next-line no-shadow
+    const getTarget = options.api.getTarget();
+    const target = getTarget(options.insert || "head");
+
+    if (!target) {
+      throw new Error(
+        "Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid."
+      );
+    }
+
+    target.appendChild(style);
+  }
+
+  return style;
+}
+
+// Todo wil be use for autoTag
+/* istanbul ignore next  */
+function autoApi(options) {
+  // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+  // tags it will allow on a page
+  if (!options.singleton && typeof options.singleton !== "boolean") {
+    // eslint-disable-next-line no-undef
+    options.singleton = isOldIE();
+  }
+
+  let styleIndex;
+  let style;
+
+  if (options.singleton) {
+    // eslint-disable-next-line no-undef
+    styleIndex = singletonData.singletonCounter++;
+    style =
+      // eslint-disable-next-line no-undef
+      singletonData.singleton ||
+      // eslint-disable-next-line no-undef
+      (singletonData.singleton = options.api.insertStyleElement(options));
+  } else {
+    style = options.api.insertStyleElement(options);
+  }
+
+  if (options.singleton) {
+    return {
+      update: options.api.applyToSingletonTag.bind(
+        null,
+        style,
+        styleIndex,
+        false
+      ),
+      remove: options.api.applyToSingletonTag.bind(
+        null,
+        style,
+        styleIndex,
+        true
+      ),
+    };
+  }
+
+  return {
+    update: options.api.applyToTag.bind(null, style, options),
+    remove: () => {
+      options.api.removeStyleElement(style);
+    },
+  };
+}
+
+/* istanbul ignore next  */
+function basicApi(options) {
+  const style = options.api.insertStyleElement(options);
+
+  return {
+    update: options.api.applyToTag.bind(null, style, options),
+    remove: () => {
+      options.api.removeStyleElement(style);
+    },
+  };
+}
+
+/* istanbul ignore next  */
+function singletonApi(options) {
+  // eslint-disable-next-line no-undef
+  const styleIndex = singletonData.singletonCounter++;
+  const style =
+    // eslint-disable-next-line no-undef
+    singletonData.singleton ||
+    // eslint-disable-next-line no-undef
+    (singletonData.singleton = options.api.insertStyleElement(options));
+
+  return {
+    update: options.api.applyToSingletonTag.bind(
+      null,
+      style,
+      styleIndex,
+      false
+    ),
+    remove: options.api.applyToSingletonTag.bind(null, style, styleIndex, true),
+  };
+}
+
+export {
+  applyToSingletonTag,
+  applyToTag,
+  removeStyleElement,
+  getTarget,
+  autoApi,
+  singletonApi,
+  basicApi,
+  insertStyleElement,
+};

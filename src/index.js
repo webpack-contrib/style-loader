@@ -9,11 +9,16 @@ import {
   applyToTag,
   removeStyleElement,
   getTarget,
+  basicApi,
+  singletonApi,
+  insertStyleElement,
 } from "./runtime/specificApi";
 
 import schema from "./options.json";
 
 const loaderApi = () => {};
+
+// TODO add var isOldIE = isOldIEFn(); for autoApi
 
 loaderApi.pitch = function loader(request) {
   const options = this.getOptions(schema);
@@ -79,7 +84,7 @@ if (module.hot) {
 var options = ${JSON.stringify(runtimeOptions)};
 
 options.insert = ${insert};
-options.specificApi = {
+options.api = {
   getTarget: ${insertIsFunction} ? undefined : ${getTarget}
 };
 
@@ -154,6 +159,14 @@ if (module.hot) {
               this,
               `!${path.join(__dirname, "runtime/injectStylesIntoStyleTag.js")}`
             )};
+            ${
+              isSingleton
+                ? `import {singletonData} from ${stringifyRequest(
+                    this,
+                    `!${path.join(__dirname, "runtime/singletonData.js")}`
+                  )};`
+                : ""
+            }
             import content, * as namedExport from ${stringifyRequest(
               this,
               `!!${request}`
@@ -167,6 +180,14 @@ if (module.hot) {
               this,
               `!${path.join(__dirname, "runtime/injectStylesIntoStyleTag.js")}`
             )});
+            ${
+              isSingleton
+                ? `var {singletonData} = require(${stringifyRequest(
+                    this,
+                    `!${path.join(__dirname, "runtime/singletonData.js")}`
+                  )});`
+                : ""
+            }
             var content = require(${stringifyRequest(this, `!!${request}`)});
 
             content = content.__esModule ? content.default : content;
@@ -181,15 +202,19 @@ var options = ${JSON.stringify(runtimeOptions)};
 
 options.insert = ${insert};
 options.singleton = ${isSingleton};
-options.specificApi = ${isSingleton}
+options.api = ${isSingleton}
   ? {
       applyToSingletonTag: ${applyToSingletonTag},
-      getTarget: ${insertIsFunction} ? undefined : ${getTarget}
+      getTarget: ${insertIsFunction} ? undefined : ${getTarget},
+      actionsApi: ${singletonApi},
+      insertStyleElement: ${insertStyleElement},
     }
   : {
       applyToTag: ${applyToTag},
       removeStyleElement: ${removeStyleElement},
-      getTarget: ${insertIsFunction} ? undefined : ${getTarget}
+      getTarget: ${insertIsFunction} ? undefined : ${getTarget},
+      actionsApi: ${basicApi},
+      insertStyleElement: ${insertStyleElement},
     };
 
 exported.use = function() {
@@ -282,11 +307,28 @@ if (module.hot) {
             import content, * as namedExport from ${stringifyRequest(
               this,
               `!!${request}`
-            )};`
+            )};
+            ${
+              isSingleton
+                ? `import {singletonData} from ${stringifyRequest(
+                    this,
+                    `!${path.join(__dirname, "runtime/singletonData.js")}`
+                  )};`
+                : ""
+            }`
           : `var api = require(${stringifyRequest(
               this,
               `!${path.join(__dirname, "runtime/injectStylesIntoStyleTag.js")}`
             )});
+            ${
+              isSingleton
+                ? `var {singletonData} = require(${stringifyRequest(
+                    this,
+                    `!${path.join(__dirname, "runtime/singletonData.js")}`
+                  )});`
+                : ""
+            }
+
             var content = require(${stringifyRequest(this, `!!${request}`)});
 
             content = content.__esModule ? content.default : content;`
@@ -295,15 +337,19 @@ var options = ${JSON.stringify(runtimeOptions)};
 
 options.insert = ${insert};
 options.singleton = ${isSingleton};
-options.specificApi = ${isSingleton}
+options.api = ${isSingleton}
   ? {
       applyToSingletonTag: ${applyToSingletonTag},
-      getTarget: ${insertIsFunction} ? undefined : ${getTarget}
+      getTarget: ${insertIsFunction} ? undefined : ${getTarget},
+      actionsApi: ${singletonApi},
+      insertStyleElement: ${insertStyleElement},
     }
   : {
       applyToTag: ${applyToTag},
       removeStyleElement: ${removeStyleElement},
-      getTarget: ${insertIsFunction} ? undefined : ${getTarget}
+      getTarget: ${insertIsFunction} ? undefined : ${getTarget},
+      actionsApi: ${basicApi},
+      insertStyleElement: ${insertStyleElement},
     };
 
 var update = api(content, options);

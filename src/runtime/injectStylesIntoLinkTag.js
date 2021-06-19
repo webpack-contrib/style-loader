@@ -24,8 +24,7 @@ module.exports = (url, options) => {
   if (typeof options.insert === "function") {
     options.insert(link);
   } else {
-    const { specificApi } = options;
-    const getTarget = specificApi.getTarget();
+    const getTarget = options.api.getTarget();
     const target = getTarget(options.insert || "head");
 
     if (!target) {

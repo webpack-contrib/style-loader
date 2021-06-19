@@ -7,6 +7,9 @@ import {
   applyToTag,
   removeStyleElement,
   getTarget,
+  basicApi,
+  singletonApi,
+  insertStyleElement,
 } from "../../src/runtime/specificApi";
 
 function insertAtTop(element) {
@@ -46,11 +49,13 @@ function insertBeforeAt(element) {
 }
 
 const defaultOptions = {
-  specificApi: {
+  api: {
     applyToSingletonTag,
     applyToTag,
     removeStyleElement,
     getTarget,
+    insertStyleElement,
+    actionsApi: basicApi,
   },
 };
 
@@ -413,13 +418,28 @@ describe("addStyle", () => {
   });
 
   it("should work with updates #6", () => {
+    // eslint-disable-next-line no-undef
+    globalThis.singletonData = {
+      singleton: null,
+      singletonCounter: 0,
+    };
+
     const update = injectStylesIntoStyleTag(
       [
         ["./style-24-1.css", ".foo { color: red }", ""],
         ["./style-24-2.css", ".bar { color: yellow }", ""],
       ],
-      { ...defaultOptions, singleton: true }
+      {
+        api: {
+          ...defaultOptions.api,
+          actionsApi: singletonApi,
+        },
+        singleton: true,
+      }
     );
+
+    // eslint-disable-next-line no-undef,no-undefined
+    globalThis.singletonData = undefined;
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
 
