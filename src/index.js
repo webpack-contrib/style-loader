@@ -1,18 +1,8 @@
 import path from "path";
 
-import { stringifyRequest } from "./utils";
+import { stringifyRequest, getTargetCode, getApi } from "./utils";
 
 import isEqualLocals from "./runtime/isEqualLocals";
-
-import {
-  applyToSingletonTag,
-  applyToTag,
-  removeStyleElement,
-  getTarget,
-  basicApi,
-  singletonApi,
-  insertStyleElement,
-} from "./runtime/specificApi";
 
 import schema from "./options.json";
 
@@ -85,7 +75,7 @@ var options = ${JSON.stringify(runtimeOptions)};
 
 options.insert = ${insert};
 options.api = {
-  getTarget: ${insertIsFunction} ? undefined : ${getTarget}
+  getTarget: ${getTargetCode(insertIsFunction)}
 };
 
 var update = api(content, options);
@@ -201,21 +191,7 @@ var update;
 var options = ${JSON.stringify(runtimeOptions)};
 
 options.insert = ${insert};
-options.singleton = ${isSingleton};
-options.api = ${isSingleton}
-  ? {
-      applyToSingletonTag: ${applyToSingletonTag},
-      getTarget: ${insertIsFunction} ? undefined : ${getTarget},
-      actionsApi: ${singletonApi},
-      insertStyleElement: ${insertStyleElement},
-    }
-  : {
-      applyToTag: ${applyToTag},
-      removeStyleElement: ${removeStyleElement},
-      getTarget: ${insertIsFunction} ? undefined : ${getTarget},
-      actionsApi: ${basicApi},
-      insertStyleElement: ${insertStyleElement},
-    };
+options.api = ${getApi(isSingleton, insertIsFunction)};
 
 exported.use = function() {
   if (!(refs++)) {
@@ -336,21 +312,7 @@ if (module.hot) {
 var options = ${JSON.stringify(runtimeOptions)};
 
 options.insert = ${insert};
-options.singleton = ${isSingleton};
-options.api = ${isSingleton}
-  ? {
-      applyToSingletonTag: ${applyToSingletonTag},
-      getTarget: ${insertIsFunction} ? undefined : ${getTarget},
-      actionsApi: ${singletonApi},
-      insertStyleElement: ${insertStyleElement},
-    }
-  : {
-      applyToTag: ${applyToTag},
-      removeStyleElement: ${removeStyleElement},
-      getTarget: ${insertIsFunction} ? undefined : ${getTarget},
-      actionsApi: ${basicApi},
-      insertStyleElement: ${insertStyleElement},
-    };
+options.api = ${getApi(isSingleton, insertIsFunction)};
 
 var update = api(content, options);
 
