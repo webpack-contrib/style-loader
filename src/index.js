@@ -1,6 +1,6 @@
 import path from "path";
 
-import { stringifyRequest, getTargetCode, getApi } from "./utils";
+import { stringifyRequest } from "./utils";
 
 import isEqualLocals from "./runtime/isEqualLocals";
 
@@ -13,11 +13,9 @@ const loaderApi = () => {};
 loaderApi.pitch = function loader(request) {
   const options = this.getOptions(schema);
   const insert =
-    typeof options.insert === "undefined"
-      ? '"head"'
-      : typeof options.insert === "string"
+    typeof options.insert === "string"
       ? JSON.stringify(options.insert)
-      : options.insert.toString();
+      : '"head"';
   const insertIsFunction = typeof options.insert === "function";
   const injectType = options.injectType || "styleTag";
   const esModule =
@@ -28,6 +26,19 @@ loaderApi.pitch = function loader(request) {
     insert: options.insert,
     base: options.base,
   };
+  const insertFn = insertIsFunction
+    ? options.insert.toString()
+    : `function(style){
+    const target = getTarget(${insert});
+
+    if (!target) {
+      throw new Error(
+        "Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid."
+      );
+    }
+
+    target.appendChild(style);
+  }`;
 
   switch (injectType) {
     case "linkTag": {
@@ -61,11 +72,27 @@ if (module.hot) {
               this,
               `!${path.join(__dirname, "runtime/injectStylesIntoLinkTag.js")}`
             )};
-            import content from ${stringifyRequest(this, `!!${request}`)};`
+            import content from ${stringifyRequest(this, `!!${request}`)};
+            ${
+              !insertIsFunction
+                ? `import getTarget from ${stringifyRequest(
+                    this,
+                    `!${path.join(__dirname, "runtime/getTarget.js")}`
+                  )};`
+                : ""
+            }`
           : `var api = require(${stringifyRequest(
               this,
               `!${path.join(__dirname, "runtime/injectStylesIntoLinkTag.js")}`
             )});
+            ${
+              !insertIsFunction
+                ? `var getTarget = require(${stringifyRequest(
+                    this,
+                    `!${path.join(__dirname, "runtime/getTarget.js")}`
+                  )});`
+                : ""
+            }
             var content = require(${stringifyRequest(this, `!!${request}`)});
 
             content = content.__esModule ? content.default : content;`
@@ -73,10 +100,7 @@ if (module.hot) {
 
 var options = ${JSON.stringify(runtimeOptions)};
 
-options.insert = ${insert};
-options.api = {
-  getTarget: ${getTargetCode(insertIsFunction)}
-};
+options.insert = ${insertFn};
 
 var update = api(content, options);
 
@@ -149,14 +173,23 @@ if (module.hot) {
               this,
               `!${path.join(__dirname, "runtime/injectStylesIntoStyleTag.js")}`
             )};
-            ${
-              isSingleton
-                ? `import {singletonData} from ${stringifyRequest(
-                    this,
-                    `!${path.join(__dirname, "runtime/singletonData.js")}`
-                  )};`
-                : ""
-            }
+            import domApi from ${stringifyRequest(
+              this,
+              `!${path.join(
+                __dirname,
+                `runtime/${isSingleton ? "singletonStyleApi" : "styleApi"}.js`
+              )}`
+            )};
+            import getTarget from ${stringifyRequest(
+              this,
+              `!${path.join(__dirname, "runtime/getTarget.js")}`
+            )};
+            import insertStyleElement from ${stringifyRequest(
+              this,
+              `!${path.join(__dirname, "runtime/insertStyleElement.js")}`
+            )};
+
+
             import content, * as namedExport from ${stringifyRequest(
               this,
               `!!${request}`
@@ -170,14 +203,21 @@ if (module.hot) {
               this,
               `!${path.join(__dirname, "runtime/injectStylesIntoStyleTag.js")}`
             )});
-            ${
-              isSingleton
-                ? `var {singletonData} = require(${stringifyRequest(
-                    this,
-                    `!${path.join(__dirname, "runtime/singletonData.js")}`
-                  )});`
-                : ""
-            }
+            var domApi = require(${stringifyRequest(
+              this,
+              `!${path.join(
+                __dirname,
+                `runtime/${isSingleton ? "singletonStyleApi" : "styleApi"}.js`
+              )}`
+            )});
+            var insertStyleElement = require(${stringifyRequest(
+              this,
+              `!${path.join(__dirname, "runtime/insertStyleElement.js")}`
+            )});
+            var getTarget = require(${stringifyRequest(
+              this,
+              `!${path.join(__dirname, "runtime/getTarget.js")}`
+            )});
             var content = require(${stringifyRequest(this, `!!${request}`)});
 
             content = content.__esModule ? content.default : content;
@@ -190,8 +230,9 @@ var refs = 0;
 var update;
 var options = ${JSON.stringify(runtimeOptions)};
 
-options.insert = ${insert};
-options.api = ${getApi(isSingleton, insertIsFunction)};
+options.insert = ${insertFn};
+options.domApi = domApi;
+options.insertStyleElement = insertStyleElement;
 
 exported.use = function() {
   if (!(refs++)) {
@@ -280,39 +321,55 @@ if (module.hot) {
               this,
               `!${path.join(__dirname, "runtime/injectStylesIntoStyleTag.js")}`
             )};
+            import domApi from ${stringifyRequest(
+              this,
+              `!${path.join(
+                __dirname,
+                `runtime/${isSingleton ? "singletonStyleApi" : "styleApi"}.js`
+              )}`
+            )};
+            import insertStyleElement from ${stringifyRequest(
+              this,
+              `!${path.join(__dirname, "runtime/insertStyleElement.js")}`
+            )};
+            import getTarget from ${stringifyRequest(
+              this,
+              `!${path.join(__dirname, "runtime/getTarget.js")}`
+            )};
             import content, * as namedExport from ${stringifyRequest(
               this,
               `!!${request}`
-            )};
-            ${
-              isSingleton
-                ? `import {singletonData} from ${stringifyRequest(
-                    this,
-                    `!${path.join(__dirname, "runtime/singletonData.js")}`
-                  )};`
-                : ""
-            }`
+            )};`
           : `var api = require(${stringifyRequest(
               this,
               `!${path.join(__dirname, "runtime/injectStylesIntoStyleTag.js")}`
             )});
-            ${
-              isSingleton
-                ? `var {singletonData} = require(${stringifyRequest(
-                    this,
-                    `!${path.join(__dirname, "runtime/singletonData.js")}`
-                  )});`
-                : ""
-            }
+            var domApi = require(${stringifyRequest(
+              this,
+              `!${path.join(
+                __dirname,
+                `runtime/${isSingleton ? "singletonStyleApi" : "styleApi"}.js`
+              )}`
+            )});
+            var insertStyleElement = require(${stringifyRequest(
+              this,
+              `!${path.join(__dirname, "runtime/insertStyleElement.js")}`
+            )});
+            var getTarget = require(${stringifyRequest(
+              this,
+              `!${path.join(__dirname, "runtime/getTarget.js")}`
+            )});
 
             var content = require(${stringifyRequest(this, `!!${request}`)});
 
             content = content.__esModule ? content.default : content;`
       }
+
 var options = ${JSON.stringify(runtimeOptions)};
 
-options.insert = ${insert};
-options.api = ${getApi(isSingleton, insertIsFunction)};
+options.insert = ${insertFn};
+options.domApi = domApi;
+options.insertStyleElement = insertStyleElement;
 
 var update = api(content, options);
 

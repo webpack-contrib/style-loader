@@ -2,7 +2,20 @@
 
 import injectStylesIntoLinkTag from "../../src/runtime/injectStylesIntoLinkTag";
 
-import { getTarget } from "../../src/runtime/specificApi";
+import getTarget from "../../src/runtime/getTarget";
+
+const getInsertFn = (place) =>
+  function insertFn(style) {
+    const target = getTarget(place);
+
+    if (!target) {
+      throw new Error(
+        "Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid."
+      );
+    }
+
+    target.appendChild(style);
+  };
 
 function insertAtTop(element) {
   const parent = document.querySelector("head");
@@ -48,9 +61,7 @@ describe("addStyle", () => {
     document.body.innerHTML = "<h1>Hello world</h1>";
 
     defaultOptions = {
-      api: {
-        getTarget,
-      },
+      insert: getInsertFn("head"),
     };
   });
 
@@ -101,7 +112,7 @@ describe("addStyle", () => {
   it('should work with "insert" option', () => {
     injectStylesIntoLinkTag("./style-5.css", {
       ...defaultOptions,
-      insert: "head",
+      insert: getInsertFn("head"),
     });
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -110,7 +121,7 @@ describe("addStyle", () => {
   it('should work with "insert" option #2', () => {
     injectStylesIntoLinkTag("./style-6.css", {
       ...defaultOptions,
-      insert: "body",
+      insert: getInsertFn("body"),
     });
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -122,7 +133,7 @@ describe("addStyle", () => {
 
     injectStylesIntoLinkTag("./style-7.css", {
       ...defaultOptions,
-      insert: "iframe.iframeTarget",
+      insert: getInsertFn("iframe.iframeTarget"),
     });
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -163,7 +174,7 @@ describe("addStyle", () => {
     expect(() =>
       injectStylesIntoLinkTag("./style-10.css", {
         ...defaultOptions,
-        insert: "invalid",
+        insert: getInsertFn("invalid"),
       })
     ).toThrowErrorMatchingSnapshot();
   });
@@ -172,7 +183,7 @@ describe("addStyle", () => {
     expect(() =>
       injectStylesIntoLinkTag("./style-11.css", {
         ...defaultOptions,
-        insert: "#test><><><",
+        insert: getInsertFn("#test><><><"),
       })
     ).toThrowErrorMatchingSnapshot();
   });

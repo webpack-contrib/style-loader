@@ -16,11 +16,4 @@ function isOldIEFn() {
   };
 }
 
-/* istanbul ignore next  */
-module.exports = {
-  isOldIEFn,
-  singletonData: {
-    singleton: null,
-    singletonCounter: 0,
-  },
-};
+module.exports = isOldIEFn;

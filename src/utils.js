@@ -1,13 +1,3 @@
-import {
-  applyToSingletonTag,
-  applyToTag,
-  basicApi,
-  getTarget,
-  insertStyleElement,
-  removeStyleElement,
-  singletonApi,
-} from "./runtime/specificApi";
-
 const path = require("path");
 
 const matchRelativePath = /^\.\.?[/\\]/;
@@ -54,26 +44,5 @@ function stringifyRequest(loaderContext, request) {
   );
 }
 
-function getTargetCode(insertIsFunction) {
-  return insertIsFunction ? undefined : getTarget;
-}
-
-function getApi(isSingleton, insertIsFunction) {
-  return isSingleton
-    ? `{
-      applyToSingletonTag: ${applyToSingletonTag},
-      getTarget: ${getTargetCode(insertIsFunction)},
-      actionsApi: ${singletonApi},
-      insertStyleElement: ${insertStyleElement},
-    }`
-    : `{
-      applyToTag: ${applyToTag},
-      removeStyleElement: ${removeStyleElement},
-      getTarget: ${getTargetCode(insertIsFunction)},
-      actionsApi: ${basicApi},
-      insertStyleElement: ${insertStyleElement},
-    }`;
-}
-
 // eslint-disable-next-line import/prefer-default-export
-export { stringifyRequest, getTargetCode, getApi };
+export { stringifyRequest };

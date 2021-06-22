@@ -2,15 +2,23 @@
 
 import injectStylesIntoStyleTag from "../../src/runtime/injectStylesIntoStyleTag";
 
-import {
-  applyToSingletonTag,
-  applyToTag,
-  removeStyleElement,
-  getTarget,
-  basicApi,
-  singletonApi,
-  insertStyleElement,
-} from "../../src/runtime/specificApi";
+import domApi from "../../src/runtime/styleApi";
+import singletonApi from "../../src/runtime/singletonStyleApi";
+import insertStyleElement from "../../src/runtime/insertStyleElement";
+import getTarget from "../../src/runtime/getTarget";
+
+const getInsertFn = (place) =>
+  function insertFn(style) {
+    const target = getTarget(place);
+
+    if (!target) {
+      throw new Error(
+        "Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid."
+      );
+    }
+
+    target.appendChild(style);
+  };
 
 function insertAtTop(element) {
   const parent = document.querySelector("head");
@@ -49,14 +57,9 @@ function insertBeforeAt(element) {
 }
 
 const defaultOptions = {
-  api: {
-    applyToSingletonTag,
-    applyToTag,
-    removeStyleElement,
-    getTarget,
-    insertStyleElement,
-    actionsApi: basicApi,
-  },
+  domApi,
+  insertStyleElement,
+  insert: getInsertFn("head"),
 };
 
 describe("addStyle", () => {
@@ -209,7 +212,7 @@ describe("addStyle", () => {
       ],
       {
         ...defaultOptions,
-        insert: "head",
+        insert: getInsertFn("head"),
       }
     );
 
@@ -224,7 +227,7 @@ describe("addStyle", () => {
       ],
       {
         ...defaultOptions,
-        insert: "body",
+        insert: getInsertFn("body"),
       }
     );
 
@@ -242,7 +245,7 @@ describe("addStyle", () => {
       ],
       {
         ...defaultOptions,
-        insert: "iframe.iframeTarget",
+        insert: getInsertFn("iframe.iframeTarget"),
       }
     );
 
@@ -313,7 +316,7 @@ describe("addStyle", () => {
         [["./style-17.css", ".foo { color: red }", ""]],
         {
           ...defaultOptions,
-          insert: "invalid",
+          insert: getInsertFn("invalid"),
         }
       )
     ).toThrowErrorMatchingSnapshot();
@@ -325,7 +328,7 @@ describe("addStyle", () => {
         [["./style-18.css", ".foo { color: red }", ""]],
         {
           ...defaultOptions,
-          insert: "#test><><><",
+          insert: getInsertFn("#test><><><"),
         }
       )
     ).toThrowErrorMatchingSnapshot();
@@ -430,10 +433,8 @@ describe("addStyle", () => {
         ["./style-24-2.css", ".bar { color: yellow }", ""],
       ],
       {
-        api: {
-          ...defaultOptions.api,
-          actionsApi: singletonApi,
-        },
+        ...defaultOptions,
+        domApi: singletonApi,
         singleton: true,
       }
     );

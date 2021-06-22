@@ -21,20 +21,7 @@ module.exports = (url, options) => {
     link.setAttribute(key, options.attributes[key]);
   });
 
-  if (typeof options.insert === "function") {
-    options.insert(link);
-  } else {
-    const getTarget = options.api.getTarget();
-    const target = getTarget(options.insert || "head");
-
-    if (!target) {
-      throw new Error(
-        "Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid."
-      );
-    }
-
-    target.appendChild(link);
-  }
+  options.insert(link);
 
   return (newUrl) => {
     if (typeof newUrl === "string") {
