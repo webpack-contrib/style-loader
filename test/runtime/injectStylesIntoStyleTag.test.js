@@ -20,6 +20,19 @@ const getInsertFn = (place) =>
     target.appendChild(style);
   };
 
+function styleTagTransformFn(css, style) {
+  if (style.styleSheet) {
+    // eslint-disable-next-line no-param-reassign
+    style.styleSheet.cssText = css;
+  } else {
+    while (style.firstChild) {
+      style.removeChild(style.firstChild);
+    }
+
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
 function insertAtTop(element) {
   const parent = document.querySelector("head");
   // eslint-disable-next-line no-underscore-dangle
@@ -60,6 +73,7 @@ const defaultOptions = {
   domAPI,
   insertStyleElement,
   insert: getInsertFn("head"),
+  styleTagTransform: styleTagTransformFn,
 };
 
 describe("addStyle", () => {

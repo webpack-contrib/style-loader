@@ -48,11 +48,20 @@ loaderAPI.pitch = function loader(request) {
     target.appendChild(style);
   }`;
 
-  let styleTagTransformFn;
+  const styleTagTransformFn =
+    typeof styleTagTransform === "function"
+      ? styleTagTransform.toString()
+      : `function(css, style){
+      if (style.styleSheet) {
+        style.styleSheet.cssText = css;
+      } else {
+      while (style.firstChild) {
+        style.removeChild(style.firstChild);
+      }
 
-  if (styleTagTransform) {
-    styleTagTransformFn = styleTagTransform.toString();
-  }
+      style.appendChild(document.createTextNode(css));
+    }
+  }`;
 
   switch (injectType) {
     case "linkTag": {
@@ -134,11 +143,8 @@ var refs = 0;
 var update;
 var options = ${JSON.stringify(runtimeOptions)};
 
+${getStyleTagTransformFn(styleTagTransformFn, isSingleton)};
 options.insert = ${insertFn};
-options.styleTagTransform = ${getStyleTagTransformFn(
-        styleTagTransformFn,
-        isSingleton
-      )};
 options.domAPI = ${getdomAPI(isAuto)};
 options.insertStyleElement = insertStyleElement;
 
@@ -192,11 +198,8 @@ ${
 
 var options = ${JSON.stringify(runtimeOptions)};
 
+${getStyleTagTransformFn(styleTagTransformFn, isSingleton)};
 options.insert = ${insertFn};
-options.styleTagTransform = ${getStyleTagTransformFn(
-        styleTagTransformFn,
-        isSingleton
-      )};
 options.domAPI = ${getdomAPI(isAuto)};
 options.insertStyleElement = insertStyleElement;
 

@@ -225,7 +225,9 @@ function getImportIsOldIECode(esModule, loaderContext) {
 }
 
 function getStyleTagTransformFn(styleTagTransformFn, isSingleton) {
-  return isSingleton ? "undefined" : styleTagTransformFn;
+  return isSingleton
+    ? ""
+    : `options.styleTagTransform = ${styleTagTransformFn}`;
 }
 
 // eslint-disable-next-line import/prefer-default-export
