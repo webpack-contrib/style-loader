@@ -44,5 +44,109 @@ function stringifyRequest(loaderContext, request) {
   );
 }
 
+function getImportLinkApiCode(esModule, loaderContext) {
+  return esModule
+    ? `import api from ${stringifyRequest(
+        loaderContext,
+        `!${path.join(__dirname, "runtime/injectStylesIntoLinkTag.js")}`
+      )};`
+    : `var api = require(${stringifyRequest(
+        loaderContext,
+        `!${path.join(__dirname, "runtime/injectStylesIntoLinkTag.js")}`
+      )});`;
+}
+
+function getImportLinkContentCode(esModule, loaderContext, request) {
+  return esModule
+    ? `import content from ${stringifyRequest(loaderContext, `!!${request}`)};`
+    : `var content = require(${stringifyRequest(
+        loaderContext,
+        `!!${request}`
+      )});`;
+}
+
+function getImportStyleApiCode(esModule, loaderContext) {
+  return esModule
+    ? `import api from ${stringifyRequest(
+        loaderContext,
+        `!${path.join(__dirname, "runtime/injectStylesIntoStyleTag.js")}`
+      )};`
+    : `var api = require(${stringifyRequest(
+        loaderContext,
+        `!${path.join(__dirname, "runtime/injectStylesIntoStyleTag.js")}`
+      )});`;
+}
+
+function getImportStyleDomApiCode(esModule, loaderContext, isSingleton) {
+  return esModule
+    ? `import domApi from ${stringifyRequest(
+        loaderContext,
+        `!${path.join(
+          __dirname,
+          `runtime/${isSingleton ? "singletonStyleApi" : "styleApi"}.js`
+        )}`
+      )};`
+    : `var domApi = require(${stringifyRequest(
+        loaderContext,
+        `!${path.join(
+          __dirname,
+          `runtime/${isSingleton ? "singletonStyleApi" : "styleApi"}.js`
+        )}`
+      )});`;
+}
+
+function getImportStyleContentCode(esModule, loaderContext, request) {
+  return esModule
+    ? `import content, * as namedExport from ${stringifyRequest(
+        loaderContext,
+        `!!${request}`
+      )};`
+    : `var content = require(${stringifyRequest(
+        loaderContext,
+        `!!${request}`
+      )});`;
+}
+
+function getImportGetTargetCode(esModule, loaderContext, insertIsFunction) {
+  return esModule
+    ? `${
+        !insertIsFunction
+          ? `import getTarget from ${stringifyRequest(
+              loaderContext,
+              `!${path.join(__dirname, "runtime/getTarget.js")}`
+            )};`
+          : ""
+      }`
+    : `${
+        !insertIsFunction
+          ? `var getTarget = require(${stringifyRequest(
+              loaderContext,
+              `!${path.join(__dirname, "runtime/getTarget.js")}`
+            )});`
+          : ""
+      }`;
+}
+
+function getImportInsertStyleElementCode(esModule, loaderContext) {
+  return esModule
+    ? `import insertStyleElement from ${stringifyRequest(
+        loaderContext,
+        `!${path.join(__dirname, "runtime/insertStyleElement.js")}`
+      )};`
+    : `var insertStyleElement = require(${stringifyRequest(
+        loaderContext,
+        `!${path.join(__dirname, "runtime/insertStyleElement.js")}`
+      )});`;
+}
+
 // eslint-disable-next-line import/prefer-default-export
-export { stringifyRequest };
+export {
+  stringifyRequest,
+  getImportInsertStyleElementCode,
+  getImportGetTargetCode,
+  getImportStyleContentCode,
+  getImportStyleDomApiCode,
+  getImportStyleApiCode,
+  getImportLinkContentCode,
+  getImportLinkApiCode,
+};

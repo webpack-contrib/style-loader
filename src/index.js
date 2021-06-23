@@ -1,6 +1,13 @@
-import path from "path";
-
-import { stringifyRequest } from "./utils";
+import {
+  stringifyRequest,
+  getImportInsertStyleElementCode,
+  getImportGetTargetCode,
+  getImportStyleContentCode,
+  getImportStyleDomApiCode,
+  getImportStyleApiCode,
+  getImportLinkContentCode,
+  getImportLinkApiCode,
+} from "./utils";
 
 import isEqualLocals from "./runtime/isEqualLocals";
 
@@ -66,36 +73,14 @@ if (module.hot) {
 }`
         : "";
 
-      return `${
+      return `
+      ${getImportLinkApiCode(esModule, this)}
+      ${getImportGetTargetCode(esModule, this, insertIsFunction)}
+      ${getImportLinkContentCode(esModule, this, request)}
+      ${
         esModule
-          ? `import api from ${stringifyRequest(
-              this,
-              `!${path.join(__dirname, "runtime/injectStylesIntoLinkTag.js")}`
-            )};
-            import content from ${stringifyRequest(this, `!!${request}`)};
-            ${
-              !insertIsFunction
-                ? `import getTarget from ${stringifyRequest(
-                    this,
-                    `!${path.join(__dirname, "runtime/getTarget.js")}`
-                  )};`
-                : ""
-            }`
-          : `var api = require(${stringifyRequest(
-              this,
-              `!${path.join(__dirname, "runtime/injectStylesIntoLinkTag.js")}`
-            )});
-            ${
-              !insertIsFunction
-                ? `var getTarget = require(${stringifyRequest(
-                    this,
-                    `!${path.join(__dirname, "runtime/getTarget.js")}`
-                  )});`
-                : ""
-            }
-            var content = require(${stringifyRequest(this, `!!${request}`)});
-
-            content = content.__esModule ? content.default : content;`
+          ? ""
+          : `content = content.__esModule ? content.default : content;`
       }
 
 var options = ${JSON.stringify(runtimeOptions)};
@@ -167,63 +152,21 @@ if (module.hot) {
 
       return `
       var exported = {};
+
+      ${getImportStyleApiCode(esModule, this)}
+      ${getImportStyleDomApiCode(esModule, this, isSingleton)}
+      ${getImportGetTargetCode(esModule, this, insertIsFunction)}
+      ${getImportInsertStyleElementCode(esModule, this)}
+      ${getImportStyleContentCode(esModule, this, request)}
       ${
         esModule
-          ? `import api from ${stringifyRequest(
-              this,
-              `!${path.join(__dirname, "runtime/injectStylesIntoStyleTag.js")}`
-            )};
-            import domApi from ${stringifyRequest(
-              this,
-              `!${path.join(
-                __dirname,
-                `runtime/${isSingleton ? "singletonStyleApi" : "styleApi"}.js`
-              )}`
-            )};
-            import getTarget from ${stringifyRequest(
-              this,
-              `!${path.join(__dirname, "runtime/getTarget.js")}`
-            )};
-            import insertStyleElement from ${stringifyRequest(
-              this,
-              `!${path.join(__dirname, "runtime/insertStyleElement.js")}`
-            )};
-
-
-            import content, * as namedExport from ${stringifyRequest(
-              this,
-              `!!${request}`
-            )};
-
-            if (content && content.locals) {
+          ? `if (content && content.locals) {
               exported.locals = content.locals;
             }
             `
-          : `var api = require(${stringifyRequest(
-              this,
-              `!${path.join(__dirname, "runtime/injectStylesIntoStyleTag.js")}`
-            )});
-            var domApi = require(${stringifyRequest(
-              this,
-              `!${path.join(
-                __dirname,
-                `runtime/${isSingleton ? "singletonStyleApi" : "styleApi"}.js`
-              )}`
-            )});
-            var insertStyleElement = require(${stringifyRequest(
-              this,
-              `!${path.join(__dirname, "runtime/insertStyleElement.js")}`
-            )});
-            var getTarget = require(${stringifyRequest(
-              this,
-              `!${path.join(__dirname, "runtime/getTarget.js")}`
-            )});
-            var content = require(${stringifyRequest(this, `!!${request}`)});
+          : `content = content.__esModule ? content.default : content;
 
-            content = content.__esModule ? content.default : content;
-
-            exported.locals = content.locals || {};
-            `
+            exported.locals = content.locals || {};`
       }
 
 var refs = 0;
@@ -315,54 +258,15 @@ if (module.hot) {
         : "";
 
       return `
+      ${getImportStyleApiCode(esModule, this)}
+      ${getImportStyleDomApiCode(esModule, this, isSingleton)}
+      ${getImportGetTargetCode(esModule, this, insertIsFunction)}
+      ${getImportInsertStyleElementCode(esModule, this)}
+      ${getImportStyleContentCode(esModule, this, request)}
       ${
         esModule
-          ? `import api from ${stringifyRequest(
-              this,
-              `!${path.join(__dirname, "runtime/injectStylesIntoStyleTag.js")}`
-            )};
-            import domApi from ${stringifyRequest(
-              this,
-              `!${path.join(
-                __dirname,
-                `runtime/${isSingleton ? "singletonStyleApi" : "styleApi"}.js`
-              )}`
-            )};
-            import insertStyleElement from ${stringifyRequest(
-              this,
-              `!${path.join(__dirname, "runtime/insertStyleElement.js")}`
-            )};
-            import getTarget from ${stringifyRequest(
-              this,
-              `!${path.join(__dirname, "runtime/getTarget.js")}`
-            )};
-            import content, * as namedExport from ${stringifyRequest(
-              this,
-              `!!${request}`
-            )};`
-          : `var api = require(${stringifyRequest(
-              this,
-              `!${path.join(__dirname, "runtime/injectStylesIntoStyleTag.js")}`
-            )});
-            var domApi = require(${stringifyRequest(
-              this,
-              `!${path.join(
-                __dirname,
-                `runtime/${isSingleton ? "singletonStyleApi" : "styleApi"}.js`
-              )}`
-            )});
-            var insertStyleElement = require(${stringifyRequest(
-              this,
-              `!${path.join(__dirname, "runtime/insertStyleElement.js")}`
-            )});
-            var getTarget = require(${stringifyRequest(
-              this,
-              `!${path.join(__dirname, "runtime/getTarget.js")}`
-            )});
-
-            var content = require(${stringifyRequest(this, `!!${request}`)});
-
-            content = content.__esModule ? content.default : content;`
+          ? ""
+          : `content = content.__esModule ? content.default : content;`
       }
 
 var options = ${JSON.stringify(runtimeOptions)};
