@@ -1,22 +1,31 @@
-import path from "path";
-
-import { stringifyRequest } from "./utils";
-
-import isEqualLocals from "./runtime/isEqualLocals";
+import {
+  stringifyRequest,
+  getImportInsertStyleElementCode,
+  getImportGetTargetCode,
+  getImportStyleContentCode,
+  getImportStyleDomAPICode,
+  getImportStyleAPICode,
+  getImportLinkContentCode,
+  getImportLinkAPICode,
+  getStyleHmrCode,
+  getdomAPI,
+  getImportIsOldIECode,
+  getStyleTagTransformFn,
+} from "./utils";
 
 import schema from "./options.json";
 
-const loaderApi = () => {};
+const loaderAPI = () => {};
 
-loaderApi.pitch = function loader(request) {
+loaderAPI.pitch = function loader(request) {
   const options = this.getOptions(schema);
   const insert =
-    typeof options.insert === "undefined"
-      ? '"head"'
-      : typeof options.insert === "string"
+    typeof options.insert === "string"
       ? JSON.stringify(options.insert)
-      : options.insert.toString();
+      : '"head"';
+  const insertIsFunction = typeof options.insert === "function";
   const injectType = options.injectType || "styleTag";
+  const { styleTagTransform } = options;
   const esModule =
     typeof options.esModule !== "undefined" ? options.esModule : true;
   const runtimeOptions = {
@@ -25,6 +34,34 @@ loaderApi.pitch = function loader(request) {
     insert: options.insert,
     base: options.base,
   };
+  const insertFn = insertIsFunction
+    ? options.insert.toString()
+    : `function(style){
+    var target = getTarget(${insert});
+
+    if (!target) {
+      throw new Error(
+        "Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid."
+      );
+    }
+
+    target.appendChild(style);
+  }`;
+
+  const styleTagTransformFn =
+    typeof styleTagTransform === "function"
+      ? styleTagTransform.toString()
+      : `function(css, style){
+      if (style.styleSheet) {
+        style.styleSheet.cssText = css;
+      } else {
+      while (style.firstChild) {
+        style.removeChild(style.firstChild);
+      }
+
+      style.appendChild(document.createTextNode(css));
+    }
+  }`;
 
   switch (injectType) {
     case "linkTag": {
@@ -52,27 +89,21 @@ if (module.hot) {
 }`
         : "";
 
-      return `${
+      return `
+      ${getImportLinkAPICode(esModule, this)}
+      ${getImportGetTargetCode(esModule, this, insertIsFunction)}
+      ${getImportLinkContentCode(esModule, this, request)}
+      ${
         esModule
-          ? `import api from ${stringifyRequest(
-              this,
-              `!${path.join(__dirname, "runtime/injectStylesIntoLinkTag.js")}`
-            )};
-            import content from ${stringifyRequest(this, `!!${request}`)};`
-          : `var api = require(${stringifyRequest(
-              this,
-              `!${path.join(__dirname, "runtime/injectStylesIntoLinkTag.js")}`
-            )});
-            var content = require(${stringifyRequest(this, `!!${request}`)});
-
-            content = content.__esModule ? content.default : content;`
+          ? ""
+          : `content = content.__esModule ? content.default : content;`
       }
 
 var options = ${JSON.stringify(runtimeOptions)};
 
-options.insert = ${insert};
+options.insert = ${insertFn};
 
-var update = api(content, options);
+var update = API(content, options);
 
 ${hmrCode}
 
@@ -80,100 +111,46 @@ ${esModule ? "export default {}" : ""}`;
     }
 
     case "lazyStyleTag":
+    case "lazyAutoStyleTag":
     case "lazySingletonStyleTag": {
       const isSingleton = injectType === "lazySingletonStyleTag";
-
+      const isAuto = injectType === "lazyAutoStyleTag";
       const hmrCode = this.hot
-        ? `
-if (module.hot) {
-  if (!content.locals || module.hot.invalidate) {
-    var isEqualLocals = ${isEqualLocals.toString()};
-    var isNamedExport = ${esModule ? "!('locals' in content)" : false};
-    var oldLocals = isNamedExport ? namedExport : content.locals;
-
-    module.hot.accept(
-      ${stringifyRequest(this, `!!${request}`)},
-      function () {
-        ${
-          esModule
-            ? `if (!isEqualLocals(oldLocals, isNamedExport ? namedExport : content.locals, isNamedExport)) {
-                module.hot.invalidate();
-
-                return;
-              }
-
-              oldLocals = isNamedExport ? namedExport : content.locals;
-
-              if (update && refs > 0) {
-                update(content);
-              }`
-            : `content = require(${stringifyRequest(this, `!!${request}`)});
-
-              content = content.__esModule ? content.default : content;
-
-              if (!isEqualLocals(oldLocals, content.locals)) {
-                module.hot.invalidate();
-
-                return;
-              }
-
-              oldLocals = content.locals;
-
-              if (update && refs > 0) {
-                update(content);
-              }`
-        }
-      }
-    )
-  }
-
-  module.hot.dispose(function() {
-    if (update) {
-      update();
-    }
-  });
-}`
+        ? `${getStyleHmrCode(esModule, this, request, true)}`
         : "";
 
       return `
       var exported = {};
+
+      ${getImportStyleAPICode(esModule, this)}
+      ${getImportStyleDomAPICode(esModule, this, isSingleton, isAuto)}
+      ${getImportGetTargetCode(esModule, this, insertIsFunction)}
+      ${getImportInsertStyleElementCode(esModule, this)}
+      ${getImportStyleContentCode(esModule, this, request)}
+      ${isAuto ? getImportIsOldIECode(esModule, this) : ""}
       ${
         esModule
-          ? `import api from ${stringifyRequest(
-              this,
-              `!${path.join(__dirname, "runtime/injectStylesIntoStyleTag.js")}`
-            )};
-            import content, * as namedExport from ${stringifyRequest(
-              this,
-              `!!${request}`
-            )};
-
-            if (content && content.locals) {
+          ? `if (content && content.locals) {
               exported.locals = content.locals;
             }
             `
-          : `var api = require(${stringifyRequest(
-              this,
-              `!${path.join(__dirname, "runtime/injectStylesIntoStyleTag.js")}`
-            )});
-            var content = require(${stringifyRequest(this, `!!${request}`)});
+          : `content = content.__esModule ? content.default : content;
 
-            content = content.__esModule ? content.default : content;
-            
-            exported.locals = content.locals || {};
-            `
+            exported.locals = content.locals || {};`
       }
 
 var refs = 0;
 var update;
 var options = ${JSON.stringify(runtimeOptions)};
 
-options.insert = ${insert};
-options.singleton = ${isSingleton};
+${getStyleTagTransformFn(styleTagTransformFn, isSingleton)};
+options.insert = ${insertFn};
+options.domAPI = ${getdomAPI(isAuto)};
+options.insertStyleElement = insertStyleElement;
 
 exported.use = function() {
   if (!(refs++)) {
-    update = api(content, options);
+    update = API(content, options);
   }
 
   return exported;
@@ -197,85 +174,36 @@ ${
     }
 
     case "styleTag":
+    case "autoStyleTag":
     case "singletonStyleTag":
     default: {
       const isSingleton = injectType === "singletonStyleTag";
-
+      const isAuto = injectType === "autoStyleTag";
       const hmrCode = this.hot
-        ? `
-if (module.hot) {
-  if (!content.locals || module.hot.invalidate) {
-    var isEqualLocals = ${isEqualLocals.toString()};
-    var isNamedExport = ${esModule ? "!content.locals" : false};
-    var oldLocals = isNamedExport ? namedExport : content.locals;
-
-    module.hot.accept(
-      ${stringifyRequest(this, `!!${request}`)},
-      function () {
-        ${
-          esModule
-            ? `if (!isEqualLocals(oldLocals, isNamedExport ? namedExport : content.locals, isNamedExport)) {
-                module.hot.invalidate();
-
-                return;
-              }
-
-              oldLocals = isNamedExport ? namedExport : content.locals;
-
-              update(content);`
-            : `content = require(${stringifyRequest(this, `!!${request}`)});
-
-              content = content.__esModule ? content.default : content;
-
-              if (typeof content === 'string') {
-                content = [[module.id, content, '']];
-              }
-
-              if (!isEqualLocals(oldLocals, content.locals)) {
-                module.hot.invalidate();
-
-                return;
-              }
-
-              oldLocals = content.locals;
-
-              update(content);`
-        }
-      }
-    )
-  }
-
-  module.hot.dispose(function() {
-    update();
-  });
-}`
+        ? `${getStyleHmrCode(esModule, this, request, false)}`
         : "";
 
       return `
+      ${getImportStyleAPICode(esModule, this)}
+      ${getImportStyleDomAPICode(esModule, this, isSingleton, isAuto)}
+      ${getImportGetTargetCode(esModule, this, insertIsFunction)}
+      ${getImportInsertStyleElementCode(esModule, this)}
+      ${getImportStyleContentCode(esModule, this, request)}
+      ${isAuto ? getImportIsOldIECode(esModule, this) : ""}
       ${
         esModule
-          ? `import api from ${stringifyRequest(
-              this,
-              `!${path.join(__dirname, "runtime/injectStylesIntoStyleTag.js")}`
-            )};
-            import content, * as namedExport from ${stringifyRequest(
-              this,
-              `!!${request}`
-            )};`
-          : `var api = require(${stringifyRequest(
-              this,
-              `!${path.join(__dirname, "runtime/injectStylesIntoStyleTag.js")}`
-            )});
-            var content = require(${stringifyRequest(this, `!!${request}`)});
-
-            content = content.__esModule ? content.default : content;`
+          ? ""
+          : `content = content.__esModule ? content.default : content;`
       }
+
 var options = ${JSON.stringify(runtimeOptions)};
 
-options.insert = ${insert};
-options.singleton = ${isSingleton};
+${getStyleTagTransformFn(styleTagTransformFn, isSingleton)};
+options.insert = ${insertFn};
+options.domAPI = ${getdomAPI(isAuto)};
+options.insertStyleElement = insertStyleElement;
 
-var update = api(content, options);
+var update = API(content, options);
 
 ${hmrCode}
 
@@ -289,4 +217,4 @@ ${
   }
 };
 
-export default loaderApi;
+export default loaderAPI;

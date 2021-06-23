@@ -61,13 +61,14 @@ module.exports = {
 
 ## Options
 
-|              Name               |         Type         |  Default   | Description                                              |
-| :-----------------------------: | :------------------: | :--------: | :------------------------------------------------------- |
-| [**`injectType`**](#injecttype) |      `{String}`      | `styleTag` | Allows to setup how styles will be injected into the DOM |
-| [**`attributes`**](#attributes) |      `{Object}`      |    `{}`    | Adds custom attributes to tag                            |
-|     [**`insert`**](#insert)     | `{String\|Function}` |   `head`   | Inserts tag at the given position into the DOM           |
-|       [**`base`**](#base)       |      `{Number}`      |   `true`   | Sets module ID base (DLLPlugin)                          |
-|   [**`esModule`**](#esmodule)   |     `{Boolean}`      |   `true`   | Use ES modules syntax                                    |
+|                     Name                      |         Type         |   Default   | Description                                                |
+| :-------------------------------------------: | :------------------: | :---------: | :--------------------------------------------------------- |
+|        [**`injectType`**](#injecttype)        |      `{String}`      | `styleTag`  | Allows to setup how styles will be injected into the DOM   |
+|        [**`attributes`**](#attributes)        |      `{Object}`      |    `{}`     | Adds custom attributes to tag                              |
+|            [**`insert`**](#insert)            | `{String\|Function}` |   `head`    | Inserts tag at the given position into the DOM             |
+| [**`styleTagTransform`**](#styleTagTransform) |     `{Function}`     | `undefined` | Transform tag and css when insert 'style' tag into the DOM |
+|              [**`base`**](#base)              |      `{Number}`      |   `true`    | Sets module ID base (DLLPlugin)                            |
+|          [**`esModule`**](#esmodule)          |     `{Boolean}`      |   `true`    | Use ES modules syntax                                      |
 
 ### `injectType`
 
@@ -80,8 +81,10 @@ Possible values:
 
 - `styleTag`
 - `singletonStyleTag`
+- `autoStyleTag`
 - `lazyStyleTag`
 - `lazySingletonStyleTag`
+- `lazyAutoStyleTag`
 - `linkTag`
 
 #### `styleTag`
@@ -197,6 +200,10 @@ The loader inject styles like:
   }
 </style>
 ```
+
+#### `autoStyleTag`
+
+Works the same as a [`styleTag`](#styleTag), but if the code is executed in IE6-9, turns on the [`singletonStyleTag`](#singletonStyleTag) mode.
 
 #### `lazyStyleTag`
 
@@ -338,6 +345,10 @@ The loader generate this:
   }
 </style>
 ```
+
+#### `lazyAutoStyleTag`
+
+Works the same as a [`lazyStyleTag`](#lazyStyleTag), but if the code is executed in IE6-9, turns on the [`lazySingletonStyleTag`](#lazySingletonStyleTag) mode.
 
 #### `linkTag`
 
@@ -496,6 +507,45 @@ module.exports = {
 ```
 
 Insert styles at top of `head` tag.
+
+### `styleTagTransform`
+
+Type: `Function`
+Default: `undefined`
+
+Transform tag and css when insert 'style' tag into the DOM.
+
+> ⚠ Do not forget that this code will be used in the browser and not all browsers support latest ECMA features like `let`, `const`, `arrow function expression` and etc, we recommend use only ECMA 5 features, but it is depends what browsers you want to support
+> ⚠ Do not forget that some DOM methods may not be available in older browsers, we recommended use only [DOM core level 2 properties](https://caniuse.com/#search=DOM%20Core), but it is depends what browsers you want to support
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          {
+            loader: "style-loader",
+            options: {
+              injectType: "styleTag",
+              styleTagTransform: function (css, style) {
+                // Do something ...
+                style.innerHTML = `${css}.modify{}\n`;
+
+                document.head.appendChild(style);
+              },
+            },
+          },
+          "css-loader",
+        ],
+      },
+    ],
+  },
+};
+```
 
 ### `base`
 

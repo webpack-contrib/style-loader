@@ -1,5 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`loader should inject hmr code with HotModuleReplacementPlugin when the "injectType" option is "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`loader should inject hmr code with HotModuleReplacementPlugin when the "injectType" option is "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`loader should inject hmr code with HotModuleReplacementPlugin when the "injectType" option is "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`loader should inject hmr code with HotModuleReplacementPlugin when the "injectType" option is "lazyAutoStyleTag": warnings 1`] = `Array []`;
+
 exports[`loader should inject hmr code with HotModuleReplacementPlugin when the "injectType" option is "lazySingletonStyleTag": errors 1`] = `Array []`;
 
 exports[`loader should inject hmr code with HotModuleReplacementPlugin when the "injectType" option is "lazySingletonStyleTag": warnings 1`] = `Array []`;
@@ -19,6 +27,54 @@ exports[`loader should inject hmr code with HotModuleReplacementPlugin when the 
 exports[`loader should inject hmr code with HotModuleReplacementPlugin when the "injectType" option is "styleTag": errors 1`] = `Array []`;
 
 exports[`loader should inject hmr code with HotModuleReplacementPlugin when the "injectType" option is "styleTag": warnings 1`] = `Array []`;
+
+exports[`loader should not generate source maps when previous loader don't emit them when the "injectType" option is "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+</style><style>h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`loader should not generate source maps when previous loader don't emit them when the "injectType" option is "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`loader should not generate source maps when previous loader don't emit them when the "injectType" option is "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`loader should not generate source maps when previous loader don't emit them when the "injectType" option is "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+</style><style>h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`loader should not generate source maps when previous loader don't emit them when the "injectType" option is "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`loader should not generate source maps when previous loader don't emit them when the "injectType" option is "lazyAutoStyleTag": warnings 1`] = `Array []`;
 
 exports[`loader should not generate source maps when previous loader don't emit them when the "injectType" option is "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -134,6 +190,14 @@ exports[`loader should not generate source maps when previous loader don't emit 
 
 exports[`loader should not generate source maps when previous loader don't emit them when the "injectType" option is "styleTag": warnings 1`] = `Array []`;
 
+exports[`loader should not inject hmr code without HotModuleReplacementPlugin when the "injectType" option is "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`loader should not inject hmr code without HotModuleReplacementPlugin when the "injectType" option is "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`loader should not inject hmr code without HotModuleReplacementPlugin when the "injectType" option is "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`loader should not inject hmr code without HotModuleReplacementPlugin when the "injectType" option is "lazyAutoStyleTag": warnings 1`] = `Array []`;
+
 exports[`loader should not inject hmr code without HotModuleReplacementPlugin when the "injectType" option is "lazySingletonStyleTag": errors 1`] = `Array []`;
 
 exports[`loader should not inject hmr code without HotModuleReplacementPlugin when the "injectType" option is "lazySingletonStyleTag": warnings 1`] = `Array []`;
@@ -195,6 +259,198 @@ exports[`loader should work when ref is negative when the "injectType" option is
 exports[`loader should work when ref is negative when the "injectType" option is "lazyStyleTag": errors 1`] = `Array []`;
 
 exports[`loader should work when ref is negative when the "injectType" option is "lazyStyleTag": warnings 1`] = `Array []`;
+
+exports[`loader should work when the "injectType" option is "autoStyleTag" and CommonJS module syntax used: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+</style><style>h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`loader should work when the "injectType" option is "autoStyleTag" and CommonJS module syntax used: errors 1`] = `Array []`;
+
+exports[`loader should work when the "injectType" option is "autoStyleTag" and CommonJS module syntax used: warnings 1`] = `Array []`;
+
+exports[`loader should work when the "injectType" option is "autoStyleTag" and ES module syntax used: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+</style><style>h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`loader should work when the "injectType" option is "autoStyleTag" and ES module syntax used: errors 1`] = `Array []`;
+
+exports[`loader should work when the "injectType" option is "autoStyleTag" and ES module syntax used: warnings 1`] = `Array []`;
+
+exports[`loader should work when the "injectType" option is "autoStyleTag" and files have same name: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.foo {
+  color: red;
+}
+</style><style>.bar {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`loader should work when the "injectType" option is "autoStyleTag" and files have same name: errors 1`] = `Array []`;
+
+exports[`loader should work when the "injectType" option is "autoStyleTag" and files have same name: warnings 1`] = `Array []`;
+
+exports[`loader should work when the "injectType" option is "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+</style><style>h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`loader should work when the "injectType" option is "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`loader should work when the "injectType" option is "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`loader should work when the "injectType" option is "lazyAutoStyleTag" and CommonJS module syntax used: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+</style><style>h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`loader should work when the "injectType" option is "lazyAutoStyleTag" and CommonJS module syntax used: errors 1`] = `Array []`;
+
+exports[`loader should work when the "injectType" option is "lazyAutoStyleTag" and CommonJS module syntax used: warnings 1`] = `Array []`;
+
+exports[`loader should work when the "injectType" option is "lazyAutoStyleTag" and ES module syntax used: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+</style><style>h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`loader should work when the "injectType" option is "lazyAutoStyleTag" and ES module syntax used: errors 1`] = `Array []`;
+
+exports[`loader should work when the "injectType" option is "lazyAutoStyleTag" and ES module syntax used: warnings 1`] = `Array []`;
+
+exports[`loader should work when the "injectType" option is "lazyAutoStyleTag" and files have same name: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.foo {
+  color: red;
+}
+</style><style>.bar {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`loader should work when the "injectType" option is "lazyAutoStyleTag" and files have same name: errors 1`] = `Array []`;
+
+exports[`loader should work when the "injectType" option is "lazyAutoStyleTag" and files have same name: warnings 1`] = `Array []`;
+
+exports[`loader should work when the "injectType" option is "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+</style><style>h1 {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`loader should work when the "injectType" option is "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`loader should work when the "injectType" option is "lazyAutoStyleTag": warnings 1`] = `Array []`;
 
 exports[`loader should work when the "injectType" option is "lazySingletonStyleTag" and CommonJS module syntax used: DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -651,6 +907,62 @@ exports[`loader should work when the "injectType" option is "styleTag": DOM 1`] 
 exports[`loader should work when the "injectType" option is "styleTag": errors 1`] = `Array []`;
 
 exports[`loader should work when the "injectType" option is "styleTag": warnings 1`] = `Array []`;
+
+exports[`loader should work with css modules when the "injectType" option is "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.css-modules-local-scoped-className_2SqzNMl {
+  background: red;
+}
+</style><style>.css-modules-myClassName_2oBof9I {
+  background: red;
+}
+
+.css-modules-myComposingClass_2SJnb9r {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+<div class=\\"css-modules-myClassName_2oBof9I\\">Water</div><div class=\\"css-modules-myComposingClass_2SJnb9r css-modules-local-scoped-className_2SqzNMl\\">Ground</div></body></html>"
+`;
+
+exports[`loader should work with css modules when the "injectType" option is "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`loader should work with css modules when the "injectType" option is "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`loader should work with css modules when the "injectType" option is "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.css-modules-local-scoped-className_2SqzNMl {
+  background: red;
+}
+</style><style>.css-modules-myClassName_2oBof9I {
+  background: red;
+}
+
+.css-modules-myComposingClass_2SJnb9r {
+  color: blue;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+<div class=\\"css-modules-myClassName_2oBof9I\\">Water</div><div class=\\"css-modules-myComposingClass_2SJnb9r css-modules-local-scoped-className_2SqzNMl\\">Ground</div></body></html>"
+`;
+
+exports[`loader should work with css modules when the "injectType" option is "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`loader should work with css modules when the "injectType" option is "lazyAutoStyleTag": warnings 1`] = `Array []`;
 
 exports[`loader should work with css modules when the "injectType" option is "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>

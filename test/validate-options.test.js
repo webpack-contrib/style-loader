@@ -6,8 +6,10 @@ describe("validate options", () => {
       success: [
         "styleTag",
         "singletonStyleTag",
+        "autoStyleTag",
         "lazyStyleTag",
         "lazySingletonStyleTag",
+        "lazyAutoStyleTag",
         "linkTag",
       ],
       failure: ["unknown"],
@@ -23,6 +25,11 @@ describe("validate options", () => {
     esModule: {
       success: [true, false],
       failure: ["true"],
+    },
+    styleTagTransform: {
+      // eslint-disable-next-line func-names
+      success: [function () {}],
+      failure: ["true", true, []],
     },
     unknown: {
       success: [],
