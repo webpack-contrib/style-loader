@@ -10,6 +10,7 @@ import {
   getStyleHmrCode,
   getdomAPI,
   getImportIsOldIECode,
+  getStyleTagTransformFn,
 } from "./utils";
 
 import schema from "./options.json";
@@ -24,6 +25,7 @@ loaderAPI.pitch = function loader(request) {
       : '"head"';
   const insertIsFunction = typeof options.insert === "function";
   const injectType = options.injectType || "styleTag";
+  const { styleTagTransform } = options;
   const esModule =
     typeof options.esModule !== "undefined" ? options.esModule : true;
   const runtimeOptions = {
@@ -45,6 +47,12 @@ loaderAPI.pitch = function loader(request) {
 
     target.appendChild(style);
   }`;
+
+  let styleTagTransformFn;
+
+  if (styleTagTransform) {
+    styleTagTransformFn = styleTagTransform.toString();
+  }
 
   switch (injectType) {
     case "linkTag": {
@@ -127,6 +135,10 @@ var update;
 var options = ${JSON.stringify(runtimeOptions)};
 
 options.insert = ${insertFn};
+options.styleTagTransform = ${getStyleTagTransformFn(
+        styleTagTransformFn,
+        isSingleton
+      )};
 options.domAPI = ${getdomAPI(isAuto)};
 options.insertStyleElement = insertStyleElement;
 
@@ -181,6 +193,10 @@ ${
 var options = ${JSON.stringify(runtimeOptions)};
 
 options.insert = ${insertFn};
+options.styleTagTransform = ${getStyleTagTransformFn(
+        styleTagTransformFn,
+        isSingleton
+      )};
 options.domAPI = ${getdomAPI(isAuto)};
 options.insertStyleElement = insertStyleElement;
 

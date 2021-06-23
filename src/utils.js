@@ -224,6 +224,10 @@ function getImportIsOldIECode(esModule, loaderContext) {
     : `var isOldIE = require(${modulePath});`;
 }
 
+function getStyleTagTransformFn(styleTagTransformFn, isSingleton) {
+  return isSingleton ? "undefined" : styleTagTransformFn;
+}
+
 // eslint-disable-next-line import/prefer-default-export
 export {
   stringifyRequest,
@@ -237,4 +241,5 @@ export {
   getStyleHmrCode,
   getdomAPI,
   getImportIsOldIECode,
+  getStyleTagTransformFn,
 };

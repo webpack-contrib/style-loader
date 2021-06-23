@@ -18,7 +18,9 @@ function apply(style, options, obj) {
 
   // For old IE
   /* istanbul ignore if  */
-  if (style.styleSheet) {
+  if (options.styleTagTransform) {
+    options.styleTagTransform(css, style);
+  } else if (style.styleSheet) {
     style.styleSheet.cssText = css;
   } else {
     while (style.firstChild) {
