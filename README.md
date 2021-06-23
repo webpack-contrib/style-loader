@@ -80,8 +80,10 @@ Possible values:
 
 - `styleTag`
 - `singletonStyleTag`
+- `autoStyleTag`
 - `lazyStyleTag`
 - `lazySingletonStyleTag`
+- `lazyAutoStyleTag`
 - `linkTag`
 
 #### `styleTag`
@@ -197,6 +199,10 @@ The loader inject styles like:
   }
 </style>
 ```
+
+#### `autoStyleTag`
+
+Works the same as a [`styleTag`](#styleTag), but if the code is executed in IE6-9, turns on the [`singletonStyleTag`](#singletonStyleTag) mode.
 
 #### `lazyStyleTag`
 
@@ -338,6 +344,10 @@ The loader generate this:
   }
 </style>
 ```
+
+#### `lazyAutoStyleTag`
+
+Works the same as a [`lazyStyleTag`](#lazyStyleTag), but if the code is executed in IE6-9, turns on the [`lazySingletonStyleTag`](#lazySingletonStyleTag) mode.
 
 #### `linkTag`
 

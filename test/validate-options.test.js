@@ -6,8 +6,10 @@ describe("validate options", () => {
       success: [
         "styleTag",
         "singletonStyleTag",
+        "autoStyleTag",
         "lazyStyleTag",
         "lazySingletonStyleTag",
+        "lazyAutoStyleTag",
         "linkTag",
       ],
       failure: ["unknown"],

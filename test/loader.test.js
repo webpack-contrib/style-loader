@@ -18,8 +18,10 @@ describe("loader", () => {
   const injectTypes = [
     "styleTag",
     "singletonStyleTag",
+    "autoStyleTag",
     "lazyStyleTag",
     "lazySingletonStyleTag",
+    "lazyAutoStyleTag",
     "linkTag",
   ];
 

@@ -13,7 +13,9 @@ describe('"injectType" option', () => {
   const injectTypes = [
     "styleTag",
     "singletonStyleTag",
+    "autoStyleTag",
     "lazyStyleTag",
+    "lazyAutoStyleTag",
     "lazySingletonStyleTag",
     "linkTag",
   ];

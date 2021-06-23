@@ -7,15 +7,15 @@ import {
   getImportStyleApiCode,
   getImportLinkContentCode,
   getImportLinkApiCode,
+  getStyleHmrCode,
+  getImportStyleAllDomApiCode,
+  getDomApi,
+  getImportIsOldIECode,
 } from "./utils";
-
-import isEqualLocals from "./runtime/isEqualLocals";
 
 import schema from "./options.json";
 
 const loaderApi = () => {};
-
-// TODO add var isOldIE = isOldIEFn(); for autoApi
 
 loaderApi.pitch = function loader(request) {
   const options = this.getOptions(schema);
@@ -95,69 +95,28 @@ ${esModule ? "export default {}" : ""}`;
     }
 
     case "lazyStyleTag":
+    case "lazyAutoStyleTag":
     case "lazySingletonStyleTag": {
       const isSingleton = injectType === "lazySingletonStyleTag";
-
+      const isAuto = injectType === "lazyAutoStyleTag";
       const hmrCode = this.hot
-        ? `
-if (module.hot) {
-  if (!content.locals || module.hot.invalidate) {
-    var isEqualLocals = ${isEqualLocals.toString()};
-    var isNamedExport = ${esModule ? "!('locals' in content)" : false};
-    var oldLocals = isNamedExport ? namedExport : content.locals;
-
-    module.hot.accept(
-      ${stringifyRequest(this, `!!${request}`)},
-      function () {
-        ${
-          esModule
-            ? `if (!isEqualLocals(oldLocals, isNamedExport ? namedExport : content.locals, isNamedExport)) {
-                module.hot.invalidate();
-
-                return;
-              }
-
-              oldLocals = isNamedExport ? namedExport : content.locals;
-
-              if (update && refs > 0) {
-                update(content);
-              }`
-            : `content = require(${stringifyRequest(this, `!!${request}`)});
-
-              content = content.__esModule ? content.default : content;
-
-              if (!isEqualLocals(oldLocals, content.locals)) {
-                module.hot.invalidate();
-
-                return;
-              }
-
-              oldLocals = content.locals;
-
-              if (update && refs > 0) {
-                update(content);
-              }`
-        }
-      }
-    )
-  }
-
-  module.hot.dispose(function() {
-    if (update) {
-      update();
-    }
-  });
-}`
+        ? `${getStyleHmrCode(esModule, this, request, true)}`
         : "";
 
       return `
       var exported = {};
 
       ${getImportStyleApiCode(esModule, this)}
-      ${getImportStyleDomApiCode(esModule, this, isSingleton)}
+      ${
+        isAuto
+          ? getImportStyleAllDomApiCode(esModule, this)
+          : getImportStyleDomApiCode(esModule, this, isSingleton)
+      }
       ${getImportGetTargetCode(esModule, this, insertIsFunction)}
       ${getImportInsertStyleElementCode(esModule, this)}
       ${getImportStyleContentCode(esModule, this, request)}
+      ${isAuto ? getImportIsOldIECode(esModule, this) : ""}
+      ${isAuto ? "var isOldIE = isOldIEFn();" : ""}
       ${
         esModule
           ? `if (content && content.locals) {
@@ -174,7 +133,7 @@ var update;
 var options = ${JSON.stringify(runtimeOptions)};
 
 options.insert = ${insertFn};
-options.domApi = domApi;
+options.domApi = ${getDomApi(isAuto)};
 options.insertStyleElement = insertStyleElement;
 
 exported.use = function() {
@@ -203,66 +162,27 @@ ${
     }
 
     case "styleTag":
+    case "autoStyleTag":
     case "singletonStyleTag":
     default: {
       const isSingleton = injectType === "singletonStyleTag";
-
+      const isAuto = injectType === "autoStyleTag";
       const hmrCode = this.hot
-        ? `
-if (module.hot) {
-  if (!content.locals || module.hot.invalidate) {
-    var isEqualLocals = ${isEqualLocals.toString()};
-    var isNamedExport = ${esModule ? "!content.locals" : false};
-    var oldLocals = isNamedExport ? namedExport : content.locals;
-
-    module.hot.accept(
-      ${stringifyRequest(this, `!!${request}`)},
-      function () {
-        ${
-          esModule
-            ? `if (!isEqualLocals(oldLocals, isNamedExport ? namedExport : content.locals, isNamedExport)) {
-                module.hot.invalidate();
-
-                return;
-              }
-
-              oldLocals = isNamedExport ? namedExport : content.locals;
-
-              update(content);`
-            : `content = require(${stringifyRequest(this, `!!${request}`)});
-
-              content = content.__esModule ? content.default : content;
-
-              if (typeof content === 'string') {
-                content = [[module.id, content, '']];
-              }
-
-              if (!isEqualLocals(oldLocals, content.locals)) {
-                module.hot.invalidate();
-
-                return;
-              }
-
-              oldLocals = content.locals;
-
-              update(content);`
-        }
-      }
-    )
-  }
-
-  module.hot.dispose(function() {
-    update();
-  });
-}`
+        ? `${getStyleHmrCode(esModule, this, request, false)}`
         : "";
 
       return `
       ${getImportStyleApiCode(esModule, this)}
-      ${getImportStyleDomApiCode(esModule, this, isSingleton)}
+      ${
+        isAuto
+          ? getImportStyleAllDomApiCode(esModule, this)
+          : getImportStyleDomApiCode(esModule, this, isSingleton)
+      }
       ${getImportGetTargetCode(esModule, this, insertIsFunction)}
       ${getImportInsertStyleElementCode(esModule, this)}
       ${getImportStyleContentCode(esModule, this, request)}
+      ${isAuto ? getImportIsOldIECode(esModule, this) : ""}
+      ${isAuto ? "var isOldIE = isOldIEFn();" : ""}
       ${
         esModule
           ? ""
@@ -272,7 +192,7 @@ if (module.hot) {
 var options = ${JSON.stringify(runtimeOptions)};
 
 options.insert = ${insertFn};
-options.domApi = domApi;
+options.domApi = ${getDomApi(isAuto)};
 options.insertStyleElement = insertStyleElement;
 
 var update = api(content, options);

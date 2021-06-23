@@ -1,4 +1,6 @@
-const path = require("path");
+import path from "path";
+
+import isEqualLocals from "./runtime/isEqualLocals";
 
 const matchRelativePath = /^\.\.?[/\\]/;
 
@@ -139,6 +141,118 @@ function getImportInsertStyleElementCode(esModule, loaderContext) {
       )});`;
 }
 
+function getStyleHmrCode(esModule, loaderContext, request, lazy) {
+  return `
+        if (module.hot) {
+          if (!content.locals || module.hot.invalidate) {
+            var isEqualLocals = ${isEqualLocals.toString()};
+            var isNamedExport = ${esModule ? "!content.locals" : false};
+            var oldLocals = isNamedExport ? namedExport : content.locals;
+
+            module.hot.accept(
+              ${stringifyRequest(loaderContext, `!!${request}`)},
+              function () {
+                ${
+                  esModule
+                    ? `if (!isEqualLocals(oldLocals, isNamedExport ? namedExport : content.locals, isNamedExport)) {
+                        module.hot.invalidate();
+
+                        return;
+                      }
+
+                      oldLocals = isNamedExport ? namedExport : content.locals;
+
+                      ${
+                        lazy
+                          ? `if (update && refs > 0) {
+                              update(content);
+                            }`
+                          : `update(content);`
+                      }`
+                    : `content = require(${stringifyRequest(
+                        loaderContext,
+                        `!!${request}`
+                      )});
+
+                      content = content.__esModule ? content.default : content;
+
+                      ${
+                        lazy
+                          ? ""
+                          : `if (typeof content === 'string') {
+                              content = [[module.id, content, '']];
+                            }`
+                      }
+
+                      if (!isEqualLocals(oldLocals, content.locals)) {
+                        module.hot.invalidate();
+
+                        return;
+                      }
+
+                      oldLocals = content.locals;
+
+                      ${
+                        lazy
+                          ? `if (update && refs > 0) {
+                                update(content);
+                              }`
+                          : `update(content);`
+                      }`
+                }
+              }
+            )
+          }
+
+          module.hot.dispose(function() {
+            ${
+              lazy
+                ? `if (update) {
+                    update();
+                  }`
+                : `update();`
+            }
+          });
+        }
+        `;
+}
+
+function getImportStyleAllDomApiCode(esModule, loaderContext) {
+  return esModule
+    ? `import domApi from ${stringifyRequest(
+        loaderContext,
+        `!${path.join(__dirname, "runtime/styleApi.js")}`
+      )};
+        import domApiSingleton from ${stringifyRequest(
+          loaderContext,
+          `!${path.join(__dirname, "runtime/singletonStyleApi.js")}`
+        )};`
+    : `var domApi = require(${stringifyRequest(
+        loaderContext,
+        `!${path.join(__dirname, "runtime/styleApi.js")}`
+      )});
+        var domApiSingleton = require(${stringifyRequest(
+          loaderContext,
+          `!${path.join(__dirname, "runtime/singletonStyleApi.js")}`
+        )});`;
+}
+
+function getDomApi(isAuto) {
+  return isAuto ? "isOldIE() ? domApiSingleton : domApi" : "domApi";
+}
+
+function getImportIsOldIECode(esModule, loaderContext) {
+  return esModule
+    ? `import isOldIEFn from ${stringifyRequest(
+        loaderContext,
+        `!${path.join(__dirname, "runtime/isOldIE.js")}`
+      )};`
+    : `var isOldIEFn = require(${stringifyRequest(
+        loaderContext,
+        `!${path.join(__dirname, "runtime/isOldIE.js")}`
+      )});`;
+}
+
 // eslint-disable-next-line import/prefer-default-export
 export {
   stringifyRequest,
@@ -149,4 +263,8 @@ export {
   getImportStyleApiCode,
   getImportLinkContentCode,
   getImportLinkApiCode,
+  getStyleHmrCode,
+  getImportStyleAllDomApiCode,
+  getDomApi,
+  getImportIsOldIECode,
 };
