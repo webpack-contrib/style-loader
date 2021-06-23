@@ -18,15 +18,7 @@ function apply(style, options, obj) {
 
   // For old IE
   /* istanbul ignore if  */
-  if (style.styleSheet) {
-    style.styleSheet.cssText = css;
-  } else {
-    while (style.firstChild) {
-      style.removeChild(style.firstChild);
-    }
-
-    style.appendChild(document.createTextNode(css));
-  }
+  options.styleTagTransform(css, style);
 }
 
 function removeStyleElement(style) {
