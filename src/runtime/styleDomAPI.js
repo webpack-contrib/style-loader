@@ -35,7 +35,9 @@ function domAPI(options) {
   const style = options.insertStyleElement(options);
 
   return {
-    update: apply.bind(null, style, options),
+    update: (obj) => {
+      apply(style, options, obj);
+    },
     remove: () => {
       removeStyleElement(style);
     },

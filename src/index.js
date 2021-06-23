@@ -1,5 +1,4 @@
 import {
-  stringifyRequest,
   getImportInsertStyleElementCode,
   getImportGetTargetCode,
   getImportStyleContentCode,
@@ -8,9 +7,12 @@ import {
   getImportLinkContentCode,
   getImportLinkAPICode,
   getStyleHmrCode,
+  getLinkHmrCode,
   getdomAPI,
   getImportIsOldIECode,
   getStyleTagTransformFn,
+  getExportStyleCode,
+  getExportLazyStyleCode,
 } from "./utils";
 
 import schema from "./options.json";
@@ -34,6 +36,40 @@ loaderAPI.pitch = function loader(request) {
     insert: options.insert,
     base: options.base,
   };
+
+  let setAttributesFn;
+
+  if (typeof options.attributes !== "undefined") {
+    setAttributesFn =
+      typeof options.attributes.nonce === "undefined"
+        ? `function(style, attributes){
+        var nonce =
+          typeof __webpack_nonce__ !== "undefined" ? __webpack_nonce__ : null;
+
+        if (nonce) {
+          attributes.nonce = nonce;
+        }
+
+        Object.keys(attributes).forEach((key) => {
+          style.setAttribute(key, attributes[key]);
+        });
+      }`
+        : `function(style, attributes){
+        Object.keys(attributes).forEach((key) => {
+          style.setAttribute(key, attributes[key]);
+        });
+      }`;
+  } else {
+    setAttributesFn = `function(style, attributes){
+        var nonce =
+          typeof __webpack_nonce__ !== "undefined" ? __webpack_nonce__ : null;
+
+        if (nonce) {
+          style.setAttribute("nonce", nonce);
+        }
+      }`;
+  }
+
   const insertFn = insertIsFunction
     ? options.insert.toString()
     : `function(style){
@@ -65,29 +101,7 @@ loaderAPI.pitch = function loader(request) {
 
   switch (injectType) {
     case "linkTag": {
-      const hmrCode = this.hot
-        ? `
-if (module.hot) {
-  module.hot.accept(
-    ${stringifyRequest(this, `!!${request}`)},
-    function() {
-     ${
-       esModule
-         ? "update(content);"
-         : `content = require(${stringifyRequest(this, `!!${request}`)});
-
-           content = content.__esModule ? content.default : content;
-
-           update(content);`
-     }
-    }
-  );
-
-  module.hot.dispose(function() {
-    update();
-  });
-}`
-        : "";
+      const hmrCode = this.hot ? getLinkHmrCode(esModule, this, request) : "";
 
       return `
       ${getImportLinkAPICode(esModule, this)}
@@ -116,7 +130,7 @@ ${esModule ? "export default {}" : ""}`;
       const isSingleton = injectType === "lazySingletonStyleTag";
       const isAuto = injectType === "lazyAutoStyleTag";
       const hmrCode = this.hot
-        ? `${getStyleHmrCode(esModule, this, request, true)}`
+        ? getStyleHmrCode(esModule, this, request, true)
         : "";
 
       return `
@@ -144,6 +158,7 @@ var update;
 var options = ${JSON.stringify(runtimeOptions)};
 
 ${getStyleTagTransformFn(styleTagTransformFn, isSingleton)};
+options.setAttributes = ${setAttributesFn};
 options.insert = ${insertFn};
 options.domAPI = ${getdomAPI(isAuto)};
 options.insertStyleElement = insertStyleElement;
@@ -164,12 +179,7 @@ exported.unuse = function() {
 
 ${hmrCode}
 
-${
-  esModule
-    ? `export * from ${stringifyRequest(this, `!!${request}`)};
-       export default exported;`
-    : "module.exports = exported;"
-}
+${getExportLazyStyleCode(esModule, this, request)}
 `;
     }
 
@@ -180,7 +190,7 @@ ${
       const isSingleton = injectType === "singletonStyleTag";
       const isAuto = injectType === "autoStyleTag";
       const hmrCode = this.hot
-        ? `${getStyleHmrCode(esModule, this, request, false)}`
+        ? getStyleHmrCode(esModule, this, request, false)
         : "";
 
       return `
@@ -199,6 +209,7 @@ ${
 var options = ${JSON.stringify(runtimeOptions)};
 
 ${getStyleTagTransformFn(styleTagTransformFn, isSingleton)};
+options.setAttributes = ${setAttributesFn};
 options.insert = ${insertFn};
 options.domAPI = ${getdomAPI(isAuto)};
 options.insertStyleElement = insertStyleElement;
@@ -207,12 +218,8 @@ var update = API(content, options);
 
 ${hmrCode}
 
-${
-  esModule
-    ? `export * from ${stringifyRequest(this, `!!${request}`)};
-       export default content && content.locals ? content.locals : undefined;`
-    : "module.exports = content && content.locals || {};"
-}`;
+${getExportStyleCode(esModule, this, request)}
+`;
     }
   }
 };

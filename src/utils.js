@@ -84,11 +84,11 @@ function getImportStyleDomAPICode(
 ) {
   const styleAPI = stringifyRequest(
     loaderContext,
-    `!${path.join(__dirname, "runtime/styleAPI.js")}`
+    `!${path.join(__dirname, "runtime/styleDomAPI.js")}`
   );
   const singletonAPI = stringifyRequest(
     loaderContext,
-    `!${path.join(__dirname, "runtime/singletonStyleAPI.js")}`
+    `!${path.join(__dirname, "runtime/singletonStyleDomAPI.js")}`
   );
 
   if (isAuto) {
@@ -209,6 +209,32 @@ if (module.hot) {
 `;
 }
 
+function getLinkHmrCode(esModule, loaderContext, request) {
+  const modulePath = stringifyRequest(loaderContext, `!!${request}`);
+
+  return `
+if (module.hot) {
+  module.hot.accept(
+    ${modulePath},
+    function() {
+     ${
+       esModule
+         ? "update(content);"
+         : `content = require(${modulePath});
+
+           content = content.__esModule ? content.default : content;
+
+           update(content);`
+     }
+    }
+  );
+
+  module.hot.dispose(function() {
+    update();
+  });
+}`;
+}
+
 function getdomAPI(isAuto) {
   return isAuto ? "isOldIE() ? domAPISingleton : domAPI" : "domAPI";
 }
@@ -230,6 +256,24 @@ function getStyleTagTransformFn(styleTagTransformFn, isSingleton) {
     : `options.styleTagTransform = ${styleTagTransformFn}`;
 }
 
+function getExportStyleCode(esModule, loaderContext, request) {
+  const modulePath = stringifyRequest(loaderContext, `!!${request}`);
+
+  return esModule
+    ? `export * from ${modulePath};
+       export default content && content.locals ? content.locals : undefined;`
+    : "module.exports = content && content.locals || {};";
+}
+
+function getExportLazyStyleCode(esModule, loaderContext, request) {
+  const modulePath = stringifyRequest(loaderContext, `!!${request}`);
+
+  return esModule
+    ? `export * from ${modulePath};
+       export default exported;`
+    : "module.exports = exported;";
+}
+
 // eslint-disable-next-line import/prefer-default-export
 export {
   stringifyRequest,
@@ -241,7 +285,10 @@ export {
   getImportLinkContentCode,
   getImportLinkAPICode,
   getStyleHmrCode,
+  getLinkHmrCode,
   getdomAPI,
   getImportIsOldIECode,
   getStyleTagTransformFn,
+  getExportStyleCode,
+  getExportLazyStyleCode,
 };

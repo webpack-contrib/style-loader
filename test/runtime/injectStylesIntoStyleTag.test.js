@@ -6,8 +6,8 @@
 
 import injectStylesIntoStyleTag from "../../src/runtime/injectStylesIntoStyleTag";
 
-import domAPI from "../../src/runtime/styleAPI";
-import singletonApi from "../../src/runtime/singletonStyleAPI";
+import domAPI from "../../src/runtime/styleDomAPI";
+import singletonApi from "../../src/runtime/singletonStyleDomAPI";
 import insertStyleElement from "../../src/runtime/insertStyleElement";
 import getTarget from "../../src/runtime/getTarget";
 
@@ -24,7 +24,7 @@ const getInsertFn = (place) =>
     target.appendChild(style);
   };
 
-function styleTagTransformFn(css, style) {
+function styleTagTransform(css, style) {
   if (style.styleSheet) {
     // eslint-disable-next-line no-param-reassign
     style.styleSheet.cssText = css;
@@ -35,6 +35,23 @@ function styleTagTransformFn(css, style) {
 
     style.appendChild(document.createTextNode(css));
   }
+}
+
+function setAttributes(style, attributes = {}) {
+  if (typeof attributes.nonce === "undefined") {
+    const nonce =
+      // eslint-disable-next-line camelcase,no-undef
+      typeof __webpack_nonce__ !== "undefined" ? __webpack_nonce__ : null;
+
+    if (nonce) {
+      // eslint-disable-next-line no-param-reassign
+      attributes.nonce = nonce;
+    }
+  }
+
+  Object.keys(attributes).forEach((key) => {
+    style.setAttribute(key, attributes[key]);
+  });
 }
 
 function insertAtTop(element) {
@@ -77,7 +94,8 @@ const defaultOptions = {
   domAPI,
   insertStyleElement,
   insert: getInsertFn("head"),
-  styleTagTransform: styleTagTransformFn,
+  styleTagTransform,
+  setAttributes,
 };
 
 describe("addStyle", () => {

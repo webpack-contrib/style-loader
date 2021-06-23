@@ -53,8 +53,12 @@ function domAPI(options) {
     (singletonData.singleton = options.insertStyleElement(options));
 
   return {
-    update: apply.bind(null, style, styleIndex, false),
-    remove: apply.bind(null, style, styleIndex, true),
+    update: (obj) => {
+      apply(style, styleIndex, false, obj);
+    },
+    remove: (obj) => {
+      apply(style, styleIndex, true, obj);
+    },
   };
 }
 
