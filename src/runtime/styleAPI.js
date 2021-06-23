@@ -39,7 +39,7 @@ function removeStyleElement(style) {
 }
 
 /* istanbul ignore next  */
-function domApi(options) {
+function domAPI(options) {
   const style = options.insertStyleElement(options);
 
   return {
@@ -50,4 +50,4 @@ function domApi(options) {
   };
 }
 
-module.exports = domApi;
+module.exports = domAPI;

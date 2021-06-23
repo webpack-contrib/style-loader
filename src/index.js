@@ -3,21 +3,20 @@ import {
   getImportInsertStyleElementCode,
   getImportGetTargetCode,
   getImportStyleContentCode,
-  getImportStyleDomApiCode,
-  getImportStyleApiCode,
+  getImportStyleDomAPICode,
+  getImportStyleAPICode,
   getImportLinkContentCode,
-  getImportLinkApiCode,
+  getImportLinkAPICode,
   getStyleHmrCode,
-  getImportStyleAllDomApiCode,
-  getDomApi,
+  getdomAPI,
   getImportIsOldIECode,
 } from "./utils";
 
 import schema from "./options.json";
 
-const loaderApi = () => {};
+const loaderAPI = () => {};
 
-loaderApi.pitch = function loader(request) {
+loaderAPI.pitch = function loader(request) {
   const options = this.getOptions(schema);
   const insert =
     typeof options.insert === "string"
@@ -36,7 +35,7 @@ loaderApi.pitch = function loader(request) {
   const insertFn = insertIsFunction
     ? options.insert.toString()
     : `function(style){
-    const target = getTarget(${insert});
+    var target = getTarget(${insert});
 
     if (!target) {
       throw new Error(
@@ -74,7 +73,7 @@ if (module.hot) {
         : "";
 
       return `
-      ${getImportLinkApiCode(esModule, this)}
+      ${getImportLinkAPICode(esModule, this)}
       ${getImportGetTargetCode(esModule, this, insertIsFunction)}
       ${getImportLinkContentCode(esModule, this, request)}
       ${
@@ -87,7 +86,7 @@ var options = ${JSON.stringify(runtimeOptions)};
 
 options.insert = ${insertFn};
 
-var update = api(content, options);
+var update = API(content, options);
 
 ${hmrCode}
 
@@ -106,17 +105,12 @@ ${esModule ? "export default {}" : ""}`;
       return `
       var exported = {};
 
-      ${getImportStyleApiCode(esModule, this)}
-      ${
-        isAuto
-          ? getImportStyleAllDomApiCode(esModule, this)
-          : getImportStyleDomApiCode(esModule, this, isSingleton)
-      }
+      ${getImportStyleAPICode(esModule, this)}
+      ${getImportStyleDomAPICode(esModule, this, isSingleton, isAuto)}
       ${getImportGetTargetCode(esModule, this, insertIsFunction)}
       ${getImportInsertStyleElementCode(esModule, this)}
       ${getImportStyleContentCode(esModule, this, request)}
       ${isAuto ? getImportIsOldIECode(esModule, this) : ""}
-      ${isAuto ? "var isOldIE = isOldIEFn();" : ""}
       ${
         esModule
           ? `if (content && content.locals) {
@@ -133,12 +127,12 @@ var update;
 var options = ${JSON.stringify(runtimeOptions)};
 
 options.insert = ${insertFn};
-options.domApi = ${getDomApi(isAuto)};
+options.domAPI = ${getdomAPI(isAuto)};
 options.insertStyleElement = insertStyleElement;
 
 exported.use = function() {
   if (!(refs++)) {
-    update = api(content, options);
+    update = API(content, options);
   }
 
   return exported;
@@ -172,17 +166,12 @@ ${
         : "";
 
       return `
-      ${getImportStyleApiCode(esModule, this)}
-      ${
-        isAuto
-          ? getImportStyleAllDomApiCode(esModule, this)
-          : getImportStyleDomApiCode(esModule, this, isSingleton)
-      }
+      ${getImportStyleAPICode(esModule, this)}
+      ${getImportStyleDomAPICode(esModule, this, isSingleton, isAuto)}
       ${getImportGetTargetCode(esModule, this, insertIsFunction)}
       ${getImportInsertStyleElementCode(esModule, this)}
       ${getImportStyleContentCode(esModule, this, request)}
       ${isAuto ? getImportIsOldIECode(esModule, this) : ""}
-      ${isAuto ? "var isOldIE = isOldIEFn();" : ""}
       ${
         esModule
           ? ""
@@ -192,10 +181,10 @@ ${
 var options = ${JSON.stringify(runtimeOptions)};
 
 options.insert = ${insertFn};
-options.domApi = ${getDomApi(isAuto)};
+options.domAPI = ${getdomAPI(isAuto)};
 options.insertStyleElement = insertStyleElement;
 
-var update = api(content, options);
+var update = API(content, options);
 
 ${hmrCode}
 
@@ -209,4 +198,4 @@ ${
   }
 };
 
-export default loaderApi;
+export default loaderAPI;

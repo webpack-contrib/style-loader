@@ -43,7 +43,7 @@ const singletonData = {
 };
 
 /* istanbul ignore next  */
-function domApi(options) {
+function domAPI(options) {
   // eslint-disable-next-line no-undef,no-use-before-define
   const styleIndex = singletonData.singletonCounter++;
   const style =
@@ -58,4 +58,4 @@ function domApi(options) {
   };
 }
 
-module.exports = domApi;
+module.exports = domAPI;

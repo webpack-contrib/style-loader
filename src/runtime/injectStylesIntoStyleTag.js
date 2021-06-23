@@ -50,7 +50,7 @@ function modulesToDom(list, options) {
 }
 
 function addStyle(obj, options) {
-  const api = options.domApi(options);
+  const api = options.domAPI(options);
 
   api.update(obj);
 

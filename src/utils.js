@@ -46,211 +46,182 @@ function stringifyRequest(loaderContext, request) {
   );
 }
 
-function getImportLinkApiCode(esModule, loaderContext) {
+function getImportLinkAPICode(esModule, loaderContext) {
+  const modulePath = stringifyRequest(
+    loaderContext,
+    `!${path.join(__dirname, "runtime/injectStylesIntoLinkTag.js")}`
+  );
+
   return esModule
-    ? `import api from ${stringifyRequest(
-        loaderContext,
-        `!${path.join(__dirname, "runtime/injectStylesIntoLinkTag.js")}`
-      )};`
-    : `var api = require(${stringifyRequest(
-        loaderContext,
-        `!${path.join(__dirname, "runtime/injectStylesIntoLinkTag.js")}`
-      )});`;
+    ? `import API from ${modulePath};`
+    : `var API = require(${modulePath});`;
 }
 
 function getImportLinkContentCode(esModule, loaderContext, request) {
+  const modulePath = stringifyRequest(loaderContext, `!!${request}`);
+
   return esModule
-    ? `import content from ${stringifyRequest(loaderContext, `!!${request}`)};`
-    : `var content = require(${stringifyRequest(
-        loaderContext,
-        `!!${request}`
-      )});`;
+    ? `import content from ${modulePath};`
+    : `var content = require(${modulePath});`;
 }
 
-function getImportStyleApiCode(esModule, loaderContext) {
+function getImportStyleAPICode(esModule, loaderContext) {
+  const modulePath = stringifyRequest(
+    loaderContext,
+    `!${path.join(__dirname, "runtime/injectStylesIntoStyleTag.js")}`
+  );
+
   return esModule
-    ? `import api from ${stringifyRequest(
-        loaderContext,
-        `!${path.join(__dirname, "runtime/injectStylesIntoStyleTag.js")}`
-      )};`
-    : `var api = require(${stringifyRequest(
-        loaderContext,
-        `!${path.join(__dirname, "runtime/injectStylesIntoStyleTag.js")}`
-      )});`;
+    ? `import API from ${modulePath};`
+    : `var API = require(${modulePath});`;
 }
 
-function getImportStyleDomApiCode(esModule, loaderContext, isSingleton) {
+function getImportStyleDomAPICode(
+  esModule,
+  loaderContext,
+  isSingleton,
+  isAuto
+) {
+  const styleAPI = stringifyRequest(
+    loaderContext,
+    `!${path.join(__dirname, "runtime/styleAPI.js")}`
+  );
+  const singletonAPI = stringifyRequest(
+    loaderContext,
+    `!${path.join(__dirname, "runtime/singletonStyleAPI.js")}`
+  );
+
+  if (isAuto) {
+    return esModule
+      ? `import domAPI from ${styleAPI};
+        import domAPISingleton from ${singletonAPI};`
+      : `var domAPI = require(${styleAPI});
+        var domAPISingleton = require(${singletonAPI});`;
+  }
+
   return esModule
-    ? `import domApi from ${stringifyRequest(
-        loaderContext,
-        `!${path.join(
-          __dirname,
-          `runtime/${isSingleton ? "singletonStyleApi" : "styleApi"}.js`
-        )}`
-      )};`
-    : `var domApi = require(${stringifyRequest(
-        loaderContext,
-        `!${path.join(
-          __dirname,
-          `runtime/${isSingleton ? "singletonStyleApi" : "styleApi"}.js`
-        )}`
-      )});`;
+    ? `import domAPI from ${isSingleton ? singletonAPI : styleAPI};`
+    : `var domAPI = require(${isSingleton ? singletonAPI : styleAPI});`;
 }
 
 function getImportStyleContentCode(esModule, loaderContext, request) {
+  const modulePath = stringifyRequest(loaderContext, `!!${request}`);
+
   return esModule
-    ? `import content, * as namedExport from ${stringifyRequest(
-        loaderContext,
-        `!!${request}`
-      )};`
-    : `var content = require(${stringifyRequest(
-        loaderContext,
-        `!!${request}`
-      )});`;
+    ? `import content, * as namedExport from ${modulePath};`
+    : `var content = require(${modulePath});`;
 }
 
 function getImportGetTargetCode(esModule, loaderContext, insertIsFunction) {
+  const modulePath = stringifyRequest(
+    loaderContext,
+    `!${path.join(__dirname, "runtime/getTarget.js")}`
+  );
+
   return esModule
-    ? `${
-        !insertIsFunction
-          ? `import getTarget from ${stringifyRequest(
-              loaderContext,
-              `!${path.join(__dirname, "runtime/getTarget.js")}`
-            )};`
-          : ""
-      }`
-    : `${
-        !insertIsFunction
-          ? `var getTarget = require(${stringifyRequest(
-              loaderContext,
-              `!${path.join(__dirname, "runtime/getTarget.js")}`
-            )});`
-          : ""
-      }`;
+    ? `${!insertIsFunction ? `import getTarget from ${modulePath};` : ""}`
+    : `${!insertIsFunction ? `var getTarget = require(${modulePath});` : ""}`;
 }
 
 function getImportInsertStyleElementCode(esModule, loaderContext) {
+  const modulePath = stringifyRequest(
+    loaderContext,
+    `!${path.join(__dirname, "runtime/insertStyleElement.js")}`
+  );
+
   return esModule
-    ? `import insertStyleElement from ${stringifyRequest(
-        loaderContext,
-        `!${path.join(__dirname, "runtime/insertStyleElement.js")}`
-      )};`
-    : `var insertStyleElement = require(${stringifyRequest(
-        loaderContext,
-        `!${path.join(__dirname, "runtime/insertStyleElement.js")}`
-      )});`;
+    ? `import insertStyleElement from ${modulePath};`
+    : `var insertStyleElement = require(${modulePath});`;
 }
 
 function getStyleHmrCode(esModule, loaderContext, request, lazy) {
+  const modulePath = stringifyRequest(loaderContext, `!!${request}`);
+
   return `
-        if (module.hot) {
-          if (!content.locals || module.hot.invalidate) {
-            var isEqualLocals = ${isEqualLocals.toString()};
-            var isNamedExport = ${esModule ? "!content.locals" : false};
-            var oldLocals = isNamedExport ? namedExport : content.locals;
+if (module.hot) {
+  if (!content.locals || module.hot.invalidate) {
+    var isEqualLocals = ${isEqualLocals.toString()};
+    var isNamedExport = ${esModule ? "!content.locals" : false};
+    var oldLocals = isNamedExport ? namedExport : content.locals;
 
-            module.hot.accept(
-              ${stringifyRequest(loaderContext, `!!${request}`)},
-              function () {
-                ${
-                  esModule
-                    ? `if (!isEqualLocals(oldLocals, isNamedExport ? namedExport : content.locals, isNamedExport)) {
-                        module.hot.invalidate();
+    module.hot.accept(
+      ${modulePath},
+      function () {
+        ${
+          esModule
+            ? `if (!isEqualLocals(oldLocals, isNamedExport ? namedExport : content.locals, isNamedExport)) {
+                module.hot.invalidate();
 
-                        return;
-                      }
-
-                      oldLocals = isNamedExport ? namedExport : content.locals;
-
-                      ${
-                        lazy
-                          ? `if (update && refs > 0) {
-                              update(content);
-                            }`
-                          : `update(content);`
-                      }`
-                    : `content = require(${stringifyRequest(
-                        loaderContext,
-                        `!!${request}`
-                      )});
-
-                      content = content.__esModule ? content.default : content;
-
-                      ${
-                        lazy
-                          ? ""
-                          : `if (typeof content === 'string') {
-                              content = [[module.id, content, '']];
-                            }`
-                      }
-
-                      if (!isEqualLocals(oldLocals, content.locals)) {
-                        module.hot.invalidate();
-
-                        return;
-                      }
-
-                      oldLocals = content.locals;
-
-                      ${
-                        lazy
-                          ? `if (update && refs > 0) {
-                                update(content);
-                              }`
-                          : `update(content);`
-                      }`
-                }
+                return;
               }
-            )
-          }
 
-          module.hot.dispose(function() {
-            ${
-              lazy
-                ? `if (update) {
-                    update();
-                  }`
-                : `update();`
-            }
-          });
+              oldLocals = isNamedExport ? namedExport : content.locals;
+
+              ${
+                lazy
+                  ? `if (update && refs > 0) {
+                      update(content);
+                    }`
+                  : `update(content);`
+              }`
+            : `content = require(${modulePath});
+
+              content = content.__esModule ? content.default : content;
+
+              ${
+                lazy
+                  ? ""
+                  : `if (typeof content === 'string') {
+                      content = [[module.id, content, '']];
+                    }`
+              }
+
+              if (!isEqualLocals(oldLocals, content.locals)) {
+                module.hot.invalidate();
+
+                return;
+              }
+
+              oldLocals = content.locals;
+
+              ${
+                lazy
+                  ? `if (update && refs > 0) {
+                        update(content);
+                      }`
+                  : `update(content);`
+              }`
         }
-        `;
+      }
+    )
+  }
+
+  module.hot.dispose(function() {
+    ${
+      lazy
+        ? `if (update) {
+            update();
+          }`
+        : `update();`
+    }
+  });
+}
+`;
 }
 
-function getImportStyleAllDomApiCode(esModule, loaderContext) {
-  return esModule
-    ? `import domApi from ${stringifyRequest(
-        loaderContext,
-        `!${path.join(__dirname, "runtime/styleApi.js")}`
-      )};
-        import domApiSingleton from ${stringifyRequest(
-          loaderContext,
-          `!${path.join(__dirname, "runtime/singletonStyleApi.js")}`
-        )};`
-    : `var domApi = require(${stringifyRequest(
-        loaderContext,
-        `!${path.join(__dirname, "runtime/styleApi.js")}`
-      )});
-        var domApiSingleton = require(${stringifyRequest(
-          loaderContext,
-          `!${path.join(__dirname, "runtime/singletonStyleApi.js")}`
-        )});`;
-}
-
-function getDomApi(isAuto) {
-  return isAuto ? "isOldIE() ? domApiSingleton : domApi" : "domApi";
+function getdomAPI(isAuto) {
+  return isAuto ? "isOldIE() ? domAPISingleton : domAPI" : "domAPI";
 }
 
 function getImportIsOldIECode(esModule, loaderContext) {
+  const modulePath = stringifyRequest(
+    loaderContext,
+    `!${path.join(__dirname, "runtime/isOldIE.js")}`
+  );
+
   return esModule
-    ? `import isOldIEFn from ${stringifyRequest(
-        loaderContext,
-        `!${path.join(__dirname, "runtime/isOldIE.js")}`
-      )};`
-    : `var isOldIEFn = require(${stringifyRequest(
-        loaderContext,
-        `!${path.join(__dirname, "runtime/isOldIE.js")}`
-      )});`;
+    ? `import isOldIE from ${modulePath};`
+    : `var isOldIE = require(${modulePath});`;
 }
 
 // eslint-disable-next-line import/prefer-default-export
@@ -259,12 +230,11 @@ export {
   getImportInsertStyleElementCode,
   getImportGetTargetCode,
   getImportStyleContentCode,
-  getImportStyleDomApiCode,
-  getImportStyleApiCode,
+  getImportStyleDomAPICode,
+  getImportStyleAPICode,
   getImportLinkContentCode,
-  getImportLinkApiCode,
+  getImportLinkAPICode,
   getStyleHmrCode,
-  getImportStyleAllDomApiCode,
-  getDomApi,
+  getdomAPI,
   getImportIsOldIECode,
 };

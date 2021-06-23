@@ -2,8 +2,8 @@
 
 import injectStylesIntoStyleTag from "../../src/runtime/injectStylesIntoStyleTag";
 
-import domApi from "../../src/runtime/styleApi";
-import singletonApi from "../../src/runtime/singletonStyleApi";
+import domAPI from "../../src/runtime/styleAPI";
+import singletonApi from "../../src/runtime/singletonStyleAPI";
 import insertStyleElement from "../../src/runtime/insertStyleElement";
 import getTarget from "../../src/runtime/getTarget";
 
@@ -57,7 +57,7 @@ function insertBeforeAt(element) {
 }
 
 const defaultOptions = {
-  domApi,
+  domAPI,
   insertStyleElement,
   insert: getInsertFn("head"),
 };
@@ -434,7 +434,7 @@ describe("addStyle", () => {
       ],
       {
         ...defaultOptions,
-        domApi: singletonApi,
+        domAPI: singletonApi,
         singleton: true,
       }
     );
