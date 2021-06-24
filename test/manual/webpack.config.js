@@ -8,12 +8,12 @@ const ENABLE_SOURCE_MAP =
 const ENABLE_ES_MODULE =
   typeof process.env.ES_MODULE !== "undefined"
     ? Boolean(process.env.ES_MODULE)
-    : false;
+    : true;
 
 const ENABLE_PREVIOUS_ES_MODULE =
   typeof process.env.PREVIOUS_ES_MODULE !== "undefined"
     ? Boolean(process.env.PREVIOUS_ES_MODULE)
-    : false;
+    : true;
 
 module.exports = {
   devtool: ENABLE_SOURCE_MAP ? "source-map" : false,

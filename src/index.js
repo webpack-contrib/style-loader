@@ -42,7 +42,7 @@ loaderAPI.pitch = function loader(request) {
   if (typeof options.attributes !== "undefined") {
     setAttributesFn =
       typeof options.attributes.nonce === "undefined"
-        ? `function(style, attributes){
+        ? `function(style, attributes) {
         var nonce =
           typeof __webpack_nonce__ !== "undefined" ? __webpack_nonce__ : null;
 
@@ -54,13 +54,13 @@ loaderAPI.pitch = function loader(request) {
           style.setAttribute(key, attributes[key]);
         });
       }`
-        : `function(style, attributes){
+        : `function(style, attributes) {
         Object.keys(attributes).forEach((key) => {
           style.setAttribute(key, attributes[key]);
         });
       }`;
   } else {
-    setAttributesFn = `function(style, attributes){
+    setAttributesFn = `function(style) {
         var nonce =
           typeof __webpack_nonce__ !== "undefined" ? __webpack_nonce__ : null;
 
