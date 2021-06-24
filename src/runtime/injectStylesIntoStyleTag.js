@@ -81,10 +81,6 @@ module.exports = (list, options) => {
   return function update(newList) {
     newList = newList || [];
 
-    if (Object.prototype.toString.call(newList) !== "[object Array]") {
-      return;
-    }
-
     for (let i = 0; i < lastIdentifiers.length; i++) {
       const identifier = lastIdentifiers[i];
       const index = getIndexByIdentifier(identifier);
