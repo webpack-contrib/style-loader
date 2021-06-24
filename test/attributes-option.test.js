@@ -39,6 +39,26 @@ describe('"attributes" option', () => {
       expect(getErrors(stats)).toMatchSnapshot("errors");
     });
 
+    it(`should apply nonce attribute when "injectType" option is "${injectType}"`, async () => {
+      expect.assertions(3);
+
+      const entry = getEntryByInjectType("simple.js", injectType);
+      const compiler = getCompiler(entry, {
+        injectType,
+        attributes: {
+          nonce: "234567",
+        },
+      });
+      const stats = await compile(compiler);
+
+      runInJsDom("main.bundle.js", compiler, stats, (dom) => {
+        expect(dom.serialize()).toMatchSnapshot("DOM");
+      });
+
+      expect(getWarnings(stats)).toMatchSnapshot("warnings");
+      expect(getErrors(stats)).toMatchSnapshot("errors");
+    });
+
     it(`should add nonce attribute when "injectType" option is "${injectType}"`, async () => {
       expect.assertions(3);
 

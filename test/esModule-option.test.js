@@ -13,8 +13,10 @@ describe('"esModule" option', () => {
   const injectTypes = [
     "styleTag",
     "singletonStyleTag",
+    "autoStyleTag",
     "lazyStyleTag",
     "lazySingletonStyleTag",
+    "lazyAutoStyleTag",
     "linkTag",
   ];
 

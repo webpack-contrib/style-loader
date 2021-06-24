@@ -1,5 +1,79 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
+Object {
+  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "foo": "EwkYfSlfnYBz8E2xTBZva",
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
+Object {
+  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "foo": "EwkYfSlfnYBz8E2xTBZva",
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
+
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
@@ -167,6 +241,80 @@ Object {
 `;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
+Object {
+  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "foo": "EwkYfSlfnYBz8E2xTBZva",
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
+Object {
+  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "foo": "EwkYfSlfnYBz8E2xTBZva",
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -336,6 +484,68 @@ Object {
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
 
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.foo {
+    color: red;
+}
+
+.bar {
+    color: blue;
+}
+
+.baz {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `Object {}`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.foo {
+    color: red;
+}
+
+.bar {
+    color: blue;
+}
+
+.baz {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `Object {}`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
+
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
@@ -480,6 +690,68 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
 
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.foo {
+    color: red;
+}
+
+.bar {
+    color: blue;
+}
+
+.baz {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `Object {}`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.foo {
+    color: red;
+}
+
+.bar {
+    color: blue;
+}
+
+.baz {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `Object {}`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
+
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
@@ -623,6 +895,80 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": exports 1`] = `Object {}`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
+Object {
+  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "foo": "EwkYfSlfnYBz8E2xTBZva",
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
+Object {
+  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "foo": "EwkYfSlfnYBz8E2xTBZva",
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -792,6 +1138,80 @@ Object {
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
 
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
+Object {
+  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "foo": "EwkYfSlfnYBz8E2xTBZva",
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
+Object {
+  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "foo": "EwkYfSlfnYBz8E2xTBZva",
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
+
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
@@ -960,6 +1380,68 @@ Object {
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
 
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `Object {}`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `Object {}`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
+
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
@@ -1103,6 +1585,68 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": exports 1`] = `Object {}`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `Object {}`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `Object {}`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -1248,6 +1792,68 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
 
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.foo {
+    color: red;
+}
+
+.bar {
+    color: blue;
+}
+
+.baz {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `Object {}`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.foo {
+    color: red;
+}
+
+.bar {
+    color: blue;
+}
+
+.baz {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `Object {}`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
+
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
@@ -1392,6 +1998,68 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
 
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.foo {
+    color: red;
+}
+
+.bar {
+    color: blue;
+}
+
+.baz {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `Object {}`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.foo {
+    color: red;
+}
+
+.bar {
+    color: blue;
+}
+
+.baz {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `Object {}`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
+
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
@@ -1535,6 +2203,130 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": exports 1`] = `Object {}`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
+Object {
+  "0": Array [
+    "../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css",
+    ".EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+",
+    "",
+  ],
+  "default": Object {
+    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+    "foo": "EwkYfSlfnYBz8E2xTBZva",
+  },
+  "i": [Function],
+  "locals": Object {
+    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+    "foo": "EwkYfSlfnYBz8E2xTBZva",
+  },
+  "toString": [Function],
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
+Object {
+  "0": Array [
+    "../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css",
+    ".EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+",
+    "",
+  ],
+  "default": Object {
+    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+    "foo": "EwkYfSlfnYBz8E2xTBZva",
+  },
+  "i": [Function],
+  "locals": Object {
+    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+    "foo": "EwkYfSlfnYBz8E2xTBZva",
+  },
+  "toString": [Function],
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -1808,6 +2600,130 @@ Object {
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
 
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
+Object {
+  "0": Array [
+    "../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css",
+    ".EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+",
+    "",
+  ],
+  "default": Object {
+    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+    "foo": "EwkYfSlfnYBz8E2xTBZva",
+  },
+  "i": [Function],
+  "locals": Object {
+    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+    "foo": "EwkYfSlfnYBz8E2xTBZva",
+  },
+  "toString": [Function],
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
+Object {
+  "0": Array [
+    "../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css",
+    ".EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+",
+    "",
+  ],
+  "default": Object {
+    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+    "foo": "EwkYfSlfnYBz8E2xTBZva",
+  },
+  "i": [Function],
+  "locals": Object {
+    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+    "foo": "EwkYfSlfnYBz8E2xTBZva",
+  },
+  "toString": [Function],
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
+
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
@@ -2080,6 +2996,112 @@ Object {
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
 
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.foo {
+    color: red;
+}
+
+.bar {
+    color: blue;
+}
+
+.baz {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
+Object {
+  "0": Array [
+    "../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css",
+    ".foo {
+    color: red;
+}
+
+.bar {
+    color: blue;
+}
+
+.baz {
+    color: coral;
+}
+",
+    "",
+  ],
+  "default": undefined,
+  "i": [Function],
+  "toString": [Function],
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.foo {
+    color: red;
+}
+
+.bar {
+    color: blue;
+}
+
+.baz {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
+Object {
+  "0": Array [
+    "../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css",
+    ".foo {
+    color: red;
+}
+
+.bar {
+    color: blue;
+}
+
+.baz {
+    color: coral;
+}
+",
+    "",
+  ],
+  "default": undefined,
+  "i": [Function],
+  "toString": [Function],
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
+
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
@@ -2315,6 +3337,112 @@ Object {
 `;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.foo {
+    color: red;
+}
+
+.bar {
+    color: blue;
+}
+
+.baz {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
+Object {
+  "0": Array [
+    "../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css",
+    ".foo {
+    color: red;
+}
+
+.bar {
+    color: blue;
+}
+
+.baz {
+    color: coral;
+}
+",
+    "",
+  ],
+  "default": undefined,
+  "i": [Function],
+  "toString": [Function],
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.foo {
+    color: red;
+}
+
+.bar {
+    color: blue;
+}
+
+.baz {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
+Object {
+  "0": Array [
+    "../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css",
+    ".foo {
+    color: red;
+}
+
+.bar {
+    color: blue;
+}
+
+.baz {
+    color: coral;
+}
+",
+    "",
+  ],
+  "default": undefined,
+  "i": [Function],
+  "toString": [Function],
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -2552,6 +3680,54 @@ Object {
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
 
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
+Object {
+  "default": undefined,
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
+Object {
+  "default": undefined,
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
+
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
@@ -2672,6 +3848,54 @@ Object {
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
 
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
+Object {
+  "default": undefined,
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
+Object {
+  "default": undefined,
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
+
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
@@ -2791,6 +4015,84 @@ Object {
 `;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
+Object {
+  "default": Object {
+    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+    "foo": "EwkYfSlfnYBz8E2xTBZva",
+  },
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
+Object {
+  "default": Object {
+    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+    "foo": "EwkYfSlfnYBz8E2xTBZva",
+  },
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -2972,6 +4274,84 @@ Object {
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
 
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
+Object {
+  "default": Object {
+    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+    "foo": "EwkYfSlfnYBz8E2xTBZva",
+  },
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
+Object {
+  "default": Object {
+    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+    "foo": "EwkYfSlfnYBz8E2xTBZva",
+  },
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
+
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
@@ -3152,6 +4532,74 @@ Object {
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
 
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
+Object {
+  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "default": undefined,
+  "foo": "EwkYfSlfnYBz8E2xTBZva",
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `
+Array [
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+]
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
+Object {
+  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "default": undefined,
+  "foo": "EwkYfSlfnYBz8E2xTBZva",
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `
+Array [
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+]
+`;
+
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
@@ -3304,6 +4752,74 @@ Object {
 `;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": warnings 1`] = `
+Array [
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+]
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
+Object {
+  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "default": undefined,
+  "foo": "EwkYfSlfnYBz8E2xTBZva",
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `
+Array [
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
+]
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
+Object {
+  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "default": undefined,
+  "foo": "EwkYfSlfnYBz8E2xTBZva",
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `
 Array [
   "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
   "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
@@ -3471,6 +4987,82 @@ Array [
   "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
 ]
 `;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
+Object {
+  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "default": undefined,
+  "foo": "EwkYfSlfnYBz8E2xTBZva",
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
+Object {
+  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "default": undefined,
+  "foo": "EwkYfSlfnYBz8E2xTBZva",
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -3648,6 +5240,82 @@ Object {
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
 
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
+Object {
+  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "default": undefined,
+  "foo": "EwkYfSlfnYBz8E2xTBZva",
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
+Object {
+  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "default": undefined,
+  "foo": "EwkYfSlfnYBz8E2xTBZva",
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
+
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
@@ -3824,6 +5492,76 @@ Object {
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
 
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.foo {
+    color: red;
+}
+
+.bar {
+    color: blue;
+}
+
+.baz {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
+Object {
+  "default": undefined,
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.foo {
+    color: red;
+}
+
+.bar {
+    color: blue;
+}
+
+.baz {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
+Object {
+  "default": undefined,
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
+
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
@@ -3988,6 +5726,76 @@ Object {
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
 
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.foo {
+    color: red;
+}
+
+.bar {
+    color: blue;
+}
+
+.baz {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
+Object {
+  "default": undefined,
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.foo {
+    color: red;
+}
+
+.bar {
+    color: blue;
+}
+
+.baz {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
+Object {
+  "default": undefined,
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
+
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
@@ -4151,6 +5959,84 @@ Object {
 `;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
+Object {
+  "default": Object {
+    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+    "foo": "EwkYfSlfnYBz8E2xTBZva",
+  },
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
+Object {
+  "default": Object {
+    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+    "foo": "EwkYfSlfnYBz8E2xTBZva",
+  },
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -4332,6 +6218,84 @@ Object {
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
 
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
+Object {
+  "default": Object {
+    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+    "foo": "EwkYfSlfnYBz8E2xTBZva",
+  },
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
+Object {
+  "default": Object {
+    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+    "foo": "EwkYfSlfnYBz8E2xTBZva",
+  },
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
+
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
@@ -4512,6 +6476,82 @@ Object {
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
 
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
+Object {
+  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "default": undefined,
+  "foo": "EwkYfSlfnYBz8E2xTBZva",
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
+Object {
+  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "default": undefined,
+  "foo": "EwkYfSlfnYBz8E2xTBZva",
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
+
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
@@ -4687,6 +6727,82 @@ Object {
 `;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
+Object {
+  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "default": undefined,
+  "foo": "EwkYfSlfnYBz8E2xTBZva",
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
+Object {
+  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "default": undefined,
+  "foo": "EwkYfSlfnYBz8E2xTBZva",
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -4864,6 +6980,76 @@ Object {
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
 
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.foo {
+    color: red;
+}
+
+.bar {
+    color: blue;
+}
+
+.baz {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
+Object {
+  "default": undefined,
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.foo {
+    color: red;
+}
+
+.bar {
+    color: blue;
+}
+
+.baz {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
+Object {
+  "default": undefined,
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
+
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
@@ -5028,6 +7214,76 @@ Object {
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
 
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.foo {
+    color: red;
+}
+
+.bar {
+    color: blue;
+}
+
+.baz {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
+Object {
+  "default": undefined,
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.foo {
+    color: red;
+}
+
+.bar {
+    color: blue;
+}
+
+.baz {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
+Object {
+  "default": undefined,
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
+
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
@@ -5191,6 +7447,84 @@ Object {
 `;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
+Object {
+  "default": Object {
+    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+    "foo": "EwkYfSlfnYBz8E2xTBZva",
+  },
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
+Object {
+  "default": Object {
+    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+    "foo": "EwkYfSlfnYBz8E2xTBZva",
+  },
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -5372,6 +7706,84 @@ Object {
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
 
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
+Object {
+  "default": Object {
+    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+    "foo": "EwkYfSlfnYBz8E2xTBZva",
+  },
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.EwkYfSlfnYBz8E2xTBZva {
+    color: red;
+}
+
+._3TzX9kdhbEM9NjFT_lLbK_ {
+    color: blue;
+}
+
+._2zHxuubfFrOL9GmW-Gbppt {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
+Object {
+  "default": Object {
+    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+    "foo": "EwkYfSlfnYBz8E2xTBZva",
+  },
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
+
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
@@ -5552,6 +7964,76 @@ Object {
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
 
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.foo {
+    color: red;
+}
+
+.bar {
+    color: blue;
+}
+
+.baz {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
+Object {
+  "default": undefined,
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.foo {
+    color: red;
+}
+
+.bar {
+    color: blue;
+}
+
+.baz {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
+Object {
+  "default": undefined,
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
+
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
@@ -5715,6 +8197,76 @@ Object {
 `;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.foo {
+    color: red;
+}
+
+.bar {
+    color: blue;
+}
+
+.baz {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
+Object {
+  "default": undefined,
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.foo {
+    color: red;
+}
+
+.bar {
+    color: blue;
+}
+
+.baz {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
+Object {
+  "default": undefined,
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
