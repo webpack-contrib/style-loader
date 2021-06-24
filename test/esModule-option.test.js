@@ -93,7 +93,7 @@ describe('"esModule" option', () => {
           const entry = getEntryByInjectType(moduleType, injectType);
           const compiler = getCompiler(
             entry,
-            { injectType },
+            {},
             {
               module: {
                 rules: [
@@ -102,7 +102,10 @@ describe('"esModule" option', () => {
                     use: [
                       {
                         loader: path.resolve(__dirname, "../src/cjs.js"),
-                        options: esModuleValue.styleLoader,
+                        options: {
+                          injectType,
+                          ...esModuleValue.styleLoader,
+                        },
                       },
                       injectType === "linkTag"
                         ? {

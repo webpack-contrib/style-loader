@@ -41,18 +41,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -66,9 +55,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "locals": Object {
+    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+    "foo": "EwkYfSlfnYBz8E2xTBZva",
+  },
+  "unuse": [Function],
+  "use": [Function],
 }
 `;
 
@@ -78,18 +71,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -103,9 +85,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "locals": Object {
+    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+    "foo": "EwkYfSlfnYBz8E2xTBZva",
+  },
+  "unuse": [Function],
+  "use": [Function],
 }
 `;
 
@@ -115,18 +101,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -140,9 +115,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "locals": Object {
+    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+    "foo": "EwkYfSlfnYBz8E2xTBZva",
+  },
+  "unuse": [Function],
+  "use": [Function],
 }
 `;
 
@@ -152,7 +131,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -283,18 +262,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -308,9 +276,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "locals": Object {
+    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+    "foo": "EwkYfSlfnYBz8E2xTBZva",
+  },
+  "unuse": [Function],
+  "use": [Function],
 }
 `;
 
@@ -320,18 +292,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -345,9 +306,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "locals": Object {
+    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+    "foo": "EwkYfSlfnYBz8E2xTBZva",
+  },
+  "unuse": [Function],
+  "use": [Function],
 }
 `;
 
@@ -357,18 +322,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -382,9 +336,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "locals": Object {
+    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+    "foo": "EwkYfSlfnYBz8E2xTBZva",
+  },
+  "unuse": [Function],
+  "use": [Function],
 }
 `;
 
@@ -394,7 +352,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -519,18 +477,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -542,7 +489,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
 
-exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `Object {}`;
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
+Object {
+  "locals": Object {},
+  "unuse": [Function],
+  "use": [Function],
+}
+`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
 
@@ -550,18 +503,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -573,7 +515,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": errors 1`] = `Array []`;
 
-exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `Object {}`;
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
+Object {
+  "locals": Object {},
+  "unuse": [Function],
+  "use": [Function],
+}
+`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": warnings 1`] = `Array []`;
 
@@ -581,18 +529,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -604,7 +541,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": errors 1`] = `Array []`;
 
-exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `Object {}`;
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
+Object {
+  "locals": Object {},
+  "unuse": [Function],
+  "use": [Function],
+}
+`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": warnings 1`] = `Array []`;
 
@@ -612,7 +555,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -725,18 +668,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -748,7 +680,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
 
-exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `Object {}`;
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
+Object {
+  "locals": Object {},
+  "unuse": [Function],
+  "use": [Function],
+}
+`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
 
@@ -756,18 +694,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -779,7 +706,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": errors 1`] = `Array []`;
 
-exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `Object {}`;
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
+Object {
+  "locals": Object {},
+  "unuse": [Function],
+  "use": [Function],
+}
+`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": warnings 1`] = `Array []`;
 
@@ -787,18 +720,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -810,7 +732,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": errors 1`] = `Array []`;
 
-exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `Object {}`;
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
+Object {
+  "locals": Object {},
+  "unuse": [Function],
+  "use": [Function],
+}
+`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": warnings 1`] = `Array []`;
 
@@ -818,7 +746,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -937,18 +865,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -962,9 +879,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "locals": Object {
+    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+    "foo": "EwkYfSlfnYBz8E2xTBZva",
+  },
+  "unuse": [Function],
+  "use": [Function],
 }
 `;
 
@@ -974,18 +895,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -999,9 +909,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "locals": Object {
+    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+    "foo": "EwkYfSlfnYBz8E2xTBZva",
+  },
+  "unuse": [Function],
+  "use": [Function],
 }
 `;
 
@@ -1011,18 +925,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -1036,9 +939,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "locals": Object {
+    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+    "foo": "EwkYfSlfnYBz8E2xTBZva",
+  },
+  "unuse": [Function],
+  "use": [Function],
 }
 `;
 
@@ -1048,7 +955,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -1179,18 +1086,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -1204,9 +1100,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "locals": Object {
+    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+    "foo": "EwkYfSlfnYBz8E2xTBZva",
+  },
+  "unuse": [Function],
+  "use": [Function],
 }
 `;
 
@@ -1216,18 +1116,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -1241,9 +1130,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "locals": Object {
+    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+    "foo": "EwkYfSlfnYBz8E2xTBZva",
+  },
+  "unuse": [Function],
+  "use": [Function],
 }
 `;
 
@@ -1253,18 +1146,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -1278,9 +1160,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "locals": Object {
+    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+    "foo": "EwkYfSlfnYBz8E2xTBZva",
+  },
+  "unuse": [Function],
+  "use": [Function],
 }
 `;
 
@@ -1290,7 +1176,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -1415,18 +1301,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -1438,7 +1313,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
 
-exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `Object {}`;
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
+Object {
+  "locals": Object {},
+  "unuse": [Function],
+  "use": [Function],
+}
+`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
 
@@ -1446,18 +1327,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -1469,7 +1339,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": errors 1`] = `Array []`;
 
-exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `Object {}`;
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
+Object {
+  "locals": Object {},
+  "unuse": [Function],
+  "use": [Function],
+}
+`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": warnings 1`] = `Array []`;
 
@@ -1477,18 +1353,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -1500,7 +1365,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": errors 1`] = `Array []`;
 
-exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `Object {}`;
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
+Object {
+  "locals": Object {},
+  "unuse": [Function],
+  "use": [Function],
+}
+`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": warnings 1`] = `Array []`;
 
@@ -1508,7 +1379,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -1621,18 +1492,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -1644,7 +1504,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
 
-exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `Object {}`;
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
+Object {
+  "locals": Object {},
+  "unuse": [Function],
+  "use": [Function],
+}
+`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
 
@@ -1652,18 +1518,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -1675,7 +1530,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": errors 1`] = `Array []`;
 
-exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `Object {}`;
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
+Object {
+  "locals": Object {},
+  "unuse": [Function],
+  "use": [Function],
+}
+`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": warnings 1`] = `Array []`;
 
@@ -1683,18 +1544,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -1706,7 +1556,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": errors 1`] = `Array []`;
 
-exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `Object {}`;
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
+Object {
+  "locals": Object {},
+  "unuse": [Function],
+  "use": [Function],
+}
+`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": warnings 1`] = `Array []`;
 
@@ -1714,7 +1570,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -1827,18 +1683,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -1850,7 +1695,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
 
-exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `Object {}`;
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
+Object {
+  "locals": Object {},
+  "unuse": [Function],
+  "use": [Function],
+}
+`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
 
@@ -1858,18 +1709,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -1881,7 +1721,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": errors 1`] = `Array []`;
 
-exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `Object {}`;
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
+Object {
+  "locals": Object {},
+  "unuse": [Function],
+  "use": [Function],
+}
+`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": warnings 1`] = `Array []`;
 
@@ -1889,18 +1735,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -1912,7 +1747,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": errors 1`] = `Array []`;
 
-exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `Object {}`;
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
+Object {
+  "locals": Object {},
+  "unuse": [Function],
+  "use": [Function],
+}
+`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": warnings 1`] = `Array []`;
 
@@ -1920,7 +1761,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -2033,18 +1874,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -2056,7 +1886,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": errors 1`] = `Array []`;
 
-exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `Object {}`;
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
+Object {
+  "locals": Object {},
+  "unuse": [Function],
+  "use": [Function],
+}
+`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `Array []`;
 
@@ -2064,18 +1900,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -2087,7 +1912,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": errors 1`] = `Array []`;
 
-exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `Object {}`;
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
+Object {
+  "locals": Object {},
+  "unuse": [Function],
+  "use": [Function],
+}
+`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": warnings 1`] = `Array []`;
 
@@ -2095,18 +1926,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -2118,7 +1938,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": errors 1`] = `Array []`;
 
-exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `Object {}`;
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
+Object {
+  "locals": Object {},
+  "unuse": [Function],
+  "use": [Function],
+}
+`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": warnings 1`] = `Array []`;
 
@@ -2126,7 +1952,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -2270,18 +2096,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -2312,9 +2127,13 @@ Object {
     "",
   ],
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "locals": Object {
+      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+      "foo": "EwkYfSlfnYBz8E2xTBZva",
+    },
+    "unuse": [Function],
+    "use": [Function],
   },
   "i": [Function],
   "locals": Object {
@@ -2332,18 +2151,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -2374,9 +2182,13 @@ Object {
     "",
   ],
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "locals": Object {
+      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+      "foo": "EwkYfSlfnYBz8E2xTBZva",
+    },
+    "unuse": [Function],
+    "use": [Function],
   },
   "i": [Function],
   "locals": Object {
@@ -2394,18 +2206,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -2436,9 +2237,13 @@ Object {
     "",
   ],
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "locals": Object {
+      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+      "foo": "EwkYfSlfnYBz8E2xTBZva",
+    },
+    "unuse": [Function],
+    "use": [Function],
   },
   "i": [Function],
   "locals": Object {
@@ -2456,7 +2261,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -2470,7 +2275,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {},
 }
 `;
 
@@ -2666,18 +2471,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -2708,9 +2502,13 @@ Object {
     "",
   ],
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "locals": Object {
+      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+      "foo": "EwkYfSlfnYBz8E2xTBZva",
+    },
+    "unuse": [Function],
+    "use": [Function],
   },
   "i": [Function],
   "locals": Object {
@@ -2728,18 +2526,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -2770,9 +2557,13 @@ Object {
     "",
   ],
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "locals": Object {
+      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+      "foo": "EwkYfSlfnYBz8E2xTBZva",
+    },
+    "unuse": [Function],
+    "use": [Function],
   },
   "i": [Function],
   "locals": Object {
@@ -2790,18 +2581,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -2832,9 +2612,13 @@ Object {
     "",
   ],
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "locals": Object {
+      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+      "foo": "EwkYfSlfnYBz8E2xTBZva",
+    },
+    "unuse": [Function],
+    "use": [Function],
   },
   "i": [Function],
   "locals": Object {
@@ -2852,7 +2636,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -2866,7 +2650,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {},
 }
 `;
 
@@ -3053,18 +2837,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -3094,7 +2867,10 @@ Object {
 ",
     "",
   ],
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
   "i": [Function],
   "toString": [Function],
 }
@@ -3106,18 +2882,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -3147,7 +2912,10 @@ Object {
 ",
     "",
   ],
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
   "i": [Function],
   "toString": [Function],
 }
@@ -3159,18 +2927,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -3200,7 +2957,10 @@ Object {
 ",
     "",
   ],
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
   "i": [Function],
   "toString": [Function],
 }
@@ -3212,7 +2972,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -3226,7 +2986,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {},
 }
 `;
 
@@ -3395,18 +3155,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -3436,7 +3185,10 @@ Object {
 ",
     "",
   ],
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
   "i": [Function],
   "toString": [Function],
 }
@@ -3448,18 +3200,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -3489,7 +3230,10 @@ Object {
 ",
     "",
   ],
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
   "i": [Function],
   "toString": [Function],
 }
@@ -3501,18 +3245,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -3542,7 +3275,10 @@ Object {
 ",
     "",
   ],
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
   "i": [Function],
   "toString": [Function],
 }
@@ -3554,7 +3290,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -3568,7 +3304,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {},
 }
 `;
 
@@ -3722,7 +3458,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
 }
 `;
 
@@ -3746,7 +3485,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
 }
 `;
 
@@ -3770,7 +3512,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
 }
 `;
 
@@ -3780,7 +3525,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -3794,7 +3539,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {},
 }
 `;
 
@@ -3890,7 +3635,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
 }
 `;
 
@@ -3914,7 +3662,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
 }
 `;
 
@@ -3938,7 +3689,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
 }
 `;
 
@@ -3948,7 +3702,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -3962,7 +3716,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {},
 }
 `;
 
@@ -4059,18 +3813,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -4085,9 +3828,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "locals": Object {
+      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+      "foo": "EwkYfSlfnYBz8E2xTBZva",
+    },
+    "unuse": [Function],
+    "use": [Function],
   },
 }
 `;
@@ -4098,18 +3845,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -4124,9 +3860,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "locals": Object {
+      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+      "foo": "EwkYfSlfnYBz8E2xTBZva",
+    },
+    "unuse": [Function],
+    "use": [Function],
   },
 }
 `;
@@ -4137,18 +3877,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -4163,9 +3892,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "locals": Object {
+      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+      "foo": "EwkYfSlfnYBz8E2xTBZva",
+    },
+    "unuse": [Function],
+    "use": [Function],
   },
 }
 `;
@@ -4176,7 +3909,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -4190,7 +3923,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {},
 }
 `;
 
@@ -4317,18 +4050,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -4343,9 +4065,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "locals": Object {
+      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+      "foo": "EwkYfSlfnYBz8E2xTBZva",
+    },
+    "unuse": [Function],
+    "use": [Function],
   },
 }
 `;
@@ -4356,18 +4082,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -4382,9 +4097,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "locals": Object {
+      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+      "foo": "EwkYfSlfnYBz8E2xTBZva",
+    },
+    "unuse": [Function],
+    "use": [Function],
   },
 }
 `;
@@ -4395,18 +4114,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -4421,9 +4129,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "locals": Object {
+      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+      "foo": "EwkYfSlfnYBz8E2xTBZva",
+    },
+    "unuse": [Function],
+    "use": [Function],
   },
 }
 `;
@@ -4434,7 +4146,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -4448,7 +4160,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {},
 }
 `;
 
@@ -4586,7 +4298,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
@@ -4620,7 +4335,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
@@ -4654,7 +4372,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
@@ -4672,7 +4393,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -4686,7 +4407,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {},
 }
 `;
 
@@ -4814,7 +4535,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
@@ -4848,7 +4572,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
@@ -4882,7 +4609,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
@@ -4900,7 +4630,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -4914,7 +4644,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {},
 }
 `;
 
@@ -5030,18 +4760,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -5057,7 +4776,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
@@ -5068,18 +4790,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -5095,7 +4806,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
@@ -5106,18 +4820,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -5133,7 +4836,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
@@ -5144,7 +4850,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -5158,7 +4864,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {},
 }
 `;
 
@@ -5282,18 +4988,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -5309,7 +5004,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
@@ -5320,18 +5018,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -5347,7 +5034,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
@@ -5358,18 +5048,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -5385,7 +5064,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
@@ -5396,7 +5078,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -5410,7 +5092,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {},
 }
 `;
 
@@ -5531,18 +5213,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -5556,7 +5227,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
 }
 `;
 
@@ -5566,18 +5240,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -5591,7 +5254,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
 }
 `;
 
@@ -5601,18 +5267,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -5626,7 +5281,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
 }
 `;
 
@@ -5636,7 +5294,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -5650,7 +5308,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {},
 }
 `;
 
@@ -5765,18 +5423,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -5790,7 +5437,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
 }
 `;
 
@@ -5800,18 +5450,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -5825,7 +5464,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
 }
 `;
 
@@ -5835,18 +5477,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -5860,7 +5491,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
 }
 `;
 
@@ -5870,7 +5504,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -5884,7 +5518,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {},
 }
 `;
 
@@ -6003,18 +5637,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -6029,9 +5652,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "locals": Object {
+      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+      "foo": "EwkYfSlfnYBz8E2xTBZva",
+    },
+    "unuse": [Function],
+    "use": [Function],
   },
 }
 `;
@@ -6042,18 +5669,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -6068,9 +5684,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "locals": Object {
+      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+      "foo": "EwkYfSlfnYBz8E2xTBZva",
+    },
+    "unuse": [Function],
+    "use": [Function],
   },
 }
 `;
@@ -6081,18 +5701,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -6107,9 +5716,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "locals": Object {
+      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+      "foo": "EwkYfSlfnYBz8E2xTBZva",
+    },
+    "unuse": [Function],
+    "use": [Function],
   },
 }
 `;
@@ -6120,7 +5733,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -6134,7 +5747,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {},
 }
 `;
 
@@ -6261,18 +5874,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -6287,9 +5889,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "locals": Object {
+      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+      "foo": "EwkYfSlfnYBz8E2xTBZva",
+    },
+    "unuse": [Function],
+    "use": [Function],
   },
 }
 `;
@@ -6300,18 +5906,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -6326,9 +5921,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "locals": Object {
+      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+      "foo": "EwkYfSlfnYBz8E2xTBZva",
+    },
+    "unuse": [Function],
+    "use": [Function],
   },
 }
 `;
@@ -6339,18 +5938,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -6365,9 +5953,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "locals": Object {
+      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+      "foo": "EwkYfSlfnYBz8E2xTBZva",
+    },
+    "unuse": [Function],
+    "use": [Function],
   },
 }
 `;
@@ -6378,7 +5970,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -6392,7 +5984,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {},
 }
 `;
 
@@ -6518,18 +6110,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -6545,7 +6126,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
@@ -6556,18 +6140,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -6583,7 +6156,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
@@ -6594,18 +6170,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -6621,7 +6186,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
@@ -6632,7 +6200,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -6646,7 +6214,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {},
 }
 `;
 
@@ -6770,18 +6338,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -6797,7 +6354,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
@@ -6808,18 +6368,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -6835,7 +6384,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
@@ -6846,18 +6398,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -6873,7 +6414,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 Object {
   "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
   "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
   "foo": "EwkYfSlfnYBz8E2xTBZva",
 }
 `;
@@ -6884,7 +6428,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -6898,7 +6442,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {},
 }
 `;
 
@@ -7019,18 +6563,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":fals
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -7044,7 +6577,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":fals
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
 }
 `;
 
@@ -7054,18 +6590,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":fals
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -7079,7 +6604,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":fals
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
 }
 `;
 
@@ -7089,18 +6617,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":fals
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -7114,7 +6631,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":fals
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
 }
 `;
 
@@ -7124,7 +6644,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":fals
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -7138,7 +6658,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":fals
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {},
 }
 `;
 
@@ -7253,18 +6773,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":fals
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -7278,7 +6787,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":fals
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
 }
 `;
 
@@ -7288,18 +6800,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":fals
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -7313,7 +6814,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":fals
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
 }
 `;
 
@@ -7323,18 +6827,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":fals
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -7348,7 +6841,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":fals
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
 }
 `;
 
@@ -7358,7 +6854,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":fals
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -7372,7 +6868,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":fals
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":false}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {},
 }
 `;
 
@@ -7491,18 +6987,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -7517,9 +7002,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "locals": Object {
+      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+      "foo": "EwkYfSlfnYBz8E2xTBZva",
+    },
+    "unuse": [Function],
+    "use": [Function],
   },
 }
 `;
@@ -7530,18 +7019,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -7556,9 +7034,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "locals": Object {
+      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+      "foo": "EwkYfSlfnYBz8E2xTBZva",
+    },
+    "unuse": [Function],
+    "use": [Function],
   },
 }
 `;
@@ -7569,18 +7051,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -7595,9 +7066,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "locals": Object {
+      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+      "foo": "EwkYfSlfnYBz8E2xTBZva",
+    },
+    "unuse": [Function],
+    "use": [Function],
   },
 }
 `;
@@ -7608,7 +7083,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -7622,7 +7097,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {},
 }
 `;
 
@@ -7749,18 +7224,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -7775,9 +7239,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "locals": Object {
+      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+      "foo": "EwkYfSlfnYBz8E2xTBZva",
+    },
+    "unuse": [Function],
+    "use": [Function],
   },
 }
 `;
@@ -7788,18 +7256,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -7814,9 +7271,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "locals": Object {
+      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+      "foo": "EwkYfSlfnYBz8E2xTBZva",
+    },
+    "unuse": [Function],
+    "use": [Function],
   },
 }
 `;
@@ -7827,18 +7288,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
-    color: red;
-}
-
-._3TzX9kdhbEM9NjFT_lLbK_ {
-    color: blue;
-}
-
-._2zHxuubfFrOL9GmW-Gbppt {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -7853,9 +7303,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "locals": Object {
+      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
+      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+      "foo": "EwkYfSlfnYBz8E2xTBZva",
+    },
+    "unuse": [Function],
+    "use": [Function],
   },
 }
 `;
@@ -7866,7 +7320,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -7880,7 +7334,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {},
 }
 `;
 
@@ -8003,18 +7457,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYP
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -8028,7 +7471,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYP
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
 }
 `;
 
@@ -8038,18 +7484,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYP
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -8063,7 +7498,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYP
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
 }
 `;
 
@@ -8073,18 +7511,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYP
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -8098,7 +7525,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYP
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
 }
 `;
 
@@ -8108,7 +7538,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYP
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -8122,7 +7552,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYP
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {},
 }
 `;
 
@@ -8237,18 +7667,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYP
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -8262,7 +7681,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYP
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
 }
 `;
 
@@ -8272,18 +7694,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYP
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -8297,7 +7708,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYP
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
 }
 `;
 
@@ -8307,18 +7721,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYP
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
+</head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -8332,7 +7735,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYP
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {
+    "unuse": [Function],
+    "use": [Function],
+  },
 }
 `;
 
@@ -8342,7 +7748,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYP
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style><style>undefined</style></head>
+<link rel=\\"stylesheet\\" href=\\"es-modules.css\\"></head>
 <body>
   <h1>Body</h1>
   <div class=\\"target\\"></div>
@@ -8356,7 +7762,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYP
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "linkTag": exports 1`] = `
 Object {
-  "default": undefined,
+  "default": Object {},
 }
 `;
 
