@@ -1,8 +1,8 @@
 /* eslint-env browser */
 
-import path from 'path';
+import path from "path";
 
-import webpack from 'webpack';
+import webpack from "webpack";
 
 import {
   compile,
@@ -12,49 +12,51 @@ import {
   getWarnings,
   readAsset,
   runInJsDom,
-} from './helpers/index';
+} from "./helpers/index";
 
-describe('loader', () => {
+describe("loader", () => {
   const injectTypes = [
-    'styleTag',
-    'singletonStyleTag',
-    'lazyStyleTag',
-    'lazySingletonStyleTag',
-    'linkTag',
+    "styleTag",
+    "singletonStyleTag",
+    "autoStyleTag",
+    "lazyStyleTag",
+    "lazySingletonStyleTag",
+    "lazyAutoStyleTag",
+    "linkTag",
   ];
 
-  it('should work', async () => {
-    const compiler = getCompiler('./simple.js');
+  it("should work", async () => {
+    const compiler = getCompiler("./simple.js");
     const stats = await compile(compiler);
 
-    runInJsDom('main.bundle.js', compiler, stats, (dom) => {
-      expect(dom.serialize()).toMatchSnapshot('DOM');
+    runInJsDom("main.bundle.js", compiler, stats, (dom) => {
+      expect(dom.serialize()).toMatchSnapshot("DOM");
     });
 
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
   injectTypes.forEach((injectType) => {
     it(`should work when the "injectType" option is "${injectType}"`, async () => {
       expect.assertions(3);
 
-      const entry = getEntryByInjectType('simple.js', injectType);
+      const entry = getEntryByInjectType("simple.js", injectType);
       const compiler = getCompiler(entry, { injectType });
       const stats = await compile(compiler);
 
-      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
-        expect(dom.serialize()).toMatchSnapshot('DOM');
+      runInJsDom("main.bundle.js", compiler, stats, (dom) => {
+        expect(dom.serialize()).toMatchSnapshot("DOM");
       });
 
-      expect(getWarnings(stats)).toMatchSnapshot('warnings');
-      expect(getErrors(stats)).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot("warnings");
+      expect(getErrors(stats)).toMatchSnapshot("errors");
     });
 
     it(`should work with css modules when the "injectType" option is "${injectType}"`, async () => {
       expect.assertions(3);
 
-      const entry = getEntryByInjectType('css-modules.js', injectType);
+      const entry = getEntryByInjectType("css-modules.js", injectType);
       const compiler = getCompiler(
         entry,
         {},
@@ -65,19 +67,19 @@ describe('loader', () => {
                 test: /\.css$/i,
                 use: [
                   {
-                    loader: path.resolve(__dirname, '../src/cjs.js'),
+                    loader: path.resolve(__dirname, "../src/cjs.js"),
                     options: { injectType },
                   },
-                  injectType === 'linkTag'
+                  injectType === "linkTag"
                     ? {
-                        loader: 'file-loader',
-                        options: { name: '[path][name].[ext]' },
+                        loader: "file-loader",
+                        options: { name: "[path][name].[ext]" },
                       }
                     : {
-                        loader: 'css-loader',
+                        loader: "css-loader",
                         options: {
                           modules: {
-                            localIdentName: '[name]-[local]_[hash:base64:7]',
+                            localIdentName: "[name]-[local]_[hash:base64:7]",
                           },
                         },
                       },
@@ -89,77 +91,77 @@ describe('loader', () => {
       );
       const stats = await compile(compiler);
 
-      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
-        expect(dom.serialize()).toMatchSnapshot('DOM');
+      runInJsDom("main.bundle.js", compiler, stats, (dom) => {
+        expect(dom.serialize()).toMatchSnapshot("DOM");
       });
 
-      expect(getWarnings(stats)).toMatchSnapshot('warnings');
-      expect(getErrors(stats)).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot("warnings");
+      expect(getErrors(stats)).toMatchSnapshot("errors");
     });
 
     it(`should not inject hmr code without HotModuleReplacementPlugin when the "injectType" option is "${injectType}"`, async () => {
       expect.assertions(4);
 
-      const compiler = getCompiler('./hot.js', { injectType });
+      const compiler = getCompiler("./hot.js", { injectType });
       const stats = await compile(compiler);
 
-      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
+      runInJsDom("main.bundle.js", compiler, stats, (dom) => {
         expect(dom.window.hotApi).not.toBeDefined();
       });
 
-      const bundleSource = readAsset('main.bundle.js', compiler, stats);
+      const bundleSource = readAsset("main.bundle.js", compiler, stats);
 
       expect(bundleSource).not.toMatch(/module\.hot\.accept/);
-      expect(getWarnings(stats)).toMatchSnapshot('warnings');
-      expect(getErrors(stats)).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot("warnings");
+      expect(getErrors(stats)).toMatchSnapshot("errors");
     });
 
     it(`should inject hmr code with HotModuleReplacementPlugin when the "injectType" option is "${injectType}"`, async () => {
       expect.assertions(4);
 
       const compiler = getCompiler(
-        './hot.js',
+        "./hot.js",
         { injectType },
         { plugins: [new webpack.HotModuleReplacementPlugin()] }
       );
       const stats = await compile(compiler);
 
-      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
+      runInJsDom("main.bundle.js", compiler, stats, (dom) => {
         expect(dom.window.hotApi).toBeDefined();
       });
 
-      const bundleSource = readAsset('main.bundle.js', compiler, stats);
+      const bundleSource = readAsset("main.bundle.js", compiler, stats);
 
       expect(bundleSource).toMatch(/module\.hot\.accept/);
-      expect(getWarnings(stats)).toMatchSnapshot('warnings');
-      expect(getErrors(stats)).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot("warnings");
+      expect(getErrors(stats)).toMatchSnapshot("errors");
     });
 
     it(`should not generate source maps when previous loader don't emit them when the "injectType" option is "${injectType}"`, async () => {
       expect.assertions(3);
 
-      const entry = getEntryByInjectType('simple.js', injectType);
+      const entry = getEntryByInjectType("simple.js", injectType);
       const compiler = getCompiler(
         entry,
         { injectType },
         {
-          devtool: 'source-map',
+          devtool: "source-map",
           module: {
             rules: [
               {
                 test: /\.css$/i,
                 use: [
                   {
-                    loader: path.resolve(__dirname, '../src/cjs.js'),
+                    loader: path.resolve(__dirname, "../src/cjs.js"),
                     options: { injectType },
                   },
-                  injectType === 'linkTag'
+                  injectType === "linkTag"
                     ? {
-                        loader: 'file-loader',
-                        options: { name: '[path][name].[ext]' },
+                        loader: "file-loader",
+                        options: { name: "[path][name].[ext]" },
                       }
                     : {
-                        loader: 'css-loader',
+                        loader: "css-loader",
                         options: { sourceMap: false },
                       },
                 ],
@@ -170,12 +172,12 @@ describe('loader', () => {
       );
       const stats = await compile(compiler);
 
-      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
-        expect(dom.serialize()).toMatchSnapshot('DOM');
+      runInJsDom("main.bundle.js", compiler, stats, (dom) => {
+        expect(dom.serialize()).toMatchSnapshot("DOM");
       });
 
-      expect(getWarnings(stats)).toMatchSnapshot('warnings');
-      expect(getErrors(stats)).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot("warnings");
+      expect(getErrors(stats)).toMatchSnapshot("errors");
     });
 
     // `linkTag` doesn't generate source maps, original source should contains them
@@ -183,28 +185,28 @@ describe('loader', () => {
     it.skip(`should generate source maps when previous loader emit them when the "injectType" option is "${injectType}"`, async () => {
       expect.assertions(3);
 
-      const entry = getEntryByInjectType('simple.js', injectType);
+      const entry = getEntryByInjectType("simple.js", injectType);
       const compiler = getCompiler(
         entry,
         { injectType },
         {
-          devtool: 'source-map',
+          devtool: "source-map",
           module: {
             rules: [
               {
                 test: /\.css$/i,
                 use: [
                   {
-                    loader: path.resolve(__dirname, '../src/cjs.js'),
+                    loader: path.resolve(__dirname, "../src/cjs.js"),
                     options: { injectType },
                   },
-                  injectType === 'linkTag'
+                  injectType === "linkTag"
                     ? {
-                        loader: 'file-loader',
-                        options: { name: '[path][name].[ext]' },
+                        loader: "file-loader",
+                        options: { name: "[path][name].[ext]" },
                       }
                     : {
-                        loader: 'css-loader',
+                        loader: "css-loader",
                         options: { sourceMap: true },
                       },
                 ],
@@ -215,16 +217,16 @@ describe('loader', () => {
       );
       const stats = await compile(compiler);
 
-      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
-        expect(dom.serialize()).toMatchSnapshot('DOM');
+      runInJsDom("main.bundle.js", compiler, stats, (dom) => {
+        expect(dom.serialize()).toMatchSnapshot("DOM");
       });
 
-      expect(getWarnings(stats)).toMatchSnapshot('warnings');
-      expect(getErrors(stats)).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot("warnings");
+      expect(getErrors(stats)).toMatchSnapshot("errors");
     });
 
     it(`should work when the "injectType" option is "${injectType}" and ES module syntax used`, async () => {
-      const entry = getEntryByInjectType('simple.js', injectType);
+      const entry = getEntryByInjectType("simple.js", injectType);
       const compiler = getCompiler(
         entry,
         { injectType },
@@ -235,16 +237,16 @@ describe('loader', () => {
                 test: /\.css$/i,
                 use: [
                   {
-                    loader: path.resolve(__dirname, '../src/cjs.js'),
+                    loader: path.resolve(__dirname, "../src/cjs.js"),
                     options: { injectType },
                   },
-                  injectType === 'linkTag'
+                  injectType === "linkTag"
                     ? {
-                        loader: 'file-loader',
-                        options: { name: '[path][name].[ext]' },
+                        loader: "file-loader",
+                        options: { name: "[path][name].[ext]" },
                       }
                     : {
-                        loader: 'css-loader',
+                        loader: "css-loader",
                         options: { esModule: true },
                       },
                 ],
@@ -255,16 +257,16 @@ describe('loader', () => {
       );
       const stats = await compile(compiler);
 
-      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
-        expect(dom.serialize()).toMatchSnapshot('DOM');
+      runInJsDom("main.bundle.js", compiler, stats, (dom) => {
+        expect(dom.serialize()).toMatchSnapshot("DOM");
       });
 
-      expect(getWarnings(stats)).toMatchSnapshot('warnings');
-      expect(getErrors(stats)).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot("warnings");
+      expect(getErrors(stats)).toMatchSnapshot("errors");
     });
 
     it(`should work when the "injectType" option is "${injectType}" and CommonJS module syntax used`, async () => {
-      const entry = getEntryByInjectType('simple.js', injectType);
+      const entry = getEntryByInjectType("simple.js", injectType);
       const compiler = getCompiler(
         entry,
         { injectType },
@@ -275,16 +277,16 @@ describe('loader', () => {
                 test: /\.css$/i,
                 use: [
                   {
-                    loader: path.resolve(__dirname, '../src/cjs.js'),
+                    loader: path.resolve(__dirname, "../src/cjs.js"),
                     options: { injectType },
                   },
-                  injectType === 'linkTag'
+                  injectType === "linkTag"
                     ? {
-                        loader: 'file-loader',
-                        options: { name: '[path][name].[ext]' },
+                        loader: "file-loader",
+                        options: { name: "[path][name].[ext]" },
                       }
                     : {
-                        loader: 'css-loader',
+                        loader: "css-loader",
                         options: { esModule: false },
                       },
                 ],
@@ -295,44 +297,44 @@ describe('loader', () => {
       );
       const stats = await compile(compiler);
 
-      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
-        expect(dom.serialize()).toMatchSnapshot('DOM');
+      runInJsDom("main.bundle.js", compiler, stats, (dom) => {
+        expect(dom.serialize()).toMatchSnapshot("DOM");
       });
 
-      expect(getWarnings(stats)).toMatchSnapshot('warnings');
-      expect(getErrors(stats)).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot("warnings");
+      expect(getErrors(stats)).toMatchSnapshot("errors");
     });
 
     it(`should work when the "injectType" option is "${injectType}" and files have same name`, async () => {
       expect.assertions(3);
 
-      const entry = getEntryByInjectType('multiple.js', injectType);
+      const entry = getEntryByInjectType("multiple.js", injectType);
       const compiler = getCompiler(entry, { injectType });
       const stats = await compile(compiler);
 
-      runInJsDom('main.bundle.js', compiler, stats, (dom) => {
-        expect(dom.serialize()).toMatchSnapshot('DOM');
+      runInJsDom("main.bundle.js", compiler, stats, (dom) => {
+        expect(dom.serialize()).toMatchSnapshot("DOM");
       });
 
-      expect(getWarnings(stats)).toMatchSnapshot('warnings');
-      expect(getErrors(stats)).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot("warnings");
+      expect(getErrors(stats)).toMatchSnapshot("errors");
     });
 
-    if (['lazyStyleTag', 'lazySingletonStyleTag'].includes(injectType)) {
+    if (["lazyStyleTag", "lazySingletonStyleTag"].includes(injectType)) {
       it(`should work when ref is negative when the "injectType" option is "${injectType}"`, async () => {
         expect.assertions(3);
 
-        const compiler = getCompiler('./lazy-negative-refs.js', {
+        const compiler = getCompiler("./lazy-negative-refs.js", {
           injectType,
         });
         const stats = await compile(compiler);
 
-        runInJsDom('main.bundle.js', compiler, stats, (dom) => {
-          expect(dom.serialize()).toMatchSnapshot('DOM');
+        runInJsDom("main.bundle.js", compiler, stats, (dom) => {
+          expect(dom.serialize()).toMatchSnapshot("DOM");
         });
 
-        expect(getWarnings(stats)).toMatchSnapshot('warnings');
-        expect(getErrors(stats)).toMatchSnapshot('errors');
+        expect(getWarnings(stats)).toMatchSnapshot("warnings");
+        expect(getErrors(stats)).toMatchSnapshot("errors");
       });
     }
   });

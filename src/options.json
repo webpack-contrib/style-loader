@@ -1,4 +1,5 @@
 {
+  "title": "Style Loader options",
   "type": "object",
   "properties": {
     "injectType": {
@@ -6,8 +7,10 @@
       "enum": [
         "styleTag",
         "singletonStyleTag",
+        "autoStyleTag",
         "lazyStyleTag",
         "lazySingletonStyleTag",
+        "lazyAutoStyleTag",
         "linkTag"
       ]
     },
@@ -34,15 +37,9 @@
       "description": "Use the ES modules syntax (https://github.com/webpack-contrib/css-loader#esmodule).",
       "type": "boolean"
     },
-    "modules": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "namedExport": {
-          "description": "Enables/disables ES modules named export for locals (https://webpack.js.org/plugins/mini-css-extract-plugin/#namedexport).",
-          "type": "boolean"
-        }
-      }
+    "styleTagTransform": {
+      "description": "Transform tag and css when insert 'style' tag into the DOM",
+      "instanceof": "Function"
     }
   },
   "additionalProperties": false

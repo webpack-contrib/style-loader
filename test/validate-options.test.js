@@ -1,43 +1,46 @@
-import { getCompiler, compile } from './helpers';
+import { getCompiler, compile } from "./helpers";
 
-describe('validate options', () => {
+describe("validate options", () => {
   const tests = {
     injectType: {
       success: [
-        'styleTag',
-        'singletonStyleTag',
-        'lazyStyleTag',
-        'lazySingletonStyleTag',
-        'linkTag',
+        "styleTag",
+        "singletonStyleTag",
+        "autoStyleTag",
+        "lazyStyleTag",
+        "lazySingletonStyleTag",
+        "lazyAutoStyleTag",
+        "linkTag",
       ],
-      failure: ['unknown'],
+      failure: ["unknown"],
     },
     attributes: {
-      success: [{}, { id: 'id' }],
+      success: [{}, { id: "id" }],
       failure: [true],
     },
     insert: {
-      success: ['selector', () => {}],
+      success: ["selector", () => {}],
       failure: [true],
     },
     esModule: {
       success: [true, false],
-      failure: ['true'],
+      failure: ["true"],
     },
-    modules: {
-      success: [{ namedExport: true }],
-      failure: [true, 'true'],
+    styleTagTransform: {
+      // eslint-disable-next-line func-names
+      success: [function () {}],
+      failure: ["true", true, []],
     },
     unknown: {
       success: [],
-      failure: [1, true, false, 'test', /test/, [], {}, { foo: 'bar' }],
+      failure: [1, true, false, "test", /test/, [], {}, { foo: "bar" }],
     },
   };
 
   function stringifyValue(value) {
     if (
       Array.isArray(value) ||
-      (value && typeof value === 'object' && value.constructor === Object)
+      (value && typeof value === "object" && value.constructor === Object)
     ) {
       return JSON.stringify(value);
     }
@@ -47,18 +50,18 @@ describe('validate options', () => {
 
   async function createTestCase(key, value, type) {
     it(`should ${
-      type === 'success' ? 'successfully validate' : 'throw an error on'
+      type === "success" ? "successfully validate" : "throw an error on"
     } the "${key}" option with "${stringifyValue(value)}" value`, async () => {
-      const compiler = getCompiler('simple.js', { [key]: value });
+      const compiler = getCompiler("simple.js", { [key]: value });
 
       let stats;
 
       try {
         stats = await compile(compiler);
       } finally {
-        if (type === 'success') {
+        if (type === "success") {
           expect(stats.hasErrors()).toBe(false);
-        } else if (type === 'failure') {
+        } else if (type === "failure") {
           const {
             compilation: { errors },
           } = stats;
