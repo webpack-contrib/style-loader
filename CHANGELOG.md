@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/webpack-contrib/style-loader/compare/v2.0.0...v3.0.0) (2021-06-24)
+
+### ⚠ BREAKING CHANGES
+
+* minimum supported `Node.js` version is `12.13.0`
+* minimum supported `webpack` version is `5.0.0`
+* the `modules.namedExport` option was removed, you don't need it anymore, because we respect the `modules.namedExport` option from `css-loader` (we just reexport all from `css-loader`), just remove it
+* the `styleTag` value of the `injectType` (default value) option earlier uses singleton style tag by default for IE8-IE9 due limitations ([more information](https://www.telerik.com/blogs/internet-explorer-css-limits)), in this release we have disabled this behavior, because these versions of IE are outdated, if you don't support these browsers this change does not affect you, if you require to support IE8-IE9, you can return old behaviour by setting `autoStyleTag` value for the `injectType` option (do the same for `lazyStyleTag`, i.e. change it to `lazyAutoStyleTag`)
+
+### Features
+
+* added `autoStyleTag` and `lazyAutoStyleTag` values for the `injectType` option for compatibility of work modern and IE8-IE9 browsers
+* added `styleTagTransform` option for custom processing style tags (useful if you need ponyfill CSS custom properties for IE8-IE10)
+* reduce size of generated code
+* reduce deps
+
 ## [2.0.0](https://github.com/webpack-contrib/style-loader/compare/v1.3.0...v2.0.0) (2020-10-09)
 
 

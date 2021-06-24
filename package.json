@@ -1,6 +1,6 @@
 {
   "name": "style-loader",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "style loader module for webpack",
   "license": "MIT",
   "repository": "webpack-contrib/style-loader",
