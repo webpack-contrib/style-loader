@@ -6,7 +6,7 @@
 
 import injectStylesIntoLinkTag from "../../src/runtime/injectStylesIntoLinkTag";
 
-import getTarget from "../../src/runtime/getTarget";
+import { getTarget } from "../../src/runtime/getTarget";
 
 const getInsertFn = (place) =>
   function insertFn(style) {

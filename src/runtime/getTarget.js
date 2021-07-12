@@ -26,4 +26,17 @@ function getTarget(target) {
   return memo[target];
 }
 
-module.exports = getTarget;
+/* istanbul ignore next  */
+function insertBySelector(style, insert) {
+  const target = getTarget(insert);
+
+  if (!target) {
+    throw new Error(
+      "Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid."
+    );
+  }
+
+  target.appendChild(style);
+}
+
+module.exports = { insertBySelector, getTarget };

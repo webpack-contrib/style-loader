@@ -120,8 +120,8 @@ function getImportGetTargetCode(esModule, loaderContext, insertType, options) {
     );
 
     return esModule
-      ? `import getTarget from ${modulePath};`
-      : `var getTarget = require(${modulePath});`;
+      ? `import {insertBySelector as insertFn} from ${modulePath};`
+      : `var insertFn = require(${modulePath}).insertBySelector;`;
   }
 
   if (insertType === "modulePath") {
@@ -133,6 +133,23 @@ function getImportGetTargetCode(esModule, loaderContext, insertType, options) {
   }
 
   return "";
+}
+
+function getInsertOptionCode(insertType, options, insertFn) {
+  if (insertType === "selector") {
+    const insert = options.insert ? JSON.stringify(options.insert) : '"head"';
+
+    return `
+      options.insert = insertFn;
+      options.insertTag = ${insert};
+    `;
+  }
+
+  if (insertType === "modulePath") {
+    return `options.insert = insertFn;`;
+  }
+
+  return `options.insert = ${insertFn};`;
 }
 
 function getImportInsertStyleElementCode(esModule, loaderContext) {
@@ -333,4 +350,5 @@ export {
   getExportStyleCode,
   getExportLazyStyleCode,
   getSetAttributesCode,
+  getInsertOptionCode,
 };

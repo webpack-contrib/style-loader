@@ -433,6 +433,8 @@ If you target an [iframe](https://developer.mozilla.org/en-US/docs/Web/API/HTMLI
 
 #### `String`
 
+##### `Selector`
+
 Allows to setup custom [query selector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector) where styles inject into the DOM.
 
 **webpack.config.js**
@@ -448,6 +450,36 @@ module.exports = {
             loader: "style-loader",
             options: {
               insert: "body",
+            },
+          },
+          "css-loader",
+        ],
+      },
+    ],
+  },
+};
+```
+
+##### `Absolute path to function`
+
+Allows to setup absolute path to custom function that allows to override default behavior and insert styles at any position.
+
+> ⚠ Do not forget that this code will be used in the browser and not all browsers support latest ECMA features like `let`, `const`, `arrow function expression` and etc, we recommend use only ECMA 5 features, but it is depends what browsers you want to support
+> ⚠ Do not forget that some DOM methods may not be available in older browsers, we recommended use only [DOM core level 2 properties](https://caniuse.com/#search=DOM%20Core), but it is depends what browsers you want to support
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          {
+            loader: "style-loader",
+            options: {
+              insert: require.resolve("modulePath"),
             },
           },
           "css-loader",

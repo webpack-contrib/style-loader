@@ -16,6 +16,7 @@ import {
   getExportStyleCode,
   getExportLazyStyleCode,
   getSetAttributesCode,
+  getInsertOptionCode,
 } from "./utils";
 
 import schema from "./options.json";
@@ -24,10 +25,6 @@ const loaderAPI = () => {};
 
 loaderAPI.pitch = function loader(request) {
   const options = this.getOptions(schema);
-  const insert =
-    typeof options.insert === "string"
-      ? JSON.stringify(options.insert)
-      : '"head"';
   const injectType = options.injectType || "styleTag";
   const { styleTagTransform } = options;
   const esModule =
@@ -51,20 +48,9 @@ loaderAPI.pitch = function loader(request) {
 
   let insertFn;
 
+  // Todo remove "function" type for insert option in next major release, because code duplication occurs. Leave require.resolve()
   if (insertType === "function") {
     insertFn = options.insert.toString();
-  } else if (insertType === "selector") {
-    insertFn = `function(style){
-      var target = getTarget(${insert});
-
-      if (!target) {
-        throw new Error(
-          "Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid."
-        );
-      }
-
-      target.appendChild(style);
-    }`;
   }
 
   const styleTagTransformFn =
@@ -98,7 +84,7 @@ loaderAPI.pitch = function loader(request) {
 
 var options = ${JSON.stringify(runtimeOptions)};
 
-options.insert = ${insertType === "modulePath" ? "insertFn" : insertFn};
+${getInsertOptionCode(insertType, options, insertFn)}
 
 var update = API(content, options);
 
@@ -143,7 +129,7 @@ var options = ${JSON.stringify(runtimeOptions)};
 
 ${getStyleTagTransformFn(styleTagTransformFn, isSingleton)};
 options.setAttributes = setAttributes;
-options.insert = ${insertType === "modulePath" ? "insertFn" : insertFn};
+${getInsertOptionCode(insertType, options, insertFn)}
 options.domAPI = ${getdomAPI(isAuto)};
 options.insertStyleElement = insertStyleElement;
 
@@ -195,7 +181,7 @@ var options = ${JSON.stringify(runtimeOptions)};
 
 ${getStyleTagTransformFn(styleTagTransformFn, isSingleton)};
 options.setAttributes = setAttributes;
-options.insert = ${insertType === "modulePath" ? "insertFn" : insertFn};
+${getInsertOptionCode(insertType, options, insertFn)}
 options.domAPI = ${getdomAPI(isAuto)};
 options.insertStyleElement = insertStyleElement;
 

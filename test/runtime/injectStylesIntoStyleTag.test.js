@@ -9,7 +9,7 @@ import injectStylesIntoStyleTag from "../../src/runtime/injectStylesIntoStyleTag
 import domAPI from "../../src/runtime/styleDomAPI";
 import singletonApi from "../../src/runtime/singletonStyleDomAPI";
 import insertStyleElement from "../../src/runtime/insertStyleElement";
-import getTarget from "../../src/runtime/getTarget";
+import { getTarget } from "../../src/runtime/getTarget";
 
 const getInsertFn = (place) =>
   function insertFn(style) {
