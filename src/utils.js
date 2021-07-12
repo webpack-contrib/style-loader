@@ -321,6 +321,7 @@ function getStyleTagTransformFnCode(
 }
 
 function getStyleTagTransformFn(options, isSingleton) {
+  // Todo remove "function" type for styleTagTransform option in next major release, because code duplication occurs. Leave require.resolve()
   return isSingleton
     ? ""
     : typeof options.styleTagTransform === "function"
