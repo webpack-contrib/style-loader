@@ -4,7 +4,7 @@ function insertStyleElement(options) {
 
   options.setAttributes(style, options.attributes);
 
-  options.insert(style, options.insertTag);
+  options.insert(style);
 
   return style;
 }
