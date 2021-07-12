@@ -17,6 +17,7 @@ import {
   getExportLazyStyleCode,
   getSetAttributesCode,
   getInsertOptionCode,
+  getStyleTagTransformFnCode,
 } from "./utils";
 
 import schema from "./options.json";
@@ -26,7 +27,6 @@ const loaderAPI = () => {};
 loaderAPI.pitch = function loader(request) {
   const options = this.getOptions(schema);
   const injectType = options.injectType || "styleTag";
-  const { styleTagTransform } = options;
   const esModule =
     typeof options.esModule !== "undefined" ? options.esModule : true;
   const runtimeOptions = {};
@@ -46,20 +46,12 @@ loaderAPI.pitch = function loader(request) {
       ? "module-path"
       : "selector";
 
-  const styleTagTransformFn =
-    typeof styleTagTransform === "function"
-      ? styleTagTransform.toString()
-      : `function(css, style){
-      if (style.styleSheet) {
-        style.styleSheet.cssText = css;
-      } else {
-      while (style.firstChild) {
-        style.removeChild(style.firstChild);
-      }
-
-      style.appendChild(document.createTextNode(css));
-    }
-  }`;
+  const styleTagTransformType =
+    typeof options.styleTagTransform === "function"
+      ? "function"
+      : options.styleTagTransform && path.isAbsolute(options.styleTagTransform)
+      ? "module-path"
+      : "default";
 
   switch (injectType) {
     case "linkTag": {
@@ -103,6 +95,13 @@ ${esModule ? "export default {}" : ""}`;
       ${getImportInsertBySelectorCode(esModule, this, insertType, options)}
       ${getSetAttributesCode(esModule, this, options)}
       ${getImportInsertStyleElementCode(esModule, this)}
+      ${getStyleTagTransformFnCode(
+        esModule,
+        this,
+        options,
+        isSingleton,
+        styleTagTransformType
+      )}
       ${getImportStyleContentCode(esModule, this, request)}
       ${isAuto ? getImportIsOldIECode(esModule, this) : ""}
       ${
@@ -120,7 +119,7 @@ var refs = 0;
 var update;
 var options = ${JSON.stringify(runtimeOptions)};
 
-${getStyleTagTransformFn(styleTagTransformFn, isSingleton)};
+${getStyleTagTransformFn(options, isSingleton)};
 options.setAttributes = setAttributes;
 ${getInsertOptionCode(insertType, options)}
 options.domAPI = ${getdomAPI(isAuto)};
@@ -162,6 +161,13 @@ ${getExportLazyStyleCode(esModule, this, request)}
       ${getImportInsertBySelectorCode(esModule, this, insertType, options)}
       ${getSetAttributesCode(esModule, this, options)}
       ${getImportInsertStyleElementCode(esModule, this)}
+      ${getStyleTagTransformFnCode(
+        esModule,
+        this,
+        options,
+        isSingleton,
+        styleTagTransformType
+      )}
       ${getImportStyleContentCode(esModule, this, request)}
       ${isAuto ? getImportIsOldIECode(esModule, this) : ""}
       ${
@@ -172,7 +178,7 @@ ${getExportLazyStyleCode(esModule, this, request)}
 
 var options = ${JSON.stringify(runtimeOptions)};
 
-${getStyleTagTransformFn(styleTagTransformFn, isSingleton)};
+${getStyleTagTransformFn(options, isSingleton)};
 options.setAttributes = setAttributes;
 ${getInsertOptionCode(insertType, options)}
 options.domAPI = ${getdomAPI(isAuto)};

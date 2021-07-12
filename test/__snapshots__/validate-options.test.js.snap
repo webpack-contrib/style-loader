@@ -32,20 +32,22 @@ exports[`validate options should throw an error on the "insert" option with "tru
 
 exports[`validate options should throw an error on the "styleTagTransform" option with "[]" value 1`] = `
 "Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
- - options.styleTagTransform should be an instance of function.
-   -> Transform tag and css when insert 'style' tag into the DOM"
+ - options.styleTagTransform should be one of these:
+   string | function
+   -> Transform tag and css when insert 'style' tag into the DOM
+   Details:
+    * options.styleTagTransform should be a string.
+    * options.styleTagTransform should be an instance of function."
 `;
 
 exports[`validate options should throw an error on the "styleTagTransform" option with "true" value 1`] = `
 "Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
- - options.styleTagTransform should be an instance of function.
-   -> Transform tag and css when insert 'style' tag into the DOM"
-`;
-
-exports[`validate options should throw an error on the "styleTagTransform" option with "true" value 2`] = `
-"Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
- - options.styleTagTransform should be an instance of function.
-   -> Transform tag and css when insert 'style' tag into the DOM"
+ - options.styleTagTransform should be one of these:
+   string | function
+   -> Transform tag and css when insert 'style' tag into the DOM
+   Details:
+    * options.styleTagTransform should be a string.
+    * options.styleTagTransform should be an instance of function."
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "/test/" value 1`] = `

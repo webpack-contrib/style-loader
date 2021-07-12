@@ -39,7 +39,14 @@
     },
     "styleTagTransform": {
       "description": "Transform tag and css when insert 'style' tag into the DOM",
-      "instanceof": "Function"
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "instanceof": "Function"
+        }
+      ]
     }
   },
   "additionalProperties": false

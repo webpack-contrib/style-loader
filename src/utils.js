@@ -284,10 +284,48 @@ function getImportIsOldIECode(esModule, loaderContext) {
     : `var isOldIE = require(${modulePath});`;
 }
 
-function getStyleTagTransformFn(styleTagTransformFn, isSingleton) {
+function getStyleTagTransformFnCode(
+  esModule,
+  loaderContext,
+  options,
+  isSingleton,
+  styleTagTransformType
+) {
+  if (isSingleton) {
+    return "";
+  }
+
+  if (styleTagTransformType === "default") {
+    const modulePath = stringifyRequest(
+      loaderContext,
+      `!${path.join(__dirname, "runtime/styleTagTransform.js")}`
+    );
+
+    return esModule
+      ? `import styleTagTransformFn from ${modulePath};`
+      : `var styleTagTransformFn = require(${modulePath});`;
+  }
+
+  if (styleTagTransformType === "module-path") {
+    const modulePath = stringifyRequest(
+      loaderContext,
+      `${options.styleTagTransform}`
+    );
+
+    return esModule
+      ? `import styleTagTransformFn from ${modulePath};`
+      : `var styleTagTransformFn = require(${modulePath});`;
+  }
+
+  return "";
+}
+
+function getStyleTagTransformFn(options, isSingleton) {
   return isSingleton
     ? ""
-    : `options.styleTagTransform = ${styleTagTransformFn}`;
+    : typeof options.styleTagTransform === "function"
+    ? `options.styleTagTransform = ${options.styleTagTransform.toString()}`
+    : `options.styleTagTransform = styleTagTransformFn`;
 }
 
 function getExportStyleCode(esModule, loaderContext, request) {
@@ -356,4 +394,5 @@ export {
   getExportLazyStyleCode,
   getSetAttributesCode,
   getInsertOptionCode,
+  getStyleTagTransformFnCode,
 };
