@@ -136,6 +136,24 @@ describe('"insert" option', () => {
       expect(getErrors(stats)).toMatchSnapshot("errors");
     });
 
+    it(`should insert styles into "head" top when the "injectType" option is "${injectType}" and insert is object`, async () => {
+      expect.assertions(3);
+
+      const entry = getEntryByInjectType("simple.js", injectType);
+      const compiler = getCompiler(entry, {
+        injectType,
+        insert: require.resolve("./fixtures/insertFn.js"),
+      });
+      const stats = await compile(compiler);
+
+      runInJsDom("main.bundle.js", compiler, stats, (dom) => {
+        expect(dom.serialize()).toMatchSnapshot("DOM");
+      });
+
+      expect(getWarnings(stats)).toMatchSnapshot("warnings");
+      expect(getErrors(stats)).toMatchSnapshot("errors");
+    });
+
     it(`should insert styles into before "#existing-style" id when the "injectType" option is "${injectType}"`, async () => {
       expect.assertions(3);
 

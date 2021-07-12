@@ -112,15 +112,49 @@ function getImportStyleContentCode(esModule, loaderContext, request) {
     : `var content = require(${modulePath});`;
 }
 
-function getImportGetTargetCode(esModule, loaderContext, insertIsFunction) {
-  const modulePath = stringifyRequest(
-    loaderContext,
-    `!${path.join(__dirname, "runtime/getTarget.js")}`
-  );
+function getImportInsertBySelectorCode(
+  esModule,
+  loaderContext,
+  insertType,
+  options
+) {
+  if (insertType === "selector") {
+    const modulePath = stringifyRequest(
+      loaderContext,
+      `!${path.join(__dirname, "runtime/insertBySelector.js")}`
+    );
 
-  return esModule
-    ? `${!insertIsFunction ? `import getTarget from ${modulePath};` : ""}`
-    : `${!insertIsFunction ? `var getTarget = require(${modulePath});` : ""}`;
+    return esModule
+      ? `import insertFn from ${modulePath};`
+      : `var insertFn = require(${modulePath});`;
+  }
+
+  if (insertType === "module-path") {
+    const modulePath = stringifyRequest(loaderContext, `${options.insert}`);
+
+    return esModule
+      ? `import insertFn from ${modulePath};`
+      : `var insertFn = require(${modulePath});`;
+  }
+
+  return "";
+}
+
+function getInsertOptionCode(insertType, options) {
+  if (insertType === "selector") {
+    const insert = options.insert ? JSON.stringify(options.insert) : '"head"';
+
+    return `
+      options.insert = insertFn.bind(null, ${insert});
+    `;
+  }
+
+  if (insertType === "module-path") {
+    return `options.insert = insertFn;`;
+  }
+
+  // Todo remove "function" type for insert option in next major release, because code duplication occurs. Leave require.resolve()
+  return `options.insert = ${options.insert.toString()};`;
 }
 
 function getImportInsertStyleElementCode(esModule, loaderContext) {
@@ -307,7 +341,7 @@ function getSetAttributesCode(esModule, loaderContext, options) {
 export {
   stringifyRequest,
   getImportInsertStyleElementCode,
-  getImportGetTargetCode,
+  getImportInsertBySelectorCode,
   getImportStyleContentCode,
   getImportStyleDomAPICode,
   getImportStyleAPICode,
@@ -321,4 +355,5 @@ export {
   getExportStyleCode,
   getExportLazyStyleCode,
   getSetAttributesCode,
+  getInsertOptionCode,
 };
