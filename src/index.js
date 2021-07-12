@@ -31,12 +31,15 @@ loaderAPI.pitch = function loader(request) {
   const { styleTagTransform } = options;
   const esModule =
     typeof options.esModule !== "undefined" ? options.esModule : true;
-  const runtimeOptions = {
-    injectType: options.injectType,
-    attributes: options.attributes,
-    insert: options.insert,
-    base: options.base,
-  };
+  const runtimeOptions = {};
+
+  if (options.attributes) {
+    runtimeOptions.attributes = options.attributes;
+  }
+
+  if (options.base) {
+    runtimeOptions.base = options.base;
+  }
 
   const insertFn = insertIsFunction
     ? options.insert.toString()
