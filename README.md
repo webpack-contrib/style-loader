@@ -66,7 +66,7 @@ module.exports = {
 |        [**`injectType`**](#injecttype)        |      `{String}`      | `styleTag`  | Allows to setup how styles will be injected into the DOM   |
 |        [**`attributes`**](#attributes)        |      `{Object}`      |    `{}`     | Adds custom attributes to tag                              |
 |            [**`insert`**](#insert)            | `{String\|Function}` |   `head`    | Inserts tag at the given position into the DOM             |
-| [**`styleTagTransform`**](#styleTagTransform) |     `{Function}`     | `undefined` | Transform tag and css when insert 'style' tag into the DOM |
+| [**`styleTagTransform`**](#styleTagTransform) | `{String\|Function}` | `undefined` | Transform tag and css when insert 'style' tag into the DOM |
 |              [**`base`**](#base)              |      `{Number}`      |   `true`    | Sets module ID base (DLLPlugin)                            |
 |          [**`esModule`**](#esmodule)          |     `{Boolean}`      |   `true`    | Use ES modules syntax                                      |
 
@@ -542,8 +542,40 @@ Insert styles at top of `head` tag.
 
 ### `styleTagTransform`
 
-Type: `Function`
+Type: `String | Function`
 Default: `undefined`
+
+#### `String`
+
+Allows to setup absolute path to custom function that allows to override default behavior styleTagTransform.
+
+> ⚠ Do not forget that this code will be used in the browser and not all browsers support latest ECMA features like `let`, `const`, `arrow function expression` and etc, we recommend use only ECMA 5 features, but it is depends what browsers you want to support
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          {
+            loader: "style-loader",
+            options: {
+              injectType: "styleTag",
+              styleTagTransform: require.resolve("module-path"),
+            },
+          },
+          "css-loader",
+        ],
+      },
+    ],
+  },
+};
+```
+
+#### `Function`
 
 Transform tag and css when insert 'style' tag into the DOM.
 

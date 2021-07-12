@@ -28,8 +28,8 @@ describe("validate options", () => {
     },
     styleTagTransform: {
       // eslint-disable-next-line func-names
-      success: [function () {}],
-      failure: ["true", true, []],
+      success: [function () {}, require.resolve("path")],
+      failure: [true, []],
     },
     unknown: {
       success: [],
