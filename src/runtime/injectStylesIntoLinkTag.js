@@ -21,7 +21,7 @@ module.exports = (url, options) => {
     link.setAttribute(key, options.attributes[key]);
   });
 
-  options.insert(link);
+  options.insert(link, options.insertTag);
 
   return (newUrl) => {
     if (typeof newUrl === "string") {
