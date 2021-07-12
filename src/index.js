@@ -1,3 +1,5 @@
+import path from "path";
+
 import {
   getImportInsertStyleElementCode,
   getImportGetTargetCode,
@@ -26,7 +28,6 @@ loaderAPI.pitch = function loader(request) {
     typeof options.insert === "string"
       ? JSON.stringify(options.insert)
       : '"head"';
-  const insertIsFunction = typeof options.insert === "function";
   const injectType = options.injectType || "styleTag";
   const { styleTagTransform } = options;
   const esModule =
@@ -41,19 +42,30 @@ loaderAPI.pitch = function loader(request) {
     runtimeOptions.base = options.base;
   }
 
-  const insertFn = insertIsFunction
-    ? options.insert.toString()
-    : `function(style){
-    var target = getTarget(${insert});
+  const insertType =
+    typeof options.insert === "function"
+      ? "function"
+      : options.insert && path.isAbsolute(options.insert)
+      ? "modulePath"
+      : "selector";
 
-    if (!target) {
-      throw new Error(
-        "Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid."
-      );
-    }
+  let insertFn;
 
-    target.appendChild(style);
-  }`;
+  if (insertType === "function") {
+    insertFn = options.insert.toString();
+  } else if (insertType === "selector") {
+    insertFn = `function(style){
+      var target = getTarget(${insert});
+
+      if (!target) {
+        throw new Error(
+          "Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid."
+        );
+      }
+
+      target.appendChild(style);
+    }`;
+  }
 
   const styleTagTransformFn =
     typeof styleTagTransform === "function"
@@ -76,7 +88,7 @@ loaderAPI.pitch = function loader(request) {
 
       return `
       ${getImportLinkAPICode(esModule, this)}
-      ${getImportGetTargetCode(esModule, this, insertIsFunction)}
+      ${getImportGetTargetCode(esModule, this, insertType, options)}
       ${getImportLinkContentCode(esModule, this, request)}
       ${
         esModule
@@ -86,7 +98,7 @@ loaderAPI.pitch = function loader(request) {
 
 var options = ${JSON.stringify(runtimeOptions)};
 
-options.insert = ${insertFn};
+options.insert = ${insertType === "modulePath" ? "insertFn" : insertFn};
 
 var update = API(content, options);
 
@@ -109,7 +121,7 @@ ${esModule ? "export default {}" : ""}`;
 
       ${getImportStyleAPICode(esModule, this)}
       ${getImportStyleDomAPICode(esModule, this, isSingleton, isAuto)}
-      ${getImportGetTargetCode(esModule, this, insertIsFunction)}
+      ${getImportGetTargetCode(esModule, this, insertType, options)}
       ${getSetAttributesCode(esModule, this, options)}
       ${getImportInsertStyleElementCode(esModule, this)}
       ${getImportStyleContentCode(esModule, this, request)}
@@ -131,7 +143,7 @@ var options = ${JSON.stringify(runtimeOptions)};
 
 ${getStyleTagTransformFn(styleTagTransformFn, isSingleton)};
 options.setAttributes = setAttributes;
-options.insert = ${insertFn};
+options.insert = ${insertType === "modulePath" ? "insertFn" : insertFn};
 options.domAPI = ${getdomAPI(isAuto)};
 options.insertStyleElement = insertStyleElement;
 
@@ -168,7 +180,7 @@ ${getExportLazyStyleCode(esModule, this, request)}
       return `
       ${getImportStyleAPICode(esModule, this)}
       ${getImportStyleDomAPICode(esModule, this, isSingleton, isAuto)}
-      ${getImportGetTargetCode(esModule, this, insertIsFunction)}
+      ${getImportGetTargetCode(esModule, this, insertType, options)}
       ${getSetAttributesCode(esModule, this, options)}
       ${getImportInsertStyleElementCode(esModule, this)}
       ${getImportStyleContentCode(esModule, this, request)}
@@ -183,7 +195,7 @@ var options = ${JSON.stringify(runtimeOptions)};
 
 ${getStyleTagTransformFn(styleTagTransformFn, isSingleton)};
 options.setAttributes = setAttributes;
-options.insert = ${insertFn};
+options.insert = ${insertType === "modulePath" ? "insertFn" : insertFn};
 options.domAPI = ${getdomAPI(isAuto)};
 options.insertStyleElement = insertStyleElement;
 

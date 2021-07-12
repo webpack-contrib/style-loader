@@ -112,15 +112,27 @@ function getImportStyleContentCode(esModule, loaderContext, request) {
     : `var content = require(${modulePath});`;
 }
 
-function getImportGetTargetCode(esModule, loaderContext, insertIsFunction) {
-  const modulePath = stringifyRequest(
-    loaderContext,
-    `!${path.join(__dirname, "runtime/getTarget.js")}`
-  );
+function getImportGetTargetCode(esModule, loaderContext, insertType, options) {
+  if (insertType === "selector") {
+    const modulePath = stringifyRequest(
+      loaderContext,
+      `!${path.join(__dirname, "runtime/getTarget.js")}`
+    );
 
-  return esModule
-    ? `${!insertIsFunction ? `import getTarget from ${modulePath};` : ""}`
-    : `${!insertIsFunction ? `var getTarget = require(${modulePath});` : ""}`;
+    return esModule
+      ? `import getTarget from ${modulePath};`
+      : `var getTarget = require(${modulePath});`;
+  }
+
+  if (insertType === "modulePath") {
+    const modulePath = stringifyRequest(loaderContext, `!${options.insert}`);
+
+    return esModule
+      ? `import insertFn from ${modulePath};`
+      : `var insertFn = require(${modulePath});`;
+  }
+
+  return "";
 }
 
 function getImportInsertStyleElementCode(esModule, loaderContext) {
