@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/webpack-contrib/style-loader/compare/v3.0.0...v3.1.0) (2021-07-12)
+
+
+### Features
+
+* allow to specify the `insert` option from file, we strongly recommend do it, using the `insert` option from file will reduce your bundle size, [example](https://github.com/webpack-contrib/style-loader#absolute-path-to-function) ([#521](https://github.com/webpack-contrib/style-loader/issues/521)) ([56fc8f0](https://github.com/webpack-contrib/style-loader/commit/56fc8f021c69407e4ad03a5d345c614b04789389))
+* allow to specify the `styleTagTransform` option from file, we strongly recommend do it, using the `styleTagTransform` option from file will reduce your bundle size, [example](https://github.com/webpack-contrib/style-loader#string-1)
+
+
+### Bug Fixes
+
+* reduce runtime ([#519](https://github.com/webpack-contrib/style-loader/issues/519)) ([8a26186](https://github.com/webpack-contrib/style-loader/commit/8a26186c364b45028fb6baeb4a05365c4d3526e2))
+* reduce runtime when you use custom options ([#520](https://github.com/webpack-contrib/style-loader/issues/520)) ([21c80c8](https://github.com/webpack-contrib/style-loader/commit/21c80c8c2f2ca751124f26f5984195e20f2ac665))
+
 ## [3.0.0](https://github.com/webpack-contrib/style-loader/compare/v2.0.0...v3.0.0) (2021-06-24)
 
 ### ⚠ BREAKING CHANGES
