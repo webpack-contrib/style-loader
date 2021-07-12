@@ -274,6 +274,35 @@ function getExportLazyStyleCode(esModule, loaderContext, request) {
     : "module.exports = exported;";
 }
 
+function getSetAttributesCode(esModule, loaderContext, options) {
+  let modulePath;
+
+  if (typeof options.attributes !== "undefined") {
+    modulePath =
+      options.attributes.nonce !== "undefined"
+        ? stringifyRequest(
+            loaderContext,
+            `!${path.join(
+              __dirname,
+              "runtime/setAttributesWithAttributesAndNonce.js"
+            )}`
+          )
+        : stringifyRequest(
+            loaderContext,
+            `!${path.join(__dirname, "runtime/setAttributesWithAttributes.js")}`
+          );
+  } else {
+    modulePath = stringifyRequest(
+      loaderContext,
+      `!${path.join(__dirname, "runtime/setAttributesWithoutAttributes.js")}`
+    );
+  }
+
+  return esModule
+    ? `import setAttributes from ${modulePath};`
+    : `var setAttributes = require(${modulePath});`;
+}
+
 // eslint-disable-next-line import/prefer-default-export
 export {
   stringifyRequest,
@@ -291,4 +320,5 @@ export {
   getStyleTagTransformFn,
   getExportStyleCode,
   getExportLazyStyleCode,
+  getSetAttributesCode,
 };
