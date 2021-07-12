@@ -39,4 +39,4 @@ function insertBySelector(insert, style) {
   target.appendChild(style);
 }
 
-module.exports = { insertBySelector, getTarget };
+module.exports = insertBySelector;

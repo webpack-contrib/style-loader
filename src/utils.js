@@ -112,16 +112,21 @@ function getImportStyleContentCode(esModule, loaderContext, request) {
     : `var content = require(${modulePath});`;
 }
 
-function getImportGetTargetCode(esModule, loaderContext, insertType, options) {
+function getImportInsertBySelectorCode(
+  esModule,
+  loaderContext,
+  insertType,
+  options
+) {
   if (insertType === "selector") {
     const modulePath = stringifyRequest(
       loaderContext,
-      `!${path.join(__dirname, "runtime/getTarget.js")}`
+      `!${path.join(__dirname, "runtime/insertBySelector.js")}`
     );
 
     return esModule
-      ? `import {insertBySelector as insertFn} from ${modulePath};`
-      : `var insertFn = require(${modulePath}).insertBySelector;`;
+      ? `import insertFn from ${modulePath};`
+      : `var insertFn = require(${modulePath});`;
   }
 
   if (insertType === "module-path") {
@@ -336,7 +341,7 @@ function getSetAttributesCode(esModule, loaderContext, options) {
 export {
   stringifyRequest,
   getImportInsertStyleElementCode,
-  getImportGetTargetCode,
+  getImportInsertBySelectorCode,
   getImportStyleContentCode,
   getImportStyleDomAPICode,
   getImportStyleAPICode,

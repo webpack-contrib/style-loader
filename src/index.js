@@ -2,7 +2,7 @@ import path from "path";
 
 import {
   getImportInsertStyleElementCode,
-  getImportGetTargetCode,
+  getImportInsertBySelectorCode,
   getImportStyleContentCode,
   getImportStyleDomAPICode,
   getImportStyleAPICode,
@@ -67,7 +67,7 @@ loaderAPI.pitch = function loader(request) {
 
       return `
       ${getImportLinkAPICode(esModule, this)}
-      ${getImportGetTargetCode(esModule, this, insertType, options)}
+      ${getImportInsertBySelectorCode(esModule, this, insertType, options)}
       ${getImportLinkContentCode(esModule, this, request)}
       ${
         esModule
@@ -100,7 +100,7 @@ ${esModule ? "export default {}" : ""}`;
 
       ${getImportStyleAPICode(esModule, this)}
       ${getImportStyleDomAPICode(esModule, this, isSingleton, isAuto)}
-      ${getImportGetTargetCode(esModule, this, insertType, options)}
+      ${getImportInsertBySelectorCode(esModule, this, insertType, options)}
       ${getSetAttributesCode(esModule, this, options)}
       ${getImportInsertStyleElementCode(esModule, this)}
       ${getImportStyleContentCode(esModule, this, request)}
@@ -159,7 +159,7 @@ ${getExportLazyStyleCode(esModule, this, request)}
       return `
       ${getImportStyleAPICode(esModule, this)}
       ${getImportStyleDomAPICode(esModule, this, isSingleton, isAuto)}
-      ${getImportGetTargetCode(esModule, this, insertType, options)}
+      ${getImportInsertBySelectorCode(esModule, this, insertType, options)}
       ${getSetAttributesCode(esModule, this, options)}
       ${getImportInsertStyleElementCode(esModule, this)}
       ${getImportStyleContentCode(esModule, this, request)}

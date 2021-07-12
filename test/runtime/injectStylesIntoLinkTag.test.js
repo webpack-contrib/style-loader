@@ -6,20 +6,9 @@
 
 import injectStylesIntoLinkTag from "../../src/runtime/injectStylesIntoLinkTag";
 
-import { getTarget } from "../../src/runtime/getTarget";
+import insertBySelector from "../../src/runtime/insertBySelector";
 
-const getInsertFn = (place) =>
-  function insertFn(style) {
-    const target = getTarget(place);
-
-    if (!target) {
-      throw new Error(
-        "Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid."
-      );
-    }
-
-    target.appendChild(style);
-  };
+const getInsertFn = (place) => insertBySelector.bind(null, place);
 
 function insertAtTop(element) {
   const parent = document.querySelector("head");
