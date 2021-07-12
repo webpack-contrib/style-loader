@@ -43,7 +43,7 @@ loaderAPI.pitch = function loader(request) {
     typeof options.insert === "function"
       ? "function"
       : options.insert && path.isAbsolute(options.insert)
-      ? "modulePath"
+      ? "module-path"
       : "selector";
 
   const styleTagTransformFn =

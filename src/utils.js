@@ -124,8 +124,8 @@ function getImportGetTargetCode(esModule, loaderContext, insertType, options) {
       : `var insertFn = require(${modulePath}).insertBySelector;`;
   }
 
-  if (insertType === "modulePath") {
-    const modulePath = stringifyRequest(loaderContext, `!${options.insert}`);
+  if (insertType === "module-path") {
+    const modulePath = stringifyRequest(loaderContext, `${options.insert}`);
 
     return esModule
       ? `import insertFn from ${modulePath};`
@@ -140,12 +140,11 @@ function getInsertOptionCode(insertType, options) {
     const insert = options.insert ? JSON.stringify(options.insert) : '"head"';
 
     return `
-      options.insert = insertFn;
-      options.insertTag = ${insert};
+      options.insert = insertFn.bind(null, ${insert});
     `;
   }
 
-  if (insertType === "modulePath") {
+  if (insertType === "module-path") {
     return `options.insert = insertFn;`;
   }
 
