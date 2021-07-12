@@ -46,13 +46,6 @@ loaderAPI.pitch = function loader(request) {
       ? "modulePath"
       : "selector";
 
-  let insertFn;
-
-  // Todo remove "function" type for insert option in next major release, because code duplication occurs. Leave require.resolve()
-  if (insertType === "function") {
-    insertFn = options.insert.toString();
-  }
-
   const styleTagTransformFn =
     typeof styleTagTransform === "function"
       ? styleTagTransform.toString()
@@ -84,7 +77,7 @@ loaderAPI.pitch = function loader(request) {
 
 var options = ${JSON.stringify(runtimeOptions)};
 
-${getInsertOptionCode(insertType, options, insertFn)}
+${getInsertOptionCode(insertType, options)}
 
 var update = API(content, options);
 
@@ -129,7 +122,7 @@ var options = ${JSON.stringify(runtimeOptions)};
 
 ${getStyleTagTransformFn(styleTagTransformFn, isSingleton)};
 options.setAttributes = setAttributes;
-${getInsertOptionCode(insertType, options, insertFn)}
+${getInsertOptionCode(insertType, options)}
 options.domAPI = ${getdomAPI(isAuto)};
 options.insertStyleElement = insertStyleElement;
 
@@ -181,7 +174,7 @@ var options = ${JSON.stringify(runtimeOptions)};
 
 ${getStyleTagTransformFn(styleTagTransformFn, isSingleton)};
 options.setAttributes = setAttributes;
-${getInsertOptionCode(insertType, options, insertFn)}
+${getInsertOptionCode(insertType, options)}
 options.domAPI = ${getdomAPI(isAuto)};
 options.insertStyleElement = insertStyleElement;
 

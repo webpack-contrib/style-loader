@@ -135,7 +135,7 @@ function getImportGetTargetCode(esModule, loaderContext, insertType, options) {
   return "";
 }
 
-function getInsertOptionCode(insertType, options, insertFn) {
+function getInsertOptionCode(insertType, options) {
   if (insertType === "selector") {
     const insert = options.insert ? JSON.stringify(options.insert) : '"head"';
 
@@ -149,7 +149,8 @@ function getInsertOptionCode(insertType, options, insertFn) {
     return `options.insert = insertFn;`;
   }
 
-  return `options.insert = ${insertFn};`;
+  // Todo remove "function" type for insert option in next major release, because code duplication occurs. Leave require.resolve()
+  return `options.insert = ${options.insert.toString()};`;
 }
 
 function getImportInsertStyleElementCode(esModule, loaderContext) {
