@@ -4,27 +4,31 @@ exports[`validate options should throw an error on the "attributes" option with 
 "Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
  - options.attributes should be an object:
    object { … }
-   -> Adds custom attributes to tag (https://github.com/webpack-contrib/style-loader#attributes)."
+   -> Adds custom attributes to tag.
+   -> Read more at https://github.com/webpack-contrib/style-loader#attributes"
 `;
 
 exports[`validate options should throw an error on the "esModule" option with "true" value 1`] = `
 "Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
  - options.esModule should be a boolean.
-   -> Use the ES modules syntax (https://github.com/webpack-contrib/css-loader#esmodule)."
+   -> Use the ES modules syntax.
+   -> Read more at https://github.com/webpack-contrib/css-loader#esmodule"
 `;
 
 exports[`validate options should throw an error on the "injectType" option with "unknown" value 1`] = `
 "Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
  - options.injectType should be one of these:
    \\"styleTag\\" | \\"singletonStyleTag\\" | \\"autoStyleTag\\" | \\"lazyStyleTag\\" | \\"lazySingletonStyleTag\\" | \\"lazyAutoStyleTag\\" | \\"linkTag\\"
-   -> Allows to setup how styles will be injected into DOM (https://github.com/webpack-contrib/style-loader#injecttype)."
+   -> Allows to setup how styles will be injected into DOM.
+   -> Read more at https://github.com/webpack-contrib/style-loader#injecttype"
 `;
 
 exports[`validate options should throw an error on the "insert" option with "true" value 1`] = `
 "Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
  - options.insert should be one of these:
    string | function
-   -> Inserts \`<style>\`/\`<link>\` at the given position (https://github.com/webpack-contrib/style-loader#insert).
+   -> Inserts \`<style>\`/\`<link>\` at the given position.
+   -> Read more at https://github.com/webpack-contrib/style-loader#insert
    Details:
     * options.insert should be a string.
     * options.insert should be an instance of function."
@@ -35,6 +39,7 @@ exports[`validate options should throw an error on the "styleTagTransform" optio
  - options.styleTagTransform should be one of these:
    string | function
    -> Transform tag and css when insert 'style' tag into the DOM
+   -> Read more at https://github.com/webpack-contrib/style-loader#styleTagTransform
    Details:
     * options.styleTagTransform should be a string.
     * options.styleTagTransform should be an instance of function."
@@ -45,6 +50,7 @@ exports[`validate options should throw an error on the "styleTagTransform" optio
  - options.styleTagTransform should be one of these:
    string | function
    -> Transform tag and css when insert 'style' tag into the DOM
+   -> Read more at https://github.com/webpack-contrib/style-loader#styleTagTransform
    Details:
     * options.styleTagTransform should be a string.
     * options.styleTagTransform should be an instance of function."
