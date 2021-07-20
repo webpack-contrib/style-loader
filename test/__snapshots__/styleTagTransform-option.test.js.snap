@@ -1,5 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`"styleTagTransform" option should "styleTagTransform" function path added to buildDependencies when injectType lazyStyleTag: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+.modify{}
+</style><style>h1 {
+  color: blue;
+}
+.modify{}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"styleTagTransform" option should "styleTagTransform" function path added to buildDependencies when injectType lazyStyleTag: errors 1`] = `Array []`;
+
+exports[`"styleTagTransform" option should "styleTagTransform" function path added to buildDependencies when injectType lazyStyleTag: warnings 1`] = `Array []`;
+
 exports[`"styleTagTransform" option should work when the "styleTagTransform" option is not specify and injectType lazyStyleTag: DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
