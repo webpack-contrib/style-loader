@@ -314,6 +314,8 @@ function getStyleTagTransformFnCode(
       `${options.styleTagTransform}`
     );
 
+    loaderContext.addBuildDependency(options.styleTagTransform);
+
     return esModule
       ? `import styleTagTransformFn from ${modulePath};`
       : `var styleTagTransformFn = require(${modulePath});`;

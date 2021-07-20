@@ -99,4 +99,23 @@ describe('"styleTagTransform" option', () => {
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
+
+  it(`should "styleTagTransform" function path added to buildDependencies when injectType lazyStyleTag`, async () => {
+    const styleTagTransformFn = require.resolve("./fixtures/styleTagTransform");
+    const entry = getEntryByInjectType("simple.js", "lazyStyleTag");
+    const compiler = getCompiler(entry, {
+      injectType: "lazyStyleTag",
+      styleTagTransform: styleTagTransformFn,
+    });
+    const stats = await compile(compiler);
+    const { buildDependencies } = stats.compilation;
+
+    runInJsDom("main.bundle.js", compiler, stats, (dom) => {
+      expect(dom.serialize()).toMatchSnapshot("DOM");
+    });
+
+    expect(buildDependencies.has(styleTagTransformFn)).toBe(true);
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
 });
