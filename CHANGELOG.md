@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.2.0](https://github.com/webpack-contrib/style-loader/compare/v3.1.0...v3.2.0) (2021-07-20)
+
+
+### Features
+
+* add link field in schema ([#525](https://github.com/webpack-contrib/style-loader/issues/525)) ([7ed3456](https://github.com/webpack-contrib/style-loader/commit/7ed345678cc1d01e3a93bf18ca2014d7b5419481))
+
+
+### Bug Fixes
+
+* added the `insert` option when it is a module to `addBuildDependency` ([#527](https://github.com/webpack-contrib/style-loader/issues/527)) ([3963c0b](https://github.com/webpack-contrib/style-loader/commit/3963c0bae298112754d8cc3fd1536499cefa65a6))
+
 ## [3.1.0](https://github.com/webpack-contrib/style-loader/compare/v3.0.0...v3.1.0) (2021-07-12)
 
 
