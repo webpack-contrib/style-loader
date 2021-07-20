@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.1](https://github.com/webpack-contrib/style-loader/compare/v3.2.0...v3.2.1) (2021-07-20)
+
+
+### Bug Fixes
+
+* added the `styletagtransform` option when it is a module to `addBuildDependency` ([#528](https://github.com/webpack-contrib/style-loader/issues/528)) ([270513f](https://github.com/webpack-contrib/style-loader/commit/270513fa76e13c96a36c2ae11e4dd526dfb9d72f))
+
 ## [3.2.0](https://github.com/webpack-contrib/style-loader/compare/v3.1.0...v3.2.0) (2021-07-20)
 
 
