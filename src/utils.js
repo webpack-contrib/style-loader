@@ -132,6 +132,8 @@ function getImportInsertBySelectorCode(
   if (insertType === "module-path") {
     const modulePath = stringifyRequest(loaderContext, `${options.insert}`);
 
+    loaderContext.addBuildDependency(options.insert);
+
     return esModule
       ? `import insertFn from ${modulePath};`
       : `var insertFn = require(${modulePath});`;

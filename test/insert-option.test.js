@@ -154,6 +154,27 @@ describe('"insert" option', () => {
       expect(getErrors(stats)).toMatchSnapshot("errors");
     });
 
+    it(`should insert function added to buildDependencies when the "injectType" option is "${injectType}" and insert is object`, async () => {
+      expect.assertions(4);
+
+      const insertFn = require.resolve("./fixtures/insertFn.js");
+      const entry = getEntryByInjectType("simple.js", injectType);
+      const compiler = getCompiler(entry, {
+        injectType,
+        insert: insertFn,
+      });
+      const stats = await compile(compiler);
+      const { buildDependencies } = stats.compilation;
+
+      runInJsDom("main.bundle.js", compiler, stats, (dom) => {
+        expect(dom.serialize()).toMatchSnapshot("DOM");
+      });
+
+      expect(buildDependencies.has(insertFn)).toBe(true);
+      expect(getWarnings(stats)).toMatchSnapshot("warnings");
+      expect(getErrors(stats)).toMatchSnapshot("errors");
+    });
+
     it(`should insert styles into before "#existing-style" id when the "injectType" option is "${injectType}"`, async () => {
       expect.assertions(3);
 
