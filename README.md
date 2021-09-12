@@ -540,6 +540,46 @@ module.exports = {
 
 Insert styles at top of `head` tag.
 
+You can pass any parameters to `style.use(anythingHere)` and this value will be passed to `insert` function.
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          {
+            loader: "style-loader",
+            options: {
+              insert: function insertIntoTarget(element, options) {
+                var parent = options.target || document.querySelector("head");
+                parent.appendChild(element);
+              },
+            },
+          },
+          "css-loader",
+        ],
+      },
+    ],
+  },
+};
+```
+
+Insert styles to the provided element or to the `head` tag if target isn't provided. Now you can inject styles into Shadow DOM (or any other element).
+
+**component.js**
+
+```js
+import style from "./file.css";
+
+style.use({
+  target: document.querySelector('#myShadowDom').shadowRoot,
+})
+```
+
 ### `styleTagTransform`
 
 Type: `String | Function`
