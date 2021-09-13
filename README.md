@@ -540,7 +540,7 @@ module.exports = {
 
 Insert styles at top of `head` tag.
 
-You can pass any parameters to `style.use(anythingHere)` and this value will be passed to `insert` function.
+You can pass any parameters to `style.use(anythingHere)` and this value will be passed to `insert` function. These options will be passed to `styleTagTransform` function too. 
 
 **webpack.config.js**
 
