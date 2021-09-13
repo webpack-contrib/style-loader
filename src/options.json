@@ -12,7 +12,8 @@
         "lazyStyleTag",
         "lazySingletonStyleTag",
         "lazyAutoStyleTag",
-        "linkTag"
+        "linkTag",
+        "shadowDOM"
       ]
     },
     "attributes": {

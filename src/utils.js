@@ -286,6 +286,17 @@ function getImportIsOldIECode(esModule, loaderContext) {
     : `var isOldIE = require(${modulePath});`;
 }
 
+function getScriptAPI(esModule, loaderContext) {
+  const modulePath = stringifyRequest(
+    loaderContext,
+    `!${path.join(__dirname, "runtime/injectStyleInScript.js")}`
+  );
+
+  return esModule
+    ? `import context from ${modulePath};`
+    : `var context = require(${modulePath});`;
+}
+
 function getStyleTagTransformFnCode(
   esModule,
   loaderContext,
@@ -400,4 +411,5 @@ export {
   getSetAttributesCode,
   getInsertOptionCode,
   getStyleTagTransformFnCode,
+  getScriptAPI
 };

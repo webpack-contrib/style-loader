@@ -18,6 +18,7 @@ import {
   getSetAttributesCode,
   getInsertOptionCode,
   getStyleTagTransformFnCode,
+  getScriptAPI,
 } from "./utils";
 
 import schema from "./options.json";
@@ -144,7 +145,21 @@ ${hmrCode}
 ${getExportLazyStyleCode(esModule, this, request)}
 `;
     }
+    case "shadowDOM": {
 
+      return `
+      ${getImportStyleContentCode(esModule, this, request)}
+      ${getScriptAPI(esModule, this)}
+      ${
+        esModule
+          ? ""
+          : `content = content.__esModule ? content.default : content;`
+      }
+      context.add(content);
+
+      ${esModule ? "export default {}" : ""}
+      `;
+    }
     case "styleTag":
     case "autoStyleTag":
     case "singletonStyleTag":

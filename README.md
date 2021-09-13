@@ -86,6 +86,7 @@ Possible values:
 - `lazySingletonStyleTag`
 - `lazyAutoStyleTag`
 - `linkTag`
+- `ShadowDOM`
 
 #### `styleTag`
 
@@ -384,6 +385,56 @@ The loader generate this:
 ```html
 <link rel="stylesheet" href="path/to/style.css" />
 <link rel="stylesheet" href="path/to/other-styles.css" />
+```
+
+
+#### `ShadowDOM`
+
+Automatically injects styles into a runtime container.
+You can import that the style content and inject into the shadow-DOM container.
+
+**component.js**
+
+```js
+import "./styles.css";
+```
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          { loader: "style-loader", options: { injectType: "shadowDOM" } },
+          "css-loader",
+        ],
+      },
+    ],
+  },
+};
+```
+
+**main.js**
+
+```js
+import component from 'component';
+import getCss from 'style-loader/dist/runtime/injectStyleInScript';
+
+class MyElement extends Element {
+    constructor() {
+        super();
+
+        const shadowContent = this.attachShadow({ mode: 'open' });  
+        const style = document.createElement('style');
+
+        style.innerHTML = getCss();
+        shadowContent.appendChild(style);
+    }
+}
+
 ```
 
 ### `attributes`
