@@ -9,16 +9,16 @@ import {
   runInJsDom,
 } from "./helpers/index";
 
-describe('lazyStyleTag insertOptions', () => {
+describe("lazyStyleTag insertOptions", () => {
   it(`should pass "insertOption" to "insert" function`, async () => {
     expect.assertions(3);
 
-    const entry = getEntryByInjectType("insertOptions.js", 'lazyStyleTag');
+    const entry = getEntryByInjectType("insertOptions.js", "lazyStyleTag");
     const compiler = getCompiler(entry, {
-      injectType: 'lazyStyleTag',
+      injectType: "lazyStyleTag",
       insert: (styleTag, options) => {
         options.insertInto.appendChild(styleTag);
-      }
+      },
     });
     const stats = await compile(compiler);
 
@@ -33,13 +33,13 @@ describe('lazyStyleTag insertOptions', () => {
   it(`should pass "insertOption" to "styleTagTransform" function`, async () => {
     expect.assertions(3);
 
-    const entry = getEntryByInjectType("insertOptions.js", 'lazyStyleTag');
+    const entry = getEntryByInjectType("insertOptions.js", "lazyStyleTag");
     const compiler = getCompiler(entry, {
-      injectType: 'lazyStyleTag',
+      injectType: "lazyStyleTag",
       styleTagTransform: (css, styleTag, options) => {
         // eslint-disable-next-line no-param-reassign
-        styleTag.innerHTML = `${css}.${options.additionalStyles}\n`;
-      }
+        styleTag.innerHTML = `${css}\n${options.additionalStyles}\n`;
+      },
     });
     const stats = await compile(compiler);
 

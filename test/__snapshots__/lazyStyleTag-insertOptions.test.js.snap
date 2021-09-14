@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`lazyStyleTag insertOptions should pass "insertOption" to "insert" function: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+</head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+<style>body {
+  color: red;
+}
+</style></body></html>"
+`;
+
+exports[`lazyStyleTag insertOptions should pass "insertOption" to "insert" function: errors 1`] = `Array []`;
+
+exports[`lazyStyleTag insertOptions should pass "insertOption" to "insert" function: warnings 1`] = `Array []`;
+
+exports[`lazyStyleTag insertOptions should pass "insertOption" to "styleTagTransform" function: DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>body {
+  color: red;
+}
+
+.some-element {color: red;}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`lazyStyleTag insertOptions should pass "insertOption" to "styleTagTransform" function: errors 1`] = `Array []`;
+
+exports[`lazyStyleTag insertOptions should pass "insertOption" to "styleTagTransform" function: warnings 1`] = `Array []`;
