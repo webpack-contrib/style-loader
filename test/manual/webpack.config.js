@@ -30,7 +30,7 @@ module.exports = {
           /\.lazy\.css$/i,
           /\.lazy\.module\.css$/i,
           /\.link\.css$/i,
-          /\.custom\.css$/i
+          /\.custom\.css$/i,
         ],
         use: [
           {
