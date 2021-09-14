@@ -219,6 +219,6 @@ module.exports = {
   },
   devServer: {
     hot: true,
-    contentBase: __dirname,
+    static: __dirname,
   },
 };
