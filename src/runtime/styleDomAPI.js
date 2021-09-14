@@ -18,7 +18,7 @@ function apply(style, options, obj) {
 
   // For old IE
   /* istanbul ignore if  */
-  options.styleTagTransform(css, style, options.insertOptions);
+  options.styleTagTransform(css, style, options.options);
 }
 
 function removeStyleElement(style) {

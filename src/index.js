@@ -126,7 +126,8 @@ options.domAPI = ${getdomAPI(isAuto)};
 options.insertStyleElement = insertStyleElement;
 
 exported.use = function(insertOptions) {
-  options.insertOptions = insertOptions;
+  options.options = insertOptions || {};
+
   if (!(refs++)) {
     update = API(content, options);
   }

@@ -30,6 +30,7 @@ module.exports = {
           /\.lazy\.css$/i,
           /\.lazy\.module\.css$/i,
           /\.link\.css$/i,
+          /\.custom\.css$/i,
         ],
         use: [
           {
@@ -88,6 +89,32 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.custom\.css$/i,
+        use: [
+          {
+            loader: require.resolve("../../dist/cjs.js"),
+            options: {
+              injectType: "lazyStyleTag",
+              esModule: ENABLE_ES_MODULE,
+              insert: function insert(element, options) {
+                // eslint-disable-next-line
+                var parent = options.target || document.head;
+
+                parent.appendChild(element);
+              },
+            },
+          },
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: ENABLE_SOURCE_MAP,
+              esModule: ENABLE_PREVIOUS_ES_MODULE,
+            },
+          },
+        ],
+      },
+
       {
         test: /\.lazy\.module\.css$/i,
         exclude: [/\.named-export\.lazy\.module\.css$/i],
