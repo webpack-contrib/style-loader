@@ -540,7 +540,7 @@ module.exports = {
 
 Insert styles at top of `head` tag.
 
-You can pass any parameters to `style.use(anythingHere)` and this value will be passed to `insert` function. These options will be passed to `styleTagTransform` function too. 
+You can pass any parameters to `style.use(options)` and this value will be passed to `insert` and `styleTagTransform` functions.
 
 **webpack.config.js**
 
@@ -554,8 +554,14 @@ module.exports = {
           {
             loader: "style-loader",
             options: {
+              injectType: "lazyStyleTag",
+              // Do not forget that this code will be used in the browser and
+              // not all browsers support latest ECMA features like `let`, `const`, `arrow function expression` and etc,
+              // we recommend use only ECMA 5 features,
+              // but it is depends what browsers you want to support
               insert: function insertIntoTarget(element, options) {
-                var parent = options.target || document.querySelector("head");
+                var parent = options.target || document.head;
+
                 parent.appendChild(element);
               },
             },
@@ -570,14 +576,51 @@ module.exports = {
 
 Insert styles to the provided element or to the `head` tag if target isn't provided. Now you can inject styles into Shadow DOM (or any other element).
 
-**component.js**
+**custom-square.css**
+
+```css
+div {
+  width: 50px;
+  height: 50px;
+  background-color: red;
+}
+```
+
+**custom-square.js**
 
 ```js
-import style from "./file.css";
+import customSquareStyles from "./custom-square.css";
 
-style.use({
-  target: document.querySelector('#myShadowDom').shadowRoot,
-})
+class CustomSquare extends HTMLElement {
+  constructor() {
+    super();
+
+    this.attachShadow({ mode: "open" });
+
+    const divElement = document.createElement("div");
+
+    divElement.textContent = "Text content.";
+
+    this.shadowRoot.appendChild(divElement);
+
+    customSquareStyles.use({ target: this.shadowRoot });
+
+    // You can override injected styles
+    const bgPurple = new CSSStyleSheet();
+    const width = this.getAttribute("w");
+    const height = this.getAttribute("h");
+
+    bgPurple.replace(`div { width: ${width}px; height: ${height}px; }`);
+
+    this.shadowRoot.adoptedStyleSheets = [bgPurple];
+
+    // `divElement` will have `100px` width, `100px` height and `red` background color
+  }
+}
+
+customElements.define("custom-square", CustomSquare);
+
+export default CustomSquare;
 ```
 
 ### `styleTagTransform`
@@ -1031,6 +1074,91 @@ module.exports = {
     ],
   },
 };
+```
+
+#### Custom Elements (Shadow DOM)
+
+You can define custom target for your styles for the `lazyStyleTag` type.
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          {
+            loader: "style-loader",
+            options: {
+              injectType: "lazyStyleTag",
+              // Do not forget that this code will be used in the browser and
+              // not all browsers support latest ECMA features like `let`, `const`, `arrow function expression` and etc,
+              // we recommend use only ECMA 5 features,
+              // but it is depends what browsers you want to support
+              insert: function insertIntoTarget(element, options) {
+                var parent = options.target || document.head;
+
+                parent.appendChild(element);
+              },
+            },
+          },
+          "css-loader",
+        ],
+      },
+    ],
+  },
+};
+```
+
+Insert styles to the provided element or to the `head` tag if target isn't provided.
+
+**custom-square.css**
+
+```css
+div {
+  width: 50px;
+  height: 50px;
+  background-color: red;
+}
+```
+
+**custom-square.js**
+
+```js
+import customSquareStyles from "./custom-square.css";
+
+class CustomSquare extends HTMLElement {
+  constructor() {
+    super();
+
+    this.attachShadow({ mode: "open" });
+
+    const divElement = document.createElement("div");
+
+    divElement.textContent = "Text content.";
+
+    this.shadowRoot.appendChild(divElement);
+
+    customSquareStyles.use({ target: this.shadowRoot });
+
+    // You can override injected styles
+    const bgPurple = new CSSStyleSheet();
+    const width = this.getAttribute("w");
+    const height = this.getAttribute("h");
+
+    bgPurple.replace(`div { width: ${width}px; height: ${height}px; }`);
+
+    this.shadowRoot.adoptedStyleSheets = [bgPurple];
+
+    // `divElement` will have `100px` width, `100px` height and `red` background color
+  }
+}
+
+customElements.define("custom-square", CustomSquare);
+
+export default CustomSquare;
 ```
 
 ## Contributing

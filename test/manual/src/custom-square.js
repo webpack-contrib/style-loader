@@ -1,13 +1,13 @@
 /* eslint-env browser */
 /* eslint-disable */
 
-// import customSquareStyles from './custom-square.lazy.css';
+import customSquareStyles from "./custom-square.custom.css";
 
 class CustomSquare extends HTMLElement {
   // Specify observed attributes so that
   // attributeChangedCallback will work
   static get observedAttributes() {
-    return ["l"];
+    return ["w", "h"];
   }
 
   constructor() {
@@ -15,19 +15,19 @@ class CustomSquare extends HTMLElement {
     super();
 
     this.attachShadow({ mode: "open" });
-  }
-  connectedCallback() {
-    const div = document.createElement("div");
+    const divElement = document.createElement("div");
 
-    this.shadowRoot.appendChild(div);
+    divElement.textContent = "Text content.";
+
+    this.shadowRoot.appendChild(divElement);
+
+    customSquareStyles.use({ target: this.shadowRoot });
 
     const bgPurple = new CSSStyleSheet();
+    const width = this.getAttribute("w");
+    const height = this.getAttribute("h");
 
-    bgPurple.replace(`div { 
-    background: purple; 
-    width: ${this.getAttribute("l")}px;
-    height: ${this.getAttribute("l")}px;
-}`);
+    bgPurple.replace(`div { width: ${width}px; height: ${height}px; }`);
 
     this.shadowRoot.adoptedStyleSheets = [bgPurple];
   }
