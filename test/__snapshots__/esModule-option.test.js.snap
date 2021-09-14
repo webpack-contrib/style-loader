@@ -4,15 +4,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -29,9 +29,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -56,9 +56,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
 Object {
   "locals": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
   "unuse": [Function],
   "use": [Function],
@@ -86,9 +86,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
   "locals": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
   "unuse": [Function],
   "use": [Function],
@@ -116,9 +116,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
   "locals": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
   "unuse": [Function],
   "use": [Function],
@@ -151,15 +151,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -176,9 +176,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "singletonStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -188,15 +188,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -213,9 +213,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -225,15 +225,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -250,9 +250,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -277,9 +277,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
 Object {
   "locals": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
   "unuse": [Function],
   "use": [Function],
@@ -307,9 +307,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
   "locals": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
   "unuse": [Function],
   "use": [Function],
@@ -337,9 +337,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
   "locals": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
   "unuse": [Function],
   "use": [Function],
@@ -372,15 +372,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -397,9 +397,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "singletonStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -409,15 +409,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -434,9 +434,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -828,15 +828,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -853,9 +853,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -880,9 +880,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
 Object {
   "locals": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
   "unuse": [Function],
   "use": [Function],
@@ -910,9 +910,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
   "locals": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
   "unuse": [Function],
   "use": [Function],
@@ -940,9 +940,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
   "locals": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
   "unuse": [Function],
   "use": [Function],
@@ -975,15 +975,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -1000,9 +1000,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "singletonStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -1012,15 +1012,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -1037,9 +1037,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -1049,15 +1049,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -1074,9 +1074,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -1101,9 +1101,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
 Object {
   "locals": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
   "unuse": [Function],
   "use": [Function],
@@ -1131,9 +1131,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
   "locals": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
   "unuse": [Function],
   "use": [Function],
@@ -1161,9 +1161,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
   "locals": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
   "unuse": [Function],
   "use": [Function],
@@ -1196,15 +1196,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -1221,9 +1221,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "singletonStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -1233,15 +1233,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -1258,9 +1258,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -1270,15 +1270,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -1399,15 +1399,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -1430,15 +1430,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -1461,15 +1461,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -1590,15 +1590,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -1621,15 +1621,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader"
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -2034,15 +2034,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -2061,30 +2061,30 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "0": Array [
     "../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css",
-    ".EwkYfSlfnYBz8E2xTBZva {
+    ".yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 ",
     "",
   ],
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
   "i": [Function],
   "locals": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
   "toString": [Function],
 }
@@ -2112,15 +2112,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "0": Array [
     "../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css",
-    ".EwkYfSlfnYBz8E2xTBZva {
+    ".yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 ",
@@ -2128,18 +2128,18 @@ Object {
   ],
   "default": Object {
     "locals": Object {
-      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-      "foo": "EwkYfSlfnYBz8E2xTBZva",
+      "bar": "v7u81X_nU5zA6BI1VLKP",
+      "baz": "XZYtqq9bavLKW_osnheu",
+      "foo": "yteXdyigyFjy11PZD0_B",
     },
     "unuse": [Function],
     "use": [Function],
   },
   "i": [Function],
   "locals": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
   "toString": [Function],
 }
@@ -2167,15 +2167,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "0": Array [
     "../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css",
-    ".EwkYfSlfnYBz8E2xTBZva {
+    ".yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 ",
@@ -2183,18 +2183,18 @@ Object {
   ],
   "default": Object {
     "locals": Object {
-      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-      "foo": "EwkYfSlfnYBz8E2xTBZva",
+      "bar": "v7u81X_nU5zA6BI1VLKP",
+      "baz": "XZYtqq9bavLKW_osnheu",
+      "foo": "yteXdyigyFjy11PZD0_B",
     },
     "unuse": [Function],
     "use": [Function],
   },
   "i": [Function],
   "locals": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
   "toString": [Function],
 }
@@ -2222,15 +2222,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "0": Array [
     "../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css",
-    ".EwkYfSlfnYBz8E2xTBZva {
+    ".yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 ",
@@ -2238,18 +2238,18 @@ Object {
   ],
   "default": Object {
     "locals": Object {
-      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-      "foo": "EwkYfSlfnYBz8E2xTBZva",
+      "bar": "v7u81X_nU5zA6BI1VLKP",
+      "baz": "XZYtqq9bavLKW_osnheu",
+      "foo": "yteXdyigyFjy11PZD0_B",
     },
     "unuse": [Function],
     "use": [Function],
   },
   "i": [Function],
   "locals": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
   "toString": [Function],
 }
@@ -2285,15 +2285,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -2312,30 +2312,30 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "0": Array [
     "../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css",
-    ".EwkYfSlfnYBz8E2xTBZva {
+    ".yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 ",
     "",
   ],
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
   "i": [Function],
   "locals": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
   "toString": [Function],
 }
@@ -2347,15 +2347,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -2374,30 +2374,30 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "0": Array [
     "../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css",
-    ".EwkYfSlfnYBz8E2xTBZva {
+    ".yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 ",
     "",
   ],
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
   "i": [Function],
   "locals": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
   "toString": [Function],
 }
@@ -2409,15 +2409,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -2436,30 +2436,30 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "0": Array [
     "../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css",
-    ".EwkYfSlfnYBz8E2xTBZva {
+    ".yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 ",
     "",
   ],
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
   "i": [Function],
   "locals": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
   "toString": [Function],
 }
@@ -2487,15 +2487,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "0": Array [
     "../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css",
-    ".EwkYfSlfnYBz8E2xTBZva {
+    ".yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 ",
@@ -2503,18 +2503,18 @@ Object {
   ],
   "default": Object {
     "locals": Object {
-      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-      "foo": "EwkYfSlfnYBz8E2xTBZva",
+      "bar": "v7u81X_nU5zA6BI1VLKP",
+      "baz": "XZYtqq9bavLKW_osnheu",
+      "foo": "yteXdyigyFjy11PZD0_B",
     },
     "unuse": [Function],
     "use": [Function],
   },
   "i": [Function],
   "locals": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
   "toString": [Function],
 }
@@ -2542,15 +2542,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "0": Array [
     "../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css",
-    ".EwkYfSlfnYBz8E2xTBZva {
+    ".yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 ",
@@ -2558,18 +2558,18 @@ Object {
   ],
   "default": Object {
     "locals": Object {
-      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-      "foo": "EwkYfSlfnYBz8E2xTBZva",
+      "bar": "v7u81X_nU5zA6BI1VLKP",
+      "baz": "XZYtqq9bavLKW_osnheu",
+      "foo": "yteXdyigyFjy11PZD0_B",
     },
     "unuse": [Function],
     "use": [Function],
   },
   "i": [Function],
   "locals": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
   "toString": [Function],
 }
@@ -2597,15 +2597,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "0": Array [
     "../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css",
-    ".EwkYfSlfnYBz8E2xTBZva {
+    ".yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 ",
@@ -2613,18 +2613,18 @@ Object {
   ],
   "default": Object {
     "locals": Object {
-      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-      "foo": "EwkYfSlfnYBz8E2xTBZva",
+      "bar": "v7u81X_nU5zA6BI1VLKP",
+      "baz": "XZYtqq9bavLKW_osnheu",
+      "foo": "yteXdyigyFjy11PZD0_B",
     },
     "unuse": [Function],
     "use": [Function],
   },
   "i": [Function],
   "locals": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
   "toString": [Function],
 }
@@ -2660,15 +2660,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -2687,30 +2687,30 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "0": Array [
     "../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css",
-    ".EwkYfSlfnYBz8E2xTBZva {
+    ".yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 ",
     "",
   ],
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
   "i": [Function],
   "locals": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
   "toString": [Function],
 }
@@ -2722,15 +2722,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -2749,30 +2749,30 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "0": Array [
     "../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css",
-    ".EwkYfSlfnYBz8E2xTBZva {
+    ".yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 ",
     "",
   ],
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
   "i": [Function],
   "locals": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
   "toString": [Function],
 }
@@ -3774,15 +3774,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -3800,9 +3800,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
 }
 `;
@@ -3829,9 +3829,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "default": Object {
     "locals": Object {
-      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-      "foo": "EwkYfSlfnYBz8E2xTBZva",
+      "bar": "v7u81X_nU5zA6BI1VLKP",
+      "baz": "XZYtqq9bavLKW_osnheu",
+      "foo": "yteXdyigyFjy11PZD0_B",
     },
     "unuse": [Function],
     "use": [Function],
@@ -3861,9 +3861,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "default": Object {
     "locals": Object {
-      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-      "foo": "EwkYfSlfnYBz8E2xTBZva",
+      "bar": "v7u81X_nU5zA6BI1VLKP",
+      "baz": "XZYtqq9bavLKW_osnheu",
+      "foo": "yteXdyigyFjy11PZD0_B",
     },
     "unuse": [Function],
     "use": [Function],
@@ -3893,9 +3893,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "default": Object {
     "locals": Object {
-      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-      "foo": "EwkYfSlfnYBz8E2xTBZva",
+      "bar": "v7u81X_nU5zA6BI1VLKP",
+      "baz": "XZYtqq9bavLKW_osnheu",
+      "foo": "yteXdyigyFjy11PZD0_B",
     },
     "unuse": [Function],
     "use": [Function],
@@ -3933,15 +3933,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -3959,9 +3959,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "singletonStyleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
 }
 `;
@@ -3972,15 +3972,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -3998,9 +3998,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
 }
 `;
@@ -4011,15 +4011,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -4037,9 +4037,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
 }
 `;
@@ -4066,9 +4066,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "default": Object {
     "locals": Object {
-      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-      "foo": "EwkYfSlfnYBz8E2xTBZva",
+      "bar": "v7u81X_nU5zA6BI1VLKP",
+      "baz": "XZYtqq9bavLKW_osnheu",
+      "foo": "yteXdyigyFjy11PZD0_B",
     },
     "unuse": [Function],
     "use": [Function],
@@ -4098,9 +4098,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "default": Object {
     "locals": Object {
-      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-      "foo": "EwkYfSlfnYBz8E2xTBZva",
+      "bar": "v7u81X_nU5zA6BI1VLKP",
+      "baz": "XZYtqq9bavLKW_osnheu",
+      "foo": "yteXdyigyFjy11PZD0_B",
     },
     "unuse": [Function],
     "use": [Function],
@@ -4130,9 +4130,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 Object {
   "default": Object {
     "locals": Object {
-      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-      "foo": "EwkYfSlfnYBz8E2xTBZva",
+      "bar": "v7u81X_nU5zA6BI1VLKP",
+      "baz": "XZYtqq9bavLKW_osnheu",
+      "foo": "yteXdyigyFjy11PZD0_B",
     },
     "unuse": [Function],
     "use": [Function],
@@ -4170,15 +4170,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -4196,9 +4196,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "singletonStyleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
 }
 `;
@@ -4209,15 +4209,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -4235,9 +4235,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
 }
 `;
@@ -4262,10 +4262,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": undefined,
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -4296,13 +4296,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": Object {
     "unuse": [Function],
     "use": [Function],
   },
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -4333,13 +4333,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": Object {
     "unuse": [Function],
     "use": [Function],
   },
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -4370,13 +4370,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": Object {
     "unuse": [Function],
     "use": [Function],
   },
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -4431,10 +4431,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "singletonStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": undefined,
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -4465,10 +4465,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": undefined,
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -4499,10 +4499,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": undefined,
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -4533,13 +4533,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": Object {
     "unuse": [Function],
     "use": [Function],
   },
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -4570,13 +4570,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": Object {
     "unuse": [Function],
     "use": [Function],
   },
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -4607,13 +4607,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": Object {
     "unuse": [Function],
     "use": [Function],
   },
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -4668,10 +4668,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "singletonStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": undefined,
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -4702,10 +4702,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": undefined,
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -4722,15 +4722,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -4747,10 +4747,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": undefined,
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -4774,13 +4774,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": Object {
     "unuse": [Function],
     "use": [Function],
   },
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -4804,13 +4804,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": Object {
     "unuse": [Function],
     "use": [Function],
   },
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -4834,13 +4834,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": Object {
     "unuse": [Function],
     "use": [Function],
   },
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -4874,15 +4874,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -4899,10 +4899,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "singletonStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": undefined,
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -4912,15 +4912,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -4937,10 +4937,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": undefined,
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -4950,15 +4950,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -4975,10 +4975,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": undefined,
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -5002,13 +5002,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": Object {
     "unuse": [Function],
     "use": [Function],
   },
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -5032,13 +5032,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": Object {
     "unuse": [Function],
     "use": [Function],
   },
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -5062,13 +5062,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": Object {
     "unuse": [Function],
     "use": [Function],
   },
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -5102,15 +5102,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -5127,10 +5127,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "singletonStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": undefined,
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -5140,15 +5140,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -5165,10 +5165,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": undefined,
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -5598,15 +5598,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -5624,9 +5624,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
 }
 `;
@@ -5653,9 +5653,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 Object {
   "default": Object {
     "locals": Object {
-      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-      "foo": "EwkYfSlfnYBz8E2xTBZva",
+      "bar": "v7u81X_nU5zA6BI1VLKP",
+      "baz": "XZYtqq9bavLKW_osnheu",
+      "foo": "yteXdyigyFjy11PZD0_B",
     },
     "unuse": [Function],
     "use": [Function],
@@ -5685,9 +5685,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 Object {
   "default": Object {
     "locals": Object {
-      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-      "foo": "EwkYfSlfnYBz8E2xTBZva",
+      "bar": "v7u81X_nU5zA6BI1VLKP",
+      "baz": "XZYtqq9bavLKW_osnheu",
+      "foo": "yteXdyigyFjy11PZD0_B",
     },
     "unuse": [Function],
     "use": [Function],
@@ -5717,9 +5717,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 Object {
   "default": Object {
     "locals": Object {
-      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-      "foo": "EwkYfSlfnYBz8E2xTBZva",
+      "bar": "v7u81X_nU5zA6BI1VLKP",
+      "baz": "XZYtqq9bavLKW_osnheu",
+      "foo": "yteXdyigyFjy11PZD0_B",
     },
     "unuse": [Function],
     "use": [Function],
@@ -5757,15 +5757,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -5783,9 +5783,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "singletonStyleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
 }
 `;
@@ -5796,15 +5796,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -5822,9 +5822,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
 }
 `;
@@ -5835,15 +5835,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -5861,9 +5861,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
 }
 `;
@@ -5890,9 +5890,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 Object {
   "default": Object {
     "locals": Object {
-      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-      "foo": "EwkYfSlfnYBz8E2xTBZva",
+      "bar": "v7u81X_nU5zA6BI1VLKP",
+      "baz": "XZYtqq9bavLKW_osnheu",
+      "foo": "yteXdyigyFjy11PZD0_B",
     },
     "unuse": [Function],
     "use": [Function],
@@ -5922,9 +5922,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 Object {
   "default": Object {
     "locals": Object {
-      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-      "foo": "EwkYfSlfnYBz8E2xTBZva",
+      "bar": "v7u81X_nU5zA6BI1VLKP",
+      "baz": "XZYtqq9bavLKW_osnheu",
+      "foo": "yteXdyigyFjy11PZD0_B",
     },
     "unuse": [Function],
     "use": [Function],
@@ -5954,9 +5954,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 Object {
   "default": Object {
     "locals": Object {
-      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-      "foo": "EwkYfSlfnYBz8E2xTBZva",
+      "bar": "v7u81X_nU5zA6BI1VLKP",
+      "baz": "XZYtqq9bavLKW_osnheu",
+      "foo": "yteXdyigyFjy11PZD0_B",
     },
     "unuse": [Function],
     "use": [Function],
@@ -5994,15 +5994,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -6020,9 +6020,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "singletonStyleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
 }
 `;
@@ -6033,15 +6033,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -6059,9 +6059,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":false}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
 }
 `;
@@ -6072,15 +6072,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -6097,10 +6097,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": undefined,
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -6124,13 +6124,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": Object {
     "unuse": [Function],
     "use": [Function],
   },
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -6154,13 +6154,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": Object {
     "unuse": [Function],
     "use": [Function],
   },
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -6184,13 +6184,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": Object {
     "unuse": [Function],
     "use": [Function],
   },
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -6224,15 +6224,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -6249,10 +6249,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "singletonStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": undefined,
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -6262,15 +6262,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -6287,10 +6287,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": undefined,
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -6300,15 +6300,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -6325,10 +6325,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": undefined,
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -6352,13 +6352,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": Object {
     "unuse": [Function],
     "use": [Function],
   },
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -6382,13 +6382,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": Object {
     "unuse": [Function],
     "use": [Function],
   },
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -6412,13 +6412,13 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": Object {
     "unuse": [Function],
     "use": [Function],
   },
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -6452,15 +6452,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -6477,10 +6477,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "singletonStyleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": undefined,
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -6490,15 +6490,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -6515,10 +6515,10 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"na
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":{"namedExport":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": exports 1`] = `
 Object {
-  "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-  "baz": "_2zHxuubfFrOL9GmW-Gbppt",
+  "bar": "v7u81X_nU5zA6BI1VLKP",
+  "baz": "XZYtqq9bavLKW_osnheu",
   "default": undefined,
-  "foo": "EwkYfSlfnYBz8E2xTBZva",
+  "foo": "yteXdyigyFjy11PZD0_B",
 }
 `;
 
@@ -6948,15 +6948,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -6974,9 +6974,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
 }
 `;
@@ -7003,9 +7003,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 Object {
   "default": Object {
     "locals": Object {
-      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-      "foo": "EwkYfSlfnYBz8E2xTBZva",
+      "bar": "v7u81X_nU5zA6BI1VLKP",
+      "baz": "XZYtqq9bavLKW_osnheu",
+      "foo": "yteXdyigyFjy11PZD0_B",
     },
     "unuse": [Function],
     "use": [Function],
@@ -7035,9 +7035,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 Object {
   "default": Object {
     "locals": Object {
-      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-      "foo": "EwkYfSlfnYBz8E2xTBZva",
+      "bar": "v7u81X_nU5zA6BI1VLKP",
+      "baz": "XZYtqq9bavLKW_osnheu",
+      "foo": "yteXdyigyFjy11PZD0_B",
     },
     "unuse": [Function],
     "use": [Function],
@@ -7067,9 +7067,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 Object {
   "default": Object {
     "locals": Object {
-      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-      "foo": "EwkYfSlfnYBz8E2xTBZva",
+      "bar": "v7u81X_nU5zA6BI1VLKP",
+      "baz": "XZYtqq9bavLKW_osnheu",
+      "foo": "yteXdyigyFjy11PZD0_B",
     },
     "unuse": [Function],
     "use": [Function],
@@ -7107,15 +7107,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -7133,9 +7133,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "singletonStyleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
 }
 `;
@@ -7146,15 +7146,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -7172,9 +7172,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
 }
 `;
@@ -7185,15 +7185,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -7211,9 +7211,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
 }
 `;
@@ -7240,9 +7240,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 Object {
   "default": Object {
     "locals": Object {
-      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-      "foo": "EwkYfSlfnYBz8E2xTBZva",
+      "bar": "v7u81X_nU5zA6BI1VLKP",
+      "baz": "XZYtqq9bavLKW_osnheu",
+      "foo": "yteXdyigyFjy11PZD0_B",
     },
     "unuse": [Function],
     "use": [Function],
@@ -7272,9 +7272,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 Object {
   "default": Object {
     "locals": Object {
-      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-      "foo": "EwkYfSlfnYBz8E2xTBZva",
+      "bar": "v7u81X_nU5zA6BI1VLKP",
+      "baz": "XZYtqq9bavLKW_osnheu",
+      "foo": "yteXdyigyFjy11PZD0_B",
     },
     "unuse": [Function],
     "use": [Function],
@@ -7304,9 +7304,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 Object {
   "default": Object {
     "locals": Object {
-      "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-      "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-      "foo": "EwkYfSlfnYBz8E2xTBZva",
+      "bar": "v7u81X_nU5zA6BI1VLKP",
+      "baz": "XZYtqq9bavLKW_osnheu",
+      "foo": "yteXdyigyFjy11PZD0_B",
     },
     "unuse": [Function],
     "use": [Function],
@@ -7344,15 +7344,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -7370,9 +7370,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "singletonStyleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
 }
 `;
@@ -7383,15 +7383,15 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.EwkYfSlfnYBz8E2xTBZva {
+<style>.yteXdyigyFjy11PZD0_B {
     color: red;
 }
 
-._3TzX9kdhbEM9NjFT_lLbK_ {
+.v7u81X_nU5zA6BI1VLKP {
     color: blue;
 }
 
-._2zHxuubfFrOL9GmW-Gbppt {
+.XZYtqq9bavLKW_osnheu {
     color: coral;
 }
 </style></head>
@@ -7409,9 +7409,9 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{"modules":true}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": exports 1`] = `
 Object {
   "default": Object {
-    "bar": "_3TzX9kdhbEM9NjFT_lLbK_",
-    "baz": "_2zHxuubfFrOL9GmW-Gbppt",
-    "foo": "EwkYfSlfnYBz8E2xTBZva",
+    "bar": "v7u81X_nU5zA6BI1VLKP",
+    "baz": "XZYtqq9bavLKW_osnheu",
+    "foo": "yteXdyigyFjy11PZD0_B",
   },
 }
 `;

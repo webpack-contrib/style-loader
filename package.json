@@ -51,7 +51,7 @@
     "@webpack-contrib/eslint-config-webpack": "^3.0.0",
     "babel-jest": "^27.0.6",
     "cross-env": "^7.0.3",
-    "css-loader": "^5.2.7",
+    "css-loader": "^6.2.0",
     "del": "^6.0.0",
     "del-cli": "^4.0.1",
     "es-check": "^6.0.0",
