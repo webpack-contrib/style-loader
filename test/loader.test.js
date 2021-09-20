@@ -14,6 +14,8 @@ import {
   runInJsDom,
 } from "./helpers/index";
 
+jest.setTimeout(10000);
+
 describe("loader", () => {
   const injectTypes = [
     "styleTag",

@@ -246,6 +246,7 @@ module.exports = {
   },
   devServer: {
     hot: true,
+    liveReload: false,
     static: __dirname,
   },
 };

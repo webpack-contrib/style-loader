@@ -1,14 +1,36 @@
 /* istanbul ignore next  */
 function apply(style, options, obj) {
-  let css = obj.css;
-  const media = obj.media;
-  const sourceMap = obj.sourceMap;
+  let css = "";
 
-  if (media) {
-    style.setAttribute("media", media);
-  } else {
-    style.removeAttribute("media");
+  if (obj.supports) {
+    css += `@supports (${obj.supports}) {`;
   }
+
+  if (obj.media) {
+    css += `@media ${obj.media} {`;
+  }
+
+  const needLayer = typeof obj.layer !== "undefined";
+
+  if (needLayer) {
+    css += `@layer${obj.layer.length > 0 ? ` ${obj.layer}` : ""} {`;
+  }
+
+  css += obj.css;
+
+  if (needLayer) {
+    css += "}";
+  }
+
+  if (obj.media) {
+    css += "}";
+  }
+
+  if (obj.supports) {
+    css += "}";
+  }
+
+  const sourceMap = obj.sourceMap;
 
   if (sourceMap && typeof btoa !== "undefined") {
     css += `\n/*# sourceMappingURL=data:application/json;base64,${btoa(

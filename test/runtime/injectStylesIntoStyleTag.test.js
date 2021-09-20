@@ -143,6 +143,44 @@ describe("addStyle", () => {
     expect(document.documentElement.innerHTML).toMatchSnapshot();
   });
 
+  it("should work with supports", () => {
+    injectStylesIntoStyleTag(
+      [
+        [
+          "./style-4.css",
+          ".foo { color: red }",
+          "",
+          // eslint-disable-next-line no-undefined
+          undefined,
+          "display: flex",
+        ],
+      ],
+      defaultOptions
+    );
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+  });
+
+  it("should work with layer", () => {
+    injectStylesIntoStyleTag(
+      // eslint-disable-next-line no-undefined
+      [["./style-4.css", ".foo { color: red }", "", undefined, "", "default"]],
+      defaultOptions
+    );
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+  });
+
+  it("should work with empty layer", () => {
+    injectStylesIntoStyleTag(
+      // eslint-disable-next-line no-undefined
+      [["./style-4.css", ".foo { color: red }", "", undefined, "", ""]],
+      defaultOptions
+    );
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+  });
+
   it("should work with source maps", () => {
     injectStylesIntoStyleTag(
       [

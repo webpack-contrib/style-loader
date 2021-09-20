@@ -38,6 +38,8 @@ exports[`addStyle should work with "insert" option 1`] = `"<head><title>Title</t
 
 exports[`addStyle should work with "nonce" attribute and "__webpack_nonce__" variable 1`] = `"<head><title>Title</title><style nonce=\\"87654321\\">.foo { color: red }</style></head><body><h1>Hello world</h1></body>"`;
 
+exports[`addStyle should work with empty layer 1`] = `"<head><title>Title</title></head><body><h1>Hello world</h1></body>"`;
+
 exports[`addStyle should work with empty modules list #2 1`] = `"<head><title>Title</title></head><body><h1>Hello world</h1></body>"`;
 
 exports[`addStyle should work with empty modules list #2 2`] = `"<head><title>Title</title></head><body><h1>Hello world</h1></body>"`;
@@ -56,7 +58,9 @@ exports[`addStyle should work with empty modules list 1`] = `"<head><title>Title
 
 exports[`addStyle should work with empty modules list 2`] = `"<head><title>Title</title></head><body><h1>Hello world</h1></body>"`;
 
-exports[`addStyle should work with media 1`] = `"<head><title>Title</title><style media=\\"screen and (min-width:320px)\\">.foo { color: red }</style></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle should work with layer 1`] = `"<head><title>Title</title></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with media 1`] = `"<head><title>Title</title><style>@media screen and (min-width:320px) {.foo { color: red }}</style></head><body><h1>Hello world</h1></body>"`;
 
 exports[`addStyle should work with multiple styles 1`] = `"<head><title>Title</title><style>.foo { color: red }</style><style>.bar { color: blue }</style></head><body><h1>Hello world</h1></body>"`;
 
@@ -66,6 +70,8 @@ exports[`addStyle should work with source maps 1`] = `
 "<head><title>Title</title><style>.foo { color: red }
 /*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlLTUuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLGNBQXFCLGVBQWUsRUFBRSIsImZpbGUiOiJzdHlsZS01LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5mb28geyBjb2xvcjogcmVkIH0iXX0= */</style></head><body><h1>Hello world</h1></body>"
 `;
+
+exports[`addStyle should work with supports 1`] = `"<head><title>Title</title></head><body><h1>Hello world</h1></body>"`;
 
 exports[`addStyle should work with updates #2 1`] = `"<head><title>Title</title><style>.foo { color: red }</style></head><body><h1>Hello world</h1></body>"`;
 
@@ -79,9 +85,9 @@ exports[`addStyle should work with updates #4 1`] = `"<head><title>Title</title>
 
 exports[`addStyle should work with updates #4 2`] = `"<head><title>Title</title></head><body><h1>Hello world</h1></body>"`;
 
-exports[`addStyle should work with updates #5 1`] = `"<head><title>Title</title><style media=\\"screen and (min-width:320px)\\">.foo { color: red }</style></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle should work with updates #5 1`] = `"<head><title>Title</title><style>@media screen and (min-width:320px) {.foo { color: red }}</style></head><body><h1>Hello world</h1></body>"`;
 
-exports[`addStyle should work with updates #5 2`] = `"<head><title>Title</title><style media=\\"screen and (min-width:640px)\\">.foo { color: blue }</style></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle should work with updates #5 2`] = `"<head><title>Title</title><style>@media screen and (min-width:640px) {.foo { color: blue }}</style></head><body><h1>Hello world</h1></body>"`;
 
 exports[`addStyle should work with updates #6 1`] = `"<head><title>Title</title><style>.foo { color: red }.bar { color: yellow }</style></head><body><h1>Hello world</h1></body>"`;
 
@@ -102,14 +108,14 @@ exports[`addStyle should work with updates #7 1`] = `"<head><title>Title</title>
 exports[`addStyle should work with updates #7 2`] = `"<head><title>Title</title><style>.foo { color: green }</style><style>.bar { color: black }</style></head><body><h1>Hello world</h1></body>"`;
 
 exports[`addStyle should work with updates #8 1`] = `
-"<head><title>Title</title><style media=\\"screen and (min-width: 320px)\\">.foo { color: red }
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlLTI2LTEuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLGNBQXFCLGVBQWUsRUFBRSIsImZpbGUiOiJzdHlsZS0yNi0xLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDMyMHB4KSB7IC5mb28geyBjb2xvcjogcmVkIH0gfSJdfQ== */</style><style media=\\"screen and (max-width: 240px)\\">.bar { color: yellow }
+"<head><title>Title</title><style>@media screen and (min-width: 320px) {.foo { color: red }}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlLTI2LTEuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLGNBQXFCLGVBQWUsRUFBRSIsImZpbGUiOiJzdHlsZS0yNi0xLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDMyMHB4KSB7IC5mb28geyBjb2xvcjogcmVkIH0gfSJdfQ== */</style><style>@media screen and (max-width: 240px) {.bar { color: yellow }}
 /*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlLTI2LTIuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLGNBQXFCLGVBQWUsRUFBRSIsImZpbGUiOiJzdHlsZS0yNi0yLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDI0MHB4KSB7IC5iYXIgeyBjb2xvcjogeWVsbG93IH0gfSJdfQ== */</style></head><body><h1>Hello world</h1></body>"
 `;
 
 exports[`addStyle should work with updates #8 2`] = `
-"<head><title>Title</title><style media=\\"screen and (min-width: 640px)\\">.foo { color: black }
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlLTI2LTEuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJCQkJCLGNBQXFCLGVBQWUsRUFBRSIsImZpbGUiOiJzdHlsZS0yNi0xLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIkBtZWRpYSBzY3JlZW4gYW5kIChtaW4td2lkdGg6IDY0MHB4KSB7IC5mb28geyBjb2xvcjogYmxhY2sgfSB9Il19 */</style><style media=\\"screen and (max-width: 1240px)\\">.bar { color: black }
+"<head><title>Title</title><style>@media screen and (min-width: 640px) {.foo { color: black }}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlLTI2LTEuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJCQkJCLGNBQXFCLGVBQWUsRUFBRSIsImZpbGUiOiJzdHlsZS0yNi0xLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIkBtZWRpYSBzY3JlZW4gYW5kIChtaW4td2lkdGg6IDY0MHB4KSB7IC5mb28geyBjb2xvcjogYmxhY2sgfSB9Il19 */</style><style>@media screen and (max-width: 1240px) {.bar { color: black }}
 /*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlLTI2LTIuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJCQkJCLGNBQXFCLGVBQWUsRUFBRSIsImZpbGUiOiJzdHlsZS0yNi0yLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDEyNDBweCkgeyAuYmFyIHsgY29sb3I6IGJsYWNrIH0gfSJdfQ== */</style></head><body><h1>Hello world</h1></body>"
 `;
 
@@ -127,9 +133,9 @@ exports[`addStyle should work with updates #11 1`] = `"<head><title>Title</title
 
 exports[`addStyle should work with updates #11 2`] = `"<head><title>Title</title><style>.foo { color: black }</style><style>.bar { color: white }</style><script src=\\"https://example.com/script.js\\" id=\\"id\\"></script></head><body><h1>Hello world</h1></body>"`;
 
-exports[`addStyle should work with updates #12 1`] = `"<head><title>Title</title><style>.order { color: red }</style><style>.@import url(\\"https://fonts.googleapis.com/css?family=Roboto&display=swap\\");</style><style>.order { color: blue }</style><style>.@import url(\\"https://fonts.googleapis.com/css?family=Roboto&display=swap\\");</style><style>.order { color: red }</style><style>.@import url(\\"https://fonts.googleapis.com/css?family=Roboto&display=swap\\");</style><style media=\\"screen and (min-width: 2000px)\\">.order { color: blue }</style><style>.@import url(\\"https://fonts.googleapis.com/css?family=Roboto&display=swap\\");</style></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle should work with updates #12 1`] = `"<head><title>Title</title><style>.order { color: red }</style><style>.@import url(\\"https://fonts.googleapis.com/css?family=Roboto&display=swap\\");</style><style>.order { color: blue }</style><style>.@import url(\\"https://fonts.googleapis.com/css?family=Roboto&display=swap\\");</style><style>.order { color: red }</style><style>.@import url(\\"https://fonts.googleapis.com/css?family=Roboto&display=swap\\");</style><style>@media screen and (min-width: 2000px) {.order { color: blue }}</style><style>.@import url(\\"https://fonts.googleapis.com/css?family=Roboto&display=swap\\");</style></head><body><h1>Hello world</h1></body>"`;
 
-exports[`addStyle should work with updates #12 2`] = `"<head><title>Title</title><style>.order { color: orange }</style><style>.@import url(\\"https://fonts.googleapis.com/css?family=Roboto&display=swap\\");</style><style>.order { color: blue }</style><style>.@import url(\\"https://fonts.googleapis.com/css?family=Roboto&display=swap\\");</style><style>.order { color: orange }</style><style>.@import url(\\"https://fonts.googleapis.com/css?family=Roboto&display=swap\\");</style><style media=\\"screen and (min-width: 2000px)\\">.order { color: blue }</style><style>.@import url(\\"https://fonts.googleapis.com/css?family=Roboto&display=swap\\");</style></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle should work with updates #12 2`] = `"<head><title>Title</title><style>.order { color: orange }</style><style>.@import url(\\"https://fonts.googleapis.com/css?family=Roboto&display=swap\\");</style><style>.order { color: blue }</style><style>.@import url(\\"https://fonts.googleapis.com/css?family=Roboto&display=swap\\");</style><style>.order { color: orange }</style><style>.@import url(\\"https://fonts.googleapis.com/css?family=Roboto&display=swap\\");</style><style>@media screen and (min-width: 2000px) {.order { color: blue }}</style><style>.@import url(\\"https://fonts.googleapis.com/css?family=Roboto&display=swap\\");</style></head><body><h1>Hello world</h1></body>"`;
 
 exports[`addStyle should work with updates #12 3`] = `"<head><title>Title</title><style>.foo { color: red }</style><style>.bar { color: blue }</style></head><body><h1>Hello world</h1></body>"`;
 
