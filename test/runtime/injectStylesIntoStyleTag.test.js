@@ -150,6 +150,7 @@ describe("addStyle", () => {
           "./style-4.css",
           ".foo { color: red }",
           "",
+          // eslint-disable-next-line no-undefined
           undefined,
           "display: flex",
         ],
@@ -162,6 +163,7 @@ describe("addStyle", () => {
 
   it("should work with layer", () => {
     injectStylesIntoStyleTag(
+      // eslint-disable-next-line no-undefined
       [["./style-4.css", ".foo { color: red }", "", undefined, "", "default"]],
       defaultOptions
     );
@@ -171,8 +173,9 @@ describe("addStyle", () => {
 
   it("should work with empty layer", () => {
     injectStylesIntoStyleTag(
-        [["./style-4.css", ".foo { color: red }", "", undefined, "", ""]],
-        defaultOptions
+      // eslint-disable-next-line no-undefined
+      [["./style-4.css", ".foo { color: red }", "", undefined, "", ""]],
+      defaultOptions
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();

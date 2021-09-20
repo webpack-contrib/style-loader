@@ -1,9 +1,10 @@
-@import url("./middle.css") supports(display: flex) screen and (min-width: 400px);
+@import url("./middle.css") supports(display: flex) screen and
+  (min-width: 400px);
 
 .top {
-    color: red;
+  color: red;
 }
 
 .media-and-supports {
-    color: red;
+  color: red;
 }

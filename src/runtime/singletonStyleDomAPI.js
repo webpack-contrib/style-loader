@@ -12,7 +12,7 @@ const replaceText = (function replaceText() {
 /* istanbul ignore next  */
 function apply(style, index, remove, obj) {
   let css;
-  
+
   if (remove) {
     css = "";
   } else {
@@ -31,7 +31,7 @@ function apply(style, index, remove, obj) {
     if (needLayer) {
       css += `@layer${obj.layer.length > 0 ? ` ${obj.layer}` : ""} {`;
     }
-    
+
     css += obj.css;
 
     if (needLayer) {
@@ -41,7 +41,7 @@ function apply(style, index, remove, obj) {
     if (obj.media) {
       css += "}";
     }
-    
+
     if (obj.supports) {
       css += "}";
     }

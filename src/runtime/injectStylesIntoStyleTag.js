@@ -67,7 +67,7 @@ function addStyle(obj, options) {
       ) {
         return;
       }
-      
+
       api.update((obj = newObj));
     } else {
       api.remove();
