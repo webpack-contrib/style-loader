@@ -1,5 +1,174 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`addStyle should work with empty layer 1`] = `"<head><title>Title</title><style>@layer {.foo { color: red }}</style></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle issue 447 #2 1`] = `"<head><title>Title</title></head><body><h1>Hello world</h1></body>"`;
 
-exports[`addStyle should work with layer 1`] = `"<head><title>Title</title><style>@layer default {.foo { color: red }}</style></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle issue 447 #2 2`] = `"<head><title>Title</title></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle issue 447 1`] = `"<head><title>Title</title></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should avoid duplicate modules 1`] = `"<head><title>Title</title><style>.foo { color: yellow }</style><style>.bar { color: red }</style><style>.baz { color: blue }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should throw error with incorrect "insert" option 1`] = `"Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid."`;
+
+exports[`addStyle should throw error with invalid "insert" option 1`] = `"'#test><><><' is not a valid selector"`;
+
+exports[`addStyle should work 1`] = `"<head><title>Title</title><style>.foo { color: red }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with "__webpack_nonce__" variable 1`] = `"<head><title>Title</title><style nonce=\\"12345678\\">.foo { color: red }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with "attributes" option #2 1`] = `"<head><title>Title</title><style foo=\\"bar\\">.foo { color: red }</style><style foo=\\"bar\\">.bar { color: blue }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with "attributes" option 1`] = `"<head><title>Title</title><style foo=\\"bar\\">.foo { color: red }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with "base" option 1`] = `"<head><title>Title</title><style>.foo { color: red }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with "insert" option #2 1`] = `"<head><title>Title</title></head><body><h1>Hello world</h1><style>.foo { color: red }</style><style>.bar { color: blue }</style></body>"`;
+
+exports[`addStyle should work with "insert" option #3 1`] = `"<head><title>Title</title></head><body><h1>Hello world</h1><iframe class=\\"iframeTarget\\"></iframe></body>"`;
+
+exports[`addStyle should work with "insert" option #3 2`] = `"<style>.foo { color: red }</style><style>.bar { color: blue }</style>"`;
+
+exports[`addStyle should work with "insert" option #4 1`] = `"<head><style>.foo { color: red }</style><style>.bar { color: blue }</style><title>Title</title></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with "insert" option #5 1`] = `"<head><title>Title</title><style>.foo { color: red }</style><style>.bar { color: blue }</style><script src=\\"https://example.com/script.js\\" id=\\"id\\"></script></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with "insert" option #6 1`] = `"<head><title>Title</title></head><body><h1>Hello world</h1><div><div id=\\"root\\"><style>.foo { color: red }</style><style>.bar { color: blue }</style></div></div></body>"`;
+
+exports[`addStyle should work with "insert" option 1`] = `"<head><title>Title</title><style>.foo { color: red }</style><style>.bar { color: blue }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with "nonce" attribute and "__webpack_nonce__" variable 1`] = `"<head><title>Title</title><style nonce=\\"87654321\\">.foo { color: red }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with empty layer 1`] = `"<head><title>Title</title></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with empty modules list #2 1`] = `"<head><title>Title</title></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with empty modules list #2 2`] = `"<head><title>Title</title></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with empty modules list #2 3`] = `"<head><title>Title</title><style>.foo { color: red }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with empty modules list #3 1`] = `"<head><title>Title</title></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with empty modules list #3 2`] = `"<head><title>Title</title></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with empty modules list #3 3`] = `"<head><title>Title</title><style>.foo { color: red }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with empty modules list #3 4`] = `"<head><title>Title</title></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with empty modules list 1`] = `"<head><title>Title</title></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with empty modules list 2`] = `"<head><title>Title</title></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with layer 1`] = `"<head><title>Title</title></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with media 1`] = `"<head><title>Title</title><style>@media screen and (min-width:320px) {.foo { color: red }}</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with multiple styles 1`] = `"<head><title>Title</title><style>.foo { color: red }</style><style>.bar { color: blue }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with same module id in list 1`] = `"<head><title>Title</title><style>.foo { color: red }</style><style>.foo { color: green }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with source maps 1`] = `
+"<head><title>Title</title><style>.foo { color: red }
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlLTUuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLGNBQXFCLGVBQWUsRUFBRSIsImZpbGUiOiJzdHlsZS01LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5mb28geyBjb2xvcjogcmVkIH0iXX0= */</style></head><body><h1>Hello world</h1></body>"
+`;
+
+exports[`addStyle should work with supports 1`] = `"<head><title>Title</title></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #2 1`] = `"<head><title>Title</title><style>.foo { color: red }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #2 2`] = `"<head><title>Title</title><style>.foo { color: blue }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #3 1`] = `"<head><title>Title</title><style>.foo { color: red }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #3 2`] = `"<head><title>Title</title><style>.foo { color: blue }</style><style>.foo { color: red }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #4 1`] = `"<head><title>Title</title><style>.foo { color: red }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #4 2`] = `"<head><title>Title</title></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #5 1`] = `"<head><title>Title</title><style>@media screen and (min-width:320px) {.foo { color: red }}</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #5 2`] = `"<head><title>Title</title><style>@media screen and (min-width:640px) {.foo { color: blue }}</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #6 1`] = `"<head><title>Title</title><style>.foo { color: red }.bar { color: yellow }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #6 2`] = `"<head><title>Title</title><style>.foo { color: blue }.bar { color: yellow }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #6 3`] = `"<head><title>Title</title><style>.foo { color: yellow }@media screen and (min-width: 100px) {.bar { color: red }}</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #6 4`] = `"<head><title>Title</title><style>.foo { color: yellow }@media screen and (min-width: 200px) {.bar { color: red }}</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #6 5`] = `"<head><title>Title</title><style>.foo { color: red }@media screen and (min-width: 200px) {.bar { color: red }}</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #6 6`] = `"<head><title>Title</title><style>.foo { color: red }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #6 7`] = `"<head><title>Title</title><style></style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #7 1`] = `"<head><title>Title</title><style>.foo { color: red }</style><style>.bar { color: blue }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #7 2`] = `"<head><title>Title</title><style>.foo { color: green }</style><style>.bar { color: black }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #8 1`] = `
+"<head><title>Title</title><style>@media screen and (min-width: 320px) {.foo { color: red }}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlLTI2LTEuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLGNBQXFCLGVBQWUsRUFBRSIsImZpbGUiOiJzdHlsZS0yNi0xLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDMyMHB4KSB7IC5mb28geyBjb2xvcjogcmVkIH0gfSJdfQ== */</style><style>@media screen and (max-width: 240px) {.bar { color: yellow }}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlLTI2LTIuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLGNBQXFCLGVBQWUsRUFBRSIsImZpbGUiOiJzdHlsZS0yNi0yLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDI0MHB4KSB7IC5iYXIgeyBjb2xvcjogeWVsbG93IH0gfSJdfQ== */</style></head><body><h1>Hello world</h1></body>"
+`;
+
+exports[`addStyle should work with updates #8 2`] = `
+"<head><title>Title</title><style>@media screen and (min-width: 640px) {.foo { color: black }}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlLTI2LTEuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJCQkJCLGNBQXFCLGVBQWUsRUFBRSIsImZpbGUiOiJzdHlsZS0yNi0xLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIkBtZWRpYSBzY3JlZW4gYW5kIChtaW4td2lkdGg6IDY0MHB4KSB7IC5mb28geyBjb2xvcjogYmxhY2sgfSB9Il19 */</style><style>@media screen and (max-width: 1240px) {.bar { color: black }}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlLTI2LTIuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJCQkJCLGNBQXFCLGVBQWUsRUFBRSIsImZpbGUiOiJzdHlsZS0yNi0yLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDEyNDBweCkgeyAuYmFyIHsgY29sb3I6IGJsYWNrIH0gfSJdfQ== */</style></head><body><h1>Hello world</h1></body>"
+`;
+
+exports[`addStyle should work with updates #8 3`] = `"<head><title>Title</title></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #9 1`] = `"<head><title>Title</title><style>.foo { color: red }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #9 2`] = `"<head><title>Title</title><style>.foo { color: black }</style><style>.foo { color: red }</style><style>.foo { color: yellow }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #10 1`] = `"<head><title>Title</title><style>.foo { color: red }</style><style>.bar { color: blue }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #10 2`] = `"<head><title>Title</title><style>.foo { color: black }</style><style>.bar { color: white }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #11 1`] = `"<head><title>Title</title><style>.foo { color: red }</style><style>.bar { color: blue }</style><script src=\\"https://example.com/script.js\\" id=\\"id\\"></script></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #11 2`] = `"<head><title>Title</title><style>.foo { color: black }</style><style>.bar { color: white }</style><script src=\\"https://example.com/script.js\\" id=\\"id\\"></script></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #12 1`] = `"<head><title>Title</title><style>.order { color: red }</style><style>.@import url(\\"https://fonts.googleapis.com/css?family=Roboto&display=swap\\");</style><style>.order { color: blue }</style><style>.@import url(\\"https://fonts.googleapis.com/css?family=Roboto&display=swap\\");</style><style>.order { color: red }</style><style>.@import url(\\"https://fonts.googleapis.com/css?family=Roboto&display=swap\\");</style><style>@media screen and (min-width: 2000px) {.order { color: blue }}</style><style>.@import url(\\"https://fonts.googleapis.com/css?family=Roboto&display=swap\\");</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #12 2`] = `"<head><title>Title</title><style>.order { color: orange }</style><style>.@import url(\\"https://fonts.googleapis.com/css?family=Roboto&display=swap\\");</style><style>.order { color: blue }</style><style>.@import url(\\"https://fonts.googleapis.com/css?family=Roboto&display=swap\\");</style><style>.order { color: orange }</style><style>.@import url(\\"https://fonts.googleapis.com/css?family=Roboto&display=swap\\");</style><style>@media screen and (min-width: 2000px) {.order { color: blue }}</style><style>.@import url(\\"https://fonts.googleapis.com/css?family=Roboto&display=swap\\");</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #12 3`] = `"<head><title>Title</title><style>.foo { color: red }</style><style>.bar { color: blue }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #12 4`] = `"<head><title>Title</title></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #13 1`] = `"<head><title>Title</title><style>.red { color: red }</style><style>.green { color: green }</style><style>.blue { color: blue }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #13 2`] = `"<head><title>Title</title><style>.red { color: black }</style><style>.green { color: green }</style><style>.blue { color: blue }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #13 3`] = `"<head><title>Title</title><style>.red { color: black }</style><style>.green { color: black }</style><style>.blue { color: blue }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #13 4`] = `"<head><title>Title</title><style>.red { color: black }</style><style>.green { color: black }</style><style>.blue { color: black }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #13 5`] = `"<head><title>Title</title><style>.green { color: black }</style><style>.blue { color: black }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #13 6`] = `"<head><title>Title</title><style>.blue { color: black }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #13 7`] = `"<head><title>Title</title></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #14 1`] = `"<head><title>Title</title><style>.red { color: red }</style><style>.green { color: green }</style><style>.blue { color: blue }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #14 2`] = `"<head><title>Title</title><style>.red { color: red }</style><style>.green { color: black }</style><style>.blue { color: blue }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #14 3`] = `"<head><title>Title</title><style>.red { color: red }</style><style>.green { color: black }</style><style>.blue { color: blue }</style><style>.white { color: white }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #14 4`] = `"<head><title>Title</title><style>.green { color: black }</style><style>.blue { color: blue }</style><style>.white { color: white }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates #14 5`] = `"<head><title>Title</title><style>.green { color: black }</style><style>.white { color: white }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates 1`] = `"<head><title>Title</title><style>.foo { color: red }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work with updates 2`] = `"<head><title>Title</title><style>.foo { color: blue }</style></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work without modules 1`] = `"<head><title>Title</title></head><body><h1>Hello world</h1></body>"`;
+
+exports[`addStyle should work without modules 2`] = `"<head><title>Title</title></head><body><h1>Hello world</h1></body>"`;

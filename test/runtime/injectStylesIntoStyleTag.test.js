@@ -169,7 +169,7 @@ describe("addStyle", () => {
     expect(document.documentElement.innerHTML).toMatchSnapshot();
   });
 
-  it.only("should work with empty layer", () => {
+  it("should work with empty layer", () => {
     injectStylesIntoStyleTag(
         [["./style-4.css", ".foo { color: red }", "", undefined, "", ""]],
         defaultOptions
