@@ -30,6 +30,8 @@ function modulesToDom(list, options) {
       css: item[1],
       media: item[2],
       sourceMap: item[3],
+      supports: item[4],
+      layer: item[5],
     };
 
     if (index !== -1) {
@@ -59,11 +61,13 @@ function addStyle(obj, options) {
       if (
         newObj.css === obj.css &&
         newObj.media === obj.media &&
-        newObj.sourceMap === obj.sourceMap
+        newObj.sourceMap === obj.sourceMap &&
+        newObj.supports === obj.supports &&
+        newObj.layer === obj.layer
       ) {
         return;
       }
-
+      
       api.update((obj = newObj));
     } else {
       api.remove();

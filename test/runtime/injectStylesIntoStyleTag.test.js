@@ -143,6 +143,41 @@ describe("addStyle", () => {
     expect(document.documentElement.innerHTML).toMatchSnapshot();
   });
 
+  it("should work with supports", () => {
+    injectStylesIntoStyleTag(
+      [
+        [
+          "./style-4.css",
+          ".foo { color: red }",
+          "",
+          undefined,
+          "display: flex",
+        ],
+      ],
+      defaultOptions
+    );
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+  });
+
+  it("should work with layer", () => {
+    injectStylesIntoStyleTag(
+      [["./style-4.css", ".foo { color: red }", "", undefined, "", "default"]],
+      defaultOptions
+    );
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+  });
+
+  it.only("should work with empty layer", () => {
+    injectStylesIntoStyleTag(
+        [["./style-4.css", ".foo { color: red }", "", undefined, "", ""]],
+        defaultOptions
+    );
+
+    expect(document.documentElement.innerHTML).toMatchSnapshot();
+  });
+
   it("should work with source maps", () => {
     injectStylesIntoStyleTag(
       [

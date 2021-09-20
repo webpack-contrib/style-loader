@@ -29,6 +29,7 @@ import api2, {
   namedExportLazyBlue,
   namedExportLazyBackground,
 } from "./style.named-export.lazy.module.css";
+import "./top.css";
 
 console.log("___LOCALS___");
 console.log(component);
