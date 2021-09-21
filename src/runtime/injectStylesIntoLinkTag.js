@@ -12,22 +12,22 @@ module.exports = (url, options) => {
     }
   }
 
-  const link = document.createElement("link");
+  const linkElement = document.createElement("link");
 
-  link.rel = "stylesheet";
-  link.href = url;
+  linkElement.rel = "stylesheet";
+  linkElement.href = url;
 
   Object.keys(options.attributes).forEach((key) => {
-    link.setAttribute(key, options.attributes[key]);
+    linkElement.setAttribute(key, options.attributes[key]);
   });
 
-  options.insert(link);
+  options.insert(linkElement);
 
   return (newUrl) => {
     if (typeof newUrl === "string") {
-      link.href = newUrl;
+      linkElement.href = newUrl;
     } else {
-      link.parentNode.removeChild(link);
+      linkElement.parentNode.removeChild(linkElement);
     }
   };
 };

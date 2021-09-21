@@ -10,7 +10,7 @@ const replaceText = (function replaceText() {
 })();
 
 /* istanbul ignore next  */
-function apply(style, index, remove, obj) {
+function apply(styleElement, index, remove, obj) {
   let css;
 
   if (remove) {
@@ -49,20 +49,20 @@ function apply(style, index, remove, obj) {
 
   // For old IE
   /* istanbul ignore if  */
-  if (style.styleSheet) {
-    style.styleSheet.cssText = replaceText(index, css);
+  if (styleElement.styleSheet) {
+    styleElement.styleSheet.cssText = replaceText(index, css);
   } else {
     const cssNode = document.createTextNode(css);
-    const childNodes = style.childNodes;
+    const childNodes = styleElement.childNodes;
 
     if (childNodes[index]) {
-      style.removeChild(childNodes[index]);
+      styleElement.removeChild(childNodes[index]);
     }
 
     if (childNodes.length) {
-      style.insertBefore(cssNode, childNodes[index]);
+      styleElement.insertBefore(cssNode, childNodes[index]);
     } else {
-      style.appendChild(cssNode);
+      styleElement.appendChild(cssNode);
     }
   }
 }
@@ -76,7 +76,7 @@ const singletonData = {
 function domAPI(options) {
   // eslint-disable-next-line no-undef,no-use-before-define
   const styleIndex = singletonData.singletonCounter++;
-  const style =
+  const styleElement =
     // eslint-disable-next-line no-undef,no-use-before-define
     singletonData.singleton ||
     // eslint-disable-next-line no-undef,no-use-before-define
@@ -84,10 +84,10 @@ function domAPI(options) {
 
   return {
     update: (obj) => {
-      apply(style, styleIndex, false, obj);
+      apply(styleElement, styleIndex, false, obj);
     },
     remove: (obj) => {
-      apply(style, styleIndex, true, obj);
+      apply(styleElement, styleIndex, true, obj);
     },
   };
 }

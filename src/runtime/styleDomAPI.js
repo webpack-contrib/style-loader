@@ -1,5 +1,5 @@
 /* istanbul ignore next  */
-function apply(style, options, obj) {
+function apply(styleElement, options, obj) {
   let css = "";
 
   if (obj.supports) {
@@ -40,28 +40,28 @@ function apply(style, options, obj) {
 
   // For old IE
   /* istanbul ignore if  */
-  options.styleTagTransform(css, style, options.options);
+  options.styleTagTransform(css, styleElement, options.options);
 }
 
-function removeStyleElement(style) {
+function removeStyleElement(styleElement) {
   // istanbul ignore if
-  if (style.parentNode === null) {
+  if (styleElement.parentNode === null) {
     return false;
   }
 
-  style.parentNode.removeChild(style);
+  styleElement.parentNode.removeChild(styleElement);
 }
 
 /* istanbul ignore next  */
 function domAPI(options) {
-  const style = options.insertStyleElement(options);
+  const styleElement = options.insertStyleElement(options);
 
   return {
     update: (obj) => {
-      apply(style, options, obj);
+      apply(styleElement, options, obj);
     },
     remove: () => {
-      removeStyleElement(style);
+      removeStyleElement(styleElement);
     },
   };
 }
