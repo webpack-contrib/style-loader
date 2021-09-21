@@ -240,7 +240,7 @@ module.exports = {
       },
       {
         test: /\.png$/i,
-        loader: "file-loader",
+        type: "asset/resource",
       },
     ],
   },
