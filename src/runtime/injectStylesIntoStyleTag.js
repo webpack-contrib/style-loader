@@ -39,9 +39,9 @@ function modulesToDom(list, options) {
       stylesInDOM[indexByIdentifier].updater(obj);
     } else {
       const updater = addElementStyle(obj, options);
-    
+
       options.byIndex = i;
-      
+
       stylesInDOM.splice(i, 0, {
         identifier,
         updater,
