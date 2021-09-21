@@ -1,10 +1,10 @@
-const stylesInDom = [];
+const stylesInDOM = [];
 
 function getIndexByIdentifier(identifier) {
   let result = -1;
 
-  for (let i = 0; i < stylesInDom.length; i++) {
-    if (stylesInDom[i].identifier === identifier) {
+  for (let i = 0; i < stylesInDOM.length; i++) {
+    if (stylesInDOM[i].identifier === identifier) {
       result = i;
       break;
     }
@@ -25,7 +25,7 @@ function modulesToDom(list, options) {
 
     idCountMap[id] = count + 1;
 
-    const index = getIndexByIdentifier(identifier);
+    const indexByIdentifier = getIndexByIdentifier(identifier);
     const obj = {
       css: item[1],
       media: item[2],
@@ -34,13 +34,17 @@ function modulesToDom(list, options) {
       layer: item[5],
     };
 
-    if (index !== -1) {
-      stylesInDom[index].references++;
-      stylesInDom[index].updater(obj);
+    if (indexByIdentifier !== -1) {
+      stylesInDOM[indexByIdentifier].references++;
+      stylesInDOM[indexByIdentifier].updater(obj);
     } else {
-      stylesInDom.push({
+      const updater = addElementStyle(obj, options);
+    
+      options.byIndex = i;
+      
+      stylesInDOM.splice(i, 0, {
         identifier,
-        updater: addStyle(obj, options),
+        updater,
         references: 1,
       });
     }
@@ -51,12 +55,12 @@ function modulesToDom(list, options) {
   return identifiers;
 }
 
-function addStyle(obj, options) {
+function addElementStyle(obj, options) {
   const api = options.domAPI(options);
 
   api.update(obj);
 
-  return function updateStyle(newObj) {
+  const updater = (newObj) => {
     if (newObj) {
       if (
         newObj.css === obj.css &&
@@ -73,6 +77,8 @@ function addStyle(obj, options) {
       api.remove();
     }
   };
+
+  return updater;
 }
 
 module.exports = (list, options) => {
@@ -89,7 +95,7 @@ module.exports = (list, options) => {
       const identifier = lastIdentifiers[i];
       const index = getIndexByIdentifier(identifier);
 
-      stylesInDom[index].references--;
+      stylesInDOM[index].references--;
     }
 
     const newLastIdentifiers = modulesToDom(newList, options);
@@ -98,9 +104,9 @@ module.exports = (list, options) => {
       const identifier = lastIdentifiers[i];
       const index = getIndexByIdentifier(identifier);
 
-      if (stylesInDom[index].references === 0) {
-        stylesInDom[index].updater();
-        stylesInDom.splice(index, 1);
+      if (stylesInDOM[index].references === 0) {
+        stylesInDOM[index].updater();
+        stylesInDOM.splice(index, 1);
       }
     }
 

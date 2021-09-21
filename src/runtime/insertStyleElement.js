@@ -1,11 +1,11 @@
 /* istanbul ignore next  */
 function insertStyleElement(options) {
-  const style = document.createElement("style");
+  const element = document.createElement("style");
 
-  options.setAttributes(style, options.attributes);
-  options.insert(style, options.options);
+  options.setAttributes(element, options.attributes);
+  options.insert(element, options.options);
 
-  return style;
+  return element;
 }
 
 module.exports = insertStyleElement;

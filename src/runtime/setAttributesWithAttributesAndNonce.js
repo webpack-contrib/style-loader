@@ -1,7 +1,7 @@
 /* istanbul ignore next  */
-function setAttributesWithoutAttributes(style, attributes) {
+function setAttributesWithoutAttributes(styleElement, attributes) {
   Object.keys(attributes).forEach((key) => {
-    style.setAttribute(key, attributes[key]);
+    styleElement.setAttribute(key, attributes[key]);
   });
 }
 
