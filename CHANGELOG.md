@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.3.0](https://github.com/webpack-contrib/style-loader/compare/v3.2.1...v3.3.0) (2021-09-21)
+
+
+### Features
+
+* added support for `supports()`, `layer()` and `media` from `@import` at-rules ([b9a600c](https://github.com/webpack-contrib/style-loader/commit/b9a600c87aa3f68caabcaa80f0a1c340e739e30e))
+* allow to pass options to `insert` function through `style.use()` ([#535](https://github.com/webpack-contrib/style-loader/issues/535)) ([f8ef63b](https://github.com/webpack-contrib/style-loader/commit/f8ef63b86a603232395f7708c508d6c3b639e92d))
+
 ### [3.2.1](https://github.com/webpack-contrib/style-loader/compare/v3.2.0...v3.2.1) (2021-07-20)
 
 
