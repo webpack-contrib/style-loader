@@ -912,14 +912,14 @@ exports[`loader should work with css modules when the "injectType" option is "au
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.css-modules-local-scoped-className_kLcsR9Z {
+<style>.css-modules-local-scoped-className_B_X8gxt {
   background: red;
 }
-</style><style>.css-modules-myClassName_RJ7CAd5 {
+</style><style>.css-modules-myClassName_ll2xYwU {
   background: red;
 }
 
-.css-modules-myComposingClass_mUgt67C {
+.css-modules-myComposingClass__qO4CWd {
   color: blue;
 }
 </style></head>
@@ -929,7 +929,7 @@ exports[`loader should work with css modules when the "injectType" option is "au
   <iframe class=\\"iframeTarget\\"></iframe>
 
 
-<div class=\\"css-modules-myClassName_RJ7CAd5\\">Water</div><div class=\\"css-modules-myComposingClass_mUgt67C css-modules-local-scoped-className_kLcsR9Z\\">Ground</div></body></html>"
+<div class=\\"css-modules-myClassName_ll2xYwU\\">Water</div><div class=\\"css-modules-myComposingClass__qO4CWd css-modules-local-scoped-className_B_X8gxt\\">Ground</div></body></html>"
 `;
 
 exports[`loader should work with css modules when the "injectType" option is "autoStyleTag": errors 1`] = `Array []`;
@@ -940,14 +940,14 @@ exports[`loader should work with css modules when the "injectType" option is "la
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.css-modules-local-scoped-className_kLcsR9Z {
+<style>.css-modules-local-scoped-className_B_X8gxt {
   background: red;
 }
-</style><style>.css-modules-myClassName_RJ7CAd5 {
+</style><style>.css-modules-myClassName_ll2xYwU {
   background: red;
 }
 
-.css-modules-myComposingClass_mUgt67C {
+.css-modules-myComposingClass__qO4CWd {
   color: blue;
 }
 </style></head>
@@ -957,7 +957,7 @@ exports[`loader should work with css modules when the "injectType" option is "la
   <iframe class=\\"iframeTarget\\"></iframe>
 
 
-<div class=\\"css-modules-myClassName_RJ7CAd5\\">Water</div><div class=\\"css-modules-myComposingClass_mUgt67C css-modules-local-scoped-className_kLcsR9Z\\">Ground</div></body></html>"
+<div class=\\"css-modules-myClassName_ll2xYwU\\">Water</div><div class=\\"css-modules-myComposingClass__qO4CWd css-modules-local-scoped-className_B_X8gxt\\">Ground</div></body></html>"
 `;
 
 exports[`loader should work with css modules when the "injectType" option is "lazyAutoStyleTag": errors 1`] = `Array []`;
@@ -968,14 +968,14 @@ exports[`loader should work with css modules when the "injectType" option is "la
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.css-modules-local-scoped-className_kLcsR9Z {
+<style>.css-modules-local-scoped-className_B_X8gxt {
   background: red;
 }
-.css-modules-myClassName_RJ7CAd5 {
+.css-modules-myClassName_ll2xYwU {
   background: red;
 }
 
-.css-modules-myComposingClass_mUgt67C {
+.css-modules-myComposingClass__qO4CWd {
   color: blue;
 }
 </style></head>
@@ -985,7 +985,7 @@ exports[`loader should work with css modules when the "injectType" option is "la
   <iframe class=\\"iframeTarget\\"></iframe>
 
 
-<div class=\\"css-modules-myClassName_RJ7CAd5\\">Water</div><div class=\\"css-modules-myComposingClass_mUgt67C css-modules-local-scoped-className_kLcsR9Z\\">Ground</div></body></html>"
+<div class=\\"css-modules-myClassName_ll2xYwU\\">Water</div><div class=\\"css-modules-myComposingClass__qO4CWd css-modules-local-scoped-className_B_X8gxt\\">Ground</div></body></html>"
 `;
 
 exports[`loader should work with css modules when the "injectType" option is "lazySingletonStyleTag": errors 1`] = `Array []`;
@@ -996,14 +996,14 @@ exports[`loader should work with css modules when the "injectType" option is "la
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.css-modules-local-scoped-className_kLcsR9Z {
+<style>.css-modules-local-scoped-className_B_X8gxt {
   background: red;
 }
-</style><style>.css-modules-myClassName_RJ7CAd5 {
+</style><style>.css-modules-myClassName_ll2xYwU {
   background: red;
 }
 
-.css-modules-myComposingClass_mUgt67C {
+.css-modules-myComposingClass__qO4CWd {
   color: blue;
 }
 </style></head>
@@ -1013,7 +1013,7 @@ exports[`loader should work with css modules when the "injectType" option is "la
   <iframe class=\\"iframeTarget\\"></iframe>
 
 
-<div class=\\"css-modules-myClassName_RJ7CAd5\\">Water</div><div class=\\"css-modules-myComposingClass_mUgt67C css-modules-local-scoped-className_kLcsR9Z\\">Ground</div></body></html>"
+<div class=\\"css-modules-myClassName_ll2xYwU\\">Water</div><div class=\\"css-modules-myComposingClass__qO4CWd css-modules-local-scoped-className_B_X8gxt\\">Ground</div></body></html>"
 `;
 
 exports[`loader should work with css modules when the "injectType" option is "lazyStyleTag": errors 1`] = `Array []`;
@@ -1042,14 +1042,14 @@ exports[`loader should work with css modules when the "injectType" option is "si
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.css-modules-local-scoped-className_kLcsR9Z {
+<style>.css-modules-local-scoped-className_B_X8gxt {
   background: red;
 }
-.css-modules-myClassName_RJ7CAd5 {
+.css-modules-myClassName_ll2xYwU {
   background: red;
 }
 
-.css-modules-myComposingClass_mUgt67C {
+.css-modules-myComposingClass__qO4CWd {
   color: blue;
 }
 </style></head>
@@ -1059,7 +1059,7 @@ exports[`loader should work with css modules when the "injectType" option is "si
   <iframe class=\\"iframeTarget\\"></iframe>
 
 
-<div class=\\"css-modules-myClassName_RJ7CAd5\\">Water</div><div class=\\"css-modules-myComposingClass_mUgt67C css-modules-local-scoped-className_kLcsR9Z\\">Ground</div></body></html>"
+<div class=\\"css-modules-myClassName_ll2xYwU\\">Water</div><div class=\\"css-modules-myComposingClass__qO4CWd css-modules-local-scoped-className_B_X8gxt\\">Ground</div></body></html>"
 `;
 
 exports[`loader should work with css modules when the "injectType" option is "singletonStyleTag": errors 1`] = `Array []`;
@@ -1070,14 +1070,14 @@ exports[`loader should work with css modules when the "injectType" option is "st
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
   <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.css-modules-local-scoped-className_kLcsR9Z {
+<style>.css-modules-local-scoped-className_B_X8gxt {
   background: red;
 }
-</style><style>.css-modules-myClassName_RJ7CAd5 {
+</style><style>.css-modules-myClassName_ll2xYwU {
   background: red;
 }
 
-.css-modules-myComposingClass_mUgt67C {
+.css-modules-myComposingClass__qO4CWd {
   color: blue;
 }
 </style></head>
@@ -1087,7 +1087,7 @@ exports[`loader should work with css modules when the "injectType" option is "st
   <iframe class=\\"iframeTarget\\"></iframe>
 
 
-<div class=\\"css-modules-myClassName_RJ7CAd5\\">Water</div><div class=\\"css-modules-myComposingClass_mUgt67C css-modules-local-scoped-className_kLcsR9Z\\">Ground</div></body></html>"
+<div class=\\"css-modules-myClassName_ll2xYwU\\">Water</div><div class=\\"css-modules-myComposingClass__qO4CWd css-modules-local-scoped-className_B_X8gxt\\">Ground</div></body></html>"
 `;
 
 exports[`loader should work with css modules when the "injectType" option is "styleTag": errors 1`] = `Array []`;
