@@ -26,6 +26,18 @@ To begin, you'll need to install `style-loader`:
 npm install --save-dev style-loader
 ```
 
+or
+
+```console
+yarn add -D style-loader
+```
+
+or
+
+```console
+pnpm add -D style-loader
+```
+
 It's recommended to combine `style-loader` with the [`css-loader`](https://github.com/webpack-contrib/css-loader)
 
 Then add the loader to your `webpack` config. For example:
