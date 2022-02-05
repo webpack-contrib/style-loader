@@ -73,31 +73,33 @@ module.exports = {
 
 ## Options
 
-|                     Name                      |         Type         |   Default   | Description                                                |
-| :-------------------------------------------: | :------------------: | :---------: | :--------------------------------------------------------- |
-|        [**`injectType`**](#injecttype)        |      `{String}`      | `styleTag`  | Allows to setup how styles will be injected into the DOM   |
-|        [**`attributes`**](#attributes)        |      `{Object}`      |    `{}`     | Adds custom attributes to tag                              |
-|            [**`insert`**](#insert)            | `{String\|Function}` |   `head`    | Inserts tag at the given position into the DOM             |
-| [**`styleTagTransform`**](#styleTagTransform) | `{String\|Function}` | `undefined` | Transform tag and css when insert 'style' tag into the DOM |
-|              [**`base`**](#base)              |      `{Number}`      |   `true`    | Sets module ID base (DLLPlugin)                            |
-|          [**`esModule`**](#esmodule)          |     `{Boolean}`      |   `true`    | Use ES modules syntax                                      |
+- [**`injectType`**](#injecttype)
+- [**`attributes`**](#attributes)
+- [**`insert`**](#insert)
+- [**`styleTagTransform`**](#styleTagTransform)
+- [**`base`**](#base)
+- [**`esModule`**](#esmodule)
 
 ### `injectType`
 
-Type: `String`
+Type:
+
+```ts
+type injectType =
+  | "styleTag"
+  | "singletonStyleTag"
+  | "autoStyleTag"
+  | "lazyStyleTag"
+  | "lazySingletonStyleTag"
+  | "lazyAutoStyleTag"
+  | "linkTag";
+```
+
 Default: `styleTag`
 
 Allows to setup how styles will be injected into the DOM.
 
 Possible values:
-
-- `styleTag`
-- `singletonStyleTag`
-- `autoStyleTag`
-- `lazyStyleTag`
-- `lazySingletonStyleTag`
-- `lazyAutoStyleTag`
-- `linkTag`
 
 #### `styleTag`
 
@@ -400,7 +402,12 @@ The loader generate this:
 
 ### `attributes`
 
-Type: `Object`
+Type:
+
+```ts
+type attributes = HTMLAttributes;
+```
+
 Default: `{}`
 
 If defined, the `style-loader` will attach given attributes with their values on `<style>` / `<link>` element.
@@ -435,7 +442,12 @@ module.exports = {
 
 ### `insert`
 
-Type: `String|Function`
+Type:
+
+```ts
+type insert = string | ((htmlElement: HTMLElement, options: any) => void);
+```
+
 Default: `head`
 
 By default, the `style-loader` appends `<style>`/`<link>` elements to the end of the style target, which is the `<head>` tag of the page unless specified by `insert`.
@@ -443,7 +455,7 @@ This will cause CSS created by the loader to take priority over CSS already pres
 You can use other values if the standard behavior is not suitable for you, but we do not recommend doing this.
 If you target an [iframe](https://developer.mozilla.org/en-US/docs/Web/API/HTMLIFrameElement) make sure you have sufficient access rights, the styles will be injected into the content document head.
 
-#### `String`
+#### `string`
 
 ##### `Selector`
 
@@ -504,7 +516,7 @@ module.exports = {
 
 A new `<style>`/`<link>` elements will be inserted into at bottom of `body` tag.
 
-#### `Function`
+#### `function`
 
 Allows to override default behavior and insert styles at any position.
 
@@ -637,10 +649,17 @@ export default CustomSquare;
 
 ### `styleTagTransform`
 
-Type: `String | Function`
+Type:
+
+```ts
+type styleTagTransform =
+  | string
+  | ((css: string, styleElement: HTMLStyleElement, options: any) => void);
+```
+
 Default: `undefined`
 
-#### `String`
+#### `string`
 
 Allows to setup absolute path to custom function that allows to override default behavior styleTagTransform.
 
@@ -670,7 +689,7 @@ module.exports = {
 };
 ```
 
-#### `Function`
+#### `function`
 
 Transform tag and css when insert 'style' tag into the DOM.
 
@@ -707,6 +726,10 @@ module.exports = {
 ```
 
 ### `base`
+
+```ts
+type base = number;
+```
 
 This setting is primarily used as a workaround for [css clashes](https://github.com/webpack-contrib/style-loader/issues/163) when using one or more [DllPlugin](https://robertknight.me.uk/posts/webpack-dll-plugins/)'s. `base` allows you to prevent either the _app_'s css (or _DllPlugin2_'s css) from overwriting _DllPlugin1_'s css by specifying a css module id base which is greater than the range used by _DllPlugin1_ e.g.:
 
@@ -763,7 +786,12 @@ module.exports = {
 
 ### `esModule`
 
-Type: `Boolean`
+Type:
+
+```ts
+type esModule = boolean;
+```
+
 Default: `true`
 
 By default, `style-loader` generates JS modules that use the ES modules syntax.
