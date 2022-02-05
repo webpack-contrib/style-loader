@@ -445,7 +445,9 @@ module.exports = {
 Type:
 
 ```ts
-type insert = string | ((htmlElement: HTMLElement, options: any) => void);
+type insert =
+  | string
+  | ((htmlElement: HTMLElement, options: Record<string, any>) => void);
 ```
 
 Default: `head`
@@ -654,7 +656,11 @@ Type:
 ```ts
 type styleTagTransform =
   | string
-  | ((css: string, styleElement: HTMLStyleElement, options: any) => void);
+  | ((
+      css: string,
+      styleElement: HTMLStyleElement,
+      options: Record<string, any>
+    ) => void);
 ```
 
 Default: `undefined`
