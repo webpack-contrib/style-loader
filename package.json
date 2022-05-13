@@ -13,7 +13,7 @@
   },
   "main": "dist/cjs.js",
   "engines": {
-    "node": ">= 12.13.0"
+    "node": ">= 14.16.0"
   },
   "scripts": {
     "start": "npm run build -- -w",
@@ -55,11 +55,11 @@
     "del": "^6.0.0",
     "del-cli": "^4.0.1",
     "es-check": "^6.2.1",
-    "eslint": "^8.14.0",
+    "eslint": "^8.15.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.26.0",
     "file-loader": "^6.2.0",
-    "husky": "^7.0.1",
+    "husky": "^8.0.1",
     "jest": "^27.5.0",
     "jsdom": "^18.1.1",
     "lint-staged": "^12.4.1",
@@ -70,9 +70,9 @@
     "sass-loader": "^12.4.0",
     "semver": "^7.3.7",
     "standard-version": "^9.3.1",
-    "webpack": "^5.72.0",
+    "webpack": "^5.72.1",
     "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.8.1"
+    "webpack-dev-server": "^4.9.0"
   },
   "keywords": [
     "webpack"
