@@ -161,7 +161,9 @@ The loader inject styles like:
 
 Automatically injects styles into the DOM using one `<style></style>`.
 
-> ⚠ Source maps do not work.
+> **Warning**
+>
+> Source maps do not work.
 
 **component.js**
 
@@ -489,8 +491,13 @@ module.exports = {
 
 Allows to setup absolute path to custom function that allows to override default behavior and insert styles at any position.
 
-> ⚠ Do not forget that this code will be used in the browser and not all browsers support latest ECMA features like `let`, `const`, `arrow function expression` and etc. We recommend using [`babel-loader`](https://webpack.js.org/loaders/babel-loader/) for support latest ECMA features.
-> ⚠ Do not forget that some DOM methods may not be available in older browsers, we recommended use only [DOM core level 2 properties](https://caniuse.com/#search=DOM%20Core), but it is depends what browsers you want to support
+> **Warning**
+>
+> Do not forget that this code will be used in the browser and not all browsers support latest ECMA features like `let`, `const`, `arrow function expression` and etc. We recommend using [`babel-loader`](https://webpack.js.org/loaders/babel-loader/) for support latest ECMA features.
+
+> **Warning**
+>
+> Do not forget that some DOM methods may not be available in older browsers, we recommended use only [DOM core level 2 properties](https://caniuse.com/#search=DOM%20Core), but it is depends what browsers you want to support
 
 **webpack.config.js**
 
@@ -521,8 +528,13 @@ A new `<style>`/`<link>` elements will be inserted into at bottom of `body` tag.
 
 Allows to override default behavior and insert styles at any position.
 
-> ⚠ Do not forget that this code will be used in the browser and not all browsers support latest ECMA features like `let`, `const`, `arrow function expression` and etc, we recommend use only ECMA 5 features, but it is depends what browsers you want to support
-> ⚠ Do not forget that some DOM methods may not be available in older browsers, we recommended use only [DOM core level 2 properties](https://caniuse.com/#search=DOM%20Core), but it is depends what browsers you want to support
+> **Warning**
+>
+> Do not forget that this code will be used in the browser and not all browsers support latest ECMA features like `let`, `const`, `arrow function expression` and etc, we recommend use only ECMA 5 features, but it is depends what browsers you want to support
+
+> **Warning**
+>
+> Do not forget that some DOM methods may not be available in older browsers, we recommended use only [DOM core level 2 properties](https://caniuse.com/#search=DOM%20Core), but it is depends what browsers you want to support
 
 **webpack.config.js**
 
@@ -668,7 +680,9 @@ Default: `undefined`
 
 Allows to setup absolute path to custom function that allows to override default behavior styleTagTransform.
 
-> ⚠ Do not forget that this code will be used in the browser and not all browsers support latest ECMA features like `let`, `const`, `arrow function expression` and etc, we recommend use only ECMA 5 features, but it is depends what browsers you want to support
+> **Warning**
+>
+> Do not forget that this code will be used in the browser and not all browsers support latest ECMA features like `let`, `const`, `arrow function expression` and etc, we recommend use only ECMA 5 features, but it is depends what browsers you want to support
 
 **webpack.config.js**
 
@@ -698,8 +712,13 @@ module.exports = {
 
 Transform tag and css when insert 'style' tag into the DOM.
 
-> ⚠ Do not forget that this code will be used in the browser and not all browsers support latest ECMA features like `let`, `const`, `arrow function expression` and etc, we recommend use only ECMA 5 features, but it is depends what browsers you want to support
-> ⚠ Do not forget that some DOM methods may not be available in older browsers, we recommended use only [DOM core level 2 properties](https://caniuse.com/#search=DOM%20Core), but it is depends what browsers you want to support
+> **Warning**
+>
+> Do not forget that this code will be used in the browser and not all browsers support latest ECMA features like `let`, `const`, `arrow function expression` and etc, we recommend use only ECMA 5 features, but it is depends what browsers you want to support
+
+> **Warning**
+>
+> Do not forget that some DOM methods may not be available in older browsers, we recommended use only [DOM core level 2 properties](https://caniuse.com/#search=DOM%20Core), but it is depends what browsers you want to support
 
 **webpack.config.js**
 
@@ -830,7 +849,9 @@ For `production` builds it's recommended to extract the CSS from your bundle bei
 This can be achieved by using the [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin), because it creates separate css files.
 For `development` mode (including `webpack-dev-server`) you can use `style-loader`, because it injects CSS into the DOM using multiple `<style></style>` and works faster.
 
-> ⚠ Do not use together `style-loader` and `mini-css-extract-plugin`.
+> **Warning**
+>
+> Do not use together `style-loader` and `mini-css-extract-plugin`.
 
 **webpack.config.js**
 
@@ -858,11 +879,17 @@ module.exports = {
 
 ### Named export for CSS Modules
 
-> ⚠ Names of locals are converted to `camelCase`.
+> **Warning**
+>
+> Names of locals are converted to `camelCase`.
 
-> ⚠ It is not allowed to use JavaScript reserved words in css class names.
+> **Warning**
+>
+> It is not allowed to use JavaScript reserved words in css class names.
 
-> ⚠ Options `esModule` and `modules.namedExport` in `css-loader` should be enabled.
+> **Warning**
+>
+> Options `esModule` and `modules.namedExport` in `css-loader` should be enabled.
 
 **styles.css**
 
@@ -942,7 +969,9 @@ There are two ways to work with `nonce`:
 - using the `attributes` option
 - using the `__webpack_nonce__` variable
 
-> ⚠ the `attributes` option takes precedence over the `__webpack_nonce__` variable
+> **Warning**
+>
+> the `attributes` option takes precedence over the `__webpack_nonce__` variable
 
 #### `attributes`
 
