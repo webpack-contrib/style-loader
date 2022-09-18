@@ -7593,6 +7593,41 @@ Object {
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "singletonStyleTag": warnings 1`] = `Array []`;
 
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": DOM 1`] = `
+"<!DOCTYPE html><html><head>
+  <title>style-loader test</title>
+  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+<style>.foo {
+    color: red;
+}
+
+.bar {
+    color: blue;
+}
+
+.baz {
+    color: coral;
+}
+</style></head>
+<body>
+  <h1>Body</h1>
+  <div class=\\"target\\"></div>
+  <iframe class=\\"iframeTarget\\"></iframe>
+
+
+</body></html>"
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": errors 1`] = `Array []`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": exports 1`] = `
+Object {
+  "default": undefined,
+}
+`;
+
+exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
+
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
@@ -7793,34 +7828,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYP
 </body></html>"
 `;
 
-exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": DOM 2`] = `
-"<!DOCTYPE html><html><head>
-  <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
-<style>.foo {
-    color: red;
-}
-
-.bar {
-    color: blue;
-}
-
-.baz {
-    color: coral;
-}
-</style></head>
-<body>
-  <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
-
-
-</body></html>"
-`;
-
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": errors 1`] = `Array []`;
-
-exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": errors 2`] = `Array []`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": exports 1`] = `
 Object {
@@ -7828,12 +7836,4 @@ Object {
 }
 `;
 
-exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": exports 2`] = `
-Object {
-  "default": undefined,
-}
-`;
-
 exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": warnings 1`] = `Array []`;
-
-exports[`"esModule" option CONFIG: {"styleLoader":{},"cssLoader":{}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": warnings 2`] = `Array []`;
