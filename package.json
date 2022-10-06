@@ -43,9 +43,9 @@
     "webpack": "^5.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.18.10",
-    "@babel/core": "^7.18.13",
-    "@babel/preset-env": "^7.18.10",
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.19.3",
+    "@babel/preset-env": "^7.19.3",
     "@commitlint/cli": "^16.3.0",
     "@commitlint/config-conventional": "^16.2.4",
     "@webpack-contrib/eslint-config-webpack": "^3.0.0",
@@ -54,8 +54,8 @@
     "css-loader": "^6.7.1",
     "del": "^6.1.1",
     "del-cli": "^4.0.1",
-    "es-check": "^7.0.0",
-    "eslint": "^8.23.0",
+    "es-check": "^7.0.1",
+    "eslint": "^8.24.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.26.0",
     "file-loader": "^6.2.0",
@@ -67,13 +67,13 @@
     "memfs": "^3.4.7",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.7.1",
-    "sass": "^1.54.8",
+    "sass": "^1.55.0",
     "sass-loader": "^12.4.0",
-    "semver": "^7.3.7",
+    "semver": "^7.3.8",
     "standard-version": "^9.5.0",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
-    "webpack-dev-server": "^4.10.1"
+    "webpack-dev-server": "^4.11.1"
   },
   "keywords": [
     "webpack"
