@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.3.2](https://github.com/webpack-contrib/style-loader/compare/v3.3.1...v3.3.2) (2023-03-13)
+
+
+### Bug Fixes
+
+* noop in environment without DOM API ([#597](https://github.com/webpack-contrib/style-loader/issues/597)) ([03d3df3](https://github.com/webpack-contrib/style-loader/commit/03d3df3c363484c18a1e9a5e468a7600ea1322f3))
+
 ### [3.3.1](https://github.com/webpack-contrib/style-loader/compare/v3.3.0...v3.3.1) (2021-10-21)
 
 
