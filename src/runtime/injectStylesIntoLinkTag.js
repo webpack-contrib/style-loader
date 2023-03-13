@@ -1,4 +1,8 @@
 module.exports = (url, options) => {
+  if (typeof document === "undefined") {
+    return () => {};
+  }
+
   options = options || {};
   options.attributes =
     typeof options.attributes === "object" ? options.attributes : {};

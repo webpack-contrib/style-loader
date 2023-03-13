@@ -74,6 +74,12 @@ const singletonData = {
 
 /* istanbul ignore next  */
 function domAPI(options) {
+  if (typeof document === "undefined")
+    return {
+      update: () => {},
+      remove: () => {},
+    };
+
   // eslint-disable-next-line no-undef,no-use-before-define
   const styleIndex = singletonData.singletonCounter++;
   const styleElement =
