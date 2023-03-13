@@ -1,11 +1,14 @@
 /* eslint-env browser */
 
+import vm from "vm";
+
 import {
   compile,
   getCompiler,
   getEntryByInjectType,
   getErrors,
   getWarnings,
+  readAsset,
   runInJsDom,
 } from "./helpers/index";
 
@@ -32,6 +35,26 @@ describe('"injectType" option', () => {
         expect(dom.serialize()).toMatchSnapshot("DOM");
       });
 
+      expect(getWarnings(stats)).toMatchSnapshot("warnings");
+      expect(getErrors(stats)).toMatchSnapshot("errors");
+    });
+
+    it(`should work when the "injectType" option is "${injectType}" with non DOM environment`, async () => {
+      const entry = getEntryByInjectType("simple.js", injectType);
+      const compiler = getCompiler(entry, { injectType });
+      const stats = await compile(compiler);
+      const code = readAsset("main.bundle.js", compiler, stats);
+      const script = new vm.Script(code);
+
+      let errored;
+
+      try {
+        script.runInContext(vm.createContext({ console }));
+      } catch (error) {
+        errored = error;
+      }
+
+      expect(errored).toBeUndefined();
       expect(getWarnings(stats)).toMatchSnapshot("warnings");
       expect(getErrors(stats)).toMatchSnapshot("errors");
     });
