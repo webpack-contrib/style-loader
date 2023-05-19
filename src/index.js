@@ -22,9 +22,37 @@ import {
 
 import schema from "./options.json";
 
-const loaderAPI = () => {};
+// eslint-disable-next-line consistent-return
+const loader = function loader(content) {
+  if (
+    this._compiler &&
+    this._compiler.options &&
+    this._compiler.options.experiments &&
+    this._compiler.options.experiments.css &&
+    this._module &&
+    this._module.type === "css"
+  ) {
+    return content;
+  }
+};
 
-loaderAPI.pitch = function loader(request) {
+loader.pitch = function pitch(request) {
+  if (
+    this._compiler &&
+    this._compiler.options &&
+    this._compiler.options.experiments &&
+    this._compiler.options.experiments.css &&
+    this._module &&
+    this._module.type === "css"
+  ) {
+    this.emitWarning(
+      new Error(
+        'You can\'t use `experiments.css` (`experiments.futureDefaults` enable built-in CSS support by default) and `style-loader` together, please set `experiments.css` to `false` or set `{ type: "javascript/auto" }` for rules with `style-loader` in your webpack config (now `style-loader` does nothing).'
+      )
+    );
+    return;
+  }
+
   const options = this.getOptions(schema);
   const injectType = options.injectType || "styleTag";
   const esModule =
@@ -57,6 +85,7 @@ loaderAPI.pitch = function loader(request) {
     case "linkTag": {
       const hmrCode = this.hot ? getLinkHmrCode(esModule, this, request) : "";
 
+      // eslint-disable-next-line consistent-return
       return `
       ${getImportLinkAPICode(esModule, this)}
       ${getImportInsertBySelectorCode(esModule, this, insertType, options)}
@@ -87,6 +116,7 @@ ${esModule ? "export default {}" : ""}`;
         ? getStyleHmrCode(esModule, this, request, true)
         : "";
 
+      // eslint-disable-next-line consistent-return
       return `
       var exported = {};
 
@@ -157,6 +187,7 @@ ${getExportLazyStyleCode(esModule, this, request)}
         ? getStyleHmrCode(esModule, this, request, false)
         : "";
 
+      // eslint-disable-next-line consistent-return
       return `
       ${getImportStyleAPICode(esModule, this)}
       ${getImportStyleDomAPICode(esModule, this, isSingleton, isAuto)}
@@ -196,4 +227,4 @@ ${getExportStyleCode(esModule, this, request)}
   }
 };
 
-export default loaderAPI;
+export default loader;
