@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.3.3](https://github.com/webpack-contrib/style-loader/compare/v3.3.2...v3.3.3) (2023-05-19)
+
+
+### Bug Fixes
+
+* compatibility with built-in CSS support ([#605](https://github.com/webpack-contrib/style-loader/issues/605)) ([9636f58](https://github.com/webpack-contrib/style-loader/commit/9636f5805407734f587a87e69dd048e5cc7f1021))
+
 ### [3.3.2](https://github.com/webpack-contrib/style-loader/compare/v3.3.1...v3.3.2) (2023-03-13)
 
 
