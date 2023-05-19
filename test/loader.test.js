@@ -39,7 +39,7 @@ describe("loader", () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it("should do nothing with built-in CSS suppport", async () => {
+  it("should do nothing with built-in CSS support", async () => {
     const compiler = getCompiler("./simple.js", {}, {
       experiments: {
         css: true,
