@@ -39,6 +39,22 @@ describe("loader", () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
+  it("should do nothing with built-in CSS support", async () => {
+    const compiler = getCompiler(
+      "./simple.js",
+      {},
+      {
+        experiments: {
+          css: true,
+        },
+      }
+    );
+    const stats = await compile(compiler);
+
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
   injectTypes.forEach((injectType) => {
     it(`should work when the "injectType" option is "${injectType}"`, async () => {
       expect.assertions(3);
