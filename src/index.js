@@ -30,7 +30,10 @@ const loader = function loader(content) {
     this._compiler.options.experiments &&
     this._compiler.options.experiments.css &&
     this._module &&
-    this._module.type === "css"
+    (this._module.type === "css" ||
+      this._module.type === "css/global" ||
+      this._module.type === "css/module" ||
+      this._module.type === "css/auto")
   ) {
     return content;
   }
@@ -43,7 +46,10 @@ loader.pitch = function pitch(request) {
     this._compiler.options.experiments &&
     this._compiler.options.experiments.css &&
     this._module &&
-    this._module.type === "css"
+    (this._module.type === "css" ||
+      this._module.type === "css/global" ||
+      this._module.type === "css/module" ||
+      this._module.type === "css/auto")
   ) {
     this.emitWarning(
       new Error(
