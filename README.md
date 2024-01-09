@@ -70,6 +70,10 @@ module.exports = {
 };
 ```
 
+## Security Warning
+
+This loader is primarily meant for development. The default settings are not safe for production environments. See the [recommended example configuration](#recommended) and the section on [nonces](#nonce) for details.
+
 ## Options
 
 - [**`injectType`**](#injecttype)
@@ -963,6 +967,8 @@ module.exports = {
 ```
 
 ### Nonce
+
+If you are using a [Content Security Policy](https://www.w3.org/TR/CSP3/) (CSP), the injected code will usually be blocked. A workaround is to use a nonce. Note, however, that using a nonce significantly reduces the protection provided by the CSP. You can read more about the security impact in [the specification](https://www.w3.org/TR/CSP3/#security-considerations). The better solution is not to use this loader in production.
 
 There are two ways to work with `nonce`:
 
