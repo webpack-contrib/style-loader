@@ -72,7 +72,7 @@ module.exports = {
 
 ## Security Warning
 
-This loader is primarily meant for development. The default settings are not safe for production environments. See the [recommended example configuration](#recommended) and the section on [nonces](#nonce) for details.
+This loader is primarily meant for development. The default settings are not safe for production environments. See the [recommended example configuration](#recommend) and the section on [nonces](#nonce) for details.
 
 ## Options
 
