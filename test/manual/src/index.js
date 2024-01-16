@@ -159,7 +159,7 @@ console.log(
   namedExportRed,
   namedExportGreen,
   namedExportBlue,
-  namedExportBackground
+  namedExportBackground,
 );
 
 const articleElement3 = document.createElement("article");
@@ -202,7 +202,7 @@ console.log(
   namedExportLazyRed,
   namedExportLazyGreen,
   namedExportLazyBlue,
-  namedExportLazyBackground
+  namedExportLazyBackground,
 );
 
 api2.use();

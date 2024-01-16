@@ -674,7 +674,7 @@ type styleTagTransform =
   | ((
       css: string,
       styleElement: HTMLStyleElement,
-      options: Record<string, any>
+      options: Record<string, any>,
     ) => void);
 ```
 

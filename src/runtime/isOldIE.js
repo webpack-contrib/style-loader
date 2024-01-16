@@ -12,7 +12,7 @@ function isOldIE() {
       typeof window !== "undefined" &&
         typeof document !== "undefined" &&
         document.all &&
-        !window.atob
+        !window.atob,
     );
   }
 
