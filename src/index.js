@@ -53,8 +53,8 @@ loader.pitch = function pitch(request) {
   ) {
     this.emitWarning(
       new Error(
-        'You can\'t use `experiments.css` (`experiments.futureDefaults` enable built-in CSS support by default) and `style-loader` together, please set `experiments.css` to `false` or set `{ type: "javascript/auto" }` for rules with `style-loader` in your webpack config (now `style-loader` does nothing).'
-      )
+        'You can\'t use `experiments.css` (`experiments.futureDefaults` enable built-in CSS support by default) and `style-loader` together, please set `experiments.css` to `false` or set `{ type: "javascript/auto" }` for rules with `style-loader` in your webpack config (now `style-loader` does nothing).',
+      ),
     );
     return;
   }
@@ -77,15 +77,15 @@ loader.pitch = function pitch(request) {
     typeof options.insert === "function"
       ? "function"
       : options.insert && path.isAbsolute(options.insert)
-      ? "module-path"
-      : "selector";
+        ? "module-path"
+        : "selector";
 
   const styleTagTransformType =
     typeof options.styleTagTransform === "function"
       ? "function"
       : options.styleTagTransform && path.isAbsolute(options.styleTagTransform)
-      ? "module-path"
-      : "default";
+        ? "module-path"
+        : "default";
 
   switch (injectType) {
     case "linkTag": {
@@ -136,7 +136,7 @@ ${esModule ? "export default {}" : ""}`;
         this,
         options,
         isSingleton,
-        styleTagTransformType
+        styleTagTransformType,
       )}
       ${getImportStyleContentCode(esModule, this, request)}
       ${isAuto ? getImportIsOldIECode(esModule, this) : ""}
@@ -205,7 +205,7 @@ ${getExportLazyStyleCode(esModule, this, request)}
         this,
         options,
         isSingleton,
-        styleTagTransformType
+        styleTagTransformType,
       )}
       ${getImportStyleContentCode(esModule, this, request)}
       ${isAuto ? getImportIsOldIECode(esModule, this) : ""}

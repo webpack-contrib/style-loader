@@ -19,7 +19,7 @@ function stringifyRequest(loaderContext, request) {
     typeof loaderContext.utils.contextify === "function"
   ) {
     return JSON.stringify(
-      loaderContext.utils.contextify(loaderContext.context, request)
+      loaderContext.utils.contextify(loaderContext.context, request),
     );
   }
 
@@ -52,14 +52,14 @@ function stringifyRequest(loaderContext, request) {
 
         return singlePath.replace(/\\/g, "/") + query;
       })
-      .join("!")
+      .join("!"),
   );
 }
 
 function getImportLinkAPICode(esModule, loaderContext) {
   const modulePath = stringifyRequest(
     loaderContext,
-    `!${path.join(__dirname, "runtime/injectStylesIntoLinkTag.js")}`
+    `!${path.join(__dirname, "runtime/injectStylesIntoLinkTag.js")}`,
   );
 
   return esModule
@@ -78,7 +78,7 @@ function getImportLinkContentCode(esModule, loaderContext, request) {
 function getImportStyleAPICode(esModule, loaderContext) {
   const modulePath = stringifyRequest(
     loaderContext,
-    `!${path.join(__dirname, "runtime/injectStylesIntoStyleTag.js")}`
+    `!${path.join(__dirname, "runtime/injectStylesIntoStyleTag.js")}`,
   );
 
   return esModule
@@ -90,15 +90,15 @@ function getImportStyleDomAPICode(
   esModule,
   loaderContext,
   isSingleton,
-  isAuto
+  isAuto,
 ) {
   const styleAPI = stringifyRequest(
     loaderContext,
-    `!${path.join(__dirname, "runtime/styleDomAPI.js")}`
+    `!${path.join(__dirname, "runtime/styleDomAPI.js")}`,
   );
   const singletonAPI = stringifyRequest(
     loaderContext,
-    `!${path.join(__dirname, "runtime/singletonStyleDomAPI.js")}`
+    `!${path.join(__dirname, "runtime/singletonStyleDomAPI.js")}`,
   );
 
   if (isAuto) {
@@ -126,12 +126,12 @@ function getImportInsertBySelectorCode(
   esModule,
   loaderContext,
   insertType,
-  options
+  options,
 ) {
   if (insertType === "selector") {
     const modulePath = stringifyRequest(
       loaderContext,
-      `!${path.join(__dirname, "runtime/insertBySelector.js")}`
+      `!${path.join(__dirname, "runtime/insertBySelector.js")}`,
     );
 
     return esModule
@@ -172,7 +172,7 @@ function getInsertOptionCode(insertType, options) {
 function getImportInsertStyleElementCode(esModule, loaderContext) {
   const modulePath = stringifyRequest(
     loaderContext,
-    `!${path.join(__dirname, "runtime/insertStyleElement.js")}`
+    `!${path.join(__dirname, "runtime/insertStyleElement.js")}`,
   );
 
   return esModule
@@ -288,7 +288,7 @@ function getdomAPI(isAuto) {
 function getImportIsOldIECode(esModule, loaderContext) {
   const modulePath = stringifyRequest(
     loaderContext,
-    `!${path.join(__dirname, "runtime/isOldIE.js")}`
+    `!${path.join(__dirname, "runtime/isOldIE.js")}`,
   );
 
   return esModule
@@ -301,7 +301,7 @@ function getStyleTagTransformFnCode(
   loaderContext,
   options,
   isSingleton,
-  styleTagTransformType
+  styleTagTransformType,
 ) {
   if (isSingleton) {
     return "";
@@ -310,7 +310,7 @@ function getStyleTagTransformFnCode(
   if (styleTagTransformType === "default") {
     const modulePath = stringifyRequest(
       loaderContext,
-      `!${path.join(__dirname, "runtime/styleTagTransform.js")}`
+      `!${path.join(__dirname, "runtime/styleTagTransform.js")}`,
     );
 
     return esModule
@@ -321,7 +321,7 @@ function getStyleTagTransformFnCode(
   if (styleTagTransformType === "module-path") {
     const modulePath = stringifyRequest(
       loaderContext,
-      `${options.styleTagTransform}`
+      `${options.styleTagTransform}`,
     );
 
     loaderContext.addBuildDependency(options.styleTagTransform);
@@ -339,8 +339,8 @@ function getStyleTagTransformFn(options, isSingleton) {
   return isSingleton
     ? ""
     : typeof options.styleTagTransform === "function"
-    ? `options.styleTagTransform = ${options.styleTagTransform.toString()}`
-    : `options.styleTagTransform = styleTagTransformFn`;
+      ? `options.styleTagTransform = ${options.styleTagTransform.toString()}`
+      : `options.styleTagTransform = styleTagTransformFn`;
 }
 
 function getExportStyleCode(esModule, loaderContext, request) {
@@ -371,17 +371,17 @@ function getSetAttributesCode(esModule, loaderContext, options) {
             loaderContext,
             `!${path.join(
               __dirname,
-              "runtime/setAttributesWithAttributesAndNonce.js"
-            )}`
+              "runtime/setAttributesWithAttributesAndNonce.js",
+            )}`,
           )
         : stringifyRequest(
             loaderContext,
-            `!${path.join(__dirname, "runtime/setAttributesWithAttributes.js")}`
+            `!${path.join(__dirname, "runtime/setAttributesWithAttributes.js")}`,
           );
   } else {
     modulePath = stringifyRequest(
       loaderContext,
-      `!${path.join(__dirname, "runtime/setAttributesWithoutAttributes.js")}`
+      `!${path.join(__dirname, "runtime/setAttributesWithoutAttributes.js")}`,
     );
   }
 

@@ -47,7 +47,7 @@ describe("loader", () => {
         experiments: {
           css: true,
         },
-      }
+      },
     );
     const stats = await compile(compiler);
 
@@ -105,7 +105,7 @@ describe("loader", () => {
               },
             ],
           },
-        }
+        },
       );
       const stats = await compile(compiler);
 
@@ -140,7 +140,7 @@ describe("loader", () => {
       const compiler = getCompiler(
         "./hot.js",
         { injectType },
-        { plugins: [new webpack.HotModuleReplacementPlugin()] }
+        { plugins: [new webpack.HotModuleReplacementPlugin()] },
       );
       const stats = await compile(compiler);
 
@@ -186,7 +186,7 @@ describe("loader", () => {
               },
             ],
           },
-        }
+        },
       );
       const stats = await compile(compiler);
 
@@ -231,7 +231,7 @@ describe("loader", () => {
               },
             ],
           },
-        }
+        },
       );
       const stats = await compile(compiler);
 
@@ -271,7 +271,7 @@ describe("loader", () => {
               },
             ],
           },
-        }
+        },
       );
       const stats = await compile(compiler);
 
@@ -311,7 +311,7 @@ describe("loader", () => {
               },
             ],
           },
-        }
+        },
       );
       const stats = await compile(compiler);
 

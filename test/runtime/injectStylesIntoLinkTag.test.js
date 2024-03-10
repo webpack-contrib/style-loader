@@ -132,7 +132,7 @@ describe("addStyle", () => {
     expect(document.documentElement.innerHTML).toMatchSnapshot();
     expect(
       document.getElementsByClassName("iframeTarget")[0].contentDocument.head
-        .innerHTML
+        .innerHTML,
     ).toMatchSnapshot();
   });
 
@@ -168,7 +168,7 @@ describe("addStyle", () => {
       injectStylesIntoLinkTag("./style-10.css", {
         ...defaultOptions,
         insert: getInsertFn("invalid"),
-      })
+      }),
     ).toThrowErrorMatchingSnapshot();
   });
 
@@ -177,7 +177,7 @@ describe("addStyle", () => {
       injectStylesIntoLinkTag("./style-11.css", {
         ...defaultOptions,
         insert: getInsertFn("#test><><><"),
-      })
+      }),
     ).toThrowErrorMatchingSnapshot();
   });
 

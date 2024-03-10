@@ -34,7 +34,7 @@ function apply(styleElement, options, obj) {
 
   if (sourceMap && typeof btoa !== "undefined") {
     css += `\n/*# sourceMappingURL=data:application/json;base64,${btoa(
-      unescape(encodeURIComponent(JSON.stringify(sourceMap)))
+      unescape(encodeURIComponent(JSON.stringify(sourceMap))),
     )} */`;
   }
 

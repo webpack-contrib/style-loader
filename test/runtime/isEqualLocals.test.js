@@ -10,13 +10,13 @@ describe("isEqualLocals", () => {
     expect(isEqualLocals(undefined, undefined)).toBe(true);
     expect(isEqualLocals({ foo: "bar" }, { foo: "bar" })).toBe(true);
     expect(
-      isEqualLocals({ foo: "bar", bar: "baz" }, { foo: "bar", bar: "baz" })
+      isEqualLocals({ foo: "bar", bar: "baz" }, { foo: "bar", bar: "baz" }),
     ).toBe(true);
     expect(
-      isEqualLocals({ foo: "bar", bar: "baz" }, { bar: "baz", foo: "bar" })
+      isEqualLocals({ foo: "bar", bar: "baz" }, { bar: "baz", foo: "bar" }),
     ).toBe(true);
     expect(
-      isEqualLocals({ bar: "baz", foo: "bar" }, { foo: "bar", bar: "baz" })
+      isEqualLocals({ bar: "baz", foo: "bar" }, { foo: "bar", bar: "baz" }),
     ).toBe(true);
 
     // eslint-disable-next-line no-undefined
@@ -30,10 +30,10 @@ describe("isEqualLocals", () => {
     expect(isEqualLocals({ bar: "bar" }, { foo: "bar" })).toBe(false);
 
     expect(isEqualLocals({ foo: "bar" }, { foo: "bar", bar: "baz" })).toBe(
-      false
+      false,
     );
     expect(isEqualLocals({ foo: "bar", bar: "baz" }, { foo: "bar" })).toBe(
-      false
+      false,
     );
 
     // Should never happen, but let's test it
@@ -51,15 +51,15 @@ describe("isEqualLocals", () => {
       isEqualLocals(
         { default: "foo", foo: "bar" },
         { default: "bar", foo: "bar" },
-        true
-      )
+        true,
+      ),
     ).toBe(true);
     expect(
       isEqualLocals(
         { default: "foo", foo: "bar" },
         { default: "bar", foo: "baz" },
-        true
-      )
+        true,
+      ),
     ).toBe(false);
   });
 });

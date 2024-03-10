@@ -4,42 +4,42 @@ exports[`addStyle should throw error with incorrect "insert" option 1`] = `"Coul
 
 exports[`addStyle should throw error with invalid "insert" option 1`] = `"'#test><><><' is not a valid selector"`;
 
-exports[`addStyle should work 1`] = `"<head><title>Title</title><link rel=\\"stylesheet\\" href=\\"./style-1.css\\"></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle should work 1`] = `"<head><title>Title</title><link rel="stylesheet" href="./style-1.css"></head><body><h1>Hello world</h1></body>"`;
 
-exports[`addStyle should work with "__webpack_nonce__" variable 1`] = `"<head><title>Title</title><link rel=\\"stylesheet\\" href=\\"./style-3.css\\" nonce=\\"12345678\\"></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle should work with "__webpack_nonce__" variable 1`] = `"<head><title>Title</title><link rel="stylesheet" href="./style-3.css" nonce="12345678"></head><body><h1>Hello world</h1></body>"`;
 
-exports[`addStyle should work with "attributes" option 1`] = `"<head><title>Title</title><link rel=\\"stylesheet\\" href=\\"./style-2.css\\" foo=\\"bar\\"></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle should work with "attributes" option 1`] = `"<head><title>Title</title><link rel="stylesheet" href="./style-2.css" foo="bar"></head><body><h1>Hello world</h1></body>"`;
 
-exports[`addStyle should work with "insert" option #2 1`] = `"<head><title>Title</title></head><body><h1>Hello world</h1><link rel=\\"stylesheet\\" href=\\"./style-6.css\\"></body>"`;
+exports[`addStyle should work with "insert" option #2 1`] = `"<head><title>Title</title></head><body><h1>Hello world</h1><link rel="stylesheet" href="./style-6.css"></body>"`;
 
-exports[`addStyle should work with "insert" option #3 1`] = `"<head><title>Title</title></head><body><h1>Hello world</h1><iframe class=\\"iframeTarget\\"></iframe></body>"`;
+exports[`addStyle should work with "insert" option #3 1`] = `"<head><title>Title</title></head><body><h1>Hello world</h1><iframe class="iframeTarget"></iframe></body>"`;
 
-exports[`addStyle should work with "insert" option #3 2`] = `"<link rel=\\"stylesheet\\" href=\\"./style-7.css\\">"`;
+exports[`addStyle should work with "insert" option #3 2`] = `"<link rel="stylesheet" href="./style-7.css">"`;
 
-exports[`addStyle should work with "insert" option #4 1`] = `"<head><link rel=\\"stylesheet\\" href=\\"./style-8.css\\"><title>Title</title></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle should work with "insert" option #4 1`] = `"<head><link rel="stylesheet" href="./style-8.css"><title>Title</title></head><body><h1>Hello world</h1></body>"`;
 
-exports[`addStyle should work with "insert" option #5 1`] = `"<head><title>Title</title><link rel=\\"stylesheet\\" href=\\"./style-9.css\\"><script src=\\"https://example.com/script.js\\" id=\\"id\\"></script></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle should work with "insert" option #5 1`] = `"<head><title>Title</title><link rel="stylesheet" href="./style-9.css"><script src="https://example.com/script.js" id="id"></script></head><body><h1>Hello world</h1></body>"`;
 
-exports[`addStyle should work with "insert" option 1`] = `"<head><title>Title</title><link rel=\\"stylesheet\\" href=\\"./style-5.css\\"></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle should work with "insert" option 1`] = `"<head><title>Title</title><link rel="stylesheet" href="./style-5.css"></head><body><h1>Hello world</h1></body>"`;
 
-exports[`addStyle should work with "nonce" attribute and "__webpack_nonce__" variable 1`] = `"<head><title>Title</title><link rel=\\"stylesheet\\" href=\\"./style-4.css\\" nonce=\\"87654321\\"></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle should work with "nonce" attribute and "__webpack_nonce__" variable 1`] = `"<head><title>Title</title><link rel="stylesheet" href="./style-4.css" nonce="87654321"></head><body><h1>Hello world</h1></body>"`;
 
-exports[`addStyle should work with updates #2 1`] = `"<head><title>Title</title><link rel=\\"stylesheet\\" href=\\"./style-13.css\\"></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle should work with updates #2 1`] = `"<head><title>Title</title><link rel="stylesheet" href="./style-13.css"></head><body><h1>Hello world</h1></body>"`;
 
-exports[`addStyle should work with updates #2 2`] = `"<head><title>Title</title><link rel=\\"stylesheet\\" href=\\"./style-14.css\\"></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle should work with updates #2 2`] = `"<head><title>Title</title><link rel="stylesheet" href="./style-14.css"></head><body><h1>Hello world</h1></body>"`;
 
-exports[`addStyle should work with updates #3 1`] = `"<head><title>Title</title><link rel=\\"stylesheet\\" href=\\"./style-15.css\\"></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle should work with updates #3 1`] = `"<head><title>Title</title><link rel="stylesheet" href="./style-15.css"></head><body><h1>Hello world</h1></body>"`;
 
 exports[`addStyle should work with updates #3 2`] = `"<head><title>Title</title></head><body><h1>Hello world</h1></body>"`;
 
-exports[`addStyle should work with updates #4 1`] = `"<head><link rel=\\"stylesheet\\" href=\\"./style-16.css\\"><title>Title</title></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle should work with updates #4 1`] = `"<head><link rel="stylesheet" href="./style-16.css"><title>Title</title></head><body><h1>Hello world</h1></body>"`;
 
-exports[`addStyle should work with updates #4 2`] = `"<head><link rel=\\"stylesheet\\" href=\\"./style-16.css\\"><title>Title</title></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle should work with updates #4 2`] = `"<head><link rel="stylesheet" href="./style-16.css"><title>Title</title></head><body><h1>Hello world</h1></body>"`;
 
-exports[`addStyle should work with updates #5 1`] = `"<head><title>Title</title><link rel=\\"stylesheet\\" href=\\"./style-17.css\\"><script src=\\"https://example.com/script.js\\" id=\\"id\\"></script></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle should work with updates #5 1`] = `"<head><title>Title</title><link rel="stylesheet" href="./style-17.css"><script src="https://example.com/script.js" id="id"></script></head><body><h1>Hello world</h1></body>"`;
 
-exports[`addStyle should work with updates #5 2`] = `"<head><title>Title</title><link rel=\\"stylesheet\\" href=\\"./style-17.css\\"><script src=\\"https://example.com/script.js\\" id=\\"id\\"></script></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle should work with updates #5 2`] = `"<head><title>Title</title><link rel="stylesheet" href="./style-17.css"><script src="https://example.com/script.js" id="id"></script></head><body><h1>Hello world</h1></body>"`;
 
-exports[`addStyle should work with updates 1`] = `"<head><title>Title</title><link rel=\\"stylesheet\\" href=\\"./style-12.css\\"></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle should work with updates 1`] = `"<head><title>Title</title><link rel="stylesheet" href="./style-12.css"></head><body><h1>Hello world</h1></body>"`;
 
-exports[`addStyle should work with updates 2`] = `"<head><title>Title</title><link rel=\\"stylesheet\\" href=\\"./style-12.css\\"></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle should work with updates 2`] = `"<head><title>Title</title><link rel="stylesheet" href="./style-12.css"></head><body><h1>Hello world</h1></body>"`;

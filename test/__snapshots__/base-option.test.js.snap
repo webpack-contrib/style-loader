@@ -3,7 +3,7 @@
 exports[`"base" option should work: DOM 1`] = `
 "<!DOCTYPE html><html><head>
   <title>style-loader test</title>
-  <style id=\\"existing-style\\">.existing { color: yellow }</style>
+  <style id="existing-style">.existing { color: yellow }</style>
 <style>body {
   color: red;
 }
@@ -13,13 +13,13 @@ exports[`"base" option should work: DOM 1`] = `
 </style></head>
 <body>
   <h1>Body</h1>
-  <div class=\\"target\\"></div>
-  <iframe class=\\"iframeTarget\\"></iframe>
+  <div class="target"></div>
+  <iframe class="iframeTarget"></iframe>
 
 
 </body></html>"
 `;
 
-exports[`"base" option should work: errors 1`] = `Array []`;
+exports[`"base" option should work: errors 1`] = `[]`;
 
-exports[`"base" option should work: warnings 1`] = `Array []`;
+exports[`"base" option should work: warnings 1`] = `[]`;

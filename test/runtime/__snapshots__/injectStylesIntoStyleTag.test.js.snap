@@ -14,29 +14,29 @@ exports[`addStyle should throw error with invalid "insert" option 1`] = `"'#test
 
 exports[`addStyle should work 1`] = `"<head><title>Title</title><style>.foo { color: red }</style></head><body><h1>Hello world</h1></body>"`;
 
-exports[`addStyle should work with "__webpack_nonce__" variable 1`] = `"<head><title>Title</title><style nonce=\\"12345678\\">.foo { color: red }</style></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle should work with "__webpack_nonce__" variable 1`] = `"<head><title>Title</title><style nonce="12345678">.foo { color: red }</style></head><body><h1>Hello world</h1></body>"`;
 
-exports[`addStyle should work with "attributes" option #2 1`] = `"<head><title>Title</title><style foo=\\"bar\\">.foo { color: red }</style><style foo=\\"bar\\">.bar { color: blue }</style></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle should work with "attributes" option #2 1`] = `"<head><title>Title</title><style foo="bar">.foo { color: red }</style><style foo="bar">.bar { color: blue }</style></head><body><h1>Hello world</h1></body>"`;
 
-exports[`addStyle should work with "attributes" option 1`] = `"<head><title>Title</title><style foo=\\"bar\\">.foo { color: red }</style></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle should work with "attributes" option 1`] = `"<head><title>Title</title><style foo="bar">.foo { color: red }</style></head><body><h1>Hello world</h1></body>"`;
 
 exports[`addStyle should work with "base" option 1`] = `"<head><title>Title</title><style>.foo { color: red }</style></head><body><h1>Hello world</h1></body>"`;
 
 exports[`addStyle should work with "insert" option #2 1`] = `"<head><title>Title</title></head><body><h1>Hello world</h1><style>.foo { color: red }</style><style>.bar { color: blue }</style></body>"`;
 
-exports[`addStyle should work with "insert" option #3 1`] = `"<head><title>Title</title></head><body><h1>Hello world</h1><iframe class=\\"iframeTarget\\"></iframe></body>"`;
+exports[`addStyle should work with "insert" option #3 1`] = `"<head><title>Title</title></head><body><h1>Hello world</h1><iframe class="iframeTarget"></iframe></body>"`;
 
 exports[`addStyle should work with "insert" option #3 2`] = `"<style>.foo { color: red }</style><style>.bar { color: blue }</style>"`;
 
 exports[`addStyle should work with "insert" option #4 1`] = `"<head><style>.foo { color: red }</style><style>.bar { color: blue }</style><title>Title</title></head><body><h1>Hello world</h1></body>"`;
 
-exports[`addStyle should work with "insert" option #5 1`] = `"<head><title>Title</title><style>.foo { color: red }</style><style>.bar { color: blue }</style><script src=\\"https://example.com/script.js\\" id=\\"id\\"></script></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle should work with "insert" option #5 1`] = `"<head><title>Title</title><style>.foo { color: red }</style><style>.bar { color: blue }</style><script src="https://example.com/script.js" id="id"></script></head><body><h1>Hello world</h1></body>"`;
 
-exports[`addStyle should work with "insert" option #6 1`] = `"<head><title>Title</title></head><body><h1>Hello world</h1><div><div id=\\"root\\"><style>.foo { color: red }</style><style>.bar { color: blue }</style></div></div></body>"`;
+exports[`addStyle should work with "insert" option #6 1`] = `"<head><title>Title</title></head><body><h1>Hello world</h1><div><div id="root"><style>.foo { color: red }</style><style>.bar { color: blue }</style></div></div></body>"`;
 
 exports[`addStyle should work with "insert" option 1`] = `"<head><title>Title</title><style>.foo { color: red }</style><style>.bar { color: blue }</style></head><body><h1>Hello world</h1></body>"`;
 
-exports[`addStyle should work with "nonce" attribute and "__webpack_nonce__" variable 1`] = `"<head><title>Title</title><style nonce=\\"87654321\\">.foo { color: red }</style></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle should work with "nonce" attribute and "__webpack_nonce__" variable 1`] = `"<head><title>Title</title><style nonce="87654321">.foo { color: red }</style></head><body><h1>Hello world</h1></body>"`;
 
 exports[`addStyle should work with empty layer 1`] = `"<head><title>Title</title></head><body><h1>Hello world</h1></body>"`;
 
@@ -129,13 +129,13 @@ exports[`addStyle should work with updates #10 1`] = `"<head><title>Title</title
 
 exports[`addStyle should work with updates #10 2`] = `"<head><title>Title</title><style>.foo { color: black }</style><style>.bar { color: white }</style></head><body><h1>Hello world</h1></body>"`;
 
-exports[`addStyle should work with updates #11 1`] = `"<head><title>Title</title><style>.foo { color: red }</style><style>.bar { color: blue }</style><script src=\\"https://example.com/script.js\\" id=\\"id\\"></script></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle should work with updates #11 1`] = `"<head><title>Title</title><style>.foo { color: red }</style><style>.bar { color: blue }</style><script src="https://example.com/script.js" id="id"></script></head><body><h1>Hello world</h1></body>"`;
 
-exports[`addStyle should work with updates #11 2`] = `"<head><title>Title</title><style>.foo { color: black }</style><style>.bar { color: white }</style><script src=\\"https://example.com/script.js\\" id=\\"id\\"></script></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle should work with updates #11 2`] = `"<head><title>Title</title><style>.foo { color: black }</style><style>.bar { color: white }</style><script src="https://example.com/script.js" id="id"></script></head><body><h1>Hello world</h1></body>"`;
 
-exports[`addStyle should work with updates #12 1`] = `"<head><title>Title</title><style>.order { color: red }</style><style>.@import url(\\"https://fonts.googleapis.com/css?family=Roboto&display=swap\\");</style><style>.order { color: blue }</style><style>.@import url(\\"https://fonts.googleapis.com/css?family=Roboto&display=swap\\");</style><style>.order { color: red }</style><style>.@import url(\\"https://fonts.googleapis.com/css?family=Roboto&display=swap\\");</style><style>@media screen and (min-width: 2000px) {.order { color: blue }}</style><style>.@import url(\\"https://fonts.googleapis.com/css?family=Roboto&display=swap\\");</style></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle should work with updates #12 1`] = `"<head><title>Title</title><style>.order { color: red }</style><style>.@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");</style><style>.order { color: blue }</style><style>.@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");</style><style>.order { color: red }</style><style>.@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");</style><style>@media screen and (min-width: 2000px) {.order { color: blue }}</style><style>.@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");</style></head><body><h1>Hello world</h1></body>"`;
 
-exports[`addStyle should work with updates #12 2`] = `"<head><title>Title</title><style>.order { color: orange }</style><style>.@import url(\\"https://fonts.googleapis.com/css?family=Roboto&display=swap\\");</style><style>.order { color: blue }</style><style>.@import url(\\"https://fonts.googleapis.com/css?family=Roboto&display=swap\\");</style><style>.order { color: orange }</style><style>.@import url(\\"https://fonts.googleapis.com/css?family=Roboto&display=swap\\");</style><style>@media screen and (min-width: 2000px) {.order { color: blue }}</style><style>.@import url(\\"https://fonts.googleapis.com/css?family=Roboto&display=swap\\");</style></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle should work with updates #12 2`] = `"<head><title>Title</title><style>.order { color: orange }</style><style>.@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");</style><style>.order { color: blue }</style><style>.@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");</style><style>.order { color: orange }</style><style>.@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");</style><style>@media screen and (min-width: 2000px) {.order { color: blue }}</style><style>.@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");</style></head><body><h1>Hello world</h1></body>"`;
 
 exports[`addStyle should work with updates #12 3`] = `"<head><title>Title</title><style>.foo { color: red }</style><style>.bar { color: blue }</style></head><body><h1>Hello world</h1></body>"`;
 
