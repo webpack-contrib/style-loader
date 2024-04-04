@@ -74,7 +74,7 @@ describe('"insert" option', () => {
       runInJsDom("main.bundle.js", compiler, stats, (dom) => {
         expect(
           dom.window.document.querySelector(selector).contentDocument.head
-            .innerHTML
+            .innerHTML,
         ).toMatchSnapshot("iframe head");
         expect(dom.serialize()).toMatchSnapshot("DOM");
       });
