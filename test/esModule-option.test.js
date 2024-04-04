@@ -123,7 +123,7 @@ describe('"esModule" option', () => {
                   },
                 ],
               },
-            }
+            },
           );
           const stats = await compile(compiler);
 

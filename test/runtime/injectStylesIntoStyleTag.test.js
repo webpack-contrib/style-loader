@@ -98,7 +98,7 @@ describe("addStyle", () => {
   it("should work", () => {
     injectStylesIntoStyleTag(
       [["./style-1.css", ".foo { color: red }", ""]],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -110,7 +110,7 @@ describe("addStyle", () => {
         ["./style-2-1.css", ".foo { color: red }", ""],
         ["./style-2-2.css", ".bar { color: blue }", ""],
       ],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -122,7 +122,7 @@ describe("addStyle", () => {
         ["./style-3.css", ".foo { color: red }", ""],
         ["./style-3.css", ".foo { color: green }", ""],
       ],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -137,7 +137,7 @@ describe("addStyle", () => {
           "screen and (min-width:320px)",
         ],
       ],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -155,7 +155,7 @@ describe("addStyle", () => {
           "display: flex",
         ],
       ],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -165,7 +165,7 @@ describe("addStyle", () => {
     injectStylesIntoStyleTag(
       // eslint-disable-next-line no-undefined
       [["./style-4.css", ".foo { color: red }", "", undefined, "", "default"]],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -175,7 +175,7 @@ describe("addStyle", () => {
     injectStylesIntoStyleTag(
       // eslint-disable-next-line no-undefined
       [["./style-4.css", ".foo { color: red }", "", undefined, "", ""]],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -198,7 +198,7 @@ describe("addStyle", () => {
           },
         ],
       ],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -210,7 +210,7 @@ describe("addStyle", () => {
 
     injectStylesIntoStyleTag(
       [["./style-6.css", ".foo { color: red }", ""]],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -261,7 +261,7 @@ describe("addStyle", () => {
       {
         ...defaultOptions,
         attributes: { foo: "bar" },
-      }
+      },
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -276,7 +276,7 @@ describe("addStyle", () => {
       {
         ...defaultOptions,
         insert: getInsertFn("head"),
-      }
+      },
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -291,7 +291,7 @@ describe("addStyle", () => {
       {
         ...defaultOptions,
         insert: getInsertFn("body"),
-      }
+      },
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -309,13 +309,13 @@ describe("addStyle", () => {
       {
         ...defaultOptions,
         insert: getInsertFn("iframe.iframeTarget"),
-      }
+      },
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
     expect(
       document.getElementsByClassName("iframeTarget")[0].contentDocument.head
-        .innerHTML
+        .innerHTML,
     ).toMatchSnapshot();
   });
 
@@ -328,7 +328,7 @@ describe("addStyle", () => {
       {
         ...defaultOptions,
         insert: insertAtTop,
-      }
+      },
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -349,7 +349,7 @@ describe("addStyle", () => {
       {
         ...defaultOptions,
         insert: insertBeforeAt,
-      }
+      },
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -367,7 +367,7 @@ describe("addStyle", () => {
       {
         ...defaultOptions,
         insert: (style) => document.querySelector("#root").appendChild(style),
-      }
+      },
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -380,8 +380,8 @@ describe("addStyle", () => {
         {
           ...defaultOptions,
           insert: getInsertFn("invalid"),
-        }
-      )
+        },
+      ),
     ).toThrowErrorMatchingSnapshot();
   });
 
@@ -392,15 +392,15 @@ describe("addStyle", () => {
         {
           ...defaultOptions,
           insert: getInsertFn("#test><><><"),
-        }
-      )
+        },
+      ),
     ).toThrowErrorMatchingSnapshot();
   });
 
   it("should work with updates", () => {
     const update = injectStylesIntoStyleTag(
       [["./style-19.css", ".foo { color: red }", ""]],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -413,7 +413,7 @@ describe("addStyle", () => {
   it("should work with updates #2", () => {
     const update = injectStylesIntoStyleTag(
       [["./style-20-1.css", ".foo { color: red }", ""]],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -426,7 +426,7 @@ describe("addStyle", () => {
   it("should work with updates #3", () => {
     const update = injectStylesIntoStyleTag(
       [["./style-21-1.css", ".foo { color: red }", ""]],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -436,7 +436,7 @@ describe("addStyle", () => {
         ["./style-21-1.css", ".foo { color: blue }", ""],
         ["./style-21-2.css", ".foo { color: red }", ""],
       ],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -445,7 +445,7 @@ describe("addStyle", () => {
   it("should work with updates #4", () => {
     const update = injectStylesIntoStyleTag(
       [["./style-22.css", ".foo { color: red }", ""]],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -464,7 +464,7 @@ describe("addStyle", () => {
           "screen and (min-width:320px)",
         ],
       ],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -477,7 +477,7 @@ describe("addStyle", () => {
           "screen and (min-width:640px)",
         ],
       ],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -499,7 +499,7 @@ describe("addStyle", () => {
         ...defaultOptions,
         domAPI: singletonApi,
         singleton: true,
-      }
+      },
     );
 
     // eslint-disable-next-line no-undef,no-undefined
@@ -512,7 +512,7 @@ describe("addStyle", () => {
         ["./style-24-1.css", ".foo { color: blue }", ""],
         ["./style-24-2.css", ".bar { color: yellow }", ""],
       ],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -526,7 +526,7 @@ describe("addStyle", () => {
           "screen and (min-width: 100px)",
         ],
       ],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -540,7 +540,7 @@ describe("addStyle", () => {
           "screen and (min-width: 200px)",
         ],
       ],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -554,7 +554,7 @@ describe("addStyle", () => {
           "screen and (min-width: 200px)",
         ],
       ],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -574,7 +574,7 @@ describe("addStyle", () => {
         ["./style-25-1.css", ".foo { color: red }", ""],
         ["./style-25-2.css", ".bar { color: blue }", ""],
       ],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -584,7 +584,7 @@ describe("addStyle", () => {
         ["./style-25-1.css", ".foo { color: green }", ""],
         ["./style-25-2.css", ".bar { color: black }", ""],
       ],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -624,7 +624,7 @@ describe("addStyle", () => {
           },
         ],
       ],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -662,7 +662,7 @@ describe("addStyle", () => {
           },
         ],
       ],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -675,7 +675,7 @@ describe("addStyle", () => {
   it("should work with updates #9", () => {
     const update = injectStylesIntoStyleTag(
       [["./style-27.css", ".foo { color: red }", ""]],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -686,7 +686,7 @@ describe("addStyle", () => {
         ["./style-27.css", ".foo { color: red }", ""],
         ["./style-27.css", ".foo { color: yellow }", ""],
       ],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -701,7 +701,7 @@ describe("addStyle", () => {
       {
         ...defaultOptions,
         insert: insertAtTop,
-      }
+      },
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -711,7 +711,7 @@ describe("addStyle", () => {
         ["./style-28-1.css", ".foo { color: black }", ""],
         ["./style-28-2.css", ".bar { color: white }", ""],
       ],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -732,7 +732,7 @@ describe("addStyle", () => {
       {
         ...defaultOptions,
         insert: insertBeforeAt,
-      }
+      },
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -742,7 +742,7 @@ describe("addStyle", () => {
         ["./style-29-1.css", ".foo { color: black }", ""],
         ["./style-29-2.css", ".bar { color: white }", ""],
       ],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -780,7 +780,7 @@ describe("addStyle", () => {
           "",
         ],
       ],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -816,7 +816,7 @@ describe("addStyle", () => {
           "",
         ],
       ],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -828,7 +828,7 @@ describe("addStyle", () => {
         ["./style-30.css", ".foo { color: red }", ""],
         ["./style-31.css", ".bar { color: blue }", ""],
       ],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -841,15 +841,15 @@ describe("addStyle", () => {
   it("should work with updates #13", () => {
     const update1 = injectStylesIntoStyleTag(
       [["./style-32.css", ".red { color: red }", ""]],
-      defaultOptions
+      defaultOptions,
     );
     const update2 = injectStylesIntoStyleTag(
       [["./style-33.css", ".green { color: green }", ""]],
-      defaultOptions
+      defaultOptions,
     );
     const update3 = injectStylesIntoStyleTag(
       [["./style-34.css", ".blue { color: blue }", ""]],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -860,7 +860,7 @@ describe("addStyle", () => {
 
     update2(
       [["./style-33.css", ".green { color: black }", ""]],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -885,29 +885,29 @@ describe("addStyle", () => {
   it("should work with updates #14", () => {
     const update1 = injectStylesIntoStyleTag(
       [["./style-35.css", ".red { color: red }", ""]],
-      defaultOptions
+      defaultOptions,
     );
     const update2 = injectStylesIntoStyleTag(
       [["./style-36.css", ".green { color: green }", ""]],
-      defaultOptions
+      defaultOptions,
     );
     const update3 = injectStylesIntoStyleTag(
       [["./style-37.css", ".blue { color: blue }", ""]],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
 
     update2(
       [["./style-36.css", ".green { color: black }", ""]],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
 
     injectStylesIntoStyleTag(
       [["./style-38.css", ".white { color: white }", ""]],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -995,14 +995,14 @@ describe("addStyle", () => {
         ["./style-41.css", ".foo { color: yellow }", ""],
         ["./style-42.css", ".bar { color: red }", ""],
       ],
-      defaultOptions
+      defaultOptions,
     );
     injectStylesIntoStyleTag(
       [
         ["./style-41.css", ".foo { color: yellow }", ""],
         ["./style-43.css", ".baz { color: blue }", ""],
       ],
-      defaultOptions
+      defaultOptions,
     );
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
