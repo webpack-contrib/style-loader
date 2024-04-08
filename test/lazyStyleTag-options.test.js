@@ -56,10 +56,9 @@ describe("lazyStyleTag options", () => {
     const entry = getEntryByInjectType("options.js", "lazyStyleTag");
     const compiler = getCompiler(entry, {
       injectType: "lazyStyleTag",
-      styleTagTransform: (css, styleTag, options) => {
-        // eslint-disable-next-line no-param-reassign
-        styleTag.innerHTML = `${css}\n${options.additionalStyles}\n`;
-      },
+      styleTagTransform: require.resolve(
+        "./fixtures/styleTagTransformAdditionalStyles",
+      ),
     });
     const stats = await compile(compiler);
 

@@ -669,13 +669,7 @@ export default CustomSquare;
 Type:
 
 ```ts
-type styleTagTransform =
-  | string
-  | ((
-      css: string,
-      styleElement: HTMLStyleElement,
-      options: Record<string, any>,
-    ) => void);
+type styleTagTransform = string;
 ```
 
 Default: `undefined`
@@ -688,41 +682,9 @@ Allows to setup absolute path to custom function that allows to override default
 >
 > Do not forget that this code will be used in the browser and not all browsers support latest ECMA features like `let`, `const`, `arrow function expression` and etc, we recommend use only ECMA 5 features, but it is depends what browsers you want to support
 
-**webpack.config.js**
-
-```js
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        use: [
-          {
-            loader: "style-loader",
-            options: {
-              injectType: "styleTag",
-              styleTagTransform: require.resolve("module-path"),
-            },
-          },
-          "css-loader",
-        ],
-      },
-    ],
-  },
-};
-```
-
-#### `function`
-
-Transform tag and css when insert 'style' tag into the DOM.
-
 > **Warning**
 >
-> Do not forget that this code will be used in the browser and not all browsers support latest ECMA features like `let`, `const`, `arrow function expression` and etc, we recommend use only ECMA 5 features, but it is depends what browsers you want to support
-
-> **Warning**
->
-> Do not forget that some DOM methods may not be available in older browsers, we recommended use only [DOM core level 2 properties](https://caniuse.com/#search=DOM%20Core), but it is depends what browsers you want to support
+> Do not forget that some DOM methods may not be available in older browsers, we recommended use only [DOM core level 2 properties](https://caniuse.com/#search=DOM%20Core), but it depends what browsers you want to support
 
 **webpack.config.js**
 
@@ -737,12 +699,7 @@ module.exports = {
             loader: "style-loader",
             options: {
               injectType: "styleTag",
-              styleTagTransform: function (css, style) {
-                // Do something ...
-                style.innerHTML = `${css}.modify{}\n`;
-
-                document.head.appendChild(style);
-              },
+              styleTagTransform: require.resolve("style-tag-transform-code"),
             },
           },
           "css-loader",

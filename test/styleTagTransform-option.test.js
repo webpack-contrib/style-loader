@@ -29,13 +29,7 @@ describe('"styleTagTransform" option', () => {
     const entry = getEntryByInjectType("simple.js", "styleTag");
     const compiler = getCompiler(entry, {
       injectType: "styleTag",
-      // eslint-disable-next-line object-shorthand,func-names
-      styleTagTransform: function (css, style) {
-        // eslint-disable-next-line no-param-reassign
-        style.innerHTML = `${css}.modify{}\n`;
-
-        document.head.appendChild(style);
-      },
+      styleTagTransform: require.resolve("./fixtures/styleTagTransform"),
     });
     const stats = await compile(compiler);
 
@@ -51,28 +45,6 @@ describe('"styleTagTransform" option', () => {
     const entry = getEntryByInjectType("simple.js", "lazyStyleTag");
     const compiler = getCompiler(entry, {
       injectType: "lazyStyleTag",
-    });
-    const stats = await compile(compiler);
-
-    runInJsDom("main.bundle.js", compiler, stats, (dom) => {
-      expect(dom.serialize()).toMatchSnapshot("DOM");
-    });
-
-    expect(getWarnings(stats)).toMatchSnapshot("warnings");
-    expect(getErrors(stats)).toMatchSnapshot("errors");
-  });
-
-  it(`should work when the "styleTagTransform" option is not specify and injectType lazyStyleTag`, async () => {
-    const entry = getEntryByInjectType("simple.js", "lazyStyleTag");
-    const compiler = getCompiler(entry, {
-      injectType: "lazyStyleTag",
-      // eslint-disable-next-line object-shorthand,func-names
-      styleTagTransform: function (css, style) {
-        // eslint-disable-next-line no-param-reassign
-        style.innerHTML = `${css}.modify{}\n`;
-
-        document.head.appendChild(style);
-      },
     });
     const stats = await compile(compiler);
 

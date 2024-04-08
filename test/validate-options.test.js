@@ -28,7 +28,7 @@ describe("validate options", () => {
     },
     styleTagTransform: {
       // eslint-disable-next-line func-names
-      success: [function () {}, require.resolve("path")],
+      success: [require.resolve("./fixtures/styleTagTransform")],
       failure: [true, []],
     },
     unknown: {
