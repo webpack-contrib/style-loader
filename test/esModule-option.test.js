@@ -96,6 +96,15 @@ describe('"esModule" option', () => {
             {},
             {
               module: {
+                parser: {
+                  javascript: {
+                    exportsPresence:
+                      esModuleValue.cssLoader.modules &&
+                      esModuleValue.cssLoader.modules.exportOnlyLocals
+                        ? false
+                        : "error",
+                  },
+                },
                 rules: [
                   {
                     test: /\.css$/i,

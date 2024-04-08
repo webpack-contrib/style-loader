@@ -4269,14 +4269,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 }
 `;
 
-exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `
-[
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-]
-`;
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `[]`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -4306,14 +4299,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 }
 `;
 
-exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `
-[
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-]
-`;
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `[]`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -4343,14 +4329,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 }
 `;
 
-exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": warnings 1`] = `
-[
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-]
-`;
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazySingletonStyleTag": warnings 1`] = `[]`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -4380,14 +4359,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 }
 `;
 
-exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": warnings 1`] = `
-[
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-]
-`;
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "lazyStyleTag": warnings 1`] = `[]`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "linkTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -4438,14 +4410,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 }
 `;
 
-exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "singletonStyleTag": warnings 1`] = `
-[
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-]
-`;
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "singletonStyleTag": warnings 1`] = `[]`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -4472,14 +4437,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 }
 `;
 
-exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": warnings 1`] = `
-[
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-]
-`;
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "styleTag": warnings 1`] = `[]`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -4506,14 +4464,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 }
 `;
 
-exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `
-[
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-]
-`;
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "autoStyleTag": warnings 1`] = `[]`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -4543,14 +4494,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 }
 `;
 
-exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `
-[
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-]
-`;
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyAutoStyleTag": warnings 1`] = `[]`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -4580,14 +4524,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 }
 `;
 
-exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": warnings 1`] = `
-[
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-]
-`;
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazySingletonStyleTag": warnings 1`] = `[]`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -4617,14 +4554,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 }
 `;
 
-exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": warnings 1`] = `
-[
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-]
-`;
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "lazyStyleTag": warnings 1`] = `[]`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "linkTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -4675,14 +4605,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 }
 `;
 
-exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "singletonStyleTag": warnings 1`] = `
-[
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-]
-`;
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "singletonStyleTag": warnings 1`] = `[]`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
@@ -4709,14 +4632,7 @@ exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":
 }
 `;
 
-exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": warnings 1`] = `
-[
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-  "ModuleDependencyWarning: export 'default' (imported as 'content') was not found in '!!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./es-modules.css' (possible exports: bar, baz, foo)",
-]
-`;
+exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true,"exportOnlyLocals":true}}}, MODULE_TYPE: "es-modules", INJECT_TYPE: "styleTag": warnings 1`] = `[]`;
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":true},"cssLoader":{"esModule":true,"modules":{"namedExport":true}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>
