@@ -89,8 +89,7 @@ describe('"insert" option', () => {
       const entry = getEntryByInjectType("element.js", injectType);
       const compiler = getCompiler(entry, {
         injectType,
-        insert: (element) =>
-          document.querySelector("#test-shadow").appendChild(element),
+        insert: require.resolve("./fixtures/insert-test-shadow.js"),
       });
       const stats = await compile(compiler);
 
@@ -108,23 +107,7 @@ describe('"insert" option', () => {
       const entry = getEntryByInjectType("simple.js", injectType);
       const compiler = getCompiler(entry, {
         injectType,
-        insert: (element) => {
-          const parent = document.querySelector("head");
-          const lastInsertedElement =
-            // eslint-disable-next-line no-underscore-dangle
-            window._lastElementInsertedByStyleLoader;
-
-          if (!lastInsertedElement) {
-            parent.insertBefore(element, parent.firstChild);
-          } else if (lastInsertedElement.nextSibling) {
-            parent.insertBefore(element, lastInsertedElement.nextSibling);
-          } else {
-            parent.appendChild(element);
-          }
-
-          // eslint-disable-next-line no-underscore-dangle
-          window._lastElementInsertedByStyleLoader = element;
-        },
+        insert: require.resolve("./fixtures/insert-top.js"),
       });
       const stats = await compile(compiler);
 
@@ -181,25 +164,7 @@ describe('"insert" option', () => {
       const entry = getEntryByInjectType("simple.js", injectType);
       const compiler = getCompiler(entry, {
         injectType,
-        insert: (element) => {
-          const parent = document.querySelector("head");
-          const target = document.querySelector("#existing-style");
-
-          const lastInsertedElement =
-            // eslint-disable-next-line no-underscore-dangle
-            window._lastElementInsertedByStyleLoader;
-
-          if (!lastInsertedElement) {
-            parent.insertBefore(element, target);
-          } else if (lastInsertedElement.nextSibling) {
-            parent.insertBefore(element, lastInsertedElement.nextSibling);
-          } else {
-            parent.appendChild(element);
-          }
-
-          // eslint-disable-next-line no-underscore-dangle
-          window._lastElementInsertedByStyleLoader = element;
-        },
+        insert: require.resolve("./fixtures/insert-to-existing-style"),
       });
       const stats = await compile(compiler);
 

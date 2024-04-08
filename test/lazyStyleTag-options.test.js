@@ -16,9 +16,7 @@ describe("lazyStyleTag options", () => {
     const entry = getEntryByInjectType("options.js", "lazyStyleTag");
     const compiler = getCompiler(entry, {
       injectType: "lazyStyleTag",
-      insert: (styleTag, options) => {
-        options.insertInto.appendChild(styleTag);
-      },
+      insert: require.resolve("./fixtures/insert-options.js"),
     });
     const stats = await compile(compiler);
 
@@ -36,9 +34,7 @@ describe("lazyStyleTag options", () => {
     const entry = getEntryByInjectType("options-use-unuse.js", "lazyStyleTag");
     const compiler = getCompiler(entry, {
       injectType: "lazyStyleTag",
-      insert: (styleTag, options) => {
-        options.insertInto.appendChild(styleTag);
-      },
+      insert: require.resolve("./fixtures/insert-options.js"),
     });
     const stats = await compile(compiler);
 

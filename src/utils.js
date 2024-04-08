@@ -80,17 +80,6 @@ function getImportInsertBySelectorCode(
   insertType,
   options,
 ) {
-  if (insertType === "selector") {
-    const modulePath = stringifyRequest(
-      loaderContext,
-      `!${path.join(__dirname, "runtime/insertBySelector.js")}`,
-    );
-
-    return esModule
-      ? `import insertFn from ${modulePath};`
-      : `var insertFn = require(${modulePath});`;
-  }
-
   if (insertType === "module-path") {
     const modulePath = stringifyRequest(loaderContext, `${options.insert}`);
 
@@ -101,24 +90,24 @@ function getImportInsertBySelectorCode(
       : `var insertFn = require(${modulePath});`;
   }
 
-  return "";
+  const modulePath = stringifyRequest(
+    loaderContext,
+    `!${path.join(__dirname, "runtime/insertBySelector.js")}`,
+  );
+
+  return esModule
+    ? `import insertFn from ${modulePath};`
+    : `var insertFn = require(${modulePath});`;
 }
 
 function getInsertOptionCode(insertType, options) {
-  if (insertType === "selector") {
-    const insert = options.insert ? JSON.stringify(options.insert) : '"head"';
-
-    return `
-      options.insert = insertFn.bind(null, ${insert});
-    `;
-  }
-
   if (insertType === "module-path") {
     return `options.insert = insertFn;`;
   }
 
-  // Todo remove "function" type for insert option in next major release, because code duplication occurs. Leave require.resolve()
-  return `options.insert = ${options.insert.toString()};`;
+  const insert = options.insert ? JSON.stringify(options.insert) : '"head"';
+
+  return `options.insert = insertFn.bind(null, ${insert});`;
 }
 
 function getImportInsertStyleElementCode(esModule, loaderContext) {

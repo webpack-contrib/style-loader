@@ -19,7 +19,7 @@ describe("validate options", () => {
       failure: [true],
     },
     insert: {
-      success: ["selector", () => {}],
+      success: ["selector", require.resolve("./fixtures/insertFn.js")],
       failure: [true],
     },
     esModule: {
