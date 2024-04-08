@@ -1,4 +1,4 @@
-import styles from './css-modules.css';
+import * as styles from './css-modules.css';
 
 const node1 = document.createElement("DIV");
 const textNode1 = document.createTextNode("Water");

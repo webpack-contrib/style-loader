@@ -74,7 +74,10 @@ describe("loader", () => {
     it(`should work with css modules when the "injectType" option is "${injectType}"`, async () => {
       expect.assertions(3);
 
-      const entry = getEntryByInjectType("css-modules.js", injectType);
+      const entry = getEntryByInjectType(
+        injectType === "linkTag" ? "css-modules-link.js" : "css-modules.js",
+        injectType,
+      );
       const compiler = getCompiler(
         entry,
         {},
