@@ -23,14 +23,7 @@
     "insert": {
       "description": "Inserts `<style>`/`<link>` at the given position.",
       "link": "https://github.com/webpack-contrib/style-loader#insert",
-      "anyOf": [
-        {
-          "type": "string"
-        },
-        {
-          "instanceof": "Function"
-        }
-      ]
+      "type": "string"
     },
     "base": {
       "description": "Sets module ID base for DLLPlugin.",
@@ -45,14 +38,7 @@
     "styleTagTransform": {
       "description": "Transform tag and css when insert 'style' tag into the DOM",
       "link": "https://github.com/webpack-contrib/style-loader#styleTagTransform",
-      "anyOf": [
-        {
-          "type": "string"
-        },
-        {
-          "instanceof": "Function"
-        }
-      ]
+      "type": "string"
     }
   },
   "additionalProperties": false

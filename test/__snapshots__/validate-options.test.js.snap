@@ -25,35 +25,23 @@ exports[`validate options should throw an error on the "injectType" option with 
 
 exports[`validate options should throw an error on the "insert" option with "true" value 1`] = `
 "Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
- - options.insert should be one of these:
-   string | function
+ - options.insert should be a string.
    -> Inserts \`<style>\`/\`<link>\` at the given position.
-   -> Read more at https://github.com/webpack-contrib/style-loader#insert
-   Details:
-    * options.insert should be a string.
-    * options.insert should be an instance of function."
+   -> Read more at https://github.com/webpack-contrib/style-loader#insert"
 `;
 
 exports[`validate options should throw an error on the "styleTagTransform" option with "[]" value 1`] = `
 "Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
- - options.styleTagTransform should be one of these:
-   string | function
+ - options.styleTagTransform should be a string.
    -> Transform tag and css when insert 'style' tag into the DOM
-   -> Read more at https://github.com/webpack-contrib/style-loader#styleTagTransform
-   Details:
-    * options.styleTagTransform should be a string.
-    * options.styleTagTransform should be an instance of function."
+   -> Read more at https://github.com/webpack-contrib/style-loader#styleTagTransform"
 `;
 
 exports[`validate options should throw an error on the "styleTagTransform" option with "true" value 1`] = `
 "Invalid options object. Style Loader has been initialized using an options object that does not match the API schema.
- - options.styleTagTransform should be one of these:
-   string | function
+ - options.styleTagTransform should be a string.
    -> Transform tag and css when insert 'style' tag into the DOM
-   -> Read more at https://github.com/webpack-contrib/style-loader#styleTagTransform
-   Details:
-    * options.styleTagTransform should be a string.
-    * options.styleTagTransform should be an instance of function."
+   -> Read more at https://github.com/webpack-contrib/style-loader#styleTagTransform"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "/test/" value 1`] = `

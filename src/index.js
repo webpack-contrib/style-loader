@@ -74,11 +74,9 @@ loader.pitch = function pitch(request) {
   }
 
   const insertType =
-    typeof options.insert === "function"
-      ? "function"
-      : options.insert && path.isAbsolute(options.insert)
-        ? "module-path"
-        : "selector";
+    options.insert && path.isAbsolute(options.insert)
+      ? "module-path"
+      : "selector";
 
   switch (injectType) {
     case "linkTag": {

@@ -450,9 +450,7 @@ module.exports = {
 Type:
 
 ```ts
-type insert =
-  | string
-  | ((htmlElement: HTMLElement, options: Record<string, any>) => void);
+type insert = string;
 ```
 
 Default: `head`
@@ -462,9 +460,7 @@ This will cause CSS created by the loader to take priority over CSS already pres
 You can use other values if the standard behavior is not suitable for you, but we do not recommend doing this.
 If you target an [iframe](https://developer.mozilla.org/en-US/docs/Web/API/HTMLIFrameElement) make sure you have sufficient access rights, the styles will be injected into the content document head.
 
-#### `string`
-
-##### `Selector`
+#### `Selector`
 
 Allows to setup custom [query selector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector) where styles inject into the DOM.
 
@@ -491,7 +487,7 @@ module.exports = {
 };
 ```
 
-##### `Absolute path to function`
+#### `Absolute path to function`
 
 Allows to setup absolute path to custom function that allows to override default behavior and insert styles at any position.
 
@@ -515,7 +511,7 @@ module.exports = {
           {
             loader: "style-loader",
             options: {
-              insert: require.resolve("modulePath"),
+              insert: require.resolve("./path-to-insert-module"),
             },
           },
           "css-loader",
@@ -528,17 +524,32 @@ module.exports = {
 
 A new `<style>`/`<link>` elements will be inserted into at bottom of `body` tag.
 
-#### `function`
+Examples:
 
-Allows to override default behavior and insert styles at any position.
+Insert styles at top of `head` tag:
 
-> **Warning**
->
-> Do not forget that this code will be used in the browser and not all browsers support latest ECMA features like `let`, `const`, `arrow function expression` and etc, we recommend use only ECMA 5 features, but it is depends what browsers you want to support
+**insert-function.js**
 
-> **Warning**
->
-> Do not forget that some DOM methods may not be available in older browsers, we recommended use only [DOM core level 2 properties](https://caniuse.com/#search=DOM%20Core), but it is depends what browsers you want to support
+```js
+function insertAtTop(element) {
+  var parent = document.querySelector("head");
+  // eslint-disable-next-line no-underscore-dangle
+  var lastInsertedElement = window._lastElementInsertedByStyleLoader;
+
+  if (!lastInsertedElement) {
+    parent.insertBefore(element, parent.firstChild);
+  } else if (lastInsertedElement.nextSibling) {
+    parent.insertBefore(element, lastInsertedElement.nextSibling);
+  } else {
+    parent.appendChild(element);
+  }
+
+  // eslint-disable-next-line no-underscore-dangle
+  window._lastElementInsertedByStyleLoader = element;
+}
+
+module.exports = insertAtTop;
+```
 
 **webpack.config.js**
 
@@ -552,23 +563,7 @@ module.exports = {
           {
             loader: "style-loader",
             options: {
-              insert: function insertAtTop(element) {
-                var parent = document.querySelector("head");
-                // eslint-disable-next-line no-underscore-dangle
-                var lastInsertedElement =
-                  window._lastElementInsertedByStyleLoader;
-
-                if (!lastInsertedElement) {
-                  parent.insertBefore(element, parent.firstChild);
-                } else if (lastInsertedElement.nextSibling) {
-                  parent.insertBefore(element, lastInsertedElement.nextSibling);
-                } else {
-                  parent.appendChild(element);
-                }
-
-                // eslint-disable-next-line no-underscore-dangle
-                window._lastElementInsertedByStyleLoader = element;
-              },
+              insert: require.resolve("./insert-function"),
             },
           },
           "css-loader",
@@ -579,9 +574,19 @@ module.exports = {
 };
 ```
 
-Insert styles at top of `head` tag.
-
 You can pass any parameters to `style.use(options)` and this value will be passed to `insert` and `styleTagTransform` functions.
+
+**insert-function.js**
+
+```js
+function insertIntoTarget(element, options) {
+  var parent = options.target || document.head;
+
+  parent.appendChild(element);
+}
+
+module.exports = insertIntoTarget;
+```
 
 **webpack.config.js**
 
@@ -599,12 +604,8 @@ module.exports = {
               // Do not forget that this code will be used in the browser and
               // not all browsers support latest ECMA features like `let`, `const`, `arrow function expression` and etc,
               // we recommend use only ECMA 5 features,
-              // but it is depends what browsers you want to support
-              insert: function insertIntoTarget(element, options) {
-                var parent = options.target || document.head;
-
-                parent.appendChild(element);
-              },
+              // but it depends what browsers you want to support
+              insert: require.resolve("./insert-function.js"),
             },
           },
           "css-loader",
@@ -1031,7 +1032,28 @@ The loader generate:
 
 #### Insert styles at top
 
-Inserts styles at top of `head` tag.
+Insert styles at top of `head` tag.
+
+**insert-function.js**
+
+```js
+function insertAtTop(element) {
+  var parent = document.querySelector("head");
+  var lastInsertedElement = window._lastElementInsertedByStyleLoader;
+
+  if (!lastInsertedElement) {
+    parent.insertBefore(element, parent.firstChild);
+  } else if (lastInsertedElement.nextSibling) {
+    parent.insertBefore(element, lastInsertedElement.nextSibling);
+  } else {
+    parent.appendChild(element);
+  }
+
+  window._lastElementInsertedByStyleLoader = element;
+}
+
+module.exports = insertAtTop;
+```
 
 **webpack.config.js**
 
@@ -1045,21 +1067,7 @@ module.exports = {
           {
             loader: "style-loader",
             options: {
-              insert: function insertAtTop(element) {
-                var parent = document.querySelector("head");
-                var lastInsertedElement =
-                  window._lastElementInsertedByStyleLoader;
-
-                if (!lastInsertedElement) {
-                  parent.insertBefore(element, parent.firstChild);
-                } else if (lastInsertedElement.nextSibling) {
-                  parent.insertBefore(element, lastInsertedElement.nextSibling);
-                } else {
-                  parent.appendChild(element);
-                }
-
-                window._lastElementInsertedByStyleLoader = element;
-              },
+              insert: require.resolve("./insert-function.js"),
             },
           },
           "css-loader",
@@ -1074,6 +1082,29 @@ module.exports = {
 
 Inserts styles before `#id` element.
 
+**insert-function.js**
+
+```js
+function insertBeforeAt(element) {
+  const parent = document.querySelector("head");
+  const target = document.querySelector("#id");
+
+  const lastInsertedElement = window._lastElementInsertedByStyleLoader;
+
+  if (!lastInsertedElement) {
+    parent.insertBefore(element, target);
+  } else if (lastInsertedElement.nextSibling) {
+    parent.insertBefore(element, lastInsertedElement.nextSibling);
+  } else {
+    parent.appendChild(element);
+  }
+
+  window._lastElementInsertedByStyleLoader = element;
+}
+
+module.exports = insertBeforeAt;
+```
+
 **webpack.config.js**
 
 ```js
@@ -1086,23 +1117,7 @@ module.exports = {
           {
             loader: "style-loader",
             options: {
-              insert: function insertBeforeAt(element) {
-                const parent = document.querySelector("head");
-                const target = document.querySelector("#id");
-
-                const lastInsertedElement =
-                  window._lastElementInsertedByStyleLoader;
-
-                if (!lastInsertedElement) {
-                  parent.insertBefore(element, target);
-                } else if (lastInsertedElement.nextSibling) {
-                  parent.insertBefore(element, lastInsertedElement.nextSibling);
-                } else {
-                  parent.appendChild(element);
-                }
-
-                window._lastElementInsertedByStyleLoader = element;
-              },
+              insert: require.resolve("./insert-function.js"),
             },
           },
           "css-loader",
@@ -1116,6 +1131,18 @@ module.exports = {
 #### Custom Elements (Shadow DOM)
 
 You can define custom target for your styles for the `lazyStyleTag` type.
+
+**insert-function.js**
+
+```js
+function insertIntoTarget(element, options) {
+  var parent = options.target || document.head;
+
+  parent.appendChild(element);
+}
+
+module.exports = insertIntoTarget;
+```
 
 **webpack.config.js**
 
@@ -1134,11 +1161,7 @@ module.exports = {
               // not all browsers support latest ECMA features like `let`, `const`, `arrow function expression` and etc,
               // we recommend use only ECMA 5 features,
               // but it is depends what browsers you want to support
-              insert: function insertIntoTarget(element, options) {
-                var parent = options.target || document.head;
-
-                parent.appendChild(element);
-              },
+              insert: require.resolve("./insert-function.js"),
             },
           },
           "css-loader",
