@@ -80,13 +80,6 @@ loader.pitch = function pitch(request) {
         ? "module-path"
         : "selector";
 
-  const styleTagTransformType =
-    typeof options.styleTagTransform === "function"
-      ? "function"
-      : options.styleTagTransform && path.isAbsolute(options.styleTagTransform)
-        ? "module-path"
-        : "default";
-
   switch (injectType) {
     case "linkTag": {
       const hmrCode = this.hot ? getLinkHmrCode(esModule, this, request) : "";
@@ -131,13 +124,7 @@ ${esModule ? "export default {}" : ""}`;
       ${getImportInsertBySelectorCode(esModule, this, insertType, options)}
       ${getSetAttributesCode(esModule, this, options)}
       ${getImportInsertStyleElementCode(esModule, this)}
-      ${getStyleTagTransformFnCode(
-        esModule,
-        this,
-        options,
-        isSingleton,
-        styleTagTransformType,
-      )}
+      ${getStyleTagTransformFnCode(esModule, this, options, isSingleton)}
       ${getImportStyleContentCode(esModule, this, request)}
       ${isAuto ? getImportIsOldIECode(esModule, this) : ""}
       ${
@@ -200,13 +187,7 @@ ${getExportLazyStyleCode(esModule, this, request)}
       ${getImportInsertBySelectorCode(esModule, this, insertType, options)}
       ${getSetAttributesCode(esModule, this, options)}
       ${getImportInsertStyleElementCode(esModule, this)}
-      ${getStyleTagTransformFnCode(
-        esModule,
-        this,
-        options,
-        isSingleton,
-        styleTagTransformType,
-      )}
+      ${getStyleTagTransformFnCode(esModule, this, options, isSingleton)}
       ${getImportStyleContentCode(esModule, this, request)}
       ${isAuto ? getImportIsOldIECode(esModule, this) : ""}
       ${

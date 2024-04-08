@@ -253,24 +253,12 @@ function getStyleTagTransformFnCode(
   loaderContext,
   options,
   isSingleton,
-  styleTagTransformType,
 ) {
   if (isSingleton) {
     return "";
   }
 
-  if (styleTagTransformType === "default") {
-    const modulePath = stringifyRequest(
-      loaderContext,
-      `!${path.join(__dirname, "runtime/styleTagTransform.js")}`,
-    );
-
-    return esModule
-      ? `import styleTagTransformFn from ${modulePath};`
-      : `var styleTagTransformFn = require(${modulePath});`;
-  }
-
-  if (styleTagTransformType === "module-path") {
+  if (typeof options.styleTagTransform !== "undefined") {
     const modulePath = stringifyRequest(
       loaderContext,
       `${options.styleTagTransform}`,
@@ -283,16 +271,18 @@ function getStyleTagTransformFnCode(
       : `var styleTagTransformFn = require(${modulePath});`;
   }
 
-  return "";
+  const modulePath = stringifyRequest(
+    loaderContext,
+    `!${path.join(__dirname, "runtime/styleTagTransform.js")}`,
+  );
+
+  return esModule
+    ? `import styleTagTransformFn from ${modulePath};`
+    : `var styleTagTransformFn = require(${modulePath});`;
 }
 
 function getStyleTagTransformFn(options, isSingleton) {
-  // Todo remove "function" type for styleTagTransform option in next major release, because code duplication occurs. Leave require.resolve()
-  return isSingleton
-    ? ""
-    : typeof options.styleTagTransform === "function"
-      ? `options.styleTagTransform = ${options.styleTagTransform.toString()}`
-      : `options.styleTagTransform = styleTagTransformFn`;
+  return isSingleton ? "" : `options.styleTagTransform = styleTagTransformFn`;
 }
 
 function getExportStyleCode(esModule, loaderContext, request) {
