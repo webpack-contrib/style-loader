@@ -119,7 +119,7 @@ Example with Locals (CSS Modules):
 **component-with-css-modules.js**
 
 ```js
-import styles from "./styles.css";
+import * as styles from "./styles.css";
 
 const divElement = document.createElement("div");
 divElement.className = styles["my-class"];
@@ -178,7 +178,7 @@ import "./styles.css";
 **component-with-css-modules.js**
 
 ```js
-import styles from "./styles.css";
+import * as styles from "./styles.css";
 
 const divElement = document.createElement("div");
 divElement.className = styles["my-class"];
@@ -245,12 +245,12 @@ styles.use();
 **component-with-css-modules.js**
 
 ```js
-import styles from "./styles.lazy.css";
+import styles, { "my-class" as myClass } from "./styles.lazy.css";
 
 styles.use();
 
 const divElement = document.createElement("div");
-divElement.className = styles.locals["my-class"];
+divElement.className = myClass;
 ```
 
 All locals (class names) stored in `locals` property of imported object.
@@ -316,12 +316,12 @@ styles.use();
 **component-with-css-modules.js**
 
 ```js
-import styles from "./styles.lazy.css";
+import styles, { "my-class" as myClass } from "./styles.lazy.css";
 
 styles.use();
 
 const divElement = document.createElement("div");
-divElement.className = styles.locals["my-class"];
+divElement.className = myClass;
 ```
 
 All locals (class names) stored in `locals` property of imported object.
@@ -420,7 +420,7 @@ If defined, the `style-loader` will attach given attributes with their values on
 **component.js**
 
 ```js
-import style from "./file.css";
+import "./file.css";
 ```
 
 **webpack.config.js**
@@ -843,33 +843,42 @@ module.exports = {
 
 > **Warning**
 >
-> Names of locals are converted to `camelCase`.
-
-> **Warning**
->
 > It is not allowed to use JavaScript reserved words in css class names.
 
 > **Warning**
 >
-> Options `esModule` and `modules.namedExport` in `css-loader` should be enabled.
+> Options `esModule` and `modules.namedExport` in `css-loader` should be enabled (by default for `css-loader@7` it is true).
 
 **styles.css**
 
 ```css
-.foo-baz {
+.fooBaz {
   color: red;
 }
 .bar {
   color: blue;
+}
+.my-class {
+  color: green;
 }
 ```
 
 **index.js**
 
 ```js
-import { fooBaz, bar } from "./styles.css";
+import { fooBaz, bar, "my-class" as myClass } from "./styles.css";
 
-console.log(fooBaz, bar);
+console.log(fooBaz, bar, myClass);
+```
+
+Or:
+
+**index.js**
+
+```js
+import * as styles from "./styles.css";
+
+console.log(styles.fooBaz, styles.bar, styles["my-class"]);
 ```
 
 You can enable a ES module named export using:
