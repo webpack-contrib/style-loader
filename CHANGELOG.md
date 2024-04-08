@@ -2,6 +2,162 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/webpack-contrib/style-loader/compare/v3.3.3...v4.0.0) (2024-04-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* minimum supported webpack version is `5.27.0`
+* minimum support Node.js version is `18.12.0`
+* the `insert` option can only be a selector or the path to the module
+
+Migration:
+
+Before:
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          {
+            loader: "style-loader",
+            options: {
+              injectType: "styleTag",
+              styleTagTransform: function (css, style) {
+                // Do something ...
+                style.innerHTML = `${css}.modify{}\n`;
+
+                document.head.appendChild(style);
+              },
+            },
+          },
+          "css-loader",
+        ],
+      },
+    ],
+  },
+};
+```
+
+After:
+
+**insert-function.js**
+
+```js
+function insert(css, style) {
+  var parent = options.target || document.head;
+
+  parent.appendChild(element);
+}
+
+module.exports = insert;
+```
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          {
+            loader: "style-loader",
+            options: {
+              insert: require.resolve("./insert.js"),
+            },
+          },
+          "css-loader",
+        ],
+      },
+    ],
+  },
+};
+```
+
+* the `styleTagTransform` option can only be the path to the module
+
+Migration:
+
+Before:
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          {
+            loader: "style-loader",
+            options: {
+              injectType: "styleTag",
+              styleTagTransform: function (css, style) {
+                // Do something ...
+                style.innerHTML = `${css}.modify{}\n`;
+
+                document.head.appendChild(style);
+              },
+            },
+          },
+          "css-loader",
+        ],
+      },
+    ],
+  },
+};
+```
+
+After:
+
+**style-tag-transform-function.js**
+
+```js
+function styleTagTransform(css, style) {
+  // Do something ...
+  style.innerHTML = `${css}.modify{}\n`;
+
+  document.head.appendChild(style);
+}
+
+module.exports = styleTagTransform;
+```
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          {
+            loader: "style-loader",
+            options: {
+              styleTagTransform: require.resolve("./style-tag-transform-function.js"),
+            },
+          },
+          "css-loader",
+        ],
+      },
+    ],
+  },
+};
+```
+
+### Bug Fixes
+
+* css experiments logic ([#617](https://github.com/webpack-contrib/style-loader/issues/617)) ([8b9fc97](https://github.com/webpack-contrib/style-loader/commit/8b9fc976628341d3e33b77b5eb4b6ebad009fd19))
+
 ### [3.3.3](https://github.com/webpack-contrib/style-loader/compare/v3.3.2...v3.3.3) (2023-05-19)
 
 
