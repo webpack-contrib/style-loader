@@ -169,7 +169,7 @@ The loader inject styles like:
 
 Automatically injects styles into the DOM using one `<style></style>`.
 
-> **Warning**
+> [!WARNING]
 >
 > Source maps do not work.
 
@@ -507,11 +507,11 @@ module.exports = {
 
 Allows to setup absolute path to custom function that allows to override default behavior and insert styles at any position.
 
-> **Warning**
+> [!WARNING]
 >
 > Do not forget that this code will be used in the browser and not all browsers support latest ECMA features like `let`, `const`, `arrow function expression` and etc. We recommend using [`babel-loader`](https://webpack.js.org/loaders/babel-loader/) for support latest ECMA features.
 
-> **Warning**
+> [!WARNING]
 >
 > Do not forget that some DOM methods may not be available in older browsers, we recommended use only [DOM core level 2 properties](https://caniuse.com/#search=DOM%20Core), but it is depends what browsers you want to support
 
@@ -695,11 +695,11 @@ Default: `undefined`
 
 Allows to setup absolute path to custom function that allows to override default behavior styleTagTransform.
 
-> **Warning**
+> [!WARNING]
 >
 > Do not forget that this code will be used in the browser and not all browsers support latest ECMA features like `let`, `const`, `arrow function expression` and etc, we recommend use only ECMA 5 features, but it is depends what browsers you want to support
 
-> **Warning**
+> [!WARNING]
 >
 > Do not forget that some DOM methods may not be available in older browsers, we recommended use only [DOM core level 2 properties](https://caniuse.com/#search=DOM%20Core), but it depends what browsers you want to support
 
@@ -827,7 +827,7 @@ For `production` builds it's recommended to extract the CSS from your bundle bei
 This can be achieved by using the [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin), because it creates separate css files.
 For `development` mode (including `webpack-dev-server`) you can use `style-loader`, because it injects CSS into the DOM using multiple `<style></style>` and works faster.
 
-> **Warning**
+> [!WARNING]
 >
 > Do not use together `style-loader` and `mini-css-extract-plugin`.
 
@@ -857,11 +857,11 @@ module.exports = {
 
 ### Named export for CSS Modules
 
-> **Warning**
+> [!WARNING]
 >
 > It is not allowed to use JavaScript reserved words in css class names.
 
-> **Warning**
+> [!WARNING]
 >
 > Options `esModule` and `modules.namedExport` in `css-loader` should be enabled (by default for `css-loader@7` it is true).
 
@@ -958,7 +958,7 @@ There are two ways to work with `nonce`:
 - using the `attributes` option
 - using the `__webpack_nonce__` variable
 
-> **Warning**
+> [!WARNING]
 >
 > the `attributes` option takes precedence over the `__webpack_nonce__` variable
 
