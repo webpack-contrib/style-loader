@@ -39,7 +39,7 @@ pnpm add -D style-loader
 
 It's recommended to combine `style-loader` with the [`css-loader`](https://github.com/webpack-contrib/css-loader)
 
-Then add the loader to your `webpack` config. For example:
+Then add the loader to your `webpack` configuration. For example:
 
 **style.css**
 
@@ -100,13 +100,13 @@ type injectType =
 
 Default: `styleTag`
 
-Allows to setup how styles will be injected into the DOM.
+Allows you to setup how styles will be injected into the DOM.
 
 Possible values:
 
 #### `styleTag`
 
-Automatically injects styles into the DOM using multiple `<style></style>`. It is **default** behaviour.
+Automatically injects styles into the DOM using multiple `<style></style>`. It is the **default** behaviour.
 
 **component.js**
 
@@ -125,7 +125,7 @@ const divElement = document.createElement("div");
 divElement.className = styles["my-class"];
 ```
 
-All local variables (class names) are exported as named exports. To achieve this behaviour you also have to setup `modules` option for `css-loader`. For more information consult with `css-loader` [`documentation`](https://github.com/webpack-contrib/css-loader).
+All local variables (class names) are exported as named exports. To achieve this behaviour you also have to set up the `modules` option for `css-loader`. For more information, consult the `css-loader` [`documentation`](https://github.com/webpack-contrib/css-loader).
 
 **webpack.config.js**
 
@@ -167,7 +167,7 @@ The loader inject styles like:
 
 #### `singletonStyleTag`
 
-Automatically injects styles into the DOM using one `<style></style>`.
+Automatically injects styles into the DOM using a single `<style></style>` tag.
 
 > [!WARNING]
 >
@@ -188,7 +188,7 @@ const divElement = document.createElement("div");
 divElement.className = styles["my-class"];
 ```
 
-All local variables (class names) are exported as named exports. To achieve this behaviour you also have to setup `modules` option for `css-loader`. For more information consult with `css-loader` [`documentation`](https://github.com/webpack-contrib/css-loader).
+All local variables (class names) are exported as named exports. To achieve this behaviour, you also have to set up the `modules` option for `css-loader`. For more information, consult the `css-loader` [`documentation`](https://github.com/webpack-contrib/css-loader).
 
 **webpack.config.js**
 
@@ -234,9 +234,11 @@ Works the same as a [`styleTag`](#styleTag), but if the code is executed in IE6-
 
 #### `lazyStyleTag`
 
-Injects styles into the DOM using multiple `<style></style>` on demand.
-We recommend following `.lazy.css` naming convention for lazy styles and the `.css` for basic `style-loader` usage (similar to other file types, i.e. `.lazy.less` and `.less`).
-When you `lazyStyleTag` value the `style-loader` injects the styles lazily making them useable on-demand via `style.use()` / `style.unuse()`.
+Injects styles into the DOM using multiple `<style></style>` tags on demand.
+
+We recommend following the `.lazy.css` naming convention for lazy styles and `.css` for basic `style-loader` usage (similar to other file types, i.e. `.lazy.less` and `.less`).
+
+When you use the `lazyStyleTag` value, `style-loader` injects the styles lazily, making them useable on-demand via `style.use()` / `style.unuse()`.
 
 > ⚠️ Behavior is undefined when `unuse` is called more often than `use`. Don't do that.
 
@@ -261,7 +263,7 @@ const divElement = document.createElement("div");
 divElement.className = myClass;
 ```
 
-All local variables (class names) are exported as named exports. To achieve this behaviour you also have to setup `modules` option for `css-loader`. For more information consult with `css-loader` [`documentation`](https://github.com/webpack-contrib/css-loader).
+All local variables (class names) are exported as named exports. To achieve this behaviour, you also have to set up the `modules` option for `css-loader`. For more information, consult the `css-loader` [`documentation`](https://github.com/webpack-contrib/css-loader).
 
 **webpack.config.js**
 
@@ -307,9 +309,11 @@ The loader inject styles like:
 
 #### `lazySingletonStyleTag`
 
-Injects styles into the DOM using one `<style></style>` on demand.
+Injects styles into the DOM using a single `<style></style>` tag on demand.
+
 We recommend following `.lazy.css` naming convention for lazy styles and the `.css` for basic `style-loader` usage (similar to other file types, i.e. `.lazy.less` and `.less`).
-When you `lazySingletonStyleTag` value the `style-loader` injects the styles lazily making them useable on-demand via `style.use()` / `style.unuse()`.
+
+When you use the `lazySingletonStyleTag` value, `style-loader` injects the styles lazily making them useable on-demand via `style.use()` / `style.unuse()`.
 
 > ⚠️ Source maps do not work.
 
@@ -336,7 +340,7 @@ const divElement = document.createElement("div");
 divElement.className = myClass;
 ```
 
-All local variables (class names) are exported as named exports. To achieve this behaviour you also have to setup `modules` option for `css-loader`. For more information consult with `css-loader` [`documentation`](https://github.com/webpack-contrib/css-loader).
+All local variables (class names) are exported as named exports. To achieve this behaviour, you also have to set up the `modules` option for `css-loader`. For more information, consult the `css-loader` [`documentation`](https://github.com/webpack-contrib/css-loader).
 
 **webpack.config.js**
 
@@ -431,7 +435,7 @@ type attributes = HTMLAttributes;
 
 Default: `{}`
 
-If defined, the `style-loader` will attach given attributes with their values on `<style>` / `<link>` element.
+If defined, the `style-loader` will attach the given attributes with their values on `<style>` / `<link>` element.
 
 **component.js**
 
@@ -472,13 +476,16 @@ type insert = string;
 Default: `head`
 
 By default, the `style-loader` appends `<style>`/`<link>` elements to the end of the style target, which is the `<head>` tag of the page unless specified by `insert`.
+
 This will cause CSS created by the loader to take priority over CSS already present in the target.
+
 You can use other values if the standard behavior is not suitable for you, but we do not recommend doing this.
-If you target an [iframe](https://developer.mozilla.org/en-US/docs/Web/API/HTMLIFrameElement) make sure you have sufficient access rights, the styles will be injected into the content document head.
+
+If you target an [iframe](https://developer.mozilla.org/en-US/docs/Web/API/HTMLIFrameElement), make sure you have sufficient access rights; the styles will be injected into the content document head.
 
 #### `Selector`
 
-Allows to setup custom [query selector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector) where styles inject into the DOM.
+Allows you to setup custom [query selector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector) where styles are injected into the DOM.
 
 **webpack.config.js**
 
@@ -505,15 +512,15 @@ module.exports = {
 
 #### `Absolute path to function`
 
-Allows to setup absolute path to custom function that allows to override default behavior and insert styles at any position.
+Allows you to setup an absolute path to custom function that allows to override the default behavior and insert styles at any position.
 
 > [!WARNING]
 >
-> Do not forget that this code will be used in the browser and not all browsers support latest ECMA features like `let`, `const`, `arrow function expression` and etc. We recommend using [`babel-loader`](https://webpack.js.org/loaders/babel-loader/) for support latest ECMA features.
+> Do not forget that this code will be used in the browser and not all browsers support latest ECMA features like `let`, `const`, `arrow function expression`, etc. We recommend using [`babel-loader`](https://webpack.js.org/loaders/babel-loader/) to support the latest ECMA features.
 
 > [!WARNING]
 >
-> Do not forget that some DOM methods may not be available in older browsers, we recommended use only [DOM core level 2 properties](https://caniuse.com/#search=DOM%20Core), but it is depends what browsers you want to support
+> Do not forget that some DOM methods may not be available in older browsers. We recommended using only [DOM core level 2 properties](https://caniuse.com/#search=DOM%20Core), but it depends on which browsers you want to support.
 
 **webpack.config.js**
 
@@ -538,7 +545,7 @@ module.exports = {
 };
 ```
 
-A new `<style>`/`<link>` elements will be inserted into at bottom of `body` tag.
+New `<style>`/`<link>` elements will be inserted at the bottom of the `body` tag.
 
 Examples:
 
@@ -590,7 +597,7 @@ module.exports = {
 };
 ```
 
-You can pass any parameters to `style.use(options)` and this value will be passed to `insert` and `styleTagTransform` functions.
+You can pass any parameters to `style.use(options)` and this value will be passed to the `insert` and `styleTagTransform` functions.
 
 **insert-function.js**
 
@@ -693,15 +700,15 @@ Default: `undefined`
 
 #### `string`
 
-Allows to setup absolute path to custom function that allows to override default behavior styleTagTransform.
+Allows you to setup an absolute path to a custom function that allows to override default `styleTagTransform` behavior.
 
 > [!WARNING]
 >
-> Do not forget that this code will be used in the browser and not all browsers support latest ECMA features like `let`, `const`, `arrow function expression` and etc, we recommend use only ECMA 5 features, but it is depends what browsers you want to support
+> Do not forget that this code will be used in the browser and not all browsers support latest ECMA features like `let`, `const`, `arrow function expression`, etc. We recommend use only ECMA 5 features, but it depends on which browsers you want to support.
 
 > [!WARNING]
 >
-> Do not forget that some DOM methods may not be available in older browsers, we recommended use only [DOM core level 2 properties](https://caniuse.com/#search=DOM%20Core), but it depends what browsers you want to support
+> Do not forget that some DOM methods may not be available in older browsers. We recommended using only [DOM core level 2 properties](https://caniuse.com/#search=DOM%20Core), but it depends on which browsers you want to support.
 
 **webpack.config.js**
 
@@ -733,7 +740,8 @@ module.exports = {
 type base = number;
 ```
 
-This setting is primarily used as a workaround for [css clashes](https://github.com/webpack-contrib/style-loader/issues/163) when using one or more [DllPlugin](https://robertknight.me.uk/posts/webpack-dll-plugins/)'s. `base` allows you to prevent either the _app_'s css (or _DllPlugin2_'s css) from overwriting _DllPlugin1_'s css by specifying a css module id base which is greater than the range used by _DllPlugin1_ e.g.:
+This setting is primarily used as a workaround for [CSS clashes](https://github.com/webpack-contrib/style-loader/issues/163) when using one or more [DllPlugin](https://robertknight.me.uk/posts/webpack-dll-plugins/)s.
+`base` allows you to prevent either the _app_'s CSS (or _DllPlugin2_'s css) from overwriting _DllPlugin1_'s CSS by specifying a CSS module ID base that is greater than the range used by _DllPlugin1_ e.g.:
 
 **webpack.dll1.config.js**
 
@@ -797,9 +805,10 @@ type esModule = boolean;
 Default: `true`
 
 By default, `style-loader` generates JS modules that use the ES modules syntax.
-There are some cases in which using ES modules is beneficial, like in the case of [module concatenation](https://webpack.js.org/plugins/module-concatenation-plugin/) and [tree shaking](https://webpack.js.org/guides/tree-shaking/).
 
-You can enable a CommonJS modules syntax using:
+There are some cases in which using ES modules is beneficial, such as in the case of [module concatenation](https://webpack.js.org/plugins/module-concatenation-plugin/) and [tree shaking](https://webpack.js.org/guides/tree-shaking/).
+
+You can enable a CommonJS module syntax using:
 
 **webpack.config.js**
 
@@ -821,15 +830,15 @@ module.exports = {
 
 ## Examples
 
-### Recommend
+### Recommended
 
-For `production` builds it's recommended to extract the CSS from your bundle being able to use parallel loading of CSS/JS resources later on.
-This can be achieved by using the [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin), because it creates separate css files.
-For `development` mode (including `webpack-dev-server`) you can use `style-loader`, because it injects CSS into the DOM using multiple `<style></style>` and works faster.
+For `production` builds, it's recommended to extract the CSS from your bundle to enable parallel loading of CSS/JS resources later on.
+This can be achieved by using the [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin), because it creates separate CSS files.
+For `development` mode (including `webpack-dev-server`), you can use `style-loader`, because it injects CSS into the DOM using multiple `<style></style>` tags and works faster.
 
 > [!WARNING]
 >
-> Do not use together `style-loader` and `mini-css-extract-plugin`.
+> Do not use `style-loader` and `mini-css-extract-plugin` together.
 
 **webpack.config.js**
 
@@ -859,7 +868,7 @@ module.exports = {
 
 > [!WARNING]
 >
-> It is not allowed to use JavaScript reserved words in css class names.
+> It is not allowed to use JavaScript reserved words in CSS class names.
 
 > [!WARNING]
 >
@@ -897,7 +906,7 @@ import * as styles from "./styles.css";
 console.log(styles.fooBaz, styles.bar, styles["my-class"]);
 ```
 
-You can enable a ES module named export using:
+You can enable an ES module named export using:
 
 **webpack.config.js**
 
@@ -928,7 +937,8 @@ module.exports = {
 
 ### Source maps
 
-The loader automatically inject source maps when previous loader emit them.
+The loader automatically injects source maps when the previous loader emits them.
+
 Therefore, to generate source maps, set the `sourceMap` option to `true` for the previous loader.
 
 **webpack.config.js**
@@ -955,8 +965,8 @@ If you are using a [Content Security Policy](https://www.w3.org/TR/CSP3/) (CSP),
 
 There are two ways to work with `nonce`:
 
-- using the `attributes` option
-- using the `__webpack_nonce__` variable
+- Using the `attributes` option
+- Using the `__webpack_nonce__` variable
 
 > [!WARNING]
 >
@@ -1155,7 +1165,7 @@ module.exports = {
 
 #### Custom Elements (Shadow DOM)
 
-You can define custom target for your styles for the `lazyStyleTag` type.
+You can define custom target for your styles when using the `lazyStyleTag` type.
 
 **insert-function.js**
 
@@ -1197,7 +1207,7 @@ module.exports = {
 };
 ```
 
-Insert styles to the provided element or to the `head` tag if target isn't provided.
+Insert styles to the provided element, or into the `head` tag if the target isn't provided.
 
 **custom-square.css**
 
@@ -1248,7 +1258,8 @@ export default CustomSquare;
 
 ## Contributing
 
-Please take a moment to read our contributing guidelines if you haven't yet done so.
+We welcome all contributions!
+If you're new here, please take a moment to review our contributing guidelines before submitting issues or pull requests.
 
 [CONTRIBUTING](./.github/CONTRIBUTING.md)
 
