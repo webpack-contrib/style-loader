@@ -1,15 +1,15 @@
----
-name: 🆘 Support, Help, and Advice
-about: 👉🏽 Need support, help, or advice? Don't open an issue - visit "GitHub Discussions" or "Stack Overflow" instead.
----
+<!--
+  👉🏽 Need support, advice, or help? Don't open an issue!
+  Head to GitHub Discussions(https://github.com/webpack/webpack/discussions) or Stack Overflow(https://stackoverflow.com/questions/tagged/webpack)
 
-Hey there! 👋
+  Hey there! 👋
 
-If you need support, help, or advice then this is not the right place to ask.
+  You arrived at this template because you felt none of the other options matched the kind of issue you'd like to report.
 
-Please visit one of the following instead:
+  Please use this opportunity to tell us about your particular type of issue so we can try to accommodate similar issues in the future.
 
-- [GitHub Discussions](https://github.com/webpack/webpack/discussions)
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/webpack)
+  PLEASE do note, if you're using this to report an issue already covered by the existing template types, your issue may be closed as invalid.
 
-Thanks for understanding!
+  Our issue templates contain fields that help us help you, and without that important
+  info, we might as well be ice-skating uphill, carrying a wooly mammoth.
+-->
