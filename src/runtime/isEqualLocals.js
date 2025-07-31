@@ -3,26 +3,24 @@ function isEqualLocals(a, b, isNamedExport) {
     return false;
   }
 
-  let p;
+  let property;
 
-  for (p in a) {
-    if (isNamedExport && p === "default") {
-      // eslint-disable-next-line no-continue
+  for (property in a) {
+    if (isNamedExport && property === "default") {
       continue;
     }
 
-    if (a[p] !== b[p]) {
+    if (a[property] !== b[property]) {
       return false;
     }
   }
 
-  for (p in b) {
-    if (isNamedExport && p === "default") {
-      // eslint-disable-next-line no-continue
+  for (property in b) {
+    if (isNamedExport && property === "default") {
       continue;
     }
 
-    if (!a[p]) {
+    if (!a[property]) {
       return false;
     }
   }

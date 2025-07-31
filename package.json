@@ -2,19 +2,22 @@
   "name": "style-loader",
   "version": "4.0.0",
   "description": "style loader module for webpack",
-  "license": "MIT",
-  "repository": "webpack-contrib/style-loader",
-  "author": "Tobias Koppers @sokra",
+  "keywords": [
+    "webpack"
+  ],
   "homepage": "https://github.com/webpack-contrib/style-loader",
   "bugs": "https://github.com/webpack-contrib/style-loader/issues",
+  "repository": "webpack-contrib/style-loader",
   "funding": {
     "type": "opencollective",
     "url": "https://opencollective.com/webpack"
   },
+  "license": "MIT",
+  "author": "Tobias Koppers @sokra",
   "main": "dist/cjs.js",
-  "engines": {
-    "node": ">= 18.12.0"
-  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "start": "npm run build -- -w",
     "clean": "del-cli dist",
@@ -40,28 +43,25 @@
     "prepare": "husky && npm run build",
     "release": "standard-version"
   },
-  "files": [
-    "dist"
-  ],
-  "peerDependencies": {
-    "webpack": "^5.27.0"
-  },
   "devDependencies": {
     "@babel/cli": "^7.24.7",
     "@babel/core": "^7.24.7",
     "@babel/preset-env": "^7.24.7",
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
-    "@webpack-contrib/eslint-config-webpack": "^3.0.0",
+    "@eslint/markdown": "^7.1.0",
     "babel-jest": "^30.0.0",
     "cross-env": "^7.0.3",
     "cspell": "^8.10.0",
     "css-loader": "^7.1.2",
     "del-cli": "^5.1.0",
     "es-check": "^7.2.1",
-    "eslint": "^8.57.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-import": "^2.29.1",
+    "eslint": "^9.32.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-config-webpack": "^4.5.1",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-jest": "^29.0.1",
+    "eslint-plugin-n": "^17.21.3",
     "file-loader": "^6.2.0",
     "husky": "^9.1.3",
     "jest": "^30.0.0",
@@ -75,11 +75,15 @@
     "sass-loader": "^14.2.1",
     "semver": "^7.6.0",
     "standard-version": "^9.5.0",
+    "typescript-eslint": "^8.38.0",
     "webpack": "^5.92.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.4"
   },
-  "keywords": [
-    "webpack"
-  ]
+  "peerDependencies": {
+    "webpack": "^5.27.0"
+  },
+  "engines": {
+    "node": ">= 18.12.0"
+  }
 }

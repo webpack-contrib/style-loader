@@ -28,7 +28,7 @@ module.exports = {
             loader: "style-loader",
             options: {
               injectType: "styleTag",
-              styleTagTransform: function (css, style) {
+              styleTagTransform (css, style) {
                 // Do something ...
                 style.innerHTML = `${css}.modify{}\n`;
 
@@ -50,7 +50,7 @@ After:
 
 ```js
 function insert(css, style) {
-  var parent = options.target || document.head;
+  const parent = options.target || document.head;
 
   parent.appendChild(element);
 }
@@ -100,7 +100,7 @@ module.exports = {
             loader: "style-loader",
             options: {
               injectType: "styleTag",
-              styleTagTransform: function (css, style) {
+              styleTagTransform (css, style) {
                 // Do something ...
                 style.innerHTML = `${css}.modify{}\n`;
 

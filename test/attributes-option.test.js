@@ -16,7 +16,7 @@ describe('"attributes" option', () => {
     "linkTag",
   ];
 
-  injectTypes.forEach((injectType) => {
+  for (const injectType of injectTypes) {
     it(`should add attributes to tag when the "injectType" option is "${injectType}"`, async () => {
       expect.assertions(3);
 
@@ -88,5 +88,5 @@ describe('"attributes" option', () => {
       expect(getWarnings(stats)).toMatchSnapshot("warnings");
       expect(getErrors(stats)).toMatchSnapshot("errors");
     });
-  });
+  }
 });

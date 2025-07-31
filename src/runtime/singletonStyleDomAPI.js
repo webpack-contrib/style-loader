@@ -1,3 +1,4 @@
+/* global document */
 /* istanbul ignore next  */
 const replaceText = (function replaceText() {
   const textStore = [];
@@ -53,7 +54,7 @@ function apply(styleElement, index, remove, obj) {
     styleElement.styleSheet.cssText = replaceText(index, css);
   } else {
     const cssNode = document.createTextNode(css);
-    const childNodes = styleElement.childNodes;
+    const { childNodes } = styleElement;
 
     if (childNodes[index]) {
       styleElement.removeChild(childNodes[index]);
@@ -74,19 +75,16 @@ const singletonData = {
 
 /* istanbul ignore next  */
 function domAPI(options) {
-  if (typeof document === "undefined")
+  if (typeof document === "undefined") {
     return {
       update: () => {},
       remove: () => {},
     };
+  }
 
-  // eslint-disable-next-line no-undef,no-use-before-define
   const styleIndex = singletonData.singletonCounter++;
-  const styleElement =
-    // eslint-disable-next-line no-undef,no-use-before-define
-    singletonData.singleton ||
-    // eslint-disable-next-line no-undef,no-use-before-define
-    (singletonData.singleton = options.insertStyleElement(options));
+  const styleElement = (singletonData.singleton ||=
+    options.insertStyleElement(options));
 
   return {
     update: (obj) => {

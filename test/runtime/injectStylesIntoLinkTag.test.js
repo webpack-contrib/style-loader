@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-/* eslint-env browser */
+/* global document */
 
 import injectStylesIntoLinkTag from "../../src/runtime/injectStylesIntoLinkTag";
 
@@ -12,8 +12,8 @@ const getInsertFn = (place) => insertBySelector.bind(null, place);
 
 function insertAtTop(element) {
   const parent = document.querySelector("head");
-  // eslint-disable-next-line no-underscore-dangle
-  const lastInsertedElement = window._lastElementInsertedByStyleLoader;
+
+  const lastInsertedElement = globalThis._lastElementInsertedByStyleLoader;
 
   if (!lastInsertedElement) {
     parent.insertBefore(element, parent.firstChild);
@@ -23,16 +23,14 @@ function insertAtTop(element) {
     parent.appendChild(element);
   }
 
-  // eslint-disable-next-line no-underscore-dangle
-  window._lastElementInsertedByStyleLoader = element;
+  globalThis._lastElementInsertedByStyleLoader = element;
 }
 
 function insertBeforeAt(element) {
   const parent = document.querySelector("head");
   const target = document.querySelector("#id");
 
-  // eslint-disable-next-line no-underscore-dangle
-  const lastInsertedElement = window._lastElementInsertedByStyleLoader;
+  const lastInsertedElement = globalThis._lastElementInsertedByStyleLoader;
 
   if (!lastInsertedElement) {
     parent.insertBefore(element, target);
@@ -42,8 +40,7 @@ function insertBeforeAt(element) {
     parent.appendChild(element);
   }
 
-  // eslint-disable-next-line no-underscore-dangle
-  window._lastElementInsertedByStyleLoader = element;
+  globalThis._lastElementInsertedByStyleLoader = element;
 }
 
 describe("addStyle", () => {
@@ -76,20 +73,17 @@ describe("addStyle", () => {
   });
 
   it('should work with "__webpack_nonce__" variable', () => {
-    // eslint-disable-next-line no-underscore-dangle
-    window.__webpack_nonce__ = "12345678";
+    globalThis.__webpack_nonce__ = "12345678";
 
     injectStylesIntoLinkTag("./style-3.css", defaultOptions);
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
 
-    // eslint-disable-next-line no-underscore-dangle, no-undefined
-    window.__webpack_nonce__ = undefined;
+    globalThis.__webpack_nonce__ = undefined;
   });
 
   it('should work with "nonce" attribute and "__webpack_nonce__" variable', () => {
-    // eslint-disable-next-line no-underscore-dangle
-    window.__webpack_nonce__ = "12345678";
+    globalThis.__webpack_nonce__ = "12345678";
 
     injectStylesIntoLinkTag("./style-4.css", {
       ...defaultOptions,
@@ -98,8 +92,7 @@ describe("addStyle", () => {
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
 
-    // eslint-disable-next-line no-underscore-dangle, no-undefined
-    window.__webpack_nonce__ = undefined;
+    globalThis.__webpack_nonce__ = undefined;
   });
 
   it('should work with "insert" option', () => {
@@ -144,8 +137,7 @@ describe("addStyle", () => {
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
 
-    // eslint-disable-next-line no-underscore-dangle
-    window._lastElementInsertedByStyleLoader = null;
+    globalThis._lastElementInsertedByStyleLoader = null;
   });
 
   it('should work with "insert" option #5', () => {
@@ -159,8 +151,7 @@ describe("addStyle", () => {
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
 
-    // eslint-disable-next-line no-underscore-dangle
-    window._lastElementInsertedByStyleLoader = null;
+    globalThis._lastElementInsertedByStyleLoader = null;
   });
 
   it('should throw error with incorrect "insert" option', () => {
@@ -223,8 +214,7 @@ describe("addStyle", () => {
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
 
-    // eslint-disable-next-line no-underscore-dangle
-    window._lastElementInsertedByStyleLoader = null;
+    globalThis._lastElementInsertedByStyleLoader = null;
   });
 
   it("should work with updates #5", () => {
@@ -242,7 +232,6 @@ describe("addStyle", () => {
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
 
-    // eslint-disable-next-line no-underscore-dangle
-    window._lastElementInsertedByStyleLoader = null;
+    globalThis._lastElementInsertedByStyleLoader = null;
   });
 });

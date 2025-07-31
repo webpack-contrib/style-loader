@@ -1,34 +1,34 @@
-/* eslint-env browser */
-/* eslint-disable no-console */
+/* global document */
+
 import "./style.css";
 import "./other-style.scss";
-import component from "./component.module.css";
-import styleLazy from "./style.lazy.css";
-import useUnse from "./use-unuse.lazy.css";
-import otherStyleLazy from "./other-style.lazy.scss";
 import componentLazy from "./component.lazy.module.css";
+import component from "./component.module.css";
 import "./style.link.css";
 import "./order.css";
 import "./nested.css";
 import "./nested/style.css";
 import "./custom-square";
 import one from "./modules/one.module.css";
-import two from "./modules/two.module.css";
-import toolbar from "./modules/toolbar.module.css";
 import page from "./modules/page.module.css";
-import toogle from "./toogle.lazy.css";
-import {
-  namedExportRed,
-  namedExportGreen,
-  namedExportBlue,
-  namedExportBackground,
-} from "./style.named-export.module.css";
+import toolbar from "./modules/toolbar.module.css";
+import two from "./modules/two.module.css";
+import otherStyleLazy from "./other-style.lazy.scss";
+import styleLazy from "./style.lazy.css";
 import api2, {
-  namedExportLazyRed,
-  namedExportLazyGreen,
-  namedExportLazyBlue,
   namedExportLazyBackground,
+  namedExportLazyBlue,
+  namedExportLazyGreen,
+  namedExportLazyRed,
 } from "./style.named-export.lazy.module.css";
+import {
+  namedExportBackground,
+  namedExportBlue,
+  namedExportGreen,
+  namedExportRed,
+} from "./style.named-export.module.css";
+import toogle from "./toogle.lazy.css";
+import useUnse from "./use-unuse.lazy.css";
 import "./top.css";
 
 console.log("___LOCALS___");

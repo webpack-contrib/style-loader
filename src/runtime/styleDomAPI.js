@@ -30,7 +30,7 @@ function apply(styleElement, options, obj) {
     css += "}";
   }
 
-  const sourceMap = obj.sourceMap;
+  const { sourceMap } = obj;
 
   if (sourceMap && typeof btoa !== "undefined") {
     css += `\n/*# sourceMappingURL=data:application/json;base64,${btoa(

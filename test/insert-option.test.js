@@ -17,7 +17,7 @@ describe('"insert" option', () => {
     "linkTag",
   ];
 
-  injectTypes.forEach((injectType) => {
+  for (const injectType of injectTypes) {
     it(`should insert styles into "head" bottom when not specified and when the "injectType" option is "${injectType}"`, async () => {
       expect.assertions(3);
 
@@ -175,5 +175,5 @@ describe('"insert" option', () => {
       expect(getWarnings(stats)).toMatchSnapshot("warnings");
       expect(getErrors(stats)).toMatchSnapshot("errors");
     });
-  });
+  }
 });

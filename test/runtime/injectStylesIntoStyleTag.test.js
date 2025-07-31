@@ -2,20 +2,19 @@
  * @jest-environment jsdom
  */
 
-/* eslint-env browser */
+/* global document, __webpack_nonce__ */
 
 import injectStylesIntoStyleTag from "../../src/runtime/injectStylesIntoStyleTag";
 
-import domAPI from "../../src/runtime/styleDomAPI";
-import singletonApi from "../../src/runtime/singletonStyleDomAPI";
-import insertStyleElement from "../../src/runtime/insertStyleElement";
 import insertBySelector from "../../src/runtime/insertBySelector";
+import insertStyleElement from "../../src/runtime/insertStyleElement";
+import singletonApi from "../../src/runtime/singletonStyleDomAPI";
+import domAPI from "../../src/runtime/styleDomAPI";
 
 const getInsertFn = (place) => insertBySelector.bind(null, place);
 
 function styleTagTransform(css, style) {
   if (style.styleSheet) {
-    // eslint-disable-next-line no-param-reassign
     style.styleSheet.cssText = css;
   } else {
     while (style.firstChild) {
@@ -29,24 +28,22 @@ function styleTagTransform(css, style) {
 function setAttributes(style, attributes = {}) {
   if (typeof attributes.nonce === "undefined") {
     const nonce =
-      // eslint-disable-next-line camelcase,no-undef
       typeof __webpack_nonce__ !== "undefined" ? __webpack_nonce__ : null;
 
     if (nonce) {
-      // eslint-disable-next-line no-param-reassign
       attributes.nonce = nonce;
     }
   }
 
-  Object.keys(attributes).forEach((key) => {
+  for (const key of Object.keys(attributes)) {
     style.setAttribute(key, attributes[key]);
-  });
+  }
 }
 
 function insertAtTop(element) {
   const parent = document.querySelector("head");
-  // eslint-disable-next-line no-underscore-dangle
-  const lastInsertedElement = window._lastElementInsertedByStyleLoader;
+
+  const lastInsertedElement = globalThis._lastElementInsertedByStyleLoader;
 
   if (!lastInsertedElement) {
     parent.insertBefore(element, parent.firstChild);
@@ -56,16 +53,14 @@ function insertAtTop(element) {
     parent.appendChild(element);
   }
 
-  // eslint-disable-next-line no-underscore-dangle
-  window._lastElementInsertedByStyleLoader = element;
+  globalThis._lastElementInsertedByStyleLoader = element;
 }
 
 function insertBeforeAt(element) {
   const parent = document.querySelector("head");
   const target = document.querySelector("#id");
 
-  // eslint-disable-next-line no-underscore-dangle
-  const lastInsertedElement = window._lastElementInsertedByStyleLoader;
+  const lastInsertedElement = globalThis._lastElementInsertedByStyleLoader;
 
   if (!lastInsertedElement) {
     parent.insertBefore(element, target);
@@ -75,8 +70,7 @@ function insertBeforeAt(element) {
     parent.appendChild(element);
   }
 
-  // eslint-disable-next-line no-underscore-dangle
-  window._lastElementInsertedByStyleLoader = element;
+  globalThis._lastElementInsertedByStyleLoader = element;
 }
 
 const defaultOptions = {
@@ -150,7 +144,7 @@ describe("addStyle", () => {
           "./style-4.css",
           ".foo { color: red }",
           "",
-          // eslint-disable-next-line no-undefined
+
           undefined,
           "display: flex",
         ],
@@ -163,7 +157,6 @@ describe("addStyle", () => {
 
   it("should work with layer", () => {
     injectStylesIntoStyleTag(
-      // eslint-disable-next-line no-undefined
       [["./style-4.css", ".foo { color: red }", "", undefined, "", "default"]],
       defaultOptions,
     );
@@ -173,7 +166,6 @@ describe("addStyle", () => {
 
   it("should work with empty layer", () => {
     injectStylesIntoStyleTag(
-      // eslint-disable-next-line no-undefined
       [["./style-4.css", ".foo { color: red }", "", undefined, "", ""]],
       defaultOptions,
     );
@@ -205,8 +197,7 @@ describe("addStyle", () => {
   });
 
   it('should work with "__webpack_nonce__" variable', () => {
-    // eslint-disable-next-line no-underscore-dangle
-    window.__webpack_nonce__ = "12345678";
+    globalThis.__webpack_nonce__ = "12345678";
 
     injectStylesIntoStyleTag(
       [["./style-6.css", ".foo { color: red }", ""]],
@@ -215,13 +206,11 @@ describe("addStyle", () => {
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
 
-    // eslint-disable-next-line no-underscore-dangle, no-undefined
-    window.__webpack_nonce__ = undefined;
+    globalThis.__webpack_nonce__ = undefined;
   });
 
   it('should work with "nonce" attribute and "__webpack_nonce__" variable', () => {
-    // eslint-disable-next-line no-underscore-dangle
-    window.__webpack_nonce__ = "12345678";
+    globalThis.__webpack_nonce__ = "12345678";
 
     injectStylesIntoStyleTag([["./style-7.css", ".foo { color: red }", ""]], {
       ...defaultOptions,
@@ -230,8 +219,7 @@ describe("addStyle", () => {
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
 
-    // eslint-disable-next-line no-underscore-dangle, no-undefined
-    window.__webpack_nonce__ = undefined;
+    globalThis.__webpack_nonce__ = undefined;
   });
 
   it('should work with "base" option', () => {
@@ -333,8 +321,7 @@ describe("addStyle", () => {
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
 
-    // eslint-disable-next-line no-underscore-dangle
-    window._lastElementInsertedByStyleLoader = null;
+    globalThis._lastElementInsertedByStyleLoader = null;
   });
 
   it('should work with "insert" option #5', () => {
@@ -484,7 +471,6 @@ describe("addStyle", () => {
   });
 
   it("should work with updates #6", () => {
-    // eslint-disable-next-line no-undef
     globalThis.singletonData = {
       singleton: null,
       singletonCounter: 0,
@@ -502,7 +488,6 @@ describe("addStyle", () => {
       },
     );
 
-    // eslint-disable-next-line no-undef,no-undefined
     globalThis.singletonData = undefined;
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
@@ -716,8 +701,7 @@ describe("addStyle", () => {
 
     expect(document.documentElement.innerHTML).toMatchSnapshot();
 
-    // eslint-disable-next-line no-underscore-dangle
-    window._lastElementInsertedByStyleLoader = null;
+    globalThis._lastElementInsertedByStyleLoader = null;
   });
 
   it("should work with updates #11", () => {
@@ -822,7 +806,7 @@ describe("addStyle", () => {
     expect(document.documentElement.innerHTML).toMatchSnapshot();
   });
 
-  it("should work with updates #12", () => {
+  it("should work with updates #12 duplicate", () => {
     const update = injectStylesIntoStyleTag(
       [
         ["./style-30.css", ".foo { color: red }", ""],

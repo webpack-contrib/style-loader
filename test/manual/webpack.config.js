@@ -164,7 +164,6 @@ module.exports = {
           {
             loader: "sass-loader",
             options: {
-              // eslint-disable-next-line global-require
               implementation: require("sass"),
               sourceMap: ENABLE_SOURCE_MAP,
             },
@@ -188,7 +187,6 @@ module.exports = {
           {
             loader: "sass-loader",
             options: {
-              // eslint-disable-next-line global-require
               implementation: require("sass"),
               sourceMap: ENABLE_SOURCE_MAP,
             },

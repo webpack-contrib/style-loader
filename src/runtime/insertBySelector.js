@@ -1,3 +1,4 @@
+/* global document */
 const memo = {};
 
 /* istanbul ignore next  */
@@ -7,14 +8,14 @@ function getTarget(target) {
 
     // Special case to return head of iframe instead of iframe itself
     if (
-      window.HTMLIFrameElement &&
-      styleTarget instanceof window.HTMLIFrameElement
+      globalThis.HTMLIFrameElement &&
+      styleTarget instanceof globalThis.HTMLIFrameElement
     ) {
       try {
         // This will throw an exception if access to iframe is blocked
         // due to cross-origin restrictions
         styleTarget = styleTarget.contentDocument.head;
-      } catch (e) {
+      } catch {
         // istanbul ignore next
         styleTarget = null;
       }

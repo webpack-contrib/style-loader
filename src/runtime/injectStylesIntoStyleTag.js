@@ -13,6 +13,32 @@ function getIndexByIdentifier(identifier) {
   return result;
 }
 
+function addElementStyle(obj, options) {
+  const api = options.domAPI(options);
+
+  api.update(obj);
+
+  const updater = (newObj) => {
+    if (newObj) {
+      if (
+        newObj.css === obj.css &&
+        newObj.media === obj.media &&
+        newObj.sourceMap === obj.sourceMap &&
+        newObj.supports === obj.supports &&
+        newObj.layer === obj.layer
+      ) {
+        return;
+      }
+
+      api.update((obj = newObj));
+    } else {
+      api.remove();
+    }
+  };
+
+  return updater;
+}
+
 function modulesToDom(list, options) {
   const idCountMap = {};
   const identifiers = [];
@@ -55,41 +81,15 @@ function modulesToDom(list, options) {
   return identifiers;
 }
 
-function addElementStyle(obj, options) {
-  const api = options.domAPI(options);
-
-  api.update(obj);
-
-  const updater = (newObj) => {
-    if (newObj) {
-      if (
-        newObj.css === obj.css &&
-        newObj.media === obj.media &&
-        newObj.sourceMap === obj.sourceMap &&
-        newObj.supports === obj.supports &&
-        newObj.layer === obj.layer
-      ) {
-        return;
-      }
-
-      api.update((obj = newObj));
-    } else {
-      api.remove();
-    }
-  };
-
-  return updater;
-}
-
 module.exports = (list, options) => {
-  options = options || {};
+  options ||= {};
 
-  list = list || [];
+  list ||= [];
 
   let lastIdentifiers = modulesToDom(list, options);
 
   return function update(newList) {
-    newList = newList || [];
+    newList ||= [];
 
     for (let i = 0; i < lastIdentifiers.length; i++) {
       const identifier = lastIdentifiers[i];

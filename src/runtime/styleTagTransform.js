@@ -1,3 +1,4 @@
+/* global document */
 /* istanbul ignore next  */
 function styleTagTransform(css, styleElement) {
   if (styleElement.styleSheet) {

@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`addStyle issue 447 #2 1`] = `"<head><title>Title</title></head><body><h1>Hello world</h1></body>"`;
 
@@ -137,9 +137,9 @@ exports[`addStyle should work with updates #12 1`] = `"<head><title>Title</title
 
 exports[`addStyle should work with updates #12 2`] = `"<head><title>Title</title><style>.order { color: orange }</style><style>.@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");</style><style>.order { color: blue }</style><style>.@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");</style><style>.order { color: orange }</style><style>.@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");</style><style>@media screen and (min-width: 2000px) {.order { color: blue }}</style><style>.@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");</style></head><body><h1>Hello world</h1></body>"`;
 
-exports[`addStyle should work with updates #12 3`] = `"<head><title>Title</title><style>.foo { color: red }</style><style>.bar { color: blue }</style></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle should work with updates #12 duplicate 1`] = `"<head><title>Title</title><style>.foo { color: red }</style><style>.bar { color: blue }</style></head><body><h1>Hello world</h1></body>"`;
 
-exports[`addStyle should work with updates #12 4`] = `"<head><title>Title</title></head><body><h1>Hello world</h1></body>"`;
+exports[`addStyle should work with updates #12 duplicate 2`] = `"<head><title>Title</title></head><body><h1>Hello world</h1></body>"`;
 
 exports[`addStyle should work with updates #13 1`] = `"<head><title>Title</title><style>.red { color: red }</style><style>.green { color: green }</style><style>.blue { color: blue }</style></head><body><h1>Hello world</h1></body>"`;
 

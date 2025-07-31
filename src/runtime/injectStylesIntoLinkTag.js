@@ -1,9 +1,10 @@
+/* global document, __webpack_nonce__ */
 module.exports = (url, options) => {
   if (typeof document === "undefined") {
     return () => {};
   }
 
-  options = options || {};
+  options ||= {};
   options.attributes =
     typeof options.attributes === "object" ? options.attributes : {};
 
@@ -21,9 +22,9 @@ module.exports = (url, options) => {
   linkElement.rel = "stylesheet";
   linkElement.href = url;
 
-  Object.keys(options.attributes).forEach((key) => {
+  for (const key of Object.keys(options.attributes)) {
     linkElement.setAttribute(key, options.attributes[key]);
-  });
+  }
 
   options.insert(linkElement);
 

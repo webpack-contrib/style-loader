@@ -1,6 +1,6 @@
 /* eslint-env browser */
 
-import vm from "vm";
+import vm from "node:vm";
 
 import {
   compile,
@@ -23,7 +23,7 @@ describe('"injectType" option', () => {
     "linkTag",
   ];
 
-  injectTypes.forEach((injectType) => {
+  for (const injectType of injectTypes) {
     it(`should work when the "injectType" option is "${injectType}"`, async () => {
       expect.assertions(3);
 
@@ -58,5 +58,5 @@ describe('"injectType" option', () => {
       expect(getWarnings(stats)).toMatchSnapshot("warnings");
       expect(getErrors(stats)).toMatchSnapshot("errors");
     });
-  });
+  }
 });

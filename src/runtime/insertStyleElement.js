@@ -1,3 +1,4 @@
+/* global document */
 /* istanbul ignore next  */
 function insertStyleElement(options) {
   const element = document.createElement("style");
