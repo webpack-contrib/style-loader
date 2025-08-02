@@ -1,4 +1,6 @@
 /* global document, window */
+/* eslint-disable unicorn/prefer-global-this */
+
 const memo = {};
 
 /* istanbul ignore next  */
@@ -8,9 +10,7 @@ function getTarget(target) {
 
     // Special case to return head of iframe instead of iframe itself
     if (
-      // eslint-disable-next-line unicorn/prefer-global-this
       window.HTMLIFrameElement &&
-      // eslint-disable-next-line unicorn/prefer-global-this
       styleTarget instanceof window.HTMLIFrameElement
     ) {
       try {
