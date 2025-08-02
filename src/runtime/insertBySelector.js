@@ -1,4 +1,4 @@
-/* global document */
+/* global document, window */
 const memo = {};
 
 /* istanbul ignore next  */
@@ -8,8 +8,10 @@ function getTarget(target) {
 
     // Special case to return head of iframe instead of iframe itself
     if (
-      globalThis.HTMLIFrameElement &&
-      styleTarget instanceof globalThis.HTMLIFrameElement
+      // eslint-disable-next-line unicorn/prefer-global-this
+      window.HTMLIFrameElement &&
+      // eslint-disable-next-line unicorn/prefer-global-this
+      styleTarget instanceof window.HTMLIFrameElement
     ) {
       try {
         // This will throw an exception if access to iframe is blocked

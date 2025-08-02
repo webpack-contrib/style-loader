@@ -1,3 +1,5 @@
+/* eslint-disable unicorn/prefer-global-this */
+/* eslint-disable no-undef */
 /* global document */
 let memo;
 
@@ -10,10 +12,10 @@ function isOldIE() {
     // to operate correctly into non-standard environments
     // @see https://github.com/webpack-contrib/style-loader/issues/177
     memo = Boolean(
-      typeof globalThis.window !== "undefined" &&
+      typeof window.window !== "undefined" &&
         typeof document !== "undefined" &&
         document.all &&
-        !globalThis.atob,
+        !window.atob,
     );
   }
 

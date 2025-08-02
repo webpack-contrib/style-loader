@@ -15,8 +15,8 @@ export default (asset, compiler, stats) => {
 
   try {
     data = usedFs.readFileSync(path.join(outputPath, targetFile)).toString();
-  } catch (error) {
-    data = error.toString();
+  } catch {
+    data = "Error reading file";
   }
 
   return data;

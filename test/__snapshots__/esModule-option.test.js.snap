@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`"esModule" option CONFIG: {"styleLoader":{"esModule":false},"cssLoader":{"esModule":false,"modules":{"namedExport":false}}}, MODULE_TYPE: "commonjs-modules", INJECT_TYPE: "autoStyleTag": DOM 1`] = `
 "<!DOCTYPE html><html><head>

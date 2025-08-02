@@ -553,11 +553,13 @@ Insert styles at top of `head` tag:
 
 **insert-function.js**
 
+<!-- eslint-disable -->
+
 ```js
 function insertAtTop(element) {
   const parent = document.querySelector("head");
 
-  const lastInsertedElement = globalThis._lastElementInsertedByStyleLoader;
+  const lastInsertedElement = window._lastElementInsertedByStyleLoader;
 
   if (!lastInsertedElement) {
     parent.insertBefore(element, parent.firstChild);
@@ -567,7 +569,7 @@ function insertAtTop(element) {
     parent.appendChild(element);
   }
 
-  globalThis._lastElementInsertedByStyleLoader = element;
+  window._lastElementInsertedByStyleLoader = element;
 }
 
 module.exports = insertAtTop;
@@ -1071,10 +1073,12 @@ Insert styles at top of `head` tag.
 
 **insert-function.js**
 
+<!-- eslint-disable -->
+
 ```js
 function insertAtTop(element) {
   const parent = document.querySelector("head");
-  const lastInsertedElement = globalThis._lastElementInsertedByStyleLoader;
+  const lastInsertedElement = window._lastElementInsertedByStyleLoader;
 
   if (!lastInsertedElement) {
     parent.insertBefore(element, parent.firstChild);
@@ -1084,7 +1088,7 @@ function insertAtTop(element) {
     parent.appendChild(element);
   }
 
-  globalThis._lastElementInsertedByStyleLoader = element;
+  window._lastElementInsertedByStyleLoader = element;
 }
 
 module.exports = insertAtTop;
@@ -1119,12 +1123,14 @@ Inserts styles before `#id` element.
 
 **insert-function.js**
 
+<!-- eslint-disable -->
+
 ```js
 function insertBeforeAt(element) {
   const parent = document.querySelector("head");
   const target = document.querySelector("#id");
 
-  const lastInsertedElement = globalThis._lastElementInsertedByStyleLoader;
+  const lastInsertedElement = window._lastElementInsertedByStyleLoader;
 
   if (!lastInsertedElement) {
     parent.insertBefore(element, target);
@@ -1134,7 +1140,7 @@ function insertBeforeAt(element) {
     parent.appendChild(element);
   }
 
-  globalThis._lastElementInsertedByStyleLoader = element;
+  window._lastElementInsertedByStyleLoader = element;
 }
 
 module.exports = insertBeforeAt;
