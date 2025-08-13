@@ -12,7 +12,7 @@ function isOldIE() {
     // to operate correctly into non-standard environments
     // @see https://github.com/webpack-contrib/style-loader/issues/177
     memo = Boolean(
-      typeof window.window !== "undefined" &&
+      typeof window !== "undefined" &&
         typeof document !== "undefined" &&
         document.all &&
         !window.atob,
