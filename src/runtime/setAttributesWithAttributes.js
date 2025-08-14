@@ -1,3 +1,4 @@
+/* global __webpack_nonce__ */
 /* istanbul ignore next  */
 function setAttributesWithoutAttributes(styleElement, attributes) {
   const nonce =
@@ -7,9 +8,9 @@ function setAttributesWithoutAttributes(styleElement, attributes) {
     attributes.nonce = nonce;
   }
 
-  Object.keys(attributes).forEach((key) => {
+  for (const key of Object.keys(attributes)) {
     styleElement.setAttribute(key, attributes[key]);
-  });
+  }
 }
 
 module.exports = setAttributesWithoutAttributes;

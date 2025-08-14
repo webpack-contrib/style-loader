@@ -553,11 +553,13 @@ Insert styles at top of `head` tag:
 
 **insert-function.js**
 
+<!-- eslint-disable -->
+
 ```js
 function insertAtTop(element) {
-  var parent = document.querySelector("head");
-  // eslint-disable-next-line no-underscore-dangle
-  var lastInsertedElement = window._lastElementInsertedByStyleLoader;
+  const parent = document.querySelector("head");
+
+  const lastInsertedElement = window._lastElementInsertedByStyleLoader;
 
   if (!lastInsertedElement) {
     parent.insertBefore(element, parent.firstChild);
@@ -567,7 +569,6 @@ function insertAtTop(element) {
     parent.appendChild(element);
   }
 
-  // eslint-disable-next-line no-underscore-dangle
   window._lastElementInsertedByStyleLoader = element;
 }
 
@@ -603,7 +604,7 @@ You can pass any parameters to `style.use(options)` and this value will be passe
 
 ```js
 function insertIntoTarget(element, options) {
-  var parent = options.target || document.head;
+  const parent = options.target || document.head;
 
   parent.appendChild(element);
 }
@@ -844,6 +845,7 @@ For `development` mode (including `webpack-dev-server`), you can use `style-load
 
 ```js
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 const devMode = process.env.NODE_ENV !== "production";
 
 module.exports = {
@@ -860,7 +862,7 @@ module.exports = {
       },
     ],
   },
-  plugins: [].concat(devMode ? [] : [new MiniCssExtractPlugin()]),
+  plugins: [devMode ? [] : [new MiniCssExtractPlugin()]].flat(),
 };
 ```
 
@@ -891,7 +893,7 @@ module.exports = {
 **index.js**
 
 ```js
-import { fooBaz, bar, "my-class" as myClass } from "./styles.css";
+import { bar, fooBaz, "my-class" as myClass } from "./styles.css";
 
 console.log(fooBaz, bar, myClass);
 ```
@@ -1071,10 +1073,12 @@ Insert styles at top of `head` tag.
 
 **insert-function.js**
 
+<!-- eslint-disable -->
+
 ```js
 function insertAtTop(element) {
-  var parent = document.querySelector("head");
-  var lastInsertedElement = window._lastElementInsertedByStyleLoader;
+  const parent = document.querySelector("head");
+  const lastInsertedElement = window._lastElementInsertedByStyleLoader;
 
   if (!lastInsertedElement) {
     parent.insertBefore(element, parent.firstChild);
@@ -1118,6 +1122,8 @@ module.exports = {
 Inserts styles before `#id` element.
 
 **insert-function.js**
+
+<!-- eslint-disable -->
 
 ```js
 function insertBeforeAt(element) {
@@ -1171,7 +1177,7 @@ You can define custom target for your styles when using the `lazyStyleTag` type.
 
 ```js
 function insertIntoTarget(element, options) {
-  var parent = options.target || document.head;
+  const parent = options.target || document.head;
 
   parent.appendChild(element);
 }

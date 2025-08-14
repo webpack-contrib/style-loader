@@ -1,8 +1,8 @@
 /* istanbul ignore next  */
 function setAttributesWithoutAttributes(styleElement, attributes) {
-  Object.keys(attributes).forEach((key) => {
+  for (const key of Object.keys(attributes)) {
     styleElement.setAttribute(key, attributes[key]);
-  });
+  }
 }
 
 module.exports = setAttributesWithoutAttributes;

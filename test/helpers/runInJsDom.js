@@ -8,9 +8,8 @@ function runInJsDom(assetName, compiler, stats, testFn) {
 
   virtualConsole.sendTo(console);
 
-  try {
-    const dom = new jsdom.JSDOM(
-      `<!doctype html>
+  const dom = new jsdom.JSDOM(
+    `<!doctype html>
 <html>
 <head>
   <title>style-loader test</title>
@@ -23,22 +22,19 @@ function runInJsDom(assetName, compiler, stats, testFn) {
 </body>
 </html>
 `,
-      {
-        resources: "usable",
-        runScripts: "dangerously",
-        virtualConsole,
-      },
-    );
+    {
+      resources: "usable",
+      runScripts: "dangerously",
+      virtualConsole,
+    },
+  );
 
-    dom.window.eval(bundle);
+  dom.window.eval(bundle);
 
-    testFn(dom, bundle);
+  testFn(dom, bundle);
 
-    // free memory associated with the window
-    dom.window.close();
-  } catch (e) {
-    throw e;
-  }
+  // free memory associated with the window
+  dom.window.close();
 }
 
 export default runInJsDom;

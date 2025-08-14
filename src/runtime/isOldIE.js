@@ -1,3 +1,6 @@
+/* eslint-disable unicorn/prefer-global-this */
+/* eslint-disable no-undef */
+/* global document */
 let memo;
 
 /* istanbul ignore next  */

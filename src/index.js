@@ -1,29 +1,27 @@
-import path from "path";
-
-import {
-  getImportInsertStyleElementCode,
-  getImportInsertBySelectorCode,
-  getImportStyleContentCode,
-  getImportStyleDomAPICode,
-  getImportStyleAPICode,
-  getImportLinkContentCode,
-  getImportLinkAPICode,
-  getStyleHmrCode,
-  getLinkHmrCode,
-  getdomAPI,
-  getImportIsOldIECode,
-  getStyleTagTransformFn,
-  getExportStyleCode,
-  getExportLazyStyleCode,
-  getSetAttributesCode,
-  getInsertOptionCode,
-  getStyleTagTransformFnCode,
-} from "./utils";
+import path from "node:path";
 
 import schema from "./options.json";
+import {
+  getExportLazyStyleCode,
+  getExportStyleCode,
+  getImportInsertBySelectorCode,
+  getImportInsertStyleElementCode,
+  getImportIsOldIECode,
+  getImportLinkAPICode,
+  getImportLinkContentCode,
+  getImportStyleAPICode,
+  getImportStyleContentCode,
+  getImportStyleDomAPICode,
+  getInsertOptionCode,
+  getLinkHmrCode,
+  getSetAttributesCode,
+  getStyleHmrCode,
+  getStyleTagTransformFn,
+  getStyleTagTransformFnCode,
+  getdomAPI,
+} from "./utils";
 
-// eslint-disable-next-line consistent-return
-const loader = function loader(content) {
+function loader(content) {
   if (
     this._compiler &&
     this._compiler.options &&
@@ -37,7 +35,7 @@ const loader = function loader(content) {
   ) {
     return content;
   }
-};
+}
 
 loader.pitch = function pitch(request) {
   if (
@@ -82,7 +80,6 @@ loader.pitch = function pitch(request) {
     case "linkTag": {
       const hmrCode = this.hot ? getLinkHmrCode(esModule, this, request) : "";
 
-      // eslint-disable-next-line consistent-return
       return `
       ${getImportLinkAPICode(esModule, this)}
       ${getImportInsertBySelectorCode(esModule, this, insertType, options)}
@@ -90,7 +87,7 @@ loader.pitch = function pitch(request) {
       ${
         esModule
           ? ""
-          : `content = content.__esModule ? content.default : content;`
+          : "content = content.__esModule ? content.default : content;"
       }
 
 var options = ${JSON.stringify(runtimeOptions)};
@@ -113,7 +110,6 @@ ${esModule ? "export default {}" : ""}`;
         ? getStyleHmrCode(esModule, this, request, true)
         : "";
 
-      // eslint-disable-next-line consistent-return
       return `
       var exported = {};
 
@@ -178,7 +174,6 @@ ${getExportLazyStyleCode(esModule, this, request)}
         ? getStyleHmrCode(esModule, this, request, false)
         : "";
 
-      // eslint-disable-next-line consistent-return
       return `
       ${getImportStyleAPICode(esModule, this)}
       ${getImportStyleDomAPICode(esModule, this, isSingleton, isAuto)}
@@ -191,7 +186,7 @@ ${getExportLazyStyleCode(esModule, this, request)}
       ${
         esModule
           ? ""
-          : `content = content.__esModule ? content.default : content;`
+          : "content = content.__esModule ? content.default : content;"
       }
 
 var options = ${JSON.stringify(runtimeOptions)};

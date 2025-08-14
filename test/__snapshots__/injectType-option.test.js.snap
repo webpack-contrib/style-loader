@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`"injectType" option should work when the "injectType" option is "autoStyleTag" with non DOM environment: errors 1`] = `[]`;
 

@@ -1,4 +1,4 @@
-import path from "path";
+import path from "node:path";
 
 import isEqualLocals from "./runtime/isEqualLocals";
 
@@ -102,7 +102,7 @@ function getImportInsertBySelectorCode(
 
 function getInsertOptionCode(insertType, options) {
   if (insertType === "module-path") {
-    return `options.insert = insertFn;`;
+    return "options.insert = insertFn;";
   }
 
   const insert = options.insert ? JSON.stringify(options.insert) : '"head"';
@@ -149,7 +149,7 @@ if (module.hot) {
                   ? `if (update && refs > 0) {
                       update(content);
                     }`
-                  : `update(content);`
+                  : "update(content);"
               }`
             : `content = require(${modulePath});
 
@@ -176,7 +176,7 @@ if (module.hot) {
                   ? `if (update && refs > 0) {
                         update(content);
                       }`
-                  : `update(content);`
+                  : "update(content);"
               }`
         }
       }
@@ -189,7 +189,7 @@ if (module.hot) {
         ? `if (update) {
             update();
           }`
-        : `update();`
+        : "update();"
     }
   });
 }
@@ -271,7 +271,7 @@ function getStyleTagTransformFnCode(
 }
 
 function getStyleTagTransformFn(options, isSingleton) {
-  return isSingleton ? "" : `options.styleTagTransform = styleTagTransformFn`;
+  return isSingleton ? "" : "options.styleTagTransform = styleTagTransformFn";
 }
 
 function getExportStyleCode(esModule, loaderContext, request) {
@@ -321,24 +321,23 @@ function getSetAttributesCode(esModule, loaderContext, options) {
     : `var setAttributes = require(${modulePath});`;
 }
 
-// eslint-disable-next-line import/prefer-default-export
 export {
-  stringifyRequest,
-  getImportInsertStyleElementCode,
+  getExportLazyStyleCode,
+  getExportStyleCode,
   getImportInsertBySelectorCode,
+  getImportInsertStyleElementCode,
+  getImportIsOldIECode,
+  getImportLinkAPICode,
+  getImportLinkContentCode,
+  getImportStyleAPICode,
   getImportStyleContentCode,
   getImportStyleDomAPICode,
-  getImportStyleAPICode,
-  getImportLinkContentCode,
-  getImportLinkAPICode,
-  getStyleHmrCode,
-  getLinkHmrCode,
-  getdomAPI,
-  getImportIsOldIECode,
-  getStyleTagTransformFn,
-  getExportStyleCode,
-  getExportLazyStyleCode,
-  getSetAttributesCode,
   getInsertOptionCode,
+  getLinkHmrCode,
+  getSetAttributesCode,
+  getStyleHmrCode,
+  getStyleTagTransformFn,
   getStyleTagTransformFnCode,
+  getdomAPI,
+  stringifyRequest,
 };

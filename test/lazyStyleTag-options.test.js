@@ -10,7 +10,7 @@ import {
 } from "./helpers/index";
 
 describe("lazyStyleTag options", () => {
-  it(`should pass "options" to "insert" function`, async () => {
+  it('should pass "options" to "insert" function', async () => {
     expect.assertions(3);
 
     const entry = getEntryByInjectType("options.js", "lazyStyleTag");
@@ -28,7 +28,7 @@ describe("lazyStyleTag options", () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it(`should pass "options" to "insert" function and unuse`, async () => {
+  it('should pass "options" to "insert" function and unuse', async () => {
     expect.assertions(3);
 
     const entry = getEntryByInjectType("options-use-unuse.js", "lazyStyleTag");
@@ -46,7 +46,7 @@ describe("lazyStyleTag options", () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it(`should pass "options" to "styleTagTransform" function`, async () => {
+  it('should pass "options" to "styleTagTransform" function', async () => {
     expect.assertions(3);
 
     const entry = getEntryByInjectType("options.js", "lazyStyleTag");

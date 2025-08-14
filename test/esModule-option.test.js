@@ -1,4 +1,4 @@
-import path from "path";
+import path from "node:path";
 
 import {
   compile,
@@ -78,9 +78,9 @@ describe('"esModule" option', () => {
     },
   ];
 
-  injectTypes.forEach((injectType) => {
-    esModuleValues.forEach((esModuleValue) => {
-      moduleTypes.forEach((moduleType) => {
+  for (const injectType of injectTypes) {
+    for (const esModuleValue of esModuleValues) {
+      for (const moduleType of moduleTypes) {
         let testName = "";
 
         testName += `CONFIG: ${JSON.stringify(esModuleValue)},`;
@@ -138,14 +138,14 @@ describe('"esModule" option', () => {
 
           runInJsDom("main.bundle.js", compiler, stats, (dom) => {
             expect(dom.serialize()).toMatchSnapshot("DOM");
-            // eslint-disable-next-line no-underscore-dangle
+
             expect(dom.window.__cssLoader).toMatchSnapshot("exports");
           });
 
           expect(getWarnings(stats)).toMatchSnapshot("warnings");
           expect(getErrors(stats)).toMatchSnapshot("errors");
         });
-      });
-    });
-  });
+      }
+    }
+  }
 });

@@ -1,3 +1,4 @@
+/* global __webpack_nonce__ */
 /* istanbul ignore next  */
 function setAttributesWithoutAttributes(styleElement) {
   const nonce =

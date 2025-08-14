@@ -1,3 +1,6 @@
+/* global document, window */
+/* eslint-disable unicorn/prefer-global-this */
+
 const memo = {};
 
 /* istanbul ignore next  */
@@ -14,7 +17,7 @@ function getTarget(target) {
         // This will throw an exception if access to iframe is blocked
         // due to cross-origin restrictions
         styleTarget = styleTarget.contentDocument.head;
-      } catch (e) {
+      } catch {
         // istanbul ignore next
         styleTarget = null;
       }

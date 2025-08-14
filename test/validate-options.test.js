@@ -1,4 +1,4 @@
-import { getCompiler, compile } from "./helpers";
+import { compile, getCompiler } from "./helpers";
 
 describe("validate options", () => {
   const tests = {
@@ -27,7 +27,6 @@ describe("validate options", () => {
       failure: ["true"],
     },
     styleTagTransform: {
-      // eslint-disable-next-line func-names
       success: [require.resolve("./fixtures/styleTagTransform")],
       failure: [true, []],
     },

@@ -10,7 +10,7 @@ import {
 } from "./helpers/index";
 
 describe('"styleTagTransform" option', () => {
-  it(`should work when the "styleTagTransform" option is not specify`, async () => {
+  it('should work when the "styleTagTransform" option is not specify', async () => {
     const entry = getEntryByInjectType("simple.js", "styleTag");
     const compiler = getCompiler(entry, {
       injectType: "styleTag",
@@ -25,7 +25,7 @@ describe('"styleTagTransform" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it(`should work when the "styleTagTransform" option is specify`, async () => {
+  it('should work when the "styleTagTransform" option is specify', async () => {
     const entry = getEntryByInjectType("simple.js", "styleTag");
     const compiler = getCompiler(entry, {
       injectType: "styleTag",
@@ -41,7 +41,7 @@ describe('"styleTagTransform" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it(`should work when the "styleTagTransform" option is specify and injectType lazyStyleTag`, async () => {
+  it('should work when the "styleTagTransform" option is specify and injectType lazyStyleTag', async () => {
     const entry = getEntryByInjectType("simple.js", "lazyStyleTag");
     const compiler = getCompiler(entry, {
       injectType: "lazyStyleTag",
@@ -56,7 +56,7 @@ describe('"styleTagTransform" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it(`should work when the "styleTagTransform" option is path to module and injectType lazyStyleTag`, async () => {
+  it('should work when the "styleTagTransform" option is path to module and injectType lazyStyleTag', async () => {
     const entry = getEntryByInjectType("simple.js", "lazyStyleTag");
     const compiler = getCompiler(entry, {
       injectType: "lazyStyleTag",
@@ -72,7 +72,7 @@ describe('"styleTagTransform" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it(`should "styleTagTransform" function path added to buildDependencies when injectType lazyStyleTag`, async () => {
+  it('should "styleTagTransform" function path added to buildDependencies when injectType lazyStyleTag', async () => {
     const styleTagTransformFn = require.resolve("./fixtures/styleTagTransform");
     const entry = getEntryByInjectType("simple.js", "lazyStyleTag");
     const compiler = getCompiler(entry, {

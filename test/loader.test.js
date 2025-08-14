@@ -1,6 +1,6 @@
 /* eslint-env browser */
 
-import path from "path";
+import path from "node:path";
 
 import webpack from "webpack";
 
@@ -55,7 +55,7 @@ describe("loader", () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  injectTypes.forEach((injectType) => {
+  for (const injectType of injectTypes) {
     it(`should work when the "injectType" option is "${injectType}"`, async () => {
       expect.assertions(3);
 
@@ -127,7 +127,7 @@ describe("loader", () => {
       const stats = await compile(compiler);
 
       runInJsDom("main.bundle.js", compiler, stats, (dom) => {
-        expect(dom.window.hotApi).not.toBeDefined();
+        expect(dom.window.hotApi).toBeUndefined();
       });
 
       const bundleSource = readAsset("main.bundle.js", compiler, stats);
@@ -203,7 +203,7 @@ describe("loader", () => {
 
     // `linkTag` doesn't generate source maps, original source should contains them
     // TODO broken on windows
-    it.skip(`should generate source maps when previous loader emit them when the "injectType" option is "${injectType}"`, async () => {
+    it(`should generate source maps when previous loader emit them when the "injectType" option is "${injectType}"`, async () => {
       expect.assertions(3);
 
       const entry = getEntryByInjectType("simple.js", injectType);
@@ -358,5 +358,5 @@ describe("loader", () => {
         expect(getErrors(stats)).toMatchSnapshot("errors");
       });
     }
-  });
+  }
 });
