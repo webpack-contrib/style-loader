@@ -37,6 +37,12 @@ or
 pnpm add -D style-loader
 ```
 
+or
+
+```console
+bun add -D style-loader
+```
+
 It's recommended to combine `style-loader` with the [`css-loader`](https://github.com/webpack-contrib/css-loader)
 
 Then add the loader to your `webpack` configuration. For example:
